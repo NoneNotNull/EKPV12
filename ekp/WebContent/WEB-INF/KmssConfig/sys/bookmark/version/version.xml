@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 收藏夹显示所有文档及文档比较多时增加滚动条</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-05</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动新UED支持</description>
+			<author>李衡</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 添加收藏中新建分类按钮不随皮肤样式改变的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识文档模块的收藏无法在主页portlet显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-16</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 管理员工具箱导出设置页面多语言化</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 收藏夹权限控制问题修改</description>
+			<author>谭又豪</author>
+			<revision-time>2013-07-12</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 list页面“收藏URL”替换为“链接”，鼠标悬浮展示内容，新增“所属分类”和“操作”列</description>
+			<author>魏本源</author>
+			<revision-time>2013-05-02</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-23</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 在收藏时实现“新建个人收藏夹分类”和“刷新分类”功能</description>
+			<author>魏本源</author>
+			<revision-time>2012-10-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置，新增窗口时，带出所选择模块或类别的路径而不是默认带出该模块的路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修改缺陷：点击搜索结果页面上“导出"按钮，点击提示找不到页面</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-16</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改我的收藏portlet设置行数无效</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-08-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

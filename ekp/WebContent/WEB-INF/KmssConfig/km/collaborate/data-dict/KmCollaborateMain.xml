@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+		messageKey="km-collaborate:table.kmCollaborateMain"
+		displayProperty="docSubject"
+		serviceBean="kmCollaborateMainService"
+		table="km_collaborate_main"
+		url="/km/collaborate/km_collaborate_main/kmCollaborateMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-collaborate:kmCollaborateMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true"
+			canSearch="true"  />
+
+		<simpleProperty
+			name="fdContent"
+			messageKey="km-collaborate:kmCollaborateMain.fdContent"
+			type="RTF"
+			column="fd_content"
+			notNull="false"
+			length="1000000"
+			validate="false" 
+			canSearch="false" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="km-collaborate:kmCollaborateMain.fdNotifyType"
+			type="String"
+			canDisplay="true"
+			column="fd_notify_type"
+			enumType="km_collaborate_pda_notyfiy_type_enum"
+			notNull="true"
+			length="200"
+			validate="true"/>
+
+		<simpleProperty
+			name="fdIsReminders"
+			messageKey="km-collaborate:kmCollaborateMain.fdIsReminders"
+			type="Boolean"
+			column="fd_is_reminders"
+			notNull="false"
+			length="4"
+			validate="true"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="fdRemindersDay"
+			messageKey="km-collaborate:kmCollaborateMain.fdRemindersDay"
+			type="Integer"
+			column="fd_reminders_day"
+			notNull="false"
+			length="10"
+			validate="true"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="fdPartnerOperating"
+			messageKey="km-collaborate:kmCollaborateMain.fdPartnerOperating"
+			type="Boolean"
+			column="fd_partner_operating"
+			notNull="false"
+			length="10"
+			validate="true"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="fdIsPriority"
+			messageKey="km-collaborate:kmCollaborateMain.highPriority"
+			type="String"
+			column="fd_is_priority"
+			notNull="false"
+			length="10"
+			validate="false"   
+			canDisplay = "true"
+			enumType="km_collaborate_fdIsPriority"/>
+
+
+		<simpleProperty
+			name="fdHasAttachment"
+			messageKey="km-collaborate:kmCollaborateMain.fdHasAttachment"
+			type="Boolean"
+			column="fd_has_attachment"
+			notNull="false"
+			length="10"
+			validate="false"
+			canDisplay="false"  />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="km-collaborate:kmCollaborateMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			validate="false" 
+			enumType="km_collaborate_main_status"/>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-collaborate:kmCollaborateMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" 
+			canSearch="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-collaborate:kmCollaborateMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdCategory"
+			messageKey="km-collaborate:kmCollaborateMain.fdCategory"
+			type="com.landray.kmss.km.collaborate.model.KmCollaborateCategory"
+			column="fd_category_id"
+			notNull="true"
+			validate="true"
+			canSearch="true"
+			dialogJS="Dialog_List(!{mulSelect}, '!{idField}', '!{nameField}', ';', 'kmCollaborateCategoryService')" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-collaborate:kmCollaborateMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" 
+			canSearch="true" 
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-collaborate:kmCollaborateMain.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdIsOnlyView"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdIsOnlyView"
+			type="Boolean"
+			column="fd_is_onlyview"
+			notNull="false"
+			unique="false"
+			length="1" />
+
+		<listProperty
+		
+			name="participant"
+			messageKey="km-collaborate:kmCollaborateMain.participant"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_collaborate_partner_reader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id"
+			canDisplay="true" />
+			
+	   <listProperty
+			name="partnerInfos"
+			messageKey="km-collaborate:kmCollaborateMain.partnerInfos"
+			type="com.landray.kmss.km.collaborate.model.KmCollaboratePartnerInfo"
+			column="fd_communication_main_id"
+			cascade="all-delete-orphan"
+			canDisplay="false"
+			notNull="true"
+			validate="true" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-collaborate:kmCollaborateMain.authAllReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_collaborate_partner_info"
+			column="fd_communication_main_id"
+			elementColumn="fd_person_id"
+			canDisplay="false" />
+			
+		<attachmentProperty
+			name="attachment"
+			messageKey="km-collaborate:kmCollaborateMain.related.attachment" />
+
+	</model>
+</models>

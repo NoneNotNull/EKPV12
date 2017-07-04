@@ -1,0 +1,11 @@
+WebContent/WEB-INF/KmssConfig/sys/oms/design.xml=ad07f270b163465736ab1f3fbe6e65db
+WebContent/WEB-INF/KmssConfig/sys/oms/plugin.xml=4e7b148fcab25ccfddc904a2e6328745
+WebContent/WEB-INF/KmssConfig/sys/oms/spring.xml=2aaae32a82b297137737bfa1d24f78fc
+WebContent/WEB-INF/KmssConfig/sys/oms/struts.xml=8e6872b762b3a8ed3a315d8d866bfcc1
+WebContent/WEB-INF/KmssConfig/sys/oms/version/description.xml=d0f15dba7e470e97bf59bc7e56889ae3
+WebContent/WEB-INF/KmssConfig/sys/oms/version/version.xml=9298dd6455b294f2b3ae8b2f3cc82b63
+WebContent/WEB-INF/lib/kmss_sys_oms.jar=892eb47f52f9aef876414dddeaf2802e
+WebContent/sys/oms/omsConfig.jsp=0562f9d2418771484f93d54041de0560
+WebContent/sys/oms/orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty_edit.jsp=7b4ebd51797e8fbe93f19195d42ad94e
+WebContent/sys/oms/orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty_view.jsp=1cc37d37a80ddad7aa029ffbad61e76b
+WebContent/sys/oms/personinfo/oms_personinfo_sns_edit.jsp=57f4a1232702811d501792cb9a06a4f3

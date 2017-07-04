@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui  ../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design  ../../../design-xml.xsd">
+
+	<!-- 导航 -->
+	<!-- <portlet
+		id="sys.zone.home.nav"
+		name="{sys-zone:home.nav}"
+		module="{sys-zone:module.name}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{"url":"/sys/zone/sys_zone_navigation/sysZoneNavigation.do?method=portlet","formatKey":"html"}
+				]]>
+			</code>
+		</source>
+	</portlet> -->
+	
+</root>

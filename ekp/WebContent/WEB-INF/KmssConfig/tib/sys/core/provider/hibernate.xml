@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/tib/sys/core/provider/model/TibSysCoreIface.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/core/provider/model/TibSysCoreNode.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/core/provider/model/TibSysCoreTag.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/core/provider/model/TibSysCoreIfaceImpl.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

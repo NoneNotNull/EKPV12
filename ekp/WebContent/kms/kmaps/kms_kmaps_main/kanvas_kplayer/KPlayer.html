@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>KPlayer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        <style>
+        	body, html {
+        		margin: 0;
+        		padding: 0;
+        	}
+        </style>
+        
+        <script type="text/javascript" src="Kanvas.js"></script>
+        <script type="text/javascript">
+        	
+            var kvs = new KPlayer({id: 'demo', width: '100%', height: '100%'});
+			
+			kvs.onReady(function(){
+				kvs.loadDataFromServer("assets/kvs.zip");
+			});
+			
+			//弹出属性面板
+			kvs.onLinkClicked(function(e){
+				alert('点击节点' + e.data);
+			});
+        </script>
+    </head>
+    <body>
+        <div id="demo"></div>
+    </body>
+</html>

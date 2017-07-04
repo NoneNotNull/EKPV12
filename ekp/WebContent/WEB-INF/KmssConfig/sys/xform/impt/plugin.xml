@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.sys.xform.impt.parser">
+		<item 
+			name="control">
+			<param 
+				name="type" 
+				required="true" 
+				kind="unid">
+				<description>控件唯一标识</description>
+			</param>
+			<param 
+				name="controlName" 
+				kind="string">
+				<description>控件匹配名</description>
+			</param>
+			<param 
+				name="name" 
+				required="true" 
+				kind="string">
+				<description>控件名称</description>
+			</param>
+			<param 
+				name="parser" 
+				required="true" 
+				kind="spring"
+				basedOn="com.landray.kmss.sys.xform.impt.ISysFormImportParser">
+				<description>控件解析器</description>
+			</param>
+			<param 
+				name="help" 
+				required="true" 
+				kind="filepath">
+				<description>控件使用说明</description>
+			</param>
+			<param 
+				name="drawJs" 
+				kind="filepath">
+				<description>控件解析并绘制JS</description>
+			</param>
+			<description>解析控件</description>
+		</item>
+		<description><![CDATA[
+				excel控件导入解析器定义
+		]]></description>
+	</extension-point>
+	
+	<!-- 页签解析器 -->
+	<!-- 
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="tab"/>
+			<param 
+				name="name" 
+				value="多标签"/>
+			<param 
+				name="parser" 
+				value="sysFormImportTabParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/tab_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_tab.js"/>
+		</item>
+	</extension>
+	 -->
+	
+	<!-- 文本解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="label"/>
+			<param 
+				name="name" 
+				value="文本"/>
+			<param 
+				name="parser" 
+				value="sysFormImportLabelParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/label_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_label.js"/>
+		</item>
+	</extension>
+	
+	<!-- 单行输入框解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="input"/>
+			<param 
+				name="controlName"
+				value="#单行输入框#"/>
+			<param 
+				name="name" 
+				value="单行输入框"/>
+			<param 
+				name="parser" 
+				value="sysFormImportInputParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/input_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_input.js"/>
+		</item>
+	</extension>
+	
+	<!-- 多行输入框解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="textarea"/>
+			<param 
+				name="controlName"
+				value="#多行输入框#"/>
+			<param 
+				name="name" 
+				value="多行输入框"/>
+			<param 
+				name="parser" 
+				value="sysFormImportTextAreaParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/textarea_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_textarea.js"/>
+		</item>
+	</extension>
+	
+	<!-- 单选按钮解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="radio"/>
+			<param 
+				name="controlName"
+				value="#单选按钮#"/>
+			<param 
+				name="name" 
+				value="单选按钮"/>
+			<param 
+				name="parser" 
+				value="sysFormImportRadioParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/radio_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_radio.js"/>
+		</item>
+	</extension>
+	
+	<!-- 多选按钮解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="checkbox"/>
+			<param 
+				name="controlName"
+				value="#多选按钮#"/>
+			<param 
+				name="name" 
+				value="多选按钮"/>
+			<param 
+				name="parser" 
+				value="sysFormImportCheckboxParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/checkbox_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_checkbox.js"/>
+		</item>
+	</extension>
+	
+	<!-- 下拉框解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="select"/>
+			<param 
+				name="controlName"
+				value="#下拉菜单#"/>
+			<param 
+				name="name" 
+				value="下拉菜单"/>
+			<param 
+				name="parser" 
+				value="sysFormImportSelectParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/select_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_select.js"/>
+		</item>
+	</extension>
+	
+	<!-- 富文本框解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="rtf"/>
+			<param 
+				name="controlName"
+				value="#富文本框#"/>
+			<param 
+				name="name" 
+				value="富文本框"/>
+			<param 
+				name="parser" 
+				value="sysFormImportRtfParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/rtf_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_rtf.js"/>
+		</item>
+	</extension>
+	
+	<!-- 附件上传解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="attachment"/>
+			<param 
+				name="controlName"
+				value="#附件上传#"/>
+			<param 
+				name="name" 
+				value="附件上传"/>
+			<param 
+				name="parser" 
+				value="sysFormImportAttachmentParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/attachment_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_attachment.js"/>
+		</item>
+	</extension>
+	
+	<!-- 地址本解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="address"/>
+			<param 
+				name="controlName"
+				value="#地址本#"/>
+			<param 
+				name="name" 
+				value="地址本"/>
+			<param 
+				name="parser" 
+				value="sysFormImportAddressParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/address_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_address.js"/>
+		</item>
+	</extension>
+	
+	<!-- 日期解析器 -->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="datetime"/>
+			<param 
+				name="controlName"
+				value="#日期选择框#"/>
+			<param 
+				name="name" 
+				value="日期选择框"/>
+			<param 
+				name="parser" 
+				value="sysFormImportDatetimeParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/datetime_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_datetime.js"/>
+		</item>
+	</extension>
+	
+	<!-- 明细表解析器-->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="detailTable"/>
+			<param 
+				name="controlName"
+				value="#明细表#"/>
+			<param 
+				name="name" 
+				value="明细表"/>
+			<param 
+				name="parser" 
+				value="sysFormImportDatailTableParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/detailTable_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_detailTable.js"/>
+		</item>
+	</extension>
+	
+	<!-- 审批意见解析器-->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="auditShow"/>
+			<param 
+				name="controlName"
+				value="#审批意见#"/>
+			<param 
+				name="name" 
+				value="审批意见"/>
+			<param 
+				name="parser" 
+				value="sysFormImportAuditShowParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/auditShow_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_auditShow.js"/>
+		</item>
+	</extension>
+	
+	<!-- 表格解析器-->
+	<extension point="com.landray.kmss.sys.xform.impt.parser">
+		<item name="control">
+			<param 
+				name="type" 
+				value="table"/>
+			<param 
+				name="name" 
+				value="表格解析器"/>
+			<param 
+				name="parser" 
+				value="sysFormImportTableParser"/>
+			<param 
+				name="help" 
+				value="/sys/xform/impt/help/table_help.jsp"/>
+			<param 
+				name="drawJs" 
+				value="/sys/xform/impt/js/_xform_impt_table.js"/>
+		</item>
+	</extension>
+	
+</plugin>

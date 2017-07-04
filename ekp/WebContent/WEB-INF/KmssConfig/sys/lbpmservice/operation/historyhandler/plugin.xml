@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<!-- 已处理人撤回功能 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation"
+			id="145ee6c5ddc25aa35f94fc0499ab2d83">
+			<param
+				name="type"
+				value="history_handler_back" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-historyhandler:lbpmOperations.fdOperType.historyhandler.back" />
+			<param
+				name="behaviour"
+				value="lbpmHistoryHandlerBackBehaviour" />
+			<param
+				name="binder"
+				value="lbpmHistoryHandlerBackBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/historyhandler/operation_history_handler_back.jsp" />
+			<param
+				name="handlerType"
+				value="historyhandler" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmHistoryHandlerBackEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-historyhandler:lbpm.eventType.lbpmHistoryHandlerBackEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ReviewNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.historyhandler.LbpmHistoryHandlerBackEvent" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 节点间撤回操作，设置撤回节点处理人 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmNodeBackHandlerSetterListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="manualNodeHanlderGetterEvent" />
+			<param
+				name="listener"
+				value="lbpmNodeBackHandlerSetterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmBackInfoNodeListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent;endedNodeEvent" />
+			<param
+				name="listener"
+				value="lbpmBackInfoNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmBackInfoWorkitemListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent;endedWorkitemEvent" />
+			<param
+				name="listener"
+				value="lbpmBackInfoWorkitemListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmBackAuditNoteWorkitemListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent" />
+			<param
+				name="listener"
+				value="lbpmBackAuditNoteWorkitemListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation"
+			id="1468e1f9d375f3ed8953fdb4deab4083">
+			<param
+				name="type"
+				value="history_handler_addOpinion" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-historyhandler:lbpmOperations.fdOperType.historyhandler.addOpinion" />
+			<param
+				name="behaviour"
+				value="lbpmHistoryHandlerAddOpinionBehaviour" />
+			<param
+				name="binder"
+				value="lbpmHistoryHandlerAddOpinionBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/historyhandler/operation_history_handler_addOpinion.jsp" />
+			<param
+				name="handlerType"
+				value="historyhandler" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmSendNodeInfoListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="endedNodeEvent"/>
+			<param
+				name="listener"
+				value="lbpmSendNodeInfoListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+	
+</plugin>

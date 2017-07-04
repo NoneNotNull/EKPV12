@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	<portlet
+		id="sys.notify.done"
+		name="{sys-notify:sysNotifyTodo.type.done}"
+		module="{sys-notify:table.sysNotifyTodo}"
+		description="{sys-notify:sysNotifyTodo.type.done.desc}">
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.dataType}" key="dataType" kind="enumValue" default="tododone" required="true">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.dataType.todoDone}","value":"tododone"},
+					{"text":"{sys-notify:sysNotifyTodo.dataType.toviewDone}","value":"toviewdone"}],
+					"showType":"checkbox"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source
+			format="sys.ui.iframe"
+			type="Static">
+			<code>
+			<![CDATA[
+				{
+					"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&home=1&isShowBtLable=0&finish=1&rowsize=!{rowSize}&LUIID=!{lui.element.id}&sortType=!{sortType}&dataType=!{dataType}"
+				}
+			]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="javascript:(function(){ 
+				var dataType = '!{dataType}';
+				var url = '${LUI_ContextPath }/sys/notify?dataType=done';
+				if(dataType=='tododone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:13';
+				}else if(dataType=='toviewdone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:2';
+				}
+				window.open(url);
+			})();" target="_self" />
+		</operations>
+	</portlet>
+	
+	<portlet
+		id="sys.notify.todo"
+		name="{sys-notify:sysNotifyTodo.type.toDo}"
+		module="{sys-notify:table.sysNotifyTodo}"
+		description="{sys-notify:sysNotifyTodo.type.toDo.desc}">
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source
+			format="sys.ui.iframe"
+			type="Static">
+			<code>
+			<![CDATA[
+				{
+					"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&home=1&rowsize=!{rowSize}&isShowBtLable=0&LUIID=!{lui.element.id}&sortType=!{sortType}"
+				}
+			]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="/sys/notify?dataType=todo#cri.status1.q=fdType:13" />
+		</operations>
+	</portlet>  
+	
+	<portlet
+		id="sys.notify.toview"
+		name="{sys-notify:sysNotifyTodo.type.toView}"
+		module="{sys-notify:table.sysNotifyTodo}"
+		description="{sys-notify:sysNotifyTodo.type.toView.desc}">
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source
+			format="sys.ui.iframe"
+			type="Static">
+			<code>
+			<![CDATA[
+				{
+					"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&home=1&rowsize=!{rowSize}&isShowBtLable=0&fdType=2&LUIID=!{lui.element.id}&sortType=!{sortType}"
+				}
+			]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="/sys/notify?dataType=toview#cri.status1.q=fdType:2" />
+		</operations>
+	</portlet> 
+	<!-- 图文展现 待处理、待阅读--> 
+	<portlet id="sys.notify.graphic" 
+			 name="{sys-notify:sysNotifyTodo.type.graphic}"
+			 module="{sys-notify:table.sysNotifyTodo}"
+			 description="{sys-notify:sysNotifyTodo.type.graphic.desc}" >
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.dataType}" key="dataType" kind="enumValue" default="todo">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.dataType.todo}","value":"todo"},
+					{"text":"{sys-notify:sysNotifyTodo.dataType.toView}","value":"toview"}],
+					"showType":"checkbox"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source format="sys.ui.iframe"
+				type="Static">
+			<code>
+				<![CDATA[
+					{"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=listByGraphic&home=1&rowsize=!{rowSize}&isShowBtLable=0&LUIID=!{lui.element.id}&dataType=!{dataType}&sortType=!{sortType}"}
+				]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="javascript:(function(){ 
+				var dataType = '!{dataType}';
+				var url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}';
+				if(dataType=='todo'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}#cri.status1.q=fdType:13';
+				}else if(dataType=='toview'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}#cri.status1.q=fdType:2';
+				}
+				window.open(url);
+			})();" target="_self" />
+		</operations>
+	</portlet>
+	<!-- 图文展现 已处理 --> 
+	<portlet id="sys.notify.graphic.done" 
+			 name="{sys-notify:sysNotifyTodo.type.graphic.done}"
+			 module="{sys-notify:table.sysNotifyTodo}"
+			 description="{sys-notify:sysNotifyTodo.type.graphic.done.desc}" >
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.dataType}" key="dataType" kind="enumValue" default="tododone" required="true">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.dataType.todoDone}","value":"tododone"},
+					{"text":"{sys-notify:sysNotifyTodo.dataType.toviewDone}","value":"toviewdone"}],
+					"showType":"checkbox"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source format="sys.ui.iframe"
+				type="Static">
+			<code>
+				<![CDATA[
+					{"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=listByGraphic&home=1&finish=1&rowsize=!{rowSize}&isShowBtLable=0&LUIID=!{lui.element.id}&dataType=!{dataType}&sortType=!{sortType}"}
+				]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="javascript:(function(){ 
+				var dataType = '!{dataType}';
+				var url = '${LUI_ContextPath }/sys/notify?dataType=done';
+				if(dataType=='tododone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:13';
+				}else if(dataType=='toviewdone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:2';
+				}
+				window.open(url);
+			})();" target="_self" />
+		</operations>
+	</portlet>
+	<!-- 分类展现 待处理、待阅读-->
+	<portlet id="sys.notify.cate"
+			 name="{sys-notify:sysNotifyTodo.type.cate}"
+			 module="{sys-notify:table.sysNotifyTodo}"
+			 description="{sys-notify:sysNotifyTodo.type.cate.desc}" >
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.dataType}" key="dataType" kind="enumValue" default="todo" required="true">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.dataType.todo}","value":"todo"},
+					{"text":"{sys-notify:sysNotifyTodo.dataType.toView}","value":"toview"}],
+					"showType":"checkbox"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.displayMode}" key="displayMode" kind="enumValue" default="widthData">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.displayMode.widthData}","value":"widthData"},
+					{"text":"{sys-notify:sysNotifyTodo.displayMode.noData}","value":"noData"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source format="sys.ui.iframe"
+				type="Static">
+			<code>
+				<![CDATA[
+					{"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=listByCate&home=1&rowsize=!{rowSize}&isShowBtLable=0&dataType=!{dataType}&LUIID=!{lui.element.id}&sortType=!{sortType}&displayMode=!{displayMode}"}
+				]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="javascript:(function(){ 
+				var dataType = '!{dataType}';
+				var url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}';
+				if(dataType=='todo'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}#cri.status1.q=fdType:13';
+				}else if(dataType=='toview'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=!{dataType}#cri.status1.q=fdType:2';
+				}
+				window.open(url);
+			})();" target="_self" />
+		</operations>
+	</portlet>
+	<!-- 分类展现  已处理-->
+	<portlet id="sys.notify.cate.done"
+			 name="{sys-notify:sysNotifyTodo.type.cate.done}"
+			 module="{sys-notify:table.sysNotifyTodo}"
+			 description="{sys-notify:sysNotifyTodo.type.cate.done.desc}" >
+		<vars>
+			<var name="{sys-notify:sysNotifyTodo.dataType}" key="dataType" kind="enumValue" default="tododone" required="true">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.dataType.todoDone}","value":"tododone"},
+					{"text":"{sys-notify:sysNotifyTodo.dataType.toviewDone}","value":"toviewdone"}],
+					"showType":"checkbox"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.displayMode}" key="displayMode" kind="enumValue" default="widthData">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.displayMode.widthData}","value":"widthData"},
+					{"text":"{sys-notify:sysNotifyTodo.displayMode.noData}","value":"noData"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.sortType}" key="sortType" kind="enumValue" default="datetime">
+				{
+					"values":[{"text":"{sys-notify:sysNotifyTodo.sortType.date}","value":"datetime"},
+					{"text":"{sys-notify:sysNotifyTodo.sortType.level}","value":"level"}],
+					"showType":"radio"
+				}
+			</var>
+			<var name="{sys-notify:sysNotifyTodo.rowSize}" key="rowSize" kind="int" default="10"/>
+		</vars>
+		<source format="sys.ui.iframe"
+				type="Static">
+			<code>
+				<![CDATA[
+					{"src":"/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=listByCate&home=1&finish=1&rowsize=!{rowSize}&isShowBtLable=0&dataType=!{dataType}&LUIID=!{lui.element.id}&sortType=!{sortType}&displayMode=!{displayMode}"}
+				]]>
+			</code>
+		</source>
+		<operations>
+			<operation type="more" name="{operation.more}" href="javascript:(function(){ 
+				var dataType = '!{dataType}';
+				var url = '${LUI_ContextPath }/sys/notify?dataType=done';
+				if(dataType=='tododone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:13';
+				}else if(dataType=='toviewdone'){
+					url = '${LUI_ContextPath }/sys/notify?dataType=done#cri.status2.q=fdType:2';
+				}
+				window.open(url);
+			})();" target="_self" />
+		</operations>
+	</portlet>
+</root>

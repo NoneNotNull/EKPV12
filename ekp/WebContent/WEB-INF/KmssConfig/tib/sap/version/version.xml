@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 SAP保存表单流程映射出现非法字符错误</description>
+			<author>邱建华</author>
+			<revision-time>2015-02-10</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 SAP中间件函数表同时为传入和传出模式</description>
+			<author>邱建华</author>
+			<revision-time>2014-08-20</revision-time>
+			<relation>
+				<relation-module>tib/common</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 TIB表单控件</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 表单控件的开发</description>
+			<author>邱建华</author>
+			<revision-time>2014-04-15</revision-time>
+			<relation>
+				<relation-module>tib/common</relation-module>
+				<relation-module>tib/sys/core</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 SAP三个控件保存值失败问题，以及诸多BUG的解决</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改Sap控件需求的更改而编写的代码</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 处理SAP控件双引号等特殊字符未被转义问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 SAP第三个控件（可定制界面选择数据）</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 SAP的两个表单控件（1，弹出框形式，2，下拉列表形式）</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-12</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 SAP表单映射控件选值问题及国际化</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 SAP控件目录改变等问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 代码中的国际化问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决TIB中SQL注入安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+	</modifies>
+</version>

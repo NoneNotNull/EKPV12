@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.readlog.model.SysReadLog"
+	messageKey="sys-readlog:table.sysReadLog"
+	serviceBean="sysReadLogService"
+	table="sys_read_log"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdReadTime"
+	messageKey="sys-readlog:sysReadLog.fdReadTime"
+	type="DateTime"
+	column="fd_read_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdReaderClientIP"
+	messageKey="sys-readlog:sysReadLog.fdReaderClientIP"
+	type="String"
+	column="fd_reader_client_ip"
+	notNull="false"
+	length="30"
+/>
+<simpleProperty
+	name="fdIsNewVersion"
+	messageKey="sys-readlog:sysReadLog.fdIsNewVersion"
+	type="Boolean"
+	column="fd_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-readlog:sysReadLog.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-readlog:sysReadLog.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-readlog:sysReadLog.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<modelProperty
+	name="fdReader"
+	messageKey="sys-readlog:sysReadLog.fdReader"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_reader_id"
+	notNull="false"
+/>
+</model></models>

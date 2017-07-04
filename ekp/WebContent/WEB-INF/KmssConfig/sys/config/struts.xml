@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysConfigAdminForm"
+			type="com.landray.kmss.sys.config.form.SysConfigAdminForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/admin"
+			type="com.landray.kmss.sys.config.action.SysConfigAdminAction"
+			name="sysConfigAdminForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="config"
+				path="/sys/config/config.jsp">
+			</forward>
+			<forward
+				name="backup"
+				path="/sys/config/backup.jsp">
+			</forward>
+			<forward
+				name="editPassWord"
+				path="/sys/config/editPassWord.jsp">
+			</forward>
+			<forward
+				name="success"
+				path="/sys/config/resource/success.jsp" />
+			<forward
+				name="failure"
+				path="/sys/config/resource/error.jsp" />
+		</action>
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="ApplicationResources" />
+</struts-config>

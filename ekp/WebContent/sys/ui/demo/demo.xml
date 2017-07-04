@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lui>
+	<!-- 零件 -->
+	<widget
+		id=""
+		name=""
+		type=""
+		kind="若该零件不能独立使用，则需要定义，指向package的ID"
+		thumb=""
+		help=""/>
+	
+	<!-- 组件 -->
+	<combine
+		id=""
+		name=""
+		file=""
+		lazy="false"
+		kind="若该组件不能独立使用，则需要定义，指向package的ID"
+		thumb=""
+		help=""/>
+	
+	<!-- 包 -->
+	<assembly
+		id=""
+		name=""
+		thumb=""
+		help=""/>
+</lui>

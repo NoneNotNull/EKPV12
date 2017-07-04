@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgRoleLineDefaultRole"
+		messageKey="sys-organization:table.sysOrgRoleLineDefaultRole"
+		serviceBean="sysOrgRoleLineDefaultRoleService"
+		table="sys_org_role_line_default_role">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<modelProperty
+			name="sysOrgRoleConf"
+			messageKey="sys-organization:sysOrgRoleLineDefaultRole.sysOrgRoleConf"
+			type="com.landray.kmss.sys.organization.model.SysOrgRoleConf"
+			column="fd_role_line_conf_id"
+			notNull="false" />
+		<modelProperty
+			name="fdPerson"
+			messageKey="sys-organization:sysOrgRoleLineDefaultRole.fdPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_person_id"
+			notNull="false" />
+		<modelProperty
+			name="fdPost"
+			messageKey="sys-organization:sysOrgRoleLineDefaultRole.fdPost"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_post_id"
+			notNull="false" />
+	</model>
+</models>

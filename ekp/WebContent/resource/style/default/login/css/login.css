@@ -1,0 +1,77 @@
+.lui_login_form_table {
+	width: 100%;
+}
+.lui_login_message_td {
+	height: 45px;
+}
+.lui_login_message_div {		
+	color: #8b8b8b;
+	font-size: 12px;
+}
+.lui_login_input_td {
+	height: 45px;
+	width: 180px;
+}
+.lui_login_input_td input {
+	width: 93%;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 3.361345%;
+	color: #898a8e;
+	border: 1px solid #e5e5e5;
+	border-top-color: #c3c3c3;
+	background-color: #f2f2f2;
+	border-radius: 3px;
+	box-shadow: inset 0 2px 5px -2px rgba(0,0,0,0.45);
+}
+.lui_login_input_td input[type="radio"] {
+    margin:0 3px 0 10px;
+    vertical-align:middle;
+	width: auto;
+	height: auto;
+	padding: 0;
+	border:0;
+}
+
+.lui_login_input_td select {
+	width: 100%;
+	height: 26px;
+	line-height: 26px;
+	color: #898a8e;
+	border: 1px solid #e5e5e5;
+	border-top-color: #c3c3c3;
+	background-color: #f2f2f2;
+	border-radius: 3px;
+	box-shadow: inset 0 2px 5px -2px rgba(0,0,0,0.45);
+	display: block;
+	overflow: hidden;
+	position: relative;
+}
+.lui_login_button_td {
+	height: 50px;
+}
+.lui_login_input_vcode {
+	width: 80px !important;
+}
+.lui_login_button_div_l {
+	width: 140px;
+	padding-left: 18px;
+	margin: 0 auto;
+	text-align: center;
+	color: #3b3b3b;
+	font-size: 18px;
+	text-shadow: 1px 1px 0 #fff;
+	background: url(../images/btn_loginL.png) no-repeat 0 0;
+	display: block;
+	transition: none;
+}
+.lui_login_button_div_r {
+	padding-right: 18px;
+	background: url(../images/btn_loginR.png) no-repeat 100% 0;
+}
+.lui_login_button_div_c {
+	height: 37px;
+	line-height: 37px;
+	padding: 0 10px;
+	background: url(../images/btn_loginC.png) repeat-x 0 0;
+}

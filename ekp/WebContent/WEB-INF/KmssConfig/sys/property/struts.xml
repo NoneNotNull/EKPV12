@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysPropertyCategoryForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyCategoryForm" />
+		<form-bean
+			name="sysPropertyFilterForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyFilterForm" />
+		<form-bean
+			name="sysPropertyReferenceForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyReferenceForm" />
+		<form-bean
+			name="sysPropertyDefineForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyDefineForm" />
+		<form-bean
+			name="sysPropertyTemplateForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyTemplateForm" />
+		<form-bean
+			name="sysPropertyFilterSettingForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyFilterSettingForm" />
+		<form-bean
+			name="sysPropertyTreeForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyTreeForm" />
+		<form-bean
+			name="sysPropertyFilterRefForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyFilterRefForm">
+		</form-bean>
+		<form-bean
+			name="sysPropertyFilterMainForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyFilterMainForm">
+		</form-bean>
+		<form-bean
+			name="sysPropertyValForm"
+			type="com.landray.kmss.sys.property.forms.SysPropertyValForm"  >
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/property/sys_property_category/sysPropertyCategory"
+			type="com.landray.kmss.sys.property.actions.SysPropertyCategoryAction"
+			name="sysPropertyCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_category/sysPropertyCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_category/sysPropertyCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_category/sysPropertyCategory_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/property/sys_property_filter/sysPropertyFilter"
+			type="com.landray.kmss.sys.property.actions.SysPropertyFilterAction"
+			name="sysPropertyFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_filter/sysPropertyFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_filter/sysPropertyFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_filter/sysPropertyFilter_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/property/sys_property_reference/sysPropertyReference"
+			type="com.landray.kmss.sys.property.actions.SysPropertyReferenceAction"
+			name="sysPropertyReferenceForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_reference/sysPropertyReference_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_reference/sysPropertyReference_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_reference/sysPropertyReference_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/property/sys_property_define/sysPropertyDefine"
+			type="com.landray.kmss.sys.property.actions.SysPropertyDefineAction"
+			name="sysPropertyDefineForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_define/sysPropertyDefine_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_define/sysPropertyDefine_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_define/sysPropertyDefine_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/property/sys_property_tree/sysPropertyTree"
+			type="com.landray.kmss.sys.property.actions.SysPropertyTreeAction"
+			name="sysPropertyTreeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_tree/sysPropertyTree_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_tree/sysPropertyTree_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_tree/sysPropertyTree_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/property/sys_property_template/sysPropertyTemplate"
+			type="com.landray.kmss.sys.property.actions.SysPropertyTemplateAction"
+			name="sysPropertyTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_template/sysPropertyTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_template/sysPropertyTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_template/sysPropertyTemplate_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/property/sys_property_filter_setting/sysPropertyFilterSetting"
+			type="com.landray.kmss.sys.property.actions.SysPropertyFilterSettingAction"
+			name="sysPropertyFilterSettingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_filter_setting/sysPropertyFilterSetting_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_filter_setting/sysPropertyFilterSetting_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_filter_setting/sysPropertyFilterSetting_list.jsp" />
+			<forward
+				name="dialog"
+				path="/sys/property/sys_property_filter_setting/selectFilterSettingDialog.jsp" />
+		</action>
+		
+		<!--无模版筛选 -->
+		<action
+			path="/sys/property/sys_property_filter_main/sysPropertyFilterMain"
+			type="com.landray.kmss.sys.property.actions.SysPropertyFilterMainAction"
+			name="sysPropertyFilterMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_filter_main/sysPropertyFilterMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/property/sys_property_filter_main/sysPropertyFilterMain_list.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/sys/property/sys_property_filter_main/sysPropertyFilterMain_view.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/property/sys_property_val/sysPropertyVal"
+			type="com.landray.kmss.sys.property.actions.SysPropertyValAction"
+			name="sysPropertyValForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/property/sys_property_val/sysPropertyVal_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/property/sys_property_val/sysPropertyVal_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/property/sys_property_val/sysPropertyVal_list.jsp" />
+		</action>
+		
+		<!--属性筛选-->
+		<action path="/sys/property/sys_property_filter_pda/sysPropertyFilterPda"
+			type="com.landray.kmss.sys.property.actions.SysPropertyFilterPdaAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="filterDetail" path="/sys/property/pda/filterDetail.jsp" />
+		</action>
+		
+		<action
+			path="/sys/property/sys_property_criteria/sysPropertyCriteria"
+			type="com.landray.kmss.sys.property.actions.SysPropertyCriteriaAction"
+			name="sysPropertyValForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+   
+	</action-mappings>
+</struts-config>

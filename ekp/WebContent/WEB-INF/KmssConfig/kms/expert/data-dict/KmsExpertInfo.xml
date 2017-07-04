@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+		messageKey="kms-expert:home.nav.kmsExpertInfo"
+		displayProperty="fdName"
+		serviceBean="kmsExpertInfoService"
+		table="kms_expert_info"
+		url="/kms/expert/kms_expert_info/kmsExpertInfo.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-expert:table.kmsExpertInfo.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			canRelation="true"
+			length="100" />
+		<simpleProperty
+			name="fdSex"
+			messageKey="kms-expert:kmsExpert.expertInfo.person.sex"
+			type="String"
+			column="fd_sex"
+			notNull="false"
+			unique="false"
+			length="2"
+			canDisplay="false" 
+			enumType="kmsExpert_personInfo_sex" />
+		<simpleProperty
+			name="fdEmail"
+			messageKey="kms-expert:table.kmsExpertInfo.fdEmail"
+			type="String"
+			column="fd_email"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="150" />
+		<simpleProperty
+			name="fdMobileNo"
+			messageKey="kms-expert:table.kmsExpertInfo.fdMobileNo"
+			type="String"
+			column="fd_mobile_no"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="25" />
+		<simpleProperty
+			name="fdMsnNumber"
+			messageKey="kms-expert:table.kmsExpertInfo.fdMsnNumber"
+			type="String"
+			column="fd_msn_number"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="25" />
+		<simpleProperty
+			name="fdQqNumber"
+			messageKey="kms-expert:table.kmsExpertInfo.fdQqNumber"
+			type="String"
+			column="fd_qq_number"
+			notNull="false"
+			unique="false"
+			canDisplay="true" 
+			length="50" />
+		<simpleProperty
+			name="fdRtxNo"
+			messageKey="kms-expert:table.kmsExpertInfo.fdRtxNo"
+			type="String"
+			canDisplay="false" 
+			column="fd_rtx_no"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdImNumber"
+			messageKey="kms-expert:table.kmsExpertInfo.fdImNumber"
+			type="String"
+			canDisplay="false" 
+			column="fd_im_no"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdSignature"
+			messageKey="kms-expert:table.kmsExpertInfo.fdSignature"
+			type="String"
+			column="fd_signature"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="1500" />
+		<simpleProperty
+			name="fdWorkPhone"
+			messageKey="kms-expert:table.kmsExpertInfo.fdWorkPhone"
+			type="String"
+			column="fd_work_phone"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="50" />
+		<simpleProperty
+			name="fdDetails"
+			messageKey="kms-expert:table.kmsExpertInfo.fdDetails"
+			type="RTF"
+			column="fd_details"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="1000000" />
+		<simpleProperty
+			name="fdBackground"
+			messageKey="kms-expert:table.kmsExpertInfo.fdBackground"
+			type="String"
+			column="fd_background"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="1500" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-expert:table.kmsExpertInfo.fdOrder"
+			type="String"
+			column="fd_order"
+			notNull="false"
+			canDisplay="false" 
+			unique="false"
+			length="200" />
+		<!-- 扩展属性 -->
+		<simpleProperty
+			name="extendFilePath"
+			messageKey=" "
+			type="String"
+			column="extend_file_path"
+			notNull="false"
+			unique="false"
+			length="200"
+			canDisplay="false" />
+		<simpleProperty
+			name="extendDataXML"
+			messageKey=" "
+			type="RTF"
+			column="extend_data_xml"
+			notNull="false"
+			unique="false"
+			length="1000000"
+			canDisplay="false" />
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-expert:table.kmsExpertInfo.fdPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_person_id"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<modelProperty
+			name="kmsExpertType"
+			messageKey="kms-expert:table.kmsExpertInfo.fdAreaName"
+			type="com.landray.kmss.kms.expert.model.KmsExpertType"
+			column="kms_expert_type_id"
+			notNull="true"
+			unique="false"
+			canRelation="true"
+			dialogJS="Dialog_TreeList(!{mulSelect}, '!{idField}', '!{nameField}', null, 'kmsExpertTypeTreeService&amp;expertTypeId=!{value}', '!{message(kms-expert:dialog.tree.title)}', 'kmsExpertTypeListService&amp;expertTypeId=!{value}');"
+			canDisplay="true" />
+
+		<!-- 
+		<listProperty
+			name="kmsAskCategoryList"
+			messageKey="kms-expert:table.kmsExpertInfo.fdAskCategoryName"
+			column="fd_expert_id"
+			type="com.landray.kmss.kms.ask.model.KmsAskCategory"
+			table="kms_expert_info_askcategory"
+			elementColumn="fd_category_id"
+			canDisplay="true" 
+			inverse="false" />
+		-->
+		<!--
+			<listProperty name="kmsExpertTypeList"
+			messageKey="kms-expert:table.kmsExpertInfo.fdAreaName"
+			column="fd_expert_info_id"
+			type="com.landray.kmss.kms.expert.model.KmsExpertType"
+			table="kms_expert_type_info" elementColumn="fd_expert_type_id"
+			inverse="false" /> <listProperty name="kmsWikiCategoryList"
+			messageKey="kms-expert:table.kmsExpertInfo.fdWikiCategoryName"
+			column="fd_expert_id"
+			type="com.landray.kmss.kms.wiki.model.KmsWikiCategory"
+			table="kms_expert_info_wikicategory" elementColumn="fd_category_id"
+			inverse="false" />
+		-->
+	</model>
+</models>

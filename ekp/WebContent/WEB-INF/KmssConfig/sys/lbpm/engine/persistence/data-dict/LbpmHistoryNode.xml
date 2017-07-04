@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmHistoryNode"
+		messageKey="sys-lbpm-engine:table.lbpmHistoryNode"
+		displayProperty="fdFactNodeName"
+		serviceBean="lbpmHistoryNodeService"
+		table="lbpm_history_node">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdFactNodeId"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdFactNodeId"
+			type="String"
+			column="fd_fact_node_id"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdFactNodeName"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdFactNodeName"
+			type="String"
+			column="fd_fact_node_name"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="2" />
+
+		<simpleProperty
+			name="fdStartDate"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdStartDate"
+			type="DateTime"
+			column="fd_start_date"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdFinishDate"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdFinishDate"
+			type="DateTime"
+			column="fd_finish_date"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdRouteType"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdRouteType"
+			type="String"
+			column="fd_route_type"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdTargetId"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdTargetId"
+			type="String"
+			column="fd_target_id"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdTargetName"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdTargetName"
+			type="String"
+			column="fd_target_name"
+			notNull="false"
+			length="2000" />
+
+		<simpleProperty
+			name="fdNodeType"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdNodeType"
+			type="String"
+			column="fd_node_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdTargetNodeModelId"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdTargetNodeModelId"
+			type="String"
+			column="fd_target_node_model_id"
+			notNull="false"
+			length="900" />
+
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdParameter"
+			type="String"
+			column="fd_parameter"
+			notNull="false"
+			length="200" />
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="false" />
+
+		<listProperty
+			name="fdHistoryWorkitems"
+			messageKey="sys-lbpm-engine:lbpmHistoryNode.fdHistoryWorkitems"
+			column="fd_node_id"
+			orderBy="fd_finish_date"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmHistoryWorkitem"
+			cascade="delete"
+			inverse="true" />
+
+	</model>
+</models>

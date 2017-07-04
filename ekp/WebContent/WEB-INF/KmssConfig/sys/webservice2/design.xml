@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-webservice2:module.sys.webservice2"
+		urlPrefix="/sys/webservice2/"
+		defaultValidator="roleValidator(role=ROLE_SYSWEBSERVICE2_ADMIN)">
+		<roles>
+			ROLE_SYSWEBSERVICE2_ADMIN
+		</roles>
+
+		<request
+			path="sys_webservice_main/sysWebserviceMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.webservice2.model.SysWebserviceMain">
+		</request>
+
+		<request
+			path="sys_webservice_user/sysWebserviceUser*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.webservice2.model.SysWebserviceUser">
+		</request>
+
+		<request
+			path="sys_webservice_log/sysWebserviceLog*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.webservice2.model.SysWebserviceLog">
+		</request>
+
+		<request
+			path="sys_webservice_log_backup/sysWebserviceLogBackup*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.webservice2.model.SysWebserviceLogBackup">
+		</request>
+
+	</module>
+
+    <!-- 定时任务  -->
+	<quartz
+		messageKey="sys-webservice2:sysWebserviceLog.taskName"
+		jobService="sysWebserviceLogBackupService"
+		cronExpression="0 0 0 * * ?"
+		jobMethod="backup"
+		enable="true"
+		runType="SINGLENODE" />	
+		
+	<!-- 搜索 -->
+	<search
+		modelName="com.landray.kmss.sys.webservice2.model.SysWebserviceLog"
+		messageKey="sys-webservice2:table.sysWebserviceLogSearch"
+		resultProperties="fdServiceName;fdServiceBean;fdUserName;fdClientIp;fdStartTime;fdEndTime;fdExecResult;" />
+
+	<!-- 功能模块首页 -->
+	<homePage
+		urlPrefix="sys/webservice2"
+		url="/moduleindex.jsp?nav=/sys/webservice2/tree.jsp&amp;main=%2Fsys%2Fwebservice2%2Fsys_webservice_main%2FsysWebserviceMain.do%3Fmethod%3Dlist%26s_path%3D!{message(sys-webservice2:table.sysWebserviceMain)}"
+		config="/moduleindex_notopic.jsp?nav=/sys/webservice2/tree.jsp"
+		messageKey="sys-webservice2:module.sys.webservice2" 
+		type="sys"/>
+	
+</configs>

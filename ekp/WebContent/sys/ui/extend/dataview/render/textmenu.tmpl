@@ -1,0 +1,19 @@
+var cols = parseInt(render.vars.cols, 10);
+if(isNaN(cols) || cols==0){
+	cols = 1;
+}
+var width = (Math.floor(1000/cols)-1)/10.0;
+var target = render.vars.target?render.vars.target:'_blank';
+
+{$<ul class="lui_dataview_textmenu clearfloat">$}
+for(var i=0; i<data.length; i++){
+	var text = env.fn.formatText(data[i].text);
+	{$<li style="width:{% width %}%;">$}
+	if(data[i].href!=null){
+		{$<a class="textEllipsis" title="{% text %}" href="{% env.fn.formatUrl(data[i].href) %}" target="{% target %}">$}
+	}else{
+		{$<a class="textEllipsis" title="{% text %}">$}
+	}
+	{$ {% text %}</a></li>$}
+}
+{$</ul>$}

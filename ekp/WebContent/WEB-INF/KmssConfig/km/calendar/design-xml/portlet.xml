@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	<portlet id="km.calendar.portlet" 
+			name="{km-calendar:kmCalendarMain.calendar}" 
+			module="{km-calendar:module.km.calendar}" >
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{"url":"/km/calendar/portlet/calendar.jsp?LUIID=!{lui.element.id}",
+					 "formatKey":"html"
+					}
+				]]>
+			</code>
+		</source>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:openEvent('/km/calendar/km_calendar_main/kmCalendarMain.do?method=addEvent','add')" 
+				target="_self"/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/calendar" />
+		</operations>
+	</portlet>
+	
+</root>

@@ -1,0 +1,9 @@
+WebContent/WEB-INF/KmssConfig/component/bklink/spring.xml=05230eeebdd1ea1b7a9f5b4439586217
+WebContent/WEB-INF/KmssConfig/component/bklink/struts.xml=cfb7c16ff1fb204e78698f6d6a661d6e
+WebContent/WEB-INF/KmssConfig/component/bklink/validation.xml=9f2425d6da2d48e9a36db8c6135787db
+WebContent/WEB-INF/KmssConfig/component/bklink/version/description.xml=bc12c9843662e5ebe17a641166112b29
+WebContent/WEB-INF/KmssConfig/component/bklink/version/version.xml=5ea2287e7a6d0e686f3159d46063de6f
+WebContent/WEB-INF/lib/kmss_component_bklink.jar=5fa95c3a2f0bb68cd1881249003362fe
+WebContent/component/bklink/compBklink_quote_view.jsp=1b760f85fe1179cc7ef594651abff6fa
+WebContent/component/bklink/compBklink_removeToModel_edit.jsp=ec9ef6b465c6806ab08bc02235599164
+WebContent/component/bklink/compBklink_view.jsp=4750c5334694fc8ef4dfe0a2297d9885

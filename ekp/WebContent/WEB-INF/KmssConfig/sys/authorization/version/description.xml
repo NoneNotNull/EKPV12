@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>权限管理</module-name>
+		<module-path>sys/authorization</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>ee89ed53c9d8b9478dad08596647b712</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogSearchHistory"
+		messageKey="kms-log:table.kmsLogSearchHistory"
+		displayProperty="fdSearchKey"
+		serviceBean="kmsLogSearchHistoryService"
+		table="kms_log_search_history"
+		url="/kms/log/kms_log_search_history/kmsLogSearchHistory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSearchKey"
+			messageKey="kms-log:kmsLogSearchHistory.fdSearchKey"
+			type="String"
+			column="fd_search_key"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-log:kmsLogSearchHistory.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIp"
+			messageKey="kms-log:kmsLogSearchHistory.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<modelProperty
+			name="fdOperator"
+			messageKey="kms-log:kmsLogSearchHistory.fdOperator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_operator"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

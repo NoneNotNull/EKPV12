@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-authorization:module.sys.authorization"
+		urlPrefix="/sys/authorization/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYSAUTHROLE_ADMIN
+		</roles>
+		<request
+			path="sys_auth_default_area/sysAuthDefaultArea*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.authorization.model.SysAuthDefaultArea">
+		</request>
+		<request
+			path="sys_auth_sys_role/sysAuthSysRole*"
+			defaultValidator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)" />
+		<request
+			path="sys_auth_role/sysAuthRole*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.authorization.model.SysAuthRole"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+			<!--
+				编辑查看权限满足条件：1、非系统角色。2、公共角色
+				：拥有ROLE_SYSAUTHROLE_ADMIN角色；场所角色：拥有ROLE_SYSAUTHROLE_ADMIN角色、场所角色所属场所的管理员；3、可维护者(只能维护用户指派)
+			-->
+			<query
+				validator="fieldValueValidator(fieldproperty=sysRole,value=false)&amp;[roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)|fieldValueValidator(fieldproperty=areaRole,value=true)&amp;sysAuthAreaAdminValidator()|authFieldValidator(type=SYS_EDITOR)]"
+				queryString="method=edit|update|view" />
+			<!--
+				删除权限满足条件：1、非系统角色。2、公共角色
+				：拥有ROLE_SYSAUTHROLE_ADMIN角色；场所角色：拥有ROLE_SYSAUTHROLE_ADMIN角色、场所角色所属场所的管理员
+			-->
+			<query
+				validator="fieldValueValidator(fieldproperty=sysRole,value=false)&amp;[roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)|fieldValueValidator(fieldproperty=fdType,value=1)&amp;sysAuthAreaAdminValidator()]"
+				queryString="method=delete" />
+			<query
+				validator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)"
+				queryString="method=add&amp;type=0" />
+			<query
+				validator="sysAuthAreaAdminValidator()"
+				queryString="method=add&amp;type=1" />
+			<query
+				validator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)"
+				queryString="method=deleteall" />
+		</request>
+		<request
+			path="sys_auth_area/sysAuthArea*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.authorization.model.SysAuthArea"
+			defaultValidator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)">
+		</request>
+		<request
+			path="sys_auth_category/sysAuthCategory*"
+			defaultValidator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)" />
+		<request
+			path="sys_auth_research/sysAuthResearch*"
+			defaultValidator="roleValidator(role=ROLE_SYSAUTHROLE_ADMIN)|sysAuthAreaAdminValidator()" />
+		<filters
+			modelName="com.landray.kmss.sys.authorization.model.SysAuthRole">
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+			<filter
+				type="common_reader"
+				expression="roleFilter(role=ROLE_SYSAUTHROLE_ADMIN)" />
+			<filter
+				type="common_reader"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+		</filters>
+	</module>
+
+	<homePage
+		urlPrefix="sys/authorization"
+		messageKey="sys-authorization:authorization.moduleName"
+		config="/moduleindex_notopic.jsp?nav=/sys/authorization/tree.jsp"
+		type="global" />
+</configs>

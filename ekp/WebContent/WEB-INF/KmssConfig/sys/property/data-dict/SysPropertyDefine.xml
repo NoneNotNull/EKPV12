@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.property.model.SysPropertyDefine"
+		messageKey="sys-property:table.sysPropertyDefine"
+		displayProperty="fdName"
+		serviceBean="sysPropertyDefineService"
+		table="sys_property_define"
+		url="/sys/property/sys_property_define/sysPropertyDefine.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		 
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-property:sysPropertyDefine.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-property:sysPropertyDefine.fdStatus"
+			type="Boolean"
+			column="fd_status"
+			notNull="true"
+			length="1" 
+			canDisplay="false" 
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-property:sysPropertyDefine.fdType"
+			type="String"
+			column="fd_type"
+			notNull="true"
+			length="200"
+			enumType="sys_property_define_fd_type"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDisplayType"
+			messageKey="sys-property:sysPropertyDefine.fdDisplayType"
+			type="String"
+			column="fd_display_type"
+			enumType="sys_property_define_display_type"
+			notNull="true"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsMulti"
+			messageKey="sys-property:sysPropertyDefine.fdIsMulti"
+			type="Boolean"
+			column="fd_is_multi"
+			notNull="false"
+			length="1"	
+			validate="true" />
+
+		<simpleProperty
+			name="fdStructureName"
+			messageKey="sys-property:sysPropertyDefine.fdStructureName"
+			type="String"
+			column="fd_structure_name"
+			notNull="false"
+			length="30"
+			canDisplay="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDefaultValue"
+			messageKey="sys-property:sysPropertyDefine.fdDefaultValue"
+			type="String"
+			column="fd_default_value"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParams"
+			messageKey="sys-property:sysPropertyDefine.fdParams"
+			type="RTF"
+			column="fd_params"
+			notNull="false"
+			length="1000000"
+			canDisplay="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJspPrev"
+			messageKey="sys-property:sysPropertyDefine.fdJspPrev"
+			type="RTF"
+			column="fd_jsp_prev"
+			notNull="false"
+			length="1000000"
+			canDisplay="false"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-property:sysPropertyDefine.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="2000"
+			canDisplay="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRemarks"
+			messageKey="sys-property:sysPropertyDefine.fdRemarks"
+			type="String"
+			column="fd_remarks"
+			notNull="false"
+			length="2000"
+			canDisplay="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-property:sysPropertyDefine.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="true" 
+			canDisplay="false"/>
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-property:sysPropertyDefine.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			canDisplay="false"
+			validate="true" />
+		
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />	
+	</model>
+</models>

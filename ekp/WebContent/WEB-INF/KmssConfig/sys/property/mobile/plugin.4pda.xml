@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension point="com.landray.kmss.sys.property.builder.setting"
+		model="com.landray.kmss.sys.property.mobile">
+		<item name="jspBuilder">
+			<param name="bean" value="mobileJspBuilder" />
+			<param name="ext" value="true" />
+		</item>
+	</extension>
+</plugin>

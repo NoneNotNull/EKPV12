@@ -1,0 +1,14 @@
+基本调用：
+<ui:dataview format="sys.ui.classic">
+	<ui:source type="AjaxJson">
+	{"url":"Ajax请求地址"}
+	</ui:source>
+</ui:dataview>
+
+引用已经定义好的source或render
+<ui:dataview source="数据抓取ID" render="数据呈现ID" />
+
+定义数据呈现参数：
+<ui:dataview source="数据抓取ID">
+	<ui:render ref="数据呈现ID" var-highlight="true"/>
+</ui:dataview>

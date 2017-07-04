@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmTempOrg"
+		messageKey="sys-lbpm-engine:table.lbpmTempOrg"
+		serviceBean="lbpmTempOrgService"
+		table="lbpm_temp_org">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOrgType"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdOrgType"
+			type="String"
+			column="fd_org_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdTaskType"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdTaskType"
+			type="String"
+			column="fd_task_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdFactNodeId"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdFactNodeId"
+			type="String"
+			column="fd_fact_node_id"
+			notNull="false"
+			length="10" />
+
+		<modelProperty
+			name="fdOrg"
+			messageKey="sys-lbpm-engine:lbpmTempOrg.fdOrg"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_org_id"
+			notNull="false" />
+
+	</model>
+</models>

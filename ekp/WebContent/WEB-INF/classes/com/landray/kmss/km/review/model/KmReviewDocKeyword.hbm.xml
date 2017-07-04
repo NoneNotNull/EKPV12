@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.km.review.model.KmReviewDocKeyword"
+		table="km_review_doc_keyword">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+
+		<property
+			name="docKeyword"
+			column="doc_keyword"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="200" />
+			
+		<many-to-one
+			name="kmReviewMain"
+			column="fd_object_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			cascade="none"
+			class="com.landray.kmss.km.review.model.KmReviewMain" />
+
+	</class>
+</hibernate-mapping>

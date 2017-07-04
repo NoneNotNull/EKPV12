@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd">
+	
+	<extension-point
+		id="com.landray.kmss.tib.common.mapping.plugins.integration">
+		<item
+			name="tibCommonMappingIntegration">
+			<param
+				name="integrationKey"
+				required="true"
+				kind="unid">
+				<description>
+					配置权限Key,全局唯一,必填
+				</description>
+			</param>
+			<param
+				name="displayName"
+				required="false"
+				kind="string">
+				<description>
+					配置模块集成方式
+				</description>
+			</param>
+			
+			<!-- 需要在com.landray.kmss.tib.common.mapping.constant.Constant 加上对应type -->
+			<param
+				name="fdIntegrationType"
+				required="true"
+				kind="unid">
+				<description>
+					配置模块集成方式标记,全局唯一
+				</description>
+			</param>
+			
+			<param
+				name="fdMapperConfigJsp"
+				required="false"
+				kind="string">
+				<description>
+					配置jsp集成映射jsp页面
+				</description>
+			</param>
+			
+			<param
+				name="ekpIntegrationBean"
+				required="false"
+				basedOn="com.landray.kmss.tib.common.mapping.plugins.IBaseTibCommonMappingIntegration"
+				kind="spring">
+				<description>
+					涉及代码级别模块拆解类
+				</description>
+			</param>
+			
+			<param
+				name="formEventJS"
+				required="false"
+				kind="string">
+				<description>
+					表单事件脚本拆解
+				</description>
+				</param>	
+			
+			<param
+				name="order"
+				required="true"
+				kind="int"
+				default="99">
+				<description>
+					执行模块代码优先级,数字越大越后执行
+				</description>
+			</param>
+				
+			<param
+				name="infoClass"
+				required="false"
+				basedOn="com.landray.kmss.tib.common.mapping.plugins.control.ITibCommonMappingControlDispatcher"
+				kind="spring">
+				<description>
+					表单控件使用
+				</description>
+			</param>
+			
+			<param
+				name="formControlJS"
+				required="false"
+				kind="string">
+				<description>
+					表单控件脚本拆解
+				</description>
+			</param>
+				
+			<description>
+			  配置模块注册方式,
+			</description>
+		</item>
+		<description>ERP 模块注册集成方式扩展点</description>
+	</extension-point>
+	
+</plugin>

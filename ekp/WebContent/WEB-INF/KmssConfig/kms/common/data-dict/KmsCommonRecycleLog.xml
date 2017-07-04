@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.common.KmsCommonRecycleLog"
+		messageKey="kms-common:table.kmsCommonRecycleLog"
+		displayProperty="fdOperateName"
+		serviceBean="kmsCommonRecycleLogService"
+		table="kms_common_recycle_log"
+		url="/kms/common/kmsCommonRecycleLog.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-common:kmsCommonRecycleLog.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-common:kmsCommonRecycleLog.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOperateTime"
+			messageKey="kms-common:kmsCommonRecycleLog.fdOperateTime"
+			type="DateTime"
+			column="fd_operate_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOperateName"
+			messageKey="kms-common:kmsCommonRecycleLog.fdOperateName"
+			type="String"
+			column="fd_operate_name"
+			notNull="false"
+			length="36"
+			enumType="kms_common_recycle_log_fd_operate_name"
+			validate="false" />
+
+		<simpleProperty
+			name="fdStatusBefore"
+			messageKey="kms-common:kmsCommonRecycleLog.fdStatusBefore"
+			type="String"
+			column="fd_status_before"
+			notNull="false"
+			length="2"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdOperateDescription"
+			messageKey="kms-common:kmsCommonRecycleLog.fdOperateDescription"
+			type="String"
+			column="fd_operate_description"
+			notNull="false"
+			length="800"
+			validate="false" />
+		
+		<simpleProperty
+			name="operateDocSubject"
+			messageKey="kms-common:kmsCommonRecycleLog.operateDocSubject"
+			type="String"
+			column="operate_doc_subject"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<modelProperty
+			name="fdOperator"
+			messageKey="kms-common:kmsCommonRecycleLog.fdOperator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_operator_id"
+			notNull="false"
+			validate="false" />
+		
+	</model>
+</models>

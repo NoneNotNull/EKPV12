@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcTaskManage.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcRelation.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcTaskCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcMappCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcMappManage.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcDataSet.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/jdbc/model/TibJdbcDataSetCategory.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

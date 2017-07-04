@@ -1,0 +1,28 @@
+	<list:listview>
+		<ui:source type="AjaxJson">
+			{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+		</ui:source>
+		<list:rowTable
+			name="rowtable" onRowClick="" 
+			style="" target="_blank" layout="sys.ui.listview.rowtable"> 
+			// name属性用于视图切换，layout不填默认为sys.ui.listview.rowtable
+			<list:row-template ref="sys.ui.listview.rowtable">
+			// ref:1、为空则需要在标签体中编写html模板，如下：
+			{$
+				<div class="lui_listview_rowtable_summary_content_box">
+					<dl>
+						<dt>
+							<input type="checkbox" data-lui-mark="table.content.checkbox" value="{%row.fdId%}" name="List_Selected"/>
+							<span class="lui_listview_rowtable_summary_content_serial">{%row.index%}</span>
+						</dt>	
+					</dl>
+				</div>
+			}$				
+			// 2、不为空则可以在标签体中填写除了标准模板外的数据源提供的属性用于展示，如下：
+				{
+					showOtherProps:"docReadCount;docCategoryName"
+				}
+			</list:row-template>
+		</list:rowTable>
+	</list:listview>
+	<list:paging></list:paging>

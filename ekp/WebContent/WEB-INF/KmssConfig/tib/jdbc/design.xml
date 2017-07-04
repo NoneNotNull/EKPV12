@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-jdbc:module.tib.jdbc"
+		urlPrefix="/tib/jdbc/"
+		defaultValidator="true">
+		<roles>
+			ROLE_TIBJDBC_DEFAULT
+		</roles>
+
+		<request
+			path="tib_jdbc_task_manage/tibJdbcTaskManage*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.jdbc.model.TibJdbcTaskManage">
+		</request>
+
+		<request
+			path="tib_jdbc_relation/tibJdbcRelation*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.jdbc.model.TibJdbcRelation">
+		</request>
+
+		<request
+			path="tib_jdbc_task_category/tibJdbcTaskCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory">
+		</request>
+
+		<request
+			path="tib_jdbc_mapp_category/tibJdbcMappCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.jdbc.model.TibJdbcMappCategory">
+		</request>
+
+		<request
+			path="tib_jdbc_mapp_manage/tibJdbcMappManage*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.jdbc.model.TibJdbcMappManage">
+		</request>
+
+	</module>
+	<!--homePage
+		urlPrefix="tib/jdbc"
+		url="/moduleindex.jsp?nav=/tib/jdbc/tree.jsp&amp;main=%2Ftib%2Fjdbc%2Ftib_jdbc_mapp_manage%2FtibJdbcMappManage.do%3Fmethod%3Dlist"
+		messageKey="tib-jdbc:module.tib.jdbc" /-->
+		
+</configs>

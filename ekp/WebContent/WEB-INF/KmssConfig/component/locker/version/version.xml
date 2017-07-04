@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 锁机制权限设置错误的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-08-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 锁机制组件</description>
+			<author>傅游翔</author>
+			<revision-time>2012-05-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+	</modifies>
+</version>

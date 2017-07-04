@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogContextCategory"
+		messageKey="kms-log:table.kmsLogContextCategory"
+		displayProperty="fdName"
+		serviceBean="kmsLogContextCategoryService"
+		table="kms_log_context_category"
+		url="/kms/log/kms_log_context_category/kmsLogContextCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-log:kmsLogContextCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParent"
+			messageKey="kms-log:kmsLogContextCategory.fdParent"
+			type="String"
+			column="fd_parent"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="kms-log:kmsLogContextCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+		<simpleProperty
+			name="moduleKey"
+			messageKey="kms-log:kmsLogApp.modelName"
+			type="String"
+			column="model_key"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

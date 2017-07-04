@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="mobileJspBuilder"
+		class="com.landray.kmss.sys.property.mobile.builder.MobileJspBuilder">
+		<property name="tagBuilder">
+			<ref bean="mobileTagBuilder" />
+		</property>
+	</bean>
+	<bean id="mobileTagBuilder"
+		class="com.landray.kmss.sys.property.mobile.builder.jsp.MobileTagBuilder">
+	</bean>
+
+	<bean id="mobileFilterBuilder"
+		class="com.landray.kmss.sys.property.mobile.builder.filter.MobileFilterBuilder">
+	</bean>
+	
+	<bean id="mobileOuterFilterBuilder" class="com.landray.kmss.sys.property.mobile.builder.MobileOuterFilterBuilder">
+		<property name="sysPropertyDictLoader">
+			<ref bean="sysPropertyDictLoader"/>
+		</property>
+		<property name="mobileFilterBuilder">
+			<ref local="mobileFilterBuilder"/>
+		</property>
+	</bean>
+</beans>

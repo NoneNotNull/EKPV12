@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSettingExt"
+	messageKey="tib-sys-sap-connector:table.tibSysSapServerSettingExt"
+	serviceBean="tibSysSapServerSettingExtService"
+	table="tib_sys_sap_server_setting_ext"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdExtName"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSettingExt.fdExtName"
+	type="String"
+	column="fd_ext_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdExtValue"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSettingExt.fdExtValue"
+	type="String"
+	column="fd_ext_value"
+	notNull="false"
+	length="100"
+/>
+<modelProperty
+	name="fdServer"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSettingExt.fdServer"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting"
+	column="fd_server_id"
+	notNull="false"
+/>
+</model></models>

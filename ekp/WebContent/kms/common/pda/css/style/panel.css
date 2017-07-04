@@ -1,0 +1,48 @@
+.lui-panel-animate {
+	right: 0;
+	-webkit-transform: translate3d(-100%, 0, 0);
+	-moz-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+}
+
+.lui-panel-transition {
+	-webkit-transition: -webkit-transform 500ms ease;
+	-moz-transition: -moz-transform 500ms ease;
+	transition: transform 500ms ease;
+}
+
+.lui-panel-animate.lui-panel {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.lui-panel {
+	right: 0;
+	-webkit-transform: translate3d(100%, 0, 0);
+	-moz-transform: translate3d(100%, 0, 0);
+	transform: translate3d(100%, 0, 0);
+	background-color: #f2f2f2;
+}
+
+.lui-panel-dismiss {
+	background: rgba(51, 51, 51, .3) url(../images/arr_back.png) no-repeat
+		8% 40%;
+	position: absolute;
+	height: 888px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-size: 20px 19px;
+	z-index: 9000;
+}
+.lui-panel-dismiss-not-hide {
+	background: rgba(51, 51, 51, .3);
+	position: absolute;
+	height: 888px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-size: 20px 19px;
+	z-index: 9000;
+}

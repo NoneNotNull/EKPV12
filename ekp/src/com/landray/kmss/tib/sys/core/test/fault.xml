@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web ID="13d9fed43694d699de22516433ba2217">
+	<Input>
+		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns:web="http://webservice.test.tib.kmss.landray.com/"> <!--{"title":""}-->
+			<soapenv:Header />
+			<soapenv:Body>
+				<web:sayHello>
+					<!--
+						Zero or more
+						repetitions:|erp_web={"minOccurs":"0","maxOccurs":"2147483647","title":""}
+					-->
+					<arg0>name字段</arg0>
+					<!--
+						Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","ctype":"string","title":""}
+					-->
+					<arg1>2</arg1>
+				</web:sayHello>
+			</soapenv:Body>
+		</soapenv:Envelope>
+	</Input>
+	<Fault> <!--Optional:|erp_web={"minOccurs":"1", "maxOccurs":"1"}-->
+		<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <!--Optional:|erp_web={"minOccurs":"1", "maxOccurs":"1"}-->
+			<soap:Body> <!--You may enter ANY elements at this point-->
+				<soap:Fault>
+					<!--
+						Optional:|erp_web={"minOccurs":"1","maxOccurs":"1","ctype":"QName","title":""}
+					-->
+					<faultcode>soap:Server</faultcode> <!--Optional:|erp_web={"minOccurs":"1","maxOccurs":"1","title":""}-->
+					<faultstring>用户访问超过最大连接数限制，访问被拒绝，请联系管理员或稍后访问！
+					</faultstring>
+				</soap:Fault>
+			</soap:Body>
+		</soap:Envelope>
+	</Fault>
+</web> 

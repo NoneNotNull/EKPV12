@@ -1,0 +1,19 @@
+<div class="personDetailScrollableView"
+	data-dojo-type="dojox/mobile/View">
+	<div class="personHeader" data-dojo-type="mui/header/Header" data-dojo-props="height:'3.8rem'">
+		<div class="personHeaderReturn" >
+			<i class="mui mui-back"></i>
+			<span class="personHeaderReturnTxt">返回</span>
+		</div>
+		<div class="personHeaderTitle">
+			{title}
+		</div>
+		<div></div>
+	</div>
+	<div data-dojo-type="mui/list/StoreScrollableView">
+		<ul data-dojo-type="mui/person/PersonDetailJsonStoreList"
+			data-dojo-mixins="mui/person/PersonDetailItemListMixin"
+			data-dojo-props="url:'{url}',lazy:false">
+		</ul>
+	</div>
+</div>

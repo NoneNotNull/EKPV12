@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	 <type name="sysUi_target">
+		<value-label>
+			<value>_blank</value>
+			<label-key>target.blank</label-key>
+			<bundle>sys-ui</bundle>
+		</value-label>
+		<value-label>
+			<value>_top</value>
+			<label-key>target.top</label-key>
+			<bundle>sys-ui</bundle>
+		</value-label>
+	</type>
+</column-enums>

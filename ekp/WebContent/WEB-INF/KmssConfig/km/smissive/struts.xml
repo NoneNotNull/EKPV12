@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmSmissiveTemplateForm"
+			type="com.landray.kmss.km.smissive.forms.KmSmissiveTemplateForm">
+		</form-bean>
+		<form-bean
+			name="kmSmissiveMainForm"
+			type="com.landray.kmss.km.smissive.forms.KmSmissiveMainForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action
+			path="/km/smissive/km_smissive_template/kmSmissiveTemplate"
+			type="com.landray.kmss.km.smissive.actions.KmSmissiveTemplateAction"
+			name="kmSmissiveTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/smissive/km_smissive_template/kmSmissiveTemplate_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/km/smissive/km_smissive_template/kmSmissiveTemplate_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/km/smissive/km_smissive_template/kmSmissiveTemplate_list.jsp">
+			</forward>
+		</action>
+		<!-- UED新action -->
+ 		<action
+			path="/km/smissive/km_smissive_main/kmSmissiveMainIndex"
+			type="com.landray.kmss.km.smissive.actions.KmSmissiveMainIndexAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="list"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMain_list.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMain_list.jsp">
+			</forward>
+			<forward
+				name="listChildren.4m" path="/km/smissive/mobile/list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/km/smissive/km_smissive_main/kmSmissiveMain"
+			type="com.landray.kmss.km.smissive.actions.KmSmissiveMainAction"
+			name="kmSmissiveMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMain_view.jsp">
+			</forward>
+			<forward
+				name="view.4m" path="/km/smissive/mobile/view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMain_list.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_list.jsp">
+			</forward>
+			<forward
+				name="print"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_print.jsp">
+			</forward>
+			<forward
+				name="listDoing"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_hascategory_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_list.jsp">
+			</forward>
+			<forward
+				name="modifyAttRight"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_modify_att_right.jsp">
+			</forward>
+			<forward
+				name="modifyRight"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_modify_right.jsp">
+			</forward>
+			<forward
+				name="modifyIssuer"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_modify_issuer.jsp">
+			</forward>
+			<forward
+				name="circulate"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_circulate.jsp">
+			</forward>
+			<forward
+				name="listCirculation"
+				path="/km/smissive/km_smissive_main/kmSmissiveMain_circulate_list.jsp">
+			</forward>
+		</action>
+        <action
+			path="/km/smissive/km_smissive_main/kmSmissiveMainPortlet"
+			type="com.landray.kmss.km.smissive.actions.KmSmissiveMainPortletAction"
+			parameter="method"
+			input="edit"
+			scope="request">
+			<forward
+				name="listPortlet"
+				path="/km/smissive/km_smissive_main_ui/kmSmissiveMainPortlet_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.km.smissive.ApplicationResources"
+		key="km-smissive" />
+</struts-config>

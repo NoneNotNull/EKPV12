@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibJdbcTaskManageForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcTaskManageForm" />
+		<form-bean
+			name="tibJdbcRelationForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcRelationForm" />
+		<form-bean
+			name="tibJdbcTaskCategoryForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcTaskCategoryForm" />
+		<form-bean
+			name="tibJdbcMappCategoryForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcMappCategoryForm" />
+		<form-bean
+			name="tibJdbcMappManageForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcMappManageForm" />
+		<form-bean
+			name="tibJdbcDataSetForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcDataSetForm" />
+		<form-bean
+			name="tibJdbcDataSetCategoryForm"
+			type="com.landray.kmss.tib.jdbc.forms.TibJdbcDataSetCategoryForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<!-- 任务管理新UED -->
+		<action
+			path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManageIndex"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcTaskManageIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcTaskManageAction"
+			name="tibJdbcTaskManageForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage_list.jsp" />
+			<forward name="dataList"
+		   		path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_dataList.jsp"/>
+		</action>
+
+		<action
+			path="/tib/jdbc/tib_jdbc_relation/tibJdbcRelation"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcRelationAction"
+			name="tibJdbcRelationForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_relation/tibJdbcRelation_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_relation/tibJdbcRelation_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_relation/tibJdbcRelation_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcTaskCategoryAction"
+			name="tibJdbcTaskCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory_tree.jsp" />
+		</action>
+
+		<action
+			path="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcMappCategoryAction"
+			name="tibJdbcMappCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory_tree.jsp" />
+		</action>
+		<!-- 映射管理新UED -->
+		<action
+			path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManageIndex"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcMappManageIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcMappManageAction"
+			name="tibJdbcMappManageForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_list.jsp" />
+		   <forward
+				name="editPage"
+				path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_editPage.jsp" />	
+		   <forward name="dataList"
+		    	path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_dataList.jsp"/>
+		    <forward 
+		    name="jdbcManageChooser" path="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage_chooser.jsp"/>
+		</action>
+		
+		<action
+			path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcDataSetAction"
+			name="tibJdbcDataSetForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet_list.jsp" />
+		</action>
+		
+		<action
+			path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSetIndex"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcDataSetIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet_ui_list.jsp" />
+		</action>
+		
+		<action
+			path="/tib/jdbc/tib_jdbc_data_set_category/tibJdbcDataSetCategory"
+			type="com.landray.kmss.tib.jdbc.actions.TibJdbcDataSetCategoryAction"
+			name="tibJdbcDataSetCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/jdbc/tib_jdbc_data_set_category/tibJdbcDataSetCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/jdbc/tib_jdbc_data_set_category/tibJdbcDataSetCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/jdbc/tib_jdbc_data_set_category/tibJdbcDataSetCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/jdbc/tib_jdbc_data_set_category/tibJdbcDataSetCategory_tree.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

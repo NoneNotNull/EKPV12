@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmProcess.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmNode.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmHistoryNode.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmWorkitem.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmWorkitemData.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmHistoryWorkitem.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmRtNodeDefine.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmRtNodeHandlersDefine.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmProcessDefinition.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmNodeDefinition.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmNodeDefinitionHandler.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmExpecterLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmHistoryExpecterLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmQueue.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmQueueLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmQueueTask.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmQuartz.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmExecution.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmProcessParameter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmByAccredit.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmTempOrg.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpm/engine/persistence/model/LbpmErrorQueue.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

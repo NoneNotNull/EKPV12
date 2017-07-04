@@ -1,0 +1,370 @@
+.swfuploadbutton {
+	width: 71px;
+	height: 25px;
+	line-height:25px;
+	background-color:#47b5e6;
+	float: left;
+	vertical-align: top;
+	cursor:pointer;
+}
+
+.swfuploadtext,.biguploadtext {
+	color: #ffffff;
+	font-size: 12px;
+	text-align: center;
+}
+
+.swfuploadtext {
+}
+
+.biguploadbutton {
+	margin-left: 10px;
+	width: 71px;
+	height: 25px;
+	line-height:25px;
+	background-color:#47b5e6;
+	float: left;
+	vertical-align: top;
+	cursor:pointer;
+}
+
+.uploadinfotext {
+	display: inline-block;
+	padding: 5px 0px 0px 10px;
+}
+
+.upload_list_checkbox {
+	width: 15px;
+}
+
+.upload_list_icon {
+	width: 15px;
+}
+
+.upload_list_filename_edit {
+	/*cursor: pointer;
+	text-decoration: underline;*/
+	color: #57a7da;
+	min-width: 150px;
+	word-break: break-all;
+}
+
+.upload_list_filename_view {
+	cursor: pointer;
+	color: #57a7da;
+	min-width: 150px;
+	padding-right:20px;
+	word-break: break-all;
+}
+.upload_list_filename_view:hover{ color:#e17d27}
+
+.upload_list_filename_s {
+	cursor: pointer;
+	color: #57a7da;
+	min-width: 150px;
+}
+
+.upload_list_operation {
+    padding-right: 20px!important;
+}
+.upload_list_operation div{
+	float: left;
+	margin:0 2px;
+}
+.upload_list_size {
+	width: 100px;
+	text-align: right;
+	padding-right:20px!important;
+	color: #9e9e9e;
+}
+
+.upload_list_downtime {
+	width: 100px;
+}
+
+.upload_list_status {
+	width: 100px;
+}
+
+.upload_list_progress {
+	width: 200px;
+}
+
+.upload_list_tr {
+	height: 30px;
+}
+
+/****/
+.upload_opt_td {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+.upload_opt_td div{
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+}
+
+.upload_opt_checkbox {
+	width:50px;
+	overflow: hidden;
+	line-height:24px!important;
+}
+.upload_opt_checkbox input{ vertical-align:middle}
+.upload_opt_checkbox .upload_opt_select{ vertical-align:middle}
+.upload_opt_checkbox .upload_opt_select:hover{ color:#e17d27}
+.upload_opt_select {
+	margin-left: 3px;
+	text-decoration: underline;
+	color: #57a7da;
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.upload_opt_batchdown {
+	display: inline-block;
+	margin-left: 10px;
+	text-decoration: underline;
+	color: #57a7da;
+	cursor: pointer;
+	overflow: hidden;
+}
+.upload_opt_batchdown:hover{ color:#e17d27}
+.upload_opt_edit {
+	cursor: pointer;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	background: url(icon-edit.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.upload_opt_down {
+	cursor: pointer;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	background: url(icon-download.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.upload_opt_view {
+	cursor: pointer;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	background: url(icon-book.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.upload_opt_print {
+	cursor: pointer;
+	width: 20px;
+	height: 25px;
+	display: inline-block;
+	background: url(icon-print.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.upload_progress_border {
+	border: 1px #aaaaaa solid;
+	width: 100px;
+	height: 8px;
+}
+
+.upload_progress_val {
+	height: 100%;
+	width: 0px;
+	background: url(val.png);
+}
+
+.upload_progress_text {
+	
+}
+
+.upload_status {
+	cursor: pointer;
+	/*text-decoration: underline;
+	color: #E27E29;*/
+}
+/** **/
+.upload_list_div {
+	display:inline-block;	
+	vertical-align: top;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+.upload_list_img_div {
+	padding: 5px;
+	border: 1px solid #d7d7d7;
+	/** height: 75px; **/
+	cursor: pointer;
+	position: relative;
+}
+.upload_list_img_div_progress {
+	position: absolute;
+	bottom: 5px;
+	height: 20px;
+	left: 5px;
+	right: 5px;
+}
+.upload_list_img_div_progress_val {
+	background: red;
+	height: 100%;
+}
+.upload_list_img_div_name {
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = "#60000000",endColorstr = "#60000000") 6;
+	color: white;
+	text-align:center;
+	bottom: 5px;
+	overflow: hidden;
+	height: 20px;
+	left: 5px;
+	right: 5px;
+}
+.upload_list_size_div {
+	text-align: center;
+	border: 1px solid #d7d7d7;
+	border-top:0px;
+	height: 20px;
+}
+.upload_list_img_div_del {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	width: 24px;
+	height: 24px;
+	background: url(del.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+.attbook{
+	background: url(bookmark.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attshowRevisions{
+	background: url(showRevisions.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attpage{
+	background: url(page.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attsaveDraft{
+	background: url(saveDraft.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attprint{
+	background: url(print.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attdownload{
+	background: url(download.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attopenLocal{
+	background: url(openLocal.png) no-repeat left center; 
+	padding-left:16px;
+}
+.attfullSize{
+	background: url(fullSize.png) no-repeat left center; 
+	padding-left:16px;
+}
+
+/*@单图片上传*/
+.lui_upload_img_container{
+	float: left;
+	padding: 1px;
+	margin-right: 15px;
+	border: 1px solid #E1E1E1;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
+.lui_upload_img_container .lui_upload_img_content{
+	position: absolute;
+	top: 0;
+	bottom: 26px;
+	left: 0;
+	right: 0;
+	background-color: #F2F2F2;
+}
+.lui_upload_img_container .lui_upload_img_button{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid #d7d7d7;
+	padding-top: 2px;
+}
+
+.lui_upload_img_container .lui_upload_list_img_div{
+	cursor: pointer;
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 22px;
+	overflow: hidden;
+	left: 0px;
+	right: 0px;
+	background-color: #fff;
+}
+
+.lui_upload_img_container .lui_upload_list_img_div img{
+	position: absolute;
+	left: 0;
+}
+ 
+.lui_upload_img_container .lui_upload_list_size_div{
+	text-align: center;
+	height: 20px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background-color: #fff;
+}
+
+.lui_upload_img_container .lui_upload_list_swfuploadbutton{
+	margin: 0 auto;
+	float: none;
+	width: 71px;
+	height: 25px;
+	line-height:25px;
+	background-color:#47b5e6;
+	vertical-align: top;
+	cursor:pointer;
+}
+
+.lui_upload_list_img_div_name {
+	position: absolute;
+	background: rgba(0,0,0,0.6);
+	filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = "#60000000",endColorstr = "#60000000") 6;
+	color: white;
+	text-align:center;
+	bottom: 0;
+	overflow: hidden;
+	height: 20px;
+	left: 0;
+	right: 0;
+}
+
+.lui_upload_img_bimg_close{
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}

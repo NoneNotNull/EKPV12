@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory"
+		messageKey="tib-jdbc:table.tibJdbcTaskCategory"
+		displayProperty="fdName"
+		serviceBean="tibJdbcTaskCategoryService"
+		table="tib_jdbc_task_category"
+		url="/tib/jdbc/tib_jdbc_task_category/tibJdbcTaskCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="tib-jdbc:tibJdbcTaskCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="tib-jdbc:tibJdbcTaskCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="tib-jdbc:tibJdbcTaskCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="true"
+			length="10"
+			validate="false" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="tib-jdbc:tibJdbcTaskCategory.fdParent"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory"
+			column="fd_parent_id"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

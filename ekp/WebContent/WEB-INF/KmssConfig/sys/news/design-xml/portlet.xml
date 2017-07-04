@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+<!-- 最新新闻 -->
+	<portlet
+		id="sys.news.main.withAtt"
+		name="{sys-news:sysNewsMain.portlet.new}"
+		module="{sys-news:news.moduleName}"
+		description="{sys-news:sysNewsMain.portlet.tablesimple.des}">
+		<source format="sys.ui.classic" type="AjaxXml">
+			<code>
+				<![CDATA[
+					{"url":"/sys/common/dataxml.jsp?s_bean=sysNewsMainPortletService&cateid=!{cateid}&rowsize=!{rowsize}&type=!{type}&scope=!{scope}"}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{sys-news:sysNewsMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+                 {"values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                        { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                        { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                        { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                        { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	              "showType":"radio"
+	              }
+       		</var>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+			<var name="{sys-news:sysNewsPublishMain.fdCayegoryId}" key="cateid" kind="sys.simplecategory">
+				{"model":"com.landray.kmss.sys.news.model.SysNewsTemplate","name":"{sys-news:sysNewsMain.portlet.selectCategory}"}
+			</var>
+			<var name="{sys-news:sysNewsMain.portlet.linkAddress}" key="type" kind="enumValue" default="main">
+			  {    "values":[{ "text":"{sys-news:sysNewsMain.portlet.mainDoc}", "value":"main" },{ "text":"{sys-news:sysNewsMain.portlet.attach}", "value":"att" }],
+	               "showType":"radio"
+                }
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['sys/news/sys_news_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();"
+			    target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/sys/news/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	<!-- 图片新闻，幻灯片 -->
+	<portlet
+		id="sys.news.main.withImg"
+		name="{sys-news:sysNewsMain.portlet.withImg}"
+		module="{sys-news:news.moduleName}"
+		description="{sys-news:sysNewsMain.portlet.imageSlide.des}">
+		<source
+			format="sys.ui.slide"
+			type="AjaxXml">
+			<code>
+				<![CDATA[
+					{"url":"/sys/common/dataxml.jsp?s_bean=sysNewsMainPortletService&cateid=!{cateid}&rowsize=!{rowsize}&type=pic&scope=!{scope}"}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{sys-news:sysNewsMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+                 {"values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                        { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                        { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                        { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                        { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	              "showType":"radio"
+	              }
+
+       		</var>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+			<var name="{sys-news:sysNewsPublishMain.fdCayegoryId}" key="cateid" kind="sys.simplecategory">
+				{"model":"com.landray.kmss.sys.news.model.SysNewsTemplate","name":"{sys-news:sysNewsMain.portlet.selectCategory}"}
+			</var>
+		</vars>
+	</portlet>
+	
+	<!-- 图文新闻 -->
+	<portlet
+		id="sys.news.main.imgAndText"
+		name="{sys-news:sysNewsMain.portlet.withImgAndText}"
+		module="{sys-news:news.moduleName}"
+		description="{sys-news:sysNewsMain.portlet.imgAndText.des}">
+		<source
+			format="sys.ui.html"
+			type="AjaxText">
+			<code>
+			   <![CDATA[
+					{"url":"/sys/news/sys_news_ui/sysNewsMainPortletCombin.jsp?cateid=!{cateid}&rowsize_image=!{rowsize_image}&rowsize_text=!{rowsize_text}&rate=!{rate}&stretch=!{stretch}&height=!{height}&showCreator=!{showCreator}&showCreated=!{showCreated}&showCate=!{showCate}&cateSize=!{cateSize}&newDay=!{newDay}&highlight=!{highlight}&target=!{target}&scope=!{scope}",
+					"formatKey":"html"
+					}
+			     ]]>
+			</code>
+		</source>
+		<vars>
+		   <var name="{sys-news:sysNewsMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+                 {"values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                        { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                        { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                        { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                        { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	              "showType":"radio"
+	              }
+
+            </var>
+		    <var name="{sys-news:sysNewsMain.portlet.numberOfImageNews}" key="rowsize_image" kind="rowsize"/>
+			<var name="{sys-news:sysNewsMain.portlet.numberOfTextNews}" key="rowsize_text" kind="rowsize"/>
+			<var name="{sys-news:sysNewsMain.portlet.rateOfImageNews}" key="rate" kind="int" default="50">
+			      {"help":"%"}
+		    </var>
+		    <var name="{sys-news:sysNewsMain.portlet.imageIsStretch}" key="stretch" kind="enumValue" default="true">
+		      {"values":[{ "text":"{sys-news:sysNewsMain.portlet.yes}", "value":"true" }],
+	               "showType":"checkbox"
+                }
+		    </var>
+			<var name="{sys-news:sysNewsPublishMain.fdCayegoryId}" key="cateid" kind="sys.simplecategory">
+				{"model":"com.landray.kmss.sys.news.model.SysNewsTemplate","name":"{sys-news:sysNewsMain.portlet.selectCategory}"}
+			</var>
+			<var key="highlight" kind="enumValue" name="{sys-news:sysNewsMain.portlet.firstLineHighlight}">
+				{"values":[{"text":"{sys-news:sysNewsMain.portlet.yes}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showCreator" kind="enumValue" name="{sys-news:sysNewsMain.docCreatorId}" default="true">
+				{"values":[{"text":"{sys-news:sysNewsMain.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showCreated" kind="enumValue" name="{sys-news:sysNewsMain.docCreateTime}" default="true">
+				{"values":[{"text":"{sys-news:sysNewsMain.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showCate" kind="enumValue" name="{sys-news:news.template.info}" default="true">
+				{"values":[{"text":"{sys-news:sysNewsMain.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="cateSize" kind="int" name="{sys-news:sysNewsMain.portlet.categoryLimit}" default="0">
+				{"help":"{sys-news:sysNewsMain.portlet.categoryLimit.help}"}
+			</var>
+			<var key="newDay" kind="int" name="{sys-news:sysNewsMain.portlet.newIcon}" default="0">
+				{"help":"{sys-news:sysNewsMain.portlet.newIcon.help}"}
+			</var>
+			<var key="target" kind="enumType" name="{sys-news:sysNewsMain.portlet.targetWindow}" default="_blank">
+				{type:"sysUi_target", showType:"radio"}
+			</var>
+		</vars>
+			<operations>
+				 <operation
+					name="{operation.create}"
+					type="create"
+					href="javascript:(function(){seajs.use(['sys/news/sys_news_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();"
+			    	target="_self" />
+			    <operation
+					name="{operation.more}"
+					type="more"
+					href="/sys/news/?categoryId=!{cateid}"/>
+			</operations>
+	</portlet>
+	
+	<!-- 图片摘要 -->
+	<portlet
+		id="sys.news.main.imgAndDescription"
+		name="{sys-news:sysNewsMain.portlet.imgAndDescription}"
+		module="{sys-news:news.moduleName}"
+		description="{sys-news:sysNewsMain.portlet.imgAndDescription.des}">
+		<source
+			format="sys.ui.html"
+			type="AjaxText">
+			<code>
+			   <![CDATA[
+					{"url":"/sys/news/sys_news_ui/sysNewsMainPortletImageDesc.jsp?&width=!{width}&height=!{height}&cateid=!{cateid}&rowsize=!{rowsize}&scope=!{scope}",
+					"formatKey":"html"
+					}
+			     ]]>
+			</code>
+		</source>
+		<vars>
+		   <var name="{sys-news:sysNewsMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+                 {"values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                        { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                        { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                        { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                        { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	              "showType":"radio"
+	              }
+
+            </var>
+            <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+			<var name="{sys-news:sysNewsPublishMain.fdCayegoryId}" key="cateid" kind="sys.simplecategory">
+				{"model":"com.landray.kmss.sys.news.model.SysNewsTemplate","name":"{sys-news:sysNewsMain.portlet.selectCategory}"}
+			</var>
+			<var name="{sys-news:sysNewsMain.portlet.image.width}" key="width" kind="int" default="200">
+			      {"help":"px"}
+			</var>
+			<var name="{sys-news:sysNewsMain.portlet.image.height}" key="height" kind="int" default="140">
+			      {"help":"px"}
+			</var>
+	    </vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="/sys/news/sys_news_main/sysNewsMain.do?method=add" />		
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/sys/news/"/>
+		</operations>
+	</portlet>
+	
+	<!-- 我的新闻 -->
+	<portlet
+		id="sys.news.main.MyNews"
+		name="{sys-news:sysNewsMain.portlet.mine}"
+		module="{sys-news:news.moduleName}"
+		description="{sys-news:sysNewsMain.portlet.tableList.des}">
+		<source
+			format="sys.ui.listtable"
+			type="AjaxJson">
+			<code>
+			<![CDATA[
+			{"url":"/sys/news/sys_news_main/sysNewsMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&myNews=!{myNews}&scope=!{scope}"}
+			]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{sys-news:sysNewsMain.docPublishTime}" key="scope" kind="enumValue" default="nos">
+                 {"values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                        { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                        { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                        { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                        { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	              "showType":"radio"
+	              }
+
+      		</var>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+			<var name="{sys-news:sysNewsMain.portlet.mine}" key="myNews" kind="enumValue" default="myPublish">
+			  {    "values":[{ "text":"{sys-news:sysNewsMain.portlet.myPublish}", "value":"myPublish" },{ "text":"{sys-news:sysNewsMain.portlet.myEnv}", "value":"myEv" }],
+	               "showType":"radio"
+                }
+			</var>
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/sys/news/sys_news_main/sysNewsMain.do?method=add" />    
+			<operation
+				name="{operation.more}"
+				type="more"
+			    href="/sys/news/"  />
+		</operations>
+	</portlet>
+</root>

@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.lui-relation-list {
+	font-size: 1em;
+}
+.lui-relation-list a{
+	padding:7px 0px 7px 5px;
+	text-decoration: none;
+	color: #333;
+	display:block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.lui-realation-list-tri {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 5px 7px;
+	border-style: solid;
+	border-color: transparent transparent transparent #EDEDEE;
+	display: inline-block;
+}

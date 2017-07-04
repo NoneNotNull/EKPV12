@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-time:module.sys.time"
+		urlPrefix="/sys/time/"
+		defaultValidator="roleValidator(role=ROLE_SYS_TIME_DEFAULT)">
+		<roles>
+			ROLE_SYS_TIME_DEFAULT;
+
+			ROLE_SYS_TIME_TIMEAREA_ADD; 
+			ROLE_SYS_TIME_TIMEAREA_EDIT;
+			ROLE_SYS_TIME_TIMEAREA_DELETE;
+		</roles>
+		<!-- 区域组设置 -->
+		<request
+			path="sys_time_area/sysTimeArea.do*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.time.model.SysTimeArea">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_ADD)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=deleteall|delete"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_DELETE)" />
+		</request>
+		<!-- 班次设置 -->
+		<request
+			path="sys_time_work/sysTimeWork.do*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.time.model.SysTimeWork">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+		</request>
+		<!-- 休假设置 -->
+		<request
+			path="sys_time_vacation/sysTimeVacation.do*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.time.model.SysTimeVacation">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+		</request>
+		<!-- 补班设置 -->
+		<request
+			path="sys_time_patchwork/sysTimePatchwork.do*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.time.model.SysTimePatchwork">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYS_TIME_TIMEAREA_EDIT)|authFieldValidator(type=timeAdmin,recid=sysTimeAreaId,model=com.landray.kmss.sys.time.model.SysTimeArea)" />
+		</request>
+
+		<filters
+			modelName="com.landray.kmss.sys.time.model.SysTimeArea">
+			<filter
+				type="timeAdmin"
+				expression="authFieldFilter(field=areaAdmins.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.sys.time.model.SysTimeWork">
+			<filter
+				type="timeAdmin"
+				expression="authFieldFilter(field=sysTimeArea.areaAdmins.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.sys.time.model.SysTimeVacation">
+			<filter
+				type="timeAdmin"
+				expression="authFieldFilter(field=sysTimeArea.areaAdmins.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.sys.time.model.SysTimePatchwork">
+			<filter
+				type="timeAdmin"
+				expression="authFieldFilter(field=sysTimeArea.areaAdmins.fdId)" />
+		</filters>
+	</module>
+	<homePage
+		urlPrefix="sys/time"
+		messageKey="sys-time:title.timeSetting"
+		config="/sys/time/sys_time_area/sysTimeArea.do?method=list"
+		type="global" />
+</configs>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.sys.ims.config">
+		<item name="config">
+			<param name="imsName" required="true" kind="unid">
+				<description>配置通讯软件名字,全局唯一</description>
+			</param>
+			
+			<param name="awarePort" required="false" kind="string">
+				<description>在线感知图标需要端口</description>
+			</param>
+			
+			<param name="awareIp" required="false" kind="string">
+				<description>在线感知引用图标需要IP</description>
+			</param>
+			
+			<param name="awareJsp" required="false" kind="string">
+				<description>在线感知实现Jsp页面</description>
+			</param>
+			
+			<param name="extParams" required="false" kind="string">
+				<description>在线感知预留配置项,扩展使用</description>
+			</param>
+			<description>配置文件中加载在线感知集成的介绍</description>
+		</item>
+		<description>在线感知扩展点,集成通讯软件管理器</description>
+	</extension-point>
+
+	<!--<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/sys/ims/sysIms_config.jsp" />
+			<param name="type" value="base" />
+			<param name="order" value="3" />
+		</item>
+	</extension>
+-->
+
+</plugin>

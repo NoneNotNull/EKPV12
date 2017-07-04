@@ -1,0 +1,131 @@
+/**------------------------------------------------------* 
+ * datagrid.js's css style file
+ * author: yangf
+ * timestamp: 20110323
+ **------------------------------------------------------*/
+ .datagrid { position: relative;}
+ 
+  
+/* datagrid table */
+.datagrid table {
+	margin: 5px auto;
+	width: 100%;
+	border-collapse: collapse;	
+}
+
+/* datagrid header */
+.datagrid tr.columnHeader td{ background:#F0F0F0; border-right:1px solid #fff; padding:10px 0 5px; text-align:center; color:#333; font-size: 13px; cursor: pointer;}
+
+.datagrid tr.columnHeader > td.ASC {
+	background: url(asc.png) no-repeat center top; color:#333;
+}
+
+.datagrid tr.columnHeader  > td.DESC {
+	background: url(desc.png) no-repeat center top; color:#333;
+}
+
+/* datagrid data rows */
+.datagrid tr.datarow td {
+	border-bottom: 1px dashed #D1D1D1; color:#666; font-size: 13px; line-height:24px; text-align:center;}
+
+.datagrid .loadingMask {
+	position: absolute;
+	opacity: 0.5;
+	z-index: 200;
+	background: #7F7F7F;
+}
+
+.datagrid .loading {
+	position: absolute;
+	height: 50px;
+	width: 100px;
+	z-index: 201;
+	background: url(load.gif) no-repeat center;
+}
+
+/* pagination */
+.datagrid .pToolBar {
+	height: 25px; line-height:25px;
+	border-top: 1px solid #90B4E6;
+	border-bottom: 1px solid #90B4E6;
+	background: #F0F0F0;
+	font-size: 13px;
+	color:#1D50A1; margin-top:20px; position:relative;
+}
+
+.datagrid .pToolBar input {
+	height: 15px;
+	padding: 0px 1px; margin-top:3px;
+	border: 1px solid #ABADB3;
+	font-size: 11px;
+	text-align: center;
+}
+.datagrid .pToolBar select { margin-top:3px;}
+
+.datagrid .pInfoBox { float:left;
+	width: 125px;
+	line-height: 25px;
+}
+
+.datagrid .pCtrlBox { float:right; padding:0 15px 0 0;
+	line-height: 25px;
+}
+
+.datagrid .pGroup {
+	margin: 0 5px;
+	float: left;
+}
+
+.datagrid .pCtrlBox div.ctrlButton {
+	float: left;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	margin-top: 4px;
+	background-position: 0 0;
+}
+
+.datagrid .pCtrlBox div.curPage {
+	float: left;
+}
+
+.datagrid select.cpSize {
+	font-size: 11px;
+	text-align: center;
+	padding: 1px;
+}
+
+.datagrid .pCtrlBox div.ctrlButton:hover {
+	background-position: -16px 0;
+}
+
+.datagrid .pageFirst {
+	background: url(first.gif) no-repeat;
+}
+.datagrid .pagePrev {
+	background: url(prev.gif) no-repeat;
+}
+.datagrid .pageNext {
+	background: url(next.gif) no-repeat;
+}
+.datagrid .pageLast {
+	background: url(last.gif) no-repeat;
+}
+.datagrid .pageReload {
+	background: url(refresh.gif) no-repeat;
+}
+
+.thumbnailPop {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	padding: 5px 8px;
+	border: 1px solid #B5B5B5;
+	background: #F6F6F6;
+	filter: progid:DXImageTransform.Microsoft.Shadow(color='#C2C2C2', Direction=135, Strength=5);
+	font-size: 13px;
+	display:table-cell;
+  	text-align:center;
+  	vertical-align:middle;
+	z-index: 1000;
+}

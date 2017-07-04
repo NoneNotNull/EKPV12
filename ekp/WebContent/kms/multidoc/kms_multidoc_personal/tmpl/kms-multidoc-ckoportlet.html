@@ -1,0 +1,57 @@
+{$
+	<h3 class="h3_2 m_t40">
+		<span>多维知识库积分明细</span>
+	</h3>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="t_h m_t10">
+		<tr>
+			<th>多维知识库积分</th>
+			<th>贡献积分</th>
+			<th>阅读积分</th>
+			<th>录入积分</th>
+			<th>原创积分</th>
+			<th>点评积分</th>
+			<th>推荐积分</th>
+			<th>被修改积分</th>
+		</tr>
+		<tr id="myIntegralPortlet">
+			<td>{%data.fdTotalScore||0%}</td>
+			<td>{%data.fdContributeSocre||0%}</td>
+			<td>{%data.fdReadScore||0%}</td>
+			<td>{%data.fdRecordScore||0%}</td>
+			<td>{%data.fdCreateScore||0%}</td>
+			<td>{%data.fdEvaluationScore||0%}</td>
+			<td>{%data.fdIntroduceScore||0%}</td>
+			<td>{%data.fdAlterScore||0%}</td>
+		</tr>
+	</table>
+		<br />
+		<p>
+			<span class="help_cko">帮助提示</span>
+		</p>
+		<div class="help_cko_info">
+			<p>
+				<span>贡献积分=“所创建的文档被点评、被推荐、被阅读时所获得的积分”</span>
+			</p>
+			<p>
+				<span>阅读积分=“阅读文档获得的积分值”</span>
+			</p>
+			<p>
+				<span>录入积分=“上传文档时所获得的积分值”</span>
+			</p>
+			<p>
+				<span>原创积分=“文档作者所获得的积分值”</span>
+			</p>
+			<p>
+				<span>点评积分=“点评文档时所获得的积分值”</span>
+			</p>
+			<p>
+				<span>推荐积分=“推荐文档时所获得的积分值”</span>
+			</p>
+			<p>
+				<span>被修改积分=“在多维知识库内被修改的积分值”</span>
+			</p>
+			<p>
+				<span>个人多维知识库积分 = 贡献积分 + 阅读积分 + 录入积分 + 原创积分 + 点评积分 + 推荐积分 + 被修改积分</span>
+			</p>
+		</div>
+$}

@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.kms.knowledge.type">
+		<item name="knowledgeType">
+			<param name="messageText" kind="string" required="true">
+				<description>中文显示资源名</description>
+			</param>
+			<param name="methodName" kind="string" required="true">
+				<description>modelName</description>
+			</param>
+			<param name="knowledgeTypeValue" kind="string" required="true">
+				<description>知识类型值</description>
+			</param>
+			<description>知识类型</description>
+		</item>
+		<item name="adminTree">
+			<param name="navMessageKey" kind="string" required="true">
+				<description>
+					必选，模块名称
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，排序号
+				</description>
+			</param>
+			<param name="canDisplay" kind="string" default="true">
+				<description>
+					必选，是否显示该模块
+				</description>
+			</param>
+			<param name="adminTreeUrl" kind="string" required="true">
+				<description>
+					必选，adminTree路径
+				</description>
+			</param>
+			<param name="modelClass" required="true" kind="string">
+				<description>
+					必选，modelClass
+				</description>
+			</param>
+			<description>后台知识仓库管理树扩展点</description>
+		</item>
+		<description>配置知识仓库知识</description>
+	</extension-point>
+
+	<extension point="com.landray.kmss.sys.property.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="setting">
+			<param name="messageText" value="{kms-knowledge:module.kms.knowledge}" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.common">
+		<item name="entry">
+			<param name="unid" value="com.landray.kmss.kms.knowledge" />
+			<param name="moduleName" value="kms-knowledge:module.kms.knowledge" />
+			<param name="service" value="kmsKnowledgeProfilePortlet" />
+			<param name="order" value="3" />
+			<param name="modelClass" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+			<param name="categoryClass" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+			<param name="jspUrl" value="/kms/knowledge/profile/index.jsp" />
+		</item>
+	</extension>
+	
+	<!-- 关联机制扩展点 -->
+	<extension point="com.landray.kmss.sys.relation.config">
+		<item name="dict">
+			<param name="modelName"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+			<param name="dictLoader" value="sysPropertyRelationDictLoader" />
+			<param name="cateModelName"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+		</item>
+		<item name="search">
+			<param name="modelName"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+			<param name="searchBean" value="sysPropertyRelationExtendSearchBean" />
+		</item>
+	</extension>
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+
+	<!-- 年度筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="filter">
+			<param name="filterBean" value="kmsKnowledgeYearFilter" />
+			<param name="text" value="{kms-knowledge:kmsKnowledge.yearFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+
+	<!-- 月份筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="filter">
+			<param name="filterBean" value="kmsKnowledgeMonthFilter" />
+			<param name="text" value="{kms-knowledge:kmsKnowledge.monthFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+
+	<!-- 部门筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="filter">
+			<param name="filterBean" value="kmsKnowledgeDeptFilter" />
+			<param name="text" value="{kms-knowledge:kmsKnowledge.deptFilter}" />
+			<param name="dataType"
+				value="com.landray.kmss.sys.organization.model.SysOrgElement" />
+		</item>
+	</extension>
+
+
+	<!-- 类别筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="filter">
+			<param name="filterBean" value="kmsKnowledgeCategoryFilter" />
+			<param name="text" value="{kms-knowledge:kmsKnowledge.classFilter}" />
+			<param name="dataType"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+		</item>
+	</extension>
+
+
+	<!-- 岗位筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="filter">
+			<param name="filterBean" value="kmsKnowledgePostFilter" />
+			<param name="text" value="{kms-knowledge:kmsKnowledge.postFilter}" />
+			<param name="dataType"
+				value="com.landray.kmss.sys.organization.model.SysOrgElement" />
+		</item>
+	</extension>
+
+	<!-- 知识仓库订阅部署 -->
+	<extension point="com.landray.kmss.sys.follow.setting"
+		model="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc">
+		<item name="followSetting">
+			<param name="methodName" value="add" />
+			<param name="templateModel"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+			<param name="templateField" value="docCategory.fdHierarchyId" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.third.pda.extend" model="*">
+		<item name="extend">
+			<param name="modelName"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+			<param name="templateClass"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+			<param name="filterURL"
+				value="/sys/property/sys_property_filter_pda/sysPropertyFilterPda.do?method=getPropertyFilter" />
+		</item>
+	</extension>
+		<!-- 专家领域（知识领域） -->
+	<extension point="com.landray.kmss.kms.expert">
+		<item name="area">
+			<param name="uuid" value="com.landray.kmss.kms.knowledge" />
+			<param name="areaMessageKey" value="kms-knowledge:kmsKnowledge.areas" />
+			<param name="order" value="1" />
+			<param name="modulePath" value="kms/knowledge" />
+			<param name="cateModelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+		</item>
+	</extension>
+
+	<!-- 字符串枚举父子筛选器扩展点实现 -->
+	<!--
+		<extension point="com.landray.kmss.sys.property.filter.setting"> <item
+		name="filter"> <param name="filterBean"
+		value="kmsKnowledgeLinkageFilter" /> <param name="text"
+		value="{kms-knowledge:kmsKnowledge.stringLinkageFilter}" /> <param
+		name="dataType" value="String" /> </item> </extension>
+	-->
+	
+	<!-- 知识仓库日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="moduleName" value="kms-knowledge:module.kms.knowledge"/>
+			<param name="categoryField" value="docCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.addCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.importCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryServiceImp"/>			
+			<param name="operateMethod" value="addImport"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.updateCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryServiceImp"/>
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.delCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-knowledge:kmsKnowledge.button.editProperty"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeBaseDocServiceImp"/>
+			<param name="operateMethod" value="updateProperty"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogUpdatePropertyProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="sys-simplecategory:sysSimpleCategory.chg.button"/>
+			<param name="className" value="com.landray.kmss.sys.simplecategory.service.spring.CateChgServiceImp"/>
+			<param name="operateMethod" value="updateChgCate"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge,com.landray.kmss.kms.wiki.model.KmsWikiMain,com.landray.kmss.kms.ask.model.KmsAskTopic,com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogCateChangeProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="sys-right:right.button.changeRight.view"/>
+			<param name="className" value="com.landray.kmss.sys.right.service.spring.ChangeRightServiceImp"/>
+			<param name="operateMethod" value="updateDocRight"/>
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc,com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge,com.landray.kmss.kms.wiki.model.KmsWikiMain,com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogRightDocChangeProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{kms-knowledge:module.kms.knowledge}" />
+			<param name="modelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+		</item>
+	</extension>
+</plugin>

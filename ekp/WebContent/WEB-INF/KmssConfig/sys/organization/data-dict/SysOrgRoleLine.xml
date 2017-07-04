@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgRoleLine"
+		messageKey="sys-organization:table.sysOrgRoleLine"
+		displayProperty="fdName"
+		serviceBean="sysOrgRoleLineService"
+		table="sys_org_role_line">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-organization:sysOrgRoleLine.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" 
+			validate="true"/>
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-organization:sysOrgRoleLine.fdOrder"
+			type="Long"
+			column="fd_order"
+			notNull="false" 
+			validate="true"/>
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-organization:sysOrgRoleLine.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="true"
+			canDisplay="false"
+			length="2500" />
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-organization:sysOrgRoleLine.fdCreateTime"
+			column="fd_create_time"
+			type="DateTime"
+			canDisplay="false"
+			notNull="false"/>
+		<modelProperty
+			name="sysOrgRoleMember"
+			messageKey="sys-organization:sysOrgRoleLine.fdMember"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_member_id"
+			notNull="false" />
+		<modelProperty
+			name="sysOrgRoleConf"
+			messageKey="sys-organization:sysOrgRoleLine.sysOrgRoleConf"
+			type="com.landray.kmss.sys.organization.model.SysOrgRoleConf"
+			column="fd_role_line_conf_id"
+			notNull="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-organization:sysOrgRoleLine.fdParent"
+			type="com.landray.kmss.sys.organization.model.SysOrgRoleLine"
+			column="fd_parent_id"
+			notNull="false"
+			cascade="save-update" />
+		<listProperty
+			name="hbmChildren"
+			messageKey="sys-organization:sysOrgRoleLine.hbmChildren"
+			column="fd_parent_id"
+			canDisplay="false"
+			type="com.landray.kmss.sys.organization.model.SysOrgRoleLine"
+			cascade="none"
+			inverse="true" />
+	</model>
+</models>

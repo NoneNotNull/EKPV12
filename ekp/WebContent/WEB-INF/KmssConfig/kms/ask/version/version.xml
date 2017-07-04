@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 知识爱问查看页面，问题置顶时不输入原因提交后，提示窗口是空的</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问后台问题设置中，设置的值不可以填负数</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端列表不显示标题的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问权限，提问人可以结束自己的提问信息</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 问题可以向特定组织架构人员提问</description>
+			<author>陈建林</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问view页面权限校验时，当获取专家信息为空时会报错</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问分类概览信息IE8下显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问分类概览和思维导图数据存取</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端数据接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-14</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建问答时修改分类后依然是旧分类的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-10-27</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 在oracle数据库下，爱问中置顶的文档在二级页面排在最后的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-10-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 多次提交回复时会出现多条回复记录的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问其他回答中，如没有评论则评论按钮无法点击</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-25</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问阅读页面右边与当前用户有关的问答</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问阅读页面中其他回答打开评论报错</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问后台管理角色，有此角色的人能看到后台配置的按钮,</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识问答权限问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-29</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 门户portlet样式</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-25</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识爱问门户配置中模块名称去除KMS</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识问答补充区域上传的图片在阅读页面显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 补充问题提交成功后倒计时自动关闭</description>
+			<author>龚一涛</author>
+			<revision-time>2014-07-07</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 二级列表和portal页时间显示间隔时间</description>
+			<author>郭昌平</author>
+			<revision-time>2014-07-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问移动端新建页面</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-27</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms日志拦截部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 将爱问基于webservice查询方式替换为http方式</description>
+			<author>陈良</author>
+			<revision-time>2013-11-27</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持爱问问题搜索web服务分页机制</description>
+			<author>陈良</author>
+			<revision-time>2013-10-10</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 提问和回复问答的web服务接口</description>
+			<author>陈良</author>
+			<revision-time>2013-10-10</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 ekp门户下配置爱问导航路径错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-09-27</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心列表页码问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 bean相互引用导致启动报错</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>关联 场景扩展点移动关联更改</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-07-29</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识问答新建编辑页面上半部分和下半部背景色不一致。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-04</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类名称超过一定字数，标题显示分行出现问题。</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-06-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复 知识爱问重复修改功能。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-24</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识爱问的【收藏】按钮无法正常使用【IE、Chrome、Firefox】</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据字典错误，导致不能导入导出</description>
+			<author>郭昌平</author>
+			<revision-time>2013-05-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端与web端分类展示顺序不同的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-05-21</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问权限变更报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-05-16</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 营销门户缺陷修复</description>
+			<author>徐广敏</author>
+			<revision-time>2013-04-28</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 营销门户portlet</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-25</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问标题字数限制不准确的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-18</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问列表页面“上一页、下一页”按钮</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动kms爱问页面的展现</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识服务中爱问回复数统计错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人没有回复权限提示信息错误和评论出现乱码的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动kms爱问提问字数不限制和输入框不自动换行的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动kms爱问新建页面样式与模块名称</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-14</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整移动端爱问提问框高度</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-13</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 新建爱问模板名称唯一性检验</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现爱问标题字数限制的展现</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-17</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问移动端下拉加载数据错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 预编译中设置参数错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问对pda的支持,包括pda分类、新建阅读页面等</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 增加爱问推送标题重复检查，重复推送的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问kk推送部分引入文件路径错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问kk推送js文件国际化</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问列表下新建提问没有将分类信息带到提问的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 按钮增加权限控制</description>
+			<author>龚一涛</author>
+			<revision-time>2012-12-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心爱问模块按钮权限控制</description>
+			<author>龚一涛</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问分类概览无法显示问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问推送增加字数校验，防止太长导致保存失败</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多媒体库积分无效关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 k助手场景去除滚动条</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-13</revision-time>
+			<relation>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类概览增加分类id的NULL判断，防止数据不限制翻倍</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于移动文件位置导致kk群内faq无法显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-05</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问推送类别选择框不居中的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-02</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问推送权限控制</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问保存提交报js错误的问题；爱问选择分类框由于缺少字段导致不显示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-24</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 创建分类文档权限问题，在无父目录权限情况下，子目录有权限可见且允许创建文档</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 kk爱问推送的显示，群组等相关问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 kk爱问推送</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 爱问主页分类概览运行定时任务后不显示分类下文档数量</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-17</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 蔽掉后台管理中爱问推荐的多选框、编辑删除按钮等</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-17</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 爱问头部文件；新增 爱问在全文检索中的标签搜索</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-13</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 爱问部署关联机制；修改 置顶和修改分类权限</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-26</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表权限控制，统一portlet参数</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms后台管理树 爱问配置节点</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>爱问页面在weblogic下报错，权限修改不能评论自己的回复</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-03-26</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正错误配置extendClass</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-25</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+	</modifies>
+</version>

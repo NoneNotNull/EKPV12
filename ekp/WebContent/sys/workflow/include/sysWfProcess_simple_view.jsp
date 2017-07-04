@@ -1,0 +1,1 @@
+<%@include file="/sys/lbpmservice/include/sysLbpmProcess_simple_view.jsp"%>

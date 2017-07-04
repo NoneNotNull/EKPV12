@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-sap-mapping-plugins-controls-list:module.tib.sap.mapping.plugins.controls.list"
+		urlPrefix="/tib/sap/mapping/plugins/controls/list/"
+		defaultValidator="roleValidator(role=ROLE_TIBSAPMAPPINGPLUGINSCONTROLSLIST_DEFAULT)">
+		<roles>
+			ROLE_TIBSAPMAPPINGPLUGINSCONTROLSLIST_DEFAULT
+		</roles>
+
+		<request
+			path="tib_sap_mapping_list_control_main/tibSapMappingListControlMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sap.mapping.plugins.controls.list.model.TibSapMappingListControlMain">
+		</request>
+
+	</module>
+
+	<quartz
+        messageKey="tib-sap:tibSapMappingListControlMain.clearSapData"
+        jobService="tibSapMappingListControlMainService"
+        jobMethod="clearSapData"
+        enable="true"
+        cronExpression="0 0 1 * * ?"
+        runType="SINGLENODE" />
+
+	<!--homePage
+		urlPrefix="tib/sap/mapping/plugins/controls/list"
+		url="/moduleindex.jsp?nav=/tib/sap/mapping/plugins/controls/list/tree.jsp"
+		messageKey="tib-sap-mapping-plugins-controls-list:module.tib.sap.mapping.plugins.controls.list" /-->
+	
+</configs>

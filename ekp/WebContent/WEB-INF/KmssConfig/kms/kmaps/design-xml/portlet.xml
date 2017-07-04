@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 简单列表展现形式 -->
+	<portlet
+		id="kms.kmaps.new"
+		name="{kms-kmaps:kms.kmaps.portlet.knowledge.list}"
+		description="{portlet.list.desc1}"
+		module="{kms-kmaps:module.kms.kmaps}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmaps/kms_kmaps_portlet/kmsKmapsPortlet.do?method=getKmapKnowledge&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=col"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<!-- 类型： 最新、最热、精华 -->
+			<var name="{kms-kmaps:kms.kmaps.portlet.type}" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[{"text":"{kms-kmaps:kms.kmaps.portlet.newest}", "value":"docPublishTime"},
+		    					{"text":"{kms-kmaps:kms.kmaps.portlet.hot}", "value":"docReadCount"},
+		    						{"text":"{kms-kmaps:kms.kmaps.portlet.essential}","value":"docIsIntroduced"}],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<!-- 选择分类 -->
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.kmaps.model.KmsKmapsCategory",
+				 "title":"{kms-kmaps:dialog.kmsKmapsCategory.treeTitle}"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				target="_self"
+				href="javascript:(function(){seajs.use(('kms/kmaps/kms_kmaps_ui/js/create'), function(create) {
+						create.addDoc(\'!{cateid}\');
+					  });})();"/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/kmaps/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	<!-- 图文列表展现形式 -->
+	<portlet
+		id="kms.kmaps.new.pic"
+		name="{kms-kmaps:kms.kmaps.portlet.knowledge.list}"
+		description="{portlet.list.desc3}"
+		module="{kms-kmaps:module.kms.kmaps}">
+		<source format="sys.ui.image" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmaps/kms_kmaps_portlet/kmsKmapsPortlet.do?method=getKmapKnowledge&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=pic"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<!-- 类型： 最新、最热、精华 -->
+			<var name="{kms-kmaps:kms.kmaps.portlet.type}" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[{"text":"{kms-kmaps:kms.kmaps.portlet.newest}", "value":"docPublishTime"},
+		    					{"text":"{kms-kmaps:kms.kmaps.portlet.hot}", "value":"docReadCount"},
+		    						{"text":"{kms-kmaps:kms.kmaps.portlet.essential}","value":"docIsIntroduced"}],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.kmaps.model.KmsKmapsCategory",
+				 "title":"{kms-kmaps:dialog.kmsKmapsCategory.treeTitle}"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				target="_self"
+				href="javascript:(function(){seajs.use(('kms/kmaps/kms_kmaps_ui/js/create'), function(create) {
+						create.addDoc(\'!{cateid}\');
+					  });})();"/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/kmaps/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	<!-- 知识地图分类导航 -->
+	<portlet
+		id="kms.kmaps.cate"
+		name="{kms-kmaps:kms.kmaps.portlet.knowledge.category.nav}"
+		module="{kms-kmaps:module.kms.kmaps}">
+		<source format="sys.ui.cate" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmaps/kms_kmaps_portlet/kmsKmapsCategoryPortlet.do?method=portal&parentId=!{value}&currId=!{cateid}"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.kmaps.model.KmsKmapsCategory",
+				 "title":"{kms-kmaps:dialog.kmsKmapsCategory.treeTitle}"
+				}
+			</var>
+		</vars>
+	</portlet>
+	<!-- 知识地图分类概览 -->
+	<portlet
+		id="kms.kmaps.preview"
+		name="{kms-kmaps:kms.kmaps.portlet.knowledge.catagory.preview}"
+		module="{kms-kmaps:module.kms.kmaps}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/kmaps/kms_kmaps_portlet_ui/kms_kmaps_portlet_preview.jsp?currid=!{currid}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="currid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.kmaps.model.KmsKmapsCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true})})"
+				}
+			</var>
+		</vars>
+	</portlet>
+	
+	<!-- 图文幻灯片 -->
+	<portlet
+		id="kms.kmaps.slidepic"
+		description="{kms-kmaps:kms.kmaps.portlet.slidepic.desc}"
+		name="{kms-kmaps:kms.kmaps.portlet.knowledge.list}"
+		module="{kms-kmaps:module.kms.kmaps}">
+		<source  format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmaps/kms_kmaps_portlet_ui/kmsKmapsPortlet_slidepic.jsp?rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=pic&isAutoSlide=!{isAutoSlide}",
+				"formatKey":"html"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="int" default="5"/>
+			<!-- 类型： 最新、最热、精华 -->
+			<var name="{kms-kmaps:kms.kmaps.portlet.type}" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[{"text":"{kms-kmaps:kms.kmaps.portlet.newest}", "value":"docPublishTime"},
+		    					{"text":"{kms-kmaps:kms.kmaps.portlet.hot}", "value":"docReadCount"},
+		    						{"text":"{kms-kmaps:kms.kmaps.portlet.essential}","value":"docIsIntroduced"}],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.kmaps.model.KmsKmapsCategory",
+				 "title":"{kms-kmaps:dialog.kmsKmapsCategory.treeTitle}"
+				}
+			</var>
+			<var name="{kms-kmaps:kms.kmaps.portlet.slidepic.isautoslide}"
+				 key="isAutoSlide"
+				 kind="enumValue" default="true" >
+				 {"values":[{"text":"{kms-kmaps:kms.kmaps.portlet.slidepic.autoslide}", "value":"true"}],"showType":"checkbox"}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				target="_self"
+				href="javascript:(function(){seajs.use(('kms/kmaps/kms_kmaps_ui/js/create'), function(create) {
+						create.addDoc(\'!{cateid}\');
+					  });})();"/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/kmaps/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+</root>

@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsEvaluateDocDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocDetailTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluatePersonalRankDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluatePersonalRankDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank" />
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalRankTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluatePersonalRankServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluatePersonalRankDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalRankService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluatePersonalRankTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateDocRankDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocRankDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocRank" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocRankTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocRankServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocRankDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocRankService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocRankTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluatePersonalDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluatePersonalDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalDetail" />
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluatePersonalDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluatePersonalDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluatePersonalDetailTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateAnalyzeService"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAnalyzeService" >
+		<property name="kmsLogAppConfigService">
+			<ref bean="kmsLogAppConfigService"/>
+		</property>
+		<property name="kmsEvaluateSearchMCountService">
+			<ref local="kmsEvaluateSearchMCountService"/>
+		</property>
+		<property name="kmsEvaluateAskPMCountService">
+			<ref local="kmsEvaluateAskPMCountService"/>
+		</property>
+		<property name="kmsEvaluateAskCMCountService">
+			<ref local="kmsEvaluateAskCMCountService"/>
+		</property>
+		<property name="kmsEvaluateDocMonthCountService">
+			<ref local="kmsEvaluateDocMonthCountService"/>
+		</property>
+		<property name="kmsEvaluateDocRankService">
+			<ref local="kmsEvaluateDocRankService"/>
+		</property>
+		<property name="kmsEvaluateDocDetailService">
+			<ref local="kmsEvaluateDocDetailService"/>
+		</property>
+		<property name="kmsEvaluatePersonalRankService">
+			<ref local="kmsEvaluatePersonalRankService"/>
+		</property>
+		<property name="kmsEvaluatePersonalDetailService">
+			<ref local="kmsEvaluatePersonalDetailService"/>
+		</property>
+		<property name="kmsEvaluatePersonMonthCountService">
+			<ref local="kmsEvaluatePersonMonthCountService"/>
+		</property>
+	</bean>
+	
+		
+	<bean
+		id="abstractKmsAnalyzer"
+		abstract="true"
+		class="com.landray.kmss.kms.evaluate.task.AbstractKmsLogAnalyzer" >
+	</bean>
+
+	<bean
+		id="kmsEvaluateKnowledgeCount"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluateKnowledgeCountService" >
+		<property name="kmsEvaluateDocDetailService">
+			<ref local="kmsEvaluateDocDetailService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluatePersonalCount"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluatePersonalCountService" >
+		<property name="kmsEvaluatePersonalDetailService">
+			<ref local="kmsEvaluatePersonalDetailService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluatePersonalMonthCount"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluatePersonalMonthCountService" >
+		<property name="kmsEvaluatePersonMonthCount">
+			<ref local="kmsEvaluatePersonMonthCountService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateDocMonthCount"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluateDocMonthCountService" >
+		<property name="kmsEvaluateDocMonthCountService">
+			<ref local="kmsEvaluateDocMonthCountService"/>
+		</property>
+	</bean>
+	
+	
+		<bean
+		id="kmsEvaluateDocMonthCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocMonthCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocMonthCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocMonthCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocMonthCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocMonthCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocMonthCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocMonthCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluatePersonMonthCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluatePersonMonthCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonMonthCount" />
+	</bean>
+	<bean
+		id="kmsEvaluatePersonMonthCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluatePersonMonthCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluatePersonMonthCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluatePersonMonthCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluatePersonMonthCountTarget" />
+		</property>
+	</bean>
+	
+	
+		<bean
+		id="kmsEvaluateDeptCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDeptCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateDeptCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDeptCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDeptCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDeptCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDeptCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateDeptFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDeptFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateDeptFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDeptFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDeptFilterDao" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService"/>
+		</property>
+		<property name="kmsEvaluatePersonMonthCountService">
+			<ref bean="kmsEvaluatePersonMonthCountService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDeptFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDeptFilterTarget" />
+		</property>
+	</bean>
+	
+	
+		<bean
+		id="kmsEvaluateModuleCateCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateModuleCateCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateModuleCateCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateModuleCateCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateModuleCateCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateModuleCateCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateModuleCateCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateModuleCateCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateModuleCateFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateModuleCateFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateModuleCateFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateModuleCateFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateModuleCateFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateModuleCateFilterDao" />
+		</property>
+		<property name="kmsEvaluateDocMonthCountService">
+			<ref bean="kmsEvaluateDocMonthCountService"/>
+		</property>
+		<property name="kmsLogContextCategoryService">
+			<ref bean="kmsLogContextCategoryService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateModuleCateFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateModuleCateFilterTarget" />
+		</property>
+	</bean>
+	
+		<bean
+		id="kmsEvaluateDocCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateDocFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocFilterDao" />
+		</property>
+		<property name="kmsEvaluateDocMonthCountService">
+			<ref bean="kmsEvaluateDocMonthCountService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluatePersonalCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluatePersonalCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalCount" />
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluatePersonalCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluatePersonalCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluatePersonalCountTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluatePersonalFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluatePersonalFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluatePersonalFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluatePersonalFilterDao" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluatePersonalFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluatePersonalFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateSearchMCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateSearchMCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateSearchMCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateSearchMCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateSearchMCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateSearchMCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateSearchMCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateSearchMCountTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="kmsEvaluateDocSearchCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocSearchCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocSearchCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocSearchCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocSearchCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocSearchCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocSearchCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocSearchCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateDocSearchFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateDocSearchFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocSearchFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateDocSearchFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateDocSearchFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateDocSearchFilterDao" />
+		</property>
+		<property name="kmsEvaluateSearchMCountService">
+			<ref local="kmsEvaluateSearchMCountService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateDocSearchFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateDocSearchFilterTarget" />
+		</property>
+	</bean>
+	
+	
+		<bean
+		id="kmsEvaluateAskCMCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskCMCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskCMCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskCMCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskCMCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskCMCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskCMCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskCMCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateAskPMCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskPMCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskPMCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskPMCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskPMCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskPMCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskPMCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskPMCountTarget" />
+		</property>
+	</bean>
+	
+		<bean
+		id="kmsEvaluateAskDeptCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskDeptCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskDeptCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskDeptCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskDeptCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskDeptCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskDeptCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskDeptCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateAskDeptFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskDeptFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskDeptFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskDeptFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskDeptFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskDeptFilterDao" />
+		</property>
+		<property name="kmsEvaluateAskPMCountService">
+			<ref local="kmsEvaluateAskPMCountService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskDeptFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskDeptFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateAskCCountDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskCCountDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskCCount" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskCCountTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskCCountServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskCCountDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskCCountService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskCCountTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsEvaluateAskCFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.evaluate.dao.hibernate.KmsEvaluateAskCFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskCFilter" />
+	</bean>
+	<bean
+		id="kmsEvaluateAskCFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.evaluate.service.spring.KmsEvaluateAskCFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsEvaluateAskCFilterDao" />
+		</property>
+		<property name="kmsEvaluateAskCMCountService">
+			<ref local="kmsEvaluateAskCMCountService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsEvaluateAskCFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsEvaluateAskCFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateSearchMonthCountService"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluateSearchMonthCountService" >
+		<property name="kmsEvaluateSearchMCountService">
+			<ref local="kmsEvaluateSearchMCountService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateAskPersonMonthCountService"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluateAskPersonMonthCountService" >
+		<property name="kmsEvaluateAskPMCountService">
+			<ref bean="kmsEvaluateAskPMCountService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsEvaluateAskCateMonthCountService"
+		parent="abstractKmsAnalyzer"
+		class="com.landray.kmss.kms.evaluate.task.KmsEvaluateAskCateMonthCountService" >
+		<property name="kmsEvaluateAskCMCountService">
+			<ref bean="kmsEvaluateAskCMCountService"/>
+		</property>
+		<property name="kmsLogContextCategoryService">
+			<ref bean="kmsLogContextCategoryService"/>
+		</property>
+	</bean>
+</beans>

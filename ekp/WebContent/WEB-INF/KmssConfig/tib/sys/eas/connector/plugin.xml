@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<!-- SOAP数据初始化EAS -->
+	<extension
+		point="com.landray.kmss.tib.common.init"
+		model="*">
+			<item name="init">
+			<param
+				name="moduleKey"
+				value="eas" />
+			<param
+				name="initTitle"
+				value="{tib-sys-eas-connector:init.eas}" />
+			<!-- spring 注册 -->
+			<param
+				name="springBean"
+				value="tibSysEasInitExecute" />
+			<param
+				name="jspPath"
+				value="../../sys/eas/connector/tib_sys_eas_init/tibSysEasInit.jsp" />	
+		</item>
+	</extension>
+	
+</plugin>

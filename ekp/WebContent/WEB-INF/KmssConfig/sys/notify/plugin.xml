@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.notify">
+		<!-- 消息机制扩展点定义 -->
+		<item
+			name="notifyType">
+			<param
+				name="key"
+				required="true"
+				kind="string">
+				<description>消息通知方式的标识关键字,如：todo、email、rtx等等，用于唯一标识作用。</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>消息通知方式的名称,如：待办、邮件、RTX等等，用于前台页面显示。</description>
+			</param>
+			<param
+				name="isDefault"
+				kind="boolean"
+				default="false">
+				<description>是否为默认的通知方式,true为默认通知方式,false不做为默认通知方式</description>
+			</param>
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.notify.provider.ISysNotifyProvider">
+				<description>
+					消息通知方式功能实现bean。一般继承抽象类com.landray.kmss.sys.notify.providerx.BaseSysNotifyProvider,此类许多默认方法已经提供。
+				</description>
+			</param>
+			
+			<!-- 消息通知优化，add by wubing date:2014-08-05 -->
+			<param
+				name="asynch"
+				required="true"
+				kind="boolean"
+				default="false">
+				<description>消息通知执行方式,是异步还是同步执行，默认为同步</description>
+			</param>
+			
+			<description>消息机制扩展点定义。</description>
+		</item>
+		<!-- 待办事宜集成的扩展点定义 -->
+		<item
+			name="todoExtend">
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.notify.provider.ISysNotifyTodoProviderExtend">
+				<description>待办处理实现bean。此bean必须实现com.landray.kmss.sys.notify.provider.ISysNotifyTodoProviderExtend接口。</description>
+			</param>
+			<description>
+				第三方系统与EKP待办集成。
+				待办事宜集成的扩展点配置。若需要增加对外部系统发送待办等操作，请实现此扩展点。比如：系统发送待办时，也要对domino系统发送待办。
+			</description>
+		</item>
+		<!-- 主页待办窗口显示邮件数扩展点定义 -->
+		<item
+			name="homeMailNum"
+			singleton="true">
+			<param
+				name="mailNumJsp"
+				required="true"
+				kind="filepath">
+				<description>显示邮件数jsp页面的URL。可参考coremail显示邮件数页面：/third/coremail/sysMail_home.jsp</description>
+			</param>
+			<description>主页待办窗口显示邮件数。</description>
+		</item>
+		<description>
+			消息机制的扩展点配置。
+			包含：
+				1、通知方式(notifyType)
+				2、第三方系统与EKP待办集成(todoExtend)
+				3、主页待办窗口显示邮件数(homeMailNum)
+		</description>
+	</extension-point>
+
+	<!-- 消息机制扩展:待办、邮件、短消息 -->
+	<extension
+		point="com.landray.kmss.sys.notify">
+		<item
+			name="notifyType"
+			enable="${kmss.notify.type.todo.enabled}">
+			<param
+				name="key"
+				value="todo" />
+			<param
+				name="name"
+				value="{sys-notify:sysNotify.type.todo}" />
+			<param
+				name="asynch"
+				value="false" />
+			<param
+				name="isDefault"
+				value="${kmss.notify.type.todo.default}" />
+			<param
+				name="bean"
+				value="sysNotifyTodoProvider" />
+		</item>
+		<item
+			name="notifyType"
+			enable="${kmss.notify.type.email.enabled}">
+			<param
+				name="key"
+				value="email" />
+			<param
+				name="name"
+				value="{sys-notify:sysNotify.type.email}" />
+			<param
+				name="isDefault"
+				value="${kmss.notify.type.email.default}" />
+			<param
+				name="asynch"
+				value="true" />
+			<param
+				name="bean"
+				value="sysNotifyEmailProvider" />
+		</item>
+		<item
+			name="notifyType"
+			enable="${kmss.notify.type.mobile.enabled}">
+			<param
+				name="key"
+				value="mobile" />
+			<param
+				name="name"
+				value="{sys-notify:sysNotify.type.mobile}" />
+			<param
+				name="isDefault"
+				value="${kmss.notify.type.mobile.default}" />
+			<param
+				name="asynch"
+				value="true" />
+			<param
+				name="bean"
+				value="sysNotifyMobileProvider" />
+		</item>
+	</extension>
+	<!-- admin.do的扩展 点之通知方式配置扩展-->
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/notify/config.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="30" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="待办服务" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.sys.notify.webservice.ISysNotifyTodoWebService" />
+			<param
+				name="serviceBean"
+				value="sysNotifyTodoWebService" />
+			<param
+				name="serviceDoc"
+				value="/sys/notify/webservice/SysNotifyWebServiceHelp.jsp" />
+		</item>
+	</extension>
+	<!-- 邮件测试工具 -->
+	<extension
+		point="com.landray.kmss.sys.admin.commontools">
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-notify:sysNotify.config.emailtest}" />
+			<param
+				name="path"
+				value="/sys/notify/tools/mailTest_commontools.jsp" />
+			<param
+				name="description"
+				value="{sys-notify:sysNotify.config.emailtest.description}" />
+		</item>													
+	</extension>
+
+		<!-- 消息队列任务集群调度 -->
+	<extension
+		point="com.landray.kmss.sys.cluster">
+		<item
+			name="dispatcher">
+			<param
+				name="id"
+				value="notifyQueueExecuteDispatcher" />
+			<param
+				name="service"
+				value="notifyQueueExecuteDispatcher" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{sys-notify:module.sys.notify}" />
+			<param name="modelName" value="com.landray.kmss.sys.notify.model.SysNotifyTodo" />
+		</item>
+	</extension>
+
+</plugin>

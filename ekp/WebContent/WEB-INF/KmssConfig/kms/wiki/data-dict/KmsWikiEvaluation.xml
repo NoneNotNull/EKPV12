@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.wiki.model.KmsWikiEvaluation"
+		messageKey="kms-wiki:table.kmsWikiEvaluation"
+		displayProperty="docSubject"
+		serviceBean="kmsWikiEvaluationService"
+		table="kms_wiki_evaluation"
+		url="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdEvaluationTime"
+			messageKey="kms-wiki:kmsWikiEvaluation.fdEvaluationTime"
+			type="DateTime"
+			column="fd_evaluation_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdEvaluationContent"
+			messageKey="kms-wiki:kmsWikiEvaluation.fdEvaluationContent"
+			type="String"
+			column="fd_evaluation_content"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-wiki:kmsWikiEvaluation.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFirstModelId"
+			messageKey="kms-wiki:kmsWikiEvaluation.fdFirstModelId"
+			type="String"
+			column="fd_first_model_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-wiki:kmsWikiEvaluation.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<modelProperty
+			name="fdEvaluator"
+			messageKey="kms-wiki:kmsWikiEvaluation.fdEvaluator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_evaluator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

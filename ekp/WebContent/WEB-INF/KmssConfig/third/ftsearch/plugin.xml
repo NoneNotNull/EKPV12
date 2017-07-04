@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension point="com.landray.kmss.sys.ftsearch.engineType">
+		<item name="ftsearch">
+			<param name="serviceName" value="elasticsearch"/>
+			<param name="serviceDesc" value="蓝凌统一搜索"/>
+			<param name="searchBean" value="searchByES"/>
+			<param name="indexBean" value="indexByES"/>
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="onesearch.properties" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/third/ftsearch/onesearch.properties" />
+		</item>			
+	</extension>
+	
+</plugin>

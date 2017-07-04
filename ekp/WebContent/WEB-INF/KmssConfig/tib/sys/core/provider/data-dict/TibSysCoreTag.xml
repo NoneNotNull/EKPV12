@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag"
+		messageKey="tib-sys-core-provider:table.tibSysCoreTag"
+		displayProperty="fdTagName"
+		serviceBean="tibSysCoreTagService"
+		table="tib_sys_core_tag"
+		url="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdTagName"
+			messageKey="tib-sys-core-provider:tibSysCoreTag.fdTagName"
+			type="String"
+			column="fd_tag_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="tib-sys-core-provider:tibSysCoreTag.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" 
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<format id="sys.ui.classic" name="简单列表" description="简单列表，包括：图标、标题、链接、创建时间，创建者"
+		defaultRender="sys.ui.classic.default" example="/sys/ui/extend/dataview/format/classic-example.jsp"
+		help="/sys/ui/extend/dataview/format/classic-help.jsp" />
+
+	<format id="sys.ui.slide" name="幻灯片" description="幻灯片，包括：图片路径、标题、链接"
+		defaultRender="sys.ui.slide.default" example="/sys/ui/extend/dataview/format/slide-example.jsp"
+		help="/sys/ui/extend/dataview/format/slide-help.jsp" />
+
+	<format id="sys.ui.picMenu" name="图片菜单" description="图片菜单，包括：图标样式、标题、链接"
+		defaultRender="sys.ui.picMenu.default" example="/sys/ui/extend/dataview/format/picmenu-example.jsp"
+		help="/sys/ui/extend/dataview/format/picmenu-help.jsp" />
+
+	<format id="sys.ui.textMenu" name="文本菜单" description="文本菜单，包括：标题、链接"
+		defaultRender="sys.ui.textMenu.default" example="/sys/ui/extend/dataview/format/textmenu-example.jsp"
+		help="/sys/ui/extend/dataview/format/textmenu-help.jsp" />
+
+	<format id="sys.ui.treeMenu2" name="二级树形菜单" description="二级树形菜单，提供两层的标题和链接信息"
+		defaultRender="sys.ui.treeMenu2.default" example="/sys/ui/extend/dataview/format/treemenu2-example.jsp"
+		help="/sys/ui/extend/dataview/format/treemenu2-help.jsp" />
+
+	<format id="sys.ui.treeMenu3" name="三级树形菜单" description="三级树形菜单，提供三层的标题和链接信息"
+		defaultRender="sys.ui.treeMenu3.default" example="/sys/ui/extend/dataview/format/treemenu3-example.jsp"
+		help="/sys/ui/extend/dataview/format/treemenu3-help.jsp" />
+
+	<format id="sys.ui.html" name="自定义页面" description="自定义页面，直接提供HTML信息"
+		defaultRender="sys.ui.html.default" example="/sys/ui/extend/dataview/format/html-example.jsp"
+		help="/sys/ui/extend/dataview/format/html-help.jsp" />
+
+	<format id="sys.ui.iframe" name="iframe" description="iframe页面嵌套，提供URL地址"
+		defaultRender="sys.ui.iframe.default" example="/sys/ui/extend/dataview/format/iframe-example.jsp"
+		help="/sys/ui/extend/dataview/format/iframe-help.jsp" />
+				
+	<format id="sys.ui.listtable" name="列表视图" description="列表视图数据展示"
+		defaultRender="sys.ui.listtable.default" example="/sys/ui/extend/dataview/format/listtable-example.jsp"
+		help="/sys/ui/extend/dataview/format/listtable-help.jsp" />
+
+	<format id="sys.ui.jsp" name="后端部件" description="后端部件"
+		defaultRender="sys.ui.jsp.default" example="/sys/ui/extend/dataview/format/jsp-example.jsp"
+		help="/sys/ui/extend/dataview/format/jsp-help.jsp" />
+		
+	<format id="sys.ui.cate" name="分类导航" description="分类导航"
+		defaultRender="sys.ui.cate.default" example="/sys/ui/extend/dataview/format/cate-example.jsp"
+		help="/sys/ui/extend/dataview/format/cate-help.jsp" />
+		
+	<format id="sys.ui.image" name="图片视图" description="图片视图，包括：图片路径、标题、链接"
+		defaultRender="sys.ui.image.default" example="/sys/ui/extend/dataview/format/image-example.jsp"
+		help="/sys/ui/extend/dataview/format/image-help.jsp" />
+</root>

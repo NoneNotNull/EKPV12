@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibSoapSyncTempFuncDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.soap.sync.dao.hibernate.TibSoapSyncTempFuncDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.soap.sync.model.TibSoapSyncTempFunc" />
+	</bean>
+	<bean
+		id="tibSoapSyncTempFuncTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.soap.sync.service.spring.TibSoapSyncTempFuncServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSoapSyncTempFuncDao" />
+		</property>
+		<property name="compDbcpService">
+		  <ref bean="compDbcpService"/>
+		</property>
+	</bean>
+	<bean
+		id="tibSoapSyncTempFuncService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSoapSyncTempFuncTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSoapSyncCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.soap.sync.dao.hibernate.TibSoapSyncCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.soap.sync.model.TibSoapSyncCategory" />
+	</bean>
+	<bean
+		id="tibSoapSyncCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.soap.sync.service.spring.TibSoapSyncCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSoapSyncCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSoapSyncCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSoapSyncCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSoapSyncJobDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.soap.sync.dao.hibernate.TibSoapSyncJobDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.soap.sync.model.TibSoapSyncJob" />
+	</bean>
+	<bean
+		id="tibSoapSyncJobTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.soap.sync.service.spring.TibSoapSyncJobServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSoapSyncJobDao" />
+		</property>
+		<property name="sysQuartzJobService">
+		    <ref bean="sysQuartzJobTarget"/>
+		</property>
+	</bean>
+	<bean
+		id="tibSoapSyncJobService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSoapSyncJobTarget" />
+		</property>
+	</bean>
+	<bean
+		id="tibSoapSyncCategoryTreeService"
+		class="com.landray.kmss.tib.soap.sync.service.bean.TibSoapSyncCategoryTreeServiceImp">
+		<property name="tibSoapSyncCategoryService">
+			<ref local="tibSoapSyncCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="tibSoapSyncLoadDBTableService"
+		class="com.landray.kmss.tib.soap.sync.service.bean.TibSoapSyncLoadDBTableService">
+	</bean>
+	<!-- 定时任务执行同步 -->
+	<bean
+		id="tibSoapSyncUniteQuartzService"
+		class="com.landray.kmss.tib.soap.sync.service.spring.TibSoapSyncUniteQuartzService">
+		<property name="tibSoapSyncJobService">
+			<ref local="tibSoapSyncJobService" />
+		</property>
+		<property name="tibSysSoap">
+			<ref bean="tibSysSoap" />
+		</property>
+		<property name="tibSoapSyncTempFuncService">
+			<ref bean="tibSoapSyncTempFuncService" />
+		</property>
+		<property name="tibCommonLogInterface">
+			<ref bean="tibCommonLogInterface" />
+		</property>
+	</bean>
+
+</beans>

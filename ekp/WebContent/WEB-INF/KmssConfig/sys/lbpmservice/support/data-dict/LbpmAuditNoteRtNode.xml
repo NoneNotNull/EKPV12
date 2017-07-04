@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNoteRtNode"
+		messageKey="sys-lbpmservice-support:table.lbpmAuditNoteRtNode"
+		serviceBean="lbpmAuditNoteRtNodeService"
+		table="lbpm_audit_note_rt_node">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtNode.fdProcessId"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="true" />
+		<simpleProperty
+			name="fdFactId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtNode.fdFactId"
+			type="String"
+			column="fd_fact_id"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdCanViewFactId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtNode.fdCanViewFactId"
+			type="String"
+			column="fd_can_view_fact_id"
+			notNull="false"
+			length="10" />
+	</model>
+</models>

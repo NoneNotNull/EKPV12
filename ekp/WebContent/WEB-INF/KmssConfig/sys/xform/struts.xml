@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/xform"
+			type="com.landray.kmss.sys.xform.actions.XFormAction"
+			parameter="method"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/xform/db/form_operation_def.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/xform/import"
+			type="com.landray.kmss.sys.xform.actions.XFormImportAction"
+			parameter="method"
+			scope="request"
+			validate="false">
+			<forward 
+				name="result" 
+				path="/sys/xform/impt/result.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="com.landray.kmss.sys.xform.ApplicationResources"
+		key="sys-xform" />
+
+</struts-config>

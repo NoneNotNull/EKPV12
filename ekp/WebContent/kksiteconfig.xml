@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site>
+	<!-- URL参数 -->
+	<url-param>
+		<rowsize>!{rowsize}</rowsize>
+		<unid>%文档unid%</unid>
+	</url-param>
+	
+	<services>
+		<!-- 可选，登录服务 -->
+		<login>
+			<!-- 登录的URL -->
+			<url>/j_acegi_security_check</url>
+			<fields>
+				<!-- 用户名字段名 -->
+				<username>j_username</username>
+				<!-- 密码字段名 -->
+				<password>j_password</password>
+				<!-- 登录后从cookie获取凭证的名字，多值以;分隔 -->
+			</fields>
+			<cookie>JSESSIONID</cookie>
+			<!-- 响应内容中，标志失败的内容 -->
+			<failure-content>action="j_acegi_security_check"</failure-content>
+		</login>
+		
+		<!-- 用户信息服务 -->
+		<user>
+			<!-- 可选，若URL参数中，带有用户信息，则用户信息从该URL地址获取 -->
+			<info>
+				<!-- 获取用户信息的URL -->
+				<url>/sys/organization/sys_org_person/sysOrgPerson.do?method=getUserInfoXML</url>
+				<!-- 从XML解释id信息的XPath，id信息就是url中需要替换的当前用户信息 -->
+				<id-xpath>/userInfo/fdId/text()</id-xpath>
+				<!-- 从XML解释中文名信息的XPath -->
+				<name-xpath>/userInfo/fdName/text()</name-xpath>
+				<!-- 从XML解释邮件信息的XPath -->
+				<mail-xpath>/userInfo/fdEmail/text()</mail-xpath>
+				<!-- 从XML解释电话信息的XPath -->
+				<phone-xpath>/userInfo/fdMobileNo/text()</phone-xpath>
+                <!-- 从XML解释单位信息的XPath -->         
+				<company-xpath>/userInfo/fdCompanyName/text()</company-xpath>
+			</info>
+	
+			<!-- 可选，修改密码 -->
+			<change-password>
+				<!-- 发送消息的URL地址 -->
+				<url>/sys/organization/sys_org_person/chgPersonInfo.do?method=saveMyPwd</url>
+				<fields>
+					<!-- 旧密码 -->
+					<old-password>fdOldPassword</old-password>
+					<!-- 新密码 -->
+					<new-password>fdNewPassword</new-password>
+				</fields>
+				<!-- 响应内容中，标志失败的内容 -->
+				<failure-content>name="fdOldPassword"</failure-content>
+			</change-password>
+		</user>
+		
+		<!-- 可选，待办服务 -->
+		<todo>
+			<!-- URL路径 -->
+			<page-url>/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;rowsize=30</page-url>
+			<!-- 待办信息 -->
+			<todo-info>
+				<!-- XML数据URL路径 -->
+				<url>/sys/common/dataxml.jsp?s_bean=sysNotifyTodoCountService&amp;DocCount=5&amp;type=1</url>
+				<count-xpath>/dataList/data/@count</count-xpath>
+				<!-- 具体条目所对应的节点 -->
+				<data-xpath>/dataList/data</data-xpath>
+				<!-- 具体条目节点。待办对应的ID -->
+				<dataid-xpath>/@id</dataid-xpath>
+				<!-- 具体条目节点。待办显示的名称 -->
+				<dataname-xpath>/@name</dataname-xpath>
+			</todo-info>
+			<!-- 待阅信息 -->
+			<toread-info>
+				<!-- XML数据URL路径 -->
+				<url>/sys/common/dataxml.jsp?s_bean=sysNotifyTodoCountService&amp;DocCount=5&amp;type=2</url>
+				<count-xpath>/dataList/data/@count</count-xpath>
+				<!-- 具体条目所对应的节点 -->
+				<data-xpath>/dataList/data</data-xpath>
+				<!-- 具体条目节点。待办对应的ID -->
+				<dataid-xpath>/@id</dataid-xpath>
+				<!-- 具体条目节点。待办显示的名称 -->
+				<dataname-xpath>/@name</dataname-xpath>
+			</toread-info>
+			<app-path>/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&amp;fdId=%文档unid%</app-path> 
+		</todo>			
+		
+		<!-- 窗口列表 -->
+		<portlet-list>
+			<portlet>
+				<!-- ID -->
+				<id>01</id>
+				<!-- 窗口名 -->
+				<name>待办事宜</name>
+				<!-- 0：网页格式；1：dll格式 -->
+				<origin>0</origin>
+				<!-- 路径 -->
+				<url>/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;forKK=true</url>
+				<!-- 首页信息 -->
+				<homepageurl>/sys/notify.index</homepageurl>
+				<!-- 1：客户端不能取消的portlet，0：客户端可取消 -->
+				<ClientForce>1</ClientForce>
+			</portlet>
+			<portlet>
+				<id>02</id>
+				<name>工作流程</name>
+				<origin>0</origin>
+				<url>/km/review/tree_kk.jsp</url>
+				<homepageurl>/km/review.index</homepageurl>
+				<ClientForce>1</ClientForce>
+			</portlet>
+			<portlet>
+				<id>03</id>
+				<name>新闻系统</name>
+				<origin>0</origin>				
+				<url>/resource/jsp/portlet.jsp?portlet=sys-news:sysNewsMain.portlet.withHead&amp;forKK=true&amp;DocCount=20&amp;ShowHead=true</url>
+				<homepageurl>/sys/news.index</homepageurl>
+				<ClientForce>0</ClientForce>
+			</portlet>
+			<portlet>
+				<id>04</id>
+				<name>企业知识</name>
+				<origin>0</origin>				
+				<url>/resource/jsp/portlet.jsp?portlet=km-doc:portlet.kmDoc.newDoc&amp;forKK=true&amp;s_css=default&amp;DocCount=20</url>
+				<homepageurl>/km/doc.index</homepageurl>
+				<ClientForce>1</ClientForce>
+			</portlet>
+			<portlet>
+                <id>05</id>
+				<name>公司论坛</name>
+				<url>/resource/jsp/portlet.jsp?portlet=km-forum:portlet.kmForum.newTopic&amp;forKK=true&amp;DocCount=20&amp;NewDay=3&amp;ShowCreated=true&amp;ShowCreator=true&amp;NewLine=true</url>
+                <homepageurl>/km/forum.index</homepageurl>
+                <ClientForce>0</ClientForce>
+			</portlet>
+			<portlet>
+				<id>06</id>
+				<name>规范制度</name>
+				<origin>0</origin>				
+				<url>/resource/jsp/portlet.jsp?portlet=km-institution:portlet.kmInstitution.newDoc&amp;forKK=true&amp;DocCount=20</url>
+				<homepageurl>/km/institution.index</homepageurl>
+				<ClientForce>0</ClientForce>
+			</portlet>
+			<portlet>
+				<id>07</id> 
+				<name>常用资料</name> 
+				<origin>0</origin>				
+				<url>/resource/jsp/portlet.jsp?portlet=sys-home:sysHomeCommonLink.portlet&amp;forKK=true&amp;DocCount=20</url> 
+				<homepageurl>/sys/home/sys_home_common_link/sysHomeCommonLink.do?method=list</homepageurl> 
+				<ClientForce>0</ClientForce> 
+			</portlet>
+		</portlet-list>
+	</services>
+</site>

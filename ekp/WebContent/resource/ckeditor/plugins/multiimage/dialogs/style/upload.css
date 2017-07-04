@@ -1,0 +1,256 @@
+.cke_reset_all .lui-attachment-upload {
+	margin-bottom: 10px;
+	padding: 5px;
+	background: #fff;
+	position: relative;
+}
+
+.cke_reset_all .lui-attachment-upload .swfupload {
+	width: 100%;
+	height: 100%;
+}
+
+.cke_reset_all .lui-attachment-upload .uploadBtn {
+	background: #EFEFEF url("./images/add.png") no-repeat center;
+	width: 98px;
+	height: 98px;
+	position: relative;
+}
+
+.cke_reset_all .lui-attachment-upload .uploadBtn>div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.cke_reset_all .lui-attachment-upload h3.title {
+	color: #6a6a6a;
+	font-weight: normal;
+	float: left;
+	font-size: 18px;
+}
+
+.cke_reset_all .lui-attachment-upload .btn {
+	float: right;
+	position: relative;
+	top: -5px;
+}
+
+.cke_reset_all .lui-attachment-upload .btn>span {
+	display: block;
+	float: right;
+	margin: 0 2px;
+}
+
+.cke_reset_all .lui-attachment-upload article .img li {
+	width: 98px;
+	height: 98px;
+	float: left;
+	cursor: pointer;
+	position: relative;
+	list-style: none;
+	font-size: 9px;
+	margin: 10px 0;
+	padding: 0px;
+	line-height: 98px;
+	text-align: center;
+	margin: 20px;
+	border: 2px solid #fff;
+}
+
+.cke_reset_all .lui-attachment-upload>article .img li.lui-attachment-image-selected
+	{
+	border: 2px solid #ffb517;
+}
+
+.lui-attachment-upload-btn {
+	border: 2px solid #dcdcdc !important;
+}
+
+.lui-attachment-image {
+	_float: left;
+}
+
+.lui-attachment-limit-msg {
+	line-height: 49px;
+	line-height: 49px;
+	color: #757575;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	padding-left: 12px;
+}
+
+.cke_reset_all .lui-attachment-upload>article .img li.lui_attachment_upload_btn_init
+	{
+	width: 203px;
+	height: 51px;
+	border: none;
+	margin: 0 auto;
+	float: none;
+}
+
+.cke_reset_all .lui-attachment-upload>article .img li.lui_attachment_upload_btn_init .uploadBtn
+	{
+	background: url("./images/btn.png") no-repeat;
+	width: 203px;
+	height: 51px;
+}
+
+.cke_reset_all .lui-attachment-upload article .img li img {
+	width: 94px;
+	height: 94px;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+}
+
+.cke_reset_all .lui-attachment-upload>article .img i {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: url(./images/icon_del.png) no-repeat center;
+	position: absolute;
+	background-size: 20px;
+	top: 2px;
+	right: 2px;
+	cursor: pointer;
+}
+
+.cke_reset_all .lui-attachment-upload .info {
+	
+}
+
+.cke_reset_all .lui-attachment-upload .info dd {
+	padding: 5px;
+}
+
+.cke_reset_all .lui-attachment-upload .info dd>span {
+	padding: 2px 0 2px 10px;
+	color: #262626;
+}
+
+.cke_reset_all .lui-attachment-upload .process {
+	height: 8px;
+	border-radius: 3px;
+	background: #e4e4e4;
+	left: 30px;
+	top: 7px;
+	right: 50px;
+	position: absolute;
+}
+
+.cke_reset_all .lui-attachment-upload .process>span:first-child {
+	display: inline-block;
+	background: #8ccbf7;
+	border-radius: 3px;
+	height: 8px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.cke_reset_all .lui-attachment-upload .lui_attachment_upload_btn {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 25px;
+	padding-left: 75px;
+	line-height: 50px;
+	cursor: pointer;
+}
+
+.cke_reset_all .lui-attachment-upload .processDiv>span {
+	float: right;
+}
+
+.cke_reset_all .lui-attachment-upload .processDiv {
+	height: 12px;
+	position: relative;
+}
+
+.cke_reset_all .lui_attachment_rate1, .cke_reset_all .lui_attachment_rate2,
+	.cke_reset_all .lui_attachment_rate3, .cke_reset_all .lui_attachment_rate4,
+	.cke_reset_all .lui_attachment_rate5, .cke_reset_all .lui_attachment_rate6,
+	.cke_reset_all .lui_attachment_rate7, .cke_reset_all .lui_attachment_rate8,
+	.cke_reset_all .lui_attachment_rate9 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 98px;
+	height: 98px;
+	opacity: 0.5;
+}
+
+.lui_attachment_rate1 {
+	background: url("./images/1.png") no-repeat center;
+}
+
+.lui_attachment_rate2 {
+	background: url("./images/2.png") no-repeat center;
+}
+
+.lui_attachment_rate3 {
+	background: url("./images/3.png") no-repeat center;
+}
+
+.lui_attachment_rate4 {
+	background: url("./images/4.png") no-repeat center;
+}
+
+.lui_attachment_rate5 {
+	background: url("./images/5.png") no-repeat center;
+}
+
+.lui_attachment_rate6 {
+	background: url("./images/6.png") no-repeat center;
+}
+
+.lui_attachment_rate7 {
+	background: url("./images/7.png") no-repeat center;
+}
+
+.lui_attachment_rate8 {
+	background: url("./images/8.png") no-repeat center;
+}
+
+.lui_attachment_rate9 {
+	background: url("./images/9.png") no-repeat center;
+}
+
+.lui-attachment-tip {
+	width: 90%;
+	margin: 0 auto 5px;
+	padding-left: 4px;
+	background: url(./images/multiPicUploadWarnL.png) no-repeat 0 0;
+}
+
+.lui-attachment-tip-r {
+	padding-right: 4px;
+	background: url(./images/multiPicUploadWarnR.png) no-repeat 100% 0;
+}
+
+.lui-attachment-tip-c {
+	padding: 0 10px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #d26300;
+	font-size: 12px;
+	border-top: 1px solid #ffe243;
+	border-bottom: 1px solid #ffe243;
+	background-color: #fffadc;
+	position: relative;
+}
+
+.lui-attachment-tip-text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

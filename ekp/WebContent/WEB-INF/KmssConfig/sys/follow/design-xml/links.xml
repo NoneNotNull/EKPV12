@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="setting" order="10">
+		<link 
+			id="sys_follow_person_config"
+			url="/sys/follow/sys_follow_person_config/sysFollowPersonConfig.do?method=edit" 
+			msgKey="sys-follow:sysFollow.person.config" />
+	</links>
+	
+	<links type="home-nav" order="10">
+	   <link url="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated_person.jsp" 
+	   		msgKey="sys-follow:sysFollow.person.my" icon="lui_icon_l_icon_36" id="sys_follow_home_nav_my"/>
+	</links>
+</root>

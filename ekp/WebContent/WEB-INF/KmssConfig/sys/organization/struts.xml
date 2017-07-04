@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysOrgRoleLineForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgRoleLineForm">
+		</form-bean>
+		<form-bean
+			name="sysOrgRoleConfForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgRoleConfForm">
+		</form-bean>
+		<form-bean
+			name="sysOrgRoleForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgRoleForm">
+		</form-bean>
+		<form-bean
+			name="sysOrgRoleLineDefaultRoleForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgRoleLineDefaultRoleForm">
+		</form-bean>
+		<form-bean
+			name="sysOrgOrgForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgOrgForm" />
+		<form-bean
+			name="sysOrgDeptForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgDeptForm" />
+		<form-bean
+			name="sysOrgPostForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgPostForm" />
+		<form-bean
+			name="sysOrgPersonForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgPersonForm" />
+		<form-bean
+			name="sysOrgPersonInfoForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgPersonInfoForm" />
+		<form-bean
+			name="sysOrgGroupForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgGroupForm" />
+		<form-bean
+			name="sysOrgGroupCateForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgGroupCateForm" />
+		<form-bean
+			name="sysOrgQuickSortForm"
+			type="com.landray.kmss.sys.organization.forms.SysOrgQuickSortForm" />			
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/organization/sys_org_role_line/sysOrgRoleLine"
+			type="com.landray.kmss.sys.organization.actions.SysOrgRoleLineAction"
+			name="sysOrgRoleLineForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_role_line/sysOrgRoleLine_edit.jsp">
+			</forward>
+			<forward
+				name="roleTree"
+				path="/sys/organization/sys_org_role_line/sysOrgRoleLine_tree.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_role_conf/sysOrgRoleConf"
+			type="com.landray.kmss.sys.organization.actions.SysOrgRoleConfAction"
+			name="sysOrgRoleConfForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_role_conf/sysOrgRoleConf_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_role_conf/sysOrgRoleConf_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_role_conf/sysOrgRoleConf_list.jsp">
+			</forward>
+			<!-- 未重构 -->
+			<forward
+				name="check"
+				path="/sys/organization/sys_org_role_conf/sysOrgRoleConf_defaultRole.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/organization/sys_org_role/sysOrgRole"
+			type="com.landray.kmss.sys.organization.actions.SysOrgRoleAction"
+			name="sysOrgRoleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_role/sysOrgRole_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_role/sysOrgRole_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_role/sysOrgRole_list.jsp">
+			</forward>
+		</action>
+		
+		<!-- 未重构 -->
+		<action
+			path="/sys/organization/sys_org_role_line_default_role/sysOrgRoleLineDefaultRole"
+			type="com.landray.kmss.sys.organization.actions.SysOrgRoleLineDefaultRoleAction"
+			name="sysOrgRoleLineDefaultRoleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_role_line_default_role/sysOrgRoleLineDefaultRole_edit.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/organization/sys_org_org/sysOrgOrg"
+			type="com.landray.kmss.sys.organization.actions.SysOrgOrgAction"
+			name="sysOrgOrgForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_org/sysOrgOrg_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_org/sysOrgOrg_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_org/sysOrgOrg_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_dept/sysOrgDept"
+			type="com.landray.kmss.sys.organization.actions.SysOrgDeptAction"
+			name="sysOrgDeptForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_dept/sysOrgDept_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_dept/sysOrgDept_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_dept/sysOrgDept_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/organization/sys_org_element/sysOrgElementCriteria"
+			type="com.landray.kmss.sys.organization.actions.SysOrgElementCriteriaAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_post/sysOrgPost"
+			type="com.landray.kmss.sys.organization.actions.SysOrgPostAction"
+			name="sysOrgPostForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_post/sysOrgPost_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_post/sysOrgPost_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_post/sysOrgPost_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_person/sysOrgPerson"
+			type="com.landray.kmss.sys.organization.actions.SysOrgPersonAction"
+			name="sysOrgPersonForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_person/sysOrgPerson_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_person/sysOrgPerson_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_person/sysOrgPerson_list.jsp" />
+			<forward
+				name="address"
+				path="/sys/organization/sys_org_person/sysOrgPerson_addressTypeEdit.jsp" />
+			<forward
+				name="addressUi"
+				path="/sys/organization/person/sysOrgPerson_address.jsp" />
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_person/chgPersonInfo"
+			type="com.landray.kmss.sys.organization.actions.SysOrgPersonInfoAction"
+			name="sysOrgPersonInfoForm"
+			parameter="method"
+			scope="request">
+			<forward
+				name="chgPwd"
+				path="/sys/organization/sys_org_person/sysOrgPerson_chgpwd.jsp" />
+			<forward
+				name="chgMyPwd"
+				path="/sys/organization/person/sysOrgPerson_chgmypwd.jsp" />
+			<forward
+				name="chgInfo"
+				path="/sys/organization/sys_org_person/sysOrgPerson_chginfo.jsp" />
+			<forward
+				name="chgInfoUi"
+				path="/sys/organization/person/sysOrgPerson_chginfo.jsp" />
+			<forward
+				name="chgMyAddress"
+				path="/sys/organization/sys_org_person/sysOrgPerson_chgmyaddress.jsp" />
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_group/sysOrgGroup"
+			type="com.landray.kmss.sys.organization.actions.SysOrgGroupAction"
+			name="sysOrgGroupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_group/sysOrgGroup_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_group/sysOrgGroup_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_group/sysOrgGroup_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/organization/sys_org_group_cate/sysOrgGroupCate"
+			type="com.landray.kmss.sys.organization.actions.SysOrgGroupCateAction"
+			name="sysOrgGroupCateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/organization/sys_org_group_cate/sysOrgGroupCate_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/organization/sys_org_group_cate/sysOrgGroupCate_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/organization/sys_org_group_cate/sysOrgGroupCate_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/organization/sys_org_element/sysOrgElement"
+			type="com.landray.kmss.sys.organization.actions.SysOrgElementOutAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="childrens_list"
+				path="/sys/organization/sysOrgElement_childrens_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/organization/sys_org_quick_sort/SysOrgQuickSort"
+			type="com.landray.kmss.sys.organization.actions.SysOrgQuickSortAction"
+			name="sysOrgQuickSortForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="quickSort"
+				path="/sys/organization/sys_org_quick_sort/sysOrgQuickSort_sort.jsp" />
+
+		</action>		
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.organization.ApplicationResources"
+		key="sys-organization" />
+</struts-config>

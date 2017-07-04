@@ -1,0 +1,41 @@
+var extend = (param!=null && param.extend!=null)?('_'+param.extend):'';
+
+{$
+	<div class="lui_panel{%extend%}_frame">
+		<div class="lui_panel{%extend%}_navs_l">
+			<div class="lui_panel{%extend%}_navs_r">
+				<div class="lui_panel{%extend%}_navs_c clearfloat" data-lui-mark="panel.nav.frame">
+					<div class="lui_panel{%extend%}_navs_item_l">
+						<div class="lui_panel{%extend%}_navs_item_r">
+							<div class="lui_panel{%extend%}_navs_item_c" data-lui-mark="panel.nav.title">
+							</div>
+						</div>
+					</div>
+$}
+if(layout.panel.contents[0].getToggle()){
+	{$
+					<div class="lui_panel{%extend%}_toggle"  data-lui-mark='panel.nav.head'>
+						<div class="lui_panel{%extend%}_toggle_up" data-lui-mark="panel.nav.toggle" data-lui-switch-class="lui_panel{%extend%}_toggle_down">
+						</div>
+					</div>
+	$}
+}
+{$
+				</div>
+			</div>
+		</div>
+		<div class="lui_panel{%extend%}_content_l">
+			<div class="lui_panel{%extend%}_content_r">
+				<div class="lui_panel{%extend%}_content_c" data-lui-mark="panel.contents">
+				</div>
+			</div>
+		</div>
+		<div class="lui_panel{%extend%}_footer_l">
+			<div class="lui_panel{%extend%}_footer_r">
+				<div class="lui_panel{%extend%}_footer_c">
+				</div>
+			</div>
+		</div>
+	</div>
+$}
+

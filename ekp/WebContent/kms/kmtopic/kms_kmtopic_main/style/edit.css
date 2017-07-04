@@ -1,0 +1,417 @@
+.lui_kmtopic_baseinfo_l{
+	margin-right: 14px;
+	overflow:auto;
+}
+.lui_kmtopic_baseinfo_l .t_info{
+	float: left;
+	width: 70%;
+	margin-right: 14px;
+}
+.lui_kmtopic_baseinfo_pic{
+	float: left;
+	width: 220px;
+	height: 170px;
+	padding-left: 23px;
+}
+.lui_kmtopic_cont_info .dis_style{
+	height: 38px;
+	line-height: 38px;
+	color: #5b5b5b;
+	padding-left: 5px;
+	margin-left: 5%;
+}
+.lui_kmtopic_baseinfo_m{
+	height: 22px;
+	line-height: 22px;
+	color: #52a4c9;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.lui_kmtopic_attach_type{
+	width: 900px;
+}
+.lui_kmtopic_attach_type ul li {
+	list-style: none;
+	width: 34px;
+	height: 50px;
+	text-align: center;
+	float: left;
+	margin-right: 12px;
+	cursor: pointer;
+}
+.lui_kmtopic_attach_type ul{
+	height:60px;
+}
+.lui_kmtopic_attach_type ul li p {
+	position: absolute;
+	left: 0px;
+	bottom: 5px;
+	line-height: 20px;
+	color: #aaaaaa;
+	text-align: center;
+	width: 100%;
+}
+.lui_kmtopic_attach_type ul li.file_att{
+	background: url(img/icon_big_attach.png) no-repeat center 12px;
+}
+.lui_kmtopic_attach_type ul li.file_sys{
+	background: url(img/icon_big_sys.png) no-repeat center 12px;
+}
+.lui_kmtopic_attach_type ul li.file_link{
+	background: url(img/icon_big_exterLinks.png) no-repeat center 12px;
+}
+.lui_kmtopic_catelog{
+	height: 38px;
+	line-height: 38px;
+	/**padding-left: 30px;**/
+	border: 1px solid #e6e6e6;
+	/**background: url(img/icon_tips.png) no-repeat 9px center;**/
+	color: #ff4400;
+	width: 90%;
+}
+.kmtopic_catelog_tip{
+	background: url(img/icon_tips.png) no-repeat 9px center;
+	padding-left: 30px;
+	color: #ff4400;
+}
+.lui_kmtopic_catelog .btn_add , .catlog_btn_add{
+	display: inline-block;
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	background: #ff4400;
+	text-align: center;
+	color: #fff;
+	margin-left: 8px;
+	cursor: pointer;
+}
+.lui_kmtopic_attch_list ul li a{
+	color: #5b5b5b;
+	cursor: pointer;
+	margin-right: 15px;
+	display: block;
+	float: left;
+}
+.lui_kmtopic_attch_list ul{
+	list-style: none;
+}
+.lui_kmtopic_attch_list ul li {
+	height: 27px;
+	line-height: 27px;
+	padding-left: 20px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	zoom: 1;
+}
+
+.lui_kmtopic_attch_list {
+	padding-top: 6px;
+	width: 90%;
+	padding-bottom: 10px;
+}
+.lui_kmtopic_attch_list .edit {
+	cursor: pointer;
+	background: url(img/icon_edit.png) no-repeat center;
+	width: 16px;
+	height: 27px;
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+}
+.lui_kmtopic_attch_list .title {
+	height: 27px;
+	display: inline-block;
+	float: left;
+	margin-right: 15px;
+	color: #5b5b5b;
+}
+.lui_kmtopic_attch_list .delete {
+	cursor: pointer;
+	background: url(img/icon_close.png) no-repeat center;
+	width: 16px;
+	height: 27px;
+	display: inline-block;
+	float: left;
+}
+.lui_kmtopic_desc{
+	vertical-align: top!important;
+	text-align: right;
+}
+.lui_kmtopic_catelog_title{
+	text-align: right;
+	color: #868686;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	font-size: 12px;
+}
+.kmtopic_headline{
+	background: #f7f7f7;
+	padding-left: 18px;
+	border: 1px solid #f0f0f0;
+	height: 34px;
+	line-height: 34px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #3b3b3b;
+	margin: 0;
+}
+.kmtopic_headline .tag {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background: url(img/ekp_tag.png) no-repeat center;
+	margin-right: 6px;
+}
+
+.kmtopic_headline .log_edit{
+	cursor: pointer;
+	background: url(img/icon_edit.png) no-repeat center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.lui_kmtopic_link_title{
+	text-align: right;
+	color: #868686;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	font-size: 12px;
+}
+.lui_kmtopic_catelog_bottom {
+	width: 200px;
+	height: 300px;
+	border: 1px solid #47b5e6;
+	background-color: white;
+	position: fixed;
+	overflow: hidden;
+	display: none;
+	
+	position: fixed;
+	top: 251px;
+	left: 1129px;
+	display: block;
+}
+.lui_kmtopic_catelog_barLeft {
+	background-color: #eaeaea;
+	border: 1px solid #eaeaea;
+	position: absolute;
+	height: 300px;
+	left: 17px;
+	top: 10px;
+}
+.lui_kmtopic_catelog_bar {
+	width: 200px;
+	height: 300px;
+	overflow: hidden;
+	position: relative;
+}
+.lui_kmtopic_catalog_ul {
+	padding: 10px 12px;
+}
+.lui_kmtopic_catelog_barContent ul li {
+	padding-left: 17px;
+	line-height: 22px;
+}
+.lui_catelog_bottom_first {
+	background: url(./img/catalog_icon_3.png) no-repeat 1px 0;
+}
+.lui_catelog_bottom_one {
+	background: url(./img/catalog_icon_1.png) no-repeat 0px 55%;
+	display: block;
+	width: 100%;
+}
+.lui_kmtopic_content{
+	padding: 12px 6px;
+}
+.tb_simple .inputAdd {
+	height: 25px;
+	border: 0px;
+	border: 1px solid #dfdfdf;
+}
+.kmtopic_headline .logDelete {
+	cursor: pointer;
+	background: url(img/icon_close.png) no-repeat center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.lui_kmtopic_attch_list .icon_att {
+	background: url(img/icon_s_attach.png) no-repeat center;
+}
+.lui_kmtopic_attch_list .icon_sys {
+	background: url(img/icon_s_sys.png) no-repeat center;
+}
+.lui_kmtopic_attch_list .icon_link {
+	background: url(img/icon_s_exterLinks.png) no-repeat center;
+}
+.lui_kmtopic_attch_list .icon {
+	width: 16px;
+	height: 27px;
+	display: inline-block;
+	margin-right: 12px;
+	float: left;
+}
+.lui_kmtopic_log{
+	border: 1px solid #f0f0f0;
+	margin-bottom: 12px;
+}
+.kmtopic_headline .log_icon_sys {
+	cursor: pointer;
+	background: url(img/log_icon_sys.png) no-repeat center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-left: 18px;
+}
+.kmtopic_headline .log_icon_attach {
+	cursor: pointer;
+	background: url(img/log_icon_attach.png) no-repeat center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-left: 18px;
+}
+.kmtopic_headline .log_icon_exterLink {
+	cursor: pointer;
+	background: url(img/log_icon_exterlink.png) no-repeat center;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-left: 18px;
+}
+
+
+.kms_subject_navToolbar {
+	height: 31px;
+	margin-bottom: 15px;
+}
+ul {
+	list-style: none;
+}
+.kms_subject_navToolbar ul li.first {
+	margin-left: 0px;
+}
+.kms_subject_navToolbar ul li {
+	float: left;
+	height: 31px;
+	line-height: 31px;
+	/**cursor: pointer;**/
+	zoom: 1;
+	position: relative;
+}
+.kms_subject_navToolbar ul li.fulfill .nav_itemR {
+	background: url(img/subject_nav_doneR.png) no-repeat right top;
+	padding-right: 18px;
+}
+.kms_subject_navToolbar ul li.fulfill .no {
+	background: #68a4de;
+}
+.kms_subject_navToolbar ul li.first .no {
+	padding-left: 13px;
+}
+.kms_subject_navToolbar ul li .no {
+	display: inline-block;
+	padding: 0px 13px;
+	padding-left: 46px;
+	float: left;
+	border-bottom: 1px solid #dbdbdb;
+	border-top: 1px solid #dbdbdb;
+}
+.kms_subject_navToolbar ul li.fulfill .no a {
+	color: #fff;
+}
+.kms_subject_navToolbar ul li .no a {
+	font-size: 26px;
+	font-weight: bold;
+	float: left;
+}
+.kms_subject_navToolbar ul li.fulfill .txt {
+	color: #fff;
+	background: #68a4de;
+}
+.kms_subject_navToolbar ul li .txt {
+	display: inline-block;
+	font-size: 14px;
+	padding-left: 13px;
+	padding-right: 33px;
+	border-bottom: 1px solid #dbdbdb;
+	border-top: 1px solid #dbdbdb;
+}
+.kms_subject_navToolbar ul li.current .nav_itemR {
+	background: url(img/subject_nav_curR.png) no-repeat right top;
+	padding-right: 16px;
+}
+.kms_subject_navToolbar ul li.current .no {
+	background: #50d642;
+}
+.kms_subject_navToolbar ul li.current .no a {
+	color: #fff;
+}
+.kms_subject_navToolbar ul li.current .txt {
+	color: #fff;
+	background: #50d642;
+}
+.kms_subject_navToolbar ul li {
+	margin-left: -33px;
+}
+.kms_subject_navToolbar ul li .nav_itemR {
+	background: url(img/subject_navtxt_R.png) no-repeat right top;
+	padding-right: 18px;
+}
+.kms_subject_navToolbar ul li:after {
+	clear: both;
+	line-height: 0px;
+	visibility: hidden;
+	display: block;
+	content: 'clear';
+}
+.sideToolbar {
+	position: fixed;
+	right: 2.3%;
+	top: 129px;
+}
+.sideToolbar dl {
+	padding-top: 10px;
+}
+.sideToolbar dl dd {
+	margin-bottom: 1px;
+	cursor: pointer;
+}
+.sideToolbar dl dd.highlight span.top {
+	background: url(img/sideToolbar_curT.png) no-repeat left top;
+}
+.sideToolbar dl dd span.top {
+	display: block;
+	padding: 0px 10px;
+	width: 15px;
+	background: url(img/sideToolbar_T.png) no-repeat left top;
+	padding-top: 4px;
+}
+.sideToolbar dl dd {
+	cursor: pointer;
+}
+.sideToolbar dl dd.highlight a {
+	background: url(img/sideToolbar_curC.png) repeat-y left top;
+}
+.sideToolbar dl dd a {
+	display: block;
+	width: 15px;
+	background: url(img/sideToolbar_C.png) repeat-y left top;
+	padding: 20px 10px;
+	font-size: 14px;
+	color: #fff;
+}
+.sideToolbar dl dd.highlight span.bottom {
+	background: url(img/sideToolbar_curB.png) no-repeat left bottom;
+}
+.sideToolbar dl dd span.bottom {
+	display: block;
+	padding: 0px 10px;
+	width: 15px;
+	background: url(img/sideToolbar_B.png) no-repeat left bottom;
+	padding-bottom: 5px;
+}
+.sideToolbar dl dd {
+	cursor: pointer;
+}

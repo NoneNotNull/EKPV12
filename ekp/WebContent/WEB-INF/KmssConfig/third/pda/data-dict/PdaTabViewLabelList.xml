@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaTabViewLabelList"
+		messageKey="third-pda:table.pdaTabViewLabelList"
+		serviceBean=""
+		table="pda_tabview_label_list" >
+		<idProperty>
+			<generator
+				type="assigned"/>
+		</idProperty>
+		
+		<simpleProperty
+			name="fdTabName"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabName"
+			type="String"
+			column="fd_tab_name"
+			notNull="true"
+			length="500" />
+			
+		<simpleProperty
+			name="fdTabOrder"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabOrder"
+			type="Integer"
+			column="fd_tab_order"
+			notNull="false"
+			length="10" />
+			
+		<simpleProperty
+			name="fdStatus"
+			messageKey="third-pda:pdaTabViewLabelList.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="2" />
+			
+		<simpleProperty
+			name="fdTabIcon"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabIcon"
+			type="String"
+			column="fd_tab_icon"
+			notNull="false"
+			length="100" />
+			
+		<simpleProperty
+			name="fdTabUrl"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabUrl"
+			type="String"
+			column="fd_tab_url"
+			notNull="false"
+			length="1000" />
+			
+		<simpleProperty
+			name="fdTabType"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabType"
+			type="String"
+			column="fd_tab_type"
+			notNull="false"
+			length="100" />
+			
+		<simpleProperty
+			name="fdTabBean"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabBean"
+			type="String"
+			column="fd_tab_bean"
+			notNull="false"
+			length="100" />
+			
+		<simpleProperty
+			name="fdTabModelName"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabModelName"
+			type="String"
+			column="fd_tab_model_name"
+			notNull="false"
+			length="500" />
+			
+		<modelProperty
+			name="fdTabModule"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabModuleId"
+			type="com.landray.kmss.third.pda.model.PdaModuleConfigMain"
+			column="fd_tab_module_id"
+			notNull="false" />
+			
+		<simpleProperty
+			name="fdTabTemplateClass"
+			messageKey="third-pda:pdaTabViewLabelList.fdTabTemplateClass"
+			type="String"
+			column="fd_tab_template_class"
+			notNull="false"
+			length="500" />
+			
+		<modelProperty
+			name="fdPdaTabViewConfigMain"
+			messageKey="third-pda:pdaTabViewLabelList.fdPdaTabViewConfigMain"
+			type="com.landray.kmss.third.pda.model.PdaTabViewConfigMain"
+			column="fd_tabview_id"
+			notNull="false" />
+	</model>
+</models>

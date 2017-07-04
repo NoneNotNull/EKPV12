@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysCategoryMainAuthService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryMainAuthService">
+		<property
+			name="sysCategoryMainService">
+			<ref
+				local="sysCategoryMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryPropertyAuthService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryPropertyAuthService">
+		<property
+			name="sysCategoryPropertyService">
+			<ref
+				local="sysCategoryPropertyService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryPropertyTreeService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryPropertyTreeService">
+		<property
+			name="sysCategoryPropertyService">
+			<ref
+				local="sysCategoryPropertyService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryProTreeService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryProTreeService">
+		<property
+			name="sysCategoryPropertyService">
+			<ref
+				local="sysCategoryPropertyService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryTreeService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryTreeService">
+		<property
+			name="sysCategoryMainService">
+			<ref
+				local="sysCategoryMainService" />
+		</property>
+		<property
+			name="sysAuthAreaService">
+			<ref
+				bean="sysAuthAreaService" />
+		</property>					
+	</bean>
+	<bean
+		id="sysCategoryTreeMultiService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryTreeMultiService">
+		<property
+			name="sysCategoryMainService">
+			<ref
+				local="sysCategoryMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryMainDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.category.dao.hibernate.SysCategoryMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.category.model.SysCategoryMain" />
+	</bean>
+	<bean
+		id="sysCategoryMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysCategoryMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysCategoryMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryPropertyDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.category.dao.hibernate.SysCategoryPropertyDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.category.model.SysCategoryProperty" />
+	</bean>
+	<bean
+		id="sysCategoryPropertyTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryPropertyServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysCategoryPropertyDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryPropertyService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysCategoryPropertyTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysCategoryEditorValidator"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryValidator">
+		<property
+			name="sysCategoryPropertyAuthService">
+			<ref
+				bean="sysCategoryPropertyAuthService" />
+		</property>
+		<property
+			name="sysCategoryMainAuthService">
+			<ref
+				bean="sysCategoryMainAuthService" />
+		</property>
+		<property
+			name="fieldType">
+			<value>Editors</value>
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryReaderValidator"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryValidator">
+		<property
+			name="sysCategoryPropertyAuthService">
+			<ref
+				bean="sysCategoryPropertyAuthService" />
+		</property>
+		<property
+			name="sysCategoryMainAuthService">
+			<ref
+				bean="sysCategoryMainAuthService" />
+		</property>
+		<property
+			name="fieldType">
+			<value>Readers</value>
+		</property>
+	</bean>
+
+	<bean
+		id="sysCategoryFilingDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.category.dao.hibernate.SysCategoryFilingDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.category.model.SysCategoryFiling" />
+	</bean>
+	<bean
+		id="sysCategoryFilingTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryFilingServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysCategoryFilingDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysCategoryFilingService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysCategoryFilingTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysCategoryAbolishTreeService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryAbolishTreeService">
+		<property
+			name="sysCategoryFilingService">
+			<ref
+				local="sysCategoryFilingService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysCategoryAuthTreeService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryAuthTreeService">
+	</bean>
+	<bean
+		id="sysCategoryAuthListService"
+		class="com.landray.kmss.sys.category.service.spring.SysCategoryAuthListService">
+	</bean>	
+</beans>

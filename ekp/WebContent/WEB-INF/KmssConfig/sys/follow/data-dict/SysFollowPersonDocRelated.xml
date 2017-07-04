@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.follow.model.SysFollowPersonDocRelated"
+		messageKey="sys-follow:table.sysFollowPersonDocRelated"
+		displayProperty="fdId"
+		serviceBean="sysFollowPersonDocRelatedService"
+		table="sys_follow_person_doc_related"
+		url="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="isread"
+			messageKey="sys-follow:sysFollowPersonDocRelated.isread"
+			type="String"
+			column="isRead"
+			notNull="false"
+			length="2"
+			validate="true" />
+
+		<simpleProperty
+			name="readTime"
+			messageKey="sys-follow:sysFollowPersonDocRelated.readTime"
+			type="DateTime"
+			column="read_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="followConfig"
+			messageKey="sys-follow:sysFollowPersonDocRelated.followConfig"
+			type="com.landray.kmss.sys.follow.model.SysFollowPersonConfig"
+			column="follow_config_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="followDoc"
+			messageKey="sys-follow:sysFollowPersonDocRelated.followDoc"
+			type="com.landray.kmss.sys.follow.model.SysFollowDoc"
+			column="follow_doc_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

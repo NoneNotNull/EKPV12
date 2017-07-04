@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 移动配置权限管理缺陷</description>
+			<author>傅游翔</author>
+			<revision-time>2014-10-20</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+	</modifies>
+</version>

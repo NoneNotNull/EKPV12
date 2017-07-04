@@ -1,0 +1,114 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcImport"
+		table="tib_sys_sap_rfc_import">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdOrder"
+			column="fd_order"
+			update="true"
+			insert="true"
+			length="4"
+			not-null="false" />
+
+		<property
+			name="fdParameterUse"
+			column="fd_parameter_use"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdParameterName"
+			column="fd_parameter_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdParameterType"
+			column="fd_parameter_type"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="fdParameterLength"
+			column="fd_parameter_length"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="fdParameterTypeName"
+			column="fd_parameter_type_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdParameterRequired"
+			column="fd_parameter_required"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdParameterMark"
+			column="fd_parameter_mark"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdHierarchyId"
+			column="fd_hierarchy_id"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<many-to-one
+			name="fdFunction"
+			column="fd_function_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+		<many-to-one
+			name="fdParent"
+			column="fd_parent_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+			
+					
+		<property
+			name="fdRfcParamXml"
+			column="fd_rfc_param_xml"
+			update="true"
+			insert="true"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true"
+			length="1000000"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

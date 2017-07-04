@@ -1,0 +1,90 @@
+.lui_slide_tuwen_pic {
+	float: left;
+	width:67%;
+	height: 98%;
+}
+
+.lui_slide_tuwen_img {
+	height: 100%;
+
+}
+.lui_slide_tuwen_img img {
+	
+}
+
+.lui_slide_tuwen_text {
+	float: right;
+	width: 33%;
+	position: relative;
+}
+.lui_slide_tuwen_text_box {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	left: 0px;
+}
+.lui_slide_tuwen_title {
+	background:url(../style/images/tuwen_li_bg.png) no-repeat;
+	padding: 12px 0px 4px 12px;
+	border-bottom: 1px solid #e9e9e9;
+	background-color: #FFF8E6;
+	cursor: pointer;
+	height: 41px;
+}
+.lui_slide_tuwen_titie_on {
+	background-color:#FEFDF8;
+	position:relative;
+	background:none;
+}
+.lui_slide_tuwen_titie_on .lui_slide_tuwen_subject {
+	color:#d66622;
+}
+
+.lui_slide_tuwen_titie_on:before {
+	border-color: transparent #e79154 transparent transparent;
+	border-width: 12px 10px;
+	border-style: solid;
+	content: "";
+	display: block;
+	position: absolute;
+	left: -20px;
+	top: 10px;
+	width: 0px;
+	height: 0px;
+}
+.lui_slide_tuwen_img_on {
+	display:block;
+}
+.lui_slide_tuwen_subject {
+	font-size: 14px;
+	line-height: 14px;
+	color:#464646;
+}
+.lui_slide_tuwen_titie_on .lui_slide_tuwen_date {
+	color:#cead9e;
+}
+.lui_slide_tuwen_date {
+	color: #959595;
+}
+.lui_slide_tuwen_text_ud {
+	width: 32px;
+	height: 18px;
+	position: absolute;
+	filter: alpha(opacity=50);
+	opacity: .3;
+	left: 45%;
+	display: block;
+	z-index: 1;
+	display: none;
+	cursor: pointer;
+}
+.lui_slide_tuwen_text_up {
+	top: 0px;
+	background: url(../style/images/slide_tuwen_up.png) no-repeat 4px 2px;
+	background-color: #000000;
+}
+.lui_slide_tuwen_text_down {
+	bottom:0px;
+	background: url(../style/images/slide_tuwen_down.png) no-repeat 4px 2px;
+	background-color: #000000;
+}

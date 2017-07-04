@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+	PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiLock.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiPreview.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiCatelogTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiCatelog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiEvaluation.hbm.xml" />
+     	<mapping
+			resource="com/landray/kmss/kms/wiki/model/KmsWikiCategoryPreview.hbm.xml" /> 	
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="kmsKnowledgeAuthorType" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>kmsKnowledge.innerAuthor</label-key>
+			<bundle>kms-knowledge</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsKnowledge.outerAuthor</label-key>
+			<bundle>kms-knowledge</bundle>
+		</value-label>
+	</type>
+</column-enums>

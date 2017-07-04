@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgElement"
+		messageKey="sys-organization:organization.moduleName"
+		displayProperty="fdName"
+		serviceBean="sysOrgElementService"
+		table="sys_org_element">
+		<idProperty>
+			<generator
+				type="native" />
+		</idProperty>
+		<simpleProperty
+			name="fdOrgType"
+			messageKey="sys-organization:organization.fdOrgType"
+			type="Integer"
+			column="fd_org_type"
+			notNull="true"
+			unique="false"
+			readOnly="true"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-organization:sysOrgElement.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			length="100"
+			canSearch="true" 
+			validate="true"/>
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-organization:sysOrgPerson.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			validate="true" />
+		<simpleProperty
+			name="fdNo"
+			messageKey="sys-organization:sysOrgElement.fdNo"
+			type="String"
+			column="fd_no"
+			notNull="false"
+			unique="false"
+			length="100"
+			canSearch="true" />
+		<simpleProperty
+			name="fdKeyword"
+			messageKey="sys-organization:sysOrgElement.fdKeyword"
+			type="String"
+			column="fd_keyword"
+			notNull="false"
+			unique="false"
+			length="100"
+			canSearch="true" />
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="sys-organization:sysOrgElement.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false"
+			unique="false"
+			defaultValue="1"
+			canSearch="true" />
+		<simpleProperty
+			name="fdIsBusiness"
+			messageKey="sys-organization:organization.fdIsBusiness"
+			type="Boolean"
+			column="fd_is_business"
+			notNull="false"
+			unique="false"
+			defaultValue="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdImportInfo"
+			messageKey="sys-organization:organization.fdImportInfo"
+			type="String"
+			column="fd_import_info"
+			notNull="false"
+			unique="false"
+			length="200"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdMemo"
+			messageKey="sys-organization:sysOrgElement.fdMemo"
+			type="String"
+			column="fd_memo"
+			notNull="false"
+			unique="false"
+			length="1500"
+			canSearch="true" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-organization:organization.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="true"
+			unique="false"
+			length="1000"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="model.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			unique="false"
+			readOnly="true"
+			canSearch="true" />
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey="model.fdAlterTime"
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false"
+			unique="false"
+			readOnly="true"
+			canSearch="true" />
+		<modelProperty
+			name="hbmThisLeader"
+			messageKey="sys-organization:organization.hbmThisLeader"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_this_leaderid"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<modelProperty
+			name="hbmSuperLeader"
+			messageKey="sys-organization:organization.hbmSuperLeader"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_super_leaderid"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<modelProperty
+			name="hbmParentOrg"
+			messageKey="sys-organization:organization.hbmParentOrg"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_parentorgid"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-organization:sysOrgPost.fdParent"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_parentid"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<listProperty
+			name="hbmChildren"
+			messageKey="sys-organization:organization.hbmChildren"
+			column="fd_parentid"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			inverse="true"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="hbmGroups"
+			messageKey="sys-organization:organization.hbmGroups"
+			column="fd_elementid"
+			type="com.landray.kmss.sys.organization.model.SysOrgGroup"
+			table="sys_org_group_element"
+			elementColumn="fd_groupid"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="hbmPersons"
+			messageKey="sys-organization:organization.hbmPersons"
+			column="fd_postid"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			table="sys_org_post_person"
+			elementColumn="fd_personid"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="hbmPosts"
+			messageKey="sys-organization:sysOrgPerson.fdPosts"
+			column="fd_personid"
+			type="com.landray.kmss.sys.organization.model.SysOrgPost"
+			table="sys_org_post_person"
+			elementColumn="fd_postid"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="hbmThisLeaderChildren"
+			messageKey="sys-organization:organization.hbmThisLeaderChildren"
+			column="fd_this_leaderid"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="hbmSuperLeaderChildren"
+			messageKey="sys-organization:organization.hbmSuperLeaderChildren"
+			column="fd_super_leaderid"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<complexProperty
+			name="fdParentsName"
+			messageKey="sys-organization:sysOrgElement.fdParentsName"
+			type="String"
+			calculated="true" />
+	</model>
+</models>

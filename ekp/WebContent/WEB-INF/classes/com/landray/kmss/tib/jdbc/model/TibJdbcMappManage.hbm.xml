@@ -1,0 +1,99 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.jdbc.model.TibJdbcMappManage"
+		table="tib_jdbc_mapp_manage">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="docSubject"
+			column="doc_subject"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdDataSource"
+			column="fd_data_source"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdIsEnabled"
+			column="fd_is_enabled"
+			update="true"
+			insert="true"
+			length="1"
+			not-null="false" />
+
+		<property
+			name="fdDataSourceSql"
+			column="fd_data_source_sql"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdTargetSource"
+			column="fd_target_source"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+
+		<property
+			name="fdTargetSourceSelectedTable"
+			column="fd_target_selected_table"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<property
+			name="fdDataSetSql"
+			column="fd_data_set_sql"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<property
+			name="fdMappConfigJson"
+			column="fd_mapp_config_json"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+		<many-to-one
+			name="docCategory"
+			column="doc_category"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+		<many-to-one
+			name="tibJdbcDataSet"
+			column="tib_jdbc_data_set"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

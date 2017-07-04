@@ -1,0 +1,680 @@
+<?xml version="1.0"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysTagCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagCategory" />
+	</bean>
+	<bean
+		id="sysTagCategoryTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagCategoryDao" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCategoryService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysTagCategoryTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCategoryListService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCategoryListServiceImp">
+		<property
+			name="sysTagCategoryService">
+			<ref
+				local="sysTagCategoryService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagTagsDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagTagsDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagTags" />
+	</bean>
+	<bean
+		id="sysTagCloudSelectedDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagCloudSelectedDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagCloudSelected" />
+	</bean>
+	
+	<bean
+		id="sysTagTagsTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagTagsServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagTagsDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagTagsService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagTagsTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="sysTagCloudSelectedTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCloudSelectedServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagCloudSelectedDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCloudSelectedService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagCloudSelectedTarget" />
+		</property>
+	</bean>
+	
+
+	<bean
+		id="sysTagCommentDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagCommentDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagComment" />
+	</bean>
+	<bean
+		id="sysTagCommentTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCommentServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagCommentDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCommentService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagCommentTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagMain" />
+	</bean>
+	<bean
+		id="sysTagMainTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagMainDao" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref
+				local="sysTagMainRelationService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagMainService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysTagMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagApplicationLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagApplicationLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagApplicationLog" />
+	</bean>
+	<bean
+		id="sysTagApplicationLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagApplicationLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagApplicationLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagApplicationLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagApplicationLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagTemplateDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagTemplate" />
+	</bean>
+	<bean
+		id="sysTagTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagTemplateDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagTemplateTarget" />
+		</property>
+	</bean>
+	<!-- 标签机制类别设置 -->
+	<bean
+		id="sysTagTemplateCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.tag.service.spring.SysTagTemplateCoreServiceImp">
+				<property
+					name="sysTagTemplateService">
+					<ref
+						local="sysTagTemplateService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysTagMainRelationDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagMainRelationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagMainRelation" />
+	</bean>
+	<bean
+		id="sysTagMainRelationTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagMainRelationServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagMainRelationDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagMainRelationService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagMainRelationTarget" />
+		</property>
+	</bean>
+	<!-- 标签机制主文档设置 -->
+	<bean
+		id="sysTagMainCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.tag.service.spring.SysTagMainCoreServiceImp">
+				<property
+					name="sysTagMainService">
+					<ref
+						local="sysTagMainService" />
+				</property>
+				<property
+					name="sysTagTemplateService">
+					<ref
+						local="sysTagTemplateService" />
+				</property>
+				<property
+					name="sysTagTagsService">
+					<ref
+						local="sysTagTagsService" />
+				</property>
+				<property
+					name="sysTagApplicationLogService">
+					<ref
+						local="sysTagApplicationLogService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysTagSearchRecordDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagSearchRecordDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagSearchRecord" />
+	</bean>
+	<bean
+		id="sysTagSearchRecordTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagSearchRecordServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagSearchRecordDao" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagSearchRecordService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagSearchRecordTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagDayLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagDayLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagDayLog" />
+	</bean>
+	<bean
+		id="sysTagDayLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagDayLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagDayLogDao" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagDayLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagDayLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagWeekLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagWeekLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagWeekLog" />
+	</bean>
+	<bean
+		id="sysTagWeekLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagWeekLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagWeekLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagWeekLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagWeekLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagMonthLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagMonthLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagMonthLog" />
+	</bean>
+	<bean
+		id="sysTagMonthLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagMonthLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagMonthLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagMonthLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagMonthLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagYearLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagYearLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagYearLog" />
+	</bean>
+	<bean
+		id="sysTagYearLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagYearLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagYearLogDao" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagYearLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagYearLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagTopLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagTopLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagTopLog" />
+	</bean>
+	<bean
+		id="sysTagTopLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagTopLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagTopLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagTopLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagTopLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTagSeasonLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.tag.dao.hibernate.SysTagSeasonLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.tag.model.SysTagSeasonLog" />
+	</bean>
+	<bean
+		id="sysTagSeasonLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagSeasonLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysTagSeasonLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagSeasonLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysTagSeasonLogTarget" />
+		</property>
+	</bean>
+	<!--日志、周志、月志、季志、年志计算  -->
+	<bean
+		id="sysTagCalculateLogService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCalculateLogServiceImp">
+		<property
+			name="sysTagSearchRecordService">
+			<ref
+				local="sysTagSearchRecordService" />
+		</property>
+		<property
+			name="sysTagDayLogService">
+			<ref
+				local="sysTagDayLogService" />
+		</property>
+		<property
+			name="sysTagWeekLogService">
+			<ref
+				local="sysTagWeekLogService" />
+		</property>
+		<property
+			name="sysTagMonthLogService">
+			<ref
+				local="sysTagMonthLogService" />
+		</property>
+		<property
+			name="sysTagSeasonLogService">
+			<ref
+				local="sysTagSeasonLogService" />
+		</property>
+		<property
+			name="sysTagYearLogService">
+			<ref
+				local="sysTagYearLogService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCalculateTopLogService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCalculateTopLogServiceImp">
+		<property
+			name="sysTagSearchRecordService">
+			<ref
+				local="sysTagSearchRecordService" />
+		</property>
+		<property
+			name="sysTagDayLogService">
+			<ref
+				local="sysTagDayLogService" />
+		</property>
+		<property
+			name="sysTagWeekLogService">
+			<ref
+				local="sysTagWeekLogService" />
+		</property>
+		<property
+			name="sysTagMonthLogService">
+			<ref
+				local="sysTagMonthLogService" />
+		</property>
+		<property
+			name="sysTagSeasonLogService">
+			<ref
+				local="sysTagSeasonLogService" />
+		</property>
+		<property
+			name="sysTagYearLogService">
+			<ref
+				local="sysTagYearLogService" />
+		</property>
+		<property
+			name="sysTagTopLogService">
+			<ref
+				local="sysTagTopLogService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCalculateService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCalculateServiceImp">
+		<property
+			name="sysTagCalculateLogService">
+			<ref
+				local="sysTagCalculateLogService" />
+		</property>
+		<property
+			name="sysTagCalculateTopLogService">
+			<ref
+				local="sysTagCalculateTopLogService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagApplicationLogSupplyService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagApplicationLogSupplyServiceImp">
+		<property
+			name="sysTagApplicationLogService">
+			<ref
+				local="sysTagApplicationLogService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagTagsAliasService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagTagsAliasServiceImp">
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<!--立方-->
+	<bean
+		id="sysTagCubXMLService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCubXMLService">
+		<property
+			name="sysTagMainService">
+			<ref
+				local="sysTagMainService" />
+		</property>
+	</bean>
+	<!--云图-->
+	<bean
+		id="sysTagSphereXMLService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagSphereXMLService">
+		<property
+			name="sysTagYearLogService">
+			<ref
+				local="sysTagYearLogService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagTagsTreeService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagTagsTreeServiceImp">
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	<bean
+		id="authSysTagCategoryValidator"
+		class="com.landray.kmss.sys.tag.intercept.AuthSysTagCategoryValidator" />
+	<bean
+		id="sysTagCategorTreeService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCategorTreeService">
+		<property
+			name="sysTagCategoryService">
+			<ref
+				local="sysTagCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="sysTagCategorApplicationTreeService"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagCategorApplicationTreeService">
+		<property
+			name="sysTagCategoryService">
+			<ref
+				local="sysTagCategoryService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref
+				local="sysTagTagsService" />
+		</property>
+	</bean>
+	
+	<bean id="sysTagByCategoryDatabean"
+		class="com.landray.kmss.sys.tag.service.spring.SysTagByCategoryDatabean">
+		<property name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+	</bean>
+</beans>

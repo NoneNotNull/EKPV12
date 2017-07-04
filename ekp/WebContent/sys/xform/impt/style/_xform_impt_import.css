@@ -1,0 +1,30 @@
+.form_impt_div {
+	position: absolute;
+	width: 450px;
+	height: 150px;
+	padding: 30px 1px 1px 1px;
+	background-color: #47B5E6;
+	z-index: 300;
+	border: 1px solid #47B5E6;
+}
+.form_impt_tilte,.form_impt_close,.form_impt_help{
+	position:absolute;
+	color:white;
+	top:8px;
+	height: 16px;
+}
+.form_impt_tilte{
+	left:8px;
+}
+.form_impt_close {
+	right:8px;
+	width: 16px;
+	cursor: pointer;
+	background-image:url(close_x.png);
+}
+.form_impt_help{
+	right:30px;
+	width: 16px;
+	text-align:center;
+	cursor: pointer;
+}

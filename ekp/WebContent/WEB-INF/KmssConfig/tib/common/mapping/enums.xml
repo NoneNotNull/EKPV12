@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="tibCommonMappingModule_cate">
+		<value-label>
+			<value>0</value>
+			<label-key>tibCommonMappingModule.simple.cate</label-key>
+			<bundle>tib-common-mapping</bundle>
+			<label>简单分类</label>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>tibCommonMappingModule.all.cate</label-key>
+			<bundle>tib-common-mapping</bundle>
+			<label>全局分类</label>
+		</value-label>
+	</type>
+	
+</column-enums>

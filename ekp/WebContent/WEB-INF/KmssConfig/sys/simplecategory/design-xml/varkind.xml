@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd">
+	<var-kind id="sys.simplecategory" name="简单分类"
+		file="/sys/simplecategory/varkind/sys.simplecategory.jsp" help="/sys/simplecategory/varkind/help/sys.simplecategory.jsp" />
+</root>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module messageKey="kms-wiki:module.kms.wiki" urlPrefix="/kms/wiki/"
+		defaultValidator="roleValidator(role=ROLE_KMSWIKI_DEFAULT)">
+		<roles>
+			<!--
+					 创建词条 
+					ROLE_KMSKNOWLEDGE_CREATE;
+					 查看词条 
+					ROLE_KMSKNOWLEDGE_READER;
+					 编辑词条 
+					ROLE_KMSKNOWLEDGE_EDITOR;
+					 删除词条 
+					ROLE_KMSKNOWLEDGE_DELETE;
+
+					 分类权限扩充 
+					ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION;
+					 调整属性 
+					ROLE_KMSKNOWLEDGE_PROPERTY_MAINTAINER;
+					 批量修改文档权限
+					ROLE_KMSKNOWLEDGE_CHANGERIGHT ;
+					  维基知识库_excel导入（更新）文档 
+					ROLE_KMSKNOWLEDGE_EXCEL_IMPORT
+				-->
+			
+			<!-- 默认权限 -->
+			ROLE_KMSWIKI_DEFAULT;
+			ROLE_KMSWIKIMAIN_MANUALPUBLISH
+		</roles>
+		<areaRoles>	
+			<!-- 完善词条 -->
+			ROLE_KMSWIKIMAIN_ADDVERSION;
+			<!-- 转移词条 -->
+			ROLE_KMSWIKIMAIN_MOVE;
+			<!-- 点评  -->
+			ROLE_KMSWIKI_EVALUATE_DELETE;
+			ROLE_KMSWIKI_EVALUATE_CREATE;
+			<!-- 推荐 -->
+			ROLE_KMSWIKI_INTRODUCE;
+			<!-- 模板设置 -->
+			ROLE_KMSWIKITEMP_ADMIN;
+			<!--  
+				ROLE_KMSWIKI_INTRODUCE_TOESSENCE;
+				ROLE_KMSWIKI_INTRODUCE_TOPERSON;-->
+			<!-- 取消推荐 -->
+			ROLE_KMSWIKI_INTRODUCE_CANCEL;
+			<!-- 标签维护 -->
+			ROLE_KMSWIKIMAIN_TAG_EDIT;
+			<!-- 词条解锁-->
+			ROLE_KMSWIKIMAIN_TOUNLOCK;
+		    ROLE_KMSWIKIMAIN_ERROR_CORRECTION ;
+		    
+		    ROLE_KMSWIKIMAIN_BACKSTAGE_MANAGER;
+		</areaRoles>
+
+		<request path="kms_wiki_main/kmsWikiMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,cateModel=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory">
+			<!-- 新建词条 -->
+			<query queryString="method=add&amp;fdCategoryId=*"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdCategoryId)" />
+			<query queryString="method=add"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CREATE)" />
+
+			<!-- 阅读词条 -->
+			<query queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authSimpleCategoryEditorValidator(property=docCategory)" />
+			<!-- 编辑此段 -->
+			<query queryString="method=addVersion|save&amp;fdParentId=*&amp;catelogId=*"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_ADDVERSION)
+				|authFieldValidator(type=SYS_EDITOR,recid=fdParentId)
+				|fieldValueValidator(recid=fdParentId,fieldproperty=docStatus,value=30;40)
+				&amp;[areaRoleValidator(role=ROLE_KMSKNOWLEDGE_EDITOR)&amp;authSimpleCategoryEditorValidator(recid=fdParentId,property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)
+				|kmsWikiMainEditorValidator(recid=fdParentId,reccatelogId=catelogId)]" />
+			<!-- 控制推送保存权限-->
+			<query queryString="method=save&amp;fdModelId=*"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdCategoryId)" />
+
+			<!-- 完善词条-->
+			<query queryString="method=addVersion|save&amp;fdParentId=*"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_ADDVERSION)|authFieldValidator(type=SYS_EDITOR,recid=fdParentId)|areaRoleValidator(role=ROLE_KMSKNOWLEDGE_EDITOR)&amp;fieldValueValidator(recid=fdParentId,fieldproperty=docStatus,value=30;40)&amp;authSimpleCategoryEditorValidator(recid=fdParentId,property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+
+			<!-- 保存词条 -->
+			<query queryString="method=save"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdCategoryId)" />
+			<!-- 编辑词条 -->
+			<query queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_KMSKNOWLEDGE_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 转移词条 -->
+			<query queryString="method=cateChgEdit"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_MOVE)&amp;authSimpleCategoryEditorValidator(property=docCategory,cateId=categoryId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除草稿  -->
+			<query queryString="method=deleteall&amp;status=10"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_DEFAULT)" />
+
+			<!-- 删除词条 -->
+			<query queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMSKNOWLEDGE_DELETE)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 列表视图删除 -->
+			<query queryString="method=deleteall|deleteallList"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 批量编辑属性 -->
+			<query
+				queryString="method=editPropertys|editProperty|updateProperty&amp;templateId=*"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_PROPERTY_MAINTAINER)&amp;authSimpleCategoryEditorValidator(cateId=templateId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 调整属性-->
+			<query queryString="method=editProperty|updateProperty"
+				validator="authFieldValidator(type=creator)|authFieldValidator(type=author)|areaRoleValidator(role=ROLE_KMSKNOWLEDGE_PROPERTY_MAINTAINER)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 调整标签-->
+			<query queryString="method=updateTag"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_TAG_EDIT)&amp;fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 词条解锁-->
+			<query queryString="method=toUnlock|updateUnlock"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_TOUNLOCK)" />
+			<!-- 词条批量解锁-->
+			<query queryString="method=allToUnlock"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_TOUNLOCK)&amp;areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 二级页面置顶/首页置顶 -->
+			<query queryString="method=setTop&amp;local=index"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_SETTOP)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- View页面置顶 -->
+			<query queryString="method=setTop&amp;local=view"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_SETTOP)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 取消首页置顶 -->
+			<query queryString="method=cancelTop&amp;local=index"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CANCELTOP)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- View页面取消置顶 -->
+			<query queryString="method=cancelTop&amp;local=view"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CANCELTOP)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 二级页面批量删除（回收） -->
+			<query queryString="method=recycleall"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_RECYCLE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 文档中的删除(回收) 发布状态下才能回收 -->
+			<query queryString="method=recycle"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)
+							&amp;areaRoleValidator(role=ROLE_KMSKNOWLEDGE_RECYCLE)
+							&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 文档中的恢复 -->
+			<query queryString="method=recover"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=50)
+							&amp;areaRoleValidator(role=ROLE_KMSKNOWLEDGE_RECOVER)
+							&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+
+		</request>
+
+		<!-- 词条过滤器 -->
+		<filters modelName="com.landray.kmss.kms.wiki.model.KmsWikiMain">
+			<filter type="creator" expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter type="author" expression="authFieldFilter(field=docAuthor.fdId)" />
+			<filter type="SYS_READER" expression="roleFilter(role=ROLE_KMSKNOWLEDGE_READER)" />
+			
+			<filter type="SYS_READER" expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter type="SYS_READER" expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter type="SYS_EDITOR" expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+
+	</module>
+
+	<!-- 分类转移 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory&amp;modelName=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_MOVE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	<!--发布机制权限-->
+	<module messageKey="" urlPrefix="/sys/news/">
+		<request
+			path="sys_news_publish_main/sysNewsPublishMain_viewManualFrame.jsp*">
+			<query queryString="fdModelNameParam=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="areaRoleValidator(role=ROLE_KMSWIKIMAIN_MANUALPUBLISH,recid=fdModelIdParam,model=com.landray.kmss.kms.wiki.model.KmsWikiMain)" />
+		</request>
+	</module>
+	<!-- 修改权限-->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_CHANGERIGHT)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+
+	<!-- 导入导出模板 -->
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_EXCEL_IMPORT)"
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiTemplate" />
+		</request>
+		<request path="sys_transport_import/SysTransportUpload*">
+			<query validator="areaRoleValidator(role=ROLE_KMSKNOWLEDGE_EXCEL_IMPORT)"
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiTemplate" />
+		</request>
+	</module>
+
+	<!-- 点评机制点评配置(使用系统点评机制)-->
+	<module messageKey="" urlPrefix="/sys/evaluation/">
+		<!-- 全文点评 -->
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_EVALUATE_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_EVALUATE_DELETE)&amp;authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<query queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="roleValidator(role=ROLE_KMSWIKI_DEFAULT)" />
+		</request>
+		<!-- 段落点评 -->
+		<request path="sys_evaluation_main/sysEvaluationNotes*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=saveEvalNotes"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_EVALUATE_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_EVALUATE_DELETE)&amp;authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,property=docCategory,role=ROLE_KMSKNOWLEDGE_CATEGORY_MAINTAINER_EXTENSION)" />
+			<query queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="roleValidator(role=ROLE_KMSWIKI_DEFAULT)" />
+		</request>
+	</module>
+
+	<!-- 推荐机制配置（使用系统推荐机制）-->
+	<module messageKey="" urlPrefix="/sys/introduce/">
+		<request path="sys_introduce_main/sysIntroduceMain*">
+			<query
+				queryString="fdCateModelName=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory&amp;method=changeReason|introcheck"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_INTRODUCE)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=viewAll"
+				validator="roleValidator(role=ROLE_KMSWIKI_DEFAULT)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_INTRODUCE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=cancelIntro"
+				validator="areaRoleValidator(role=ROLE_KMSWIKI_INTRODUCE_CANCEL)" />
+		</request>
+	</module>
+	<!--  注释纠错功能  -->
+	<module messageKey="" urlPrefix="/kms/wiki/">
+		<request
+			path="kms_common_doc_error_correction/kmsCommonDocErrorCorrection*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.wiki.model.KmsWikiMain">
+			<query queryString="fdModelName=com.landray.kmss.kms.wiki.model.KmsWikiMain&amp;method=changeErrorCorrection"
+				validator="areaRoleValidator(role=ROLE_KMSCOMMON_DEFAULT)" /> 
+		</request>
+	</module> 
+
+	<!-- 搜索权限 -->
+	<module messageKey="" urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query queryString="modelName=com.landray.kmss.kms.wiki.model.KmsWikiMain"
+				validator="true" />
+		</request>
+	</module>
+	<!--
+
+		<portlet moduleKey="kms-wiki:module.kmsWiki"
+		messageKey="kms-wiki:portlet.kmsWiki.newDoc"
+		contentBean="kmsWikiPortlet&amp;rowsize=!{rowsize}"
+		moreURL="/kms/wiki.index"
+		createURL="/kms/wiki/kms_wiki_main/kmsWikiMain.do?method=add" />
+		<portlet moduleKey="kms-wiki:module.kmsWiki"
+		messageKey="kms-wiki:portlet.kmsWiki.newwiki"
+		templateClass="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+		contentURL="/kms/wiki/kms_wiki_portlet/kms_wiki_portlet_lastest.jsp?fdCategoryId=!{cateid}&amp;rowsize=!{rowsize}"
+		moreURL="/kms/wiki.index"
+		createURL="/kms/wiki/kms_wiki_main/kmsWikiMain.do?method=add"/>
+	--><!-- 知识数定时任务 -->
+	<quartz cronExpression="0 0 4 * * ?" jobService="kmsHomeWikiService"
+		messageKey="kms-wiki:kmsWiki.quartz.count" jobMethod="updateWikiCount" />
+
+	<!-- 分类概览定时任务 -->
+	<quartz cronExpression="0 0 4 * * ?" jobService="kmsWikiCategoryPreManagerService"
+		messageKey="kms-wiki:kmsWiki.quartz.preview" jobMethod="____previeQuartz" />
+
+	<!--搜索机制-->
+	<search modelName="com.landray.kmss.kms.wiki.model.KmsWikiMain"
+		messageKey="kms-wiki:kmsWikiMain.title.search" resultUrl="/kms/wiki/kms_wiki_main/kmsWikiMain.do?method=result" />
+
+
+	<!-- 全文搜索 -->
+	<ftSearch modelName="com.landray.kmss.kms.wiki.model.KmsWikiMain"
+		boost="2.0" timeField="fdLastModifiedTime">
+		<luceneField name="subject" property="docSubject" type="Text" />
+		<luceneField name="content" property="docContent" type="Text" />
+		<luceneField name="creator" property="docCreator.fdName"
+			type="Text" />
+		<luceneField name="createTime" property="docCreateTime"
+			type="keyword" /><!-- 检索创建时间,只需要修改property，不需改name -->
+		<luceneField name="keyword" property="sysTagMain"
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+		<luceneField name="category" property="docCategory.fdHierarchyId"
+			type="keyword" />
+	</ftSearch>
+
+
+	<!-- kms后台管理 -->
+	<treeNodes type="knowledge">
+		<treeNode messageKey="kms-wiki:kmsWikiMain.config.tree">
+			<treeNode messageKey="kms-wiki:kmsWikiMain.toUnlock"
+				url="/kms/wiki/kms_wiki_main/kmsWikiMain.do?method=toUnlock">
+			</treeNode>
+			<treeNode messageKey="kms-wiki:kmsWikiMain.config.template.import"
+				url="/sys/transport/sys_transport_import/SysTransportImport.do?method=list&amp;fdModelName=com.landray.kmss.kms.knowledge.model.KmsKnowledgeWikiTemplate">
+			</treeNode>
+			<treeNode messageKey="kms-knowledge:table.kmsKnowledgeWikiTemplate"
+				url="/kms/knowledge/kms_knowledge_wiki_template/kmsKnowledgeWikiTemplate.do?method=list">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+
+	<homePage urlPrefix="kms/wiki" 
+			url="/kms/wiki/index.jsp"
+			messageKey="kms-wiki:title.kms.kmsWiki" /> 
+
+	<!-- 流程 -->
+	<flowDef modelName="com.landray.kmss.kms.wiki.model.KmsWikiMain"
+		templateModelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+		templatePropertyName="docCategory" key="mainDoc" moduleMessageKey="kms-wiki:table.kmsWikiMain"
+		type="oa">
+	</flowDef>
+
+</configs>

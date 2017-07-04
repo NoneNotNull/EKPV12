@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibSysCoreIfaceForm"
+			type="com.landray.kmss.tib.sys.core.provider.forms.TibSysCoreIfaceForm" />
+		<form-bean
+			name="tibSysCoreNodeForm"
+			type="com.landray.kmss.tib.sys.core.provider.forms.TibSysCoreNodeForm" />
+		<form-bean
+			name="tibSysCoreTagForm"
+			type="com.landray.kmss.tib.sys.core.provider.forms.TibSysCoreTagForm" />
+		<form-bean
+			name="tibSysCoreIfaceImplForm"
+			type="com.landray.kmss.tib.sys.core.provider.forms.TibSysCoreIfaceImplForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<!-- UED专用Action -->
+	 	<action
+			path="/tib/sys/core/provider/tib_sys_core_iface_ui/tibSysCoreIfaceIndex"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreIfaceIndexAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_iface_ui/tibSysCoreIface_list.jsp" />
+		</action>
+	 	<action
+			path="/tib/sys/core/provider/tib_sys_core_iface_impl_ui/tibSysCoreIfaceImplIndex"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreIfaceImplIndexAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_iface_impl_ui/tibSysCoreIfaceImpl_list.jsp" />
+		</action>
+		
+		<action
+			path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreIfaceAction"
+			name="tibSysCoreIfaceForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface_list.jsp" />
+			<forward
+				name="dataExecute"
+				path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIfaceDataExecute_edit.jsp" />
+			<forward
+				name="status"
+				path="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface_status.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/core/provider/tib_sys_core_node/tibSysCoreNode"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreNodeAction"
+			name="tibSysCoreNodeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/core/provider/tib_sys_core_node/tibSysCoreNode_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/core/provider/tib_sys_core_node/tibSysCoreNode_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_node/tibSysCoreNode_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreTagAction"
+			name="tibSysCoreTagForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag_list.jsp" />
+			<forward
+				name="actionList"
+				path="/tib/sys/core/provider/tib_sys_core_tag/tibSysCoreTag.do?method=list" />
+		</action>
+		<!-- 接口实现 -->
+		<action
+			path="/tib/sys/core/provider/tib_sys_core_iface_impl/tibSysCoreIfaceImpl"
+			type="com.landray.kmss.tib.sys.core.provider.actions.TibSysCoreIfaceImplAction"
+			name="tibSysCoreIfaceImplForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/core/provider/tib_sys_core_iface_impl/tibSysCoreIfaceImpl_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/core/provider/tib_sys_core_iface_impl/tibSysCoreIfaceImpl_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/core/provider/tib_sys_core_iface_impl/tibSysCoreIfaceImpl_list.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

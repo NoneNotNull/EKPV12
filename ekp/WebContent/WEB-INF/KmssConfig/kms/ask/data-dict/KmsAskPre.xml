@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskPre"
+		messageKey="kms-ask:table.kmsAskPre"
+		displayProperty="docSubject"
+		serviceBean="kmsAskPreService"
+		table="kms_ask_pre"
+		url="/kms/ask/kms_ask_pre/kmsAskPre.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-ask:kmsAskPre.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-ask:kmsAskPre.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+	</model>
+</models>

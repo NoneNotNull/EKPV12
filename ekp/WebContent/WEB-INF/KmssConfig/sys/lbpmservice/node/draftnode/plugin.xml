@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<!-- 起草节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="137f5bc4f0d318b646f7013400c8e7c4">
+			<param
+				name="type"
+				value="draftNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.draftNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/draftnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="draftNodeDesc" />
+			<param
+				name="taskDataAccess"
+				value="draftNodeDataAccess" />
+			<param
+				name="taskBehaviour"
+				value="draftNodeBehaviour" />
+			<param
+				name="subTaskType"
+				value="draftWorkitem" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="139242c1ddb28e6c9102b5f48b0b267c">
+			<param
+				name="type"
+				value="draftNodeDesc" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/draftnode/node_review.jsp" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/draftnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/draftnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="draftNodeDesc" />
+		</item>
+	</extension>
+
+	<!-- “起草工作项”定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="taskType"
+			id="137f5be6a61e2457fa6507f402580064">
+			<param
+				name="type"
+				value="draftWorkitem" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/draftnode/workitem_draftworkitem.jsp" />
+			<param
+				name="taskDesc"
+				value="draftWorkitemDesc" />
+			<param
+				name="taskBehaviour"
+				value="draftWorkitemBehaviour" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!-- 起草人提交操作  -->
+		<item
+			name="operation"
+			id="137f5c0708ddfcbb19030e74d7ba99f1">
+			<param
+				name="type"
+				value="drafter_submit" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.submit" />
+			<param
+				name="behaviour"
+				value="drafterSubmitBehaviour" />
+			<param
+				name="binder"
+				value="drafterSubmitBinder" />
+			<param
+				name="accessor"
+				value="drafterSubmitAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/draftnode/operation_drafter_submit.jsp" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="true" />
+		</item>
+		<item
+			name="operation"
+			id="13d6cdef7c66a003466e0684227944d4">
+			<param
+				name="type"
+				value="drafter_refuse_abandon" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.abandon" />
+			<param
+				name="behaviour"
+				value="lbpmDrafterRefuseAbandonBehaviour" />
+			<param
+				name="binder"
+				value="drafterSubmitBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/draftnode/operation_drafter_refuse_abandon.jsp" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!--  起草人废弃操作-->
+		<item
+			name="operation"
+			id="137f8132c618c602ce720e64582a5224">
+			<param
+				name="type"
+				value="drafter_abandon" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.abandon" />
+			<param
+				name="behaviour"
+				value="lbpmDrafterAbandonBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/drafter/operation_drafter_common.jsp" />
+			<param
+				name="handlerType"
+				value="drafter" />
+			<param
+				name="apiHelpPage"
+				value="" />
+		</item>
+		<!--  催办操作 -->
+		<item
+			name="operation"
+			id="137f0132c618c302ce720e6478565224">
+			<param
+				name="type"
+				value="drafter_press" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.press" />
+			<param
+				name="behaviour"
+				value="lbpmDrafterPressBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/drafter/operation_drafter_common.jsp" />
+			<param
+				name="handlerType"
+				value="drafter" />
+			<param
+				name="apiHelpPage"
+				value="" />
+		</item>
+		<!--  起草人撤回操作 -->
+		<item
+			name="operation"
+			id="137f0132c618c377ce720e64782a5224">
+			<param
+				name="type"
+				value="drafter_return" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.return" />
+			<param
+				name="behaviour"
+				value="lbpmDrafterReturnBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/drafter/operation_drafter_common.jsp" />
+			<param
+				name="handlerType"
+				value="drafter" />
+			<param
+				name="apiHelpPage"
+				value="" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!--  起草人提交事件   -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="drafterSubmitEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.submit.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.drafter.DrafterSubmitEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!--  催办事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="drafterPressEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.press.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterPressEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!--  废弃事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="drafterAbandonEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.abandon.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterAbandonEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!-- 撤回事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="drafterReturnEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-drafter:lbpmOperations.fdOperType.draft.return.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterReturnEvent" />
+		</item>
+		<!-- 兼容旧流程引擎的流程驳回监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="compatibleEventListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="compatibleEventListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

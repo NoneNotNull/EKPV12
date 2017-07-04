@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveTemplateCfg"
+		messageKey="km-imissive:table.kmImissiveTemplateCfg"
+		displayProperty="fdId"
+		serviceBean="kmImissiveTemplateCfgService"
+		table="km_imissive_tmplcfg"
+		url="/km/imissive/km_imissive_template_cfg/kmImissiveTemplateCfg.do?method=view&amp;fdId=${fdId}"> 	
+	    <idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+       <simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true"
+			canSearch="true"/>
+		<simpleProperty
+			name="fdTableHead"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdTableHead"
+			type="String"
+			column="fd_tablehead"
+			notNull="false"
+			length="200"
+			canSearch="true"
+			canDisplay="true" />
+		<simpleProperty
+			name="fdType"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="10"
+			enumType="kmImissiveTemplateCfg_type"
+			canSearch="true"
+			canDisplay="true" />
+		<modelProperty
+			name="fdSendTempOne"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdSendTemplate"
+			type="com.landray.kmss.km.imissive.model.KmImissiveSendTemplate"
+			column="fd_stmpl_one_id"
+			notNull="false"
+			canSearch="true"
+			canRelation="true" 
+			validate="true" 
+			dialogJS="Dialog_Template('com.landray.kmss.km.imissive.model.KmImissiveSendTemplate','!{idField}::!{nameField}',false,true,null,null,false,true)"/>
+		<modelProperty
+			name="fdSendTempTwo"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdSendTemplate"
+			type="com.landray.kmss.km.imissive.model.KmImissiveSendTemplate"
+			column="fd_stmpl_two_id"
+			notNull="false"
+			canSearch="true"
+			canRelation="true" 
+			validate="true" 
+			dialogJS="Dialog_Template('com.landray.kmss.km.imissive.model.KmImissiveSendTemplate','!{idField}::!{nameField}',false,true,null,null,false,true)"/>
+	   <modelProperty
+			name="fdReceiveTempOne"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdReceiveTemplate"
+			type="com.landray.kmss.km.imissive.model.KmImissiveReceiveTemplate"
+			column="fd_rtmpl_one_id"
+			notNull="false"
+			canSearch="true"
+			canRelation="true" 
+			validate="true" 
+			dialogJS="Dialog_Template('com.landray.kmss.km.imissive.model.KmImissiveReceiveTemplate','!{idField}::!{nameField}',false,true,null,null,false,true)"/>
+		<modelProperty
+			name="fdReceiveTempTwo"
+			messageKey="km-imissive:kmImissiveTemplateCfg.fdReceiveTemplate"
+			type="com.landray.kmss.km.imissive.model.KmImissiveReceiveTemplate"
+			column="fd_rtmpl_two_id"
+			notNull="false"
+			canSearch="true"
+			canRelation="true" 
+			validate="true" 
+			dialogJS="Dialog_Template('com.landray.kmss.km.imissive.model.KmImissiveReceiveTemplate','!{idField}::!{nameField}',false,true,null,null,false,true)"/>
+	</model>
+</models>

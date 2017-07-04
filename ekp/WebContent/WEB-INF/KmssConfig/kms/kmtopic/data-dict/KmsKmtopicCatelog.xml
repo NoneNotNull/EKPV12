@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelog"
+		messageKey="kms-kmtopic:table.kmsKmtopicCatelog"
+		displayProperty="fdName"
+		serviceBean="kmsKmtopicCatelogService"
+		table="kms_kmtopic_catelog"
+		url="/kms/kmtopic/kms_kmtopic_catelog/kmsKmtopicCatelog.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdParentId"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.fdParentId"
+			type="String"
+			column="fd_parent_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCount"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.fdCount"
+			type="String"
+			column="fd_count"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<modelProperty
+			name="kmsKmtopicMain"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.kmsKmtopicMain"
+			type="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+			column="fd_main"
+			notNull="false"
+			validate="false" />
+
+		<listProperty
+			name="fdCatelogContentList"
+			messageKey="kms-kmtopic:kmsKmtopicCatelog.fdCatelogContentList"
+			type="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelogContent"
+			column="fd_catelog"
+			cascade="all-delete-orphan" />
+
+	</model>
+</models>

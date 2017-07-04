@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="componentLockerMainForm"
+			type="com.landray.kmss.component.locker.forms.ComponentLockerMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/component/locker/component_locker_main/componentLockerMain"
+			type="com.landray.kmss.component.locker.actions.ComponentLockerMainAction"
+			name="componentLockerMainForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="list"
+				path="/component/locker/component_locker_main/componentLockerMain_list.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.component.locker.ApplicationResources"
+		key="component-locker" />
+</struts-config>

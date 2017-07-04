@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogTargetModule"
+		messageKey="kms-log:table.kmsLogTargetModule"
+		displayProperty="fdName"
+		serviceBean="kmsLogTargetModuleService"
+		table="kms_log_target_module"
+		url="/kms/log/kms_log_target_module/kmsLogTargetModule.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-log:kmsLogTargetModule.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-log:kmsLogTargetModule.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

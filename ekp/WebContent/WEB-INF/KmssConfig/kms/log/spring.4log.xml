@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="logDataSource"
+		class="com.landray.kmss.kms.log.config.KmsLogDataSourceBean">
+	</bean>
+	
+	<bean
+		id="logSessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configurationClass">
+			<value>com.landray.kmss.sys.config.loader.HibernateConfiguration</value>
+		</property>
+		<property name="dataSource">
+			<ref bean="logDataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+			</props>
+		</property>
+		<property name="lobHandler">
+			<ref bean="oracleLobHandler" />
+		</property>
+		<property name="schemaUpdate" value="true">
+		</property>
+		<property name="configLocation">  
+       		<value>/WEB-INF/KmssConfig/kms/log/hibernate.cfg.xml</value>  
+    	</property>  
+	</bean>
+	
+	<bean id="logAuthBaseDao" class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property name="sessionFactory">
+			<ref bean="logSessionFactory" />
+		</property>
+		<property name="hqlBuilder">
+			<ref bean="kmssAuthHQLBuilder" />
+		</property>
+	</bean>
+	
+	<bean
+		id="outerKmsLogAppDao"
+		parent="logAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogAppDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogApp" />
+	</bean>
+	
+	<bean
+		id="outerKmsLogAppService"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogAppServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="outerKmsLogAppDao" />
+		</property>
+	</bean>
+
+	<bean id="kmsLogBackupService" class="com.landray.kmss.kms.log.service.spring.KmsLogBackupServiceImp">
+		<property name="kmsLogAppService">
+			<ref bean="kmsLogAppService"/>
+		</property>
+		<property name="baseDao">
+			<ref bean="logAuthBaseDao"/>
+		</property>
+	</bean>
+</beans>

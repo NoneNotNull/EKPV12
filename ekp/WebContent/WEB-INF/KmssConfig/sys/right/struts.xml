@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean
+			name="changeRightForm"
+			type="com.landray.kmss.sys.right.forms.ChangeRightForm" />
+		<form-bean
+			name="changeTmpRightForm"
+			type="com.landray.kmss.sys.right.forms.ChangeTmpRightForm" />
+		<form-bean
+			name="batchChangeRightForm"
+			type="com.landray.kmss.sys.right.forms.BatchChangeRightForm" />
+		<form-bean
+			name="tmpBatchChangeRightForm"
+			type="com.landray.kmss.sys.right.forms.TmpBatchChangeRightForm" />
+		<form-bean
+			name="cateAuthForm"
+			type="com.landray.kmss.sys.right.forms.CateAuthForm" />
+		<form-bean
+			name="docAuthForm"
+			type="com.landray.kmss.sys.right.forms.DocAuthForm" />
+		<form-bean
+			name="cChangeDocRightForm"
+			type="com.landray.kmss.sys.right.forms.CChangeDocRightForm" />
+		<form-bean
+			name="cChangeCateRightForm"
+			type="com.landray.kmss.sys.right.forms.CChangeCateRightForm" />
+		<form-bean
+			name="cChangeTmpRightForm"
+			type="com.landray.kmss.sys.right.forms.CChangeTmpRightForm" />
+	</form-beans>
+	<action-mappings>
+		<action
+			path="/sys/right/cChangeTmpRight"
+			type="com.landray.kmss.sys.right.actions.CChangeTmpRightAction"
+			name="cChangeTmpRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/sys/right/cChangeDocRight"
+			type="com.landray.kmss.sys.right.actions.CChangeDocRightAction"
+			name="cChangeDocRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/sys/right/cChangeCateRight"
+			type="com.landray.kmss.sys.right.actions.CChangeCateRightAction"
+			name="cChangeCateRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/sys/right/right"
+			type="com.landray.kmss.sys.right.actions.ChangeRightAction"
+			name="changeRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="changeRight"
+				path="/sys/right/right_change.jsp">
+			</forward>
+			<forward
+				name="loadRight"
+				path="/sys/right/right_button_edit.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/right/tmpRight"
+			type="com.landray.kmss.sys.right.actions.ChangeTmpRightAction"
+			name="changeTmpRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="changeRight"
+				path="/sys/right/tmp_right_change.jsp">
+			</forward>
+			<forward
+				name="loadRight"
+				path="/sys/right/tmp_right_button_edit.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/right/batchChangeRight"
+			type="com.landray.kmss.sys.right.actions.BatchChangeRightAction"
+			name="batchChangeRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="batchChangeRight"
+				path="/sys/right/right_batch_change.jsp">
+			</forward>
+			<forward
+				name="categoryBatchChangeRight"
+				path="/sys/right/category_right_batch_change.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/right/tmpBatchChangeRight"
+			type="com.landray.kmss.sys.right.actions.TmpBatchChangeRightAction"
+			name="tmpBatchChangeRightForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="tmpBatchChangeRight"
+				path="/sys/right/tmp_right_batch_change.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/right/rightCateChange"
+			type="com.landray.kmss.sys.right.actions.RightCateChangeAction"
+			name="cateAuthForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+			<forward
+				name="cateRightEdit"
+				path="/sys/right/cate_right_change.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/right/rightDocChange"
+			type="com.landray.kmss.sys.right.actions.RightDocChangeAction"
+			name="docAuthForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+			<forward
+				name="docRightEdit"
+				path="/sys/right/doc_right_change.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+	<message-resources
+		parameter="com.landray.kmss.sys.right.ApplicationResources"
+		key="sys-right" />
+</struts-config>

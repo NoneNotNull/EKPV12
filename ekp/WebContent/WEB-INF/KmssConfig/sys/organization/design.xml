@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-organization:module.sys.organization"
+		urlPrefix="/sys/organization/">
+		<roles>
+			ROLE_SYSORG_CONFIG;
+			ROLE_SYSORG_ORG_ADMIN;
+			
+			ROLE_SYSORG_DEPT_CREATE;
+			ROLE_SYSORG_DEPT_INVALIDATED;
+
+			ROLE_SYSORG_POST_CREATE;
+			ROLE_SYSORG_POST_INVALIDATED;
+
+
+			ROLE_SYSORG_PERSON_CREATE;
+			ROLE_SYSORG_PERSON_INVALIDATED;
+			ROLE_SYSORGPERSON_CHGPWD;
+			ROLE_SYSORGPERSON_CHGINFO;
+
+			ROLE_SYSORGGROUPCATE_ADMIN;
+			ROLE_SYSORGGROUP_ADMIN;
+			ROLE_SYSORG_TRANSPORT;
+			
+			ROLE_SYSROLE_COMMON_ADMIN;
+			ROLE_SYSROLE_LINE_ADMIN;
+			ROLE_SYSROLECONF_EDITOR;
+		</roles>
+		<!-- 机构 -->
+		<request
+			path="sys_org_org/sysOrgOrg*"
+			defaultValidator="roleValidator(role=ROLE_SYSORG_ORG_ADMIN)"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgOrg">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=edit"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=update"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=updateRelation|updateDeptToOrg"
+				validator="roleValidator(role=SYSROLE_ADMIN)" />				
+		</request>
+		<!-- 部门 -->
+		<request
+			path="sys_org_dept/sysOrgDept*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgDept">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=SYSROLE_USER)" />	
+			<query
+				queryString="method=add"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_DEPT_CREATE,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=save|saveadd"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_DEPT_CREATE,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=edit"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=update"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=quickSort"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)"/>
+			<query
+				queryString="method=invalidated"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_DEPT_INVALIDATED)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=invalidatedAll"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_DEPT_INVALIDATED,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+		</request>
+		<!-- 岗位 -->
+		<request
+			path="sys_org_post/sysOrgPost*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgPost">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=SYSROLE_USER)" />			
+			<query
+				queryString="method=add"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_POST_CREATE,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=save|saveadd"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_POST_CREATE,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=edit"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=update"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=quickSort"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)"/>						
+			<query
+				queryString="method=invalidated"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_POST_INVALIDATED)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=invalidatedAll"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_POST_INVALIDATED,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+		</request>
+		<!-- 个人 -->
+		<request
+			path="sys_org_person/sysOrgPerson*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgPerson">
+			<query
+				queryString="method=list|view|addressModify|saveMyAddress|updateAddress"
+				validator="roleValidator(role=SYSROLE_USER)" />			
+			<query
+				queryString="method=add"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_PERSON_CREATE,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=save|saveadd"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_PERSON_CREATE,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=edit"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=update"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=fdParentId)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=quickSort"
+				validator="sysOrgAdminValidator(role=SYSROLE_USER,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />						
+			<query
+				queryString="method=invalidated"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_PERSON_INVALIDATED)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+			<query
+				queryString="method=invalidatedAll"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORG_PERSON_INVALIDATED,orgid=parent)|roleValidator(role=ROLE_SYSORG_ORG_ADMIN)" />
+		</request>
+		<request path="sys_org_person/chgPersonInfo*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgPerson">
+			<query
+				queryString="method=chgPwd|savePwd"
+				validator="sysOrgAdminValidator(role=ROLE_SYSORGPERSON_CHGPWD)" />
+			<query
+				queryString="method=chgInfo|saveInfo&amp;fdId=*"
+				validator="roleValidator(role=ROLE_SYSORGPERSON_CHGINFO)" />
+		</request>
+		<!-- 群组 -->
+		<request
+			path="sys_org_group/sysOrgGroup*"
+			defaultValidator="roleValidator(role=ROLE_SYSORGGROUP_ADMIN)">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+		<!-- 群组类别 -->
+		<request
+			path="sys_org_group_cate/sysOrgGroupCate*"
+			defaultValidator="roleValidator(role=ROLE_SYSORGGROUPCATE_ADMIN)">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+		<!-- 角色线配置 -->
+		<request
+			path="sys_org_role_conf/sysOrgRoleConf*"
+			defaultValidator="roleValidator(role=ROLE_SYSROLE_LINE_ADMIN)"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.organization.model.SysOrgRoleConf">
+			<query
+				queryString="method=list|view"
+				validator="roleValidator(role=ROLE_SYSROLE_LINE_ADMIN;ROLE_SYSROLECONF_EDITOR)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYSROLE_LINE_ADMIN) | roleValidator(role=ROLE_SYSROLECONF_EDITOR) &amp; authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=checkRepeatRole|updateRepeatRole"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+		</request>
+		<!-- 角色线成员 -->
+		<request
+			path="sys_org_role_line/sysOrgRoleLine_dialog.jsp*" />
+		<request
+			path="sys_org_role_line/sysOrgRoleLine*"
+			defaultValidator="roleValidator(role=ROLE_SYSROLE_LINE_ADMIN)"
+			validatorParameter="recid=fdConfId,model=com.landray.kmss.sys.organization.model.SysOrgRoleConf">
+			<query
+				queryString="method=roleTree|add|save|saveadd|edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+		</request>
+		<!-- 角色线的自定义查找 -->
+		<request
+			path="sys_org_role/sysOrgRole_simulator.jsp*" />
+		<request
+			path="sys_org_role/sysOrgRole*"
+			defaultValidator="roleValidator(role=ROLE_SYSROLE_COMMON_ADMIN)">
+			<query
+				queryString="fdConfId=*"
+				validator="authFieldValidator(type=SYS_EDITOR,recid=fdConfId,model=com.landray.kmss.sys.organization.model.SysOrgRoleConf)" />
+		</request>
+		<!-- 数据升级 -->
+		<request path="sysOrgData_update.jsp"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)"/>
+		<filters modelName="com.landray.kmss.sys.organization.model.SysOrgRoleConf">
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=sysRoleLineEditors.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSROLE_LINE_ADMIN)" />
+		</filters>
+	</module>
+	<module urlPrefix="/sys/common/">
+		<request path="treexml.jsp*">
+			<query
+				validator="roleValidator(role=SYSROLE_USER)"
+				queryString="service=sysOrgGroupCateService" />
+		</request>
+		<request path="dataxml.jsp*">
+			<query
+				validator="roleValidator(role=SYSROLE_USER)"
+				queryString="service=sysOrgElementService|sysOrgPersonService" />
+			<query
+				validator="authFieldValidator(type=SYS_EDITOR,recid=confId,model=com.landray.kmss.sys.organization.model.SysOrgRoleConf)"
+				queryString="s_bean=sysOrgRoleLineOption" />
+			<query
+				validator="true"
+				queryString="s_bean=sysOrgInfoService" />
+		</request>
+	</module>
+	<module
+		urlPrefix="/sys/appconfig/">
+		<request path="sys_appconfig/sysAppConfig*">
+			<query
+				validator="roleValidator(role=ROLE_SYSORG_CONFIG)"
+				queryString="modelName=com.landray.kmss.sys.organization.model.SysOrgConfig" />
+		</request>
+	</module>
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query
+				validator="roleValidator(role=ROLE_SYSORG_TRANSPORT)"
+				queryString="fdModelName=com.landray.kmss.sys.organization.model.SysOrgOrg|com.landray.kmss.sys.organization.model.SysOrgDept|com.landray.kmss.sys.organization.model.SysOrgPost|com.landray.kmss.sys.organization.model.SysOrgPerson|com.landray.kmss.sys.organization.model.SysOrgGroup" />
+		</request>
+		<request path="sys_transport_import/SysTransportUpload*">
+			<query
+				validator="roleValidator(role=ROLE_SYSORG_TRANSPORT)"
+				queryString="fdModelName=com.landray.kmss.sys.organization.model.SysOrgOrg|com.landray.kmss.sys.organization.model.SysOrgDept|com.landray.kmss.sys.organization.model.SysOrgPost|com.landray.kmss.sys.organization.model.SysOrgPerson|com.landray.kmss.sys.organization.model.SysOrgGroup" />
+		</request>	
+	</module>
+	<module urlPrefix="/sys/search/">
+		<request path="sys_search_main/sysSearchMain*">
+			<query
+				validator="roleValidator(role=ROLE_SYSORG_CONFIG)"
+				queryString="fdModelName=com.landray.kmss.sys.organization.model.SysOrgOrg|com.landray.kmss.sys.organization.model.SysOrgDept|com.landray.kmss.sys.organization.model.SysOrgPost|com.landray.kmss.sys.organization.model.SysOrgPerson|com.landray.kmss.sys.organization.model.SysOrgGroup" />
+		</request>
+		<request path="search*">
+			<query
+				validator="roleValidator(role=ROLE_SYSORG_TRANSPORT)"
+				queryString="method=exportResult&amp;fdModelName=com.landray.kmss.sys.organization.model.SysOrgOrg|com.landray.kmss.sys.organization.model.SysOrgDept|com.landray.kmss.sys.organization.model.SysOrgPost|com.landray.kmss.sys.organization.model.SysOrgPerson|com.landray.kmss.sys.organization.model.SysOrgGroup" />
+		</request>
+	</module>
+	<search
+		modelName="com.landray.kmss.sys.organization.model.SysOrgOrg"
+		messageKey="sys-organization:sysOrgOrg.search" />
+	<search
+		modelName="com.landray.kmss.sys.organization.model.SysOrgDept"
+		messageKey="sys-organization:sysOrgDept.search" />
+	<search
+		modelName="com.landray.kmss.sys.organization.model.SysOrgPost"
+		messageKey="sys-organization:sysOrgPost.search" />
+	<search
+		modelName="com.landray.kmss.sys.organization.model.SysOrgPerson"
+		messageKey="sys-organization:sysOrgPerson.search" />
+	<search
+		modelName="com.landray.kmss.sys.organization.model.SysOrgGroup"
+		messageKey="sys-organization:sysOrgGroup.search" />
+		
+	<homePage
+		urlPrefix="sys/organization"
+		url="/moduleindex.jsp?nav=/sys/organization/tree.jsp"
+		messageKey="sys-organization:organization.moduleName"
+		config="/moduleindex_notopic.jsp?nav=/sys/organization/tree.jsp"
+		type="global" />
+</configs>

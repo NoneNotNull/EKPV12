@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.mapping.model.TibCommonMappingModule"
+	messageKey="tib-common-mapping:table.tibCommonMappingModule"
+	serviceBean="tibCommonMappingModuleService"
+	table="tib_common_mapping_module"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdType"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdType"
+	type="String"
+	column="fd_type"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdServerName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdServerName"
+	type="String"
+	column="fd_server_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdServerIp"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdServerIp"
+	type="String"
+	column="fd_server_ip"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdModuleName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdModuleName"
+	type="String"
+	column="fd_module_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdMainModelName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdMainModelName"
+	type="String"
+	column="fd_main_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdTemplateName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdTemplateName"
+	type="String"
+	column="fd_template_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdUse"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdUse"
+	type="Boolean"
+	column="fd_use"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdCate"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdCate"
+	type="Integer"
+	column="fd_cate"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdModelTemFieldName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdModelTemFieldName"
+	type="String"
+	column="fd_mode_tem_field_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdTemCateFieldName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdTemCateFieldName"
+	type="String"
+	column="fd_tem_cate_field_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdTemNameFieldName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdTemNameFieldName"
+	type="String"
+	column="fd_tem_name_field_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdFormTemFieldName"
+	messageKey="tib-common-mapping:tibCommonMappingModule.fdFormTemFieldName"
+	type="String"
+	column="fd_form_tem_field_name"
+	notNull="false"
+	length="100"
+/>
+</model></models>

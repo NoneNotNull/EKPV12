@@ -1,0 +1,41 @@
+.lui-ask-column-table {
+	
+}
+.lui-ask-column-table a {
+	padding:5px 0px;
+	text-decoration: none;
+	font-weight: normal;
+	border-bottom: solid 1.6px #e5e5e5;
+}
+
+
+.lui-ask-subject {
+	margin: 3px 0px;
+	font-size: 1.17em;
+	color: #000 !important;
+}
+.lui-ask-info {
+	margin: 5px 0px 2px 0px;
+	font-size: 0.8em;
+	color: #979797;
+}
+.lui-ask-topic-status {
+	display:inline-block;
+	width:18px;
+	height:18px;
+	vertical-align: middle;
+}
+.lui-ask-topic-ask {
+	background: url("../img/icon_not.gif") no-repeat 50% 50%;
+}
+.lui-ask-topic-ok {
+	background: url("../img/icon_yet.png") no-repeat 50% 50%;
+}
+.lui-ask-score {
+	padding-left: 15px;
+	display: inline-block;
+	color: #E9132D;
+	background: url("../img/gold.png") no-repeat 0px 50%;
+	background-size: 12px 12px;
+	font-size: 0.6em;
+}

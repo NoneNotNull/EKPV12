@@ -1,0 +1,27 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav">
+	   <link 
+	        url="/sys/task/sys_task_ui/sysTaskMain_person.jsp" 
+	        msgKey="sys-task:sysTaskMain.my" 
+	        id="sys_task_home_nav"/>
+	</links>
+	<links type="zone-nav">
+	 <link 
+	        url="/sys/task/sys_task_ui/sysTaskMain_zone.jsp" 
+	        msgKey="sys-task:sysTaskMain.ta" 
+	        id="sys_task_zone_nav"/>
+    </links>
+    
+    <links type="shortcut" order="10">
+	    <link 
+	        id="sys_task_shortcut_add"
+	        url="/sys/task/sys_task_main/sysTaskMain.do?method=add" 
+	        msgKey="sys-task:table.sysTaskMain"
+	        icon="lui_icon_l_icon_19"/>
+	</links>
+</root>

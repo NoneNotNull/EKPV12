@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<!-- 订阅机制模块部署扩展点 -->
+	<extension-point id="com.landray.kmss.sys.follow.setting">
+		<item name="followSetting">
+			<param name="methodName" kind="string" required="true">
+				<description>订阅执行操作的名称，当对象执行该操作时，会产生订阅文档。多个可以","分割。
+				如订阅新增更新：add,update</description>
+			</param>
+			<param name="templateModel" kind="string">
+				<description>分类model</description>
+			</param>
+			<param name="templateField" kind="string">
+				<description>分类层级字段，用来获取到文档所属分类层级。例如：kmsMultidocTemplate.fdHierarchyId
+				</description>
+			</param>
+			<param name="templateModelType" kind="string">
+				<description>分类字段类型，非List不用填写</description>
+			</param>
+			<description>订阅创建日志和文档所属分类字段设置</description>
+		</item>
+		<description>
+			当模块需要部署订阅时，增加该扩展项。
+		</description>
+	</extension-point>
+	
+<!-- 例子
+	<extension point="com.landray.kmss.sys.follow.setting" model="" >
+		<item name="followSetting">
+			<param name="methodName" value="add,update" />
+			<param name="templateField" value="kmsMultidocTemplate.fdHierarchyId" />
+			<param name="templateModel" value="kmsMultidocTemplate" />
+		</item>
+	</extension>
+-->
+
+	<!-- 订阅规则配置 -->
+	<extension-point id="com.landray.kmss.sys.follow.rule.setting">
+		<item name="rule">
+			<param name="name" kind="string" required="true">
+				<description>订阅规则名</description>
+			</param>
+			<param name="text" kind="string" required="true">
+				<description>规则中文显示资源名称</description>
+			</param>
+			<param name="bean" kind="string" required="true">
+				<description>订阅规则处理bean</description>
+			</param>
+			<description>订阅规则参数</description>
+		</item>
+		<description>
+			订阅规则设置，新增、维护订阅规则
+		</description>
+	</extension-point>
+
+
+	<!-- 分类订阅规则配置 -->
+	<extension point="com.landray.kmss.sys.follow.rule.setting">
+		<item name="rule">
+			<param name="name" value="category" />
+			<param name="text" value="sys-follow:sysFollow.rule.category" />
+			<param name="bean" value="categoryRuleDistribute" />
+		</item>
+	</extension>
+	
+	<!-- 标签订阅规则配置 -->
+	<extension point="com.landray.kmss.sys.follow.rule.setting">
+		<item name="rule">
+			<param name="name" value="tag" />
+			<param name="text" value="sys-follow:sysFollow.rule.tag" />
+			<param name="bean" value="tagRuledistribute" />
+		</item>
+	</extension>
+	
+	
+	<!--订阅消息接收器	-->
+	<extension
+		point="com.landray.kmss.sys.cluster">
+		<item
+			name="dispatcher">
+			<param
+				name="id"
+				value="followMessageDispatcher" />
+			<param
+				name="service"
+				value="followMessageDispatcher" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="messageReceiver">
+			<param name="type"
+				value="com.landray.kmss.sys.follow.service.spring.message.SysFollowCacheMessage" />
+			<param name="service" value="sysFollowMessageReceiver" />
+		</item>
+	</extension>
+
+</plugin>

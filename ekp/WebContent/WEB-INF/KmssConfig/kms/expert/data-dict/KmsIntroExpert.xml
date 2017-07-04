@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.expert.model.KmsIntroExpert"
+		messageKey="kms-common:table.kmsIntroExpert"
+		displayProperty="fdName"
+		serviceBean="kmsIntroExpertService"
+		table="kms_intro_expert"
+		url="/kms/expert/kms_intro_expert/kmsIntroExpert.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-common:kmsIntroExpert.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRecommend"
+			messageKey="kms-common:kmsIntroExpert.fdRecommend"
+			type="String"
+			column="fd_recommend"
+			notNull="false"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="fdPhase"
+			messageKey="kms-common:kmsIntroExpert.fdPhase"
+			type="Integer"
+			column="fd_phase"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-common:kmsIntroExpert.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-common:kmsIntroExpert.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-common:kmsIntroExpert.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<listProperty
+			name="fdExpertList"
+			messageKey="kms-common:kmsIntroExpert.fdExpertList"
+			type="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+			table="kms_intro_expert_mapping"
+			column="fd_intro_id"
+			elementColumn="fd_expert_id" />
+
+	</model>
+</models>

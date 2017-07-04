@@ -1,0 +1,29 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+		<link 
+			id="km_smissive_home_nav"
+			url="/km/smissive/km_smissive_main_ui/kmSmissiveMain_person.jsp" 
+			msgKey="km-smissive:smissive.myDoc" />
+	</links>
+	
+	<links type="zone-nav" order="10">
+		<link 
+			id="km_smissive_zone_nav"
+			url="/km/smissive/km_smissive_main_ui/kmSmissiveMain_zone.jsp?user=!{user}" 
+			msgKey="km-smissive:smissive.taDoc" />
+	</links>
+	
+	<links type="shortcut" order="10">
+	    <link 
+	        id="km_smissive_shortcut_add"
+	        url="/km/smissive/km_smissive_main/kmSmissiveMain.do?method=add" 
+	        msgKey="km-smissive:kmSmissiveMain.create.title"
+	        icon="lui_icon_l_icon_12"/>
+	</links>
+	
+</root>

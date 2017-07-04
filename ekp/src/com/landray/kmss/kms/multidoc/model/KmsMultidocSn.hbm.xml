@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.kms.multidoc.model.KmsMultidocSn"
+		table="kms_multidoc_sn">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdMaxNumber"
+			column="fd_max_number"
+			update="true"
+			insert="true"
+			length="8"
+			not-null="false" />
+
+		<property
+			name="fdDate"
+			column="fd_date"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdModelName"
+			column="fd_model_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdTemplateId"
+			column="fd_template_id"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+		<property
+			name="fdPrefix"
+			column="fd_prefix"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />	
+
+	</class>
+</hibernate-mapping>

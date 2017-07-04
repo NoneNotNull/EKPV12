@@ -1,0 +1,29 @@
+<list:criteria id="criteria1">
+	<%-- 指定model和属性，自动生成筛选项 --%>
+	<list:cri-auto modelName="com.landray.kmss.km.review.model.KmReviewMain" 
+		property="docStatus;fdNumber;docCreator;fdDepartment;docCreateTime" />
+		
+	<%-- 通过id直接引用Combin定义的筛选项 --%>
+	<list:cri-ref key="docSubject" ref="criterion.sys.docSubject">
+	</list:cri-ref>
+	
+	<%-- 给引用筛选项指定参数 --%>
+	<list:cri-ref ref="criterion.sys.category" key="fdTemplate" multi="false" title="分类导航" expand="true">
+		<list:varParams modelName="com.landray.kmss.km.review.model.KmReviewTemplate"/>
+	</list:cri-ref>
+	
+	<%-- 自定义数据源 --%>
+	<list:cri-criterion title="${ lfn:message('km-review:kmReviewMain.my') }" key="mydoc" multi="false">
+		<list:box-select>
+			<list:item-select>
+				<ui:source type="Static">
+					[
+						{text:'${ lfn:message('km-review:kmReviewMain.create.my') }',  value:'create'},
+						{text:'${ lfn:message('km-review:kmReviewMain.approval.my') }', value:'approval'}, 
+						{text:'${ lfn:message('km-review:kmReviewMain.approved.my') }', value: 'approved'}
+					]
+				</ui:source>
+			</list:item-select>
+		</list:box-select>
+	</list:cri-criterion>
+</list:criteria>

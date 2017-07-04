@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreNode"
+		messageKey="tib-sys-core-provider:table.tibSysCoreNode"
+		displayProperty="fdNodeLevel"
+		serviceBean="tibSysCoreNodeService"
+		table="tib_sys_core_node"
+		url="/tib/sys/core/provider/tib_sys_core_node/tibSysCoreNode.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdNodeLevel"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdNodeLevel"
+			type="String"
+			column="fd_node_level"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNodeName"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdNodeName"
+			type="String"
+			column="fd_node_name"
+			notNull="true"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdNodePath"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdNodePath"
+			type="String"
+			column="fd_node_path"
+			notNull="false"
+			length="1000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDataType"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdDataType"
+			type="String"
+			column="fd_data_type"
+			notNull="false"
+			length="32"
+			validate="false" />
+
+		<simpleProperty
+			name="fdNodeEnable"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdNodeEnable"
+			type="Boolean"
+			column="fd_node_enable"
+			notNull="true"
+			length="32"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDefName"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdDefName"
+			type="String"
+			column="fd_def_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNodeContent"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdNodeContent"
+			type="String"
+			column="fd_node_content"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAttrJson"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdAttrJson"
+			type="String"
+			column="fd_attr_json"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDefPath"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdDefPath"
+			type="String"
+			column="fd_def_path"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<modelProperty
+			name="fdIface"
+			messageKey="tib-sys-core-provider:tibSysCoreNode.fdIface"
+			type="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface"
+			column="fd_iface_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

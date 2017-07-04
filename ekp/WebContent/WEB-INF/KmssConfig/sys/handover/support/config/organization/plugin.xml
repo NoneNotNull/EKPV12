@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+	<!-- 组织架构-->
+	<extension
+		point="com.landray.kmss.sys.handover">
+		<item
+			name="config">
+			<param
+				name="module"
+				value="handOverSysOrganization"/>
+			<param 
+				name="messageKey" 
+				value="sys-handover-support-config-organization:sysHandoverConfigHandler.sysOrg"/>
+			<param 
+				name="handler" 
+				value="com.landray.kmss.sys.handover.support.config.organization.SysOrgHandler"/>
+			<param 
+				name="order" 
+				value="1"/>
+		</item>
+	</extension>
+</plugin>

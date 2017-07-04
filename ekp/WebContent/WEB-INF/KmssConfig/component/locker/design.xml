@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="component-locker:module.component.locker"
+		urlPrefix="/component/locker/"
+		defaultValidator="roleValidator(role=ROLE_COMPONENTLOCKER_DEFAULT)">
+		<roles>ROLE_COMPONENTLOCKER_DEFAULT</roles>
+		<request
+			path="component_locker_*/componentLocker*"
+			defaultValidator="roleValidator(role=ROLE_COMPONENTLOCKER_DEFAULT)">
+			<query
+				validator="roleValidator(role=ROLE_COMPONENTLOCKER_DEFAULT)"
+				queryString="method=delete|deleteall|releaseLockers|releaseLocker" />
+		</request>
+	</module>
+	
+	<homePage
+		urlPrefix="component/locker"
+		url="/moduleindex.jsp?nav=/component/locker/tree.jsp&amp;main=%2Fcomponent%2Flocker%2Fcomponent_locker_main%2FcomponentLockerMain.do%3Fmethod%3DlistAllLockers%26s_path%3D!{message(component-locker:tree.componentLockerMain.all)}"
+		messageKey="component-locker:componentLocker.moduleName" />
+</configs>

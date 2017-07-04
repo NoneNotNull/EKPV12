@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysClusterServer.fdDispatcherType">
+		<value-label>
+			<value>2</value>
+			<label-key>sysClusterServer.fdDispatcherType.2</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysClusterServer.fdDispatcherType.1</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysClusterServer.fdDispatcherType.0</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+	</type>
+	<type name="sysClusterServer.status">
+		<value-label>
+			<value>2</value>
+			<label-key>sysClusterServer.status.2</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysClusterServer.status.1</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysClusterServer.status.0</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+	</type>
+	<type name="sysClusterServer.connState">
+		<value-label>
+			<value>-1</value>
+			<label-key>sysClusterServer.connState.-1</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysClusterServer.connState.1</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysClusterServer.connState.0</label-key>
+			<bundle>sys-cluster</bundle>
+		</value-label>
+	</type>
+</column-enums>

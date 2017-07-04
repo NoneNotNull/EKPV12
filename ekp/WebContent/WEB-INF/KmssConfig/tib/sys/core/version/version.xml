@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 TIB接口XML数据源无法修改问题</description>
+			<author>邱建华</author>
+			<revision-time>2015-03-02</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 初始化费控V2代码</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-02</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 TIB表单控件</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 扩展点的改变</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-18</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+	</modifies>
+</version>

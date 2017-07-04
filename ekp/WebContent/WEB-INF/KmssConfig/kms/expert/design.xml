@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-expert:module.kms.expert"
+		urlPrefix="/kms/expert/"
+		defaultValidator="roleValidator(role=ROLE_KMSEXPERT_DEFAULT)">
+		<roles>
+			ROLE_KMSEXPERT_DEFAULT; 
+			ROLE_KMSEXPERTTYPE_ADMIN;
+			ROLE_KMSEXPERTINFO_ADMIN;
+			<!--推荐专家 -->
+			ROLE_KMSHOME_INTRODUCEXPERT;
+			<!-- 分类和专家导入权限 -->
+			ROLE_KMSEXPERT_EXCEL_IMPORT;
+			
+			ROLE_KMSEXPERT_BACKSTAGE_MANAGER;
+			
+		</roles>
+		<!-- 专家领域设置 
+		<request path="kms_expert_type/kmsExpertType*">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSEXPERTTYPE_ADMIN)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_KMSEXPERTTYPE_ADMIN)" />
+			<query
+				queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_KMSEXPERTTYPE_ADMIN)" />
+		</request>  -->
+		<!-- 专家分类权限 -->
+		<request
+			path="kms_expert_type/kmsExpertType*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.expert.model.KmsExpertType,adminRoleName=ROLE_KMSEXPERTTYPE_ADMIN">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="roleValidator(role=ROLE_KMSEXPERTTYPE_ADMIN)" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete|deleteall"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 复制 -->
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		
+
+		<!-- 专家列表 -->
+		<request path="kms_expert_info/kmsExpertInfo*">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSEXPERTINFO_ADMIN)|authSimpleCategoryReaderValidator(cateId=fdKmsExpertTypeId)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_KMSEXPERTINFO_ADMIN)" />
+			<query
+				queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_KMSEXPERTINFO_ADMIN)" />
+			<query
+				queryString="method=delete|deleteall"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=introExpert"
+				validator="roleValidator(role=ROLE_KMSHOME_INTRODUCEXPERT)" />
+		</request>
+		
+		<!-- 推荐专家 -->
+		<request
+			path="kms_intro_expert/kmsIntroExpert*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.expert.model.KmsIntroExpert"
+			defaultValidator="roleValidator(role=ROLE_KMSHOME_DEFAULT)">
+			<query 
+				queryString="method=add|save|saveadd|edit|update|delete|list" 
+				validator="roleValidator(role=ROLE_KMSHOME_INTRODUCEXPERT)"/>
+		</request>
+	</module>
+	
+	<!-- 类别和专家导入权权 -->
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.expert.model.KmsExpertType|com.landray.kmss.kms.expert.model.KmsExpertInfo" 
+				validator="roleValidator(role=ROLE_KMSEXPERT_EXCEL_IMPORT)"/>
+		</request>
+		<request path="sys_transport_import/SysTransportUpload*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.expert.model.KmsExpertType|com.landray.kmss.kms.expert.model.KmsExpertInfo" 
+				validator="roleValidator(role=ROLE_KMSEXPERT_EXCEL_IMPORT)"/>
+		</request>
+	</module>
+	
+	<!-- 搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.kms.expert.model.KmsExpertInfo"
+				validator="roleValidator(role=ROLE_KMSEXPERT_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 
+	<portlet
+		moduleKey="kms-expert:title.kms.expert"
+		messageKey="kms-expert:kmsExpert.portlet.kmsExperScoreList"
+		templateClass="com.landray.kmss.kms.expert.model.KmsExpertType"	
+		contentURL="/kms/expert/kms_expert_portlet/kmsExpertScore_list.jsp?fdCategoryId=!{cateid}&amp;rowsize=!{rowsize}"
+		moreURL="/kms/expert.index" />
+		 -->
+	<!-- 分类概览定时任务 -->
+	<!--  
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsExpertPreviewService" 
+		messageKey="kms-expert:kmsExpert.quartz.preview"
+		jobMethod="updateExpertPre" />-->
+	
+	<!-- 定时计算专家分类预览(2013 12 21) -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsExpertCategoryPreManagerService"
+		messageKey="kms-expert:kmsExpert.quartz.preview"
+		jobMethod="____previeQuartz" />
+	<!-- 知识数定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsHomeExpertService" 
+		messageKey="kms-expert:kmsExpert.quartz.count"
+		jobMethod="updateExpertCount" />
+	
+	<!-- 全文搜索 zhouchao-->
+	<ftSearch
+		modelName="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="fdName"
+			type="Text" />
+		<luceneField
+			name="category"
+			property="kmsExpertType.fdHierarchyId"
+			type="keyword" />
+		<luceneField
+			name="createTime"
+			property="fdCreateTime"
+			type="keyword" /><!-- 检索创建时间,只需要修改property，不需改name -->
+	</ftSearch>
+	
+	<!-- 关联机制 -->
+	<relation
+		modelName="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+		messageKey="kms-expert:title.kms.expert" />
+	
+	<!-- kms后台管理 -->
+	<treeNodes type="kms">
+		<treeNode
+			messageKey="kms-expert:kmsExpert.config.tree">
+			<treeNode
+				messageKey="kms-expert:menu.kmsExpertInfo.title"
+				url="/kms/expert/kms_expert_info/kmsExpertInfo.do?method=list">
+				<treeNode
+					messageKey="kms-expert:kmsExpert.personalInfo"
+					url="/kms/expert/admintree.jsp"
+					target="2">
+				</treeNode>
+			</treeNode>
+			<treeNode
+				messageKey="kms-expert:menu.kmsExpertTepy.config"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.kms.expert.model.KmsExpertType&amp;actionUrl=/kms/expert/kms_expert_type/kmsExpertType.do&amp;formName=kmsExpertTypeForm&amp;mainModelName=com.landray.kmss.kms.expert.model.KmsExpertInfo&amp;docFkName=kmsExpertType">
+			</treeNode>
+			<treeNode
+				messageKey="kms-expert:kmsExpert.config.category.import"
+				url="/sys/transport/sys_transport_import/SysTransportImport.do?method=list&amp;fdModelName=com.landray.kmss.kms.expert.model.KmsExpertType">
+			</treeNode>
+			<treeNode
+				messageKey="kms-expert:kmsExpert.config.main.import"
+				url="/sys/transport/sys_transport_import/SysTransportImport.do?method=list&amp;fdModelName=com.landray.kmss.kms.expert.model.KmsExpertInfo">
+			</treeNode>
+			<treeNode
+				messageKey="kms-expert:table.kmsIntroExpert"
+				url="/kms/expert/kms_intro_expert/kmsIntroExpert.do?method=list">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	
+	<!-- 
+		<treeNodes
+			type="mysetting">
+			<treeNode
+				messageKey="kms-expert:kmsExpert.personInfo.title"
+				url="/kms/expert/kms_person_info/kmsPersonInfo.do?method=view&amp;name=myJob">
+			</treeNode>
+		</treeNodes>
+		-->
+	
+	
+	<!-- 专家主页配置 -->
+	<homePage
+		urlPrefix="kms/expert"
+		url="/kms/expert/index.jsp"  
+		messageKey="kms-expert:kmsExpert.tree.title"
+		config="/moduleindex_notopic.jsp?nav=/kms/expert/tree.jsp"/>
+	<!-- 专家流程配置 -->
+	<flowDef
+		modelName="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+		templateModelName="com.landray.kmss.kms.expert.model.KmsExpertType"
+		key="mainDoc"
+		templatePropertyName="kmsExpertType"
+		moduleMessageKey="kms-expert:table.kmdoc"
+		type="oa" />
+	
+</configs>

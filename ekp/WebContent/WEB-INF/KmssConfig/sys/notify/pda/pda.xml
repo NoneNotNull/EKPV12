@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module 
+		urlPrefix="sys/notify" 
+		countUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=getCount">
+		<!-- messageKey必填
+			 type：doc,list,pic -->
+		<!--业务模块对PDA暴露的列表链接  messageKey必须 , type：doc,list,pic等-->
+		<config messageKey="sys-notify:sysNotifyTodo.type.toDo" 
+			type="list"
+			dataUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=mngList&amp;oprType=doing&amp;fdType=13"
+			countUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=getCount&amp;fdType=13" />
+			
+		<config messageKey="sys-notify:sysNotifyTodo.type.toView" 
+			type="list"
+			dataUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=mngList&amp;oprType=doing&amp;fdType=2"
+			countUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=getCount&amp;fdType=2" />
+			
+		<config messageKey="sys-notify:sysNotifyTodo.type.done" 
+			type="list"
+			dataUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=mngList&amp;oprType=done"
+			countUrl="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=getCount&amp;fdType=-1" />
+	</module>
+</pdaConfig>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkPersonCategory"
+		messageKey="sys-bookmark:table.sysBookmarkPersonCategory"
+		serviceBean="sysBookmarkPersonCategoryService"
+		extendClass="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+		discriminatorValue="2">
+	</model>
+</models>

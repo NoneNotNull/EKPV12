@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!--message为模块名的key值  -->
+	<!--urlPrefix为模块的访问路径  -->
+	<!--defaultValidatro为模块的默认校验器  -->
+	<!--validator的查找顺序：query.validator → request.defaultValidator → module.defaultValidator。
+	即若在query找不到校验器，则到request中找，若在request也找不到，则到module中找，若连module中也找不到，默认为所有登录用户都可以访问。  -->
+	<module
+		messageKey="work-cases:module.work.cases"
+		urlPrefix="/work/cases/"
+		defaultValidator="roleValidator(role=ROLE_WORKCASES_DEFAULT)">
+		<!-- 配置该模块的所有角色 -->
+		<roles>
+			ROLE_WORKCASES_DEFAULT;
+			ROLE_WORKCASES_ADD;
+			ROLE_WORKCASES_VIEW;
+			ROLE_WORKCASES_EDIT;
+			ROLE_WORKCASES_DELETE;
+			ROLE_WORKCASESMAIN_EVALUATE_CREATE;
+			ROLE_WORKCASES_COMMONWORKFLOW
+		</roles>
+		<areaRoles>
+			ROLE_WORKCASES_CATEGORY_MAINTAINER;
+			ROLE_WORKCASES_EVALUATE_DELETE
+		</areaRoles>
+
+		<!-- 分类请求拦截 -->
+		<!--path指的是该模块下的请求路径  -->
+		<!--defaultValidator为默认的校验器,如果url没有校验器就采用默认的校验器  -->
+		<!--validatorParameter是配置通用的校验器参数，recid=fdID表示从request.getParametere(fdId),model表示当前需要过滤数据的model  -->
+		<request
+			path="work_cases_category/workCasesCategory*"
+			defaultValidator=""
+			validatorParameter="recid=fdId,model=com.landray.kmss.work.cases.model.WorkCasesCategory,adminRoleName=ROLE_WORKCASES_CATEGORY_MAINTAINER">
+			
+			<!-- 保存 -->
+			<!--queryString请求参数&amp;分隔多个参数，|分隔参数的所有可能值，参数顺序无所谓，可用*表示该参数必须出现，但不限定值  -->
+			<!--validator指定校验器 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		<!-- 主文档请求拦截 -->
+		<!--校验器表达式:校验器名(参数1=值1，参数值2=值2)|或运算；&与运算；[]调整运算优先级 -->
+		<!--roleValidator是角色校验器,即校验当前用户是否拥有指定的角色  -->
+		<!--fieldValueValidator(field,value)是状态值校验器,校验指定的状态域是否与给定的值相等  -->
+		<!--authFieldValidator(type,recid,model)是过滤器校验器：校验当前用户对某条记录是否有权限，type指filter的type值  -->
+		<request
+			path="work_cases_main/workCasesMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.work.cases.model.WorkCasesMain,cateModel=com.landray.kmss.work.cases.model.WorkCasesCategory,adminRoleName=ROLE_WORKCASES_CATEGORY_MAINTAINER">
+			<!-- 新建  *表示必须该参数必须出现-->
+			<query
+				queryString="method=add&amp;docCategoryId=*"
+				validator="roleValidator(role=ROLE_WORKCASES_ADD)&amp;authSimpleCategoryReaderValidator(cateId=docCategoryId)" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"				
+				validator="roleValidator(role=ROLE_WORKCASES_ADD)&amp;authSimpleCategoryReaderValidator(cateId=docCategoryId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update"
+				validator=" authFieldValidator(type=SYS_EDITOR)" />
+			<!-- 删除 -->
+			<!--fieldValueValidator校验器首先通过request.getParatemer(fdId)获取model,
+			然后根据fieldproperty获取状态值与value进行比较  -->
+			<query
+				queryString="method=delete"				
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|roleValidator(role=ROLE_WORKCASES_DELETE)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_WORKCASES_DELETE)" />	
+		</request>
+		<!--过滤器表达式：过滤器名(参数1=值1,参数2=值2,...)
+			跟校验器不一样，过滤器不可使用逻辑运算，多个过滤器之间是使用或运算
+		  -->
+		<!--roleFilter是角色过滤器,当用户在角色之内,不进行数据过滤  -->
+		<!--authFieldFilter(field)是授权域过滤器,即当前用户在某记录的给定域中,不进行数据过滤,field指记录的属性名,多指用;分隔  -->
+		<!--authFieldFilter(role_0,field_0,role_1,field_1,...,field)若当前用户拥有role_n的角色时，选择field_n的参数;
+		    若当前用户不拥有所有设置的角色，则选择field的参数-->
+		<!--flagFieldFilter是状态域过滤器,某记录给定域的值等于某个值时,不进行数据过滤  -->
+		<!--type值的是对可阅读者还是可编辑者或者其它进行过滤  SYS_READER：读者，SYS_EDITOR:编辑者;多个type值相同的过滤器是或运算
+		,只要有一个过滤器满足即可-->
+		
+		<!--在查询数据的时候调用过滤器 
+			1)您需要在查询的时候调用findPage(HQLInfo)/findList(HQLInfo)/
+			findValue(HQLInfo)的方法实现数据过滤的功能，并在构造HQLInfo的时候，调用setAuthCheckType指定过滤类型
+			2)若您没有采用BaseDaoImp提供的方法进行数据查询，数据过滤的功能将不起作用
+			3)findValue/findList默认不进行数据过滤，findPage默认进行SYS_READER（读者）的权限过滤
+		 -->
+		<filters
+			modelName="com.landray.kmss.work.cases.model.WorkCasesMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_WORKCASES_VIEW)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_WORKCASES_EDIT)" />
+		</filters>
+		
+	</module>
+	
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.work.cases.model.WorkCasesCategory"
+				validator="roleValidator(role=ROLE_WORKCASES_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	
+	<relation
+		modelName="com.landray.kmss.work.cases.model.WorkCasesMain"
+		messageKey="work-cases:module.work.cases"/>
+
+	<homePage
+		urlPrefix="work/cases"
+		config="/moduleindex_notopic.jsp?nav=/work/cases/tree.jsp"
+		url="/work/cases/index.jsp"
+		messageKey="work-cases:module.work.cases" />
+ 
+	<!--modelName:业务模块文档域模型  
+		templateModelName:主文档相关联的分类
+		key:与页面引入流程标签时的fdKey相同
+		type:流程类型
+		moduleMessageKey：引用流程时的标签名-->
+	
+	 <flowDef
+		modelName="com.landray.kmss.work.cases.model.WorkCasesMain"
+		templateModelName="com.landray.kmss.work.cases.model.WorkCasesCategory"
+		key="reviewMainDoc"
+		templatePropertyName="docCategory"
+		moduleMessageKey="work-cases:module.work.cases"
+		type="oa" />
+		
+	<!-- 点评机制配置 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/evaluation/">
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.work.cases.model.WorkCasesMain&amp;method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_WORKCASESMAIN_EVALUATE_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.work.cases.model.WorkCasesMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.work.cases.model.WorkCasesMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_WORKCASES_EVALUATE_DELETE,recid=fdModelId,model=com.landray.kmss.work.cases.model.WorkCasesMain)&amp;[areaRoleValidator(role=ROLE_WORKCASES_CATEGORY_MAINTAINER,recid=fdModelId,model=com.landray.kmss.work.cases.model.WorkCasesMain)|authSimpleCategoryEditorValidator(property=docCategory,recid=fdModelId,model=com.landray.kmss.work.cases.model.WorkCasesMain)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.work.cases.model.WorkCasesMain"
+				validator="roleValidator(role=ROLE_WORKCASES_DEFAULT)" />
+		</request>
+	</module>
+ 
+</configs>

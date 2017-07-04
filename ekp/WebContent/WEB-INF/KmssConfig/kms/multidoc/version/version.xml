@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 门户配置多级树菜单时缺少主页链接的问题</description>
+			<author>陈建林</author>
+			<revision-time>2015-02-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库多媒体播放器边框显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档编辑后排序会出错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-12-24</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库分类概览信息IE8下显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库分类概览和思维导图数据存取</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 新版本在待审中还存在发布时间的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联机制配置中自定义属性显示根据模块和分类联动</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 在oracle数据库下，文档库置顶无效的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-10-24</revision-time>
+			<relation>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档库view页面关联配置权限过滤问题</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-29</revision-time>
+			<relation>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 阅读页面未显示知识编号的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档库上传文件过多时，点下一步后文件上传中断的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读页面显示创建者</description>
+			<author>陈建林</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 旧版本页面隐藏删除按钮</description>
+			<author>陈建林</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端代码</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库后台配置权限</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库实现点评机制中段落点评接口</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-30</revision-time>
+			<relation>
+				<relation-module>sys/evaluation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库段落点评权限</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/evaluation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 分类树权限优化</description>
+			<author>龚一涛</author>
+			<revision-time>2014-09-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑页面辅分类无法取消选中的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 二级页面文档由于存在导入文档导致的排序错乱问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件显示页面下，点击按“发布日期”时间查看时报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 绿色主题下排序按钮显示错行的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人空间列表样式错乱的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-25</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 文档库二级页面筛选项是草稿时不显示置顶按钮</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-01</revision-time>
+			<relation>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 草稿状态下存在置顶按钮的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 导入文档时多种类型属性导入不成功问题</description>
+			<author>郭昌平</author>
+			<revision-time>2014-07-02</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建文档时完善属性若有必填项不能回到上一步的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-01</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档库多媒体播放器在IE8下无法切换播放附件的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 导入文档时生成附件生成缩略图</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-30</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 导入文档时知识标签无法导入问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 已经回收的文档能搜索出来的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读页面不显示创建者</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识文档移动端新建功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-27</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms日志拦截部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 导入附件内存溢出的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-05-29</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 非管理员用户批量修改属性报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-05-28</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类概览在IE8下显示错乱的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 “回收站”功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-30</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建页面布局发生错乱的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-21</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 文档库发布权限</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-21</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 多维知识库文档发布到新闻功能</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-20</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>移除 部分未去除的alert()代码</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-11</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档库点评为0时报错</description>
+			<author>龚一涛</author>
+			<revision-time>2014-01-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 通过webservice查询无法过滤权限的问题,将查询由webservice改为http方式</description>
+			<author>陈良</author>
+			<revision-time>2013-10-22</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 三库合一功能</description>
+			<author>郭昌平</author>
+			<revision-time>2013-10-16</revision-time>
+			<relation>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档导入后编辑流程报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-10-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识文档上传，在审批的环节中，审批人无法在线预览上传的正文。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-10-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 转换内部作者字段传值错误</description>
+			<author>陈良</author>
+			<revision-time>2013-10-10</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 多维库web服务权限校验和组织架构相关字段</description>
+			<author>陈良</author>
+			<revision-time>2013-10-10</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 查询分类文档时，同时查询出辅分类为该分类的文档</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-24</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 辅分类命名问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 多维知识库辅分类功能</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 辅分类以及附件播放器</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档库权限整体调整，修复错误.</description>
+			<author>龚一涛</author>
+			<revision-time>2013-09-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 其他模块保存流程数据时会出错。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-08-27</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 积分排行列表多维库与多媒体库分开</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-08-26</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性批量修改页面样式</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心列表页码问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 KMS文档知识库与bam2集成</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-19</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类筛选删除权限错误</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 KMS营销社区门户推荐文档选择性展示方法</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 部署订阅机制</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-05</revision-time>
+			<relation>
+				<relation-module>sys/follow</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 KMS营销社区门户主题portlet方法</description>
+			<author>徐广敏</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>关联 场景扩展点移动关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-07-29</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 提供多维库的文档增删改查和类别的增删改查的web服务</description>
+			<author>陈良</author>
+			<revision-time>2013-07-10</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 在Chrome、Firefox浏览器中多维知识库查看页面【调整属性】中属性项显示分行移位</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-03</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维知识库编辑页面主文档右边界偏移，导致按钮及编辑框显示不完整</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-02</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>移除 文档知识库组合查询功能</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据字典错误，导致不能导入导出初始数据</description>
+			<author>郭昌平</author>
+			<revision-time>2013-05-28</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端与web端分类展示顺序不同的问题和移动筛选无数据问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-05-21</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 子父属性扩展筛选器</description>
+			<author>郭昌平</author>
+			<revision-time>2013-04-15</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库在线预览切换无效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-12</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动版多维库推荐点评由于无权限不显示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 阅读所有文档角色权限无效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 外部分类新建权限验证的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-29</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档分类转移缺陷</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-13</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库主文档数据字典，独立开用于导入的作者字段</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-13</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维知识库调整标签出现乱码的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-12</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 创建文档时允许通过url传递属性默认值</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-11</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库新建页面展开收起箭头点击不生效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-11</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片和表格超过大小显示不全的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 同一属性在不同分类分别设置值功能</description>
+			<author>郭昌平</author>
+			<revision-time>2013-02-20</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 多维库对pda的支持</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性批量修改页面显示</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-31</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 今日更新统计统计为当天修改的文档，并改为半个小时执行一次定时任务</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-16</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 页面使用属性库标准模版升级JSP</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-10</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 分类设置中，流程公式允许引用扩展属性</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档为外部作者主页显示过长的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心多维库列表默认显示所有文档</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 多维库阅读页面附件显示样式</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库文档可阅读者设置无效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 组合查询支持统一搜索查询数据</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-29</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 月份筛选和组织架构树筛选入口</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文字描述改成引用资源文件</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 单独删除扩展数据的接口及实现 关联元数据</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-11</revision-time>
+			<relation>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 分级授权分类目录上下穿透的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档导入和文档类别导入权限为文档知识库_类别维护人员</description>
+			<author>徐武飞</author>
+			<revision-time>2012-12-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 按钮权限修改</description>
+			<author>龚一涛</author>
+			<revision-time>2012-12-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 对于BAM2的支持</description>
+			<author>李衡</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心多维知识库按钮增加权限控制</description>
+			<author>龚一涛</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 fdModelId fdModelName fdPhaseId fdWorkId四个字段和页面新建加入这四个参数</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-04</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类概览及统计定时任务数据隔离</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性文档编辑属性，属性类型为textarea的时候报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 岗位自动带出</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 部署集团分级授权功能</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-21</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/right</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 导入导出权限控制</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 转移类别时候强转属性类型错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-23</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 补全多维知识库数据字典</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识服务关联多维库知识无数据显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索参数遗失的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性在审核页面显示不协调</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-16</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库由于部分数据缺失导致列表向左偏移</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识仓库、阅读排行、点评排行、推荐排行的排序问题</description>
+			<author>徐广敏</author>
+			<revision-time>2012-11-14</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多媒体库积分无效关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档是属性的“收起”、“展开”箭头失效的问题</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-13</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类批量属性维护权限报错问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-13</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 k助手场景去除滚动条</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-13</revision-time>
+			<relation>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性批量修改时，有下拉框无法出现选择的错误</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多媒体库积分无效关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档是属性的“收起”、“展开”箭头失效的问题</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-13</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类批量属性维护权限报错问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-13</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 k助手场景去除滚动条</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-13</revision-time>
+			<relation>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性批量修改时，有下拉框无法出现选择的错误</description>
+			<author>徐武飞</author>
+			<revision-time>2012-11-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库显示页面编辑属性弹出框被flash遮住的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑标签和编辑属性权限问题和去除顶置按钮</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库知识服务展示中显示最新版本知识</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 多维库审批阅读页面中辅类别字段，防止报错</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 去除使用属性筛选组件多余的操作</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 was集群下知识分类概览获取不到freemaker模板问题，暂时取消模板</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建权限,属性维护等问题,移植机制代码</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 创建分类文档权限问题，在无父目录权限情况下，有子目录权限，允许创建文档</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-17</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 主域默认打开首个可flash在线预览附件</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 机制中使用混乱的情况，统一机制调用</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 在分类设置时类别名称为特殊字符时的报错</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 对模板信息引用页传参</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 对流程内部的依赖</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 部署知识服务</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 部分xss漏洞 筛选页面点击个人中心报错等问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 不规范代码</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-19</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 主页分类概览重复创建导致数据不更新的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-18</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 部分xss漏洞</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 新增参数用于判断附件是否在当前页面打开</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-29</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 分类知识批量修改属性</description>
+			<author>郭昌平</author>
+			<revision-time>2012-08-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 jsp页面的引用路径</description>
+			<author>徐武飞</author>
+			<revision-time>2012-08-13</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 多维库筛选js组件化；新增 部署多维库在全文检索中的标签搜索</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-13</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 引用文件的路径，统一从kms公共模块引用jsp</description>
+			<author>徐武飞</author>
+			<revision-time>2012-08-10</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 多维知识库可以使用其它搜索框架</description>
+			<author>李勇</author>
+			<revision-time>2012-07-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于推荐知识内容为空导致多维库主页报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-07-20</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 多维库复选框属性保存错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 无用调试代码；优化 多维库属性筛选loading图睡眠时间</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-11</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 筛选项显示service转移到属性库中</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-07</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 某分类下子分类无属性模版导致筛选时候报错</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-05</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一kms portlet参数 优化 统一kms portlet参数</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人知识中心portlet；修复 分类概览知识数显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 多维库筛选部分移动到属性库； 优化 多维库数据筛选</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-24</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 多维库阅读页面在蓝色皮肤包下的样式结构</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-15</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms后台管理树 多维库配置节点</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 多维库子流程扩展点</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库主页，将推荐排行的评分（星星展现模式）修改为推荐次数</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库主页，将最新知识列表框中，创建者信息更改为文档作者</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>对多维库分类选择框进行权限过滤</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-03-20</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>主页概览修改·适应新版多维库</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-01-31</revision-time>
+			<relation>
+				<relation-module>kms/home</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>组合搜索页面左边树增加展开收缩功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-01-16</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>多维知识库view页面作者信息修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-01-16</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>加入编辑属性，编辑标签，关联文档，阅读机制等功能</description>
+			<author>徐武飞</author>
+			<revision-time>2011-12-15</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>正点击标签出现乱码问题和评分实时更新</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-24</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>组合查询加入按分类选项，并且页面颜色小调整</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-18</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改多维知识库知识预览定时任务生成的结构，分类长度过长的时候截取字符串，默认只显示5个一级分类</description>
+			<author>杨帆</author>
+			<revision-time>2011-11-17</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>筛选优化，多库搜索优化</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-14</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正国际化问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改知识库筛选页面，最新知识，最热知识的取得数据方式，避免性能问题</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修正更新文档修改创建时间问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>知识编辑页面里ＪＳ调整位置</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-04</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>去掉System.out.println(),去掉影响性能的同步块</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+	</modifies>
+</version>

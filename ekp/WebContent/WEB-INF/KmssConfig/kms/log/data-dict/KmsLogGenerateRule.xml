@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogGenerateRule"
+		messageKey="kms-log:table.kmsLogGenerateRule"
+		displayProperty="fdId"
+		serviceBean="kmsLogGenerateRuleService"
+		table="kms_log_generate_rule"
+		url="/kms/log/kms_log_generate_rule/kmsLogGenerateRule.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-log:kmsLogGenerateRule.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="kms-log:kmsLogGenerateRule.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="false"
+			length="60"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="kms-log:kmsLogGenerateRule.fdStatus"
+			type="Boolean"
+			column="fd_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="kms-log:kmsLogGenerateRule.fdType"
+			type="Integer"
+			column="fd_type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdClassName"
+			messageKey="kms-log:kmsLogGenerateRule.fdClassName"
+			type="String"
+			column="fd_class_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-log:kmsLogGenerateRule.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOperateMethod"
+			messageKey="kms-log:kmsLogGenerateRule.fdOperateMethod"
+			type="String"
+			column="fd_operate_method"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="servicebean"
+			messageKey="kms-log:kmsLogGenerateRule.servicebean"
+			type="String"
+			column="serviceBean"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+	</model>
+</models>

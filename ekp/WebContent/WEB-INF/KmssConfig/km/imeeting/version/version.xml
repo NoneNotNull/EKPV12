@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 可见他人草稿问题处理</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-07</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 二级页面按钮操作栏翻页功能</description>
+			<author>王腾飞</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办发起人为空问题修正</description>
+			<author>林秀贤</author>
+			<revision-time>2015-01-08</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 全文搜索部署与修改</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-16</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-16</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 会议管理模块</description>
+			<author>周梓凡</author>
+			<revision-time>2014-08-20</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+	</modifies>
+</version>

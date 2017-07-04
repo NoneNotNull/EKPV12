@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- 权限控制 -->
+	<module
+		messageKey="km-doc:module.km.doc"
+		defaultValidator="roleValidator(role=ROLE_KMDOC_DEFAULT)"
+		urlPrefix="/km/doc/">
+		<roles>
+			ROLE_KMDOC_DEFAULT; ROLE_KMDOC_COMMONWORKFLOW;
+			ROLE_KMDOC_EVALUATE_CREATE; 
+		</roles>
+		<areaRoles>
+			ROLE_KMDOC_CREATE; ROLE_KMDOC_DELETE; 
+			ROLE_KMDOC_READER; ROLE_KMDOC_EDITOR;
+			ROLE_KMDOC_EVALUATE_DELETE;
+			ROLE_KMDOC_INTRODUCE; ROLE_KMDOC_INTRODUCE_CANCEL;
+			ROLE_KMDOC_CHANGECATE; ROLE_KMDOC_CATEGORY_MAINTAINER;
+			ROLE_KMDOC_CHANGERIGHT; ROLE_KMDOC_MANUALPUBLISH;
+			ROLE_KMDOC_OPTALL
+		</areaRoles>	
+		<!-- 模板权限 -->
+		<request
+			path="km_doc_template/kmDocTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.doc.model.KmDocTemplate,adminRoleName=ROLE_KMDOC_CATEGORY_MAINTAINER">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		<!-- 主文档权限 -->
+		<request
+			path="km_doc_knowledge/kmDocKnowledge.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate,adminRoleName=ROLE_KMDOC_CATEGORY_MAINTAINER">
+			<!-- 在模板树下新建 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="areaRoleValidator(role=ROLE_KMDOC_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdTemplateId)" />
+			<!-- 保存新版本 -->
+			<query
+				queryString="method=save|saveadd&amp;originId=*"
+				validator="authFieldValidator(type=creator,recid=originId)|authFieldValidator(recid=originId,type=SYS_EDITOR)|areaRoleValidator(role=ROLE_KMDOC_EDITOR)&amp;[areaRoleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(recid=originId,property=kmDocTemplate)]" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMDOC_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdTemplateId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authSimpleCategoryEditorValidator(property=kmDocTemplate)" />
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_KMDOC_EDITOR)&amp;[areaRoleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(property=kmDocTemplate)]" />
+			<!-- 文档中的删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMDOC_DELETE)&amp;[areaRoleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(property=kmDocTemplate)]" />
+			<!-- 删除所有草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMDOC_DEFAULT)" />
+			<!-- 删除所有其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMDOC_DELETE)&amp;[roleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId)]" />
+			<!-- 维护界面 -->
+			<query
+				queryString="method=manageList"
+				validator="roleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(cateId=categoryId)" />
+		</request>
+		<filters
+			modelName="com.landray.kmss.km.doc.model.KmDocKnowledge">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMDOC_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />				
+		</filters>
+	</module>
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocTemplate"
+				validator="roleValidator(role=ROLE_KMDOC_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	<!-- 创建新版本 -->
+	<module urlPrefix="/sys/edition/">
+		<request 
+			path="sys_edition_main/sysEditionMain*">
+			<query
+				queryString="method=newVersion&amp;fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge"				
+				validator="authFieldValidator(recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate,type=creator)|authFieldValidator(recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate,type=SYS_EDITOR)|areaRoleValidator(role=ROLE_KMDOC_EDITOR)&amp;[areaRoleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate,property=kmDocTemplate)]"/>
+		</request>
+	</module>
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.km.doc.model.KmDocTemplate"
+				validator="roleValidator(role=ROLE_KMDOC_CHANGECATE)&amp;[roleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate)]" />
+		</request>
+	</module>
+	<!-- 文档视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.km.doc.model.KmDocKnowledge"
+				validator="roleValidator(role=ROLE_KMDOC_CHANGERIGHT)&amp;[roleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMDOC_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.km.doc.model.KmDocTemplate)]" />
+		</request>
+	</module>
+	<!-- 点评机制配置 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/evaluation/">
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMDOC_EVALUATE_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_KMDOC_EVALUATE_DELETE,recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge)&amp;[areaRoleValidator(role=ROLE_KMDOC_CATEGORY_MAINTAINER,recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge)|areaRoleValidator(role=ROLE_KMDOC_OPTALL,recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge)|authSimpleCategoryEditorValidator(property=kmDocTemplate,recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge"
+				validator="roleValidator(role=ROLE_KMDOC_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 推荐机制配置 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/introduce/">
+		<request path="sys_introduce_main/sysIntroduceMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;method=viewAll"
+				validator="roleValidator(role=ROLE_KMDOC_DEFAULT)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMDOC_INTRODUCE,recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.doc.model.KmDocKnowledge,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;method=cancelIntro"
+				validator="roleValidator(role=ROLE_KMDOC_INTRODUCE_CANCEL)" />
+		</request>
+	</module>
+	<!--发布机制权限-->
+	<module
+		messageKey=""
+		urlPrefix="/sys/news/">
+		<request 
+				path="sys_news_publish_main/sysNewsPublishMain_viewManualFrame.jsp*">			
+			<query
+				queryString="fdModelNameParam=com.landray.kmss.km.doc.model.KmDocKnowledge"
+				validator="areaRoleValidator(role=ROLE_KMDOC_MANUALPUBLISH,recid=fdModelIdParam,model=com.landray.kmss.km.doc.model.KmDocKnowledge)" />
+		</request>
+	</module>
+	<!-- 搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.doc.model.KmDocKnowledge"
+				validator="roleValidator(role=ROLE_KMDOC_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 文档过期定时任务,暂时隐藏改功能
+	<quartz
+		cronExpression="0 0 3 ? * 1"
+		jobService="kmDocKnowledgeService"
+		messageKey="km-doc:kmDoc.quartz.expire"
+		jobMethod="updateDocExpire" />
+	 -->
+	<!-- 更新概览定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmDocKnowledgePreService"
+		messageKey="km-doc:kmDoc.quartz.preview"
+		jobMethod="updateKnowledgePre" />
+	<!-- 主文档高级搜索 -->
+	<search
+		modelName="com.landray.kmss.km.doc.model.KmDocKnowledge"
+		messageKey="km-doc:kmDoc.search.title"
+		resultUrl="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=result" />
+	<!-- 主文档全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.km.doc.model.KmDocKnowledge"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="text" />
+		<luceneField
+			name="content"
+			property="docContent"
+			type="text" />
+		<luceneField
+			name="template"
+			property="kmDocTemplate.fdName"
+			type="text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />
+		<luceneField
+			name="author"
+			property="docAuthor.fdName"
+			type="keyword" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+		<luceneField
+			name="category"
+			property="kmDocTemplate.fdHierarchyId"
+			type="text" />
+	</ftSearch>
+	<!-- 文档订阅机制配置 -->
+	<subscribe
+		messageKey="km-doc:kmDoc.tree.title"
+		modelName="com.landray.kmss.km.doc.model.KmDocKnowledge"
+		timeField="docPublishTime"
+		whereBlock="kmDocKnowledge.docStatus='30'"
+		replaceKey="sys-doc:sysDocBaseInfo.docCreateTime;sys-doc:sysDocBaseInfo.docCreator;sys-doc:sysDocBaseInfo.docSubject" />
+	<!-- 关联机制 -->
+	<relation
+		modelName="com.landray.kmss.km.doc.model.KmDocKnowledge"
+		messageKey="km-doc:kmDoc.tree.title"/>
+	<!-- 我的工作菜单 -->
+	<treeNodes type="myjob">
+		<treeNode messageKey="km-doc:module.km.doc ">
+			<treeNode
+				messageKey="km-doc:module.km.doc "
+				url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=all">
+				<treeNode
+					messageKey="status.discard"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=00">
+				</treeNode>
+				<treeNode
+					messageKey="status.draft"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=10">
+				</treeNode>
+				<treeNode
+					messageKey="status.refuse"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=11">
+				</treeNode>
+				<treeNode
+					messageKey="status.examine"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=20">
+				</treeNode>
+				<treeNode
+					messageKey="status.publish"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=30">
+				</treeNode>
+				<treeNode
+					messageKey="status.expire"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=40">
+				</treeNode>
+			</treeNode>
+			<treeNode messageKey="km-doc:kmDoc.tree.myJob.flowStatus">
+				<treeNode
+					messageKey="km-doc:kmDoc.tree.myJob.flowStatus.prepare"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;myflow=0&amp;status=all">
+				</treeNode>
+				<treeNode
+					messageKey="km-doc:kmDoc.tree.myJob.flowStatus.passed"
+					url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;myflow=1&amp;status=all">
+				</treeNode>
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<!-- 我的工作－－草稿箱 -->
+	<treeNodes type="draft">
+		<treeNode
+			messageKey="km-doc:module.km.doc "
+			url="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=list&amp;mydoc=true&amp;status=10">
+		</treeNode>
+	</treeNodes>
+	<!-- 文档系统配置 -->
+	<treeNodes type="config">
+		<treeNode messageKey="km-doc:table.kmDocKnowledge">
+		<treeNode
+			messageKey="km-doc:menu.kmdoc.categoryconfig"
+			url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.km.doc.model.KmDocTemplate&amp;actionUrl=/km/doc/km_doc_template/kmDocTemplate.do&amp;formName=kmDocTemplateForm&amp;mainModelName=com.landray.kmss.km.doc.model.KmDocKnowledge&amp;docFkName=kmDocTemplate" />
+		<treeNode
+			messageKey="km-doc:tree.workflowTemplate"
+			url="/sys/workflow/sys_wf_common_template/sysWfCommonTemplate.do?method=list&amp;fdModelName=com.landray.kmss.km.doc.model.KmDocTemplate&amp;fdKey=mainDoc" />
+		</treeNode>
+	</treeNodes>
+	<!-- 知识库主页配置 -->
+	<homePage
+		urlPrefix="km/doc"
+		url="/km/doc/index.jsp"  
+		messageKey="km-doc:module.km.doc"
+		config="/moduleindex_notopic.jsp?nav=/km/doc/tree.jsp" />
+	<!-- 知识库流程配置 -->
+	<flowDef
+		modelName="com.landray.kmss.km.doc.model.KmDocKnowledge"
+		templateModelName="com.landray.kmss.km.doc.model.KmDocTemplate"
+		key="mainDoc"
+		templatePropertyName="kmDocTemplate"
+		moduleMessageKey="km-doc:module.km.doc"
+		type="oa" />
+</configs>

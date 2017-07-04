@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 简单列表展现方式 -->
+	<portlet
+		id="kms.multidoc.new"
+		name="{kms-multidoc:kmsMultidoc.portlet.knowledge.list}"
+		module="{kms-multidoc:title.kms.multidoc}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/multidoc/kms_multidoc_portlet/kmsMultidocKnowledgePortlet.do?method=getKmsMultidocKnowledge&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=col"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<!-- 最新 最热 精华 -->
+			<var name="{kms-knowledge:kmsKnowledge.portlet.type}" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.newest}", "value":"docPublishTime"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.hot}", "value":"docReadCount"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.essential}","value":"docIsIntroduced"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',mulSelect : true,authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '1,3'}})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['kms/multidoc/kms_multidoc_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();" 
+				target="_self"
+				/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/multidoc/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	<!-- 图文展现方式 -->
+	<portlet
+		id="kms.multidoc.new.pic"
+		name="{kms-multidoc:kmsMultidoc.portlet.knowledge.list}"
+		module="{kms-multidoc:title.kms.multidoc}"
+		description="{portlet.list.desc3}">
+		<source format="sys.ui.image" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/multidoc/kms_multidoc_portlet/kmsMultidocKnowledgePortlet.do?method=getKmsMultidocKnowledge&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=pic"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<var name="{kms-knowledge:kmsKnowledge.portlet.type}" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.newest}", "value":"docPublishTime"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.hot}", "value":"docReadCount"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.essential}","value":"docIsIntroduced"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,mulSelect : true,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '1,3'}})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['kms/multidoc/kms_multidoc_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();" 
+				target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/multidoc/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	<!-- 推荐排行 -->
+	<portlet
+		id="kms.multidoc.intro"
+		name="{kms-multidoc:kmsMultidoc.portlet.intro.order}"
+		module="{kms-multidoc:title.kms.multidoc}">
+		<source format="sys.ui.listtable" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/multidoc/kms_multidoc_portlet/kmsMultidocKnowledgePortlet.do?method=listChildren&showIntro=!{showIntro}&showCreator=!{showCreator}&showCreated=!{showCreated}&showCate=!{showCate}&showType=5&ordertype=down&rowsize=!{rowsize}&orderby=docIntrCount&categoryId=!{cateid}&forward=data"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '1,3'}})})"
+				}
+			</var>
+			<var key="showCreator" kind="enumValue" name="{kms-multidoc:kmsMultidoc.creator}" default="true">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showCreated" kind="enumValue" name="{kms-multidoc:kmsMultidocKnowledge.createTime}" default="true">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showIntro" kind="enumValue" name="{kms-knowledge:kmsKnowledge.portlet.intro.times}" default="true">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="showCate" kind="enumValue" name="{portlet.cate}" default="true">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['kms/multidoc/kms_multidoc_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();" 
+				target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/multidoc/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	<!--文档知识库积分排行 -->
+	<portlet
+		id="kms.communtycko.multidoc"
+		name="{kms-multidoc:kmsMultidoc.point.ranking}"
+		module="{kms-multidoc:title.kms.multidoc}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/communitycko/kms_communitycko_portlet/kmsCommunityckoPortlet.do?method=getScorePortlet&showStar=!{showStar}&type=!{type}&personId=!{personId}&moudule=com.landray.kmss.kms.multidoc&rowsize=!{rowsize}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="showStar" kind="enumValue" 
+				 name="{kms-communitycko:kmsCommunitycko.portlet.star.show}" default="yes">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"yes"}],"showType":"checkbox"}
+			</var>
+			<var key="personId" kind="dialogJs" 
+			    name="{kms-communitycko:kmsCommunitycko.portlet.star.select}" >
+				{
+					"js":
+					"Dialog_Address(false,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+				}
+			</var>
+			<var key="type" kind="enumValue" name="{kms-communitycko:kmsCommunitycko.portlet.rank.type}" default="month">
+				{"values":[{"text":"{kms-communitycko:kmsCommunitycko.month}", "value":"month"},
+				  {"text":"{kms-communitycko:kmsCommunitycko.total}", "value":"all"}],"showType":"checkbox"}
+			</var>
+			<var name="{kms-communitycko:kmsCommunitycko.portlet.rank.show.num}" 
+			     key="rowsize" kind="rowsize" default="6"/>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/communitycko/index.jsp"/>
+		</operations>
+	</portlet>
+	
+	<portlet
+		id="kms.multidoc.preview"
+		name="{kms-multidoc:kmsMultidoc.category.overview}"
+		module="{kms-multidoc:title.kms.multidoc}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/multidoc/kms_multidoc_portlet_ui/kms_multidoc_portlet_preview.jsp?currid=!{currid}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="currid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '1,3'}})})"
+				}
+			</var>
+		</vars>
+	</portlet>
+</root>

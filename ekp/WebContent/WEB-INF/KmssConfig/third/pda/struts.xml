@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="pdaModuleConfigViewForm"
+			type="com.landray.kmss.third.pda.forms.PdaModuleConfigViewForm" />
+		<form-bean name="pdaModuleLabelListForm"
+			type="com.landray.kmss.third.pda.forms.PdaModuleLabelListForm" />
+		<form-bean name="pdaModuleLabelViewForm"
+			type="com.landray.kmss.third.pda.forms.PdaModuleLabelViewForm" />
+		<form-bean name="pdaModuleConfigMainForm"
+			type="com.landray.kmss.third.pda.forms.PdaModuleConfigMainForm" />
+		<form-bean name="pdaModuleCateForm"
+			type="com.landray.kmss.third.pda.forms.PdaModuleCateForm" />
+		<form-bean name="pdaRowsPerPageConfigForm"
+			type="com.landray.kmss.third.pda.forms.PdaRowsPerPageConfigForm" />
+		<form-bean name="pdaHomePageConfigForm"
+			type="com.landray.kmss.third.pda.forms.PdaHomePageConfigForm" />
+		<form-bean name="pdaHomePagePortletForm"
+			type="com.landray.kmss.third.pda.forms.PdaHomePagePortletForm" />
+		<form-bean name="pdaHomeCustomPortletForm"
+			type="com.landray.kmss.third.pda.forms.PdaHomeCustomPortletForm" />
+		<form-bean name="pdaTabViewConfigMainForm"
+			type="com.landray.kmss.third.pda.forms.PdaTabViewConfigMainForm" />
+		<form-bean name="pdaTabViewLabelListForm"
+			type="com.landray.kmss.third.pda.forms.PdaTabViewLabelListForm" />
+		<form-bean name="pdaDataExtendConfigForm"
+			type="com.landray.kmss.third.pda.forms.PdaDataExtendConfigForm" />
+	</form-beans>
+	<global-forwards>
+		<forward name="redirect.4pda" path="/third/pda/resource/jsp/redirect.jsp" />
+		<forward name="success.4pda" path="/third/pda/resource/jsp/success.jsp" />
+		<forward name="failure.4pda" path="/third/pda/resource/jsp/error.jsp" />
+		<forward name="e500.4pda" path="/third/pda/resource/jsp/jsperror.jsp" />
+		<forward name="e403.4pda" path="/third/pda/resource/jsp/e403.jsp" />
+		<forward name="e404.4pda" path="/third/pda/resource/jsp/e404.jsp" />
+		<forward name="e503.4pda" path="/third/pda/resource/jsp/e503.jsp" />
+		<forward name="list.4pda" path="/third/pda/public/module_listdata.jsp" />
+		<forward name="listChildren.4pda" path="/third/pda/public/module_listdata.jsp" />
+		<forward name="view.4pda" path="/third/pda/public/module_viewdata.jsp" />
+		<forward name="stylepage.4pda" path="/third/pda/public/module_viewdata.jsp" />
+		<forward name="notfound.4pda" path="/third/pda/resource/jsp/notfound.jsp" />
+	</global-forwards>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action path="/third/pda/pda_module_config_view/pdaModuleConfigView"
+			type="com.landray.kmss.third.pda.actions.PdaModuleConfigViewAction"
+			name="pdaModuleConfigViewForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/third/pda/pda_module_config_view/pdaModuleConfigView_view.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_module_config_view/pdaModuleConfigView_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_module_config_view/pdaModuleConfigView_list.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_module_label_list/pdaModuleLabelList"
+			type="com.landray.kmss.third.pda.actions.PdaModuleLabelListAction"
+			name="pdaModuleLabelListForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/third/pda/pda_module_label_list/pdaModuleLabelList_view.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_module_label_list/pdaModuleLabelList_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_module_label_list/pdaModuleLabelList_list.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_module_label_view/pdaModuleLabelView"
+			type="com.landray.kmss.third.pda.actions.PdaModuleLabelViewAction"
+			name="pdaModuleLabelViewForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="edit"
+				path="/third/pda/pda_module_label_view/pdaModuleLabelView_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_module_label_view/pdaModuleLabelView_list.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_module_config_main/pdaModuleConfigMain"
+			type="com.landray.kmss.third.pda.actions.PdaModuleConfigMainAction"
+			name="pdaModuleConfigMainForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/third/pda/pda_module_config_main/pdaModuleConfigMain_view.jsp" />
+			<forward name="open" path="/third/pda/index.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_module_config_main/pdaModuleConfigMain_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_module_config_main/pdaModuleConfigMain_list.jsp" />
+			<forward name="selectIcon"
+				path="/third/pda/pda_module_config_main/pdaModuleIcon_select.jsp" />
+			<forward name="view.4pda" path="/third/pda/module.jsp" />
+		</action>
+		<action path="/third/pda/pda_module_cate/pdaModuleCate"
+			type="com.landray.kmss.third.pda.actions.PdaModuleCateAction"
+			name="pdaModuleCateForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/third/pda/pda_module_cate/pdaModuleCate_view.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_module_cate/pdaModuleCate_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_module_cate/pdaModuleCate_list.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_custon_page_portlet/pdaHomeCustomPortlet"
+			type="com.landray.kmss.third.pda.actions.PdaHomeCustomPortletAction"
+			name="pdaHomeCustomPortletForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="list"
+				path="/third/pda/pda_home_custom_portlet/pdaHomeCustomPortlet_list.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_home_custom_portlet/pdaHomeCustomPortlet_edit.jsp" />
+			<forward name="view"
+				path="/third/pda/pda_home_custom_portlet/pdaHomeCustomPortlet_view.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_home_page_cfg/pdaHomePageConfig"
+			type="com.landray.kmss.third.pda.actions.PdaHomePageConfigAction"
+			name="pdaHomePageConfigForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="list"
+				path="/third/pda/pda_home_page_cfg/pdaHomePageConfig_list.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_home_page_cfg/pdaHomePageConfig_edit.jsp" />
+			<forward name="view"
+				path="/third/pda/pda_home_page_cfg/pdaHomePageConfig_view.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_home_page_portlet/pdaHomePagePortlet"
+			type="com.landray.kmss.third.pda.actions.PdaHomePagePortletAction"
+			name="pdaHomePagePortletForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="list"
+				path="/third/pda/pda_home_page_portlet/pdaHomePagePortlet_list.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_home_page_portlet/pdaHomePagePortlet_edit.jsp" />
+			<forward name="view"
+				path="/third/pda/pda_home_page_portlet/pdaHomePagePortlet_view.jsp" />
+		</action>
+
+		<action path="/third/pda/pda_rows_per_page_config/pdaRowsPerPageConfig"
+			type="com.landray.kmss.third.pda.actions.PdaRowsPerPageConfigAction"
+			name="pdaRowsPerPageConfigForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="edit"
+				path="/third/pda/pda_config/pdaRowsPerPageConfig_edit.jsp" />
+		</action>
+
+		<action path="/third/pda/third_pda_config/pdaLicenseConfig"
+			type="com.landray.kmss.third.pda.actions.PdaLicenseSettingAction"
+			parameter="method" unknown="false" validate="false" scope="request">
+			<forward name="edit"
+				path="/third/pda/pda_config/pdaLicenseConfig_edit.jsp" />
+			<forward name="view"
+				path="/third/pda/pda_config/pdaLicenseConfig_view.jsp" />
+		</action>
+
+		<action path="/third/pda/third_pda_config/pdaMsgPushMem"
+			type="com.landray.kmss.third.pda.actions.PdaMessagePushMemberAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="view" path="/third/pda/app/messagePushMem_view.jsp" />
+			<forward name="view.4pda" path="/third/pda/app/messagePushMem_view.jsp" />
+		</action>
+
+		<action path="/third/pda/third_pda_config/pdaMsgPushInfo"
+			type="com.landray.kmss.third.pda.actions.PdaMessagePushInfoAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="list" path="/third/pda/app/messagePushInfo_list.jsp" />
+			<forward name="list.4pda" path="/third/pda/app/messagePushInfo_list.jsp" />
+		</action>
+
+		<action path="/third/pda/third_pda_config/thirdPdaConfig"
+			type="com.landray.kmss.third.pda.actions.PdaAppConfigAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="jsonDetail" path="/third/pda/app/jsonDetail.jsp" />
+		</action>
+		
+		<!-- 待办筛选所用 -->
+		<action path="/third/pda/sys_notify_todo/sysNotifyTodo"
+			type="com.landray.kmss.third.pda.actions.PdaSysNotifyTodoAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="listHome"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_home.jsp" />
+			<forward name="listTodo"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_list.jsp" />
+			<forward name="listDone"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodoDone_list.jsp" />
+			<forward name="listMngTodo"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_mng_list.jsp" />
+			<forward name="listMngDone"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodoDone_mng_list.jsp" />
+			<forward name="count"
+				path="/sys/notify/pda/count.jsp" />
+			<forward name="listHome.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listTodo.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listDone.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listMngTodo.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listMngDone.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="count.4pda" path="/sys/notify/pda/count.jsp" />
+			<forward name="redirect" path="/resource/jsp/redirect.jsp"/>
+			
+			<forward name="listHome.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listTodo.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listDone.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listMngTodo.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listMngDone.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="count.4m" path="/sys/notify/pda/count.jsp" />
+		</action>
+		
+		<!-- 全文检索-->
+		<action path="/third/pda/pda_ftsearch/pdaFtsearch"
+			type="com.landray.kmss.third.pda.actions.PdaFtsearchAction"
+			parameter="method" validate="false" scope="request">
+			<forward name="ftSearchDetail" path="/third/pda/app/ftSearchDetail.jsp" />
+		</action>
+	
+		
+		<!--功能区配置 -->
+		<action path="/third/pda/pda_tabview_config_main/pdaTabViewConfigMain"
+			type="com.landray.kmss.third.pda.actions.PdaTabViewConfigMainAction"
+			name="pdaTabViewConfigMainForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/third/pda/pda_tabview_config_main/pdaTabViewConfigMain_view.jsp" />
+			<forward name="edit"
+				path="/third/pda/pda_tabview_config_main/pdaTabViewConfigMain_edit.jsp" />
+			<forward name="list"
+				path="/third/pda/pda_tabview_config_main/pdaTabViewConfigMain_list.jsp" />
+		</action>
+		
+		<action path="/third/pda/pda_tabview_label_list/pdaTabViewLabelList"
+			type="com.landray.kmss.third.pda.actions.PdaTabViewLabelListAction"
+			name="pdaTabViewLabelListForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="list"
+				path="/third/pda/pda_tabview_label_list/pdaTabViewLabelList_list.jsp" />
+		</action>
+		
+		<action
+			path="/third/pda/pda_data_extend_config/pdaDataExtendConfig"
+			type="com.landray.kmss.third.pda.actions.PdaDataExtendConfigAction"
+			name="pdaDataExtendConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/third/pda/pda_data_extend_config/pdaDataExtendConfig_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/third/pda/pda_data_extend_config/pdaDataExtendConfig_edit.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="rightService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.right.service.spring.RightServiceImp">
+				<property
+					name="sysOrgCoreService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="tmpRightService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.right.service.spring.TmpRightServiceImp">
+				<property
+					name="sysOrgCoreService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="rightCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.right.service.spring.RightCoreServiceImp">
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="batchRightService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.right.service.spring.BatchChangeRightServiceImp">
+				<property
+					name="sysOrgCoreService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+				<property
+					name="sysNotifyMainCoreService">
+					<ref
+						bean="sysNotifyMainCoreService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="tmpBatchRightService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.right.service.spring.TmpBatchChangeRightServiceImp">
+				<property
+					name="sysOrgCoreService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+				<property
+					name="sysNotifyMainCoreService">
+					<ref
+						bean="sysNotifyMainCoreService" />
+				</property>
+				<property
+					name="sysCategoryMainService">
+					<ref
+						bean="sysCategoryMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean
+		id="changeRightTarget"
+		class="com.landray.kmss.sys.right.service.spring.ChangeRightServiceImp">
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="changeRightService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property
+			name="transactionManager">
+			<ref
+				bean="transactionManager" />
+		</property>
+		<property
+			name="target">
+			<ref
+				local="changeRightTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="update*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="cChangeRightTarget"
+		class="com.landray.kmss.sys.right.service.spring.CChangeRightServiceImp">
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="cChangeRightService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property
+			name="transactionManager">
+			<ref
+				bean="transactionManager" />
+		</property>
+		<property
+			name="target">
+			<ref
+				local="cChangeRightTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="update*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

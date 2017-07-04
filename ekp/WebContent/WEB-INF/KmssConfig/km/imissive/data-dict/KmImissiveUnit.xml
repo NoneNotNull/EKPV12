@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveUnit"
+		messageKey="km-imissive:table.kmImissiveUnit"
+		displayProperty="fdName"
+		serviceBean="kmImissiveUnitService"
+		table="km_imissive_unit">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveUnit.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdNature"
+			messageKey="km-imissive:kmImissiveUnit.fdNature"
+			type="Integer"
+			column="fd_nature"
+			notNull="false"
+			enumType="kmMissiveUnit.fdNature"
+			length="2" />
+		<simpleProperty
+			name="fdShortName"
+			messageKey="km-imissive:kmImissiveUnit.fdShortName"
+			type="String"
+			column="fd_short_name"
+			notNull="false"
+			length="200" 
+			validate="true"/>
+		<simpleProperty
+			name="fdEmail"
+			messageKey="km-imissive:kmImissiveUnit.fdEmail"
+			type="String"
+			column="fd_email"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdContent"
+			messageKey="km-imissive:kmImissiveUnit.fdContent"
+			type="String"
+			column="fd_content"
+			notNull="false"
+			length="1500" 
+			validate="true"/>
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="km-imissive:kmImissiveUnit.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-imissive:kmImissiveUnit.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveUnit.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="fdCategory"
+			messageKey="km-imissive:kmImissiveUnit.fdCategoryId"
+			type="com.landray.kmss.km.missive.model.KmMissiveUnitCategory"
+			column="fd_category_id"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveUnit.docCreateId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_create_id"
+			notNull="false" />
+		<modelProperty
+			name="fdSecretary"
+			messageKey="km-imissive:kmImissiveUnit.fdSecretaryId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_secretary_id"
+			notNull="false" />
+	</model>
+</models>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.keydata.project.model.KmProjectMain"
+		messageKey="km-keydata-project:table.kmProjectMain"
+		displayProperty="fdName"
+		serviceBean="kmProjectMainService"
+		extendClass="com.landray.kmss.km.keydata.base.model.KmKeydataBase"
+		table="km_keydata_project_main"
+		url="/km/keydata/project/km_project_main/kmProjectMain.do?method=showUsed&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 
+		<simpleProperty
+			name="fdName"
+			messageKey="km-keydata-project:kmProjectMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCode"
+			messageKey="km-keydata-project:kmProjectMain.fdCode"
+			type="String"
+			column="fd_code"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-keydata-project:kmProjectMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-keydata-project:kmProjectMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="true"
+			validate="false" />
+			
+		<modelProperty
+			name="docCreator"
+			messageKey="km-keydata-project:kmProjectMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-keydata-project:kmProjectMain.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_charger"
+			notNull="false"
+			validate="false" />
+		 -->
+		<simpleProperty
+			name="fdPlanStart"
+			messageKey="km-keydata-project:kmProjectMain.fdPlanStart"
+			type="DateTime"
+			column="fd_plan_start"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdPlanEnd"
+			messageKey="km-keydata-project:kmProjectMain.fdPlanEnd"
+			type="DateTime"
+			column="fd_plan_end"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdInfactStart"
+			messageKey="km-keydata-project:kmProjectMain.fdInfactStart"
+			type="DateTime"
+			column="fd_infact_start"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdInfactEnd"
+			messageKey="km-keydata-project:kmProjectMain.fdInfactEnd"
+			type="DateTime"
+			column="fd_infact_end"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdPlanDays"
+			messageKey="km-keydata-project:kmProjectMain.fdPlanDays"
+			type="Integer"
+			column="fd_plan_days"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdInfactDays"
+			messageKey="km-keydata-project:kmProjectMain.fdInfactDays"
+			type="Integer"
+			column="fd_infact_days"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="km-keydata-project:kmProjectMain.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		
+
+		<modelProperty
+			name="fdExecutiveDept"
+			messageKey="km-keydata-project:kmProjectMain.fdExecutiveDept"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_executive_dept"
+			notNull="true"
+			validate="true" />
+			
+		<modelProperty
+			name="kmProjectCategory"
+			messageKey="km-keydata-project:kmProjectMain.fdCategoryName"
+			type="com.landray.kmss.km.keydata.project.model.KmProjectCategory"
+			column="fd_category_id"
+			notNull="true"
+			unique="true"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.km.keydata.project.model.KmProjectCategory','!{idField}','!{nameField}',false,null,'00')"
+			canSearch="true"
+			canRelation="true"
+			canDisplay="true"
+			canSubscribe="true"
+			 />
+			
+		<!-- 
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-keydata-project:kmProjectMain.authOtherReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_project_auth_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-keydata-project:kmProjectMain.authOtherEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_project_auth_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-keydata-project:kmProjectMain.authAllReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_project_auth_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-keydata-project:kmProjectMain.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_project_auth_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttDownloads"
+			messageKey="km-keydata-project:kmProjectMain.authAttDownloads"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_project_attdl"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="km-keydata-project:kmProjectMain.authAttCopys"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_project_attcopy"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="km-keydata-project:kmProjectMain.authAttPrints"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_project_attprint"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="km-keydata-project:sysDocBaseInfo.authReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="km_project_auth_readers"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-keydata-project:sysDocBaseInfo.authEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_project_auth_editors"
+			elementColumn="fd_org_id"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="authAttNodownload"
+			messageKey="km-keydata-project:sysDocBaseInfo.authAttNodownload"
+			type="Boolean"
+			column="auth_att_nodownload"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNocopy"
+			messageKey="km-keydata-project:sysDocBaseInfo.authAttNocopy"
+			type="Boolean"
+			column="auth_att_nocopy"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNoprint"
+			messageKey="km-keydata-project:sysDocBaseInfo.authAttNoprint"
+			type="Boolean"
+			column="auth_att_noprint"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		 -->	
+		<listProperty
+			name="fdProjectChargers"
+			messageKey="km-keydata-project:kmProjectMain.fdProjectChargers"
+			column="fd_project_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			elementColumn="fd_person_id"
+			table="km_project_main_chargers"
+			inverse="false"
+			canDisplay="true"
+			notNull="true"
+			readOnly="false"
+			validate="true" />
+	</model>
+</models>

@@ -1,0 +1,202 @@
+@charset "utf-8";
+/**************************************************************************
+*日历框架 default layout
+******************************************************************************/
+.lui_calendar_frame{ padding:0px 10px 10px; background-color:#dbdbdb}
+/**日历头部区域**/
+.lui_calendar_frame	.lui_calendar_header{
+	background: #dbdbdb;
+}
+/**日历内容区域**/
+lui_calendar_frame .lui_calendar_content{
+	display:none;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+}
+/**日历头部区域**/
+.lui_calendar_header_tab{
+	width:100%;
+}
+.lui_calendar_header_tab tr td {
+	background: #dbdbdb;
+	padding:5px 0px;
+	height: 30px;
+	line-height: 30px;
+}
+/**日历头部左右区域**/
+.lui_calendar_header_tab .lui_calendar_header_left{
+	width: 30%;
+}
+.lui_calendar_header_tab .lui_calendar_header_right{
+	/**width: 30%;**/
+	text-align: right;
+}
+.lui_calendar_header_tab .lui_calendar_header_left > div,
+.lui_calendar_header_tab .lui_calendar_header_right > div {
+	cursor: pointer;
+	display:inline-block;
+	height: 30px; 
+	line-height:30px;
+	vertical-align: middle;
+	background-color:#8c8c8c; 
+	color:#fff;
+}
+.lui_calendar_header_tab .lui_calendar_header_left > div{
+	margin-left: 10px;
+} 
+.lui_calendar_header_tab .lui_calendar_header_right > div {
+	margin-right: 10px;
+}
+.lui_calendar_header_tab .lui_calendar_header_left > div:HOVER,
+.lui_calendar_header_tab .lui_calendar_header_right > div:HOVER,
+.lui_calendar_header_tab div.lui_calendar_header_button_on{
+	background-color: #56a8da !important;
+}
+.lui_calendar_header_tab .lui_calendar_header_left .lui_calendar_header_prev,
+.lui_calendar_header_tab .lui_calendar_header_left .lui_calendar_header_next,
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_refresh,
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_list,
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_date{
+	display:inline-block;
+	background-position: center center ;
+	background-repeat: no-repeat;
+}
+.lui_calendar_header_tab .lui_calendar_header_left .lui_calendar_header_prev{
+	display: inline-block;
+	height: 30px;
+	width: 28px;
+	background: #8c8c8c url(../images/calendar/calendar_prev.png) no-repeat
+		center;
+}
+.lui_calendar_header_tab .lui_calendar_header_left .lui_calendar_header_next{
+	display: inline-block;
+	height: 30px;
+	width: 28px;
+	background: #8c8c8c url(../images/calendar/calendar_next.png) no-repeat
+		center;
+}
+.lui_calendar_header_tab .lui_calendar_header_left .lui_calendar_header_today{
+	display: inline-block;
+	width: 68px;
+	height: 30px;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+	margin: 0 10px;
+}
+/**日历头部中间区域**/
+.lui_calendar_header_tab .lui_calendar_header_center{
+	font-size: 16px;
+	color: #666;
+	height: 30px;
+}
+.lui_calendar_header_tab .lui_calendar_header_center .lui_calendar_header_title{
+	font-size:16px;
+	font-weight:bold;
+}
+/**日历头部右侧区域**/
+.lui_calendar_header_tab .lui_calendar_header_right>div{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 7px;
+	padding: 0px 12px;
+	background: #8c8c8c;
+	color: #fff;
+	cursor: pointer;
+}
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_refresh{
+	width:16px;
+	padding: 0px 10px; 
+	background-image: url(../images/calendar/calendar_refresh.png); 
+}
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_list{
+	width:16px;
+	padding: 0px 10px; 
+	background-image: url(../images/calendar/calendar_list.png); 
+}
+.lui_calendar_header_tab .lui_calendar_header_right .lui_calendar_header_date{
+	width:16px;
+	padding: 0px 10px; 
+	background-image: url(../images/calendar/calendar_date.png); 
+}
+/* 覆盖fullcalender部分样式，日历主体内容 */
+.fc-border-separate {
+	background: #fff;
+}
+.fc-border-separate tr th {
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.fc-border-separate tr td {
+	vertical-align: text-top;
+}
+
+.fc-day-number {
+	float:none !important;
+	text-align: center;
+}
+
+/*********************************************************************************
+*列表日历
+*********************************************************************************/
+.lui_calendar_content_list{
+	 width:100%;
+	 border: 1px solid #ddd;
+	 border-collapse: collapse;
+	 border-spacing: 0px;
+	 background-color: white;
+}
+/**列表日历行高**/
+.lui_calendar_content_list tr td{
+	height: 100px;
+}
+.lui_calendar_content_list tr:FIRST-CHILD td{
+	height:30px;
+}
+.lui_calendar_content_list tr td{
+	 border: 1px solid #ddd;
+}
+.lui_calendar_content_list .lui_calendar_list_first{
+	text-align:center;
+	width: 20%;
+	
+}
+.lui_calendar_content_list .lui_calendar_list_second{
+	vertical-align:top;
+	width: 80%;
+}
+/**列表日历是否显示没有数据的日期**/
+.lui_calendar_content_list .lui_calendar_list_operate{
+	float: right;
+	margin-right: 10px;
+	height: 20px;
+	line-height: 20px;
+	vertical-align: middle;
+}
+.lui_calendar_content_list .lui_calendar_list_first .lui_calendar_list_date{
+	
+}
+/**列表数据样式**/
+.lui_calendar_content_list .lui_calendar_list_second .lui_calendar_list_data{
+	color: #fff;
+	border: 1px solid #3a87ad;
+	background-color: #3a87ad;
+	cursor: default;
+	margin:1px; 
+	border-radius: 3px;
+	width:810px;
+}
+.lui_calendar_content_list .lui_calendar_list_second .lui_calendar_list_data:HOVER{
+	cursor: pointer;
+}
+.lui_calendar_content_list .lui_calendar_list_second .lui_calendar_list_data_inner{
+	
+}
+
+.calendar_dropdown{ margin-top:1px;filter:alpha(opacity=95); /*IE滤镜，透明度50%*/
+-moz-opacity:0.95; /*Firefox私有，透明度50%*/
+opacity:0.95;/*其他，透明度50%*/}

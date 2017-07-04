@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysMaterialMain_fdType" default-value="10">
+		<value-label>
+			<value>10</value>
+			<label-key>sysMaterialMain.backgroud</label-key>
+			<bundle>sys-material</bundle>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>sysMaterialMain.icons</label-key>
+			<bundle>sys-material</bundle>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>sysMaterialMain.other</label-key>
+			<bundle>sys-material</bundle>
+		</value-label>		
+	</type>
+</column-enums>
+

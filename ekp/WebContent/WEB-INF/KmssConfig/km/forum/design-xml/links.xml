@@ -1,0 +1,36 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" >
+	   <link url="/km/forum/km_forum_ui/kmForumTopic_person.jsp" 
+	         msgKey="km-forum:menu.kmForum.my"
+	         icon="lui_icon_l_icon_40" 
+	         id="km_forum_home_nav1"/>
+	</links>
+	<links type="zone-nav">
+		<link 
+			id="km_forum_zone_nav"
+			url="/km/forum/km_forum_ui/kmForumTopic_zone.jsp?user=!{user}"
+			msgKey="km-forum:menu.kmForum.ta" />
+	</links>
+	
+	<links type="shortcut" order="10">
+	    <link 
+	        id="km_forum_shortcut_add"
+	        url="/km/forum/km_forum/kmForumPost.do?method=add" 
+	        msgKey="km-forum:kmForumTopic.create"
+	        icon="lui_icon_l_icon_20"/>
+	</links>
+	
+	<!-- 个人中心设置 
+	<links type="setting" order="11">
+	<link 
+			id="km_forum_user_info"
+			url="/km/forum/km_forum_score/kmForumScore.do?method=edit&amp;owner=true&amp;type=person" 
+			msgKey="km-forum:menu.kmForum.userInfo" />
+	</links>
+	-->
+</root>

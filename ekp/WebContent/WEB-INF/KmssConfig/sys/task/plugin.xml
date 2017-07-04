@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">	
+	<!-- BAM2支持 -->
+	<extension 
+		point="com.landray.kmss.km.bam2.extend.work" 
+		model="*" >
+		<item 
+			name="extendModel">
+		    <param
+		    	name="modelName" 
+		    	value="com.landray.kmss.sys.task.model.SysTaskMain" />
+		    <param 
+		    	name="bamName" 
+		    	value="{sys-task:sysTaskMain.relatedTask}" />
+		    <param 
+		    	name="subjectField" 
+		    	value="docSubject" />
+	        <param 
+	        	name="cateBean" 
+	        	value="sysTaskGetCategoryService&amp;fdId=!{value}"/>
+	        <param 
+	        	name="viewURL" 
+	        	value="/sys/task/sys_task_main/sysTaskMain.do?method=view"/>
+			<param 
+				name="editURL" 
+				value="/sys/task/sys_task_main/sysTaskMain.do?method=edit"/>
+			<param 
+				name="addURL" 
+				value="/sys/task/sys_task_main/sysTaskMain.do?method=add"/>
+			<param 
+				name="listURL" 
+				value="/sys/task/sys_task_main/sysTaskMain_list_content.jsp"/>
+			<!-- bam2与产品集成新增参数 begin -->
+			<param name="statusField" value="fdStatus" />
+			<param name="statusEnumsType" value="sysTaskMain_fdStatue"/>
+			<param name="workFinishField" value="fdWorkStatus" />
+			<!-- bam2与产品集成新增参数 end -->
+		</item>
+	  </extension>	
+	  <extension 
+		point="com.landray.kmss.third.pda.extend"
+		model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.sys.task.model.SysTaskMain"/>
+			<param name="extendJsp" value="/sys/task/pda/extends.jsp"/>
+			<param  name="createURL"  value="/sys/task/sys_task_main/sysTaskMain.do?method=add"/>
+		</item>
+	</extension>
+	<extension 
+		point="com.landray.kmss.third.pda.extend"
+		model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.sys.task.model.SysTaskOverrule"/>
+			<param name="extendJsp" value="/sys/task/pda/overruleExtends.jsp"/>
+		</item>
+	</extension>
+	 <!-- 日程机制同步标签-->
+	  <extension
+			point="com.landray.kmss.sys.agenda.label"
+			model="*">		
+			<item name="label">
+				<param name="labelName" value="{sys-task:module.sys.task}" />
+				<param name="labelColor"  value="rgb(122, 231, 191)" />
+				<param name="modelName"  value="com.landray.kmss.sys.task.model.SysTaskMain"/>
+			</item>
+		</extension>
+		
+	<extension	point="com.landray.kmss.km.keydata"	model="*" >
+		<item
+			name="showKeydataUsed">
+			<param
+				name="name"
+				value="任务管理" />
+			<param
+				name="actionUrl"
+				value="/sys/task/showKeydataUsed.jsp?keydataId=${keydataId}" />
+			<param
+				name="formName"
+				value="sysTaskMainForm" />
+		</item>
+	</extension>
+		
+		<extension point="com.landray.kmss.sys.mobile.config">
+			<item name="info">
+				<param name="name" value="{sys-task:module.sys.task}" />
+				<param name="modelName" value="com.landray.kmss.sys.task.model.SysTaskMain" />
+			</item>
+		</extension>
+  <!--数据列表权限迁移-->
+    <extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.task.transfer.SysTaskAuthTransferTask" />
+			<param
+				name="name"
+				value="任务管理数据列表权限迁移" />
+			<param
+				name="path"
+				value="/sys/task/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.task.transfer.SysTaskAuthTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.task.transfer.SysTaskAuthTransferTask" />
+			<param
+				name="description"
+				value="对旧任务的权限数据进行迁移，启用新的权限规则" />
+		</item>
+   </extension>
+   
+   <extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui-task.js" />
+			<param name="targetFile" value="/sys/task/mobile/resource/js/mui-task.js" />
+			<param name="srcFold" value="/sys/task/mobile/resource/js" />
+		</item>
+	</extension>
+		
+</plugin>

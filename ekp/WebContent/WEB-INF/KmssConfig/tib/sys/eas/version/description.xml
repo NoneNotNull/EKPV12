@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>集成平台_EAS连接器</module-name>
+		<module-path>tib/sys/eas</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>79686e4d1194a0ced324a4e2b82fb751</source-md5>
+		<is-custom>是</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

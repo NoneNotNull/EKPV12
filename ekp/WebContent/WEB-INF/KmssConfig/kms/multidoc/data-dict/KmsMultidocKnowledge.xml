@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"
+		messageKey="kms-multidoc:table.kmdoc"
+		serviceBean="kmsMultidocKnowledgeService"
+		displayProperty="docSubject"
+		table="kms_multidoc_knowledge" 
+		extendClass="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"
+		url="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="docType"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docType"
+			type="String"
+			column="doc_type"
+			notNull="false"
+			length="2"
+			validate="true" />
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="attPath"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.attPath"
+			type="String"
+			column=""
+			canDisplay="true" 
+			notNull="false"
+			length="1000" />	
+		<simpleProperty
+			name="tags"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.docTag"
+			type="String"
+			canDisplay="true" 
+			notNull="false"
+			column=""
+			length="1000" />	
+		<simpleProperty
+			name="authorName"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.import.docAuthor"
+			type="String"
+			column="outerAuthor"
+			canDisplay="true" 
+			notNull="false"
+			length="1000" />	
+		<simpleProperty
+			name="extendData"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.extendData"
+			type="String"
+			canDisplay="true" 
+			notNull="false"
+			column=""
+			length="1000" />
+			
+		<attachmentProperty
+			name="attachment"
+			messageKey="kms-multidoc:kmsMultidoc.attachement" />	
+
+		<simpleProperty
+			name="fdImportInfo"
+			messageKey="kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.fdImportInfo"
+			type="String"
+			column="fd_import_info"
+			notNull="false"
+			unique="false"
+			length="200"
+			canDisplay="false" />
+
+
+		<listProperty
+			name="docHistoryEditions"
+			messageKey="sys-doc:sysDocBaseInfo.docHistoryEditions"
+			column="doc_origin_docid"
+			type="com.landray.kmss.sys.doc.model.SysDocBaseInfo"
+			inverse="true"
+			canDisplay="true"
+			readOnly="true" />	
+		<simpleProperty
+			name="docExpire"
+			messageKey="sys-doc:sysDocBaseInfo.docExpire"
+			canSearch="true"
+			canRelation="true"
+			type="Long"
+			column="doc_expire"
+			notNull="false"
+			unique="false"
+			length="2"
+			canDisplay="false" />	
+			
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="sys-doc:sysDocBaseInfo.docAlterTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			canDisplay="false" />
+			
+		<simpleProperty
+			name="fdDescription"
+			messageKey="kms-multidoc:kmsMultidocKnowledge.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			unique="false"
+			length="1500" />
+				
+	</model>
+</models>

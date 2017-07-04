@@ -1,0 +1,223 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+var DocumentWindow = dialogArguments.Window.parent.parent;
+var Com_Parameter = {
+	ContextPath:dialogArguments.Window.Com_Parameter.ContextPath,
+	ResPath:dialogArguments.Window.Com_Parameter.ResPath,
+	Style:dialogArguments.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogArguments.Window.Com_Parameter.StylePath,
+	Cache:dialogArguments.Window.Com_Parameter.Cache
+};
+//XML数据获取采用主页面缓存
+Data_XMLCatche = dialogArguments.Window.Data_XMLCatche;
+FlowChartObject = dialogArguments.FlowChartObject;
+LangObject = FlowChartObject.Lang;
+
+</script>
+<script type="text/javascript" src="../../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/"+Com_Parameter.Style+"/doc/");
+Com_IncludeFile("dialog.js|optbar.js");
+// 从dialogArguments.Window.parent改为parent，2009-8-25 by fuyx
+var modelName=Com_GetUrlParameter(parent.document.location.href, "fdModelName");
+var key=Com_GetUrlParameter(parent.document.location.href, "fdKey");
+var templateModelName=Com_GetUrlParameter(dialogArguments.Window.parent.document.location.href, "templateModel");
+var templateKey=Com_GetUrlParameter(dialogArguments.Window.parent.document.location.href, "templateKey");
+</script>
+<script>
+function WorkFlow_InitialWindow(topframe){
+	document.getElementsByName("btnOK")[0].value = FlowChartObject.Lang.OK;
+	document.getElementsByName("btnCancel")[0].value = FlowChartObject.Lang.Cancel;
+
+	WorkFlow_GetAvailableApprovalTypeInfo();
+}
+
+function WorkFlow_GetAvailableApprovalTypeInfo(){
+	if (window.ActiveXObject) { // IE
+        request=new ActiveXObject("Msxml2.XMLHTTP");
+        if (! request){
+            request=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        request.onreadystatechange = WorkFlow_ReturnApprovalTypeInfo; 
+	    request.open('POST', Com_Parameter.ContextPath+'sys/workflow/sys_wf_approval_type/sysWfApprovalType.do?method=getTypeInfos', false);
+	    request.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+	    if(templateModelName != null && templateModelName != ''){
+		    request.send("&modelName=" + templateModelName + "&key=" + templateKey);
+	    }else if(modelName != null && modelName != ''){
+	    	request.send("&modelName=" + modelName + "&key=" + key);
+	    }else{
+	    	modelName = Com_GetUrlParameter(document.referrer, "fdModelName");
+	    	key = Com_GetUrlParameter(document.referrer, "fdKey");
+	    	request.send("&modelName=" + modelName + "&key=" + key);
+	    } 
+    }
+
+}
+
+function WorkFlow_ReturnApprovalTypeInfo(){
+	if (request.readyState == 4) {
+        if (request.status == 200) {
+        	var responseText = request.responseText;
+        	var returnVal = unescape(responseText);
+        	if(returnVal == ""){
+        		return;
+        	}
+        	var ids = Com_GetUrlParameter(returnVal, "ids");
+        	var names = Com_GetUrlParameter(returnVal, "names");
+			if(ids == ""){
+				return;
+			}
+			var idsArray = ids.split(";");
+			var namesArray = names.split(";");
+			var approvalTypeTB = document.getElementById("approvalTypeTB");
+			for(var i = 0; i < idsArray.length; i++){
+				var tr = document.createElement("tr");
+				var td1 = document.createElement("td");
+				td1.innerHTML = "" + namesArray[i] + ""; //
+				//td1.style.cssText="td_normal_title"
+				tr.appendChild(td1);
+				var NodeIds, NodeNames;
+				
+				NodeIds = WorkFlow_GetApprovalTypeNodeInfo(idsArray[i], 'ids');
+				NodeNames = WorkFlow_GetApprovalTypeNodeInfo(idsArray[i], 'names');
+			
+				var html = '<input flowcontent="true" type="hidden" id="Ids_' + idsArray[i] + '" value="' + NodeIds + '">';
+				html += '<textarea readonly style="width:100%;height:50px" id="Names_' + idsArray[i] + '">' + NodeNames + '</textarea>';
+				html += '<br>';
+				
+				var hrefObj = document.createElement("a");
+				hrefObj.href="#"; 
+				hrefObj.onclick="selectNodes('Ids_" + idsArray[i] + "','Names_" + idsArray[i] + "');";
+				
+				hrefObj.innerHTML=LangObject["selectOther"];
+				html += hrefObj.outerHTML;
+				var td2 = document.createElement("td");
+				td2.innerHTML = html; 
+				tr.appendChild(td2);
+				approvalTypeTB.appendChild(tr);
+			}
+        } else {
+        }
+    }
+}
+
+function WorkFlow_GetApprovalTypeNodeInfo(id, type){
+	var rtnVal = "";
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		var node = FlowChartObject.Nodes.all[i];
+		if(node.Data.approvalType == id){
+			if(type == "ids"){
+				rtnVal += node.Data.id + ";";
+			}else{
+				rtnVal += node.Data.id + "." + node.Data.name + ";";
+			}
+		}
+	}
+	if(rtnVal.lastIndexOf(";") == (rtnVal.length - 1)){
+		rtnVal = rtnVal.substring(0, rtnVal.length - 1);
+	}
+	return rtnVal;
+}
+
+//在页面中写语言包的信息
+function writeMessage(key){
+	document.write(LangObject[key]);
+}
+
+//选择可修改处理人的节点
+function selectNodes(idField, nameField, type){
+	var data = new KMSSData();
+	var	LangObject = FlowChartObject.Lang.Node;
+	var selectedIds = document.getElementById(idField).value;
+	//取得所有的HIDDEN组件
+	var hiddenObjs = document.getElementsByTagName("INPUT");
+	var othersNodeSelectedIds = "";
+	for(var i = 0; i < hiddenObjs.length; i++){
+		var hiddenObj = hiddenObjs[i];
+		if(hiddenObj.id == idField){
+			continue;
+		}
+		othersNodeSelectedIds += hiddenObj.value + ";";
+	}
+	
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		var node = FlowChartObject.Nodes.all[i];
+		if(selectedIds.indexOf(node.Data.id) != -1 || othersNodeSelectedIds.indexOf(node.Data.id) != -1){
+			continue;
+		}
+		var nodDesc = AttributeObject.Utils.nodeDesc(node);
+		if (nodDesc.isHandler && !nodDesc.isDraftNode) {
+			data.AddHashMap({id:node.Data.id, name:node.Data.id+"."+node.Data.name});
+		}
+	}
+	var dialog = new KMSSDialog(true, true);
+	dialog.winTitle = LangObject.dialogTitle;
+	dialog.AddDefaultOption(data);
+	dialog.BindingField(document.getElementById(idField), document.getElementById(nameField), ";");
+	dialog.Show();
+}
+
+function WorkFlow_ChangeProcessorSubmitForm(){
+	var hiddenObjs = document.getElementsByTagName("input");
+	WorkFlow_InitialApprovalType();
+	for(var i = 0; i < hiddenObjs.length; i++){
+		var hiddenObj = hiddenObjs[i];
+		var approvalTypeId = WorkFlow_GetApprovalTypeIdFromHidden(hiddenObj);
+		var hiddenObjArray = hiddenObj.value.split(";");
+		for(var j=0; j<FlowChartObject.Nodes.all.length; j++){
+			var node = FlowChartObject.Nodes.all[j];
+			for(var k = 0; k < hiddenObjArray.length; k++){
+				var nodeId = hiddenObjArray[k];
+				if(nodeId == node.Data.id){
+					FlowChartObject.Nodes.all[j].Data.approvalType = approvalTypeId;
+				}			
+			}
+		}
+	}
+	top.returnValue = FlowChartObject;top.close();
+}
+
+function WorkFlow_GetApprovalTypeIdFromHidden(hiddenObj){
+	var idInfo = hiddenObj.id.split("_");
+	return idInfo[1];
+}
+
+function WorkFlow_InitialApprovalType(){
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		if(FlowChartObject.Nodes.all[i].Data.approvalType != null && FlowChartObject.Nodes.all[i].Data.approvalType != ''){
+			FlowChartObject.Nodes.all[i].Data.approvalType = '';
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div id="optBarDiv">
+<input type="button" name="btnOK" onclick="WorkFlow_ChangeProcessorSubmitForm();" />
+<input type="button" name="btnCancel" onclick="window.close();" />
+</div>
+<br>
+<p class="txttitle">
+<script>writeMessage("approvalTypeTitle")</script>
+</p>
+<center>
+	<table class="tb_normal" width=95%>
+		<tbody id="approvalTypeTB">   
+			<tr class="tr_normal_title">
+				<td width="15%">
+					<script>writeMessage("approvalTypeTitleItem")</script>
+				</td>
+				<td width="85%">
+					<script>writeMessage("approvalTypeTitleItemNode")</script>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<br>
+</center>
+<script>WorkFlow_InitialWindow(this);</script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsAskAdditionForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskAdditionForm" />
+		<form-bean
+			name="kmsKnowledgeMoneyConfigForm"
+			type="com.landray.kmss.kms.ask.forms.KmsKnowledgeMoneyConfigForm">
+		</form-bean>
+		<form-bean
+			name="kmsAskMoneyAlterForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskMoneyAlterForm">
+		</form-bean>
+		<form-bean
+			name="kmsAskAgreeForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskAgreeForm" />
+		<form-bean
+			name="kmsAskCommentForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskCommentForm" />
+		<form-bean
+			name="kmsAskMoneyForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskMoneyForm" />
+		<form-bean
+			name="kmsAskPreForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskPreForm" />
+		<form-bean
+			name="kmsAskCategoryForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskCategoryForm" />
+		<form-bean
+			name="kmsAskMoneyAlterForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskMoneyAlterForm" />
+		<form-bean
+			name="kmsAskTopicForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskTopicForm" />
+		<form-bean
+			name="kmsAskIntroduceForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskIntroduceForm" />
+		<form-bean
+			name="kmsAskPostForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskPostForm" />
+		<form-bean
+			name="kmsAskConfigForm"
+			type="com.landray.kmss.kms.ask.forms.KmsAskConfigForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/ask/kms_ask_agree/kmsAskAgree"
+			type="com.landray.kmss.kms.ask.actions.KmsAskAgreeAction"
+			name="kmsAskAgreeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_agree/kmsAskAgree_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_agree/kmsAskAgree_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_agree/kmsAskAgree_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_comment/kmsAskComment"
+			type="com.landray.kmss.kms.ask.actions.KmsAskCommentAction"
+			name="kmsAskCommentForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_comment/kmsAskComment_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_comment/kmsAskComment_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_comment/kmsAskComment_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_money/kmsAskMoney"
+			type="com.landray.kmss.kms.ask.actions.KmsAskMoneyAction"
+			name="kmsAskMoneyForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_money/kmsAskMoney_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_money/kmsAskMoney_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_money/kmsAskMoney_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_pre/kmsAskPre"
+			type="com.landray.kmss.kms.ask.actions.KmsAskPreAction"
+			name="kmsAskPreForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_pre/kmsAskPre_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_pre/kmsAskPre_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_pre/kmsAskPre_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_category/kmsAskCategory"
+			type="com.landray.kmss.kms.ask.actions.KmsAskCategoryAction"
+			name="kmsAskCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_category/kmsAskCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_category/kmsAskCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_category/kmsAskCategory_list.jsp" />
+			<forward
+				name="listTemplate"
+				path="/kms/ask/pda/module_tempdata.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_money_alter/kmsAskMoneyAlter"
+			type="com.landray.kmss.kms.ask.actions.KmsAskMoneyAlterAction"
+			name="kmsAskMoneyAlterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_money_alter/kmsAskMoneyAlter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_money_alter/kmsAskMoneyAlter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_money_alter/kmsAskMoneyAlter_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_topic/kmsAskTopic"
+			type="com.landray.kmss.kms.ask.actions.KmsAskTopicAction"
+			name="kmsAskTopicForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_ui/kmsAskTopic_view.jsp" />
+			<forward
+				name="view.4m"
+				path="/kms/ask/mobile/view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_ui/kmsAskTopic_edit.jsp" />
+			<forward
+				name="edit.4m"
+				path="/kms/ask/mobile/edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_topic/kmsAskTopic_list.jsp" />
+			<forward
+				name="editCategory"
+				path="/kms/ask/kms_ask_topic/kmsAskTopic_editCategory.jsp" />
+			<forward
+				name="listChildren"
+				path="/kms/ask/kms_ask_topic/kmsAskTopic_list.jsp"/>
+			<forward
+				name="manageList"
+				path="/kms/ask/kms_ask_topic/kmsAskTopic_list.jsp"/>
+		</action>
+	
+		<action
+			path="/kms/ask/kms_ask_index/kmsAskTopicIndex"
+			type="com.landray.kmss.kms.ask.actions.KmsAskTopicIndexAction"
+			name="kmsAskTopicForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="json"
+				path="/kms/ask/kms_ask_ui/json.jsp">
+			</forward>
+			<forward
+				name="index"
+				path="/kms/ask/kms_ask_ui/kmsAskTopic_list.jsp">
+			</forward>
+			<forward
+				name="index.4m"
+				path="/kms/ask/mobile/list.jsp">
+			</forward>
+			<forward
+				name="listOther"
+				path="/kms/ask/mobile/listOther.jsp">
+			</forward>
+		</action>
+		<!-- 门户action -->
+		<action
+			path="/kms/ask/kms_ask_portlet/kmsAskPortlet"
+			type="com.landray.kmss.kms.ask.actions.KmsAskPortletAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="data"
+				path="/kms/ask/kms_ask_portlet/kms_ask_portlet_data.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/ask/kms_ask_introduce/kmsAskIntroduce"
+			type="com.landray.kmss.kms.ask.actions.KmsAskIntroduceAction"
+			name="kmsAskIntroduceForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_introduce/kmsAskIntroduce_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_introduce/kmsAskIntroduce_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_introduce/kmsAskIntroduce_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_post/kmsAskPost"
+			type="com.landray.kmss.kms.ask.actions.KmsAskPostAction"
+			name="kmsAskPostForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_post/kmsAskPost_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_post/kmsAskPost_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_post/kmsAskPost_list.jsp" />
+		</action>
+
+		<!-- 初始货币管理 -->
+		<action
+			path="/kms/ask/kms_ask_config/kmsKnowledgeMoneyConfig"
+			type="com.landray.kmss.kms.ask.actions.KmsKnowledgeMoneyConfigAction"
+			name="kmsKnowledgeMoneyConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_config/kmsKnowledgeMoneyConfig_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_config/kmsKnowledgeMoneyConfig_view.jsp">
+			</forward>
+		</action>
+
+		<!--货币修改 -->
+		<action
+			path="/kms/ask/kms_ask_config/kmsAskMoneyAlter"
+			type="com.landray.kmss.kms.ask.actions.KmsAskMoneyAlterAction"
+			name="kmsAskMoneyAlterForm"
+			parameter="method"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_money_alter/kmsAskMoneyAlter_edit.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/kms/ask/kms_ask_config/kmsAskConfig"
+			type="com.landray.kmss.kms.ask.actions.KmsAskConfigAction"
+			name="kmsAskConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_config/kmsAskConfig_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_config/kmsAskConfig_view.jsp">
+			</forward>
+		</action>
+		
+		<!-- 补充回复|提问 -->
+		<action
+			path="/kms/ask/kms_ask_addition/kmsAskAddition"
+			type="com.landray.kmss.kms.ask.actions.KmsAskAdditionAction"
+			name="kmsAskAdditionForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/ask/kms_ask_addition/kmsAskAddition_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_addition/kmsAskAddition_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/ask/kms_ask_addition/kmsAskAddition_list.jsp" />
+		</action>
+		
+		<!-- kk集成推送-->
+		<action
+			path="/kms/ask/kms_ask_kk/kmsKk2Ask"
+			type="com.landray.kmss.kms.ask.kk.actions.KmsKk2AskAction"
+			name="kmsAskTopicForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/ask/kms_ask_kk/kmsAskKk_edit.jsp" />
+		</action>
+		<!-- 门户分类导航 -->
+		<action
+			path="/kms/ask/kms_ask_portlet/kmsAskCategoryPortlet"
+			type="com.landray.kmss.kms.ask.actions.KmsAskCategoryPortletAction"
+			name="kmsAskTopicForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+		<action
+			path="/kms/ask/kms_ask_topic/kmsAskDataPush"
+			type="com.landray.kmss.kms.ask.actions.KmsAskDataPushAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/common/kms_common_push/kmsDataPush_select_module.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.kms.ask.ApplicationResources"
+		key="kms-ask" />
+</struts-config>

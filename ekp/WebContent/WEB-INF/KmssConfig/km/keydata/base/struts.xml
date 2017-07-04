@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmKeydataBaseForm"
+			type="com.landray.kmss.km.keydata.base.forms.KmKeydataBaseForm" />
+		<form-bean
+			name="kmKeydataPluginShowForm"
+			type="com.landray.kmss.km.keydata.base.forms.KmKeydataPluginShowForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/keydata/base/kmKeydataBase"
+			type="com.landray.kmss.km.keydata.base.actions.KmKeydataBaseAction"
+			name="kmKeydataBaseForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<!-- 
+			<forward
+				name="view"
+				path="/km/keydata/base/kmKeydataBase_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/base/kmKeydataBase_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/base/kmKeydataBase_list.jsp" />
+			 -->
+			<forward
+				name="showKeydataUsed"
+				path="/km/keydata/base/kmKeydataBase_showKeydataUsed.jsp" />
+				
+			<forward
+				name="select"
+				path="/km/keydata/base/kmKeydataBase_select.jsp" />
+			<forward
+				name="view"
+				path="/km/keydata/base/kmKeydataBase_view.jsp" />
+		</action>
+		
+		<action
+			path="/km/keydata/base/kmKeydataUsed"
+			type="com.landray.kmss.km.keydata.base.actions.KmKeydataUsedAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			
+		</action>
+		
+		<!-- 操作映射 -->
+		<action
+			path="/km/keydata/base/kmKeydataPluginShow"
+			type="com.landray.kmss.km.keydata.base.actions.KmKeydataPluginShowAction"
+			name="kmKeydataPluginShowForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			
+			<forward
+				name="view"
+				path="/km/keydata/base/kmKeydataPluginShow_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/base/kmKeydataPluginShow_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/base/kmKeydataPluginShow_list.jsp" />
+			 
+			
+		</action>
+
+	</action-mappings>
+	
+	<message-resources
+		parameter="com.landray.kmss.km.keydata.base.ApplicationResources"
+		key="km-keydata" />
+		
+</struts-config>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 可阅读者可见他人草稿问题修正</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-20</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 重置操作不做空判断</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端权限引用页面</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限页签下图片显示不出问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 提示信息</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 模板可以选择通用岗位</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-19</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件权限描述信息</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-29</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类使用者为空就不用添加</description>
+			<author>龚一涛</author>
+			<revision-time>2013-09-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限里一直返回false的错误</description>
+			<author>龚一涛</author>
+			<revision-time>2013-09-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容对齐问题，调整权限更新选择中选择的人员展示框由单行文本调整为文本域。</description>
+			<author>张乐志</author>
+			<revision-time>2013-06-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复分类权限变更异常</description>
+			<author>张乐志</author>
+			<revision-time>2013-04-28</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 默认阅读者权限生效时间点支持</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-22</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 允许通过url传id修改权限</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-13</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 英文国际化文件</description>
+			<author>魏本源</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 判断业务模块是否处于集团分级管理模式的接口调用</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-08</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件拷贝、下载、打印权限的描述问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-12-11</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 在分类转移、批量修改权限等功能中实现阻止更新上级场所数据</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-05</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>权限SQL查询性能优化</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-21</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正流程管理，通过流程节点，附件权限字段丢失问题。</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-20</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>对于设置起草人修改权限需求出现缺陷的修复</description>
+			<author>李衡</author>
+			<revision-time>2011-11-21</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>在工作总结模版设置中，权限设置的时候，默认阅读者能够有通用岗位设置</description>
+			<author>朱湖强</author>
+			<revision-time>2011-11-08</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>将Boolean isJGEnabled改为boolean isJGEnabled</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-08-19</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正编辑界面在WAS中的兼容问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-08-04</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改类别权限设置中起草人不可修改可编辑者权限对附件权限有影响的缺陷</description>
+			<author>赵义洪</author>
+			<revision-time>2011-07-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加起草人是否可修改可阅读者、可编辑者、附件权限三个标示,修改附件可拷贝，可打印提示</description>
+			<author>赵义洪</author>
+			<revision-time>2011-06-13</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>点击批量修改权限时，原来的数据提交方式为get方法。当参数超过2m时，系统报错。</description>
+			<author>聂凡</author>
+			<revision-time>2011-04-11</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B2.2011041101</baseline>
+		</modify>
+	</modifies>
+</version>

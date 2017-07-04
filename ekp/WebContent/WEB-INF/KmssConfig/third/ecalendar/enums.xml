@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type 
+		default-value="Exchange2010"
+		name="third_ecalendar_exchange_version">
+		<!-- 
+		<value-label>
+			<value>Exchange2007_SP1</value>
+			<label-key>exchange.version.2007SP1</label-key>
+			<bundle>third-ecalendar</bundle>
+		</value-label>
+		 -->
+		<value-label>
+			<value>Exchange2010</value>
+			<label-key>exchange.version.2010</label-key>
+			<bundle>third-ecalendar</bundle>
+		</value-label>
+		<value-label>
+			<value>Exchange2010_SP1</value>
+			<label-key>exchange.version.2010SP1</label-key>
+			<bundle>third-ecalendar</bundle>
+		</value-label>
+		<value-label>
+			<value>Exchange2010_SP2</value>
+			<label-key>exchange.version.2010SP2</label-key>
+			<bundle>third-ecalendar</bundle>
+		</value-label>
+	</type>
+	
+</column-enums>

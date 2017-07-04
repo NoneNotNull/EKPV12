@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	
+	<extension
+		point="com.landray.kmss.sys.cluster">
+		<!-- 流程队列工作服务器 -->
+		<item
+			name="dispatcher">
+			<param
+				name="id"
+				value="lbpmQueueDispatcher" />
+			<param
+				name="service"
+				value="workerDispatcher" />
+			<param
+				name="multi"
+				value="true" />
+		</item>
+		<!-- 流程队列均衡服务器 -->
+		<item
+			name="dispatcher">
+			<param
+				name="id"
+				value="lbpmQueueBalancer" />
+			<param
+				name="service"
+				value="balancerDispatcher" />
+		</item>
+	</extension>
+</plugin>

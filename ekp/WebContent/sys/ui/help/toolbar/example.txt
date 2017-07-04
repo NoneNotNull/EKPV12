@@ -1,0 +1,25 @@
+﻿<ui:toolbar layout="sys.ui.toolbar" style="width:100%">
+	<!--普通按钮-->
+	<ui:button href="http://www.sina.com" 
+		icon="lui_icon_s lui_icon_s_add" target="_blank" style="width:50px;height:18px;background-color:blue;border: 1px solid gray;" 		title="新建知识">
+		新增
+	</ui:button>
+	
+	<!--状态按钮-->
+	<ui:toggle icon="lui_toolbar_btn_summary" title="简介阅读" group="groupname">
+	</ui:toggle>
+	
+	<!--弹出按钮-->
+	<ui:button icon="lui_icon_s lui_icon_s_icon_more" title="更多" text="更多" onclick="alert('1');">
+		<ui:popup align="${align}">
+			<ui:toolbar layout="${verLayout}" id="sys_tools_bar_ver">
+				<ui:button title="新建" icon="lui_icon_s lui_icon_s_icon_20">
+					<ui:text>新建文档</ui:text>
+				</ui:button>
+				<ui:button title="文档拷贝" icon="lui_icon_s lui_icon_s_icon_24">
+					<ui:text>拷贝文档</ui:text>
+				</ui:button>
+			</ui:toolbar>
+		</ui:popup>
+	</ui:button>
+</ui:toolbar>

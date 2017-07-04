@@ -1,0 +1,11 @@
+if(data.unsolveAskList.length>0){
+	{${%data.datapush%}：$}
+for(var i=0;i<data.unsolveAskList.length;i++){
+{$
+<a href="javascript:void(0)" onclick="datapush('{%data.unsolveAskList[i].modelName%}','{%data.unsolveAskList[i].fdId%}','{%data.unsolveAskList[i].cateModelName%}');" class="" title="推送到{%data.unsolveAskList[i].modelSubject%}" style="vertical-align:middle;"> 
+	<img alt="" src="{%data.unsolveAskList[i].imgUrl%}" style="line-height: 22px;"/>
+</a>
+$}
+}
+}
+{$&nbsp;$}

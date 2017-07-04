@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmSupplierMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.keydata.supplier.dao.hibernate.KmSupplierMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.keydata.supplier.model.KmSupplierMain" />
+	</bean>
+	<bean
+		id="kmSupplierMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.keydata.supplier.service.spring.KmSupplierMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmSupplierMainDao" />
+		</property>
+		<property
+			name="kmSupplierCategoryService">
+			<ref
+				local="kmSupplierCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="kmSupplierMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmSupplierMainTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmSupplierCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.keydata.supplier.dao.hibernate.KmSupplierCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory" />
+	</bean>
+	<bean
+		id="kmSupplierCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.keydata.supplier.service.spring.KmSupplierCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmSupplierCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSupplierCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmSupplierCategoryTarget" />
+		</property>
+	</bean>
+	
+	
+	
+	<bean
+		id="kmSupplierCategoryTreeService"
+		class="com.landray.kmss.km.keydata.supplier.service.spring.KmSupplierCategoryTreeService">
+		<property
+			name="kmSupplierCategoryService">
+			<ref
+				local="kmSupplierCategoryService" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="kmSupplierMainProvider"
+		class="com.landray.kmss.km.keydata.supplier.service.spring.KmSupplierMainProvider">
+		<property
+			name="kmSupplierMainService">
+			<ref
+				local="kmSupplierMainService" />
+		</property>
+		<property
+			name="kmSupplierCategoryService">
+			<ref
+				local="kmSupplierCategoryService" />
+		</property>
+	</bean>
+	
+</beans>

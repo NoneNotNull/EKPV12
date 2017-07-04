@@ -1,0 +1,54 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sap.mapping.plugins.controls.list.model.TibSapMappingListControlMain"
+		table="tib_sap_mapping_list_control">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdKey"
+			column="fd_key"
+			update="true"
+			insert="true"
+			length="2000"
+			not-null="false" />
+
+		<property
+			name="fdShowData"
+			column="fd_show_data"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true"/>
+
+		<property
+			name="fdExportParam"
+			column="fd_export_param"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-circulation:table.sysCirculationMain"
+		urlPrefix="/sys/circulation/"
+		defaultValidator="true">
+		<request
+			path="sys_circulation_main/sysCirculationMain*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+			<query
+				queryString="method=view"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=list"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=listData"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+	</module>
+</configs>

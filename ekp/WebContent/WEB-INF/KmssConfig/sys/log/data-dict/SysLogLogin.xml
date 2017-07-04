@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogLogin"
+		messageKey="sys-log:table.sysLogLogin"
+		serviceBean="sysLogLoginService"
+		table="sys_log_login">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogLogin.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogLogin.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogLogin.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogLogin.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogLogin.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogLogin.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogLogin.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			length="10" />
+	</model>
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogLoginBak"
+		messageKey="sys-log:table.sysLogLoginBak"
+		serviceBean="sysLogLoginBakService"
+		table="sys_log_login_bak">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogLoginBak.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogLoginBak.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogLoginBak.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogLoginBak.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogLoginBak.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogLoginBak.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogLoginBak.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			length="10" />
+	</model>
+</models>

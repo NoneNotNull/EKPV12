@@ -1,0 +1,20 @@
+基本调用：
+<ui:panel>
+	<ui:content title="单标签">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:panel>
+
+更换布局：
+<ui:panel layout="布局ID">
+	<ui:content title="单标签">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:panel>
+
+引用Portlet的配置：
+<ui:panel>
+	<portal:portlet ref="portlet定义的ID" title="单标签" />
+</ui:panel>

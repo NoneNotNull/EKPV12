@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sys_todo_cate">
+		<value-label>
+			<value>1</value>
+			<label-key>sysNotifyTodo.cate.audit</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysNotifyTodo.cate.copyto</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>sysNotifyTodo.cate.suspend</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+	</type>
+	<type name="sys_todo_clear_type" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>sysNotifyTodo.clear.config.type.1</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<!-- 暂时不用
+		<value-label>
+			<value>2</value>
+			<label-key>sysNotifyTodo.clear.config.type.2</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		 -->
+	</type>
+	
+	<!-- 提醒机制 通知类型-->
+	<type name="sys_notify_fdNotifyType">
+		<value-label>
+			<value>todo</value>
+			<label-key>sysNotify.type.todo</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>mobile</value>
+			<label-key>sysNotify.type.mobile</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>email</value>
+			<label-key>sysNotify.type.email</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+	</type>
+	<!-- 提醒机制 时间单位-->
+	<type name="sys_notify_fdTimeUnit">
+		<value-label>
+			<value>minute</value>
+			<label-key>sysNotify.fdTimeUnit.minute</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>hour</value>
+			<label-key>sysNotify.fdTimeUnit.hour</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>day</value>
+			<label-key>sysNotify.fdTimeUnit.day</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+		<value-label>
+			<value>week</value>
+			<label-key>sysNotify.fdTimeUnit.week</label-key>
+			<bundle>sys-notify</bundle>
+		</value-label>
+	</type>
+</column-enums>

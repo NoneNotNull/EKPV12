@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 组织架构接出带上层级ID的值</description>
+			<author>邱建华</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/organization</relation-module>
+				<relation-module>sys/oms</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构同步时默认会同步编号和关键字的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2014-12-01</revision-time>
+			<relation>
+				<relation-module>sys/oms</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 去除性别属性为必须同步字段</description>
+			<author>傅游翔</author>
+			<revision-time>2014-05-22</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 ldap同步结束后保存同步时间戳时报错的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2014-02-28</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 ldap配置文件信息加密的功能</description>
+			<author>黄伟强</author>
+			<revision-time>2014-02-10</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 ldap中岗位或者部门的排序号为空时报错的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2013-01-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 LDAP同步时不能同步RTX账号和动态密码卡的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-11-24</revision-time>
+			<relation>
+				<relation-module>sys/oms</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 ldap同步时当不同类型的组织架构的唯一标识存在重复的情况时，同步出错的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-11-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 LDAP同步的时候没同步岗位和人员的关联信息的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-07-26</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>关联 组织架构接入接口调整后,相应的LDAP导入修改</description>
+			<author>李衡</author>
+			<revision-time>2012-05-03</revision-time>
+			<relation>
+				<relation-module>sys/oms</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>实现admin.do备份配置文件ldapconfig.properties功能</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-26</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>加上遗漏的messageKey</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>OMS同步优化</description>
+			<author>李勇</author>
+			<revision-time>2011-08-05</revision-time>
+			<relation>
+				<relation-module>sys/oms</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决Ldap同步增量更新时错用了全量更新方法</description>
+			<author>周超</author>
+			<revision-time>2011-05-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>将LDAP同步读取配置文件的路径改为KmssConfig下</description>
+			<author>易荣烽</author>
+			<revision-time>2011-04-20</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>将LDAP登录的方法修改为继承基类的方式，需同时升级core代码</description>
+			<author>叶中奇</author>
+			<revision-time>2010-12-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,158 @@
+@charset "utf-8";
+*{
+	padding: 0;
+	margin: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+/** 群组日历相关 **/
+.muiCalendarGroupSelect{
+	height:2.8rem;
+	line-height:2.8rem;
+    font-size: 1.4rem;
+	background-color:#F2F2F2;
+	margin:.6rem 0 0;
+	padding:0 0.5rem;
+	border-radius:5px;
+	border:1px #D6D6D6 solid;
+  position: relative;
+}
+.muiCalenarGroupSelectText{
+  margin-right: 1.8rem;
+  text-align: right;
+  display: block;
+}
+.muiCalendarBottom .muiCalendarBottomRight .mui-down-n{
+  color: #B0B1B3;
+  line-height: 1;
+  position: absolute;
+  top:50%;
+  right: 0.5rem; font-weight:normal;
+  margin-top: -5px;
+}
+
+.muicalendarGroup{
+  padding: 5px;
+  background-color: #606060;
+  border-color: transparent;
+  text-align: center;
+  right: .6rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #747474;
+  transition-property: opacity;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+}
+
+.mblTooltipAbove .mblTooltipAnchor {
+  	top: -2px;
+  	z-index: -1;
+}
+
+.muicalendarGroup .mblTooltipArrow {
+  	display: none;
+}
+
+.muicalendarGroup .mblTooltipInnerArrow {
+ 	border-bottom-color: #606060;
+ 	border-width: 7px;
+}
+
+.muiCalendarGroupontainer{
+	z-index: 200;
+  width: 12rem;
+  padding: 0!important;
+}
+
+.muiNavBarGroupItem{
+	color: #fff;
+	display: block;
+	height: 3.2rem;
+	line-height: 3.2rem;
+	border-bottom: 1px solid #7a7a7a;
+	font-size: 1.5rem;
+}
+
+.muiNavBarGroupItem.selected {
+  	background-color: #7a7a7a;
+  	color: #ffa500;
+  	border-radius: 3px;
+}
+
+.muiGroupListItem {
+  /*	display:table;
+	width:100%;
+	padding: 0.8rem 0 0 0;
+  	background: #fff;
+  	position: relative;
+  	min-height: 4rem;
+  	overflow: hidden;*/
+
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: #fff;
+  position: relative;
+  min-height: 5rem;
+}
+
+.leftBar {
+  display: inline-block;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+.leftBar .muiProcessImg {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.rightContainer {
+	margin-left: 5.5rem;
+  position: relative; 
+}
+.rightContainer .muiSubject{ font-size: 1.4rem;}
+h4.muiSubject {
+  	padding-top: 2px;
+  	max-height: 38px;
+  	font-size: 1.6rem;
+  	font-weight: normal;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	word-wrap: break-all;
+  	word-break: break-word;
+  	display: -webkit-box;
+  	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+  	-webkit-box-pack: center;
+}
+
+.groupList {
+  	margin-top: 0.5rem;
+  	zoom: 1;
+}
+.groupList:after{ content:""; clear:both; display:block; visibility:hidden;}
+.groupList>li {
+  	color: #989898;
+  	margin-right:0.6rem;
+  	font-size: 1.2rem;
+  	line-height: 1.8rem;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	float: left;
+}
+
+.groupList>li .mui {
+  	margin-right:2px;
+  	line-height: 1.8rem;
+  	font-size: 1.2rem;
+  	position: relative;
+  	left: 1px;
+	
+}
+.groupList>li span{
+	padding:0 0 0 0.1rem;
+}
+
+

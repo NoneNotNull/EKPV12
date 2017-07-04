@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysNewsMainPortletService"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsMainPortlet">
+		<property name="sysNewsMainService">
+			<ref local="sysNewsMainService" />
+		</property>
+		<property name="sysNewsTemplateService">
+			<ref local="sysNewsTemplateService" />
+		</property>
+		<property name="sysAttMainCoreInnerService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsMainDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.news.dao.hibernate.SysNewsMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.news.model.SysNewsMain" />
+	</bean>
+	<bean
+		id="sysNewsMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysNewsMainDao" />
+		</property>
+		<property name="sysNewsTemplateService">
+			<ref local="sysNewsTemplateService" />
+		</property>
+		<property name="sysAttMainCoreInnerService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysNewsMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.news.dao.hibernate.SysNewsTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.news.model.SysNewsTemplate" />
+	</bean>
+	<bean
+		id="sysNewsTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="sysNewsTemplateDao" />
+		</property>
+		<property
+			name="newsStyle"
+			value="default;style1;style2" />
+	</bean>
+	<bean
+		id="sysNewsTemplateService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysNewsTemplateTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsTemplateTreeService"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsTemplateTreeService">
+		<property name="sysNewsTemplateService">
+			<ref local="sysNewsTemplateService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sysNewsMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 发布机制 -->
+	<bean
+		id="sysNewsPublishMainDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.news.dao.hibernate.SysNewsPublishMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.news.model.SysNewsPublishMain" />
+	</bean>
+	<bean
+		id="sysNewsPublishMainTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsPublishMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysNewsPublishMainDao" />
+		</property>
+		<property name="sysNewsTemplateService">
+			<ref local="sysNewsTemplateService" />
+		</property>
+		<property name="sysNewsMainDao">
+			<ref local="sysNewsMainDao" />
+		</property>
+		<property name="sysWfProcessSubService">
+			<ref bean="sysWfProcessSubService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsPublishMainService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="sysNewsPublishMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsPublishCategoryDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.news.dao.hibernate.SysNewsPublishCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.news.model.SysNewsPublishCategory" />
+	</bean>
+	<bean
+		id="sysNewsPublishCategoryTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.news.service.spring.SysNewsPublishCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysNewsPublishCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNewsPublishCategoryService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="sysNewsPublishCategoryTarget" />
+		</property>
+	</bean>
+	<!-- 发布机制类别设置 -->
+	<bean
+		id="sysNewsPublishCategoryCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.news.service.spring.SysNewsPublishCategoryCoreServiceImp">
+				<property name="sysNewsPublishCategoryService">
+					<ref local="sysNewsPublishCategoryService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 发布机制主文档设置 -->
+	<bean
+		id="sysNewsPublishMainCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.news.service.spring.SysNewsPublishMainCoreServiceImp">
+				<property name="sysNewsPublishMainService">
+					<ref local="sysNewsPublishMainService" />
+				</property>
+				<property name="sysNewsMainService">
+					<ref local="sysNewsMainService" />
+				</property>
+				<property name="sysNewsPublishCategoryService">
+					<ref local="sysNewsPublishCategoryService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>

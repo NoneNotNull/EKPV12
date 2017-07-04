@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.work.cases.model.WorkCasesCategory"
+		messageKey="work-cases:table.workCasesCategory"
+		displayProperty="fdName"
+		serviceBean="workCasesCategoryService"
+		table="work_cases_category"
+		url="/work/cases/work_cases_category/workCasesCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="work-cases:workCasesCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="work-cases:workCasesCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="work-cases:workCasesCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="work-cases:workCasesCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="900"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="work-cases:workCasesCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="work-cases:workCasesCategory.fdParent"
+			type="com.landray.kmss.work.cases.model.WorkCasesCategory"
+			column="fd_parent_id"
+			notNull="false"
+			validate="false" />
+		
+		<modelProperty
+			name="docAlteror"
+			messageKey="work-cases:workCasesCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"
+			unique="false" />
+			
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="work-cases:workCasesCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false" />
+		
+		<listProperty
+			name="authTmpReaders"
+			messageKey="work-cases:workCasesCategory.authTmpReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="ywg_test_cate_def_reader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authTmpEditors"
+			messageKey="work-cases:workCasesCategory.authTmpEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="ywg_test_cate_def_editor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="work-cases:workCasesCategory.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+			
+		<simpleProperty
+			name="authNotReaderFlag"
+			messageKey="work-cases:workCasesCategory.authNotReaderFlag"
+			type="Boolean"
+			column="auth_not_reader_flag"
+			notNull="false"
+			unique="false"
+			length="1" />
+			
+		<listProperty
+			name="authReaders"
+			messageKey="work-cases:workCasesCategory.authReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="ywg_test_cate_reader"
+			inverse="false" />
+			
+		<listProperty
+			name="authOtherReaders"
+			messageKey="work-cases:workCasesCategory.authOtherReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="ywg_test_cate_oreader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authAllReaders"
+			messageKey="work-cases:workCasesCategory.authAllReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="ywg_test_cate_areader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authEditors"
+			messageKey="work-cases:workCasesCategory.authEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="ywg_test_cate_editor"
+			inverse="false" />
+			
+		<listProperty
+			name="authOtherEditors"
+			messageKey="work-cases:workCasesCategory.authOtherEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="ywg_test_cate_oeditor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authAllEditors"
+			messageKey="work-cases:workCasesCategory.authAllEditors"
+			column="fd_tmp_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="ywg_test_cate_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		
+
+ 
+
+ 
+	</model>
+</models>

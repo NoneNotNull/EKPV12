@@ -1,0 +1,60 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.jdbc.model.TibJdbcDataSet"
+		table="tib_jdbc_data_set">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="docSubject"
+			column="doc_subject"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdDataSource"
+			column="fd_data_source"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+
+		<property
+			name="fdSqlExpression"
+			column="fd_sql_expression"
+			update="true"
+			insert="true"
+			length="300"
+			not-null="false" />
+			
+		<many-to-one
+			name="docCategory"
+			column="doc_category"
+			insert="true"
+			update="true"
+			not-null="false" />
+			
+		<property
+			name="fdData"
+			column="fd_data"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+	</class>
+</hibernate-mapping>

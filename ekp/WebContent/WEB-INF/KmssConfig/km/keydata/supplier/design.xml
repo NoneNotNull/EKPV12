@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-keydata-supplier:module.km.keydata.supplier"
+		urlPrefix="/km/keydata/supplier/"
+		defaultValidator="roleValidator(role=ROLE_KMSUPPLIER_DEFAULT)">
+		<roles>
+			ROLE_KMSUPPLIER_DEFAULT;
+			ROLE_KMSUPPLIER_CREATE; 
+			<!--ROLE_KMSUPPLIER_DELETE;-->
+			ROLE_KMSUPPLIER_MAINTAINER;
+			ROLE_KMSUPPLIER_CATEGORY_MAINTAINER;
+			<!--ROLE_MAINTAINER_READER; 
+			ROLE_MAINTAINER_EDITOR; -->
+		</roles>
+
+		<request
+			path="km_supplier_main/kmSupplierMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.supplier.model.KmSupplierMain,adminRoleName=ROLE_KMSUPPLIER_MAINTAINER">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSUPPLIER_CREATE)|roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view|showUsed"
+				validator="authFieldValidator(type=SYS_READER)|roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)" />
+				
+			<query
+				queryString="method=disableAll|enableAll"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+				
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update|delete|updateAvailable"
+				validator="authFieldValidator(type=SYS_EDITOR)|roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)|authFieldValidator(type=creator)" />
+			</request>
+		
+		<request
+			path="km_supplier_category/kmSupplierCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory,adminRoleName=ROLE_KMSUPPLIER_CATEGORY_MAINTAINER">
+			<query
+				queryString="method=add|view|edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+		
+		</request>
+		
+		<filters
+			modelName="com.landray.kmss.km.keydata.supplier.model.KmSupplierMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />				
+		</filters>
+
+	</module>
+		
+	<module urlPrefix="/sys/simplecategory/">
+         <request path="sys_simple_category/sysCategoryMain_tree.jsp*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMSUPPLIER_CATEGORY_MAINTAINER)"
+         		queryString="modelName=com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/transport/">
+         <request path="sys_transport_import/SysTransportImport*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)"
+         		queryString="fdModelName=com.landray.kmss.km.keydata.supplier.model.KmSupplierMain" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/number/">
+         <request path="sys_number_main/sysNumberMain*">
+                   <!-- 编号规则设置 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)"
+         		queryString="method=list&amp;modelName=com.landray.kmss.km.keydata.supplier.model.KmSupplierMain" />
+         </request>
+	</module>
+	
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory"
+				validator="roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)" />
+		</request>
+	</module>
+	<!-- 文档视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.km.keydata.supplier.model.KmSupplierMain"
+				validator="roleValidator(role=ROLE_KMSUPPLIER_MAINTAINER)" />
+		</request>
+	</module>
+
+	<homePage
+		urlPrefix="km/keydata/supplier"
+		url="/moduleindex.jsp?nav=/km/keydata/supplier/tree.jsp"
+		messageKey="km-keydata-supplier:module.km.keydata.supplier" />
+
+</configs>

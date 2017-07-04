@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="sysPropertyCategoryDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyCategoryDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyCategory" />
+	</bean>
+	<bean id="sysPropertyCategoryTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyCategoryDao" />
+		</property>
+	</bean>
+	<bean id="sysPropertyCategoryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyCategoryListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyCategoryListService">
+		<property name="sysPropertyCategoryService">
+			<ref local="sysPropertyCategoryService" />
+		</property>
+	</bean>
+
+
+
+	<bean id="sysPropertyFilterDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyFilterDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyFilter" />
+	</bean>
+	<bean id="sysPropertyFilterTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyFilterDao" />
+		</property>
+		<property name="sysPropertyReferenceService">
+			<ref local="sysPropertyReferenceService" />
+		</property>
+		<property name="sysPropertyDictLoader">
+			<ref local="sysPropertyDictLoader" />
+		</property>
+		<property name="sysPropertyFilterSettingService">
+			<ref bean="sysPropertyFilterSettingService" />
+		</property>
+		<property name="sysPropertyDbTableService">
+			<ref bean="sysPropertyDbTableService" />
+		</property>
+		<property name="sysPropertyFilterMainService">
+			<ref local="sysPropertyFilterMainService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyFilterService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyFilterTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyReferenceDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyReferenceDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyReference" />
+	</bean>
+	<bean id="sysPropertyReferenceTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyReferenceServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyReferenceDao" />
+		</property>
+	</bean>
+	<bean id="sysPropertyReferenceService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyReferenceTarget" />
+		</property>
+	</bean>
+	<bean id="sysPropertyDefineDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyDefineDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyDefine" />
+	</bean>
+	<bean id="sysPropertyDefineTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDefineServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyDefineDao" />
+		</property>
+		<property name="sysPropertyTemplateService">
+			<ref local="sysPropertyTemplateService" />
+		</property>
+		<property name="sysPropertyFilterSettingService">
+			<ref local="sysPropertyFilterSettingService" />
+		</property>
+		<property name="sysPropertyClusterService">
+			<ref local="sysPropertyClusterService" />
+		</property>
+		<property name="sysPropertyTreeService">
+			<ref local="sysPropertyTreeService" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+		<property name="sysPropertyExtendManager">
+			<ref local="sysPropertyExtendManager" />
+		</property>
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>
+		<property name="sysPropertyCategoryService">
+			<ref bean="sysPropertyCategoryService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyDefineService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyDefineTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyTreeDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyTreeDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyTree" />
+	</bean>
+	<bean id="sysPropertyTreeTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyTreeServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyTreeDao" />
+		</property>
+	</bean>
+	<bean id="sysPropertyTreeService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyTreeTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyTemplateDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyTemplateDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyTemplate" />
+	</bean>
+	<bean id="sysPropertyTemplateTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyTemplateDao" />
+		</property>
+		<property name="dictBuilder">
+			<ref local="sysPropertyDictBuilder" />
+		</property>
+		<property name="jspBuilder">
+			<ref local="sysPropertyJspBuilder" />
+		</property>
+		<property name="dictCacheManager">
+			<ref local="sysPropertyDictCacheManager" />
+		</property>
+		<property name="sysPropertyClusterService">
+			<ref local="sysPropertyClusterService" />
+		</property>
+		<property name="sysPropertyExtendManager">
+			<ref local="sysPropertyExtendManager" />
+		</property>
+		<property name="sysPropertyCategoryService">
+			<ref bean="sysPropertyCategoryService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyExtendManager"
+		class="com.landray.kmss.sys.property.ext.SysPropertyExtendManager"></bean>
+	<bean id="sysPropertyTemplateService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDbTableDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyDbTableDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyDbTable" />
+	</bean>
+	<bean id="sysPropertyDbTableTarget" parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDbTableServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyDbTableDao" />
+		</property>
+	</bean>
+	<bean id="sysPropertyDbTableService" parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="sysPropertyDbTableTarget" />
+		</property>
+	</bean>
+	<bean id="sysPropertyDbTableCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.property.service.spring.SysPropertyDbTableCoreServiceImp">
+				<property name="sysPropertyDbTableService">
+					<ref local="sysPropertyDbTableService" />
+				</property>
+				<property name="hbmBuilder">
+					<ref local="sysPropertyHbmBuilder" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysPropertyFilterSettingDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyFilterSettingDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyFilterSetting" />
+	</bean>
+	<bean id="sysPropertyFilterSettingTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterSettingServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyFilterSettingDao" />
+		</property>
+		<property name="sysPropertyTemplateService">
+			<ref local="sysPropertyTemplateService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyFilterSettingService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyFilterSettingTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDictPropBuilder"
+		class="com.landray.kmss.sys.property.builder.dict.DictPropBuilder">
+	</bean>
+	<bean id="sysPropertyDictBuilder" class="com.landray.kmss.sys.property.builder.dict.DictBuilder">
+		<property name="dictPropBuilder">
+			<ref local="sysPropertyDictPropBuilder" />
+		</property>
+	</bean>
+	<bean id="sysPropertyTagBuilder" class="com.landray.kmss.sys.property.builder.jsp.TagBuilder">
+	</bean>
+	<bean id="sysPropertyJspBuilder" class="com.landray.kmss.sys.property.builder.jsp.JspBuilder">
+		<property name="tagBuilder">
+			<ref local="sysPropertyTagBuilder" />
+		</property>
+	</bean>
+	<bean id="sysPropertyHbmBuilder" class="com.landray.kmss.sys.property.builder.hbm.HbmBuilder">
+	</bean>
+	<bean id="sysPropertyReferenceListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyReferenceListService">
+		<property name="sysPropertyReferenceService">
+			<ref local="sysPropertyReferenceService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyOptionListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyOptionListService">
+		<property name="sysPropertyDefineService">
+			<ref local="sysPropertyDefineService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDefineListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDefineListService">
+		<property name="sysPropertyDefineService">
+			<ref local="sysPropertyDefineService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDefineTreeService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDefineTreeService">
+		<property name="sysPropertyDefineService">
+			<ref local="sysPropertyDefineService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyPropListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyPropListService">
+		<property name="sysPropertyDefineService">
+			<ref local="sysPropertyDefineService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyTemplateListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyTemplateListService">
+		<property name="sysPropertyTemplateService">
+			<ref local="sysPropertyTemplateService" />
+		</property>
+		<property name="sysPropertyCategoryService">
+			<ref local="sysPropertyCategoryService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyModelListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyModelListService">
+	</bean>
+
+	<bean id="sysPropertyTreeListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyTreeListService">
+		<property name="sysPropertyTreeService">
+			<ref local="sysPropertyTreeService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyFilterListForMenuService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterListForMenuService">
+		<property name="sysPropertyFilterSettingService">
+			<ref local="sysPropertyFilterSettingService" />
+		</property>
+		<property name="sysPropertyFilterService">
+			<ref local="sysPropertyFilterService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyFilterListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterListService">
+		<property name="sysPropertyFilterSettingService">
+			<ref local="sysPropertyFilterSettingService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDictLoader"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDictLoader">
+		<property name="sysPropertyTemplateService">
+			<ref local="sysPropertyTemplateService" />
+		</property>
+		<property name="dictCacheManager">
+			<ref local="sysPropertyDictCacheManager" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyDictCacheManager"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyDictCacheManager">
+	</bean>
+
+	<!-- 集群接收消息类 -->
+	<bean id="sysPropertyDbMessageReceiver"
+		class="com.landray.kmss.sys.property.service.spring.message.SysPropertyDbMessageReceiver">
+		<property name="sysPropertyDbTableService">
+			<ref local="sysPropertyDbTableService" />
+		</property>
+	</bean>
+
+	<!-- 群集接收消息类~属性库缓存 -->
+	<bean id="sysPropertyCacheMessageReceiver"
+		class="com.landray.kmss.sys.property.service.spring.message.SysPropertyCacheMessageReceiver">
+	</bean>
+
+	<bean id="sysPropertyClusterService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyClusterServiceImp">
+		<property name="sysPropertyDbTableService">
+			<ref local="sysPropertyDbTableService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyStringEnumFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyStringEnumFilter">
+	</bean>
+	<bean id="sysPropertyStringTextFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyStringTextFilter">
+	</bean>
+	<bean id="sysPropertyStringOtherFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyStringOtherFilter">
+	</bean>
+	<bean id="sysPropertyLongEnumFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyLongEnumFilter">
+	</bean>
+	<bean id="sysPropertyLongTextFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyLongTextFilter">
+	</bean>
+	<bean id="sysPropertyDoubleTextFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyDoubleTextFilter">
+	</bean>
+	<bean id="sysPropertyTreeFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyTreeFilter">
+		<property name="sysPropertyTreeService">
+			<ref local="sysPropertyTreeService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyYearFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyTimeRangeFilter">
+	</bean>
+	<bean id="sysPropertyYearEnumFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyYearFilter">
+	</bean>
+	<bean id="sysPropertyMonthEnumFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyMonthFilter">
+	</bean>
+	<bean id="sysPropertyDeptFilter"
+		class="com.landray.kmss.sys.property.filter.SysPropertyDeptFilter">
+	</bean>
+	<!-- 下拉列表联动 -->
+	<bean id="sysPropertyLinkageInfoService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyLinkageInfoService">
+	</bean>
+	<bean id="xformLinkageTagBuilder"
+		class="com.landray.kmss.sys.property.builder.jsp.XformLinkageTagBuilder">
+	</bean>
+	<bean id="dictLinkagePropBuilder"
+		class="com.landray.kmss.sys.property.builder.dict.DictLinkagePropBuilder">
+	</bean>
+	<!-- 筛选名字校验 -->
+	<bean id="sysPorpertyFilterSettingCheckService"
+		class="com.landray.kmss.sys.property.service.spring.SysPorpertyFilterSettingCheckService">
+		<property name="sysPropertyFilterSettingService">
+			<ref local="sysPropertyFilterSettingService" />
+		</property>
+	</bean>
+	<!-- 属性名字校验 -->
+	<bean id="sysPorpertyDefineCheckService"
+		class="com.landray.kmss.sys.property.service.spring.SysPorpertyDefineCheckService">
+		<property name="sysPropertyDefineService">
+			<ref local="sysPropertyDefineService" />
+		</property>
+	</bean>
+	<bean id="sysPropertyXMLService"
+		class="com.landray.kmss.sys.property.service.SysPropertyXMLService">
+	</bean>
+
+
+	<!-- 筛选项配置 -->
+	<bean id="sysPropertyFilterMainDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyFilterMainDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyFilterMain" />
+	</bean>
+	<bean id="sysPropertyFilterMainTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyFilterMainDao" />
+		</property>
+	</bean>
+	<bean id="sysPropertyFilterMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyFilterMainTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyFilterMainListService"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyFilterMainListService">
+		<property name="sysPropertyFilterService">
+			<ref bean="sysPropertyFilterService" />
+		</property>
+		<property name="sysPropertyFilterSettingService">
+			<ref bean="sysPropertyFilterSettingService" />
+		</property>
+	</bean>
+	<bean name="sysPropertyExtendStorage"
+		class="com.landray.kmss.sys.property.ext.SysPropertyExtendStorage">
+	</bean>
+
+
+	<bean id="sysPropertyValDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.property.dao.hibernate.SysPropertyValDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.property.model.SysPropertyVal" />
+	</bean>
+	<bean id="sysPropertyValTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyValServiceImp">
+		<property name="baseDao">
+			<ref local="sysPropertyValDao" />
+		</property>
+		<property name="sysPropertyTemplateService">
+			<ref bean="sysPropertyTemplateService" />
+		</property>
+		<property name="sysPropertyReferenceService">
+			<ref bean="sysPropertyReferenceService" />
+		</property>
+		<property name="sysPropertyDefineService">
+			<ref bean="sysPropertyDefineService" />
+		</property>
+
+	</bean>
+	<bean id="sysPropertyValService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPropertyValTarget" />
+		</property>
+	</bean>
+	<bean id="sysPropertyValTree"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyValTree">
+	</bean>
+
+	<!-- pda-jsp片段构建器 -->
+	<bean id="pdaJspBuilder" class="com.landray.kmss.sys.property.builder.jsp.PdaJspBuilder">
+		<property name="tagBuilder">
+			<ref bean="sysPropertyTagBuilder" />
+		</property>
+	</bean>
+
+	<!-- 关联扩展 -->
+	<bean id="sysPropertyRelationDictLoader"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyRelationDictLoader">
+		<property name="dictBuilder">
+			<ref bean="sysPropertyDictBuilder" />
+		</property>
+		<property name="sysPropertyDefineService">
+			<ref bean="sysPropertyDefineService" />
+		</property>
+		<property name="sysPropertyTemplateService">
+			<ref bean="sysPropertyTemplateService" />
+		</property>
+	</bean>
+
+	<bean id="sysPropertyRelationExtendSearchBean"
+		class="com.landray.kmss.sys.property.service.spring.SysPropertyRelationExtendSearchBean">
+		<property name="sysPropertyDictLoader">
+			<ref bean="sysPropertyDictLoader" />
+		</property>
+	</bean>
+	<!-- 关联扩展结束 -->
+
+</beans>

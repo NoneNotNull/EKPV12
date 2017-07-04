@@ -1,0 +1,98 @@
+var datas = data;
+for (var i = 0; i < datas.length; i ++) {
+	var row = datas[i];
+	{$
+		<div class="clearfloat lui_listview_rowtable_summary_content_box">
+			<dl>
+				<dt>
+	$}
+					if(template.showCheckbox){
+						{$<input type="checkbox" data-lui-mark="table.content.checkbox" value="{%row.fdId.text%}" name="List_Selected"/>$}
+					}
+			{$
+					<span class="lui_listview_rowtable_summary_content_serial">{% i+1 %}</span>
+				</dt>
+			</dl>
+			<dl>
+				<dt>
+			$}
+				if(row.docSubject){
+					{$<a href="javascript:;" data-lui-mark-id="{%row.rowId%}" class="textEllipsis com_subject">$}
+						if(row.icon && row.icon.text){
+							{$<span>{% row.icon.text %}</span>$}
+						}
+						{$ {%row.docSubject.text%} $}
+					{$</a>$}
+				}
+			{$	
+				</dt>
+				<dd>
+			$}
+					if(row.fdDescription){
+						{$<span>
+							{%str.textEllipsis(row.fdDescription.text,150)%}
+						</span>$}
+					}
+			{$
+				</dd>
+				<dd class="lui_listview_rowtable_summary_content_box_foot_info">
+			$}
+					if(row['docCategory.fdName']&&row['docCategory.fdName'].text){
+						{$ {%row['docCategory.fdName'].label%}：
+						<em>
+					 		{%row['docCategory.fdName'].text%}
+						</em>
+						$}
+					}
+					if(row['docAuthor.fdName']&&row['docAuthor.fdName'].text){
+						{$ {%row['docAuthor.fdName'].label%}：
+						<em>
+					 		{%row['docAuthor.fdName'].text%}
+						</em>
+						$}
+					}
+					if(row['docDept.fdName']&&row['docDept.fdName'].text){
+						{$<span>
+						 	{%row['docDept.fdName'].label%}：{%row['docDept.fdName'].text%}
+						</span>$}
+					}
+					if(row.docPublishTime&&row.docPublishTime.text){
+					 	{$<span>
+					 		{%row.docPublishTime.label%}：
+					 		{%row.docPublishTime.text%}
+					 	</span>$}
+				 	}
+				 	if(row.tag && row.tag.text){
+				 		var __href = [env.fn.formatUrl('/sys/ftsearch/searchBuilder.do?method=search&queryString='),'','&modelName=','','&searchFields=tag&newLUI=true']
+						{$<span>
+					 		{%row.tag.label%}：$}
+					 		var ___rowText = str.toJSON(row.tag.text);
+					 		for(var jj = 0;jj < ___rowText.length; jj++){
+					 			__href[1] = encodeURIComponent(___rowText[jj].text)||'';
+					 			__href[3] = ___rowText[jj].model||'';
+					 			{$
+				 					<a class="com_subject" target="_blank" href="{% __href.join('') %}">{%___rowText[jj].text%}</a>
+					 			$}
+					 			if(jj <  ___rowText.length-1){
+					 				{$ | $}
+					 			}
+					 		}
+					 	{$</span>$}			 	
+				 	}
+				 	for(var r in row){
+				 		var f = false;
+				 		if(template.isShowOtherProp(r)){
+					 		f = true;
+				 		}
+				 		if(f){
+					 		{$<span>
+						 		{%row[r].label%}：{%row[r].text%}
+						 	</span>$}
+				 		}
+				 	}
+			{$
+				</dd>
+			</dl>
+		</div>
+	$}
+}

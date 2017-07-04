@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchAmbParticiple"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchAmbParticiple"
+		displayProperty="fdParticiple"
+		serviceBean="sysFtsearchAmbParticipleService"
+		table="sys_ftsearch_amb_participle"
+		url="/sys/ftsearch/expand/sys_ftsearch_amb_participle/sysFtsearchAmbParticiple.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdParticiple"
+			messageKey="sys-ftsearch-expand:sysFtsearchAmbParticiple.fdParticiple"
+			type="String"
+			column="fd_participle"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParticipleResult"
+			messageKey="sys-ftsearch-expand:sysFtsearchAmbParticiple.fdParticipleResult"
+			type="RTF"
+			column="fd_participle_result"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchAmbParticiple.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-ftsearch-expand:sysFtsearchAmbParticiple.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

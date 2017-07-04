@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!-- 移动模块配置 -->
+	<extension-point id="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="modelName" required="true" kind="string">
+				<description>主model名称</description>
+			</param>
+			<!--param name="templateModelName" required="false" kind="java">
+				<description>模版或分类名称</description>
+			</param>
+			<param name="templatePropertyName" required="false" kind="string">
+				<description>文件路径</description>
+			</param-->
+			<param name="name" required="true" kind="string">
+				<description>模块名</description>
+			</param>
+			<description>移动信息配置</description>
+		</item>
+		<description>移动配置</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.mobile.compress">
+		<item name="js-pkg">
+			<param name="name" required="true" kind="string">
+				<description>任务名</description>
+			</param>
+			<param name="targetFile" required="true" kind="string">
+				<description>压缩后生成的合并文件，未压缩前应该不存在，一般以.min.js结尾</description>
+			</param>
+			<param name="srcFold" required="true" kind="string">
+				<description>需要压缩的文件目录，如果未配置</description>
+			</param>
+			<description>js压缩任务配置</description>
+		</item>
+		<item name="css-pkg">
+			<param name="name" required="true" kind="string">
+				<description>任务名</description>
+			</param>
+			<param name="targetFile" required="true" kind="string">
+				<description>压缩后生成的合并文件，未压缩前也许不存在，一般以.css.js结尾</description>
+			</param>
+			<param name="srcFold" required="true" kind="string">
+				<description>需要压缩的文件目录，如果未配置，表示只压缩targetFile</description>
+			</param>
+			<description>css压缩合并任务配置</description>
+		</item>
+		<item name="css-file">
+			<param name="name" required="true" kind="string">
+				<description>任务名</description>
+			</param>
+			<param name="targetFile" required="true" kind="string">
+				<description>压缩后生成的合并文件，未压缩前也许不存在，一般以.css.js结尾</description>
+			</param>
+			<description>css压缩任务配置</description>
+		</item>
+		<description>文件压缩配置</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui.js" />
+			<param name="targetFile" value="/sys/mobile/js/mui/mui.js" />
+			<param name="srcFold" value="/sys/mobile/js/mui" />
+		</item>
+		<item name="css-file">
+			<param name="name" value="list.css" />
+			<param name="targetFile" value="/sys/mobile/css/themes/default/list.css" />
+		</item>
+		<item name="css-file">
+			<param name="name" value="view.css" />
+			<param name="targetFile" value="/sys/mobile/css/themes/default/view.css" />
+		</item>
+	</extension>
+</plugin>

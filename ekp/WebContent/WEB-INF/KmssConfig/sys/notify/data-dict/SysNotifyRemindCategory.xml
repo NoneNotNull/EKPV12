@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.notify.model.SysNotifyRemindCategory"
+		messageKey="sys-notify:table.sysNotifyRemindCategory"
+		displayProperty="fdId"
+		serviceBean="sysNotifyRemindCategoryService"
+		table="sys_notify_remind_category"
+		url="/sys/notify/sys_notify_remind_category/sysNotifyRemindCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+
+        <simpleProperty
+			name="fdModelId"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			unique="false" 
+			length="36" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			unique="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			unique="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdBeforeTime"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdBeforeTime"
+			type="String"
+			column="fd_before_time"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeUnit"
+			messageKey="sys-notify:sysNotifyRemindCategory.fdTimeUnit"
+			type="String"
+			column="fd_time_unit"
+			notNull="true"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

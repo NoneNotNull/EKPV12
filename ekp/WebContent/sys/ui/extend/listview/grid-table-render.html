@@ -1,0 +1,84 @@
+var datas = data;
+var columnNum = template.parent.columnNum;
+var width = 100/columnNum+'%';
+{$<table class="lui_listview_gridtable_table">$}
+for (var i = 0; i < datas.length; i ++) {
+	var grid = datas[i];
+	if (i % columnNum === 0){
+		{$<tr>$}
+	}
+			{$<td width="{%width%}">
+				<div class="lui_listview_gridtable_content">
+					<div class="lui_listview_gridtable_content_container">
+						<a class="lui_listview_gridtable_content_image" href="javascript:;" data-lui-mark-id="{%grid.rowId%}">
+							<img src="{%env.fn.formatUrl(grid.fdImageUrl.text)%}" $}if(grid['docSubject']&&grid['docSubject'].text){ {$ alt="{% grid['docSubject'].text %}" $} } {$>
+						</a>
+						<h1 class="clearfloat ">$}
+							if(template.showCheckbox){
+								{$<input type="checkbox" data-lui-mark="table.content.checkbox" value="{%grid.fdId.text%}" name="List_Selected">$}
+							}
+							if(grid['docSubject']&&grid['docSubject'].text){
+								{$<a href="javascript:;" class="lui_listview_gridtable_content_docSubject com_subject" 
+										title="{%grid['docSubject'].text%}" data-lui-mark-id="{%grid.rowId%}">
+								$}
+									if(grid['icon'] && grid['icon'].text){
+										{$<span>{% grid['icon'].text %}</span>$}
+									}
+									{$ {%str.textEllipsis(grid['docSubject'].text,40)%} $}
+								{$</a>$}
+							}
+						{$</h1>
+						<div class="txtBox clearfloat">$}
+						if(grid['docCategory.fdName']&&grid['docCategory.fdName'].text){
+							{$<div class="txtBox_label">
+								{%grid['docCategory.fdName'].label%}：
+							</div>
+							<div class="txtBox_text textEllipsis">
+								<span>{%grid['docCategory.fdName'].text%}</span>
+							</div>$}
+						}
+						{$</div>
+						<div class="txtBox clearfloat">$}
+						if(grid['docAuthor.fdName']&&grid['docAuthor.fdName'].text){
+							{$<div class="txtBox_label textEllipsis">
+								{%grid['docAuthor.fdName'].label%}：
+							</div>
+							<div class="txtBox_text">
+								<span>{%grid['docAuthor.fdName'].text%}</span>
+							</div>$}
+						}
+						{$</div>
+						<div class="txtBox clearfloat">$}
+							if(grid['docReadCount']&&grid['docReadCount'].text){
+								{$<div class="txtBox_info_readCount textEllipsis">
+									<a class="txtBox_info_txt" href="javascript:;">{%grid['docReadCount'].label%}</a>
+									({%grid['docReadCount'].text%})
+								</div>$}
+							}
+							if(grid['docScore']&&grid['docScore'].text){
+								{$<div class="txtBox_info_score textEllipsis">
+									<a class="txtBox_info_txt" href="javascript:;" >{%grid['docScore'].label%}</a>
+									({%grid['docScore'].text%})
+								</div>$}
+							}
+						{$</div>
+					
+					</div>
+					
+				</div>	
+			</td>$}
+	if (i % columnNum === columnNum-1){
+		{$</tr>$}
+	}
+}
+var _num = datas.length % columnNum; 
+if(_num>0){
+	for(var j = 0;j<columnNum-_num;j++){
+		{$
+			<td width="{%width%}"></td>
+		$}
+	}
+	{$ </tr> $}
+}
+
+{$</table>$}

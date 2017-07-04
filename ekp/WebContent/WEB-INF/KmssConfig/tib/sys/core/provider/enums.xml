@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="fd_control_pattern_enums">
+		<value-label>
+			<value>1</value>
+			<label-key>tibSysCoreIface.controlPattern.enums1</label-key>
+			<bundle>tib-sys-core-provider</bundle>
+			<label>仅满足条件的第一个实现</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>tibSysCoreIface.controlPattern.enums2</label-key>
+			<bundle>tib-sys-core-provider</bundle>
+			<label>执行所有满足条件的实现</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>tibSysCoreIface.controlPattern.enums3</label-key>
+			<bundle>tib-sys-core-provider</bundle>
+			<label>若有多个满足条件的实现则不执行</label>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>tibSysCoreIface.controlPattern.enums4</label-key>
+			<bundle>tib-sys-core-provider</bundle>
+			<label>顺序执行所有满足条件的实现</label>
+		</value-label>
+	</type>
+</column-enums>

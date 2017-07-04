@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysTimeAreaDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimeAreaDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimeArea" />
+	</bean>
+	<bean
+		id="sysTimeAreaTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimeAreaServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimeAreaDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimeAreaService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimeAreaTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTimeWorkDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimeWorkDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimeWork" />
+	</bean>
+	<bean
+		id="sysTimeWorkTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimeWorkServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimeWorkDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimeWorkService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimeWorkTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTimeWorkTimeDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimeWorkTimeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimeWorkTime" />
+	</bean>
+	<bean
+		id="sysTimeWorkTimeTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimeWorkTimeServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimeWorkTimeDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimeWorkTimeService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimeWorkTimeTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTimePatchworkDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimePatchworkDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimePatchwork" />
+	</bean>
+	<bean
+		id="sysTimePatchworkTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimePatchworkServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimePatchworkDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimePatchworkService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimePatchworkTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTimePatchworkTimeDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimePatchworkTimeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimePatchworkTime" />
+	</bean>
+	<bean
+		id="sysTimePatchworkTimeTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimePatchworkTimeServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimePatchworkTimeDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimePatchworkTimeService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimePatchworkTimeTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysTimeVacationDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.time.dao.hibernate.SysTimeVacationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.time.model.SysTimeVacation" />
+	</bean>
+	<bean
+		id="sysTimeVacationTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.time.service.spring.SysTimeVacationServiceImp">
+		<property name="baseDao">
+			<ref local="sysTimeVacationDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTimeVacationService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTimeVacationTarget" />
+		</property>
+	</bean>
+
+	<!-- 
+	<bean
+		id="sysTimeCountService"
+		class="com.landray.kmss.sys.time.service.spring.SysTimeCountServiceImp">
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+		<property name="sysTimeAreaService">
+			<ref local="sysTimeAreaService" />
+		</property>
+	</bean>
+	-->
+	<bean
+		id="businessHours"
+		class="com.landray.kmss.sys.time.service.business.BusinessHoursService" />
+	<bean
+		id="workTimeProvide"
+		class="com.landray.kmss.sys.time.service.rule.WorkTimeProvide" />
+	<bean
+		id="vacationProvide"
+		class="com.landray.kmss.sys.time.service.rule.VacationProvide" />
+	<bean
+		id="patchWorkProvide"
+		class="com.landray.kmss.sys.time.service.rule.PatchWorkProvide" />
+		
+	<bean
+		id="sysTimeCountService"
+		class="com.landray.kmss.sys.time.service.rule.SysTimeCountService">
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+		<property name="sysTimeAreaService">
+			<ref local="sysTimeAreaService" />
+		</property>
+		<property name="businessHours">
+			<ref local="businessHours" />
+		</property>
+		<property name="provides">
+			<list>
+				<ref local="workTimeProvide" />
+				<ref local="vacationProvide" />
+				<ref local="patchWorkProvide" />
+			</list>
+		</property>
+	</bean>
+</beans>

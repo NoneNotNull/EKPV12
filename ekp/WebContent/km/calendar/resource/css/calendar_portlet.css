@@ -1,0 +1,28 @@
+@charset "utf-8";      
+
+.todyaColor{background-color: #EBF8FB!important;}
+.selectColor{background-color: #0092fa!important;color: #fff!important;}
+.days{ font-size:14px;}
+.current_left{ background:url(../images/current_left.png) no-repeat; padding-left:3px; height:19px;  width:50px; float:right;margin-right: 4px;;}
+.current_center{ background:url(../images/current_center.png) repeat-x; height:19px;  cursor:pointer; text-align:center}
+.current_right{ background:url(../images/current_right.png) no-repeat top right; padding-right:3px; height:19px;}
+#calendar table td{ white-space: nowrap; word-break:  keep-all;  }
+#calendar table{table-layout: fixed; width: 100%; }
+/* ta的关注*/
+.lui_modules_person_history_title{ height:33px; line-height:33px; color:#666664; background:url(../images/workmate_title.png) repeat-x; font-weight:bold; padding-left:14px; border-bottom:1px solid #c3e3f2}
+.lui_modules_person_history_content{ background-color:#fff; overflow:hidden;}
+.lui_modules_person_history_content_left{ width: 64px; padding: 0px 10px 0px 0px; float:left}
+.lui_modules_person_history_content_right{ float:right; width:469px;}
+.lui_modules_person_history_content_right .top{ background:url(../images/top.png); height:10px; width:100%}
+.lui_modules_person_history_content_right .bottom{ background:url(../images/bottom.png) no-repeat; height:1px; width:100%}
+.lui_modules_person_history_content_right .center{ background:url(../images/center.png) repeat-y 10px center;  padding-left:26px; padding-right:18px; padding-bottom:11px;}
+.lui_modules_person_history_ul1{padding:0px 5px;}
+.lui_modules_person_history_ul1 li{ height:25px; line-height:25px; padding:0px 10px;  color:#818181; list-style:none; background:url(../images/li_bg.png) left center no-repeat}
+
+.events{  background:url(../images/li_bg_events.png) left bottom no-repeat;}
+.no_events{}
+.event_lable_select{font-size: 100%;}
+.event_lable_unselect{font-size: 100%;opacity:0.7}
+.not_month{color: #a7a6a4;}
+.calendarDIV .table { border-collapse: collapse; border: none;width: 100%; }
+.calendarDIV .table>tbody>tr>td { border: solid #c9d5e5 1px; }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+		<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{example-rules:table.exampleRulesCategory}" />
+			<param name="modelName" value="com.landray.kmss.example.rules.model.ExampleRulesCategory" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{example-rules:table.exampleRulesMain}" />
+			<param name="modelName" value="com.landray.kmss.example.rules.model.ExampleRulesMain" />
+		</item>
+	</extension>
+</plugin>

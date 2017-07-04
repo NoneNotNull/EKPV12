@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain"
+		messageKey="sys-lbpmservice-support:table.lbpmOperMain"
+		displayProperty="fdName"
+		serviceBean="lbpmOperMainService"
+		table="lbpm_oper_main"
+		url="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-lbpmservice-support:lbpmOperMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNodeType"
+			messageKey="sys-lbpmservice-support:lbpmOperMain.fdNodeType"
+			type="String"
+			column="fd_node_type"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsDefault"
+			messageKey="sys-lbpmservice-support:lbpmOperMain.fdIsDefault"
+			type="Boolean"
+			column="fd_is_default"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<listProperty
+			name="fdOperations"
+			messageKey="sys-lbpmservice-support:lbpmOperMain.fdOperations"
+			column="fd_operator_id"
+			orderBy="fd_order"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations"
+			cascade="all-delete-orphan"
+			inverse="true" />
+
+	</model>
+</models>

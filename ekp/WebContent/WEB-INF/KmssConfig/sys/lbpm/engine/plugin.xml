@@ -1,0 +1,1016 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType">
+			<!-- 以下属性为定义时的属性 -->
+			<param
+				name="type"
+				required="true"
+				kind="unid">
+				<description>唯一标识，节点类型的名称。例如：reviewNode</description>
+			</param>
+			<param
+				name="messageKey"
+				required="true"
+				kind="string">
+				<description>节点名的messageKey</description>
+			</param>
+			<param
+				name="defClass"
+				required="true"
+				kind="java"
+				basedOn="com.landray.kmss.sys.lbpm.engine.builder.NodeDefinition">
+				<description>节点定义的实现类名</description>
+			</param>
+			<param
+				name="attributesJsp"
+				required="true"
+				kind="string">
+				<description>节点定义属性jsp。请输入相对路径的jsp地址</description>
+			</param>
+			<param
+				name="xmlParser"
+				default="lbpmDefaultNodeXmlParser"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.node.INodeXmlParser">
+				<description>节点定义xml解析器，默认使用lbpmDefaultNodeXmlParser，若带有组织架构信息，请自己定义实现类，可继承DefaultNodeXmlParser。</description>
+			</param>
+			<param
+				name="nodeDescType"
+				kind="string"
+				required="true">
+				<description>nodeDescType扩展点中定义的type参数</description>
+			</param>
+			<param
+				name="taskDataAccess"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskDataAccess">
+				<description>任务数据访问实现接口</description>
+			</param>
+			<param
+				name="subTaskType"
+				kind="string">
+				<description>
+					可选，不允许多值。节点绑定的子任务类型，节点通过此参数获取子任务类型，然后根据相应的子任务扩展，创建子任务。
+					场景：审批节点绑定审批工作项，则需配置为审批工作项的活动类型。
+				</description>
+			</param>
+			<!-- 以下属性为执行时的属性，与taskType的属性一致 -->
+			<param
+				name="taskBehaviour"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.node.INodeBehaviour">
+				<description>节点实例活动行为，建议继承AbstractNodeBehaviour。</description>
+			</param>
+			<param
+				name="taskProvider"
+				kind="spring"
+				default="lbpmDefaultNodeTaskProvider"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskProvider">
+				<description>节点实例持久化实现接口，一般使用默认实现lbpmDefaultNodeTaskProvider即可。</description>
+			</param>
+			<description>节点配置</description>
+		</item>
+		<item
+			name="nodeDescType">
+			<param
+				name="type"
+				required="true"
+				kind="unid">
+				<description>唯一标识，节点所使用的JS。例如：reviewNodeDescType</description>
+			</param>
+			<param
+				name="reviewJs"
+				kind="string">
+				<description>审批界面节点相关js（修改流程图，修改流程图中处理人）</description>
+			</param>
+			<param
+				name="chartJs"
+				required="true"
+				kind="string">
+				<description>流程图中的节点绘画js（绘制节点，节点属性）</description>
+			</param>
+			<param
+				name="nodeDescJs"
+				required="true"
+				kind="string">
+				<description>节点描述的JS, 描述JS标识这个节点是否可以驳回、是否是人工处理的节点等方法</description>
+			</param>
+			<param
+				name="taskDesc"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.node.INodeDesc">
+				<description>节点描述,描述这个节点是否是人工处理，是否自动运行，是否是并发的节点等方法，建议继承AbstractNodeDesc。</description>
+			</param>
+			<description>节点特征描述配置</description>
+		</item>
+		<item
+			name="taskType">
+			<param
+				name="type"
+				required="true"
+				kind="unid">
+				<description>唯一标识，活动类型。例如：reviewWorkitem</description>
+			</param>
+			<param
+				name="reviewJs"
+				kind="string">
+				<description>审批界面节点相关js（修改流程图，修改流程图中处理人）</description>
+			</param>
+			<param
+				name="taskDesc"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskDesc">
+				<description>活动描述,提供唯一标识和是否是人工处理活动</description>
+			</param>
+			<param
+				name="taskDataAccess"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskDataAccess">
+				<description>任务数据访问实现接口</description>
+			</param>
+			<param
+				name="taskBehaviour"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskBehaviour">
+				<description>任务实例活动行为，若为工作项任务，建议继承AbstractWorkitemBehaviour。</description>
+			</param>
+			<param
+				name="taskProvider"
+				kind="spring"
+				default="lbpmDefaultWorkitemTaskProvider"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.task.ITaskProvider">
+				<description>
+					任务实例持久化类，若为工作项任务，一般使用默认实现lbpmDefaultWorkitemTaskProvider即可，非工作项任务请自己实现，不能继承DefaultWorkitemTaskProvider。
+				</description>
+			</param>
+			<description>活动配置</description>
+		</item>
+		<!-- 节点扩展点属性扩展 -->
+		<item
+			name="nodeAttributeExtend">
+			<param
+				name="nodeType"
+				required="true"
+				kind="string">
+				<description>节点的类型关键字,节点扩展点的nodeType项定义的type参数。</description>
+			</param>
+			<param
+				name="position"
+				kind="string"
+				required="true"
+				restriction="base;advance;newtag">
+				<description>
+					嵌入节点属性编辑页面的位置，目前支持三种位置摆放，base表示嵌入基本标签，advance表示高级标签、newtag表示新起标签。
+				</description>
+			</param>
+			<param
+				name="includeJsp"
+				required="true"
+				kind="string">
+				<description>
+					扩展属性的JSP页面，插入jsp页面到position参数对应的位置。
+					如果是position的为newtag，样例如下：
+					<![CDATA[					
+						<tr LKS_LabelName="权限">
+							<td>
+								<table class="tb_normal" width=100%>
+									<tr>
+										<td class="td_normal_title" width="15%">可阅读者</td>
+										<td width="85%">
+											可阅读对象A;可阅读对象B
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					]]>	
+					如果是position为base或者advance，样例如下：
+					<![CDATA[					
+						<tr>
+							<td class="td_normal_title" width="15%">可阅读者</td>
+							<td width="85%">
+								可阅读对象A;可阅读对象B
+							</td>
+						</tr>
+					]]>
+					JSP页面上的字段名必须是以"ext_"开始。样例：
+					<![CDATA[	
+						<input name="ext_formName" value="123"/>
+					]]>
+					后台获取扩展属性，是前端扩展属性名剔除"ext_"后名称。后台获取扩展属性样例：
+					<![CDATA[	
+						AbstractNode node = ...;
+						List<ExtAttribute> extAttributes = node.getExtAttributes();
+						for (ExtAttribute attribute : extAttributes) {
+							if ("formName".equals(attribute.getName())) {
+								System.out.println(attribute.getValue()); // 123
+							}
+						}
+					]]>
+				</description>
+			</param>
+			<description>节点扩展点的属性项扩展定义</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpm.engine.manager.node.NodePointPluginLoader" />
+		</system>
+		<description>节点的扩展。若需自定义节点，请实现此扩展点。</description>
+	</extension-point>
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation">
+			<param
+				name="type"
+				required="true"
+				kind="unid">
+				<description>唯一标识，操作类型的名称。</description>
+			</param>
+			<param
+				name="messageKey"
+				required="true"
+				kind="string">
+				<description>操作名</description>
+			</param>
+			<param
+				name="behaviour"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.operation.IOperationChecker">
+				<description>
+					操作行为实现类，普通操作实现IOperationBehaviour接口，并建议继承AbstractOperationBehaviour。
+					附加操作实现IAdditionOperationBehaviour接口。
+				</description>
+			</param>
+			<param
+				name="binder"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.operation.IOperationBinder">
+				<description>
+					操作绑定节点和任务接口。
+					起草人和特权人类型的操作只能绑定节点，审批人操作需要绑定节点和工作项，系统类型的操作不需要绑定。
+				</description>
+			</param>
+			<param
+				name="accessor"
+				required="false"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.operation.IOperationParamAccessor">
+				<description>
+					操作参数数据访问接口。
+				</description>
+			</param>
+			<param
+				name="reviewJs"
+				kind="string">
+				<description>操作前端js</description>
+			</param>
+			<param
+				name="handlerType"
+				required="true"
+				restriction="drafter;handler;historyhandler;admin;system"
+				kind="string">
+				<description>操作处理人类型（起草人，审批人，历史审批人，特权人，系统）备选列表</description>
+			</param>
+			<param
+				name="apiHelpPage"
+				kind="string">
+				<description>帮助页面，用于描述execute方法传递的parameter格式</description>
+			</param>
+			<param
+				name="display"
+				kind="boolean"
+				default="true">
+				<description>是否在属性页面上显示</description>
+			</param>
+			<param
+				name="isPassType"
+				kind="boolean"
+				default="false">
+				<description>是否为通过类型操作</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="500">
+				<description>类型操作排序号，根据此排序的升序顺序加载。</description>
+			</param>
+			<description>操作配置</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpm.engine.manager.operation.OperationPointPluginLoader" />
+		</system>
+		<description>操作的扩展。若需自定义操作，请实现此扩展点。</description>
+	</extension-point>
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				required="true"
+				kind="unid">
+				<description>事件类型的唯一标识</description>
+			</param>
+			<param
+				name="messageKey"
+				required="true"
+				kind="string">
+				<description>事件类型显示名</description>
+			</param>
+			<param
+				name="provider"
+				kind="java"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.event.IEventProvider">
+				<description>
+					事件提供器，检测使用范围（节点，工作项或流程），以及绑定的节点类型（提供用户可选择的事件类型，例如：驳回操作事件就不能绑定在机器人节点上）。
+					若没配置此参数，则认为其使用范围不限制，可以绑定在任何节点类型上。
+				</description>
+			</param>
+			<param
+				name="monitors"
+				required="true"
+				kind="java"
+				basedOn="com.landray.kmss.sys.lbpm.pvm.event.EngineEvent">
+				<description>
+					监听的事件对象集，多值，以分号分隔。此参数包含自己定义的相配套的事件对象，也包含需监听引擎内置的事件对象。
+					引擎内置的事件对象：
+					          异常事件：com.landray.kmss.sys.lbpm.pvm.event.ErrorEvent
+					          活动进入事件：com.landray.kmss.sys.lbpm.pvm.event.EnterTaskEvent
+					          活动激活事件：com.landray.kmss.sys.lbpm.pvm.event.ActivateTaskEvent
+					          活动离开事件：com.landray.kmss.sys.lbpm.pvm.event.EndedTaskEvent
+					          活动废弃事件：com.landray.kmss.sys.lbpm.pvm.event.AbandonTaskEvent
+					          流程开始事件：com.landray.kmss.sys.lbpm.pvm.event.ProcessStartEvent
+					          流程结束事件：com.landray.kmss.sys.lbpm.pvm.event.ProcessEndEvent
+				</description>
+			</param>
+			<param
+				name="conditionJsp"
+				kind="string">
+				<description>节点属性的事件配置事件的页面。在事件标签中，先选择事件类型显示名，然后选择侦听器时，弹出的窗口中包含当前配置页面。</description>
+			</param>
+			<param
+				name="display"
+				kind="boolean"
+				default="true">
+				<description>是否显示在配置页面中，若不能配置，请设置为false。</description>
+			</param>
+			<description>事件类型扩展点</description>
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>事件监听器的唯一标识</description>
+			</param>
+			<param
+				name="messageKey"
+				required="true"
+				kind="string">
+				<description>事件监听器显示名</description>
+			</param>
+			<param
+				name="eventTypes"
+				kind="string"
+				required="true">
+				<description>事件类型的unid，对应事件类型扩展点中的unid参数。多值，以分号分隔。若需要监听所有事件，请设置为*。</description>
+			</param>
+			<param
+				name="listener"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.event.IEventListener">
+				<description>
+					事件监听器提供器，获取指定事件监听器。
+					监听器实现com.landray.kmss.sys.lbpm.pvm.event.PriorityOrdered排序接口，则优先执行；
+					监听器没实现排序接口，则其次执行；
+					监听器实现com.landray.kmss.sys.lbpm.pvm.event.LowestOrdered排序接口，则最后执行。
+					
+					监听器实现com.landray.kmss.sys.lbpm.engine.manager.event.IEventListenerPlot接口，可以设置流程出现异常，是否允许重新执行。
+				</description>
+			</param>
+			<param
+				name="conditionJsp"
+				kind="string">
+				<description>
+					节点属性的事件监听器配置事件的页面。在事件标签中，先选择事件类型显示名，然后选择侦听器时，弹出的窗口中包含当前配置页面。
+					若enforce参数为true，此参数无效，即强制执行的监听器是没有配置页面。
+				</description>
+			</param>
+			<param
+				name="enforce"
+				kind="boolean"
+				default="false">
+				<description>是否强制执行。若为true，则前端界面无法选择此监听器。</description>
+			</param>
+			<description>事件监听器扩展点</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpm.engine.manager.event.EventPluginLoader" />
+		</system>
+		<description>事件类型和事件监听器的扩展。</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.handlerAssert">
+		<item
+			name="handlerAssert">
+			<param
+				name="asserter"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpm.engine.manager.operation.ProcessHandlerAsserter">
+				<description>
+					流程是否当前处理人断言接口。
+				</description>
+			</param>
+			<description>
+				流程是否当前处理人断言接口。
+				使用场景：如果一个岗位是当前处理人，默认情况下这个岗位下的所有人都是当前处理人，通过该接口进一步断定这个岗位下的人员是否处理人。
+				前提：当前岗位是当前处理人才会调用该接口。
+				判断规则：如果一个扩展的接口ProcessHandlerAsserter返回false，则不是当前处理人。（一票否决）
+			</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpm.engine.manager.operation.HandlerAssertPluginLoader" />
+		</system>
+		<description>流程是否处理人断言扩展点。</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.flowchart">
+		<item
+			name="flowchart">
+			<param
+				name="js"
+				required="true"
+				kind="string">
+				<description>
+					流程图全局引入JS地址
+				</description>
+			</param>
+			<description>
+				流程图全局引入函数
+			</description>
+		</item>
+		<item
+			name="nodeAttribute">
+			<param
+				name="js"
+				required="true"
+				kind="string">
+				<description>
+					节点属性全局引入JS地址
+				</description>
+			</param>
+			<description>
+				节点属性全局引入函数
+			</description>
+		</item>
+		<description>流程图扩展点</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="enterNodeEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.enterNodeEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.NodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.EnterTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="activateNodeEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.activateNodeEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.NodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.ActivateTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="endedNodeEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.endedNodeEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.NodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.EndedTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="abandonNodeEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.abandonNodeEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ReviewNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.AbandonTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="enterWorkitemEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.enterWorkitemEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.EnterTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="activateWorkitemEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.activateWorkitemEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.ActivateTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="endedWorkitemEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.endedWorkitemEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.EndedTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="abandonWorkitemEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.abandonWorkitemEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.AbandonTaskEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="processStartEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.processStartEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ProcessEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.ProcessStartEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="processEndEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.processEndEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ProcessEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.ProcessEndEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="jumpNextTaskEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.JumpNextTaskEvent" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.pvm.event.JumpNextTaskEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="quartzTriggerEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.quartzTriggerEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzTriggerEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+
+		<!--========== 操作执行事件 ============== -->
+		<!-- 特权人操作 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminOperationExecutionEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.adminOperationExecutionEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.OperationExecutionEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.AdminOperationExecutionEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 处理人操作 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="handlerOperationExecutionEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.handlerOperationExecutionEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.OperationExecutionEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.HandlerOperationExecutionEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 起草人操作 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="drafterOperationExecutionEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.drafterOperationExecutionEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.OperationExecutionEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.DrafterOperationExecutionEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 已处理人操作 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="historyhandlerOperationExecutionEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.historyhandlerOperationExecutionEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.OperationExecutionEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.HistoryhandlerOperationExecutionEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 系统操作 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="systemOperationExecutionEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.systemOperationExecutionEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.OperationExecutionEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.manager.operation.events.SystemOperationExecutionEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="cleanScopeParameterListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="endedNodeEvent;abandonNodeEvent;endedWorkitemEvent;abandonWorkitemEvent" />
+			<param
+				name="listener"
+				value="cleanScopeParameterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processEndListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.processEndListener" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="processEndListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="nodeEnterListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.nodeEnterListener" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="nodeEnterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="nodeEndListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.nodeEndListener" />
+			<param
+				name="eventTypes"
+				value="endedNodeEvent;abandonNodeEvent" />
+			<param
+				name="listener"
+				value="nodeEndListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="workitemEnterListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.workitemEnterListener" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent" />
+			<param
+				name="listener"
+				value="workitemEnterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="workitemEndListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.workitemEndListener" />
+			<param
+				name="eventTypes"
+				value="endedWorkitemEvent" />
+			<param
+				name="listener"
+				value="workitemEndListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="workitemAbandonListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.workitemAbandonListener" />
+			<param
+				name="eventTypes"
+				value="abandonWorkitemEvent" />
+			<param
+				name="listener"
+				value="workitemAbandonListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="concurrentJumpListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="jumpNextTaskEvent" />
+			<param
+				name="listener"
+				value="concurrentJumpListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 设置临时数据到任务（工作项、节点激活事件监听 ）-->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="setTempDataListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.listenerType.setTempDataListener" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent;activateWorkitemEvent;enterNodeEvent;activateNodeEvent" />
+			<param
+				name="listener"
+				value="setTempDataListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 特权人操作监听，删除错误队列 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processErrorQueueDeleteListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="adminOperationExecutionEvent" />
+			<param
+				name="listener"
+				value="processErrorQueueDeleteListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+	<!--  定时任务系统操作 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation"
+			id="138bdd46584680aa1b9ef7d494aab0cc">
+			<param
+				name="type"
+				value="lbpmQuartzOperation" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.operation.lbpmQuartzOperation" />
+			<param
+				name="behaviour"
+				value="lbpmQuartzOperationBehaviour" />
+			<param
+				name="binder"
+				value="lbpmQuartzOperationBinder" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmQuartzOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.eventType.quartzOperationEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzOperationEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,195 @@
+﻿@CHARSET "UTF-8";
+
+/*@翻页导航*/
+.lui_paging_box {
+	text-align: center;
+	font-size: 14px;
+    margin-top:17px;
+}
+
+.lui_paging_header_left {
+	padding-left: 0;
+}
+
+.lui_paging_header_right {
+	padding-right: 0;
+}
+
+.lui_paging_content_left {
+	padding-left: 0;
+}
+
+.lui_paging_content_right {
+	padding-right: 0;
+}
+
+.lui_paging_content_centre {
+	
+}
+
+.lui_paging_foot_left {
+	padding-left: 0;
+}
+
+.lui_paging_foot_right {
+	padding-right: 0;
+}
+
+.lui_paging_foot_centre {
+	
+}
+
+/*@翻页内容样式*/
+.lui_paging_contentBox {
+	margin: 0 10px;
+	text-align: center;
+	font-size: 12px;
+	list-style: none;
+	display: inline-block;
+}
+
+.lui_paging_contentBox.simple{
+	display: block;
+}
+
+.lui_paging_contentBox div {
+	float: left;
+}
+
+.lui_paging_contentBox li.lui_paging_ellipsis {
+	margin: 0 10px;
+}
+
+.lui_paging_contentBox li.lui_paging_pre{
+	margin-right: 10px;
+}
+
+.lui_paging_contentBox li.lui_paging_next{
+	margin: 0 10px;
+    background-color:#fff;
+}
+.lui_paging_contentBox li.lui_paging_next:hover a,
+.lui_paging_contentBox li.lui_paging_pre:hover a{
+	color: #fd7708;
+	background: #f8f8f8;
+}
+.lui_paging_contentBox li.lui_paging_mr10 {
+	margin-right: 10px
+}
+
+.lui_paging_contentBox li.lui_paging_ml10 {
+	margin-left: 10px
+}
+
+
+.lui_paging_contentBox a {
+	margin-left: -1px;
+	padding: 4px 9px;
+	color: #4eb7ee;
+	border: 1px solid #ccc;
+	display: inline-block;
+}
+
+.lui_paging_contentBox li a.lui_paging_btn {
+    color:#333;
+	border: 1px solid #ccc;
+	background: none;
+}
+.lui_paging_contentBox li a.lui_paging_btn:hover{ background:#f8f8f8; color:#fd7708;}
+.lui_paging_contentBox .lui_paging_num_left{
+	background-color: #fff;
+}
+
+.lui_paging_contentBox .lui_paging_num_left:hover,
+.lui_paging_contentBox .lui_paging_num_left.selected {
+	color: #fd7708;
+	background: #f8f8f8;
+}
+.lui_paging_contentBox .lui_paging_num_left:hover a,
+.lui_paging_contentBox .lui_paging_num_left.selected a{
+	color: #fd7708;
+}
+.lui_paging_contentBox .lui_paging_num_left.selected a{ cursor:default;}
+
+.lui_paging_contentBox li span {
+	line-height: 30px;
+}
+
+.lui_paging_contentBox li span input {
+	width: 28px;
+	padding: 4px;
+	margin: 0 4px;
+	border: 1px solid #ccc;
+	color:#9e9e9e;
+	position: relative;
+	top: -3px;
+}
+
+.lui_paging_contentBox li span select.lui_paging_amount {
+	padding: 4px;
+	margin: 0 4px;
+}
+
+
+/*@顶部分页样式**/
+.lui_paging_t_box {
+	line-height: 22px;
+	overflow: hidden;
+	height: 24px;
+	vertical-align: middle;
+	display: inline-block;
+	margin-left:5px;
+}
+.lui_paging_t_page_info_current {
+	color: #30ade3;
+}
+
+.lui_paging_t_haspre {
+	background:url(../images/paging/view_icon_list_Dnor.png) no-repeat  0px 0px;
+	
+}
+
+.lui_paging_t_haspre:hover {
+	background:url(../images/paging/view_icon_list_Bcur.png) no-repeat  0px 0px;
+}
+
+.lui_paging_t_notpre {
+	cursor:default;
+	background:url(../images/paging/view_icon_list_Ddisable.png) no-repeat 0px 0px;
+}
+
+.lui_paging_t_hasnext {
+	background:url(../images/paging/view_icon_list_Dnor.png) no-repeat -20px 0px;
+}
+
+.lui_paging_t_hasnext:hover {
+	background:url(../images/paging/view_icon_list_Bcur.png) no-repeat -20px 0px;
+}
+
+.lui_paging_t_notnext {
+	cursor:default;
+	background:url(../images/paging/view_icon_list_Ddisable.png) no-repeat -20px 0px;
+}
+.lui_paging_t_refresh{
+	background:url(../images/paging/view_icon_list_Dnor.png) no-repeat -40px 0px;
+}
+.lui_paging_t_refresh:hover{
+	background:url(../images/paging/view_icon_list_Bcur.png) no-repeat -40px 0px;
+}
+
+.lui_paging_t_content_box td{
+	padding:0px 4px;
+}
+.lui_paging_t_content_box .lui_icon_s{ width:18px; height:18px;}
+
+.lui_paging_t_pre_l,
+.lui_paging_t_next_l,
+.lui_paging_t_refresh_l {
+	
+}
+
+.lui_paging_t_refresh_l .lui_icon_s_icon_refresh {
+	
+}
+/*@顶部分页样式结束**/
+

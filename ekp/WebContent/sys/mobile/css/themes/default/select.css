@@ -1,0 +1,128 @@
+.muiFormInputContnet .muiFormSelectValue {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2rem;
+	outline: 0;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2;
+}
+
+.muiFormSelectBox {
+	height: 100%;
+	text-align: left;
+	display: inline-block;
+	width: 100%;
+	line-height: 100%;
+}
+
+.muiFormInputContnet.muiSelectInputContnet {
+	padding: 0 0.2rem;
+	text-align: right;
+	height: 100%;
+}
+
+.muiFormSelectContnet.muiSelectInputContnet .muiFormSelectText {
+	display: inline-block;
+	font-size: 1.4rem;
+}
+
+.muiFormSelectContnet.muiSelectInputContnet.edit .muiFormSelectText{
+	width: 100%;
+}
+.muiFormSelectElement .muiField {
+	padding: 0;
+}
+.muiDialogSelect .muiDialogElementContent{
+		height: 16.8rem!important;
+}
+.muiFormSelectElement .muiFormOptionsField{
+		margin-bottom: 0;
+}
+.muiFormSelectElement .muiFormOptionsField:first-child .muiFieldOptions .muiFormCheckBox{ top:10px;}
+.muiFormSelectElement .muiFormOptionsField:first-child .muiFieldOptions > .muiFieldText{ padding-top: 1rem;}
+.muiFormSelectElement .muiFormOptionsField .muiFieldOptions > .muiFieldText{
+	padding: 1rem 0.2rem;
+	min-height: 2rem;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiFormSelectElement .muiFormOptionsField .muiFieldOptions .muiFormCheckBox{
+	top:10px;
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiDialogSelect .muiDialogElementContent{
+		height: 19rem!important;
+	}
+	.muiFormSelectElement .muiFormOptionsField{
+		margin-bottom: 0;
+	}
+	.muiFormSelectElement .muiFormOptionsField .muiFieldOptions > .muiFieldText{
+		padding: 1rem 0.2rem;
+		min-height: 2.5rem;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-box-pack: center;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+	.muiFormSelectElement .muiFormOptionsField .muiFieldOptions .muiFormCheckBox{
+		top:12px;
+	}
+
+}
+
+.muiFormSelectElement .muiFieldOptions {
+	display: block;
+	text-align: left;
+}
+
+.muiFormSelectElement .sgl .muiFieldOptions .muiFormCheckBox {
+	display: none;
+}
+
+.muiFormSelectElement .muiFieldOptions.muiFormCheckBoxChecked .muiFormCheckBox{
+	display: block;
+	border-radius: 50%;
+}
+
+.muiFormSelectElement .sgl .muiFieldOptions.muiFormCheckBoxChecked .muiFormCheckBox .muiFormCheckBoxOverlay{
+	color: #fff;
+}
+
+.muiFormSelectElement .muiFormCheckBox {
+	float: right;
+}
+
+.muiFormSelectElement .muiFieldOptions>span {
+	float: left;
+}
+
+.muiFormSelectElement .muiFieldOptions:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiSelectInputContnet.muiFormInputContnet {
+	width: auto;
+}
+
+.muiSelectInputContnet .muiFormSelectInput {
+	display: none;
+}
+
+.muiFormSelectElement .muiFormCheckBoxChecked.muiFieldOptions>span {
+	color: blue;
+}

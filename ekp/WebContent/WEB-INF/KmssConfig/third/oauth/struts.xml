@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="oauthBindDataForm"
+			type="com.landray.kmss.third.oauth.forms.OauthBindDataForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/third/oauth/oauth"
+			type="com.landray.kmss.third.oauth.actions.OauthBindDataAction"
+			name="oauthBindDataForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/third/oauth/oauth_bind_data/oauthBindData_view.jsp" />
+			<forward
+				name="edit"
+				path="/third/oauth/oauth_bind_data/oauthBindData_edit.jsp" />
+			<forward
+				name="list"
+				path="/third/oauth/oauth_bind_data/oauthBindData_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

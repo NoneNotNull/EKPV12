@@ -1,0 +1,30 @@
+.notNull {
+	padding-left: 10px;
+	border: solid #DFA387 1px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background: #FFF6D9;
+	color: #C30409;
+	margin-top: 3px;
+	font-size: 12px;
+}
+
+.titleDiv {
+	top: 0px;
+	padding: 10px 0 0;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+}
+
+.ui-controlgroup-label {
+	width: 100px !important;
+}
+
+.div_overflowArea table>tbody>tr>td {
+	border: 1px solid #000 !important;
+}
+
+.ui-body-c .ui-link {
+	font-weight: normal;
+}

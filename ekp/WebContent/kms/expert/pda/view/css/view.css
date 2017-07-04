@@ -1,0 +1,147 @@
+.lui-expert-grid {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	left: 0;
+	bottom: 60px;
+}
+
+.lui-expert-grid .lui-content {
+	width: 100%;
+}
+
+.lui-expert-grid header {
+	background: url("./img_bg.png");
+	height: 35%;
+	width: 100%;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.lui-expert-grid header>ul:first-child {
+	top: 50%;
+	position: absolute;
+	width: 100%;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	margin-top: -36px;
+}
+
+.lui-expert-grid header>ul .img {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	height: 60px;
+}
+
+.lui-expert-grid header>ul .img img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.lui-expert-grid header>ul .info span {
+	display: block;
+}
+
+.lui-expert-grid header>ul .info {
+	position: absolute;
+	right: 0;
+	left: 80px;
+}
+
+.lui-expert-grid header>ul span {
+	color: #fff;
+}
+
+.lui-expert-grid header>ul .info .name {
+	font-size: 1.2em;
+	float: left;
+	position: relative;
+	top: 5px;
+}
+
+.lui-mail-icon:after,.lui-phone-icon:after,.lui-kk-icon:after {
+	background-size: 1.5em 1.5em;
+}
+
+.lui-expert-grid .lui-expert-connect {
+	float: left;
+	padding-left: 20px;
+}
+
+.lui-expert-grid .lui-expert-connect li {
+	float: left;
+	padding: 2px 15px 0 0;
+}
+
+.lui-expert-grid .count {
+	display: block;
+	height: 2em;
+	padding-top: 3px;
+}
+
+.lui-expert-info li {
+	padding: 5px 5px;
+	position: relative;
+}
+
+.lui-expert-info li>span:first-child {
+	color: #828282;
+	padding-right: 15px;
+}
+
+.lui-expert-info li>span:last-child {
+	position: absolute;
+	left: 90px;
+	right: 20px;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	top: 5px;
+}
+
+.lui-expert-grid-container {
+	height: 100%;
+	background-color: #e5f3fe;
+}
+
+.lui-expert-grid-container>div {
+	height: 100%;
+	position: relative;
+	width: 2000px;
+}
+
+.lui-expert-info-container {
+	position: absolute;
+	height: 65%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.lui-expert-info-container .lui-expert-nav {
+	border: 1px solid #CBCBCB;
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	top: 5px;
+}
+
+.lui-expert-info-container .lui-expert-content {
+	position: absolute;
+	overflow-x: hidden;
+	top: 53px;
+	bottom: 0;
+	left: 10px;
+	right: 10px;
+}
+
+.lui-expert-info-container .lui-expert-content .content {
+	width: 100%;
+}

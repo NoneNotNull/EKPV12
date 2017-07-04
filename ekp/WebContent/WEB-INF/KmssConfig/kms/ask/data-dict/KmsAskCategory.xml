@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskCategory"
+		messageKey="kms-ask:table.kmsAskCategory"
+		displayProperty="fdName"
+		serviceBean="kmsAskCategoryService"
+		table="kms_ask_category"
+		url="/kms/ask/kms_ask_category/kmsAskCategory.do?method=edit&amp;fdModelName=com.landray.kmss.kms.ask.model.KmsAskCategory&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-ask:kmsAskCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-ask:kmsAskCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-ask:kmsAskCategory.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+			
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-ask:kmsAskCategory.docAlterTime"
+			type="Date"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-ask:kmsAskCategory.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-ask:kmsAskCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="true" 
+			canDisplay="false"/>
+
+		<modelProperty
+			name="hbmParent"
+			messageKey="kms-ask:kmsAskCategory.fdParentId"
+			type="com.landray.kmss.kms.ask.model.KmsAskCategory"
+			column="fd_parent_id"
+			notNull="false"
+			treeModel="true"
+			unique="false" />
+			
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="kms-ask:kmsAskCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			canDisplay="false"
+			length="1000" />
+			
+		<listProperty
+			name="authEditors"
+			messageKey="kms-ask:kmsAskCategory.authEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_ask_category_editor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-ask:kmsAskCategory.authAllEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_ask_category_aeditor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-ask:kmsAskCategory.authOtherEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="kms_ask_category_oeditor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authReaders"
+			messageKey="kms-ask:kmsAskCategory.authReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_ask_category_reader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-ask:kmsAskCategory.authAllReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_ask_category_areader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authOtherReaders"
+			messageKey="kms-ask:kmsAskCategory.authOtherReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="kms_ask_category_oreader"
+			inverse="false"
+			canDisplay="false" />
+
+	</model>
+</models>

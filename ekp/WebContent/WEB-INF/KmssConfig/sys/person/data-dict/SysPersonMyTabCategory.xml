@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonMyTabCategory"
+		messageKey="sys-person:sysPersonMyTabCategory"
+		displayProperty="fdName"
+		serviceBean="sysPersonMyTabCategoryService"
+		table="sys_person_mytab_category">
+	<idProperty>
+		<generator type="assigned"/>
+	</idProperty>
+	
+	<modelProperty
+		name="docCreator"
+		messageKey="sys-person:sysPersonMyTabCategory.docCreator"
+		type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+		column="doc_creator_id"
+		notNull="true"/>
+		
+	<simpleProperty
+		name="docCreateTime"
+		messageKey="sys-person:sysPersonMyTabCategory.docCreateTime"
+		type="DateTime"
+		column="doc_create_time"
+		notNull="true"/>
+		
+	<simpleProperty
+		name="fdName"
+		messageKey="sys-person:sysPersonMyTabCategory."
+		type="String"
+		column="fd_name"
+		notNull="true"
+		length="500"
+		validate="true"/>
+		
+	<simpleProperty
+		name="fdType"
+		messageKey="sys-person:sysPersonMyTabCategory.fdType"
+		type="String"
+		column="fd_type"
+		notNull="true"
+		length="10"/>
+		
+	<simpleProperty
+		name="fdTarget"
+		messageKey="sys-person:sysPersonMyTabCategory.fdTarget"
+		type="String"
+		column="fd_target"
+		notNull="false"
+		length="10"/>
+		
+	<simpleProperty
+		name="fdSysCategoryId"
+		messageKey="sys-person:sysPersonMyTabCategory.fdSysCategoryId"
+		type="String"
+		column="fd_sys_cate_id"
+		notNull="false"
+		length="36"/>
+		
+	<simpleProperty
+		name="fdStatus"
+		messageKey="sys-person:sysPersonMyTabCategory.fdStatus"
+		type="Integer"
+		column="fd_status"
+		notNull="true"
+		length="10"
+		validate="true"/>
+		
+	<simpleProperty
+		name="fdOrder"
+		messageKey="sys-person:sysPersonMyTabCategory.fdOrder"
+		type="Integer"
+		column="fd_order"
+		notNull="false"
+		length="10"/>
+		
+	<listProperty
+		name="fdLinks"
+		messageKey="sys-person:sysPersonMyTabCategory.fdLinks"
+		column="fd_cate_id"
+		orderBy="fd_order"
+		type="com.landray.kmss.sys.person.model.SysPersonMyTabLink"
+		cascade="all-delete-orphan"
+		inverse="false"/>
+	</model>
+</models>

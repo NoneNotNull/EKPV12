@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.authorization.model.SysAuthRole"
+		messageKey="sys-authorization:table.sysAuthRole"
+		displayProperty="fdName"
+		serviceBean="sysAuthRoleService"
+		table="sys_auth_role">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-authorization:sysAuthRole.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			length="100"
+			validate="true" />
+		<simpleProperty
+			name="fdAlias"
+			messageKey="sys-authorization:sysAuthRole.fdAlias"
+			type="String"
+			column="fd_alias"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-authorization:sysAuthRole.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			unique="false"
+			length="1000"
+			validate="true" />
+		<simpleProperty
+			name="fdModulePath"
+			messageKey="sys-authorization:sysAuthRole.fdModulePath"
+			type="String"
+			column="fd_module_path"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-authorization:sysAuthRole.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="2"
+			enumType="sys_authorization_fd_type"
+			validate="true" />			
+		<modelProperty
+			name="fdCreator"
+			messageKey="sys-authorization:sysAuthRole.fdCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_creatorid"
+			notNull="false"
+			unique="false" />
+		<modelProperty
+			name="sysAuthCategory"
+			messageKey="sys-authorization:sysAuthRole.sysAuthCategory"
+			type="com.landray.kmss.sys.authorization.model.SysAuthCategory"
+			column="fd_category_id"
+			notNull="false" />
+<!--  			
+		<listProperty
+			name="hbmOrgElements"
+			messageKey="sys-authorization:sysAuthRole.fdOrgElements"
+			column="fd_roleid"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_auth_ura"
+			elementColumn="fd_orgelementid"
+			inverse="false" />
+-->
+		<listProperty
+			name="authEditors"
+			messageKey="sys-authorization:sysAuthRole.authEditors"
+			column="fd_roleid"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_auth_edt"
+			elementColumn="fd_orgelementid"
+			inverse="false" />
+		<listProperty
+			name="hbmInhRoles"
+			messageKey="sys-authorization:sysAuthRole.fdInhRoles"
+			column="fd_roleid"
+			type="com.landray.kmss.sys.authorization.model.SysAuthRole"
+			table="sys_auth_rra"
+			elementColumn="fd_inhroleid"
+			inverse="false" />
+		<listProperty
+			name="hbmRolesInh"
+			messageKey="sys-authorization:sysAuthRole.fdInhRoles"
+			column="fd_inhroleid"
+			type="com.landray.kmss.sys.authorization.model.SysAuthRole"
+			table="sys_auth_rra"
+			elementColumn="fd_roleid"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="authUra"
+			messageKey="sys-authorization:sysAuthArea.authUra"
+			type="com.landray.kmss.sys.authorization.model.SysAuthUra"
+			column="fd_roleid" />				
+<!-- 		<listProperty
+			name="authRoleArea"
+			messageKey="sys-authorization:sysAuthArea.authAreaRole"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			table="sys_auth_area_role"
+			column="fd_role_id"
+			elementColumn="fd_area_id" />			
+-->					
+	</model>
+</models>

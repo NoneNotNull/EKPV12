@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<!-- 标签状态 -->
+	<type name="sysTagTags_fdStatus" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>sysTagTags.fdStatus.true</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysTagTags.fdStatus.false</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	<!-- 评价 -->	
+	<type name="sysTagComment_fdAppraise" default-value="30">
+		<value-label>
+			<value>10</value>
+			<label-key>sysTagCommnet.faAppraise.best</label-key>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>sysTagCommnet.faAppraise.better</label-key>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>sysTagCommnet.faAppraise.good</label-key>
+		</value-label>
+		<value-label>
+			<value>40</value>
+			<label-key>sysTagCommnet.faAppraise.normal</label-key>
+		</value-label>
+		<value-label>
+			<value>50</value>
+			<label-key>sysTagCommnet.faAppraise.bad</label-key>
+		</value-label>
+	</type>
+	 <!--  是否私有 -->
+	<type name="sysTagTags_YesOrNo">
+		<value-label>
+			<value>1</value>
+			<label>否</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label>是</label>
+		</value-label>
+	</type>
+</column-enums>
+

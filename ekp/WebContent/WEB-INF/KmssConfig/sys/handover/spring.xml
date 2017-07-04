@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysHandoverConfigMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.handover.dao.hibernate.SysHandoverConfigMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.handover.model.SysHandoverConfigMain" />
+	</bean>
+	<bean
+		id="sysHandoverConfigMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.handover.service.spring.SysHandoverConfigMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysHandoverConfigMainDao" />
+		</property>
+		<property name="sysHandoverService">
+			<ref bean="sysHandoverService" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+	</bean>
+	<bean
+		id="sysHandoverConfigMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysHandoverConfigMainTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="sysHandoverConfigLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.handover.dao.hibernate.SysHandoverConfigLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.handover.model.SysHandoverConfigLog" />
+	</bean>
+	<bean
+		id="sysHandoverConfigLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.handover.service.spring.SysHandoverConfigLogServiceImp">
+		<property name="baseDao">
+			<ref local="sysHandoverConfigLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysHandoverConfigLogService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysHandoverConfigLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysHandoverConfigLogDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.handover.dao.hibernate.SysHandoverConfigLogDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.handover.model.SysHandoverConfigLogDetail" />
+	</bean>
+	<bean
+		id="sysHandoverConfigLogDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.handover.service.spring.SysHandoverConfigLogDetailServiceImp">
+		<property name="baseDao">
+			<ref local="sysHandoverConfigLogDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysHandoverConfigLogDetailService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysHandoverConfigLogDetailTarget" />
+		</property>
+	</bean>
+	<!--查询处理入口service -->
+	<bean
+		id="sysHandoverService"
+		class="com.landray.kmss.sys.handover.service.spring.SysHandoverServiceImp">
+		<property name="sysHandoverLogService">
+			<ref bean="sysHandoverLogService" />
+		</property>
+		<property name="sysHandoverConfigLogDetailService">
+			<ref bean="sysHandoverConfigLogDetailService" />
+		</property>
+	</bean>
+	<!--日志入口service -->
+	<bean
+		id="sysHandoverLogService"
+		lazy-init="true"
+		class="com.landray.kmss.sys.handover.service.spring.SysHandoverLogServiceImp">
+		<property name="sysHandoverConfigMainService">
+			<ref bean="sysHandoverConfigMainService" />
+		</property>
+		<property name="sysHandoverConfigLogService">
+			<ref bean="sysHandoverConfigLogService" />
+		</property>
+	</bean>
+	<!--<bean
+		id="sysHandoverLogService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="sysHandoverLogTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="before*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="after*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+--></beans>

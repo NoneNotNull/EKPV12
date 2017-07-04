@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+	PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<mapping resource="com/landray/kmss/kms/expert/model/KmsExpertInfo.hbm.xml" />
+		<mapping resource="com/landray/kmss/kms/expert/model/KmsExpertType.hbm.xml" />
+		<mapping resource="com/landray/kmss/kms/expert/model/KmsExpertPreview.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/expert/model/KmsIntroExpert.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/expert/model/KmsExpertArea.hbm.xml" />
+		
+		<mapping
+			resource="com/landray/kmss/kms/expert/model/KmsExpertCategoryPreview.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

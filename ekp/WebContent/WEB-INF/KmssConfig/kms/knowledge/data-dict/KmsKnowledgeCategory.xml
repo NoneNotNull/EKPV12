@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+		messageKey="kms-knowledge:table.kmsKnowledgeCategory"
+		displayProperty="fdName"
+		serviceBean="kmsKnowledgeCategoryService"
+		table="kms_knowledge_category"
+		url="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory.do?method=edit&amp;fdModelName=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="true" />
+
+			
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="true" />
+
+			
+		<modelProperty
+			name="hbmParent"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdParent"
+			type="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+			column="fd_parent_id"
+			cascade="save-update"
+			notNull="false"
+			unique="false"
+			canDisplay="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="300"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsinheritMaintainer"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdIsinheritMaintainer"
+			type="Boolean"
+			column="fd_isinherit_maintainer"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsinheritUser"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdIsinheritUser"
+			type="Boolean"
+			column="fd_isinherit_user"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authNotReaderFlag"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authNotReaderFlag"
+			type="Boolean"
+			column="auth_not_reader_flag"
+			notNull="false"
+			length="36"
+			validate="true" />
+			
+			
+
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />	
+
+		<simpleProperty
+			name="fdNumberPrefix"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdNumberPrefix"
+			type="String"
+			column="fd_number_prefix"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="authTmpAttNodownload"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttNodownload"
+			type="Boolean"
+			column="auth_tmp_att_nodownload"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authTmpAttNocopy"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttNocopy"
+			type="Boolean"
+			column="auth_tmp_att_nocopy"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authTmpAttNoprint"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttNoprint"
+			type="Boolean"
+			column="auth_tmp_att_noprint"
+			notNull="false"
+			length="36"
+			validate="true" />
+			
+		<listProperty
+			name="authReaders"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_knowledge_cate_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_knowledge_cate_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpReaders"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_knowledge_cate_main_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpEditors"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_knowledge_cate_main_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttPrints"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttPrints"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="kms_knowledge_cate_main_attprint"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttCopys"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttCopys"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="kms_knowledge_cate_main_attcopy"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttDownloads"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authTmpAttDownloads"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="kms_knowledge_cate_main_attdl"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authAllEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_knowledge_cate_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authAllReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_knowledge_cate_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authOtherReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="kms_knowledge_cate_oreader"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.authOtherEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="kms_knowledge_cate_oeditor"
+			inverse="false"
+			canDisplay="false" />
+			
+		<listProperty
+			name="docPosts"
+			messageKey="kms-knowledge.docPosts"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_post_id"
+			table="kms_knowledge_cate_post"
+			inverse="false"
+			canDisplay="false" />
+		
+		<modelProperty
+			name="sysPropertyTemplate"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdPropertyTemplate"
+			type="com.landray.kmss.sys.property.model.SysPropertyTemplate"
+			column="fd_prop_template_id"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTemplateType"
+			messageKey="kms-knowledge:kmsKnowledgeCategory.fdTemplateType"
+			type="String"
+			column="fd_template_type"
+			notNull="false"
+			length="11"
+			validate="true" />
+			
+	</model>
+</models>

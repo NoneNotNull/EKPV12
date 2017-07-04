@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+<form-bean name="sysTaskMainForm" type="com.landray.kmss.sys.task.forms.SysTaskMainForm">
+</form-bean>
+<form-bean name="sysTaskFeedbackForm" type="com.landray.kmss.sys.task.forms.SysTaskFeedbackForm">
+</form-bean>
+<form-bean name="sysTaskEvaluateForm" type="com.landray.kmss.sys.task.forms.SysTaskEvaluateForm">
+</form-bean>
+<form-bean name="sysTaskCategoryForm" type="com.landray.kmss.sys.task.forms.SysTaskCategoryForm">
+</form-bean>
+<form-bean name="sysTaskApproveForm" type="com.landray.kmss.sys.task.forms.SysTaskApproveForm">
+</form-bean>
+<form-bean name="sysTaskAnalyzeForm" type="com.landray.kmss.sys.task.forms.SysTaskAnalyzeForm">
+</form-bean>
+<form-bean name="sysTaskOverruleForm" type="com.landray.kmss.sys.task.forms.SysTaskOverruleForm">
+</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<!-- UED专用Action -->
+	 	<action
+			path="/sys/task/sys_task_main/sysTaskIndex"
+			type="com.landray.kmss.sys.task.actions.SysTaskIndexAction"
+			parameter="method"
+			name="sysTaskMainForm" 
+			input="edit">
+			<forward
+				name="list"
+				path="/sys/task/sys_task_ui/sysTaskMain_list.jsp">
+			</forward>
+			<forward name="list.4m" path="/sys/task/mobile/list.jsp">
+			</forward>
+		</action>
+		<action path="/sys/task/sys_task_main/sysTaskMain" 
+				type="com.landray.kmss.sys.task.actions.SysTaskMainAction"
+				name="sysTaskMainForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_ui/sysTaskMain_view.jsp">
+			</forward>
+			<forward name="view.4m" path="/sys/task/mobile/view.jsp">
+			</forward>
+			<forward name="view.4pda" path="/sys/task/sys_task_main/sysTaskMain_view_pda.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_ui/sysTaskMain_edit.jsp">
+			</forward>
+			<forward name="edit.4m" path="/sys/task/mobile/edit.jsp">
+			</forward>
+			<forward name="edit.4pda" path="/sys/task/sys_task_main/sysTaskMain_edit_pda.jsp">
+			</forward>
+			<forward name="editChild" path="/sys/task/sys_task_ui/sysTaskMain_child_edit.jsp">
+			</forward>
+			<forward name="editChild.4pda" path="/sys/task/sys_task_main/sysTaskMain_child_edit_pda.jsp">
+			</forward>
+			<forward name="editChild.4m" path="/sys/task/mobile/child_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_main/sysTaskMain_list.jsp">
+			</forward>
+			<forward name="list.4pda" path="/sys/task/pda/sysTaskMain_list4pda.jsp">
+			</forward>
+			<forward name="childList" path="/sys/task/sys_task_main/sysTaskMain_listChildTask4pda.jsp">
+			</forward>
+			<forward name="childCnavas" path="/sys/task/sys_task_main/sysTaskMain_childCanvas.jsp">
+			</forward>
+			<forward name="analyzeList" path="/sys/task/sys_task_ui/sysTaskMain_list.jsp">
+			</forward>
+			
+		</action>
+		
+		<action path="/sys/task/sys_task_feedback/sysTaskFeedback" 
+				type="com.landray.kmss.sys.task.actions.SysTaskFeedbackAction" 
+				name="sysTaskFeedbackForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_feedback_ui/sysTaskFeedback_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_feedback_ui/sysTaskFeedback_edit.jsp">
+			</forward>
+			<forward name="edit.4m" path="/sys/task/mobile/feedback_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_feedback_ui/listdata.jsp">
+			</forward>
+			<forward name="list.4m" path="/sys/task/mobile/feedback_list.jsp">
+			</forward>
+			<forward name="list.4pda" path="/sys/task/sys_task_feedback/sysTaskFeedback_list_pda.jsp">
+			</forward>
+			<forward name="loadAttachmentInfo" path="/sys/task/mobile/resource/tmpl/loadAttachmentInfo.jsp">
+			</forward>
+		</action>
+		
+		<action path="/sys/task/sys_task_evaluate/sysTaskEvaluate" 
+				type="com.landray.kmss.sys.task.actions.SysTaskEvaluateAction" 
+				name="sysTaskEvaluateForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_evaluate_ui/sysTaskEvaluate_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_evaluate_ui/sysTaskEvaluate_edit.jsp">
+			</forward>
+			<forward name="edit.4m" path="/sys/task/mobile/evaluate_edit.jsp">
+			</forward>
+			<forward name="editTag" path="/sys/task/sys_task_evaluate/sysTaskEvaluate_tag_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_evaluate_ui/listdata.jsp">
+			</forward>
+			<forward name="list.4pda" path="/sys/task/sys_task_evaluate/sysTaskEvaluate_list_pda.jsp">
+			</forward>
+			<forward name="list.4m" path="/sys/task/mobile/evaluate_list.jsp">
+			</forward>
+		</action>
+		
+		<action path="/sys/task/sys_task_category/sysTaskCategory" 
+				type="com.landray.kmss.sys.task.actions.SysTaskCategoryAction" 
+				name="sysTaskCategoryForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_category/sysTaskCategory_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_category/sysTaskCategory_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_category/sysTaskCategory_list.jsp">
+			</forward>
+		</action>
+		
+		<action path="/sys/task/sys_task_approve/sysTaskApprove" 
+				type="com.landray.kmss.sys.task.actions.SysTaskApproveAction" 
+				name="sysTaskApproveForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_approve/sysTaskApprove_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_approve/sysTaskApprove_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_approve/sysTaskApprove_list.jsp">
+			</forward>
+		</action>
+		
+		<action path="/sys/task/sys_task_analyze/sysTaskAnalyze" 
+				type="com.landray.kmss.sys.task.actions.SysTaskAnalyzeAction" 
+				name="sysTaskAnalyzeForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_analyze_ui/sysTaskAnalyze_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_analyze_ui/sysTaskAnalyze_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_analyze_ui/sysTaskAnalyze_list.jsp">
+			</forward>
+			<forward name="listAnalyzeDept" path="/sys/task/sys_task_analyze_ui/sysTaskAnalyze_dept_result_list.jsp">
+			</forward>
+			<forward name="listAnalyzePerson" path="/sys/task/sys_task_analyze_ui/sysTaskAnalyze_person_result_list.jsp">
+			</forward>
+			
+		</action>
+		
+		<action path="/sys/task/sys_task_overrule/sysTaskOverrule" 
+				type="com.landray.kmss.sys.task.actions.SysTaskOverruleAction" 
+				name="sysTaskOverruleForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/sys/task/sys_task_overrule_ui/sysTaskOverrule_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/task/sys_task_overrule_ui/sysTaskOverrule_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/task/sys_task_overrule_ui/listdata.jsp">
+			</forward>
+		</action>
+		
+		<!--门户-->
+		<action
+			path="/sys/task/sys_task_portlet/SysTaskMainPortlet"
+			type="com.landray.kmss.sys.task.actions.SysTaskMainPortletAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="portlet"
+				path="/sys/task/sys_task_ui/sysTaskMain_portlet.jsp">
+			</forward>
+			<forward
+				name="coproject"
+				path="/sys/task/sys_task_ui/sysTaskMain_coprojectPortlet.jsp">
+			</forward>
+		</action>
+		
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources parameter="com.landray.kmss.sys.task.ApplicationResources" key="sys-task"/>
+</struts-config>

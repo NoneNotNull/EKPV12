@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 导航 -->
+	<bean
+		id="sysZoneNavigationDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZoneNavigationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZoneNavigation" />
+	</bean>
+	<bean
+		id="sysZoneNavigationServiceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZoneNavigationServiceImp">
+		<property name="baseDao">
+			<ref local="sysZoneNavigationDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysZoneNavigationService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysZoneNavigationServiceTarget" />
+		</property>
+	</bean>
+	
+	<!--个人基本信息 -->
+	<bean
+		id="sysZonePersonInfoDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePersonInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePersonInfo" />
+	</bean>
+	<bean
+		id="sysZonePersonInfoServiceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePersonInfoServiceImp">
+		<property name="baseDao">
+			<ref local="sysZonePersonInfoDao" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService"/>
+		</property>
+		<property name="sysTagTagsService">
+			<ref bean="sysTagTagsService"/>
+		</property>
+		<property name="sysZonePersonAttenFanService">
+			<ref bean="sysZonePersonAttenFanService"/>
+		</property>
+		<property name="sysZonePersonDataCateService">
+			<ref bean="sysZonePersonDataCateService"/>
+		</property>
+		<property name="sysZoneNavigationService">
+			<ref bean="sysZoneNavigationService"/>
+		</property>
+		<property name="sysTagMainService">
+			<ref bean="sysTagMainService"/>
+		</property>
+		<property name="sysTagMainCoreService">
+			<ref bean="sysTagMainCoreService"/>
+		</property>
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+		<property name="sysReadLogService">
+			<ref bean="sysReadLogService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysZonePersonInfoService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysZonePersonInfoServiceTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean id="sysZonePersonInfoBean" 
+		   class="com.landray.kmss.sys.zone.service.plugin.SysZonePersonInfoBean">
+		<property name="sysZonePersonInfoService">
+			<ref bean="sysZonePersonInfoService" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+	</bean>
+	<!-- 头像服务 -->
+	<bean id="sysZonePersonImageBean" 
+		   class="com.landray.kmss.sys.zone.service.plugin.SysZonePersonImageBean">
+		<property name="sysAttMainCoreInnerService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+	
+	<!-- 员工黄页添加===开始 -->
+	<bean
+		id="sysZonePersonDataDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePersonDataDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePersonData" />
+	</bean>
+
+	<bean
+		id="sysZonePersonDataTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePersonDataServiceImp">
+		<property name="baseDao">
+			<ref local="sysZonePersonDataDao" />
+		</property>
+		<property name="sysZonePersonInfoService">
+			<ref local="sysZonePersonInfoService" />
+		</property>
+	</bean>
+	<bean
+		id="sysZonePersonDataService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePersonDataTarget" />
+		</property>
+	</bean>
+
+	
+	<bean
+		id="sysZonePersonAttenFanDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePersonAttenFanDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePersonAttenFan" />
+	</bean>
+
+	<bean
+		id="sysZonePersonAttenFanTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePersonAttenFanServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysZonePersonAttenFanDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysZonePersonAttenFanService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePersonAttenFanTarget" />
+		</property>
+	</bean>
+
+	
+	<bean
+		id="sysZonePerDataTemplDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePerDataTemplDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePerDataTempl" />
+	</bean>
+
+	<bean
+		id="sysZonePerDataTemplTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePerDataTemplServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysZonePerDataTemplDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysZonePerDataTemplService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePerDataTemplTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysZonePersonDataCateDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePersonDataCateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePersonDataCate" />
+	</bean>
+
+	<bean
+		id="sysZonePersonDataCateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePersonDataCateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysZonePersonDataCateDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysZonePersonDataCateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePersonDataCateTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysZoneCheckNameOnlyService"
+		class="com.landray.kmss.sys.zone.service.spring.SysZoneCheckNameOnlyServiceImpl">
+	</bean>
+	
+	<bean
+		id="sysZoneImageTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZoneImageServiceImpl">
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService" />
+		</property>
+		<property name="sysZonePersonInfoService">
+			<ref local="sysZonePersonInfoService" />
+		</property>		
+	</bean>
+
+	<bean
+		id="sysZoneImageService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysZoneImageTarget" />
+		</property>
+	</bean>	
+	
+	<bean 
+		id="sysZoneTagCategoryDataService" 
+		class="com.landray.kmss.sys.zone.service.tag.SysZoneTagCategoryDataService">
+		<property name="sysTagCategoryService">
+			<ref bean="sysTagCategoryService" />
+		</property>
+	</bean>
+	
+	<bean id="sysZoneTagByCategoryDatabean"
+		class="com.landray.kmss.sys.zone.service.tag.SysZoneTagByCategoryDatabean">
+		<property name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+	</bean>	 
+	
+	<bean
+		id="sysZoneDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sysZonePersonDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>		
+	
+	<!-- 员工黄页添加===结束 -->
+	<!-- 照片墙 -->
+	<bean
+		id="sysZonePhotoMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.zone.dao.hibernate.SysZonePhotoMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.zone.model.SysZonePhotoMain" />
+	</bean>
+	<bean
+		id="sysZonePhotoMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePhotoMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysZonePhotoMainDao" />
+		</property>
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysZonePhotoMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePhotoMainTarget" />
+		</property>
+	</bean>
+	
+	<bean id="sysZonePhotoBuliderService" 
+			class="com.landray.kmss.sys.zone.quartz.SysZonePhotoBuliderService"></bean>
+	<bean id="shapeVerticalParser" 
+			class="com.landray.kmss.sys.zone.dict.ShapeVerticalParser">
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService"/>
+		</property>
+	</bean>
+	<bean  id="sysZonePhotoNewPersonSource"
+	 	class="com.landray.kmss.sys.zone.service.plugin.SysZonePhotoNewPersonSource">
+	 	<property name="sysAttMainService">
+			<ref bean="sysAttMainService" />
+		</property>
+		
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService"/>
+		</property>
+	 </bean>
+	<!-- 照片墙结束 -->
+	<bean
+		id="sysZonePageTemplateService"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePageTemplateServiceImp">
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysZonePersonInfoDataIntoQuartzTarget"
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePersonInfoDataIntoQuartzService">
+		<property name="sysZonePersonInfoService">
+			<ref local="sysZonePersonInfoService" />
+		</property>			
+	</bean>
+	<bean
+		id="sysZonePersonInfoDataIntoQuartzService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysZonePersonInfoDataIntoQuartzTarget" />
+		</property>
+	</bean>	
+	
+	<bean id="sysZonePluginService" 
+		class="com.landray.kmss.sys.zone.service.spring.SysZonePluginService">
+		<property name="groupConfigStorer">
+			<ref bean="groupConfigStorer"/>
+		</property>
+	</bean>
+</beans>

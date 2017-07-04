@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSetting"
+	messageKey="tib-sys-soap-connector:table.tibSysSoapSetting"
+	serviceBean="tibSysSoapSettingService"
+	table="tib_sys_soap_setting"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="docPoolAdmin"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docPoolAdmin"
+	type="String"
+	column="doc_pool_admin"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="serviceName"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.serviceName"
+	type="String"
+	column="service_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="passwordType"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.passwordType"
+	type="String"
+	column="password_type"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="soapHeaderCustom"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.soapHeaderCustom"
+	type="RTF"
+	column="soap_header_custom"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="extendInfoXml"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.extendInfoXml"
+	type="RTF"
+	column="extend_info_xml"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="bindName"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.bindName"
+	type="String"
+	column="bind_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="docAddress"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docAddress"
+	type="String"
+	column="doc_address"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="portName"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.portName"
+	type="String"
+	column="fd_port_name"
+	notNull="false"
+	length="300"
+/>
+<simpleProperty
+	name="fdAuthMethod"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdAuthMethod"
+	type="String"
+	column="fd_auth_method"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="docSubject"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docSubject"
+	type="String"
+	column="doc_subject"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="docCreateTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docCreateTime"
+	type="DateTime"
+	column="doc_create_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="docAlterTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docAlterTime"
+	type="DateTime"
+	column="doc_alter_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdWsdlUrl"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdWsdlUrl"
+	type="String"
+	column="fd_wsdl_url"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdEnable"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdEnable"
+	type="Boolean"
+	column="fd_enable"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdProtectWsdl"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdProtectWsdl"
+	type="Boolean"
+	column="fd_protect_wsdl"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdSoapVerson"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdSoapVerson"
+	type="String"
+	column="fd_soap_verson"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdCheck"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdCheck"
+	type="Boolean"
+	column="fd_check"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdAllowBlock"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdAllowBlock"
+	type="Boolean"
+	column="fd_allow_block"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdOverTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdOverTime"
+	type="String"
+	column="fd_over_time"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdUserName"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdUserName"
+	type="String"
+	column="fd_user_name"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdloadUser"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdloadUser"
+	type="String"
+	column="fd_load_user"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdloadPwd"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdloadPwd"
+	type="String"
+	column="fd_load_pwd"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdPassword"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdPassword"
+	type="String"
+	column="fd_password"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdResponseTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdResponseTime"
+	type="String"
+	column="fd_response_time"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdMarks"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdMarks"
+	type="String"
+	column="fd_marks"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdWsdlVersion"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdWsdlVersion"
+	type="String"
+	column="fd_wsdl_version"
+	notNull="false"
+	length="36"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.docCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="doc_creator"
+	notNull="false"
+/>
+<listProperty
+	name="fdServerExt"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.fdServerExt"
+	column="fd_server_setting"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettingExt"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+<modelProperty
+	name="settCategory"
+	messageKey="tib-sys-soap-connector:tibSysSoapSetting.settCategory"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettCategory"
+	column="sett_category_id"
+	notNull="false"
+/>
+</model></models>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean
+		id="componentLockerMainDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.component.locker.dao.hibernate.ComponentLockerMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.component.locker.model.ComponentLockerMain" />
+	</bean>
+	
+	<bean
+		id="componentLockManagerTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.component.locker.service.spring.ComponentLockManagerImp">
+		<property name="baseDao">
+			<ref local="componentLockerMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="componentLockManager"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="componentLockManagerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean
+		id="componentLockService"
+		class="com.landray.kmss.component.locker.service.spring.ComponentLockServiceImp">
+		<property name="componentLockManager">
+			<ref local="componentLockManager" />
+		</property>
+	</bean>
+	
+	<bean
+		id="componentLockerMonitorTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.component.locker.service.spring.ComponentLockerMonitorImp">
+		<property name="baseDao">
+			<ref local="componentLockerMainDao" />
+		</property>
+		<property name="relaseMemoryLockerManager">
+			<ref bean="componentRelaseMemoryLockerManager" />
+		</property>
+	</bean>
+	<bean
+		id="componentLockerMonitor"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="componentLockerMonitorTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="release*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="componentRelaseMemoryLockerManager" 
+		class="com.landray.kmss.component.locker.service.spring.RelaseMemoryLockerManager" >
+	</bean>
+	
+</beans>

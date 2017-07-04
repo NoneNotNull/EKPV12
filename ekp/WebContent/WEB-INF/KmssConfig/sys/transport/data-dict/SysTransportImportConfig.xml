@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.transport.model.SysTransportImportConfig"
+	messageKey="sys-transport:table.sysTransportImportConfig"
+	displayProperty="fdName"
+	serviceBean="sysTransportImportConfigService"
+	table="sys_transport_import_config"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="sys-transport:sysTransportImportConfig.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-transport:sysTransportImportConfig.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="true"
+	length="100"
+/>
+<modelProperty
+	name="creator"
+	messageKey="sys-transport:sysTransportImportConfig.creator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_creator_id"
+	notNull="true"
+/>
+<simpleProperty
+	name="createTime"
+	messageKey="sys-transport:sysTransportImportConfig.createTime"
+	type="DateTime"
+	column="fd_create_time"
+	notNull="true"
+/>
+<listProperty
+	name="propertyList"
+	messageKey="sys-transport:sysTransportImportConfig.propertyList"
+	column="fd_parent_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.sys.transport.model.SysTransportImportProperty"
+	table="sys_transport_import_property"
+	cascade="all"
+/>
+<listProperty
+	name="primaryKeyPropertyList"
+	messageKey="sys-transport:sysTransportImportConfig.primaryKeyPropertyList"
+	column="fd_parent_id"
+	type="com.landray.kmss.sys.transport.model.SysTransportPrimaryKeyProperty"
+	table="sys_transport_primary_key"
+	cascade="all"
+/>
+<simpleProperty
+	name="fdImportType"
+	messageKey="sys-transport:sysTransportImportConfig.fdImportType"
+	type="Integer"
+	column="fd_import_type"
+	notNull="true"
+/>
+</model></models>

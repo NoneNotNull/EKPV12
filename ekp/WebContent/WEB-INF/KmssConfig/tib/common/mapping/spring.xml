@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibCommonMappingMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.mapping.dao.hibernate.TibCommonMappingMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.mapping.model.TibCommonMappingMain" />
+	</bean>
+	<bean
+		id="tibCommonMappingMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.mapping.service.spring.TibCommonMappingMainServiceImp">
+		<property name="baseDao">
+			<ref local="tibCommonMappingMainDao" />
+		</property>
+		<property name="tibCommonMappingModuleService">
+			<ref bean="tibCommonMappingModuleService" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonMappingMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibCommonMappingMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibCommonMappingModuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.mapping.dao.hibernate.TibCommonMappingModuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.mapping.model.TibCommonMappingModule" />
+	</bean>
+	<bean
+		id="tibCommonMappingModuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.mapping.service.spring.TibCommonMappingModuleServiceImp">
+		<property name="baseDao">
+			<ref local="tibCommonMappingModuleDao" />
+		</property>
+		<property name="tibCommonMappingSimpleCategoryTreeBean">
+			<ref local="tibCommonMappingSimpleCategoryTreeBean" />
+		</property>
+		<property name="tibCommonMappingGlobalCategoryTreeBean">
+			<ref local="tibCommonMappingGlobalCategoryTreeBean" />
+		</property>
+	</bean>
+	
+	<!-- 控件缓存 -->
+	<bean
+		id="tibCommonMappControlFieldDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.mapping.plugins.control.dao.hibernate.TibCommonMappControlFieldDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.mapping.plugins.control.model.TibCommonMappControlField" />
+	</bean>
+	<bean
+		id="tibCommonMappControlFieldTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.mapping.plugins.control.service.spring.TibCommonMappControlFieldServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonMappControlFieldDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonMappControlFieldService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibCommonMappControlFieldTarget" />
+		</property>
+	</bean>
+	
+	<!-- TIB自定义简单分类bean -->
+	<bean
+		id="tibCommonMappingSimpleCategoryTreeBean"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingSimpleCategoryTreeBean">
+	</bean>
+	<!-- TIB自定义全局分类bean -->
+	<bean
+		id="tibCommonMappingGlobalCategoryTreeBean"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingGlobalCategoryTreeBean">
+		<property name="sysCategoryMainService">
+			<ref bean="sysCategoryMainService" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonMappingModuleService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibCommonMappingModuleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibCommonMappingFuncDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.mapping.dao.hibernate.TibCommonMappingFuncDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+	</bean>
+	<bean
+		id="tibCommonMappingFuncTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.mapping.service.spring.TibCommonMappingFuncServiceImp">
+		<property name="baseDao">
+			<ref local="tibCommonMappingFuncDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonMappingFuncService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibCommonMappingFuncTarget" />
+		</property>
+	</bean>
+	<!-- 构造服务器或模块树的service-->
+	<bean
+		id="tibCommonMappingModuleTreeService"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingModuleTreeService">
+		<property name="tibCommonMappingModuleService">
+			<ref local="tibCommonMappingModuleService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibCommonMappingFormEventFuncXmlService"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingFormEventFuncXmlService">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibCommonMappingFuncListService"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingFuncListService">
+		<property name="tibCommonMappingFuncService">
+			<ref local="tibCommonMappingFuncService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibCommonMappingExportTreeService"
+		class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingExportTreeService">
+		<property name="loader">
+			<ref bean="sysFormDictLoadService" />
+		</property>
+	</bean>
+
+
+	<!-- 启动生成表单事件jsp片段 且 生成应用模块注册配置文件 -->
+	<!-- 启动生成表单事件jsp片段 -->
+	<bean
+		id="tibCommonMappingCreateJspFile"
+		class="com.landray.kmss.tib.common.mapping.service.spring.TibCommonMappingCreateJspFile">
+		<property
+			name="tibCommonMappingMainService"
+			ref="tibCommonMappingMainService">
+		</property>
+		<property
+			name="tibCommonMappingModuleService"
+			ref="tibCommonMappingModuleService">
+		</property>
+	</bean>
+
+	
+	<bean name="tibCommonMappingSettingService" class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingSettingService" ></bean>
+	
+	<!-- TIB取数据字典，为公式定义器左边目录树使用 -->
+	<bean name="tibCommonMappingDictVarTree" 
+		  class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingDictVarTree" >
+	</bean>
+	<!-- 实现通过数据字典赋值操作 -->
+	<bean name="tibCommonMappingMetaParse" 
+		  class="com.landray.kmss.tib.common.mapping.service.bean.TibCommonMappingMetaParseImpl" >
+		<property name="extendDataDao">
+			<ref bean="KmssExtendDataDao" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+	</bean>
+	
+	<!-- 表单控件函数树 -->
+	<bean name="tibCommonMappingControlTreeBean" 
+		  class="com.landray.kmss.tib.common.mapping.plugins.control.TibCommonMappingControlTreeBean" >
+	</bean>
+	<!-- 表单控件接口实现类 -->
+	<bean name="tibCommonMappingControlRelation" 
+		  class="com.landray.kmss.tib.common.mapping.plugins.control.TibCommonMappingControlRelation" >
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		
+</beans>

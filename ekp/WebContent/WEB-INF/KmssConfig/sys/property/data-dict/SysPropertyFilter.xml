@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.property.model.SysPropertyFilter"
+		messageKey="sys-property:table.sysPropertyFilter"
+		displayProperty="fdName"
+		serviceBean="sysPropertyFilterService"
+		table="sys_property_filter"
+		url="/sys/property/sys_property_filter/sysPropertyFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-property:sysPropertyFilter.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-property:sysPropertyFilter.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="fdTemplate"
+			messageKey="sys-property:sysPropertyFilter.fdTemplate"
+			type="com.landray.kmss.sys.property.model.SysPropertyTemplate"
+			column="fd_template_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="fdFilterSetting"
+			messageKey="sys-property:sysPropertyFilter.fdFilterSetting"
+			type="com.landray.kmss.sys.property.model.SysPropertyFilterSetting"
+			column="fd_filter_setting_id"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsWikiCategoryTree"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryTree">
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+	<!-- 选择分类 -->
+	<bean
+		id="kmsWikiCategoryTreeDialog"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryTreeDialog">
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCatalogTreeForSearch"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCatalogTreeForSearch">
+		<property
+			name="kmsWikiCategoryService">
+			<ref
+				local="kmsWikiCategoryService" />
+		</property>
+	</bean>
+	<!-- 通知 -->
+	<bean
+		id="kmsWikiNotifyService"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiNotifyService">
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCategoryDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiCategory" />
+	</bean>
+	<bean
+		id="kmsWikiCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsWikiMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+	</bean>
+	
+	<bean
+		id="kmsWikiMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiMainDao" />
+		</property>
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+
+		<property
+			name="kmsWikiNotifyService">
+			<ref
+				local="kmsWikiNotifyService" />
+		</property>
+		<property
+			name="kmsWikiLockService">
+			<ref
+				local="kmsWikiLockService" />
+		</property> 
+		<property
+			name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref bean="sysTagMainRelationService" />
+		</property>
+		<property
+			name="sysPropertyTreeService">
+			<ref
+				bean="sysPropertyTreeService" />
+		</property>
+		<property
+			name="sysPropertyReferenceService">
+			<ref
+				bean="sysPropertyReferenceService" />
+		</property>	 
+		<property name="kmsWikiCatelogService">
+			<ref bean="kmsWikiCatelogService" />
+		</property>
+		<property name="kmsWikiEvaluationService">
+			<ref bean="kmsWikiEvaluationService" />
+		</property>
+		<property name="kmsCommonRecycleLogService">
+			<ref bean="kmsCommonRecycleLogService"/>
+		</property>
+		<property name="kmsCommonDocErrorCorrectionService">
+			<ref bean="kmsCommonDocErrorCorrectionService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiMainTarget" />
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"> 
+		<property name="beanNames">
+			<value>kmsWikiMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsWikiCategoryCheckService"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryCheckService">
+		<property
+			name="kmsWikiCategoryService">
+			<ref
+				local="kmsWikiCategoryService" />
+		</property>
+	</bean>
+	
+	<!-- 词条转移分类树 -->
+	<bean
+		id="kmsWikiMainMoveTree"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainMoveTree">
+		<property
+			name="kmsWikiCategoryService">
+			<ref
+				local="kmsWikiCategoryService" />
+		</property>
+	</bean>
+	
+	<!-- 过滤器 -->
+	<bean
+		id="kmsWikiMainEditorValidator"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainEditorValidator">
+		<property
+			name="kmsWikiMainService">
+			<ref
+				local="kmsWikiMainService" />
+		</property>
+		<property
+			name="kmsWikiCatelogService">
+			<ref
+				local="kmsWikiCatelogService" />
+		</property>
+		<property
+			name="kmsWikiCategoryService">
+			<ref
+				local="kmsWikiCategoryService" />
+		</property>
+	</bean>
+	<!-- 词条编辑锁定 -->
+	<bean
+		id="kmsWikiLockDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiLockDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiLock" />
+	</bean>
+	<bean
+		id="kmsWikiLockTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiLockServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiLockDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiLockService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiLockTarget" />
+		</property>
+	</bean>
+	<!-- 分类概览 -->
+	<bean
+		id="kmsWikiPreviewTarget" 
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiPreviewServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiPreviewDao" />
+		</property>
+		<property name="kmsWikiCategoryService">
+			<ref local="kmsWikiCategoryService"/>
+		</property>
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiPreviewService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiPreviewTarget" />
+		</property>
+	</bean>
+	
+	<bean id ="kmsWikiPreviewDao" parent="KmssAuthAreaBaseDao" class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiPreviewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiPreview" />
+	</bean>
+	<!-- 分类概览 //-->
+	 
+	 
+	 
+	 
+	<!-- new -->
+	<bean
+		id="kmsWikiTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiTemplate" />
+	</bean>
+	<bean
+		id="kmsWikiTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiTemplateDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsWikiCatelogTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiCatelogTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiCatelogTemplate" />
+	</bean>
+	<bean
+		id="kmsWikiCatelogTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCatelogTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiCatelogTemplateDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCatelogTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiCatelogTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsWikiCatelogDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiCatelogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiCatelog" />
+	</bean>
+	<bean
+		id="kmsWikiCatelogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCatelogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiCatelogDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCatelogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiCatelogTarget" />
+		</property>
+	</bean>
+
+
+	<!-- ////new by chenyy//// -->
+	<bean
+		id="KmsWikiTemplateTree"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiTemplateTree">
+		<property
+			name="kmsKnowledgeWikiTemplateService">
+			<ref
+				bean="kmsKnowledgeWikiTemplateService" />
+		</property>
+	</bean>
+	
+	<!-- 获取ID -->
+	<bean
+		id="kmsWikiGenerateId"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiGenerateId">
+	</bean>
+	
+	<!-- 数据校验 -->
+	<bean
+		id="kmsWikiMainCheck"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainCheck">
+		<property
+			name="kmsWikiMainService">
+			<ref
+				local="kmsWikiMainService" />
+		</property>
+		<property
+			name="kmsWikiLockService">
+			<ref
+				local="kmsWikiLockService" />
+		</property>
+	</bean>
+	
+	<!-- 查看历史版本 -->
+	<bean id="kmsWikiMainVersion" class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainVersion">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+	</bean>
+	
+	<!-- 分类概览 //-->
+	 
+	<!--百科主页 -->
+	<bean id="kmsHomeWikiService" class="com.landray.kmss.kms.wiki.service.portlet.KmsHomeWikiService">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+		<property name="kmsWikiCategoryService">
+			<ref local="kmsWikiCategoryService"/>
+		</property>
+		<property name="sysPropertyFilterService">
+			<ref bean="sysPropertyFilterService"/>
+		</property>
+		<property name="kmsWikiPreviewService">
+			<ref bean="kmsWikiPreviewService"/>
+		</property>
+	</bean>
+	
+	<!-- 百科个人主页-->
+	<bean id="kmsWikiPersonalPortlet" class="com.landray.kmss.kms.wiki.service.portlet.KmsWikiPersonalPortlet">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+	</bean>
+	
+	<!-- 主页portlet~蓝小清新-->
+	<bean id="kmsWikiLightBluePortlet" class="com.landray.kmss.kms.wiki.service.portlet.KmsWikiLightBluePortlet">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+	</bean>
+	
+	<!--属性展现页面自定义 -->
+	<bean
+		id="kmsWikiMainViewJspBuilder"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainViewJspBuilder">
+		<property
+			name="tagBuilder">
+			<ref
+				bean="sysPropertyTagBuilder" />
+		</property>
+	</bean>
+	
+	<!--维基库分类筛选项 -->
+	<bean id="kmsWikiCategoryFilter" class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryFilter">
+		<property name="kmsWikiCategoryService">
+			<ref local="kmsWikiCategoryService"/>
+		</property>
+	</bean>
+	
+	<!--维基库年度筛选项 -->
+	<bean id="kmsWikiYearFilter" class="com.landray.kmss.kms.wiki.service.spring.KmsWikiYearFilter">
+	</bean>
+	
+	<bean id="kmsWikiProfilePortlet" class="com.landray.kmss.kms.wiki.service.portlet.KmsWikiProfilePortlet">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>		
+	</bean>
+	<!--维基库webservice-->
+	<bean id="kmsWikiWebserviceService" class="com.landray.kmss.kms.wiki.webservice.KmsWikiWebserviceService">
+		<property
+			name="kmsWikiMainService">
+			<ref bean="kmsWikiMainService" />
+		</property>
+		<property
+			name="kmsWikiCatelogTemplateService">
+			<ref bean="kmsWikiCatelogTemplateService" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property
+			name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+	</bean>
+	
+	<!--wiki类别维护Webservice服务 begin-->
+	<bean id="kmsWikiMaintainCategoryWSService"
+		class="com.landray.kmss.kms.wiki.webservice.category.service.KmsWikiMaintainCategoryWSService">
+		<property name="addCategoryProcessor">
+			<ref bean="addCategoryProcessor" />
+		</property>
+		<property name="updateCategoryProcessor">
+			<ref bean="updateCategoryProcessor" />
+		</property>
+		<property name="delCategoryProcessor">
+			<ref bean="delCategoryProcessor" />
+		</property>
+	</bean>
+	
+	<bean id="addCategoryProcessor" class="com.landray.kmss.kms.wiki.webservice.category.processor.KmsWikiAddCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="updateCategoryProcessor" class="com.landray.kmss.kms.wiki.webservice.category.processor.KmsWikiUpdateCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	
+	<bean id="delCategoryProcessor" class="com.landray.kmss.kms.wiki.webservice.category.processor.KmsWikiDelCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="compBklinkService">
+			<ref bean="compBklinkService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	<!--Wiki类别维护Webservice服务定义end -->
+
+	<!--wiki类别查询Webservice服务 begin-->
+	<bean id="kmsWikiSearchCategoryWSService"
+		class="com.landray.kmss.kms.wiki.webservice.category.service.KmsWikiSearchCategoryWSService">
+		<property name="kmsWikiSearchCategoryProcessor">
+			<ref bean="kmsWikiSearchCategoryProcessor" />
+		</property>	
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>	
+	</bean>
+     
+	<bean id="kmsWikiSearchCategoryProcessor" class="com.landray.kmss.kms.common.webservice.processor.category.KmsSearchCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+	<!--wiki类别查询Webservice服务 end -->
+    
+    
+	<!--wiki文档维护Webservice服务 begin-->
+    
+	<bean id="kmsWikiMaintainDocWSService"
+		class="com.landray.kmss.kms.wiki.webservice.doc.service.KmsWikiMaintainDocWSService">
+		<property name="wikiAddDocProcessor">
+			<ref bean="wikiAddDocProcessor" />
+		</property>	
+		<property name="wikiDelDocProcessor">
+			<ref bean="wikiUpdateDocProcessor" />
+		</property>	
+		<property name="wikiUpdateDocProcessor">
+			<ref bean="wikiUpdateDocProcessor" />
+		</property>	
+	</bean>
+     
+	<bean id="wikiAddDocProcessor" class="com.landray.kmss.kms.wiki.webservice.doc.processor.KmsWikiAddDocProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsWikiMainService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="wikiDelDocProcessor" class="com.landray.kmss.kms.wiki.webservice.doc.processor.KmsWikiDelDocProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsWikiMainService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="wikiUpdateDocProcessor" class="com.landray.kmss.kms.wiki.webservice.doc.processor.KmsWikiUpdateDocProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsWikiMainService" />
+		</property>
+	</bean>
+	<!--wiki文档维护Webservice服务 end-->
+     
+	<!--段落点评-->
+	<bean
+		id="kmsWikiEvaluationDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiEvaluationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiEvaluation" />
+	</bean>
+	<bean
+		id="kmsWikiEvaluationTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiEvaluationServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWikiEvaluationDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiEvaluationService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWikiEvaluationTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsWikiFirstCategoryPortlet" class="com.landray.kmss.kms.wiki.service.portlet.KmsWikiFirstCategoryPortlet">
+		<property name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsWikiMainXMLService"
+		class="com.landray.kmss.kms.wiki.service.KmsWikiMainXMLService">
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref
+				bean="sysTagMainRelationService" />
+		</property>
+		<property name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+		 
+	</bean>
+	
+	<!-- 点评和推荐时添加积分 -->
+	<bean
+		id="kmsWikiEvaAndIntroService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.kms.wiki.service.spring.KmsWikiEvaAndIntroServiceImp">
+				<property name="kmsWikiMainService">
+					<ref local="kmsWikiMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsWikiPortletService"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiPortletService">
+		<property name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService"/>
+		</property>
+		<property name="kmsWikiMainService">
+			<ref local="kmsWikiMainService"/>
+		</property>
+	</bean>
+	
+	<!--维基分类概览-->
+	<bean id="kmsWikiCategoryPreManagerService" class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsWikiMainService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsWikiTemplateService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsWikiCategoryPreService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsWikiCategoryPreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.wiki.dao.hibernate.KmsWikiCategoryPreviewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.wiki.model.KmsWikiCategoryPreview" />
+	</bean>
+	
+	<bean id="kmsWikiCategoryPreTarget"
+		class="com.landray.kmss.kms.wiki.service.spring.KmsWikiCategoryPreviewService"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsWikiCategoryPreDao" />
+		</property>
+		<property
+			name="kmsWikiMainService">
+			<ref
+				local="kmsWikiMainService" />
+		</property>
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>  
+	<bean
+		id="kmsWikiCategoryPreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsWikiCategoryPreTarget" />
+		</property>
+	</bean>
+		<bean
+		id="kmsWikiLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsWikiMainService</value>
+				<value>kmsWikiMainXMLService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>	
+</beans>

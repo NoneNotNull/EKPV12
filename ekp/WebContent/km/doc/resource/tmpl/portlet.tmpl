@@ -1,0 +1,38 @@
+//绘制HREF
+	var drawHref = function(oneData){
+	 var text = env.fn.formatText(oneData.text);
+		{$		<a title="{% text %}" target="_self" href="javascript:void(0)" onClick="openUrl('{%oneData.href%}')">
+					{% text %} <span>{% oneData.count %}</span>
+				</a>
+		$}
+}
+
+	for(var m=0;m<data.length;m++){
+	{$
+	   <dl class="lui_doc_portlet_dl_a">
+	   <dt>
+			<a title="{% data[m].text %}" target="_self" href="javascript:void(0)"  onClick="openUrl('{%data[m].href%}')">
+			  {%data[m].text%} <span>{% data[m].count %}</span>
+			</a>
+	   </dt>
+	$}
+		
+		//绘制内容
+		
+		var __data = data[m].children;
+			for(var i=0; i<__data.length; i++){
+				var lv1 = __data[i];
+				if(i < 1){
+					{$<dd>$}
+					drawHref(lv1);
+				}
+				if(i >= 1 && i <= __data.length-2){
+					drawHref(lv1);
+				}
+				if(i == __data.length-1){
+				   drawHref(lv1);
+				   {$</dd></dl>$}
+				}
+		}	
+}
+

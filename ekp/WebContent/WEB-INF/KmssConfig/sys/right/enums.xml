@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="sys_right_add_or_delete"
+		default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>right.enums.add</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>right.enums.delete</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+	</type>
+	
+	<type
+		name="cchange_right_opr"
+		default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>right.enums.add</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>right.enums.delete</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>right.enums.reset</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+	</type>
+	
+	<type
+		name="sys_right_add_or_reset"
+		default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>right.change.opr.add</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>right.change.opr.reset</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>right.change.opr.remove</label-key>
+			<bundle>sys-right</bundle>
+			<label />
+		</value-label>
+	</type>
+	<type
+		name="sys_rbp_flag"
+		default-value="true">
+		<value-label>
+			<value>true</value>
+			<label-key>right.enums.rbpflag1</label-key>
+			<bundle>sys-right</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>right.enums.rbpflag2</label-key>
+			<bundle>sys-right</bundle>
+		</value-label>
+	</type>
+</column-enums>

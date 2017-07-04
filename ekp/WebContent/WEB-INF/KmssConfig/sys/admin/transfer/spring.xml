@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysAdminTransferTaskDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.admin.transfer.dao.hibernate.SysAdminTransferTaskDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.admin.transfer.model.SysAdminTransferTask" />
+	</bean>
+	<bean
+		id="sysAdminTransferTaskTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.admin.transfer.service.spring.SysAdminTransferTaskServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAdminTransferTaskDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysAdminTransferTaskService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAdminTransferTaskTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="transfer*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="getDataJSON*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="add*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="copy*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="update*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="save*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="init*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="sysAdminTransferModuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.admin.transfer.dao.hibernate.SysAdminTransferModuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.admin.transfer.model.SysAdminTransferModule" />
+	</bean>
+	<bean
+		id="sysAdminTransferModuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.admin.transfer.service.spring.SysAdminTransferModuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAdminTransferModuleDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysAdminTransferModuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAdminTransferModuleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysAdminTransferScheduleTaskTarget"
+		class="com.landray.kmss.sys.admin.transfer.service.spring.SysAdminTransferScheduleTask">
+		<property
+			name="sysAdminTransferModuleService">
+			<ref
+				local="sysAdminTransferModuleService" />
+		</property>
+		<property
+			name="sysAdminTransferTaskService">
+			<ref
+				local="sysAdminTransferTaskService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysAdminTransferScheduleTask"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property
+			name="transactionManager">
+			<ref
+				bean="transactionManager" />
+		</property>
+		<property
+			name="target">
+			<ref
+				local="sysAdminTransferScheduleTaskTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="scheduleTask">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

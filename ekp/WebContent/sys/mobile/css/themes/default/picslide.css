@@ -1,0 +1,68 @@
+﻿
+.muiListPicslideContainer{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.muiListPicslidePaging{
+	position:absolute;
+	padding:0 0.8rem;
+    height:2.5rem;
+    line-height:2.5rem;
+    text-align:center;
+    color:#fff;
+    font-size:1.6rem;
+    background-color:rgba(208,122,38,0.65);
+    left:0;
+    bottom:4.5rem;
+    z-index: 1;
+}
+.muiListPicslideCur{
+	 font-size:2rem;
+}
+.muiListPicslideTitle{
+	padding:0rem 0.8rem;
+    width:60%;
+    height:3rem;
+    line-height:3rem;
+    text-align:left;
+    color:#fff;
+    font-size:1.8rem;
+    background-color:rgba(119,143,155,0.55);
+    position:absolute;
+    left:0;
+    bottom:0.8rem;
+    z-index: 1;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.muiListPicslideItem{
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+}
+.muiListPicItemImg{
+	margin:auto;
+	vertical-align: middle;
+}
+
+.muiRtfPicSlider{
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	background-color:rgba(0, 0, 0 , 0.92);
+	-webkit-transition:-webkit-transform 0.5s ease-out;
+	transition:transform 0.5s ease-out;
+	-webkit-transition:transform 0.5s ease-out;
+	transition:-webkit-transform 0.5s ease-out;
+	-webkit-transform: scale(0,0) ;
+	transform: scale(0,0) ;
+	z-index: 20;
+}
+.muiRtfPicShow{
+	-webkit-transform: scale(1,1) !important;
+	transform: scale(1,1) !important;
+}

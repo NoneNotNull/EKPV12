@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralPersonTotal"
+		messageKey="kms-integral:table.kmsIntegralPersonTotal"
+		displayProperty="fdPerson"
+		serviceBean="kmsIntegralPersonTotalService"
+		table="kms_integral_person_total"
+		url="/kms/integral/kms_integral_person_total/kmsIntegralPersonTotal.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUpdateTime"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdUpdateTime"
+			type="DateTime"
+			column="fd_update_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTotalScore"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdTotalScore"
+			type="Long"
+			column="fd_total_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTotalRiches"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdTotalRiches"
+			type="Long"
+			column="fd_total_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpScore"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdExpScore"
+			type="Long"
+			column="fd_exp_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocScore"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdDocScore"
+			type="Long"
+			column="fd_doc_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocRiches"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdDocRiches"
+			type="Long"
+			column="fd_doc_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpRiches"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdExpRiches"
+			type="Long"
+			column="fd_exp_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUsedRiches"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdUsedRiches"
+			type="Long"
+			column="fd_used_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUsedScore"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdUsedScore"
+			type="Long"
+			column="fd_used_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherScore"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdOtherScore"
+			type="Long"
+			column="fd_other_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherRiches"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdOtherRiches"
+			type="Long"
+			column="fd_other_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-integral:kmsIntegralPersonTotal.fdPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_person"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

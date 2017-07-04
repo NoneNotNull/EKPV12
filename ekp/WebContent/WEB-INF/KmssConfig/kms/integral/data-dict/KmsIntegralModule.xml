@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralModule"
+		messageKey="kms-integral:table.kmsIntegralModule"
+		displayProperty="fdName"
+		serviceBean="kmsIntegralModuleService"
+		table="kms_integral_module"
+		url="/kms/integral/kms_integral_module/kmsIntegralModule.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-integral:kmsIntegralModule.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-integral:kmsIntegralModule.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="modelName"
+			messageKey="kms-integral:kmsIntegralModule.modelName"
+			type="String"
+			column="model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrl"
+			messageKey="kms-integral:kmsIntegralModule.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="2500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModuleModulus"
+			messageKey="kms-integral:kmsIntegralModule.fdModuleModulus"
+			type="String"
+			column="fd_module_modulus"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStartOrStop"
+			messageKey="kms-integral:kmsIntegralModule.fdStartOrStop"
+			type="Boolean"
+			column="fd_start_or_stop"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<modelProperty
+			name="kmsIntegralServer"
+			messageKey="kms-integral:kmsIntegralModule.kmsIntegralServer"
+			type="com.landray.kmss.common.model.KmsIntegralServer"
+			column="kms_integral_server"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

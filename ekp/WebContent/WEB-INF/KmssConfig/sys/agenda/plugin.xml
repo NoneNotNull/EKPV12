@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!-- 日程机制扩展点定义开始 -->
+	<extension-point id="com.landray.kmss.sys.agenda">
+		<item name="publish">
+			<param name="name" required="true" kind="unid">
+				<description>扩展业务模块的名称,如：kmCalendar</description>
+			</param>
+			<param name="service" required="true" kind="spring" basedOn="com.landray.kmss.sys.agenda.interfaces.IAgendaSyncroService">
+				<description>
+					日程机制功能实现bean。一般实现接口类com.landray.kmss.sys.agenda.interfaces.IAgendaSyncroService。
+				</description>
+			</param>
+			<description>日程机制扩展点定义。</description>
+		</item>
+		<description>
+			日程机制扩展点，主要功能是从业务模块同步数据到时间管理模块中。
+		</description>
+	</extension-point>
+	<!-- 日程机制扩展点定义结束 -->
+	
+	
+	<extension-point id="com.landray.kmss.sys.agenda.label">
+		<item name="label">
+			<param name="labelName" required="true" kind="string">
+				<description>标签名称</description>
+			</param>
+			<param name="labelColor" required="true" kind="string">
+				<description>标签颜色，格式为“rgb(219, 173, 255)”</description>
+			</param>
+			<param name="modelName" required="true" kind="string">
+				<description>主文档类名</description>
+			</param>
+			
+			<description>日程机制同步标签</description>
+		</item>
+		<description>
+			日程机制同步标签
+		</description>
+	</extension-point>
+	
+</plugin>

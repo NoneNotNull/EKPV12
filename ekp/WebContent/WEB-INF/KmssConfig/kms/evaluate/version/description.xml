@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>知识评测</module-name>
+		<module-path>kms/evaluate</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>cb7660971978e5e5a9b112f4675f0e08</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>1</serial-num>
+	</module>
+</description>

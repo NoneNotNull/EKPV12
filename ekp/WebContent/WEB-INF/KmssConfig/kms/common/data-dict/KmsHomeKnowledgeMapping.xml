@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.common.model.KmsHomeKnowledgeMapping"
+		messageKey="kms-common:table.kmsHomeKnowledgeMapping"
+		displayProperty="docSubject"
+		serviceBean="kmsHomeKnowledgeMappingService"
+		table="kms_home_knowledge_mapping"
+		url="/kms/common/kms_home_knowledge_mapping/kmsHomeKnowledgeMapping.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-common:kmsHomeKnowledgeMapping.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrl"
+			messageKey="kms-common:kmsHomeKnowledgeMapping.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="300"
+			validate="false" />
+
+		<modelProperty
+			name="fdMapping"
+			messageKey="kms-common:kmsHomeKnowledgeMapping.fdMapping"
+			type="com.landray.kmss.kms.common.model.KmsHomeKnowledgeIntro"
+			column="fd_mapping_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

@@ -1,0 +1,125 @@
+body {
+  background: #fff;
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .8em;
+  line-height: 1.5;
+}
+
+pre.listing {
+  background: #eee;
+  border: 1px solid #ccc;
+  margin: .3em auto;
+  padding: .1em .3em;
+  width: 90%;
+}
+
+pre.listing b {
+  color: #f00;
+}
+
+/* TABLE
+ * ========================================================================= */
+table {
+  border: 0px solid #888;
+  border-collapse: collapse;
+  line-height: 1;
+}
+
+#wsMapperTemplateTdId {
+	width:90%;
+}
+#wsMapperTemplateTdIdOut {
+	width:90%;
+}
+
+/* Caption
+ * ------------------------------------------------------------------------- */
+table caption {
+  font-size: .9em;
+  font-weight: bold;
+}
+
+/* Header
+ * ------------------------------------------------------------------------- */
+table thead {
+  background: #dddddd url(../images/bg-table-thead.png) repeat-x top left;
+  font-size: .9em;
+}
+
+table thead tr th {
+  border: 1px solid #888;
+  font-weight: normal;
+  text-align: left;
+}
+
+#docInfo {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 160px;
+	border-width: 0px 0px 1px 0px;
+}
+
+#docOut {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 160px;
+	border-width: 0px 0px 1px 0px;
+}
+
+#isBackSuccess {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 130px;
+	border-width: 0px 0px 1px 0px;
+}
+
+#isBackFail {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 130px;
+	border-width: 0px 0px 1px 0px;
+}
+
+#viewDocInfo {
+	border-width: 0px 0px 0px 0px;
+	width: 160px;
+	oreadonly:expression(this.readOnly=true);
+}
+
+#viewIsBack {
+	border-width: 0px 0px 0px 0px;
+	oreadonly:expression(this.readOnly=true);
+}
+
+#viewQuery {
+	border-width: 0px 0px 0px 0px;
+	width: 160px;
+	oreadonly:expression(this.readOnly=true);
+}
+
+#queryValueView {
+	border-width: 0px 0px 0px 0px;
+	width: 160px;
+	oreadonly:expression(this.readOnly=true);
+}
+
+#queryValue {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 160px;
+	border-width: 0px 0px 1px 0px;
+}
+
+.textStyle {
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	width: 160px;
+	border-width: 0px 0px 1px 0px;
+}

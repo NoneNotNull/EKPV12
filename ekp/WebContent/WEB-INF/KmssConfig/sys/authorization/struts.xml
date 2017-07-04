@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAuthDefaultAreaForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthDefaultAreaForm" />	
+		<form-bean
+			name="sysAuthRoleForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthRoleForm" />
+		<form-bean
+			name="sysAuthResearchForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthResearchForm" />
+		<form-bean
+			name="sysAuthCategoryForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthCategoryForm" />
+		<form-bean
+			name="sysAuthAreaForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthAreaForm" />		
+		<form-bean
+			name="sysAuthAreaTransferForm"
+			type="com.landray.kmss.sys.authorization.forms.SysAuthAreaTransferForm" />		
+		<form-bean
+			name="areaChgForm"
+			type="com.landray.kmss.sys.authorization.forms.AreaChgForm" />									
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/authorization/sys_auth_default_area/sysAuthDefaultArea"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthDefaultAreaAction"
+			name="sysAuthDefaultAreaForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/authorization/sys_auth_default_area/sysAuthDefaultArea_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/authorization/sys_auth_default_area/sysAuthDefaultArea_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/authorization/sys_auth_default_area/sysAuthDefaultArea_list.jsp" />
+		</action>	
+	
+		<action
+			path="/sys/authorization/sys_auth_role/sysAuthRole"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthRoleAction"
+			name="sysAuthRoleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/authorization/sys_auth_role/sysAuthRole_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/authorization/sys_auth_role/sysAuthRole_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/authorization/sys_auth_role/sysAuthRole_list.jsp" />
+		</action>
+		<action
+			path="/sys/authorization/sys_auth_sys_role/sysAuthSysRole"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthSysRoleAction"
+			name="sysAuthRoleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/authorization/sys_auth_sys_role/sysAuthSysRole_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/authorization/sys_auth_sys_role/sysAuthSysRole_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/authorization/sys_auth_sys_role/sysAuthSysRole_list.jsp" />
+		</action>
+		<action
+			path="/sys/authorization/sys_auth_research/sysAuthResearch"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthResearchAction"
+			name="sysAuthResearchForm"
+			parameter="method"
+			scope="request">
+			<forward
+				name="role"
+				path="/sys/authorization/sys_auth_research/sysAuthResearch_role.jsp" />
+			<forward
+				name="person"
+				path="/sys/authorization/sys_auth_research/sysAuthResearch_person.jsp" />
+		</action>
+		<action
+			path="/sys/authorization/sys_auth_category/sysAuthCategory"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthCategoryAction"
+			name="sysAuthCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/authorization/sys_auth_category/sysAuthCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/authorization/sys_auth_category/sysAuthCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/authorization/sys_auth_category/sysAuthCategory_list.jsp" />
+		</action>
+		<action
+			path="/sys/authorization/sys_auth_area/sysAuthArea"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthAreaAction"
+			name="sysAuthAreaForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/authorization/sys_auth_area/sysAuthArea_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/authorization/sys_auth_area/sysAuthArea_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/authorization/sys_auth_area/sysAuthArea_list.jsp" />
+		</action>	
+		
+		<action
+			path="/sys/authorization/sysAuthAreaTransfer"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthAreaTransferAction"
+			name="sysAuthAreaTransferForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="guide"
+				path="/sys/authorization/sys_auth_areatransfer/sysAuthAreaTransferGuide.jsp">
+			</forward>
+			<forward
+				name="select"
+				path="/sys/authorization/sys_auth_areatransfer/sysAuthAreaTransferMain.jsp">
+			</forward>
+			<forward
+				name="detect"
+				path="/sys/authorization/sys_auth_areatransfer/sysAuthRoleRepair.jsp">
+			</forward>			
+		</action>
+		
+		<action
+			path="/sys/authorization/sysAuthAreaThirdPartyAction"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthAreaAction"
+			name="sysAuthAreaForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>	
+		
+		<action
+			path="/sys/authorization/areaChgAction"
+			type="com.landray.kmss.sys.authorization.actions.AreaChgAction"
+			name="areaChgForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+			<forward
+				name="areaChgEdit"			
+				path="/sys/authorization/sys_cate_area_change/cate_area_change.jsp">
+			</forward>
+		</action>	
+		<action
+			path="/sys/authorization/SysAuthUrlCheckAction"
+			type="com.landray.kmss.sys.authorization.actions.SysAuthUrlCheckAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+		</action>				
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.authorization.ApplicationResources"
+		key="sys-authorization" />
+</struts-config>

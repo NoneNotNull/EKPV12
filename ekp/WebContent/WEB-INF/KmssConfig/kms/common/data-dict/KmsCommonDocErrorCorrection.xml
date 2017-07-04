@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model modelName="com.landray.kmss.kms.common.model.KmsCommonDocErrorCorrection"
+		messageKey="kms-common:table.kmsCommonDocErrorCorrectionFlow" 
+		serviceBean="kmsCommonDocErrorCorrectionService"
+		displayProperty="docStatus"
+		table="kms_common_error_correction"
+		url="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+	</model>
+</models>

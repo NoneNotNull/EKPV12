@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysEditionMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.edition.service.spring.SysEditionMainServiceImp">
+	</bean>
+	<bean
+		id="sysEditionMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysEditionMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysEditionCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.edition.service.spring.SysEditionCoreServiceImp">
+				<property name="sysEditionMainService">
+					<ref local="sysEditionMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>

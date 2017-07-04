@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmImeetingResCategoryForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingResCategoryForm" />
+		<form-bean
+			name="kmImeetingMainHistoryForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingMainHistoryForm" />
+		<form-bean
+			name="kmImeetingSummaryForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingSummaryForm" />
+		<form-bean
+			name="kmImeetingTemplateForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingTemplateForm" />
+		<form-bean
+			name="kmImeetingStatForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingStatForm" />
+		<form-bean
+			name="kmImeetingBookForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingBookForm" />
+		<form-bean
+			name="kmImeetingDeviceForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingDeviceForm" />
+		<form-bean
+			name="kmImeetingResForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingResForm" />
+		<form-bean
+			name="kmImeetingMainForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingMainForm" />
+		<form-bean
+			name="kmImeetingAgendaForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingAgendaForm" />
+		<form-bean
+			name="kmImeetingMainFeedbackForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingMainFeedbackForm" />
+		<form-bean
+			name="kmImeetingMainHastenForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingMainHastenForm" />
+		<form-bean
+			name="kmImeetingMainCancelForm"
+			type="com.landray.kmss.km.imeeting.forms.KmImeetingMainCancelForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		
+		<!-- 日历Action -->
+		<action
+			path="/km/imeeting/km_imeeting_calendar/kmImeetingCalendar"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingCalendarAction"
+			name="kmImeetingMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+		<!-- 催办会议Action -->
+		<action
+			path="/km/imeeting/km_imeeting_main_hasten/kmImeetingMainHasten"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainHastenAction"
+			name="kmImeetingMainHastenForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="showHastenMeeting"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_hastenDialog.jsp" />
+		</action>
+		
+		<!-- 取消会议Action -->
+		<action
+			path="/km/imeeting/km_imeeting_main_cancel/kmImeetingMainCancel"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainCancelAction"
+			name="kmImeetingMainCancelForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="showCancelMeeting"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_cancelDialog.jsp" />
+		</action>
+		
+		<action
+			path="/km/imeeting/km_imeeting_res_category/kmImeetingResCategory"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingResCategoryAction"
+			name="kmImeetingResCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_res_category/kmImeetingResCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_res_category/kmImeetingResCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_res_category/kmImeetingResCategory_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_main_history/kmImeetingMainHistory"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainHistoryAction"
+			name="kmImeetingMainHistoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_main_history/kmImeetingMainHistory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_main_history/kmImeetingMainHistory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_main_history/kmImeetingMainHistory_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_summary/kmImeetingSummary"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingSummaryAction"
+			name="kmImeetingSummaryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_view.jsp" />
+			<forward 
+				name="view.4m" 
+				path="/km/imeeting/mobile/summary_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_list.jsp" />
+			<forward
+				name="listChildren"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_list.jsp" />
+			<forward
+				name="listChildren.4m"
+				path="/km/imeeting/mobile/summary_list.jsp" />
+			<forward
+				name="manageList"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_manageList.jsp" />
+			<forward
+				name="optAllList"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummary_manageList.jsp" />
+				
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_template/kmImeetingTemplate"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingTemplateAction"
+			name="kmImeetingTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_template/kmImeetingTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_template/kmImeetingTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_template/kmImeetingTemplate_list.jsp" />
+			<forward
+				name="listChildren"
+				path="/km/imeeting/km_imeeting_template/kmImeetingTemplate_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_stat/kmImeetingStat"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingStatAction"
+			name="kmImeetingStatForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_stat/kmImeetingStat_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_stat/kmImeetingStat_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_stat/kmImeetingStat_list.jsp" />
+			<forward
+				name="barLine"
+				path="/km/imeeting/km_imeeting_stat/common/kmImeetingStat_barLine.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_book/kmImeetingBook"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingBookAction"
+			name="kmImeetingBookForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_book/kmImeetingBook_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_book/kmImeetingBook_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_book/kmImeetingBook_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_device/kmImeetingDevice"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingDeviceAction"
+			name="kmImeetingDeviceForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_device/kmImeetingDevice_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_device/kmImeetingDevice_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_device/kmImeetingDevice_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_res/kmImeetingRes"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingResAction"
+			name="kmImeetingResForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_res/kmImeetingRes_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_res/kmImeetingRes_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_res/kmImeetingRes_list.jsp" />
+			<forward
+				name="listResources"
+				path="/km/imeeting/km_imeeting_res/kmImeetingRes_listResources.jsp" />
+			<forward
+				name="listUse"
+				path="/km/imeeting/km_imeeting_res/kmImeetingRes_listUse.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_main/kmImeetingMain"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainAction"
+			name="kmImeetingMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_view.jsp" />
+			<forward
+				name="view.4m"
+				path="/km/imeeting/mobile/view.jsp" />
+			<forward
+				name="add"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_add.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_list.jsp" />
+			<forward
+				name="listChildren"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_list.jsp" />
+			<forward
+				name="listChildren.4m"
+				path="/km/imeeting/mobile/meeting_list.jsp" />
+			<forward
+				name="manageList"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_manageList.jsp" />
+			<forward
+				name="optAllList"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMain_manageList.jsp" />
+			<forward
+				name="viewUpdateAtt"
+				path="/km/imeeting/km_imeeting_uploadAtt/kmImeetingUploadAtt_view.jsp" />
+			<forward
+				name="editUpdateAtt"
+				path="/km/imeeting/km_imeeting_uploadAtt/kmImeetingUploadAtt_edit.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_agenda/kmImeetingAgenda"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingAgendaAction"
+			name="kmImeetingAgendaForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_agenda/kmImeetingAgenda_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_agenda/kmImeetingAgenda_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_agenda/kmImeetingAgenda_list.jsp" />
+		</action>
+
+		<action
+			path="/km/imeeting/km_imeeting_main_feedback/kmImeetingMainFeedback"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainFeedbackAction"
+			name="kmImeetingMainFeedbackForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/imeeting/km_imeeting_main_feedback/kmImeetingMainFeedback_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/imeeting/km_imeeting_main_feedback/kmImeetingMainFeedback_edit.jsp" />
+			<forward
+				name="edit.4m"
+				path="/km/imeeting/mobile/feedback_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/imeeting/km_imeeting_main_feedback/kmImeetingMainFeedback_list.jsp" />
+			<forward
+				name="list.4m"
+				path="/km/imeeting/mobile/feedback_list.jsp" />
+		</action>
+		
+		<action
+			path="/km/imeeting/km_imeeting_summary/kmImeetingSummaryPortlet"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingSummaryPortletAction"
+			parameter="method"
+			input="edit"
+			scope="request">
+			<forward
+				name="listPortlet"
+				path="/km/imeeting/km_imeeting_summary/kmImeetingSummaryPortlet_list.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/km/imeeting/km_imeeting_main/kmImeetingMainPortlet"
+			type="com.landray.kmss.km.imeeting.actions.KmImeetingMainPortletAction"
+			parameter="method"
+			input="edit"
+			scope="request">
+			<forward
+				name="listPortlet"
+				path="/km/imeeting/km_imeeting_main/kmImeetingMainPortlet_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 目录模板删除时无法检测关联</description>
+			<author>龚一涛</author>
+			<revision-time>2014-07-15</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性为列表类型的无法正确转移并删除的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-11-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容：返回按钮不可用</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-07</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 删除公文时，显示的迁移文档数量不正确的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-10-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修改类别迁移成功后返回页面为简单类别树页面，但实际应是全局类别树页面的缺陷</description>
+			<author>赵义洪</author>
+			<revision-time>2011-05-18</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" kind="string" required="true">
+				<description>中文显示资源名</description>
+			</param>
+			<param name="serviceBean" kind="string" required="false">
+				<description>评测处理bean,自定义写日志</description>
+			</param>
+			<param name="type" kind="string" required="false">
+				<description>类型：过程(process)/统计(count)/报表(reporting)</description>
+			</param>
+			<param name="order" kind="int" required="false">
+				<description>排序号</description>
+			</param>
+			<description>知识评测任务</description>
+		</item>
+		<description>配置KMS知识评测</description>
+	</extension-point>
+	
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="新增知识统计"/>
+			<param name="serviceBean" value="kmsEvaluateKnowledgeCount"/>
+			<param name="type" value="count"/>
+			<param name="order" value="1"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="新增个人统计"/>
+			<param name="serviceBean" value="kmsEvaluatePersonalCount"/>
+			<param name="type" value="count"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="个人月份情况统计"/>
+			<param name="serviceBean" value="kmsEvaluatePersonalMonthCount"/>
+			<param name="type" value="reporting"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="文档月份情况统计"/>
+			<param name="serviceBean" value="kmsEvaluateDocMonthCount"/>
+			<param name="type" value="reporting"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="搜索月份情况统计"/>
+			<param name="serviceBean" value="kmsEvaluateSearchMonthCountService"/>
+			<param name="type" value="reporting"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="爱问分类月份情况统计"/>
+			<param name="serviceBean" value="kmsEvaluateAskCateMonthCountService"/>
+			<param name="type" value="reporting"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.evaluate">
+		<item name="task">
+			<param name="messageText" value="爱问个人月份情况统计"/>
+			<param name="serviceBean" value="kmsEvaluateAskPersonMonthCountService"/>
+			<param name="type" value="reporting"/>
+			<param name="order" value="2"/>
+		</item>
+	</extension>
+</plugin>

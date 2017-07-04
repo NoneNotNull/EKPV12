@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 菜单 -->
+	<layout id="sys.ui.menu.default" name="导航菜单" css="theme!menu"
+		kind="menu" type="Javascript" thumb="/sys/ui/extend/menu/help/menu.jpg">
+		<code src="/sys/ui/extend/menu/menu.js">
+		</code>
+	</layout>
+
+	<layout id="sys.ui.menu.ver.default" name="菜单竖向展示" css="theme!menu"
+		kind="menu" type="Javascript" thumb="/sys/ui/extend/menu/help/menu_ver.jpg">
+		<code src="/sys/ui/extend/menu/menu_vertical.js">
+		</code>
+	</layout>
+
+	<layout id="sys.ui.menu.nav" name="路径导航菜单(触发点为整个item)" css="theme!menu"
+		kind="menu" type="Javascript" thumb="/sys/ui/extend/menu/help/menu_nav.jpg">
+		<code src="/sys/ui/extend/menu/menu_nav.js">
+		</code>
+	</layout>
+
+	<layout id="sys.ui.menu.nav1" name="路径导航菜单(触发点为更多图标)" css="theme!menu"
+		kind="menu" type="Javascript" thumb="/sys/ui/extend/menu/help/menu_nav.jpg">
+		<code src="/sys/ui/extend/menu/menu_nav.js" triggerObject="sign">
+		</code>
+	</layout>
+
+	<layout id="sys.ui.menu.ver.cate.slide" name="分类下拉展示" css="theme!menu"
+		kind="menu" type="Javascript" thumb="/sys/ui/extend/menu/help/menu_cate.jpg">
+		<code src="/sys/ui/extend/menu/menu_slide.js">
+		</code>
+	</layout>
+	
+</root>

@@ -1,0 +1,40 @@
+{$
+	<h3 class="h3_2 m_t40">
+		<span>知识问答财富币明细</span>
+	</h3>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="t_h m_t10">
+		<tr>
+			<th>总币值</th>
+			<th>已支付币值</th>
+			<th>获得币值</th>
+			<th>被修改币值</th>
+		</tr>
+		<tr id="myIntegralPortlet">
+			<td>{%data.fdTotalMoney%}</td>
+			<td>{%data.fdMoneySpend%}</td>
+			<td>{%data.fdMoneyWin%}</td>
+			<td>{%data.fdMoneyFree%}</td>
+		</tr>
+	</table>
+	<br />
+	<p>
+		<span class="help_cko money">帮助提示</span>
+	</p>
+	<div class="help_cko_info money">
+		<p>
+			<span>总货币值=“当前财富币总值”</span>
+		</p>
+		<p>
+			<span>已支付币值=“已支付给他人的财富币值”</span>
+		</p>
+		<p>
+			<span>获得币值=“回答问题被置为最佳得到的财富币值”</span>
+		</p>
+		<p>
+			<span>被修改币值=“被修改的财富币值”</span>
+		</p>
+		<p>
+			<span>总币值 = 已支付币值 + 获得币值 + 被修改币值</span>
+		</p>
+	</div>
+$}

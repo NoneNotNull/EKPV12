@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 系统配置 -->
+	<bean
+		id="propertyConfigurer"
+		class="com.landray.kmss.sys.config.loader.KmssPropertyPlaceholderConfigurer">
+	</bean>
+	<!-- 如果使用db2数据库，不能使用 Proxool 数据源-->
+	<!-- 
+		<bean
+		id="proxoolDataSource"
+		class="org.logicalcobwebs.proxool.ProxoolDataSource"
+		lazy-init="true">
+		<property name="driver">
+		<value>${hibernate.connection.driverClass}</value>
+		</property>
+		<property name="driverUrl">
+		<value>${hibernate.connection.url}</value>
+		</property>
+		<property name="user">
+		<value>${hibernate.connection.userName}</value>
+		</property>
+		<property name="password">
+		<value>${hibernate.connection.password}</value>
+		</property>
+		<property name="houseKeepingSleepTime">
+		<value>900000000</value>
+		</property>
+		<property name="prototypeCount">
+		<value>5</value>
+		</property>
+		<property name="simultaneousBuildThrottle">
+		<value>1000</value>
+		</property>
+		<property name="maximumConnectionCount">
+		<value>1000000000</value>
+		</property>
+		<property name="minimumConnectionCount">
+		<value>10</value>
+		</property>
+		<property name="trace">
+		<value>true</value>
+		</property>
+		<property name="houseKeepingTestSql">
+		<value>select count(*) from dual</value>
+		</property>
+		</bean>
+	-->
+	<!-- Commons DBCP BasicDataSource that works in Tomcat -->
+	<!-- org.apache.commons.dbcp.BasicDataSource in 5.028 -->
+	<!-- org.apache.tomcat.dbcp.dbcp.BasicDataSource in 5.5 -->
+	<bean
+		id="dbcpDataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		lazy-init="true"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${hibernate.connection.driverClass}</value>
+		</property>
+		<property name="url">
+			<value>${hibernate.connection.url}</value>
+		</property>
+		<property name="username">
+			<value>${hibernate.connection.userName}</value>
+		</property>
+		<property name="password">
+			<value>${hibernate.connection.password}</value>
+		</property>
+
+		<property name="maxActive">
+			<value>1000</value>
+		</property>
+		<property name="maxIdle">
+			<value>20</value>
+		</property>
+	</bean>
+	
+	<bean
+		id="jndiDataSource"
+		class="com.landray.kmss.sys.config.loader.datasource.KmssJndiObjectFactoryBean"
+		lazy-init="true">
+		<property name="jndiName">
+			<value>${hibernate.connection.datasource}</value>
+		</property>
+		<property name="resourceRef">
+			<value>true</value>
+		</property>
+		<property name="expectedType">
+			<value>javax.sql.DataSource</value>
+		</property>
+		<property name="lookupOnStartup">
+			<value>true</value>
+		</property>
+		<property name="cache">
+			<value>true</value>
+		</property>
+	</bean>
+	
+	<bean
+		id="dataSource"
+		class="com.landray.kmss.sys.config.loader.datasource.KmssDataSourceBean">
+		<property name="dataSourceOptions">
+			<map>
+				<entry key="jdbc">
+					<value>dbcpDataSource</value>
+				</entry>
+				<entry key="jndi">
+					<value>jndiDataSource</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean
+		id="nativeJdbcExtractor"
+		class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor" />
+	<bean
+		id="oracleLobHandler"
+		class="com.landray.kmss.common.dao.OracleLobHandler"
+		lazy-init="true">
+		<property name="nativeJdbcExtractor">
+			<ref bean="nativeJdbcExtractor" />
+		</property>
+		<property name="hibernateDialect">
+			<value>${hibernate.dialect}</value>
+		</property>
+	</bean>
+	<bean
+		id="sessionFactory"
+		class="com.landray.kmss.sys.config.loader.KmssHibernateLocalSessionFactoryBean">
+		<property name="configurationClass">
+			<value>com.landray.kmss.sys.config.loader.HibernateConfiguration</value>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+			</props>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="lobHandler">
+			<ref bean="oracleLobHandler" />
+		</property>
+		<property name="entityInterceptor" ref="kmssEntityInterceptor"></property>
+	</bean>
+	<bean id="kmssEntityInterceptor" class="com.landray.kmss.framework.hibernate.KmssEntityInterceptor">
+		<property name="enabled" value="false" />
+		<property name="interceptors">
+			<map>
+				<entry key="partition" value-ref="partitionInterceptor"></entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="partitionInterceptor" class="com.landray.kmss.framework.hibernate.extend.PartitionInterceptor">
+		<property name="config" value="/WEB-INF/KmssConfig/partition.xml"></property>
+	</bean>
+	<bean
+		id="transactionManager"
+		class="com.landray.kmss.framework.spring.event.transaction.HibernateTransactionManagerSupport">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+		<property name="transactionIntercept">
+			<ref local="transactionEventListener" />
+		</property>
+		<property name="nestedTransactionAllowed" value="true" />
+	</bean>
+	<bean
+		id="transactionEventListener"
+		class="com.landray.kmss.framework.spring.event.transaction.TransactionEventListener" />
+
+	<!-- 应用基类配置 -->
+	<bean
+		id="KmssBaseTreeVisitDao"
+		class="com.landray.kmss.common.dao.TreeVisitImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+		<property name="hqlBuilder">
+			<ref bean="kmssHQLBuilder" />
+		</property>
+	</bean>
+	<bean
+		id="KmssParentDao"
+		class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+	<bean
+		id="KmssBaseDao"
+		class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+		<property name="hqlBuilder">
+			<ref bean="kmssHQLBuilder" />
+		</property>
+	</bean>
+	<bean
+		id="KmssBaseTarget"
+		class="com.landray.kmss.common.service.BaseServiceImp">
+		<property name="baseDao">
+			<ref local="KmssBaseDao" />
+		</property>
+		<property name="dispatchCoreService">
+			<ref local="dispatchCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="KmssParentService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="KmssBaseTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="KmssBaseService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="KmssBaseTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="copy*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="init*">PROPAGATION_REQUIRED</prop>
+				<prop key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 机制基类配置 -->
+	<bean
+		id="KmssBaseCoreTarget"
+		class="com.landray.kmss.common.service.BaseCoreInnerServiceImp">
+		<property name="baseDao">
+			<ref local="KmssBaseDao" />
+		</property>
+	</bean>
+	<bean
+		id="KmssBaseCoreService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref local="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="KmssBaseCoreTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="dispatchCoreTarget"
+		class="com.landray.kmss.common.service.DispatchCoreServiceImp">
+	</bean>
+	<bean
+		id="dispatchCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="dispatchCoreTarget" />
+		</property>
+	</bean>
+
+	<!-- 通用组件 -->
+	<bean
+		id="kmssHQLBuilder"
+		class="com.landray.kmss.common.dao.HQLBuilderImp" />
+	<bean
+		id="XMLGetTreeService"
+		class="com.landray.kmss.common.service.XMLGetTreeService" />
+	<bean
+		id="XMLGetDataService"
+		class="com.landray.kmss.common.service.XMLGetDataService" />
+	<bean
+		id="XMLGetPageService"
+		class="com.landray.kmss.common.service.XMLGetPageService" />
+	<bean
+		id="XMLGetDataByKeyService"
+		class="com.landray.kmss.common.service.XMLGetDataByKeyService" />
+	<bean
+		id="XMLGetResourceService"
+		class="com.landray.kmss.common.service.XMLGetResourceService" />
+	<bean
+		id="XMLGetRadomIdService"
+		class="com.landray.kmss.common.service.XMLGetRadomIdService" />
+	<bean
+		id="periodService"
+		class="com.landray.kmss.common.service.XMLPeriodService" />
+	<bean
+		id="kmssEventTracer"
+		class="com.landray.kmss.common.event.KmssEventTracer" />
+		
+		
+    <!-- JMX MBEAN -->
+    <bean id="jmxExporter" class="com.landray.kmss.sys.jmx.KMSSMBeanExporter">
+        <property name="assembler" ref="jmxAssembler"/>
+        <property name="namingStrategy" ref="jmxNamingStrategy"/>
+        <property name="autodetect" value="true"/>
+    </bean>
+        
+    <bean id="jmxAttributeSource" class="org.springframework.jmx.export.annotation.AnnotationJmxAttributeSource"/>
+
+    <bean id="jmxAssembler" class="org.springframework.jmx.export.assembler.MetadataMBeanInfoAssembler">
+        <property name="attributeSource" ref="jmxAttributeSource"/>        
+    </bean>
+    
+    <bean id="jmxNamingStrategy" class="org.springframework.jmx.export.naming.MetadataNamingStrategy">
+        <property name="attributeSource" ref="jmxAttributeSource"/>
+    </bean>
+	
+    <bean class="com.landray.kmss.sys.jmx.KMSSRmiRegistryFactoryBean" />          
+    
+    <bean id="jmxServerConnector" class="com.landray.kmss.sys.jmx.JMXServerConnector" />  
+    
+    <!-- DBCP连接池MBEAN -->
+	<bean id="dbcpMBean" class="com.landray.kmss.sys.jmx.DBCPMBean">
+	    <property name="dbcpDataSource">
+			<ref local="dbcpDataSource" />
+		</property>
+	</bean>  		
+</beans>

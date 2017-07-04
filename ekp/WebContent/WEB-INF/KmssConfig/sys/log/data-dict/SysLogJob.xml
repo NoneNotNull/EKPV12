@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogJob"
+		messageKey="sys-log:table.sysLogJob"
+		displayProperty="fdSubject"
+		serviceBean="sysLogJobService"
+		table="sys_log_job">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-log:sysLogJob.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdEndTime"
+			messageKey="sys-log:sysLogJob.fdEndTime"
+			type="DateTime"
+			column="fd_end_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdSubject"
+			messageKey="sys-log:sysLogJob.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdJobClass"
+			messageKey="sys-log:sysLogJob.fdJobClass"
+			type="String"
+			column="fd_job_class"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdSuccess"
+			messageKey="sys-log:sysLogJob.fdSuccess"
+			type="Boolean"
+			column="fd_success"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdMessages"
+			messageKey="sys-log:sysLogJob.fdMessages"
+			type="RTF"
+			column="fd_messages"
+			length="1000000"
+			notNull="false"
+			unique="false" />
+	</model>
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogJobBak"
+		messageKey="sys-log:table.sysLogJobBak"
+		serviceBean="sysLogJobBakService"
+		table="sys_log_job_bak">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-log:sysLogJob.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdEndTime"
+			messageKey="sys-log:sysLogJob.fdEndTime"
+			type="DateTime"
+			column="fd_end_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdSubject"
+			messageKey="sys-log:sysLogJob.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdJobClass"
+			messageKey="sys-log:sysLogJob.fdJobClass"
+			type="String"
+			column="fd_job_class"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdSuccess"
+			messageKey="sys-log:sysLogJob.fdSuccess"
+			type="Boolean"
+			column="fd_success"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdMessages"
+			messageKey="sys-log:sysLogJob.fdMessages"
+			type="RTF"
+			column="fd_messages"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

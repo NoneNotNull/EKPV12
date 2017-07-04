@@ -1,0 +1,89 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+		table="tib_sys_soap_main">
+		<id name="fdId" column="fd_id" length="36">
+			<generator class="assigned" />
+		</id>
+
+		<property name="fdType" column="fd_type" update="true"
+			insert="true" not-null="true" />
+
+		<property name="docSubject" column="doc_subject" update="true"
+			insert="true" length="200" not-null="true" />
+
+		<property name="docStatus" column="doc_status" update="true"
+			insert="true" length="2" not-null="true" />
+
+		<property name="docCreateTime" column="doc_create_time"
+			update="true" insert="true" not-null="false" />
+
+		<property name="docAlterTime" column="doc_alter_time" update="true"
+			insert="true" not-null="false" />
+
+		<property name="wsEnable" column="ws_enable" update="true"
+			insert="true" length="36" not-null="false" />
+
+		<property name="wsMapperTemplate" column="ws_mapper_template"
+			update="true" insert="true" length="1000000" not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType" lazy="true" />
+
+		<property name="wsSoapVersion" column="ws_soap_version"
+			update="true" insert="true" length="36" not-null="false" />
+
+		<property name="wsBindFunc" column="ws_bind_func" update="true"
+			insert="true" length="36" not-null="false" />
+
+		<property name="wsMarks" column="ws_marks" update="true"
+			insert="true" length="200" not-null="false" />
+
+		<property name="wsBindFuncInfo" column="ws_bind_func_info"
+			update="true" insert="true" length="500" not-null="false" />
+
+		<many-to-one name="docCategory" column="doc_category_id"
+			insert="true" update="true" not-null="false" />
+
+		<!--
+		<many-to-one name="wsServerSetting" column="ws_server_setting"
+			insert="true" update="true" not-null="false" />
+		-->
+		<!-- 修正属性名称 -->
+		<many-to-one name="tibSysSoapSetting" column="ws_server_setting"
+			insert="true" update="true" not-null="false" lazy="false"/>
+		
+		<many-to-one name="docCreator" column="doc_creator"
+			insert="true" update="true" not-null="false" />
+
+
+		<!-- 是否是新版本 -->
+		<property name="docIsNewVersion" column="doc_is_new_version"
+			update="true" insert="true" not-null="false" />
+		<!-- 版本锁定 -->
+		<property name="docIsLocked" column="doc_is_locked" update="true"
+			insert="true" not-null="false" />
+		<!-- 主版本号 -->
+		<property name="docMainVersion" column="doc_main_version"
+			update="true" insert="true" not-null="false" length="1" />
+		<!--辅版本号 -->
+		<property name="docAuxiVersion" column="doc_auxi_version"
+			update="true" insert="true" not-null="false" length="1" />
+		<!-- 历史版本 -->
+		<bag name="docHistoryEditions" inverse="true">
+			<key column="doc_origin_docid"></key>
+			<one-to-many
+				class="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain" />
+		</bag>
+		<!--主文档-->
+		<many-to-one name="docOriginDoc" column="doc_origin_docid"
+			insert="true" update="true" not-null="false"
+			class="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain" />
+
+	</class>
+</hibernate-mapping>
+
+
+

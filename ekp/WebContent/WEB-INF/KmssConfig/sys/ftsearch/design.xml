@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-ftsearch:module.sys.ftsearch"
+		urlPrefix="/sys/ftsearch/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYSFTSEARCHEXPAND_MAINTAINER
+		</roles>
+		<request
+			path="searchBuilder*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)" />
+		<request
+			path="sys_ftsearch_config/sysFtsearchConfig*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)" />
+		<request
+			path="*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_synonym/sysFtsearchSynonym*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_participle/sysFtsearchParticiple*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_analysis/sysFtsearchAnalysis*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<!--<request
+			path="expand/sys_ftsearch_read_log/sysFtsearchReadLog*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		  -->
+		<request
+			path="expand/sys_ftsearch_hotword/sysFtsearchHotword*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_word/sysFtsearchWord*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_multisystem/sysFtsearchMultisystem*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/t_att_ekp_sys/tattEkpSys*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_facet/sysFtsearchFacet*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="expand/sys_ftsearch_user_participle/sysFtsearchUserParticiple*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+		<request
+			path="sys_ftsearch_amb_participle/sysFtsearchAmbParticiple*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+	</module>
+	<quartz
+		messageKey="sys-ftsearch-db:search.index.job"
+		jobService="indexTaskRunner"
+		jobMethod="index"
+		cronExpression="0 0 2 * * ?"
+		runType="SINGLENODE" />
+	<quartz
+		messageKey="sys-ftsearch-db:search.category.job"
+		jobService="sysFtsearchCategoryService"
+		jobMethod="excuteLoadCategoryInfo"
+		cronExpression="0 0 2 * * ?"
+		runType="SINGLENODE" />
+</configs>

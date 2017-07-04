@@ -1,0 +1,120 @@
+@CHARSET "UTF-8";
+
+#sidecatalog {
+	height: 130px;
+	z-index: 1;
+	display:none;
+	position: fixed;
+	_display:block;
+	_position: absolute;
+	_left: expression(document.getElementById ( 'main') . offsetLeft +
+		document.getElementById ( 'main' ) . firstChild.offsetWidth );
+	_top: expression(document.body.clientHeight-document.getElementById (
+		'sidecatalog') . offsetHeight );
+	text-align: right;
+}
+
+#sidebar.show {
+	background-position: -42px 0;
+	text-align: right;
+}
+
+#sidecatalog .sidebar {
+	background: url(./img/sidebar2.png) no-repeat
+		1px 0;
+	cursor: pointer;
+	height: 104px;
+	width: 28px;
+}
+
+#sidecatalog .gotop {
+	display: block;
+	background: url(./img/sidebar2.png) no-repeat
+		1px -104px;
+	cursor: pointer;
+	height: 20px;
+	width: 28px;
+}
+
+#sidecatalog .sidebar_hide {
+	background: url(./img/sidebar2.png) no-repeat
+		-42px 0;
+	cursor: pointer;
+	height: 104px;
+	width: 28px;
+}
+
+#side-catalog-content {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 1px solid #A3D0E4;
+	width: 250px;
+	position: fixed;
+	/*兼容ie6以下模式*/
+	_position: absolute;
+	_top: expression(document.getElementById ( "sidecatalog") .
+		offsetTop-140 );
+	_left: expression(document.getElementById ( "sidecatalog") . offsetLeft
+		+30 );
+	overflow: hidden;
+	height: 232px;
+	text-align: left;
+}
+
+#side-catalog-down.disable div,#side-catalog-up.disable div {
+	background: none repeat scroll 0 0 #F4F9FB;
+	cursor: default;
+}
+
+#side-catalog-up div,#side-catalog-down div {
+	background: url(./img/arr.gif) no-repeat scroll center -133px #F4F9FB;
+	cursor: pointer;
+	height: 16px;
+	margin-bottom: 4px;
+	overflow: hidden;
+}
+
+#side-lemma-title {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+}
+
+#side-title-panel {
+	overflow: hidden;
+	padding: 0 10px;
+	position: relative;
+}
+
+#side-title-list {
+	left: 0;
+	position: absolute;
+	width: 250px;
+}
+
+#side-catalog-content h2 {
+	background: url(./img/bk-split-icons.png)
+		no-repeat scroll 10px -205px transparent;
+	font-size: 14px;
+	font-weight: normal;
+	height: 22px;
+	line-height: 22px;
+	margin-left: 20px;
+	overflow: hidden;
+	padding-left: 26px;
+}
+
+#side-catalog-up div,#side-catalog-down div {
+	background: url(./img/arr.gif) no-repeat scroll center -133px #F4F9FB;
+	cursor: pointer;
+	height: 16px;
+	margin-bottom: 4px;
+	overflow: hidden;
+}
+
+#side-catalog-down div {
+	background-position: center -89px;
+	margin: 4px 0 0;
+}

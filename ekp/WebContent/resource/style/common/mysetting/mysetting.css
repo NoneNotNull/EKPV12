@@ -1,0 +1,15 @@
+.div_mailBox {height: 100%;width:100%;background-color: #F4F4F4;border-right: 2px solid #D8D8D8;}
+.div_tit {height: 50px;width: 100%;padding-top: 17px;padding-left: 0px;}
+.div_userDetail {width: 100%;padding-left: 20px;padding-top: 5px;padding-bottom: 5px;background-color: #747474;border-top: 1px solid #D8D8D8;border-bottom: 2px solid #D8D8D8;color: #FFF;}
+.div_userDetail td{color: #FFF;line-height: 2;}
+.div_face {width: 176;height: 157px;padding: 2px;border: 1 solid #DCD6D8;background-color: #fff;}
+.div_nav {width: 100%;padding-left: 25px;padding-top: 25px;padding-bottom: 25px}
+.div_nav ul {margin:0px; padding:0px; list-style:none;}
+.div_nav ul li {position: relative; height: 30px; overflow: hidden;}
+.div_nav ul li a {line-height: 25px; outline-style: none; display: block; font-size: 13px;TEXT-DECORATION: none;}
+.div_nav ul li.current a {font-weight: bold;color: #FC4A04;}
+.div_nav ul li a b {width: 16px; display: inline-block; height: 16px; overflow: hidden;}
+.div_nav ul li a b em {background: url(ms_triangle.png) no-repeat;width: 100%; display: inline-block; height: 100%;}
+.div_nav ul li a b em {BACKGROUND-POSITION: 0px 0px;}
+.div_nav ul li a b em.current {BACKGROUND-POSITION: 0px -17px;}
+.font_tit{color: #1C1C1C;font: bolder 15px;}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.TattEkpSys"
+		messageKey="sys-ftsearch-expand:table.tattEkpSys"
+		displayProperty="fdName"
+		serviceBean="tattEkpSysService"
+		table="T_att_ekp_sys"
+		url="/sys/ftsearch/expand/t_att_ekp_sys/tattEkpSys.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdEkpId"
+			messageKey="sys-ftsearch-expand:tattEkpSys.fdEkpId"
+			type="String"
+			column="fd_ekp_id"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEkpName"
+			messageKey="sys-ftsearch-expand:tattEkpSys.fdEkpName"
+			type="String"
+			column="fd_ekp_name"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSysName"
+			messageKey="sys-ftsearch-expand:tattEkpSys.fdSysName"
+			type="String"
+			column="fd_sys_name"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserId"
+			messageKey="sys-ftsearch-expand:tattEkpSys.fdUserId"
+			type="String"
+			column="fd_user_id"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-ftsearch-expand:tattEkpSys.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType" id="138705351d9b9ee743980d640ddbd5f3">
+			<param
+				name="type"
+				value="autoBranchNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.autoBranchNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.autobranchnode.AutoBranchNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/autobranchnode/node_attribute.jsp" />	
+			<param
+				name="nodeDescType"
+				value="autoBranchNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="autoBranchNodeBehaviourService" />																									
+		</item>
+		
+		<item
+			name="nodeDescType" id="138765595322c47de87ad464b0d9305c">
+			<param
+				name="type"
+				value="autoBranchNodeDesc"/>
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/autobranchnode/node_flowchart.js"/>
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/autobranchnode/node_desc.js"/>
+			<param
+				name="taskDesc"
+				value="autoBranchNodeDesc" />
+		</item>	
+	</extension>
+</plugin>

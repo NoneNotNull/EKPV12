@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension point="com.landray.kmss.sys.number.config" model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.km.imissive.model.KmImissiveSendMain" />
+			<param name="templatePropertyName" value="fdTemplate" />
+			<param name="moduleName" value="{km-imissive:module.km.imissive}" />
+			<param name="isReform" value="false" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.number.config" model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.km.imissive.model.KmImissiveReceiveMain" />
+			<param name="templatePropertyName" value="fdTemplate" />
+			<param name="moduleName" value="{km-imissive:module.km.imissive}" />
+			<param name="isReform" value="false" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+		<extension point="com.landray.kmss.sys.number.config" model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.km.imissive.model.KmImissiveSignMain" />
+			<param name="templatePropertyName" value="fdTemplate" />
+			<param name="moduleName" value="{km-imissive:module.km.imissive}" />
+			<param name="isReform" value="false" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+	<!-- 会签机器人 -->
+	<extension
+	      point="com.landray.kmss.lbpm.engine.robot"
+	      model="*">
+	      <item name="robot">
+	      	<param name="unid" value="kmImissiveSendMain"/>
+	      	<param name="category" value="{km-imissive:module.km.imissive}"/>
+	      	<param name="type" value="{km-imissive:robot.fdCounterSign}"/>
+	      	<param name="bean" value="kmImissiveSendRobotService"/>
+	      </item>
+	</extension>
+	<!-- 会签激活操作 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation"
+			id="145eada836c62a0898787a04487abcdf">
+			<param
+				name="type"
+				value="active_sign" />
+			<param
+				name="messageKey"
+				value="km-imissive:robot.fdCounterSign.active" />
+			<param
+				name="behaviour"
+				value="imissiveActiveSignOperationBehaviour" />
+			<param
+				name="binder"
+				value="imissiveActiveSignOperationBinder" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+	<!-- 系统废弃操作 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<item
+			name="operation"
+			id="14a7158d6c462e324259fd344d8998b7">
+			<param
+				name="type"
+				value="system_abandan" />
+			<param
+				name="messageKey"
+				value="km-imissive:sign.systemAbandan" />
+			<param
+				name="behaviour"
+				value="imissiveSystemAbandanOperationBehaviour" />
+			<param
+				name="binder"
+				value="imissiveSystemAbandanOperationBinder" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+</plugin>

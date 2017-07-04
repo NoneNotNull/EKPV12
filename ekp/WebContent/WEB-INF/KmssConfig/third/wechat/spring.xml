@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="wechatWebserviceService" class="com.landray.kmss.third.wechat.service.spring.WechatWebserviceServiceImp">
+		<property name="sysWsAttService" ref="sysWsAttService" />
+		
+		<property name="sysNotifyTodoDoneInfoService" ref="sysNotifyTodoDoneInfoService"/>
+		<property name="sysNotifyTodoService" ref="sysNotifyTodoService"/>
+		<property name="sysNewsMainService" ref="sysNewsMainService"/>
+		<property name="backgroundAuthService" ref="backgroundAuthService" />
+		<property name="wechatConfigService" ref="wechatConfigService"/>
+	</bean>
+	
+	<!-- 待办集成 -->
+	<bean id="weChatNotifyTodoProvider"
+		class="com.landray.kmss.third.wechat.provider.WeChatNotifyTodoProvider">
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+	</bean>
+	
+	<!-- 微信通知集成 -->
+	<bean id="weChatNotifyProvider"
+		class="com.landray.kmss.third.wechat.provider.WeChatNotifyProvider">
+		<property
+			name="orgService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+ 
+		<property
+				name="sysNotifyShortMessageSendDao">
+				<ref
+					bean="sysNotifyShortMessageSendDao" />
+		</property>
+   
+	</bean>
+	
+	<bean
+		id="wechatConfigDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.third.wechat.dao.hibernate.WechatConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.third.wechat.model.WechatConfig" />
+	</bean>
+	<bean
+		id="wechatConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.third.wechat.service.spring.WechatConfigServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="wechatConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="wechatConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="wechatConfigTarget" />
+		</property>
+	</bean>
+	
+</beans>

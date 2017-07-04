@@ -1,0 +1,62 @@
+{$
+	<h3 class="h3_2 m_t40">
+		<span>知识问答积分明细</span>
+	</h3>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="t_h m_t10">
+		<tr>
+			<th>知识问答积分</th>
+			<th>发表问题</th>
+			<th>回答问题</th>
+			<th>置为最佳答案</th>
+			<th>回复被赞</th>
+			<th>回复被推荐</th>
+			<th>问题被删</th>
+			<th>答案被删</th>
+			<th>被修改积分</th>
+		</tr>
+		<tr id="myIntegralPortlet">
+			<td>{%data.fdAnswerScore%}</td>
+			<td>{%data.fdAnswerCreateScore%}</td>
+			<td>{%data.fdAnswerReplyScore%}</td>
+			<td>{%data.fdAnswerBeBestScore%}</td>
+			<td>{%data.fdAnswerBeVotedScore%}</td>
+			<td>{%data.fdAnswerBeIntroducedScore%}</td>
+			<td>{%data.fdAnswerDeleteScore%}</td>
+			<td>{%data.fdAnswerReplyDeleteScore%}</td>
+			<td>{%data.fdAnswerAlterScore%}</td>
+		</tr>
+	</table>
+	<br />
+	<p>
+		<span class="help_cko score">帮助提示</span>
+	</p>
+	<div class="help_cko_info score">
+		<p>
+			<span>发表问题=“提出问题后,作为提问者获得的积分值”</span>
+		</p>
+		<p>
+			<span>回答问题=“回答问题后,作为回答者获得的积分值”</span>
+		</p>
+		<p>
+			<span>置为最佳答案=“给出的答案被至为最佳时,获得的积分值”</span>
+		</p>
+		<p>
+			<span>回复被赞=“给出的答案被称赞成时,获得的积分值”</span>
+		</p>
+		<p>
+			<span>问题被推荐=“提出的问题被推荐时,作为提问者获得的积分值”</span>
+		</p>
+		<p>
+			<span>问题被删=“提出的问题被删除时,作为提问者被扣除的积分值”</span>
+		</p>
+		<p>
+			<span>答案被删=“给出的答案被删除时,作为回答者者被扣除的积分值”</span>
+		</p>
+		<p>
+			<span>被修改积分=“在知识问答模块内被修改的积分值”</span>
+		</p>
+		<p>
+			<span>知识问答积分 = 发表问题得分 + 回答问题得分 + 置为最佳答案得分 + 回复被赞得分  + 问题被推荐得分 + 问题被删扣分 + 答案被删扣分</span>
+		</p>
+	</div>
+$}

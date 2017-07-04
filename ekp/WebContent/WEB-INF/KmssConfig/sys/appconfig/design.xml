@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		urlPrefix="/sys/appconfig/"
+		messageKey="sys.config.parameters"
+		defaultValidator="roleValidator(role=SYSROLE_USER)">
+		<request
+			path="sys_appconfig/sysAppConfig*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+		</request>
+	</module>
+</configs>

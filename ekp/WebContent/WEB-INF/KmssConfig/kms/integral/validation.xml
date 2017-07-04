@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+	<formset>
+		<form name="kmsIntegralServerForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmsIntegralServer.fdName"
+					bundle="kms-integral"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+			
+			<field
+				property="fdPrefix"
+				depends="required,maxlength">
+				<arg
+					key="kmsIntegralServer.fdPrefix"
+					bundle="kms-integral"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>150</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdDatabaseUrl"
+				depends="required,maxlength">
+				<arg
+					key="kmsIntegralServer.fdDatabaseUrl"
+					bundle="kms-integral"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>256</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdUserName"
+				depends="required,maxlength">
+				<arg
+					key="kmsIntegralServer.fdUserName"
+					bundle="kms-integral"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdUserPw"
+				depends="required,maxlength">
+				<arg
+					key="kmsIntegralServer.fdUserPw"
+					bundle="kms-integral"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>256</var-value>
+				</var>
+			</field>
+		</form>
+		
+	</formset>
+</form-validation>

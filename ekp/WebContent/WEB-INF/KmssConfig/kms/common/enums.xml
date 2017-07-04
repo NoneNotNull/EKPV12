@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="kms_common_recycle_log_fd_operate_name">
+		<value-label>
+			<value>recycle</value>
+			<label-key>kms.common.recycleLog.recycle</label-key>
+			<bundle>kms-common</bundle>
+		</value-label>
+		<value-label>
+			<value>recover</value>
+			<label-key>kms.common.recycleLog.recover</label-key>
+			<bundle>kms-common</bundle>
+		</value-label>
+		<value-label>
+			<value>delete</value>
+			<label-key>kms.common.recycleLog.delete</label-key>
+			<bundle>kms-common</bundle>
+		</value-label>
+	</type>
+	
+		
+	<!-- 文档状态（增加了回收状态） -->
+	<type name="kms_doc_status">
+		<value-label>
+			<value>00</value>
+			<label-key>status.discard</label-key>
+			<label>废弃</label>
+		</value-label>
+		<value-label>
+			<value>10</value>
+			<label-key>status.draft</label-key>
+			<label>草稿</label>
+		</value-label>
+		<value-label>
+			<value>11</value>
+			<label-key>status.refuse</label-key>
+			<label>被驳回</label>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>status.examine</label-key>
+			<label>审批中</label>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>status.publish</label-key>
+			<label>已发布</label>
+		</value-label>
+		<value-label>
+			<value>40</value>
+			<label-key>status.expire</label-key>
+			<label>已过期</label>
+		</value-label>
+		<value-label>
+			<value>50</value>
+			<label-key>kmsDocStatus.recycle</label-key>
+			<bundle>kms-common</bundle>
+			<label>删除</label>
+		</value-label>
+	</type>
+</column-enums>

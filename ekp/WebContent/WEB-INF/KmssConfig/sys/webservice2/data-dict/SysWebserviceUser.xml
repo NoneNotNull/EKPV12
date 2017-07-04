@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.webservice2.model.SysWebserviceUser"
+		messageKey="sys-webservice2:table.sysWebserviceUser"
+		displayProperty="fdUserName"
+		serviceBean="sysWebserviceUserService"
+		table="sys_webservice_user"
+		url="/sys/webservice2/sys_webservice_user/sysWebserviceUser.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-webservice2:sysWebserviceUser.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="true"
+			length="50"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdLoginId"
+			messageKey="sys-webservice2:sysWebserviceUser.fdLoginId"
+			type="String"
+			column="fd_login_id"
+			notNull="true"
+			length="50"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdPassword"
+			messageKey="sys-webservice2:sysWebserviceUser.fdPassword"
+			type="String"
+			column="fd_password"
+			notNull="true"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAccessIp"
+			messageKey="sys-webservice2:sysWebserviceUser.fdAccessIp"
+			type="String"
+			column="fd_access_ip"
+			notNull="false"
+			length="500"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-webservice2:sysWebserviceUser.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-webservice2:sysWebserviceUser.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-webservice2:sysWebserviceUser.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false" />
+
+		<listProperty
+			name="fdService"
+			messageKey="sys-webservice2:sysWebserviceUser.fdService"
+			type="com.landray.kmss.sys.webservice2.model.SysWebserviceMain"
+			table="sys_webservice_main_user"
+			column="fd_user_id"
+			elementColumn="fd_service_id" />
+
+	</model>
+</models>

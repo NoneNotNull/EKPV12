@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.category.model.SysCategoryFiling"
+		messageKey="sys-category:table.SysCategoryFiling"
+		displayProperty="fdName"
+		serviceBean="sysCategoryFilingService"
+		table="sys_category_filing">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-category:SysCategoryFiling.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-category:SysCategoryFiling.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="1000" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-category:SysCategoryFiling.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="2" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-category:SysCategoryFiling.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-category:SysCategoryFiling.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-category:SysCategoryFiling.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-category:SysCategoryFiling.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-category:SysCategoryFiling.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-category:SysCategoryFiling.hbmParent"
+			type="com.landray.kmss.sys.category.model.SysCategoryFiling"
+			column="fd_parent_id"
+			cascade="save-update" />
+	</model>
+</models>

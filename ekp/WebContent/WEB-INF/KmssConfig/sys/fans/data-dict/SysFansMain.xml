@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.fans.model.SysFansMain"
+		messageKey="sys-fans:table.sysFansMain"
+		displayProperty="fdFollowTime"
+		serviceBean="sysFansMainService"
+		table="sys_fans_main"
+		url="/sys/fans/sys_fans_main/sysFansMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdFollowTime"
+			messageKey="sys-fans:sysFansMain.fdFollowTime"
+			type="DateTime"
+			column="fd_follow_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdRelationType"
+			messageKey="sys-fans:sysFansMain.fdRelationType"
+			type="Integer"
+			column="fd_relation_type"
+			notNull="false"
+			length="4"
+			validate="false" />
+
+		<simpleProperty
+			name="fdUserType"
+			messageKey="sys-fans:sysFansMain.fdUserType"
+			type="Integer"
+			column="fd_user_type"
+			notNull="false"
+			length="4"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCanUnfollow"
+			messageKey="sys-fans:sysFansMain.fdCanUnfollow"
+			type="Boolean"
+			column="fd_can_unfollow"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-fans:sysFansMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdUserId"
+			messageKey="sys-fans:sysFansMain.fdUserId"
+			type="String"
+			column="fd_user_id"
+			notNull="false"
+		/>
+		
+		<simpleProperty
+			name="fdFansId"
+			messageKey="sys-fans:sysFansMain.fdFollowerId"
+			type="String"
+			column="fd_fans_id"
+			notNull="false"
+		/>
+
+	</model>
+</models>

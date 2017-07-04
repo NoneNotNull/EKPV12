@@ -1,0 +1,11 @@
+.lui-attachment-area {
+	position: absolute;
+	top: 50%;
+	display: block;
+	left: 50%;
+	font-size: 50px;
+	height: 60px;
+	margin-left: -100px;
+	margin-top: -25px;
+	color: #cfcfcf;
+}

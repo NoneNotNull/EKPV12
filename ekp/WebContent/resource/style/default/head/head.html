@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+    	var Com_Parameter = parent.Com_Parameter;
+    	var S_PortalInfo = parent.S_PortalInfo;
+    	document.write('<link href="'+Com_Parameter.ContextPath+'sys/ui/extend/theme/default/style/common.css" rel="stylesheet" type="text/css" />');
+    	function search(){
+        	var value = document.getElementsByName("keyword")[0].value;
+        	if(value==""){
+            	alert("请输入关键字后再执行搜索");
+            	return;
+        	}
+			var url = Com_Parameter.ContextPath+"sys/ftsearch/searchBuilder.do?method=search&queryString=";
+			window.open(url+encodeURIComponent(value), "_blank");
+    	}
+    </script>
+    <style>
+ol,ul{ list-style:none;}
+a:hover{ text-decoration:underline;}
+.lui_admin_header_wrapper{ height:58px; background:#8bd5f7;}
+
+.lui_admin_header_wrapper .logo{ width:300px; padding-left:16px; margin-top:15px; float:left;}
+
+.lui_admin_header_wrapper .user_info{ margin-top:10px; padding-right:10px; float:right;}
+.lui_admin_header_wrapper .user_info ul li{ height:12px; line-height:12px; color:#fff; float:left; margin-right:5px;}
+.lui_admin_header_wrapper .user_info ul li a{ color:#fff;}
+.lui_admin_header_wrapper .user_info ul li.split{ padding-right:8px; border-right:1px solid #fff;}
+.lui_admin_header_wrapper .user_info ul li.return_home{background:url(admin_home_icon.png) no-repeat left center; cursor:pointer; padding-left:16px;}
+.lui_admin_header_wrapper .user_info ul li .username{ font-weight:bold; font-size:13px;}
+
+.search{ position:absolute; left:250px; right:250px; top:15px;  text-align:center; }
+.search .txt_input{ width:265px; height:30px; line-height:30px; padding-left:29px; border:0px; background:#fff url(txt_search_bg.png) no-repeat 5px center;}
+.search .btn_search{ height:30px; line-height:30px; color:#fff; font-size:16px; text-align:center; background-color:#ffa001; cursor:pointer; border:0px; vertical-align: bottom; padding: 0px 12px;}
+.search .a_search{ height:30px; line-height:30px; padding-left:9px; padding-top:10px; color:#007bb3; font-size:14px; cursor:pointer;}
+    </style>
+</head>
+<body>
+	<div class="lui_admin_header_wrapper clrfix" style="min-width:980px;">
+		<div class="logo"><img src="../../../images/logo.png" /></div>
+		<div class="user_info">
+			<ul class="clrfix">
+				<li class="return_home split"><a href="../../../../index.jsp" target="_parent"><script>document.write(S_PortalInfo.home);</script></a></li>
+				<li class="split"><script>document.write(S_PortalInfo.welcome);</script>&nbsp;&nbsp;<span class="username"><script>document.write(S_PortalInfo.UserName);</script></span></li>
+				<li><a href="#" onclick="parent.logout();"><script>document.write(S_PortalInfo.logout);</script></a></li>
+            </ul>
+        </div>
+    </div>
+	<div class="search">
+		<input type="text" class="txt_input" name="keyword" onkeydown="if(event.keyCode==13) search();" /><input type="button" class="btn_search" value="搜索" onclick="search();" />
+	 </div>
+</body>
+</html>
+    

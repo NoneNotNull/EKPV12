@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmext.authorize.model.LbpmAuthorize"
+		messageKey=""
+		serviceBean="lbpmAuthorizeService"
+		table="lbpm_authorize"
+		url="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdAuthorizeType"
+			messageKey=""
+			type="Long"
+			column="fd_authorize_type"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdStartTime"
+			messageKey=""
+			type="DateTime"
+			column="fd_start_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdEndTime"
+			messageKey=""
+			type="DateTime"
+			column="fd_end_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdExpireDeleted"
+			messageKey=""
+			type="Boolean"
+			column="fd_expire_deleted"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey=""
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false" />
+		<modelProperty
+			name="fdAuthorizer"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_authorizer"
+			notNull="false" />
+		<modelProperty
+			name="fdCreator"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false" />
+		<modelProperty
+			name="fdAuthorizedPerson"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_authorized_person"
+			notNull="false" />
+		<listProperty
+			name="lbpmAuthorizeScopeList"
+			messageKey=""
+			column="fd_authorize_id"
+			type="com.landray.kmss.sys.lbpmext.authorize.model.LbpmAuthorizeScope"
+			table="lbpm_authorize_scope"
+			cascade="all-delete-orphan"
+			inverse="true" />
+		<listProperty
+			name="lbpmAuthorizeItemList"
+			messageKey=""
+			column="fd_authorize_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_authorize_org_id"
+			table="lbpm_authorize_item" />
+	</model>
+</models>

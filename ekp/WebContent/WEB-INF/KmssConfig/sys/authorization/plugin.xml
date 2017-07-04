@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/authorization/areaConfig.jsp" />
+			<param
+				name="type"
+				value="enterprise" />
+			<param
+				name="order"
+				value="30" />
+		</item>			
+	</extension>
+</plugin>

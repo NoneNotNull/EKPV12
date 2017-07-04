@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_30" class="java.beans.XMLDecoder"> 
+ <object class="java.util.HashMap"> 
+  <void method="put"> 
+   <string>fdParameter</string> 
+   <string>type=excludeme&amp;level=-1</string> 
+  </void> 
+  <void method="put"> 
+   <string>class</string> 
+   <string>com.landray.kmss.sys.organization.model.SysOrgRole</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIsBusiness</string> 
+   <boolean>true</boolean> 
+  </void> 
+  <void method="put"> 
+   <string>fdName</string> 
+   <string>&lt;提交人的1级领导&gt;</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdPlugin</string> 
+   <string>sysOrgPlugin_Leader</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdRtnValue</string> 
+   <string>12</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdOrgType</string> 
+   <int>32</int> 
+  </void> 
+  <void method="put"> 
+   <string>fdIsMultiple</string> 
+   <boolean>false</boolean> 
+  </void> 
+  <void method="put"> 
+   <string>fdHierarchyId</string> 
+   <string>x12c9b7c36933aa6be044d7f45a38680ax</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdId</string> 
+   <string>12c9b7c36933aa6be044d7f45a38680a</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdAlterTime</string> 
+   <object class="java.util.Date"> 
+    <long>1316415586000</long> 
+   </object> 
+  </void> 
+  <void method="put"> 
+   <string>fdMemo</string> 
+   <string>提交人最顶层的领导（跳过提交人自己）</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIsAvailable</string> 
+   <boolean>true</boolean> 
+  </void> 
+  <void method="put"> 
+   <string>fdCreateTime</string> 
+   <object class="java.util.Date"> 
+    <long>1291069997000</long> 
+   </object> 
+  </void> 
+ </object> 
+</java> 

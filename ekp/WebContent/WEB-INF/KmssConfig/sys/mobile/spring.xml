@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysMobileModuleCategoryConfigDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.sys.mobile.dao.hibernate.SysMobileModuleCategoryConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.mobile.model.SysMobileModuleCategoryConfig" />
+	</bean>
+	<bean
+		id="sysMobileModuleCategoryConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.mobile.service.spring.SysMobileModuleCategoryConfigServiceImp">
+		<property name="baseDao">
+			<ref local="sysMobileModuleCategoryConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysMobileModuleCategoryConfigService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysMobileModuleCategoryConfigTarget" />
+		</property>
+	</bean>
+	
+	<bean id="sysMobileCompressorSystemInitBean" 
+		class="com.landray.kmss.sys.mobile.service.spring.SysMobileCompressorSystemInitBean"></bean>
+</beans>

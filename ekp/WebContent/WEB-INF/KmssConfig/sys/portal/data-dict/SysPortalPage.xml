@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalPage"
+		messageKey="sys-portal:table.sysPortalPage"
+		displayProperty="fdName"
+		serviceBean="sysPortalPageService"
+		table="sys_portal_page"
+		url="/sys/portal/sys_portal_page/sysPortalPage.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-portal:sysPortalPage.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			validate="true"
+			length="255" />
+		<simpleProperty
+			name="fdTitle"
+			messageKey="sys-portal:sysPortalPage.fdTitle"
+			type="String"
+			column="fd_title"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdTheme"
+			messageKey="sys-portal:sysPortalPage.fdTheme"
+			type="String"
+			column="fd_theme"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdIcon"
+			messageKey="sys-portal:sysPortalPage.fdIcon"
+			type="String"
+			column="fd_icon"
+			notNull="false"
+			length="255" />
+		<listProperty
+			name="authReaders"
+			messageKey="sys-portal:sysPortalPage.fdReaders"
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="sys_portal_page_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="sys-portal:sysPortalPage.fdEditors"
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_portal_page_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="sys-portal:sysPortalPage.authAllReaders"
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="sys_portal_page_areader"
+			inverse="false"
+			canDisplay="false"/>
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-portal:sysPortalPage.authAllEditors"
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_portal_page_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-portal:sysPortalPage.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="2" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-portal:sysPortalPage.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdUsePortal"
+			messageKey="sys-portal:sysPortalPage.fdUsePortal"
+			type="String"
+			column="fd_use_portal"
+			notNull="false"
+			length="10" />
+		<listProperty
+			name="pageDetails"
+			messageKey="sys-portal:sysPortalPage.pageDetails"
+			column="fd_page_id"
+			notNull="true"
+			type="com.landray.kmss.sys.portal.model.SysPortalPageDetail"
+			cascade="all-delete-orphan"
+			inverse="true" />
+	</model>
+</models>

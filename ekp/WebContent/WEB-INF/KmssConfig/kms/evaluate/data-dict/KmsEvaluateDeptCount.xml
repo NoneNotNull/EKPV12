@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptCount"
+		messageKey="kms-evaluate:table.kmsEvaluateDeptCount"
+		displayProperty="fdCountStartTime"
+		serviceBean="kmsEvaluateDeptCountService"
+		table="kms_evaluate_dept_count"
+		url="/kms/evaluate/kms_evaluate_dept_count/kmsEvaluateDeptCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="read"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.read"
+			type="Long"
+			column="read"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="evaluation"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.evaluation"
+			type="Integer"
+			column="evaluation"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="introduce"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.introduce"
+			type="Integer"
+			column="introduce"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="create"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.create"
+			type="Integer"
+			column="create"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="delete"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.delete"
+			type="Integer"
+			column="delete"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="update"
+			messageKey="kms-evaluate:kmsEvaluateDeptCount.update"
+			type="Integer"
+			column="update"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+	</model>
+</models>

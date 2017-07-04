@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!-- JDBC日志管理扩展点  --> 
+	<extension
+		point="com.landray.kmss.tib.common.mapping.plugins.integration"
+		model="*">
+		
+		<item
+			name="tibCommonMappingIntegration">
+			<param
+				name="integrationKey"
+				value="JDBC" />
+			<param
+				name="displayName"
+				value="JDBC集成" />
+				<!-- 中间件类型为 1 -->
+			<param
+				name="fdIntegrationType"
+				value="4" />
+			<param
+				name="order"
+				value="54" />		
+			<param
+				name="infoClass"
+				value="tibJdbcControlTreeInfo" />		
+			<param
+				name="formControlJS"
+				value="tib/jdbc/resource/js/jdbcFormControl.js" />		
+				
+		</item>
+	</extension>
+			
+	<!--  自定义表单数据源选择控件
+	<extension point="com.landray.kmss.sys.xform.base.service.controls" model="*">
+		<item name="control">
+			<param name="class" value="com.landray.kmss.tib.jdbc.control.sql.TibJdbcFormTemplateSQLSelectOpenControl" />
+			<param name="file" value="/tib/jdbc/resource/controls/sqlSelectByOpenDialog.js" />
+		</item>
+	</extension>
+	 -->	
+	<!--  移动端表单数据源选择控件
+	<extension point="com.landray.kmss.sys.xform.pda.controls" model="*">
+		<item name="control">
+			<param name="class" value="com.landray.kmss.tib.jdbc.control.sql.TibJdbcFormTemplateSQLSelectOpenControl" />
+		</item>
+	</extension>
+	-->	
+	<!-- TIB表单控件扩展 -->
+	<extension point="com.landray.kmss.sys.xform.relation.params">
+		<item name="config">
+			<param name="sourceName" value="JDBC"></param>
+			<param name="sourceUUID" value="JDBC"></param>
+			<param name="sourceBean" value="tibCommonMappingControlRelation"></param>
+			<param name="paramsURL" value="tib/common/resource/jsp/dialog/dialog.jsp?springBean=tibCommonMappingControlTreeBean&amp;infoBean=tibJdbcControlTreeInfo&amp;url=tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet.do"></param>
+			<param name="order" value="0"></param>
+		</item>
+	</extension>
+</plugin>

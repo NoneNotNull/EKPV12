@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.kms.expert">
+		<item name="area">
+			<param name="uuid" required="true" kind="string">
+				<description>
+					必选，模块类名
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，显示排序号
+				</description>
+			</param>
+			<param name="modulePath" required="true" kind="string">
+				<description>
+					必选，模块路径 ，例如kms/ask
+				</description>
+			</param>
+			<param name="areaMessageKey" required="true" kind="string">
+				<description>
+					必选，领域名称
+				</description>
+			</param>
+			<param name="cateModelName" kind="string" required="true">
+				<description>
+					必选，领域分类modelName
+				</description>
+			</param>
+			<!--弹出框不用treeBean
+			<param name="treeBean" required="true" kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean">
+				<description>
+					必选，treeBean各模块领域分类选择树
+				</description>
+			</param>
+			-->
+			<description>专家精通领域扩展点</description>
+		</item>
+		<description>专家精通领域扩展点</description>
+	</extension-point>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.expert" />
+			<param name="navMessageKey" value="kms-expert:title.kms.expert" />
+			<param name="indexPage" value="/kms/expert/index.jsp" />
+			<param name="modulePath" value="/kms/expert" />
+			<param name="titleMessageKey" value="kms-expert:title.kms.expert" />
+			<param name="order" value="3" />
+		</item>
+		<item name="adminTree">
+			<param name="order" value="3" />
+			<param name="modelClass" value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-expert:title.kms.expert" />
+			<param name="adminTreeUrl" value="/kms/expert/admintree.jsp" />
+		</item>
+		<item name="search">
+			<param name="order" value="3" />
+			<param name="modelClass" value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+			<param name="searchMessageKey" value="kms-expert:search.kms.expert" />
+			<param name="canSearch" value="true" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="entry">
+			<param name="unid" value="com.landray.kmss.kms.expert" />
+			<param name="moduleName" value="kms-expert:title.kms.expert" />
+			<param name="service" value="kmsExpertProfilePortlet" />
+			<param name="order" value="2" />
+			<param name="modelClass" value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+			<param name="categoryClass" value="com.landray.kmss.kms.expert.model.KmsExpertType" />
+			<param name="jspUrl" value="/kms/expert/profile/index.jsp" />
+		</item>
+	</extension>
+	
+	<!--专家网络webservice服务   --> 
+	 <extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="专家网络webservice服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.expert.webservice.service.IKmsExpertWebservice" />
+			<param name="serviceBean" value="kmsExpertWebservice" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+	
+	<!-- 专家属性 -->
+	<extension point="com.landray.kmss.sys.property.setting"
+		model="com.landray.kmss.kms.expert.model.KmsExpertInfo">
+		<item name="setting">
+			<param name="messageText" value="{kms-expert:title.kms.expert}" />
+		</item>
+	</extension>
+	
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.expert.model.KmsExpertInfo">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+	
+	<!-- 专家模块日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="moduleName" value="kms-expert:title.kms.expert"/>
+			<param name="categoryField" value="kmsExpertType"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.add"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertInfoServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.edit"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertInfoServiceImp"/>			
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertInfoServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.addCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertType"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.updateCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeServiceImp"/>			
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertType"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.delCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.expert.model.KmsExpertInfo"/>
+			<param name="className" value="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.expert.model.KmsExpertType"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<!-- 专家模块结束 -->
+	
+	<!-- 关联机制扩展点 -->
+	<extension point="com.landray.kmss.sys.relation.config">
+		<item name="dict">
+			<param name="modelName"
+				value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+			<param name="dictLoader" value="sysPropertyRelationDictLoader" />
+			<param name="cateModelName"
+				value="com.landray.kmss.kms.expert.model.KmsExpertType" />
+		</item>
+		<item name="search">
+			<param name="modelName"
+				value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+			<param name="searchBean" value="sysPropertyRelationExtendSearchBean" />
+		</item>
+	</extension>
+	
+	<!-- 信息展现 -->
+	<extension point="com.landray.kmss.sys.zone.otherinfo">
+		<item name="zone_info">
+			<param name="source_url" value="/kms/expert/kms_expert_info/kmsExpertInfo.do?method=getKmsAskArea" />
+			<param name="render_url_pc" value="/kms/expert/resource/plugin/area_render.tmpl" />
+			<param name="infoId" value="expertArea" />
+			<param name="renderType" value="Template"/>
+		</item>
+	</extension>
+	
+	
+	<!-- fdOrder数据迁移 -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.kms.expert.transfer.KmsExpertOrderTypeTransferChecker" />
+			<param name="name" value="专家网络排序号迁移" />
+			<param name="path" value="/kms/expert/" />
+			<param name="check"
+				value="com.landray.kmss.kms.expert.transfer.KmsExpertOrderTypeTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.kms.expert.transfer.KmsExpertOrderTypeTransferTask" />
+			<param name="description"
+				value="排序号字段fdOrder数据迁移,之前的字段类型是字符类型，现在转为数字类型" />
+		</item>
+	</extension>
+</plugin>

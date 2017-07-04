@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+
+<!-- 项目状态 -->
+		<type
+		name="km_keydata_project_status" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>kmKeydataProject_docStatus.toDo</label-key>
+			<bundle>km-keydata-project</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmKeydataProject_docStatus.underWay</label-key>
+			<bundle>km-keydata-project</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>kmKeydataProject_docStatus.finished</label-key>
+			<bundle>km-keydata-project</bundle>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>kmKeydataProject_docStatus.stop</label-key>
+			<bundle>km-keydata-project</bundle>
+		</value-label>
+	</type>
+	
+</column-enums>

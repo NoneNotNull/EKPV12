@@ -1,0 +1,32 @@
+﻿基本调用：
+<ui:tabpanel>
+	<ui:content title="标签1">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:tabpanel>
+
+更换布局：
+<ui:tabpanel layout="布局ID">
+	<ui:content title="标签1">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:tabpanel>
+
+引用Portlet的配置和自定义混搭：
+<ui:tabpanel>
+	<portal:portlet ref="portlet定义的ID" title="标签1" />
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:tabpanel>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 新建知识专辑时，关闭“系统中选择”和“上传附件”对话框会报JS错误</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建知识专辑时，无法清空辅分类中的类别</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建知识专辑时，如果把浏览器缩小，右边导航条消失的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识专辑新建编辑分类时分类名称校验</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-04</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识专辑view页面关联配置权限校验</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-29</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识专辑后台配置权限</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识专辑点赞改为引用点赞机制</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-01</revision-time>
+			<relation>
+				<relation-module>sys/praise</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 绿色主题下排序按钮显示错行的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识专辑后台管理角色，有此角色的人能看到后台配置的按钮</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-07</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 查看知识专辑时，没权限查看的文档的封面取默认图</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建编辑专辑时，除去掉第二个新建目录按钮</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识专辑模块</description>
+			<author>张文辉</author>
+			<revision-time>2014-05-30</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+	</modifies>
+</version>

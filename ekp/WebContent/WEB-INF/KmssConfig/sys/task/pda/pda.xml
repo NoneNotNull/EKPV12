@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module urlPrefix="sys/task">
+		<!-- messageKey必填
+			 type：doc,list,pic -->
+		<config messageKey="sys-task:table.sysTaskMain" 
+			type="doc"
+			dataUrl="/sys/task/pda/sysTaskMain_pda_index.jsp"/>
+	</module>
+</pdaConfig>

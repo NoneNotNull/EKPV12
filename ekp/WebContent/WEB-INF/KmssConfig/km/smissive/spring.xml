@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmSmissiveTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.smissive.dao.hibernate.KmSmissiveTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.smissive.model.KmSmissiveTemplate" />
+	</bean>
+	<bean
+		id="kmSmissiveTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.smissive.service.spring.KmSmissiveTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="kmSmissiveTemplateDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSmissiveTemplateService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSmissiveTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSmissiveTemplateTreeService"
+		class="com.landray.kmss.km.smissive.service.spring.KmSmissiveTemplateTreeService">
+		<property name="kmSmissiveTemplateService">
+			<ref local="kmSmissiveTemplateService" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSmissiveMainDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.smissive.dao.hibernate.KmSmissiveMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.smissive.model.KmSmissiveMain" />
+	</bean>
+	<bean
+		id="kmSmissiveMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.km.smissive.service.spring.KmSmissiveMainServiceImp">
+		<property name="baseDao">
+			<ref local="kmSmissiveMainDao" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="templateService">
+			<ref local="kmSmissiveTemplateService" />
+		</property>
+		<property name="sysNumberFlowService">
+			<ref bean="sysNumberFlowService"/>
+		</property>
+		
+	</bean>
+	<bean
+		id="kmSmissiveMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSmissiveMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSmissivePortlet"
+		class="com.landray.kmss.km.smissive.service.spring.KmSmissivePortlet">
+		<property name="kmSmissiveTemplateService">
+			<ref bean="kmSmissiveTemplateService" />
+		</property>
+		<property name="kmSmissiveMainService">
+			<ref local="kmSmissiveMainService" />
+		</property>
+	</bean>
+
+	<!-- 全文检索 -->
+	<bean
+		id="kmSmissiveMainDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>kmSmissiveMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+				<value>luceneDeleteAdvisor</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

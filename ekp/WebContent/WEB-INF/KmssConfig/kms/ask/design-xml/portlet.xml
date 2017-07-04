@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 最新问答 可配置题头列表展现方式-->
+	<portlet
+		id="kms.ask.new.listtable"
+		name="{kms-ask:kmsAsk.portlet.list}"
+		module="{kms-ask:title.kms.ask}"
+		description="{portlet.list.desc2}">
+		<source format="sys.ui.listtable" type="AjaxJson">
+			<code>
+				<![CDATA[
+					{"url":"/kms/ask/kms_ask_portlet/kmsAskPortlet.do?method=getLatestAsk&rowsize=!{rowsize}&fdCategoryId=!{fdCategoryId}&type=!{type}&s_money=!{s_money}&s_status=!{s_status}&s_reply=!{s_reply}&s_time=!{s_time}&s_category=!{s_category}"}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{kms-ask:kmsAsk.portlet.ask.num}" key="rowsize" kind="rowsize" default="6"/>
+		    <!-- 类型：最新、最热、高悬赏、已解决、未解决、最佳 -->
+		    <var name="{kms-ask:kmsAsk.portlet.ask.type}" key="type" kind="enumValue" default="new">
+		    	{"values":[{"text":"{kms-ask:kmsAsk.portlet.new}", "value":"new"},
+		    				{"text":"{kms-ask:kmsAsk.portlet.hot}", "value":"hot"},
+		    					{"text":"{kms-ask:kmsAsk.portlet.hight}", "value":"highScore"},
+		    					{"text":"{kms-ask:kmsAskTopic.fdSolve}", "value":"resolve"},
+		    					{"text":"{kms-ask:kmsAskTopic.unsolved}", "value":"unresolve"},
+		    					{"text":"{kms-ask:kmsAskTopic.fdBest}", "value":"best"}],"showType":"radio"}
+		    </var>
+		     <var key="s_category" kind="enumValue" name="{portlet.cate}" default="true">
+				{"values":[{"text":"{kms-ask:kmsAsk.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+		    <var key="s_money" kind="enumValue" name="{kms-ask:kmsAskTopic.fdScores}" default="true">
+				{"values":[{"text":"{kms-ask:kmsAsk.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="s_status" kind="enumValue" name="{kms-ask:kmsAskTopic.fdAskStatus}" default="true">
+				{"values":[{"text":"{kms-ask:kmsAsk.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="s_reply" kind="enumValue" name="{kms-ask:kmsAskTopic.fdReplySum}" default="true">
+				{"values":[{"text":"{kms-ask:kmsAsk.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+			<var key="s_time" kind="enumValue" name="{kms-ask:kmsAskTopic.fdAskTime}" default="false">
+				{"values":[{"text":"{kms-ask:kmsAsk.portlet.show}", "value":"true"}],"showType":"checkbox"}
+			</var>
+		   	<var
+				name="{portlet.cate}"
+				key="fdCategoryId"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.ask.model.KmsAskCategory",
+				 "title":"{kms-ask:kmsAskCategory.select}"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{kms-ask:kmsAsk.ask}"
+				type="create"
+				target="_self"
+				href="javascript:(function(){seajs.use(['kms/ask/kms_ask_ui/js/create'], function(create) {
+						create.addDoc(\'!{fdCategoryId}\');
+				});})();"
+			/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/ask/?categoryId=!{fdCategoryId}"/>
+		</operations>
+	</portlet>
+	
+	<!-- 最新问答 简单列表展现方式-->
+	<portlet
+		id="kms.ask.new.classic"
+		name="{kms-ask:kmsAsk.portlet.list}"
+		module="{kms-ask:title.kms.ask}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+				<![CDATA[
+					{"url":"/kms/ask/kms_ask_portlet/kmsAskPortlet.do?method=getLatestAskClassic&rowsize=!{rowsize}&fdCategoryId=!{fdCategoryId}&type=!{type}"}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{kms-ask:kmsAsk.portlet.ask.num}" key="rowsize" kind="rowsize" default="6"/>
+		     <!-- 类型：最新、最热、高悬赏、已解决、未解决、最佳 -->
+		    <var name="{kms-ask:kmsAsk.portlet.ask.type}" key="type" kind="enumValue" default="new">
+		    	{"values":[{"text":"{kms-ask:kmsAsk.portlet.new}", "value":"new"},
+		    				{"text":"{kms-ask:kmsAsk.portlet.hot}", "value":"hot"},
+		    					{"text":"{kms-ask:kmsAsk.portlet.hight}", "value":"highScore"},
+		    					{"text":"{kms-ask:kmsAskTopic.fdSolve}", "value":"resolve"},
+		    					{"text":"{kms-ask:kmsAskTopic.unsolved}", "value":"unresolve"},
+		    					{"text":"{kms-ask:kmsAskTopic.fdBest}", "value":"best"}],"showType":"radio"}
+		    </var>
+		   	<var
+				name="{portlet.cate}"
+				key="fdCategoryId"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.ask.model.KmsAskCategory",
+				 "title":"{kms-ask:kmsAskCategory.select}"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{kms-ask:kmsAsk.ask}"
+				type="create"
+				target="_self"
+				href="javascript:(function(){seajs.use(['kms/ask/kms_ask_ui/js/create'], function(create) {
+						create.addDoc(\'!{fdCategoryId}\');
+				});})();"
+			/>	
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/ask/?categoryId=!{fdCategoryId}"/>
+		</operations>
+	</portlet>
+	
+	
+   <!--爱问积分排行 -->
+	<portlet
+		id="kms.communtycko.ask"
+		name="{kms-ask:kmsAsk.portlet.credit.ranking}"
+		module="{kms-ask:title.kms.ask}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{	
+						"url":"/kms/communitycko/kms_communitycko_portlet/kmsCommunityckoPortlet.do?method=getScorePortlet&showStar=!{showStar}&personId=!{personId}&type=!{type}&moudule=com.landray.kmss.kms.ask&rowsize=!{rowsize}",
+						"formatKey":"html"
+					}
+					
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var key="showStar" 
+			     kind="enumValue" 
+			     name="{kms-communitycko:kmsCommunitycko.portlet.star.show}" 
+			     default="yes">
+				{
+				 "values":[{"text":"{kms-communitycko:kmsCommunitycko.portlet.display}", "value":"yes"}],
+				 "showType":"checkbox"
+				}
+			</var>
+			<var key="personId" kind="dialogJs" name="{kms-communitycko:kmsCommunitycko.portlet.star.select}" >
+				{
+					"js":
+					"Dialog_Address(false,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON)"
+				}
+			</var>
+		    <var key="type" kind="enumValue" name="{kms-communitycko:kmsCommunitycko.portlet.rank.type}" default="month">
+				{
+				 "values":[{"text":"{kms-communitycko:kmsCommunitycko.month}", "value":"month"},
+				           {"text":"{kms-communitycko:kmsCommunitycko.total}", "value":"all"}],
+				 "showType":"checkbox"
+				}
+			</var>
+			<var name="{kms-communitycko:kmsCommunitycko.portlet.rank.show.num}" 
+			     key="rowsize" kind="rowsize" default="6"/>
+		</vars>
+		<operations>
+		<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/communitycko/index.jsp"/>
+		</operations>
+	</portlet>
+	<!-- 分类导航 -->
+	<portlet
+		id="kms.cate.ask"
+		name="{kms-ask:kmsAsk.portlet.category.nav}"
+		module="{kms-ask:title.kms.ask}">
+		<source format="sys.ui.cate" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/ask/kms_ask_portlet/kmsAskCategoryPortlet.do?method=portal&parentId=!{value}&currId=!{cateid}"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{
+				 "model":"com.landray.kmss.kms.ask.model.KmsAskCategory",
+				 "title":"{kms-ask:kmsAskCategory.select}"
+				}
+			</var>
+		</vars>
+	</portlet>
+	<!-- 分类概览 -->
+	<portlet
+		id="kms.ask.preview"
+		name="{kms-ask:kmsAsk.portlet.category.overview}"
+		module="{kms-ask:title.kms.ask}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/ask/kms_ask_portlet_ui/kms_ask_portlet_preview.jsp?currid=!{currid}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="currid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.ask.model.KmsAskCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true})})"
+				}
+			</var>
+		</vars>
+	</portlet>
+</root>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<template id="default.login" name="登录页面模板"
+		file="/sys/ui/extend/template/login/login.jsp"
+		for="module"
+		thumb="xx.jpg"
+		help="">
+	</template>
+	<combin name="登录表单" id="login.form"  file="/sys/ui/extend/template/login/form.jsp"></combin>
+</root>

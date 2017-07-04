@@ -1,0 +1,28 @@
+{$
+<div>
+	<div data-lui-mark='panel.content.inside' class='lui_panel_content_inside'></div>
+	<div data-lui-mark='panel.content.operation' class='lui_portlet_operations clearfloat'>
+$}
+	var config = layout.content.config;
+	var vars = {};
+	$.extend(vars,layout.content.vars);
+	if(config.operations){
+		for(var i=0;i<config.operations.length;i++){
+			var oper = config.operations[i];
+			var target = oper.target ? oper.target : "_blank";
+			var href = oper.href;			
+			href = env.fn.variableResolver(href,vars);
+			href = env.fn.formatUrl(href);
+			//debugger;
+			var align = oper.align;
+			if(oper.icon){
+				{$<a class='lui_portlet_operation' href="{%href%}" target='{%target%}' style="float:{%align%}" ><span class='lui_icon_s {%oper.icon%}'></span><span>{%oper.name%}</span>$}
+			}else{
+				{$<a class='lui_portlet_operation' href="{%href%}" target='{%target%}' style="float:{%align%}">{%oper.name%}</a>$}
+			}
+		}
+	}
+{$
+	</div>
+</div>
+$}

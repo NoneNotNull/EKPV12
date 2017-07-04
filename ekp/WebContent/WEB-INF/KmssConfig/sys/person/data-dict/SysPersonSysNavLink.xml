@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonSysNavLink"
+		messageKey="sys-person:sysPersonSysNavLink"
+		displayProperty="fdName"
+		serviceBean="sysPersonSysNavLinkService"
+		table="sys_person_sysnav_link">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonSysNavLink.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdSysLink"
+			messageKey="sys-person:sysPersonSysNavLink.fdSysLink"
+			type="String"
+			column="fd_sys_link"
+			notNull="false"
+			length="200" />
+			
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-person:sysPersonSysNavLink.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="1000"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdTarget"
+			messageKey="sys-person:sysPersonSysNavLink.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="10" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonSysNavLink.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+			
+		<modelProperty
+			name="fdCategory"
+			messageKey="sys-person:sysPersonSysNavLink.fdCategory"
+			type="com.landray.kmss.sys.person.model.SysPersonSysNavCategory"
+			column="fd_cate_id"
+			notNull="true"
+			cascade="none" />
+	</model>
+</models>

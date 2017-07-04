@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralAlter"
+		messageKey="kms-integral:table.kmsIntegralAlter"
+		displayProperty="fdPerson"
+		serviceBean="kmsIntegralAlterService"
+		table="kms_integral_alter"
+		url="/kms/integral/kms_integral_alter/kmsIntegralAlter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="kms-integral:kmsIntegralAlter.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="true"
+			length="500"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-integral:kmsIntegralAlter.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="kms-integral:kmsIntegralAlter.fdStatus"
+			type="Boolean"
+			column="fd_status"
+			notNull="false"
+			length="2"
+			validate="true" />
+
+		<simpleProperty
+			name="fdValue"
+			messageKey="kms-integral:kmsIntegralAlter.fdValue"
+			type="String"
+			column="fd_value"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="kms-integral:kmsIntegralAlter.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="2"
+			enumType="kms_integral_alter_type"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-integral:kmsIntegralAlter.fdPerson"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_person"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreate"
+			messageKey="kms-integral:kmsIntegralAlter.fdCreate"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_create_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

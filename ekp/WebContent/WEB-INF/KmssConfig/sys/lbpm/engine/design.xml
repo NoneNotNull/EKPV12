@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../design.xsd ">
+	<module
+		messageKey="sys-lbpm-engine:module.sysLbpmEngine"
+		urlPrefix="/sys/lbpm/engine/persistence/"
+		defaultValidator="true">
+	</module>
+	<!-- 删除无效的流程实例定时任务 -->
+	<quartz
+		messageKey="sys-lbpm-engine:lbpm.deleteUnavailableProcess"
+		jobService="lbpmDeleteUnavailableProcess"
+		jobMethod="run"
+		cronExpression="0 40 22 * * ?" />
+	<!-- 流程队列任务调度器 -->
+	<quartz
+		messageKey="sys-lbpm-engine:lbpm.processQueueDispatcher"
+		jobService="lbpmProcessQueueService"
+		jobMethod="run"
+		cronExpression="0 0 * * * ?" />
+</configs>

@@ -1,0 +1,63 @@
+.share_log_title{
+	height: 20px;
+	line-height: 20px;
+	color: #52a4c9;
+	font-size: 15px;
+	font-weight: bold;
+}
+.share_log_main{
+	padding: 0px 20px 20px;
+}
+.share_log_content{
+	background: #f8f8f8;
+	padding:15px 12px;
+}
+.share_log_content .share_li{
+	position: relative;
+	padding-left: 56px;
+	margin-bottom: 15px;
+	min-height: 40px;
+	list-style: none;
+}
+.share_log_content ul li .share_person {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 42px;
+	height: 42px;
+	border: 1px solid #e2e2e2;
+}
+.share_info{
+	margin-bottom: 0px;
+	color: #6b6b6b;
+	line-height: 24px;
+	word-break: break-all;
+	font-size:13px;
+}
+.share_to_person{
+	/**margin-right: 10px;**/
+}
+.share_p_to_p{
+	margin-right: 2px;
+	margin-left: 2px;
+	font-size: 14px;
+}
+.share_time{
+	line-height: 22px;
+	margin-bottom: 5px;
+	color: #a3a3a3;
+	/**text-align: right;**/
+}
+.share_to_person>a{
+	font-size: 14px;
+}
+.share_log_title_div{
+	margin-bottom: 15px;
+}
+.share_log_count{
+	color: #a3a3a3;
+	font-size: 14px;
+}
+.com_author{
+	font-size:14px;
+}

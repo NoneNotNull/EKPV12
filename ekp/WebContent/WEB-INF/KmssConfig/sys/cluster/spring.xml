@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysClusterBaseService"
+		parent="KmssBaseService">
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="copy*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="init*">PROPAGATION_REQUIRED</prop>
+				<prop key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop key="do*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean
+		id="sysClusterDispatcherDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.cluster.dao.hibernate.SysClusterDispatcherDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.cluster.model.SysClusterDispatcher" />
+	</bean>
+	<bean
+		id="sysClusterDispatcherTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterDispatcherServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysClusterDispatcherDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterDispatcherService"
+		parent="sysClusterBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysClusterDispatcherTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysClusterMessageDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.cluster.dao.hibernate.SysClusterMessageDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.cluster.model.SysClusterMessage" />
+	</bean>
+	<bean
+		id="sysClusterMessageTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterMessageServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysClusterMessageDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterMessageService"
+		parent="sysClusterBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysClusterMessageTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysClusterServerDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.cluster.dao.hibernate.SysClusterServerDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.cluster.model.SysClusterServer" />
+	</bean>
+	<bean
+		id="sysClusterServerTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterServerServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysClusterServerDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterServerService"
+		parent="sysClusterBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysClusterServerTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysClusterGroupDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.cluster.dao.hibernate.SysClusterGroupDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.cluster.model.SysClusterGroup" />
+		<property
+			name="sysClusterGroupFuncDao">
+			<ref
+				local="sysClusterGroupFuncDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterGroupTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterGroupServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysClusterGroupDao" />
+		</property>
+		<property
+			name="sysClusterGroupFuncService">
+			<ref
+				local="sysClusterGroupFuncService" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterGroupService"
+		parent="sysClusterBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysClusterGroupTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysClusterGroupFuncDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.cluster.dao.hibernate.SysClusterGroupFuncDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.cluster.model.SysClusterGroupFunc" />
+	</bean>
+	<bean
+		id="sysClusterGroupFuncTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterGroupFuncServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysClusterGroupFuncDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysClusterGroupFuncService"
+		parent="sysClusterBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysClusterGroupFuncTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysClusterStarter"
+		class="com.landray.kmss.sys.cluster.service.spring.SysClusterStarter">
+		<property
+			name="sysEmptyService">
+			<ref
+				bean="sysEmptyService" />
+		</property>
+		<property
+			name="sysClusterServerService">
+			<ref
+				local="sysClusterServerService" />
+		</property>
+		<property
+			name="sysClusterGroupService">
+			<ref
+				local="sysClusterGroupService" />
+		</property>
+	</bean>
+	
+	<bean id="groupConfigStorer"
+		class="com.landray.kmss.sys.cluster.group.GroupConfigStorerImp">
+	</bean>
+	
+	<!-- 线程池 MBEAN -->
+	<bean id="clusterThreadPoolMBean"
+		class="com.landray.kmss.sys.cluster.util.ThreadPoolMBean">
+	</bean>
+</beans>

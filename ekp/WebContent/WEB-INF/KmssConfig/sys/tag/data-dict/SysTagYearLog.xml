@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagYearLog"
+		messageKey=""
+		serviceBean="sysTagYearLogService"
+		table="sys_tag_year_log">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdTimes"
+			messageKey=""
+			type="Integer"
+			column="fd_times"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="fdTrend"
+			messageKey=""
+			type="Integer"
+			column="fd_trend"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdCountDate"
+			messageKey=""
+			type="DateTime"
+			column="fd_count_date"
+			notNull="false" />
+		<modelProperty
+			name="fdSysTagTags"
+			messageKey=""
+			type="com.landray.kmss.sys.tag.model.SysTagTags"
+			column="fd_tag_id"
+			notNull="false" />
+	</model>
+</models>

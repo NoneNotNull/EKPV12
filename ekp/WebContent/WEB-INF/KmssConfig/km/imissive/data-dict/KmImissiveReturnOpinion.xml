@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveReturnOpinion"
+		messageKey="km-imissive:table.kmImissiveReturnOpinion"
+		serviceBean="kmImissiveReturnOpinionService"
+		table="km_imissive_retrun_opinion">
+	<idProperty>
+	    <generator type="assigned"/>
+	</idProperty>
+	<simpleProperty
+		name="docContent"
+		messageKey="km-imissive:kmImissiveReturnOpinion.docContent"
+		type="String"
+		column="doc_content"
+		notNull="true"
+		length="1500"/>
+	<simpleProperty
+		name="docCreateTime"
+		messageKey="km-imissive:kmImissiveReturnOpinion.docCreateTime"
+		type="DateTime"
+		column="doc_create_time"
+		notNull="false"/>
+	<simpleProperty
+		name="fdImissiveId"
+		messageKey="km-imissive:kmImissiveReturnOpinion.fdImissiveId"
+		type="String"
+		column="fd_imissive_id"
+		notNull="false"/>
+	<simpleProperty
+		name="fdDetailId"
+		messageKey="km-imissive:kmImissiveReturnOpinion.fdDetailId"
+		type="String"
+		column="fd_detail_id"
+		notNull="false"/>
+	<modelProperty
+		name="docCreator"
+		messageKey="km-imissive:kmImissiveReturnOpinion.docCreator"
+		type="com.landray.kmss.sys.organization.model.SysOrgElement"
+		column="doc_create_id"
+		notNull="false"/>
+	</model>
+</models>

@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<!-- 统一搜索bean -->
+	<!-- ws stub 
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="indexApiImpl" class="com.landray.kmss.third.ftsearch.indexer.ws.stub.IndexerServiceWSAPIPortTypeImpl">
+		<property name="is" ref="indexerService"></property>
+	</bean>-->
+<!-- 	<jaxws:endpoint  -->
+<!-- 	  	id="indexApi"  -->
+<!-- 	  		implementor="#indexApiImpl"  -->
+<!-- 	  			address="/index" /> -->
+	  			
+	<!-- <bean id="searchApiImpl" class="com.landray.kmss.third.ftsearch.searcher.ws.stub.SearcherServiceWSAPIPortTypeImpl">
+		<property name="ss" ref="searcherService"></property>
+		<property name="ser" ref="searcherSerializer"></property>
+	</bean>
+	<jaxws:endpoint 
+	  	id="searchApi" 
+	  		implementor="#searchApiImpl" 
+	  			address="/search" /> -->
+	
+	<!-- 搜索返回对象序列化器 -->
+	<bean id="searcherSerializer" 
+			class="com.landray.kmss.third.ftsearch.serializer.xstream.SerializerXStreamImpl">  
+		<!-- <property name="typeAlias">
+        	<map>  
+            	<entry key ="indexschemas">
+                	<value>com.landray.kmss.third.ftsearch.schema.dao.xml.IndexSchmeaConfBean</value>
+                </entry>       
+                <entry key ="indexschema">
+                	<value>com.landray.kmss.third.ftsearch.schema.IndexSchema</value>
+                </entry>                     
+                <entry key ="field">
+                	<value>com.landray.kmss.third.ftsearch.schema.IndexField</value>
+                </entry>                   
+            </map>
+   		</property>   	
+   		<property name="imCols">
+        	<map>  
+            	<entry key ="indschs">
+                	<value>com.landray.kmss.third.ftsearch.schema.dao.xml.IndexSchmeaConfBean</value>
+                </entry>               
+            </map>
+   		</property>	 -->
+	</bean> 
+	
+	<!-- 搜索服务实现  -->
+	<bean id="searcherService" 
+			class="com.landray.kmss.third.ftsearch.searcher.impl.SearcherServiceImpl">  		 
+		<property name="_ss" ref="_SearchService"></property>	
+		<property name="is" ref="indexerService"></property>
+		<property name="facetService" ref="facetService"></property>
+		<property name="isDao" ref="indexSchemaDao"></property>
+		<property name="refType" value="multidoc"></property>	
+	</bean>
+	
+	<!-- _SearchService es实现  -->
+	<bean id="_SearchService"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl._SearchServiceESImpl">
+		<property name="repos" ref="omRepos"></property>
+		<property name="highlighter" ref="highlighter"></property>
+		<property name="queryMapper" ref="queryMapper"></property>
+		<property name="facetSchemaDao" ref="facetSchemaDao"></property>
+		<property name="sysFtsearchFacetService" ref="sysFtsearchFacetService"></property>
+		
+	</bean>
+	
+	<!-- IndexService es实现  -->
+	<!-- IndexerService实现 -->
+	<bean id="indexerService" 
+			class="com.landray.kmss.third.ftsearch.indexer.impl.IndexerServiceImpl">  		 
+		<property name="_is" ref="_indexService"></property>	
+		<property name="isDao" ref="indexSchemaDao"></property>	
+		<property name="cache" ref="indexSchemaCache"></property>
+	</bean>
+	
+	
+	<!-- 索引模式配置序列化器 -->
+	<bean id="indexSchemaSerializer"
+		class="com.landray.kmss.third.ftsearch.serializer.xstream.SerializerXStreamImpl">
+		<property name="typeAlias">
+			<map>
+				<entry key="indexschemas">
+					<value>com.landray.kmss.third.ftsearch.schema.dao.xml.IndexSchmeaConfBean
+					</value>
+				</entry>
+				<entry key="indexschema">
+					<value>com.landray.kmss.third.ftsearch.schema.IndexSchema</value>
+				</entry>
+				<entry key="field">
+					<value>com.landray.kmss.third.ftsearch.schema.IndexField</value>
+				</entry>
+			</map>
+		</property>
+		<property name="imCols">
+			<map>
+				<entry key="indschs">
+					<value>com.landray.kmss.third.ftsearch.schema.dao.xml.IndexSchmeaConfBean
+					</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- indexSchema Dao -->
+	<bean id="indexSchemaDao"
+		class="com.landray.kmss.third.ftsearch.schema.dao.xml.IndexSchemaDaoXMLImpl"
+		init-method="init">
+		<property name="ser" ref="indexSchemaSerializer"></property>
+		<property name="xmlConfPath" value="/WEB-INF/KmssConfig/third/ftsearch/indexschema.xml"></property>
+	</bean>
+	<!-- 
+	<bean id="esClientFacBean" 
+			class="com.landray.kmss.third.ftsearch.engine.esimpl.ESClientFactoryBean"> 
+		
+		<property name="clusterName">
+		 	<value>${kmss.onesearch.config.clusterName}</value>
+		</property>	 
+		<property name="hosts">
+	        <value>${kmss.onesearch.config.host}</value>
+	    </property>	
+		<property name="ports">
+	        <value>${kmss.onesearch.config.port}</value>
+	    </property>	 	
+	</bean>
+	 -->
+	<!-- <bean id="esClientFacBean"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.ESClientFactoryBean">
+		<property name="clusterName" value="szy-onesearch">
+		</property>	 
+		<property name="hosts">
+	      <list>
+	        <value>192.168.0.13</value>
+	      </list>
+	    </property>	
+		<property name="ports">
+	      <list>
+	        <value>9300</value>
+	      </list>
+	    </property>
+	</bean> -->
+	
+	<!-- _IndexService es实现  -->
+	<bean id="_indexService"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl._IndexServiceESImpl">
+		<property name="cache" ref="indexSchemaCache"></property>
+	</bean>
+	
+	<bean id="defaultPropertyGetter"
+		class="com.landray.kmss.third.ftsearch.indexer.support.DefaultPropertyGetterStrategyImpl">
+	</bean>
+
+	<bean id="collectionPropertyGetter"
+		class="com.landray.kmss.third.ftsearch.indexer.support.ListModelFullTextPropertyGetter">
+	</bean>
+	 <!-- 分类层次 -->
+<!-- 	<bean id="cateFacetPropertyGetter"  -->
+<!-- 			class="com.landray.eis.onesearch.support.CatePropertyGetterStrategyImpl">   -->
+<!-- 		<property name="delimiter" value="x"> </property>		  -->
+<!-- 		<property name="kmsMultidocTemplateService" ref="kmsMultidocTemplateService"></property> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="rootCateFacetPropertyGetter"  -->
+<!-- 			class="com.landray.eis.onesearch.support.RootCatePropertyGetterStrategyImpl">   -->
+<!-- 		<property name="delimiter" value="x"> </property>		  -->
+<!-- 		<property name="kmsMultidocTemplateService" ref="kmsMultidocTemplateService"></property> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="deptFacetPropertyGetter"  -->
+<!-- 			class="com.landray.eis.onesearch.support.DeptPropertyGetterStrategyImpl">   -->
+<!-- 		<property name="delimiter" value="x"> </property>		  -->
+<!-- 		<property name="sysOrgDeptService" ref="sysOrgDeptService"></property> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="rootDeptFacetPropertyGetter"  -->
+<!-- 			class="com.landray.eis.onesearch.support.RootDeptPropertyGetterStrategyImpl">   -->
+<!-- 		<property name="delimiter" value="x"> </property>		  -->
+<!-- 		<property name="sysOrgDeptService" ref="sysOrgDeptService"></property> -->
+<!-- 	</bean> -->
+	
+	<!-- 全文搜索属性getter策略mock实现 -->
+	<bean id="searchFullPropertyGetter"
+		class="com.landray.kmss.third.ftsearch.indexer.support.SearchFullPropertyGetterStrategyImpl">
+	</bean>
+
+
+	
+	<bean id="documentPropertyGetter" 
+			class="com.landray.kmss.third.ftsearch.indexer.support.DocumentPropertyGetterStrategyImpl">  		 
+	</bean>
+	
+	<!-- 扩展属性getter策略mock实现 -->
+	<bean id="extendPropertyGetterStrategy" 
+			class="com.landray.kmss.third.ftsearch.indexer.support.ExtendPropertyGetterStrategyImpl">	  		
+	</bean>	
+	
+	<bean id="categoryPathPropertyGetter" 
+			class="com.landray.kmss.third.ftsearch.indexer.support.CategoryPathPropertyGetter">	  		
+	</bean>	
+
+	
+	<!-- tag getter包装实现 -->
+	<bean id="tagFullTextPropertyGetter" 
+			class="com.landray.kmss.third.ftsearch.indexer.support.TagFullTextPropertyGetter">  		 
+	</bean>	
+	
+	<!-- 拼音联想词索引 -->
+	<bean id="pinyinLegendESIndex" 
+			class="com.landray.kmss.third.ftsearch.legend.PinYinLegendIndex">  	
+	</bean>	
+	
+	<!-- 拼音联想词查询 -->
+	<bean id="pinyinLegendESSearch" 
+			class="com.landray.kmss.third.ftsearch.legend.PinyinLegendSearch"> 
+	</bean>	
+	
+	<bean id="indexByES"
+		class="com.landray.kmss.third.ftsearch.indexer.impl.IndexByESImpl">
+		<property name="index" value="ekp" />
+		<property name="type" value="doc"/>
+		<property name="indexerService" ref="indexerService" />
+		<!-- <property name="indexerService" ref="wsIndexerService" /> -->
+		<property name="isDao" ref="indexSchemaDao" />	
+	</bean>
+
+	<!-- all -->
+	<bean id="searchByES"
+		class="com.landray.kmss.third.ftsearch.searcher.impl.SearchByESImpl">
+		<property name="index"><value>ekp</value></property>
+		<property name="type"><value>doc</value></property>
+		<property name="searcherService">
+			<ref local="searcherService" />
+		</property>
+		<property name="searcherService2">
+			<ref local="searcherService" />
+		</property>
+		<property name="facetAndFtService" ref="searcherService">
+		</property>
+		<property name="facetSchDao" ref="facetSchemaDao">
+		</property>
+		<!-- 搜索字段搜索策略 -->
+		<property name="searchFieldsOp">
+			<map>
+		   		<entry key="subject" value="eq" />
+		   		<entry key="title" value="eq" />
+		   		<entry key="content" value="eq" />
+		   		<entry key="creator" value="like" /> 
+		   		<entry key="creatorAnalyze" value="eq" />
+		   		<entry key="keyword" value="eq" /> 
+		   		<entry key="fullText" value="eq"/>
+		   		<entry key="fileName" value="eq" />
+		   		<entry key="ekpDigest" value="eq" />
+		   		<entry key="attachment" value="eq" />
+		   		<entry key="xmlcontent" value="eq" />
+		   		<entry key="addField1" value="eq" />
+		   		<entry key="addField2" value="eq" />
+		   		<entry key="addField3" value="eq" />
+		   		<entry key="addField4" value="eq" />
+		   		<entry key="addField5" value="eq" />
+		   		<entry key="addField6" value="eq" />
+		   		<entry key="addField7" value="eq" />
+		   		<entry key="propertyXml" value="eq" />
+		   	</map>
+		</property>
+		<!-- 过滤搜索字段搜索策略 -->
+		<property name="filterFieldsOp">
+			<map>
+		   		<entry key="category" value="prefix" />
+		   		<entry key="modelName" value="eq" />
+		   	</map>
+		</property>
+		
+		<!-- 高亮字段 -->
+		<property name="hlFields">
+			<list>
+		   		<value>subject</value>
+		   		<value>title</value>
+		   		<value>content</value>
+				<value>creator</value>
+				<value>ekpDigest</value>
+				<value>fullText</value>	
+				<value>xmlcontent</value>	
+				<value>keyword</value>
+				<value>fileName</value>
+				<value>addField1</value>
+				<value>addField2</value>
+				<value>addField3</value>
+				<value>addField4</value>
+				<value>addField5</value>
+				<value>addField6</value>
+				<value>addField7</value>
+		   	</list>
+		</property>
+		<!-- 结果字段 -->
+		<property name="resultFields">
+			<list>
+			   <value>docKey</value>
+				<value>subject</value>
+				<value>title</value>
+		   		<value>content</value>
+				<value>creator</value>
+				<value>createTime</value>
+				<value>linkStr</value>
+				<value>category</value>
+				<value>fileName</value>
+				<value>ekpDigest</value>
+				<value>mimeType</value>
+				<value>modelName</value>
+				<value>fullText</value>
+				<value>xmlcontent</value>	
+				<value>systemName</value>
+				<value>keyword</value>
+				<value>addField1</value>
+				<value>addField2</value>
+				<value>addField3</value>
+				<value>addField4</value>
+				<value>addField5</value>
+				<value>addField6</value>
+				<value>addField7</value>
+		   	</list>
+		</property>			
+		<property name="sortFields">
+			<list>
+				<value>_score_time</value>
+				<value>createTime</value>
+				<value>_score</value>
+		   	</list>
+		</property>				 
+		<!-- , + ! ( ) { } [ ] ^ " ~ * ? : \ & && -->
+		<property name="escapes">
+			<map>		   		
+		   		<entry key="\," value=" " />
+		   		<entry key="\+" value=" " />
+		   		<entry key="\-" value="\\-" />
+		   		<entry key="\!" value=" " />
+		   		<entry key="\(" value=" " />
+		   		<entry key="\)" value=" " />
+		   		<entry key="\[" value=" " />
+		   		<entry key="\]" value=" " />
+		   		<entry key="\{" value=" " />
+		   		<entry key="\}" value=" " />
+		   		<entry key="\^" value=" " />
+		   		<entry key="\&quot;" value=" " />
+		   		<entry key="\*" value=" " />
+		   		<entry key="\~" value=" " />
+		   		<entry key="\?" value=" " />
+		   		<entry key=":" value=" " />
+		   		<!-- <entry key="\&amp;" value=" " /> -->
+		   		<entry key="\||;" value=" " />
+		   		<entry key="\\" value=" " />
+		   		<entry key="\'" value=" " />
+		   	</map>
+		</property>
+		<!-- 返回字段最大长度 -->
+		<property name="lenghtLimit" value="300"> 		
+		</property>
+	</bean> 
+
+	<!-- searchByES 知识 -->
+	<bean id="searchByES_midea-index_kmdoc"
+		class="com.landray.kmss.third.ftsearch.searcher.impl.SearchByESImpl">
+		<property name="index" value="midea-index"></property>
+		<property name="type" value="kmdoc"></property>
+		<property name="searcherService">
+			<ref local="searcherService" />
+		</property>
+		<property name="searcherService2">
+			<ref local="searcherService" />
+		</property>
+						
+		<!-- 搜索字段搜索策略 -->
+		<property name="searchFieldsOp">
+			<map>
+		   		<entry key="subject" value="eq" />
+		   		<entry key="content" value="eq" />
+		   		<entry key="author" value="eq" />
+		   		<entry key="cate" value="eq" />
+		   	</map>
+		</property>
+		<!-- 过滤搜索字段搜索策略 
+		<property name="filterFieldsOp">
+			<map>
+		   		<entry key="path" value="prefix" />
+		   		<entry key="pathId" value="prefix" />
+		   		<entry key="dirId" value="eq" />
+		   	</map>
+		</property
+		-->
+		<!-- 高亮字段 -->
+		<property name="hlFields">
+			<list>
+				<value>subject</value>
+		   		<value>content</value>
+				<value>author</value>
+				
+		   	</list>
+		</property>
+		<!-- 结果字段 -->
+		<property name="resultFields">
+			<list>
+				<value>docId</value>
+				<value>subject</value>
+		   		<value>content</value>
+				<value>author</value>
+				<value>createTime</value>	
+				<value>url</value>	
+				<value>type</value>
+				<value>cate</value>
+				<value>readCount</value>
+				<value>score</value>
+		   	</list>
+		</property>			
+		<property name="sortFields">
+			<list>
+				<value>_score</value>
+				<value>createTime</value>			
+		   	</list>
+		</property>				 
+		<!-- , + ! ( ) { } [ ] ^ " ~ * ? : \ & && -->
+		<property name="escapes">
+			<map>		   		
+		   		<entry key="\," value=" " />
+		   		<entry key="\+" value=" " />
+		   		<entry key="\-" value="\\-" />
+		   		<entry key="\!" value=" " />
+		   		<entry key="\(" value=" " />
+		   		<entry key="\)" value=" " />
+		   		<entry key="\[" value=" " />
+		   		<entry key="\]" value=" " />
+		   		<entry key="\{" value=" " />
+		   		<entry key="\}" value=" " />
+		   		<entry key="\^" value=" " />
+		   		<entry key="\&quot;" value=" " />
+		   		<entry key="\*" value=" " />
+		   		<entry key="\~" value=" " />
+		   		<entry key="\?" value=" " />
+		   		<entry key=":" value=" " />
+		   		<entry key="\&amp;" value=" " />
+		   		<entry key="\||;" value=" " />
+		   		<entry key="\\" value="\\\\\\\\" />
+		   	</map>
+		</property>
+		<!-- 返回字段最大长度 -->
+		<property name="lenghtLimit" value="300"> 		
+		</property>
+	</bean> 
+	
+	<!-- 运算子映射实现库 -->
+	<!-- 组装映射器，按组装模板应该搜索表达式 -->
+	<bean id="ftAssembleMapper" 
+		    class="com.landray.kmss.third.ftsearch.mapping.support.AssembleMapper">
+		<property name="mappers">
+		    <map>
+			   <entry key="query" value-ref="queryMapper" />
+			   <entry key="filter" value-ref="filterMapper" />
+			</map>
+		</property>
+	</bean>
+	<!-- 搜索映射子 -->
+	<bean id="queryMapper"
+	        class="com.landray.kmss.third.ftsearch.engine.esimpl.QueryMapperESImpl">
+		<property name="repos2" ref="omRepos2"></property>
+	</bean> 
+	<!-- 过滤映射子 -->
+	<bean id="filterMapper"
+	        class="com.landray.kmss.third.ftsearch.engine.esimpl.FilterMapperESImpl">
+		<property name="repos" ref="omRepos"></property>
+	</bean> 
+	<bean id="omRepos"
+		class="com.landray.kmss.third.ftsearch.mapping.OperatorMappingRepository">
+		<property name="impls">
+			<list>
+				<ref bean="rangeMapping"></ref>
+				<ref bean="orMapping"></ref>
+				<ref bean="andMapping"></ref>
+				<ref bean="eqMapping"></ref>
+				<ref bean="dotMapping"></ref>
+				<ref bean="nopMapping"></ref>
+				<ref bean="notMapping"></ref>
+			</list>
+		</property>
+	</bean>
+
+	<!-- Range ES实现 -->
+	<bean id="rangeMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.RangeMappingESImpl">
+	</bean>
+
+	<!-- Or ES实现 -->
+	<bean id="orMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.OrMappingESImpl">
+	</bean>
+
+	<!-- And ES实现 -->
+	<bean id="andMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.AndMappingESImpl">
+	</bean>
+
+	<!-- Eq ES实现 -->
+	<bean id="eqMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.EqMappingESImpl">
+	</bean>
+
+	<!-- Nop 实现 -->
+	<bean id="nopMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.NopMappingESImpl">
+	</bean>
+
+	<!-- Dot 实现 -->
+	<bean id="dotMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.DotMappingESImpl">
+	</bean>
+	
+	<!-- Not 实现 -->
+	<bean id="notMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp.NotMappingESImpl">
+	</bean>
+
+	<!-- 映射策略2，充分利用es丰富的表达式，目前没有完整支持各种操作 -->
+	<bean id="omRepos2"
+		class="com.landray.kmss.third.ftsearch.mapping.OperatorMappingRepository">
+		<property name="impls">
+			<list>
+				<ref bean="rangeMapping"></ref>
+				<ref bean="orMapping2"></ref>
+				<ref bean="andMapping2"></ref>
+				<ref bean="notMapping2"></ref>
+				<ref bean="eqMapping"></ref>
+				<ref bean="dotMapping"></ref>
+				<ref bean="nopMapping2"></ref>
+				<ref bean="bracketMapping"></ref>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Or ES实现 -->
+	<bean id="orMapping2"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp2.OrMappingESImpl">
+	</bean>
+
+	<!-- And ES实现 -->
+	<bean id="andMapping2"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp2.AndMappingESImpl">
+	</bean>
+	
+	<!-- Not 实现 -->
+	<bean id="notMapping2"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp2.NotMappingESImpl">
+	</bean>
+	
+	<!-- bracket 实现 -->
+	<bean id="bracketMapping"
+		class="com.landray.kmss.third.ftsearch.engine.esimpl.exp2.BracketMappingESImpl">
+	</bean>
+	
+	<!-- Nop 实现 -->
+	<bean id="nopMapping2" 
+			class="com.landray.kmss.third.ftsearch.engine.esimpl.exp2.NopMappingESImpl">  		 
+	</bean>
+
+	<!-- cache beans -->
+	<!-- cache factory bean -->
+	<bean id="cacheProvider"
+		class="com.landray.kmss.third.ftsearch.cache.ehcache.EhCacheProvider"
+		init-method="start">
+		<property name="props">
+			<props>
+				<prop key="EHConfigPath">ehcache.xml</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- IndexSchema Cache -->
+	<bean id="indexSchemaCache" factory-bean="cacheProvider"
+		factory-method="buildCache">
+		<constructor-arg value="indexSchemaCache" />
+	</bean>
+	  
+	<!-- 庖丁分析器 -->
+	<bean id="analyzer" 
+			class="net.paoding.analysis.analyzer.PaodingAnalyzer">  		 
+		<property name="mode" value="1"></property>	
+	</bean>
+	 
+	 
+	<!-- highlighter lucene实现 -->
+	<bean id="highlighter" 
+			class="com.landray.kmss.third.ftsearch.highlighter.lucene.HighlighterLuceneImpl">  		 
+	</bean>
+	
+	<!-- *******facet*******  -->
+	<!-- 公用工具 -->
+	<!-- 日期项 
+	<bean id="dateItem"
+		class="com.landray.kmss.third.ftsearch.facet.domain.dateitem.support.DefaultDateItemStrategyImpl">
+		<property name="items">
+			<list>
+				<ref bean="dateItem_hour" />
+				<ref bean="dateItem_day" />
+				<ref bean="dateItem_month" />
+				<ref bean="dateItem_year" />
+				<ref bean="dateItem_before" />				
+			</list>
+		</property>
+	</bean>
+	-->
+	<!-- 日期项 -->
+	<bean id="dateItem"
+		class="com.landray.kmss.third.ftsearch.facet.domain.dateitem.support.CurrentDateItemStrategyImpl">
+		<property name="items">
+			<list>
+				<ref bean="dateItem_hour" />
+				<ref bean="dateItem_day" />
+				<ref bean="dateItem_month" />
+				<ref bean="dateItem_year" />
+				<ref bean="dateItem_before" />				
+			</list>
+		</property>
+	</bean>
+
+	<!-- 小时项 -->
+	<bean id="dateItem_hour" class="com.landray.kmss.third.ftsearch.core.KeyValue">
+		<property name="key" value="hour"></property>
+	</bean>
+
+	<!-- day项 -->
+	<bean id="dateItem_day" class="com.landray.kmss.third.ftsearch.core.KeyValue">
+		<property name="key" value="day"></property>
+	</bean>
+
+	<!-- month项 -->
+	<bean id="dateItem_month" class="com.landray.kmss.third.ftsearch.core.KeyValue">
+		<property name="key" value="month"></property>
+	</bean>
+
+	<!-- year项 -->
+	<bean id="dateItem_year" class="com.landray.kmss.third.ftsearch.core.KeyValue">
+		<property name="key" value="year"></property>
+	</bean>
+	
+	<!-- before项 -->
+	<bean id="dateItem_before" class="com.landray.kmss.third.ftsearch.core.KeyValue">
+		<property name="key" value="before"></property>
+	</bean>
+	
+	<!-- 分面搜索es实现 -->	
+	<bean id="_facetService" 
+			class="com.landray.kmss.third.ftsearch.facet.engine.esimpl._FacetServiceESImpl">  		 
+		<property name="mapper" ref="frMapper"></property>
+		<property name="ftMapper" ref="ftAssembleMapper"></property>
+		<property name="indSchDao" ref="indexSchemaDao"></property>
+		<property name="facetSchDao" ref="facetSchemaDao"></property>
+	</bean>
+	
+	<!-- 基于模式的分面请求构建器 -->
+	<bean id="schFacetRequestBuilder"
+			class="com.landray.kmss.third.ftsearch.facet.domain.builder.support.FacetSchemaFacetRequestBuilder">
+		<property name="facetSchDao" ref="facetSchemaDao"></property>
+	</bean>
+	
+	<!-- 分面映射es实现 -->	
+	<!-- 分面映射实现库 -->
+	<bean id="frMapper"
+		    class="com.landray.kmss.third.ftsearch.facet.engine.esimpl.mapper.FacetRequestMapperESImpl">
+		<property name="repos" ref="fmRepos"></property>
+	</bean>
+	<bean id="fmRepos" 
+			class="com.landray.kmss.third.ftsearch.mapping.facet.FacetMappingRepository"> 
+		<property name ="impls" >
+             <list>
+                 <ref bean="pathFacetMapping"></ref>   
+                 <ref bean="simpleFacetMapping"></ref>
+                 <ref bean="rangeFacetMapping"></ref>
+             </list>
+   		</property > 		 
+	</bean>
+		
+	<!-- path分面映射 -->
+	<bean id="pathFacetMapping" 
+			class="com.landray.kmss.third.ftsearch.facet.engine.esimpl.mapper.mapping.PathFacetMapping">  		 
+	</bean>
+
+	<!-- simple分面映射 -->
+	<bean id="simpleFacetMapping" 
+			class="com.landray.kmss.third.ftsearch.facet.engine.esimpl.mapper.mapping.SimpleFacetMapping">  		 
+	</bean>
+	
+	<!-- range分面映射 -->
+	<bean id="rangeFacetMapping" 
+			class="com.landray.kmss.third.ftsearch.facet.engine.esimpl.mapper.mapping.RangeFacetMapping">  
+		<property name="dateItem" ref="dateItem"></property>		 
+	</bean>
+
+	<!-- 分面搜索bean -->
+	<!-- facetSchema Dao -->
+	<bean id="facetSchemaDao" 
+			class="com.landray.kmss.third.ftsearch.facet.schema.dao.hibernate.FacetSchemaDaoHibernateImpl" init-method="init">  		 
+		<property name="sessionFactory">
+            <ref bean="sessionFactory" />                                    
+        </property>
+	</bean>
+	
+	<bean id="facetService" 
+			class="com.landray.kmss.third.ftsearch.facet.service.impl.FacetServiceImpl">  		 
+		<property name="_facetService" ref="_facetService"></property>
+	</bean>
+	
+	<bean id="frBuilder"
+			class="com.landray.kmss.third.ftsearch.facet.domain.builder.support.FacetSchemaFacetRequestBuilder" 
+			scope="prototype">
+		<property name="facetSchDao" ref="facetSchemaDao"></property>
+	</bean>
+	
+	<bean id="frBuilder2"
+			class="com.landray.kmss.third.ftsearch.facet.domain.builder.FacetRequestBuilder" 
+			scope="prototype">
+		<property name="facetSchDao" ref="facetSchemaDao"></property>
+	</bean>
+	
+	<!-- 分词词库管理 -->
+	<bean id="participleSynchService" 
+			class="com.landray.kmss.third.ftsearch.indexer.impl.ParticipleSynchServiceImpl"> 
+	</bean>	
+	<bean id="synonymSearchService" 
+			class="com.landray.kmss.third.ftsearch.indexer.impl.SynonymSearchSearviceImpl"> 
+	</bean>
+</beans>

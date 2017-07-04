@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-relation:relation.mechanism"
+		urlPrefix="/sys/relation/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYSRELATION_MANAGER;
+		</roles>
+		<request path="import/sysRelationMain_setting.jsp*" defaultValidator="roleValidator(role=SYSROLE_USER)"/>
+		<request path="import/static/*" defaultValidator="roleValidator(role=SYSROLE_USER)"/>
+		<request path="import/ftsearch/*" defaultValidator="roleValidator(role=SYSROLE_USER)"/>
+		<request path="import/condition/*" defaultValidator="roleValidator(role=SYSROLE_USER)"/>
+	</module>
+	<homePage
+		urlPrefix="sys/relation"
+		messageKey="sys-relation:title.sysRelationMain.manager"
+		config="/moduleindex_notopic.jsp?nav=/sys/relation/tree.jsp"
+		type="global" />
+	
+</configs>

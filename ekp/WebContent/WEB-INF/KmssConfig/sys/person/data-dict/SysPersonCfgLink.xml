@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonCfgLink"
+		messageKey="sys-person:sysPersonCfgLink"
+		displayProperty="fdName"
+		serviceBean="sysPersonCfgLinkService"
+		table="sys_person_cfg_link">
+		<idProperty>
+			<generator type="assigned"/>
+		</idProperty>
+		
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonCfgLink.name"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-person:sysPersonCfgLink.url"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="1000"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdLinkId"
+			messageKey="sys-person:sysPersonCfgLink.fdLinkId"
+			type="String"
+			column="fd_link_id"
+			notNull="false"
+			length="200" />
+			
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-person:sysPersonCfgLink.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="50" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonCfgLink.fdOrder"
+			type="String"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+			
+		<simpleProperty
+			name="fdTarget"
+			messageKey="sys-person:sysPersonCfgLink.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="20" />
+			
+	</model>
+</models>

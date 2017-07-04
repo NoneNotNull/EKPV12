@@ -1,0 +1,224 @@
+@CHARSET "UTF-8";
+/**CSS RESET**/
+ul,ol{
+	list-style: none;
+}
+/**日历视图CSS**/
+.meeting_calendar_state_highlight {
+	background: #ebf8fb;
+	border: 1px solid #DDD;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	opacity: .7;
+	filter: alpha(opacity=70);
+}
+
+.meeting_calendar_content,.meeting_calendar_header {
+	width: 100%;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	background-color: white;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th{
+	width:9%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+	position: relative;
+}
+.meeting_calendar_header .meeting_calendar_category_th .meeting_calendar_category_title{
+	padding-left: 21px;
+	padding-right: 20px;
+	cursor: pointer;
+	display: block;
+	background: url(../resource/images/meeting_icon_category.png) no-repeat 85% center;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th .category_dialog{
+	position: absolute;
+	background-color:white;
+	border: 3px solid #83c2eb;
+	padding: 16px 6px;
+	height: auto;
+	z-index: 10;
+	top: 42px;
+	display: none;
+}
+.meeting_calendar_header .on{
+	background-color:#83c2eb;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th .category_ckAll{
+	float:left;
+	padding: 9px 10px;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th ul{
+	margin-left: 75px;
+	border-left: 1px #aaa solid;
+	text-align: left;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th .category_dialog li{
+	display:inline-block;
+	height: 18px;
+	line-height: 18px;
+	margin: 9px 10px;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th .category_dialog .meeting_dialog_ck_all{
+	margin-right: 8px;
+}
+
+.meeting_calendar_header .meeting_calendar_category_th .category_dialog .meeting_dialog_ck{
+	margin-right: 8px;
+}
+
+.meeting_calendar_header .meeting_calendar_date_th,
+.meeting_calendar_content .meeting_calendar_date_th {
+	width: 13%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+}
+
+.meeting_calendar_content .meeting_calendar_date {
+	width: 13%;
+	height: 42px;
+	border: 1px solid #bdbec0;
+	vertical-align: top;
+	position: relative;
+}
+
+.meeting_calendar_content .meeting_calendar_name {
+	width: 9%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+}
+
+.meeting_calendar_content .meeting_calendar_data {
+	border-radius: 3px;
+	display: block;
+	border: 1px solid #01c9ad;
+	background: #ecfefe;
+	width: 100%;
+	cursor: default;
+	position: absolute;
+	color: white;
+}
+
+.meeting_calendar_content .meeting_calendar_data_inner {
+	border-radius: 3px;
+	margin: 1px;
+}
+
+.meeting_calendar_content .meeting_calendar_data_inner:HOVER {
+	cursor: pointer;
+}
+
+.meeting_calendar_label_unhold{
+	background:#51b749;
+	width:35px;
+	display: inline-block;
+	height: 16px;
+	vertical-align: middle;
+}
+
+.meeting_calendar_label_holding{
+	background:#5484ed;
+	width:35px;
+	display: inline-block;
+	height: 16px;
+	vertical-align: middle;
+}
+
+.meeting_calendar_label_hold{
+	background:#fbd75b;
+	width:30px;
+	display: inline-block;
+	height: 16px;
+	vertical-align: middle;
+}
+
+.meeting_calendar_label_text{
+	font-size: 14px;
+	vertical-align: middle;
+	margin: 0  8px;
+}
+
+.fc-event-container .fc-event{
+	border: 1px solid #01c9ad;
+	background: #ecfefe;
+	color: black;
+}
+
+/**弹出框通用样式**/
+.meeting_calendar_dialog{
+	z-index: 999;
+	background: #fff;
+	border: 1px solid #d7d8da;
+}
+
+.meeting_calendar_dialog_top {
+	height: 30px;
+	line-height: 30px;
+	background: #d2edff;
+}
+
+.meeting_calendar_dialog_top .meeting_calendar_dialog_title {
+	float: left;
+	color: #868686;
+	padding-left: 18px;
+}
+
+.meeting_calendar_dialog_top .meeting_calendar_dialog_close {
+	float: right;
+	background: url(../resource/images/calendar_dialog_close.png) no-repeat center
+		center;
+	padding-right: 18px;
+	width: 18px;
+	height: 34px;
+	cursor: pointer;
+}
+
+.meeting_calendar_dialog .meeting_calendar_dialog_content{
+	padding: 15px;
+}
+
+.meeting_calendar_dialog .meeting_calendar_dialog_content>div{
+	margin-bottom: 5px;
+}
+
+.meeting_calendar_dialog_buttom {
+	height: 35px;
+	line-height: 35px;
+	background: #f7f5f6;
+	border-top: 1px solid #DDDDDD;
+	text-align: center;
+}
+
+.meeting_calendar_dialog .title{
+	margin:0px 10px;
+	display: inline-block;
+	width: 60px;
+}
+
+/**日历编辑页面CSS**/
+#meeting_calendar_add {
+	max-width: 380px;
+	min-width: 320px;
+}
+
+/**日历查看页面CSS**/
+#meeting_calendar_mainview{
+	max-width: 380px;
+	min-width: 320px;
+}
+
+#meeting_calendar_bookview{
+	max-width: 380px;
+	min-width: 320px;
+}

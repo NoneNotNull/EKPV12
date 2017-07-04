@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcTaskManage"
+		messageKey="tib-jdbc:table.tibJdbcTaskManage"
+		displayProperty="fdId"
+		serviceBean="tibJdbcTaskManageService"
+		table="tib_jdbc_task_manage"
+		url="/tib/jdbc/tib_jdbc_task_manage/tibJdbcTaskManage.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJobService"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdJobService"
+			type="String"
+			column="fd_job_service"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJobMethod"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdJobMethod"
+			type="String"
+			column="fd_job_method"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParameter"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdParameter"
+			type="String"
+			column="fd_parameter"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsSysJob"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdIsSysJob"
+			type="Boolean"
+			column="fd_is_sys_job"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsEnabled"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdIsEnabled"
+			type="Boolean"
+			column="fd_is_enabled"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsRequired"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdIsRequired"
+			type="Boolean"
+			column="fd_is_required"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsTriggered"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdIsTriggered"
+			type="Boolean"
+			column="fd_is_triggered"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCronExpression"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdCronExpression"
+			type="String"
+			column="fd_cron_expression"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRunType"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdRunType"
+			type="Integer"
+			column="fd_run_type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRunTime"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdRunTime"
+			type="DateTime"
+			column="fd_run_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdQuartzEkp"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdQuartzEkp"
+			type="String"
+			column="fd_quartz_ekp"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdLink"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdLink"
+			type="String"
+			column="fd_link"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUseExplain"
+			messageKey="tib-jdbc:tibJdbcTaskManage.fdUseExplain"
+			type="String"
+			column="fd_use_explain"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="tib-jdbc:tibJdbcTaskManage.docCategory"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory"
+			column="doc_category"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="tibJdbcRelationList"
+			messageKey="tib-jdbc:tibJdbcTaskManage.tibJdbcRelationList"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcRelation"
+			column="tib_jdbc_task_manage"
+			cascade="all-delete-orphan" />
+
+	</model>
+</models>

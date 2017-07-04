@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	messageKey="tib-common-mapping:table.tibCommonMappingFunc"
+	serviceBean="tibCommonMappingFuncService"
+	table="tib_common_mapping_func"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdTemplateId"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdTemplateId"
+	type="String"
+	column="fd_template_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdInvokeType"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdInvokeType"
+	type="Integer"
+	column="fd_invoke_type"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdIntegrationType"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdIntegrationType"
+	type="String"
+	column="fd_integration_type"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdFuncMark"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdFuncMark"
+	type="String"
+	column="fd_func_mark"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdRfcParamXml"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdRfcParamXml"
+	type="RTF"
+	column="fd_rfc_param_xml"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="fdJspSegmen"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdJspSegmen"
+	type="RTF"
+	column="fd_jsp_segmen"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="formEventJspFilePath"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.formEventJspFilePath"
+	type="String"
+	column="form_event_jsp_file_path"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdUse"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdUse"
+	type="Boolean"
+	column="fd_use"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRefId"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdRefId"
+	type="String"
+	column="fd_ref_id"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRefName"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdRefName"
+	type="String"
+	column="fd_ref_name"
+	notNull="false"
+/>
+<modelProperty
+	name="fdMain"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdMain"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingMain"
+	column="fd_main_id"
+	notNull="false"
+/>
+<listProperty
+	name="fdExtend"
+	messageKey="tib-common-mapping:tibCommonMappingFunc.fdExtend"
+	column="fd_ref_id"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFuncExt"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+</model></models>

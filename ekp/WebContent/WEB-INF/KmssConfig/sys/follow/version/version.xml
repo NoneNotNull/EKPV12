@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 个人订阅配置中订阅名称表字段长度太短的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识订阅执行效率</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-17</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档更新后订阅消息没有更新缺陷</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-29</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 加入失败转向页面，防止转向空白页面</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 订阅通知没有发送待办，和加入邮件、短信通知方式</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-19</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 订阅标签无效问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-15</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 订阅规则实例会话过期，导致发送待阅失败问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-15</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 订阅功能初始代码</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.task.model.SysTaskEvaluate"
+		messageKey="sys-task:table.sysTaskEvaluate"
+		displayProperty="sysTaskMain.docSubject"
+		serviceBean="sysTaskEvaluateService"
+		table="sys_task_evaluate">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-task:sysTaskEvaluate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="docContent"
+			messageKey="sys-task:sysTaskEvaluate.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="true"
+			length="1000000" 
+			validate="true"/>
+		<modelProperty
+			name="sysTaskMain"
+			messageKey="sys-task:sysTaskEvaluate.fdTaskId"
+			type="com.landray.kmss.sys.task.model.SysTaskMain"
+			column="fd_task_id"
+			canDisplay="false"/>
+		<complexProperty
+			name="sysTaskMain.docSubject"
+			messageKey="sys-task:sysTaskFeedback.sysTaskMain.docSubject"
+			type="String"
+			notNull="false"
+			canDisplay="true"/>
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-task:sysTaskEvaluate.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<modelProperty
+			name="sysTaskApprove"
+			messageKey="sys-task:sysTaskEvaluate.fdApprove"
+			type="com.landray.kmss.sys.task.model.SysTaskApprove"
+			column="fd_approve_id"
+			notNull="false" />
+		<simpleProperty
+			name="clientType"
+			messageKey="sys-task:sysTaskFeedback.clientType"
+			type="Integer"
+			column="client_type"
+			notNull="false"
+			length="4"
+			validate="false"/>
+	</model>
+</models>

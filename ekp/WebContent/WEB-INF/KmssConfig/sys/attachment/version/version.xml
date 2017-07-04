@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 优化建立索引中查询dB的次数</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 当正文为空提交时只显示一次提示信息</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-20</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 当文档不需要正文时，不需要显示金格保存</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 如果正文附件未转html，则使用金格在线打开</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 aspose中的图片不允许图片另存为</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-14</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换</description>
+			<author>李显鹏</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>kms/kmtopic</relation-module>
+				<relation-module>kms/multidoc</relation-module>
+				<relation-module>kms/wiki</relation-module>
+				<relation-module>kms/knowledge</relation-module>
+				<relation-module>kms/common</relation-module>
+				<relation-module>kms/kmaps</relation-module>
+				<relation-module>kms/exam</relation-module>
+				<relation-module>kms/multimedia</relation-module>
+				<relation-module>km/calendar</relation-module>
+				<relation-module>dbcenter/report</relation-module>
+				<relation-module>third/wechat</relation-module>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 新UI附件，微信端安卓手机下载附件问题</description>
+			<author>邱建华</author>
+			<revision-time>2014-11-04</revision-time>
+			<relation>
+				<relation-module>sys/mobile</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片附件上传大小限制</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件上传后，点击向导式“下一步”将flash隐藏后再上传附件会出错</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌浏览器下关闭附件窗口，浏览器崩溃问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 rtf图片上传报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-18</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件转图片第一次打开报JS错误（例如公文发布后第一次阅读）</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动UED支持</description>
+			<author>李衡</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 flash在线阅读在IE8下失效的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 视频播放与在线预览权限泄漏的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 单图片上传有多余请求的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 重新编辑金格正文，转成的html或者图片显示旧内容问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 rtf图片上传大小限制</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-08-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 在线阅读和编辑附件时，按钮不显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 admin.do中金格控件使用说明</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 Weblogic里面图片缓存导致回话失效</description>
+			<author>李勇</author>
+			<revision-time>2014-07-28</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 RTF域上传图片压缩</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件支持visio在线编辑和阅读</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-28</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 如果勾选了“阅读状态下所有人不可下载”，则手写签批图片无法展示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批过程中强制保存留痕，显示/隐藏只供前端展示用</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 设置了部分编辑的附件在线编辑复发保存问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 v11版本强制启动金格控件，去除admin.do中是否启用配置，只提供版本和控件地址配置</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-28</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 转html功能由于linux目录不得超过3万的限制引起的问题</description>
+			<author>李衡</author>
+			<revision-time>2014-05-19</revision-time>
+			<relation>
+				<relation-module>sys/news</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件在线编辑提交后标题乱码</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-16</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 非IE下金格控件隐藏问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件数据初始化扩展后台报错问题</description>
+			<author>李斌斌</author>
+			<revision-time>2014-03-24</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据初始化执行顺序</description>
+			<author>李斌斌</author>
+			<revision-time>2014-03-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 RTF图片附件数据初始化时将上下文替换为实际路径</description>
+			<author>李斌斌</author>
+			<revision-time>2014-03-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 RTF及附件导入导出扩展实现</description>
+			<author>李斌斌</author>
+			<revision-time>2014-01-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 flash旧数据迁移</description>
+			<author>龚一涛</author>
+			<revision-time>2014-01-08</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 清理无用附件信息报错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-11-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件路径名称带空字符问题</description>
+			<author>吴肖蓬</author>
+			<revision-time>2013-10-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决集群环境下金格生成HTML导致新闻无法查看的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-09-30</revision-time>
+			<relation>
+				<relation-module>sys/news</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片下载的缓存设置</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-09-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑状态下附件右键菜单不再显示“打开”和“下载”菜单项</description>
+			<author>张乐志</author>
+			<revision-time>2013-09-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 文件名大写不能读取到mine类型</description>
+			<author>龚一涛</author>
+			<revision-time>2013-09-04</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 上传大的视频附件,下载后内存溢出，无法正常播放的问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-21</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 金格生成HTML只生成到附件目录，避免集群环境下HTML没更新的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-08-21</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 Office转换SWF服务取swf路径时使用相对路径</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑页面单图片上传，主文档没有提交，出现多份图片的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-24</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片上传无法预览的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-24</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 大金龙附件下载导致宕机（日志已由老孟分析）</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 清理保存期限后没有使用的附件文档信息</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-11</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 同一附件被两份主文档同时引用时，编辑其中一份文档会导致另外一份文档被同时编辑的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-11</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决不开启大附件功能时无法上传大附件的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-11</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文转图片html图片展示和扩展名展示</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-11</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 视频附件地址为空则使用附件地址</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 清理临时文件定时任务</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 删除文档、附件时删除视频信息</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-09</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文转图片兼容历史数据的问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-08</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>移除 图片阅读状态下正文的下载和打印按钮</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-08</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批过程中，先编辑其他附件导致在线正文失去焦点，提交js提示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-05</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决在人才中心中上传了图片，移动端查看个人详情，图片框是长方形的，导致图片和姓名有重叠</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-05</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文中部署了启用阅读加速模式，可以实现将word正文转换成图片在PC中阅读，移动端可支持看公文图片</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-02</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 多媒体库视频在线播放功能开发</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-01</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 大附件上传时的性能优化</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 pdf附件无法查看问题</description>
+			<author>李衡</author>
+			<revision-time>2013-06-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 公文套红插入正文方法；优化 金格在线编辑默认打开留痕；优化 正文转图片时不清除留痕</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-20</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 jg_pdfview.js中添加获取当前DNS路径方法</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-18</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 office附件拷贝在加密情况下出现乱码的问题</description>
+			<author>李衡</author>
+			<revision-time>2013-05-31</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动多媒体库图片预览高度显示不正常</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-05-23</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 view页面的图片附件不显示名称和大小信息</description>
+			<author>朱湖强</author>
+			<revision-time>2013-05-21</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 金格控件的多浏览器支持</description>
+			<author>李衡</author>
+			<revision-time>2013-05-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件克隆时出现事务问题</description>
+			<author>李衡</author>
+			<revision-time>2013-05-08</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件“全选”和“下载”折行问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-25</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 office文档中的图片不能显示的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-04-24</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件批量下载 修复 既有在线编辑又有附件上传时问题</description>
+			<author>李衡</author>
+			<revision-time>2013-04-23</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档提交报错，以及重复附件显示的问题</description>
+			<author>李衡</author>
+			<revision-time>2013-04-16</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 flash在线预览支持pdf的展示</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-26</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 office附件复制时引用同一个附件导致关联文档office附件也修改的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 was7下无法引用html导致无法阅读正文内容</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-03-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件附件缩略图展示功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多次编辑存有图片的word附件导致附件冗余的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-03-11</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 pda附件图片类型判断</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 启用金格控件编辑excel文件缺少暂存按钮的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-01-29</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 减少缓存对IE界面的影响</description>
+			<author>魏本源</author>
+			<revision-time>2013-01-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 金格控件升级为10.6.0.0</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-01-23</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 增加proportion字段，以使图片附件保存时可指定是否按比例压缩</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件只支持一人在线编辑</description>
+			<author>苏韶勇</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片下载的权限问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 清理附件信息时，把RTF图片信息也删除的情况</description>
+			<author>李衡</author>
+			<revision-time>2012-12-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 金格控件无法使用书签的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 admin.do里老版本的缩略图设置</description>
+			<author>徐武飞</author>
+			<revision-time>2012-10-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 金格控件将word文档转图片功能参数</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-10-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 大附件上传被屏蔽问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件重置阅读后缀名文件&amp;flash在线预览前后切面函数</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件缩略图功能</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-17</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文盖上签章并锁定后，下载公文报错的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-10-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 flash附件上传功能。</description>
+			<author>李衡</author>
+			<revision-time>2012-09-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件缩略图的设置功能</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 集成金格PDF控件并升级iWebOiffce控件为10,5,0,0版本</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-09-25</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 flash在线预览在关闭遮罩层后滚动事件报js错误的问题；移除 部分无用字段</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 缩略图功能</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 防止在线编辑word文档出现.do文件，导致移动端不能查看文件</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 删除附件报flash在线预览路径空指针错误；新增 附件类型判断</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-05</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 上传人Id，下载量字段，增加图片附件缩略图生成的配置</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 新增参数，对附件是否在当前页面打开进行判断</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 蓝凌控件的“书签管理”按钮控制</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-08-28</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 无用js代码，防止报js错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-27</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件菜单里面加入打印正文的菜单项</description>
+			<author>李勇</author>
+			<revision-time>2012-08-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 attachment.js移除jquery，防止插件被覆盖，flash阅读界面优化</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-13</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 attachment.js移动到附近机制里面，Flash阅读界面优化</description>
+			<author>李勇</author>
+			<revision-time>2012-08-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件在线flash预览</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-03</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 按照fdkey进行克隆附件的方法</description>
+			<author>易荣烽</author>
+			<revision-time>2012-08-02</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 升级金格控件为10.4.6.0</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-07-16</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 在全屏模式下阅读附件出现权限失效的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-07-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件下载权限控制根据移动组件配置进行；修复 附件下载报错问题</description>
+			<author>李衡</author>
+			<revision-time>2012-05-15</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 在类别中上传参考附件，用该类别新建文档时，参考附件重复显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-03</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 admin.do配置中新增金格控件配置外部地址功能，避免第一次启用和版本更新，客户端下载控件导致系统阻塞的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-04-20</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>移除 由于同步FTP服务器的定时任务已不使用，现移除该定时任务</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-27</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>将admin.do中附件相关配置移入模块内进行解耦</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正路径错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-03-06</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>升级附件控件，并将控件放入附件机制中</description>
+			<author>易荣烽</author>
+			<revision-time>2012-02-28</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复知识中心阅读页面打开附件出错</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-01-31</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改附件没有所属文档时，校验错误问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-29</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>移动组件正文附件名称显示调整</description>
+			<author>李衡</author>
+			<revision-time>2011-12-23</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>90UI问题:附件下载文件名含"+",附件类型图标显示问题</description>
+			<author>李衡</author>
+			<revision-time>2011-12-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改iphone中访问移动EKP，不能打开 xlsx，docx格式附件的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-12-13</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>添加排序号，使附件在编辑或浏览时的顺序按照上传时顺序进行排序</description>
+			<author>易荣烽</author>
+			<revision-time>2011-12-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正模板或分类没有office附件，新建主文档报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-25</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>自定义表单中，附件权限区域可编辑情况下，如果没有主文档编辑权限不显示编辑按钮</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-18</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>加上遗漏的messageKey</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修复克隆附件时因流未关而导致删除失败</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-10-21</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>ekp90UI改造</description>
+			<author>庄为亮</author>
+			<revision-time>2011-10-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复控件在https端口变更而不能上传</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复附件存储方式切换后导致复制出现错误问题。缺陷编号：20111010014</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-11</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复在金格模式下，流程中的附件丢失问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复wps不支持转html而导致的缺陷</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>lksframer.ocx控件升级为1,0,2,12，解决公文正文下载保护不给编辑的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-15</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决Bug：Office2007文件在线编辑后变成2003但文件名没有更新为doc</description>
+			<author>李勇</author>
+			<revision-time>2011-09-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>金格控件升级为10.3.2版本</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正附件数据库dao中getIsData未做文件数据库判别的bug,更改判别条件，避免旧数据兼容问题</description>
+			<author>李明辉</author>
+			<revision-time>2011-08-25</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改在vpn下查看不到附件的缺陷</description>
+			<author>赵义洪</author>
+			<revision-time>2011-08-25</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决公文收文正文附件乱码问题</description>
+			<author>李明辉</author>
+			<revision-time>2011-08-21</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正附件数据库dao中getIsData未做文件数据库判别的bug</description>
+			<author>李明辉</author>
+			<revision-time>2011-08-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>遗留bug解决，为附件增加全文检索拦截，解决编辑文档时更新附件或删除附件，旧附件索引无法删除问题，缺陷单号20110530007</description>
+			<author>周超</author>
+			<revision-time>2011-08-20</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>将Boolean isJGEnabled改为boolean isJGEnabled</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-08-19</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加文件上传后文件名有修改的刷新附件列表</description>
+			<author>limh</author>
+			<revision-time>2011-08-16</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决oracle下附件解密失败问题，缺陷编号：20110811006</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-08-12</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改附件存储方式切换后导致编辑报错，或者不能修改附件问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-08-12</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决WIN7，IE8,IE9下多附件下载导致浏览器崩溃问题，升级控件版本为1.0.2.10</description>
+			<author>陈鸿鹏</author>
+			<revision-time>2011-07-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>采用配置的方式，增加编辑或查看附件时选用金格或原有附件控件的功能</description>
+			<author>limh</author>
+			<revision-time>2011-07-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>pda附件显示页面修改</description>
+			<author>李衡</author>
+			<revision-time>2011-06-22</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>为附件增加全文检索拦截，解决删除文档时附件索引无法删除问题</description>
+			<author>周超</author>
+			<revision-time>2011-06-02</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>为附件增加全文检索拦截，解决编辑文档时更新附件或删除附件，旧附件索引无法删除问题</description>
+			<author>周超</author>
+			<revision-time>2011-06-02</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>xform在pda中附件显示支持</description>
+			<author>李衡</author>
+			<revision-time>2011-05-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>公文主文档在待审状态时默认显示留痕</description>
+			<author>张文添</author>
+			<revision-time>2011-04-27</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>附件下载权限从原来的只限于附件可下载者扩展到包括文档可编辑者也可下载，并且修复因校验链接错误带来的权限扩大的bug</description>
+			<author>张文添</author>
+			<revision-time>2011-04-13</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>附件存储db时,filepath不为空,导致读取问题,修复附件存储位置切换报错</description>
+			<author>李衡</author>
+			<revision-time>2011-04-19</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>word控件增加暂存功能</description>
+			<author>周超</author>
+			<revision-time>2011-03-31</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

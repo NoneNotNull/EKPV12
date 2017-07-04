@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-portal:module.sys.portal"
+		urlPrefix="/sys/portal/">
+		<roles>
+			ROLE_SYSPORTAL_PAGE_EDIT;
+			ROLE_SYSPORTAL_DATA_EDIT
+		</roles> 
+ 
+		<request path="page.jsp*"> 
+			<query queryString="pageId=*" validator="authFieldValidator(type=SYS_READER,recid=pageId,model=com.landray.kmss.sys.portal.model.SysPortalMainPage)" />
+			<!-- 
+			<query queryString="portalId=*" validator="authPortalValidator(type=SYS_READER,recid=portalId,model=com.landray.kmss.sys.portal.model.SysPortalMainPage)" />
+			 -->
+		</request>
+		
+		<!-- 门户配置 -->
+		<request
+			path="sys_portal_main/sysPortalMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalMain"> 
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPORTAL_PAGE_EDIT)" />	 
+		</request>
+		
+		<!-- 页面配置 -->
+		<request
+			path="sys_portal_page/sysPortalPage*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalPage">			
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPORTAL_PAGE_EDIT)" />	 
+		</request>
+ 
+		<!-- 自定义页面 -->
+		<request
+			path="sys_portal_html/sysPortalHtml*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalHtml">
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />	
+		</request>
+		
+		<!-- 多级树菜单  -->
+		<request
+			path="sys_portal_tree/sysPortalTree*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalTree">
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+		</request>
+		
+		<!-- 快捷方式/常用链接 -->
+		<request
+			path="sys_portal_link/sysPortalLink*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalLink">
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+		</request>
+		
+		<!-- 系统部件 -->
+		<request
+			path="sys_portal_portlet/sysPortalPortlet*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.portal.model.SysPortalPortlet">
+		</request>
+		
+		<!-- 门户过滤 -->
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalMain">					
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldInnerJoinFilter(field=authAllEditors.fdId)"/>
+		</filters>
+		
+		<!-- 页面阅读权限过滤（代码中使用） -->
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalMainPage">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<filter 
+				type="SYS_READER" 
+				expression="authFieldInnerJoinFilter(field=sysPortalPage.authAllReaders.fdId)"/>				
+		</filters>
+		
+		<!-- 页面过滤 -->
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalPage">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<filter 
+				type="SYS_READER" 
+				expression="authFieldInnerJoinFilter(field=authAllReaders.fdId)"/>		
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPORTAL_PAGE_EDIT)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldInnerJoinFilter(field=authAllEditors.fdId)"/>
+		</filters>
+		
+		<!-- 自定义页面过滤-->		
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalHtml">			
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldInnerJoinFilter(field=fdEditors.fdId)"/>
+		</filters>
+		
+		<!-- 多级树菜单过滤 -->		
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalTree">			
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldInnerJoinFilter(field=fdEditors.fdId)"/>
+		</filters>
+		
+		<!-- 快捷方式/常用链接过滤 -->
+		<filters modelName="com.landray.kmss.sys.portal.model.SysPortalLink">			
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPORTAL_DATA_EDIT)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldInnerJoinFilter(field=fdEditors.fdId)"/>
+		</filters>
+	</module>
+	<!-- 定时任务  -->
+	<quartz
+		messageKey="sys-portal:sysPortalPage.taskName"
+		jobService="sysPortalJspService"
+		cronExpression="0 0 4 1 * ?"
+		jobMethod="rebuildJspFile"
+		enable="true"
+		runType="SINGLENODE" />	
+	<homePage
+		urlPrefix="sys/portal"
+		url="/sys/portal/index.jsp"
+		messageKey="sys-portal:module.sys.portal"
+		config="/moduleindex_notopic.jsp?nav=/sys/portal/tree.jsp"
+		type="global" />
+
+</configs>

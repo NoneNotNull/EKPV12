@@ -1,0 +1,103 @@
+@charset "utf-8";
+*{
+	padding: 0;
+	margin: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.muiCalendarListView .mblEdgeToEdgeList .muiCalendarListItem {
+	padding-bottom: 0px;
+	bottom: 0px;
+}
+
+.muiCalendarListView .mblEdgeToEdgeList .muiListItem {
+	margin: 0;
+	padding-left: 0.8rem;
+	padding-right: 0.8rem;
+}
+
+li.muiCalendarListItem {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 2.8rem!important;
+	position: relative;
+}
+
+.muiCalendarListItem {
+	border-bottom: none;
+}
+
+.muiCalendarListItem .muiCalendarListContent {
+	border-left: 1px solid #2c79c7;
+	padding-left: 1.6rem;
+	margin-right:0.8rem;
+	position: relative;
+}
+
+.muiCalendarListItem .muiCalendarListContent .arrow_dot .mui {
+	font-size: 2.2rem;
+	margin-left: 1px;
+	line-height: 1;
+	background-color: #fff;
+	border-radius: 50%;
+}
+
+.muiCalendarListItem .arrow_dot {
+	width: 1.5rem;
+	display: block;
+	text-align: center;
+	z-index: 11;
+	position: absolute;
+	left: -1rem;
+	top: 1.7rem;
+	color: #2c79c7;
+}
+
+.muiCalendarListItem .date {
+	padding-top: 2.1rem;
+	font-size: 1.2rem;
+	margin-bottom: 5px;
+	color: #7e7e7e;
+}
+
+.muiCalendarListItem p.title{
+	padding-bottom:14px;
+	border-bottom:1px #e5e5e5 solid;
+}
+.muiCalendarListItem:last-child p.title{
+	border-bottom:0;
+}
+.muiCalendarListItem p.title a {
+	color: #0c0c0c;
+	display: inline-block;
+	font-size: 1.6rem;
+	margin: 0px 0 2px;
+	width: 97%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.muiCalendarLabel{
+	display: inline-block;
+	padding: 0px 5px;
+	color: #fff;
+	font-size: 1.2rem;
+	border-radius: 3px;
+	background: #cfcfcf;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	right: 5px;
+	top: 17px;
+}
+
+.muiCalendarDefaultLabel{
+	background-color: #f0ad4e;
+}
+
+/** 群组日历相关 **/
+

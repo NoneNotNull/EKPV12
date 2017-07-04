@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.relation.model.SysRelationMain"
+		messageKey="sys-relation:table.sysRelationMain"
+		serviceBean="sysRelationMainService"
+		table="sys_relation_main">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdOtherUrl"
+			messageKey="sys-relation:sysRelationMain.fdOtherUrl"
+			type="String"
+			column="fd_other_url"
+			notNull="false"
+			length="2000" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-relation:sysRelationMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-relation:sysRelationMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-relation:sysRelationMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-relation:sysRelationMain.fdParameter"
+			type="RTF"
+			column="fd_parameter"
+			notNull="false"
+			length="1000000" />
+		<listProperty
+			name="fdRelationEntries"
+			messageKey="sys-relation:sysRelationMain.fdRelationEntries"
+			column="fd_mainid"
+			orderBy="fd_index asc"
+			type="com.landray.kmss.sys.relation.model.SysRelationEntry"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

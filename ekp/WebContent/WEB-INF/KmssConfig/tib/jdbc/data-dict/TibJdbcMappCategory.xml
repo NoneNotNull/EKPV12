@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcMappCategory"
+		messageKey="tib-jdbc:table.tibJdbcMappCategory"
+		displayProperty="fdName"
+		serviceBean="tibJdbcMappCategoryService"
+		table="tib_jdbc_mapp_category"
+		url="/tib/jdbc/tib_jdbc_mapp_category/tibJdbcMappCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="tib-jdbc:tibJdbcMappCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="tib-jdbc:tibJdbcMappCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="true"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="tib-jdbc:tibJdbcMappCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="true"
+			length="40"
+			validate="false" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="tib-jdbc:tibJdbcMappCategory.fdParent"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcMappCategory"
+			column="fd_parent"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

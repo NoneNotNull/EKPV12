@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="orgSynchroNotifyTemplateEmptyForm"
+			type="com.landray.kmss.sys.oms.notify.forms.OrgSynchroNotifyTemplateEmptyForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/oms/orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty"
+			type="com.landray.kmss.sys.oms.notify.actions.OrgSynchroNotifyTemplateEmptyAction"
+			name="orgSynchroNotifyTemplateEmptyForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/oms/orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/oms/orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty_edit.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/oms/sys_oms_out"
+			type="com.landray.kmss.sys.oms.out.actions.OMSSynchroOutAction"
+			parameter="method"
+			unknown="false"
+			scope="request">
+		</action>
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.oms.notify.ApplicationResources"
+		key="sys-oms-notify" />
+</struts-config>

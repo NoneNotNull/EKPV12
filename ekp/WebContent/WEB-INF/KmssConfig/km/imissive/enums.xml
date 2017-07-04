@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+
+   <type name="kmImissiveTemplateCfg_type" default-value="SR">
+		<value-label>
+			<value>SR</value>
+			<label-key>kmImissiveTemplateCfg.type.SR</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>RS</value>
+			<label-key>kmImissiveTemplateCfg.type.RS</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>RR</value>
+			<label-key>kmImissiveTemplateCfg.type.RR</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+	</type>
+	<type name="kmImissiveSignTemplate_fdNeedContent" default-value="0">
+		<value-label>
+			<value>0</value>
+			<label-key>kmImissiveSignTemplate.fdNeedContent.no</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmImissiveSignTemplate.fdNeedContent.yes</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+	</type>
+		<type name="kmImissiveRedHeadTemplate_fdType" default-value="0">
+		<value-label>
+			<value>0</value>
+			<label-key>kmImissiveRedHeadTemplate.fdType.template</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmImissiveRedHeadTemplate.fdType.category</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+	</type>
+	<type name="kmImissiveReceiveTemplate_fdNeedContent" default-value="0">
+		<value-label>
+			<value>0</value>
+			<label-key>kmImissiveReceiveTemplate.fdNeedContent.no</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmImissiveReceiveTemplate.fdNeedContent.yes</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+	</type>
+    <type name="kmImissiveReg_status">
+        <value-label>
+			<value>0</value>
+			<label-key>status.noOpen</label-key>
+			<bundle>km-imissive</bundle>
+			<label>待查阅</label>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>status.waitSign</label-key>
+			<bundle>km-imissive</bundle>
+			<label>待签收</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>status.signed</label-key>
+			<bundle>km-imissive</bundle>
+			<label>已签收</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>status.return</label-key>
+			<bundle>km-imissive</bundle>
+			<label>已退回</label>
+		</value-label>
+	</type>
+	 <type name="missive_type" default-value="0">
+        <value-label>
+			<value>0</value>
+			<label-key>missiveType.unlimited</label-key>
+			<bundle>km-imissive</bundle>
+			<label>不限</label>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>missiveType.distribute</label-key>
+			<bundle>km-imissive</bundle>
+			<label>分发件</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>missiveType.report</label-key>
+			<bundle>km-imissive</bundle>
+			<label>上报件</label>
+		</value-label>
+	</type>
+   <type name="kmImissiveRegDetailList_type">
+        <value-label>
+			<value>1</value>
+			<label-key>kmImissiveRegDetailList.type.distribute</label-key>
+			<bundle>km-imissive</bundle>
+			<label>分发</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmImissiveRegDetailList.type.report</label-key>
+			<bundle>km-imissive</bundle>
+			<label>上报</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>kmImissiveRegDetailList.type.sign</label-key>
+			<bundle>km-imissive</bundle>
+			<label>会签</label>
+		</value-label>
+	</type>
+	<type name="kmImissiveRegDetailList_unittype">
+        <value-label>
+			<value>main</value>
+			<label-key>kmImissiveRegDetailList.unittype.main</label-key>
+			<bundle>km-imissive</bundle>
+			<label>主送</label>
+		</value-label>
+		<value-label>
+			<value>copy</value>
+			<label-key>kmImissiveRegDetailList.unittype.copy</label-key>
+			<bundle>km-imissive</bundle>
+			<label>抄送</label>
+		</value-label>
+		<value-label>
+			<value>report</value>
+			<label-key>kmImissiveRegDetailList.unittype.report</label-key>
+			<bundle>km-imissive</bundle>
+			<label>抄报</label>
+		</value-label>
+	</type>
+	 <type name="kmImissiveAttTrack_fileType">
+        <value-label>
+			<value>0</value>
+			<label-key>nodename.original</label-key>
+			<bundle>km-imissive</bundle>
+			<label>原始稿</label>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>nodename.revision</label-key>
+			<bundle>km-imissive</bundle>
+			<label>痕迹稿</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>nodename.clear</label-key>
+			<bundle>km-imissive</bundle>
+			<label>清稿</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>nodename.final</label-key>
+			<bundle>km-imissive</bundle>
+			<label>最终稿</label>
+		</value-label>
+	</type>
+    <type name="kmMissive_status">
+        <value-label>
+			<value>10</value>
+			<label-key>status.draft</label-key>
+			<label>草稿</label>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>status.examine</label-key>
+			<label>审批中</label>
+		</value-label>
+		<value-label>
+			<value>11</value>
+			<label-key>status.refuse</label-key>
+			<label>被驳回</label>
+		</value-label>
+		<value-label>
+			<value>00</value>
+			<label-key>status.discard</label-key>
+			<label>废弃</label>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>status.publish</label-key>
+			<label>已发布</label>
+		</value-label>
+	</type>
+	<type name="kmImissiveUnit.fdNature">
+		<value-label>
+			<value>1</value>
+			<label-key>kmImissiveUnit.fdNature.inner</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>kmImissiveUnit.fdNature.outer</label-key>
+			<bundle>km-imissive</bundle>
+		</value-label>
+	</type>
+	<type name="kmImissive_template_editorflag" default-value="true">
+		<value-label>
+			<value>false</value>
+			<label-key>kmImissiveSendTemplate.rtf</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>true</value>
+			<label-key>kmImissiveSendTemplate.word</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+	</type>
+	<type name="kmImissive_receive_status">
+		<value-label>
+			<value>00</value>
+			<label-key>kmMissive.tree.receiveStatus.return</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>10</value>
+			<label-key>kmMissive.tree.receiveStatus.saitSign</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>kmMissive.tree.receiveStatus.signed</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>kmMissive.tree.receiveStatus.deal</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+		<value-label>
+			<value>40</value>
+			<label-key>kmMissive.tree.receiveStatus.finish</label-key>
+			<bundle>km-imissive</bundle>
+			<label />
+		</value-label>
+	</type>
+	<type name="kmMissive_template_fdIsReportTo" default-value="false">
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+</column-enums>
+

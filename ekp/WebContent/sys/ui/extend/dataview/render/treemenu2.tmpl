@@ -1,0 +1,81 @@
+var target = render.vars.target?render.vars.target:'_blank';
+var extend = param.extend==null?"":"_"+param.extend;
+var parent = render.parent;
+var width = parent.element.width();
+
+//绘制标题
+	var drawTitle = function(prefix, oneData ,flag){
+{$		<div class="lui_dataview_{%prefix%}_l">
+			<div class="lui_dataview_{%prefix%}_r">
+				<div class="lui_dataview_{%prefix%}_c $} if(flag){ {$lui_dataview_{%prefix%}_first $} } {$">
+$}
+					drawHref(oneData);
+{$				</div>
+			</div>
+		</div>
+$}
+	}
+
+//绘制HREF
+	var drawHref = function(oneData){
+		var text = env.fn.formatText(oneData.text);
+		if(oneData.href!=null){
+{$		<a {% (($.trim(oneData.selected + '') != '' && $.trim(''+oneData.selected)=='true' ) ?  'class="selected"' : '') %} title="{% text %}" href="{% env.fn.formatUrl(oneData.href) %}" target="{% ($.trim(oneData.target) != '' ? oneData.target : target) %}">
+			{% text %}
+		</a>
+$}
+		}else{
+{$		<span title="{% text %}">
+			{% text %}
+		</span>
+$}
+		}
+	}
+
+//绘制内容
+{$	<div class="lui_dataview_treemenu2{%extend%}">
+$}
+	for(var i=0; i<data.length; i++){
+		var lv1 = data[i];
+		if(i < 1){
+			{$<div class="lui_dataview_treemenu2{%extend%}_lv1_all">$}
+		}
+		
+		var hasChildren = lv1.children ? true : false;
+		if(i >= 1){
+			var __hasChildren = data[i-1].children ? true : false;
+			if((__hasChildren && data[i-1].children.length > 0) || (hasChildren && lv1.children.length > 0)){
+				{$<div class="lui_dataview_treemenu2{%extend%}_lv1_all">$}					
+			}
+		}
+		
+		if(!hasChildren || lv1.children.length==0){
+			drawTitle("treemenu2"+extend+"_lv1", lv1);	
+		}
+		if(hasChildren && lv1.children.length > 0){
+			drawTitle("treemenu2"+extend+"_lv1", lv1, true);
+{$			<ul class="lui_dataview_treemenu2{%extend%}_lv2_all"$} if(width > 0){ {$ style='width:{% width-120 %}px' $} } {$>
+$}
+			for(var j=0; j<lv1.children.length; j++){
+				var lv2 = lv1.children[j];
+{$				<li>
+$}
+				drawHref(lv2);
+{$				</li>
+$}
+			}
+{$			</ul>
+$}
+		}
+		
+		if (hasChildren && data[i].children.length > 0){
+			{$</div>$}
+		} else if (i+1 < data.length){
+			if(hasChildren && data[i+1].children.length > 0)
+				{$</div>$}
+		} else if (i == data.length-1){
+			{$</div>$}
+		}
+	}
+{$	</div>
+$}

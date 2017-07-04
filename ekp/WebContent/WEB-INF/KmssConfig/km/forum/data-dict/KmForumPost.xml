@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.forum.model.KmForumPost"
+		messageKey="km-forum:home.nav.kmForum"
+		displayProperty="docSubject"
+		url="/km/forum/km_forum/kmForumPost.do?method=view&amp;fdForumId=${kmForumTopic.kmForumCategory.fdId}&amp;fdTopicId=${kmForumTopic.fdId}&amp;fdId=${fdId}"
+		serviceBean="kmForumPostService"
+		table="km_forum_post">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!--高级搜索 canSearch 属性添加  modify by zhouchao-->
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-forum:kmForumPost.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			unique="false"
+			length="200"
+			canSearch="true"
+			validate="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-forum:kmForumPost.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			unique="false"
+			canSearch="true" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-forum:kmForumPost.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false"
+			canSearch="true" />
+		<simpleProperty
+			name="fdIsOnlyView"
+			messageKey="km-forum:kmForumPost.fdIsOnlyView"
+			type="Boolean"
+			column="fd_is_onlyview"
+			notNull="false"
+			unique="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsAnonymous"
+			messageKey="km-forum:kmForumPost.fdIsAnonymous"
+			type="Boolean"
+			column="fd_is_anonymous"
+			notNull="false"
+			unique="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsParentDelete"
+			messageKey="km-forum:kmForumPost.fdIsParentDelete"
+			type="Boolean"
+			column="fd_is_parent_delete"
+			notNull="false"
+			unique="false"
+			length="1" />
+		<simpleProperty
+			name="docContent"
+			messageKey="km-forum:kmForumPost.docContent"
+			type="RTF"
+			column="doc_content"
+			length="1000000"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdFloor"
+			messageKey="km-forum:kmForumPost.fdFloor"
+			type="Integer"
+			column="fd_floor"
+			notNull="false"
+			unique="false"
+			length="10" />
+		<simpleProperty
+			name="fdSupportCount"
+			messageKey="km-forum:kmForumPost.fdSupportCountr"
+			type="Integer"
+			column="fd_support_count"
+			notNull="false"
+			unique="false"
+			length="10" />
+		<simpleProperty
+			name="fdNote"
+			messageKey="km-forum:kmForumPost.fdNote"
+			type="String"
+			column="fd_note"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1500" />
+		<simpleProperty
+			name="fdQuoteMsg"
+			messageKey="km-forum:kmForumPost.fdQuoteMsg"
+			type="String"
+			column="fd_quote_msg"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="200" />
+		<modelProperty
+			name="kmForumTopic"
+			messageKey="km-forum:kmForumPost.kmForumTopic"
+			type="com.landray.kmss.km.forum.model.KmForumTopic"
+			column="fd_topic_id"
+			notNull="false"
+			canDisplay="false"
+			unique="false" />
+		<modelProperty
+			name="fdPoster"
+			messageKey="km-forum:kmForumPost.fdPosterId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_poster_id"
+			notNull="false"
+			unique="false" />
+		<modelProperty
+			name="fdAlteror"
+			messageKey="km-forum:kmForumCategory.docAlterId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_alteror_id"
+			notNull="false"
+			unique="false" />
+		<modelProperty
+			name="fdParent"
+			messageKey="km-forum:kmForumCategory.fdParent"
+			type="com.landray.kmss.km.forum.model.KmForumPost"
+			column="fd_parent_id"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

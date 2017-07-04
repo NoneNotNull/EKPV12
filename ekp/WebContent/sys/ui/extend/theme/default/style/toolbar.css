@@ -1,0 +1,360 @@
+@charset "utf-8";
+/*///////////////////////////////////////////////*/
+/*************通用按钮样式***************/
+.lui_widget_btn{
+	cursor: pointer;
+}
+.lui_widget_btn_disabled,
+.lui_widget_btn_disabled .lui_widget_btn{
+	cursor: default;
+}
+.lui_widget_btn .lui_icon_s{
+	background-position:center center;
+	display: inline-block !important;
+	vertical-align:top;
+}
+.lui_widget_btn .lui_widget_btn_txt{
+	display: inline-block !important;
+	white-space:nowrap;
+	vertical-align: top;
+}
+.lui_widget_btn .lui_widget_btn_icon{
+	padding:3px;
+	display: inline-block;
+}
+/*******************button默认样式******************************/
+.lui_toolbar_btn_def{
+	display: inline-block;
+}
+.lui_toolbar_btn_def .lui_widget_btn_icon{
+	padding:3px;
+}
+.lui_toolbar_btn_def .lui_widget_btn{
+	padding:6px 4px;
+}
+.lui_toolbar_btn_def .lui_toolbar_btn_l{
+	FONT-SIZE: 14px;
+	height:25px;
+	LINE-HEIGHT: 25px; 
+	COLOR: #fff; 
+	TEXT-ALIGN: center; 
+	DISPLAY: block;
+	border:1px solid #35a1d0;
+	BACKGROUND-COLOR: #47b5e6;
+}
+.lui_toolbar_btn_def.lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+
+.lui_toolbar_btn_def.lui_icon_on .lui_toolbar_btn_l{
+	BACKGROUND-COLOR: #2f9adb;
+}
+
+.lui_toolbar_btn_def .lui_widget_btn_txt{
+ 	padding:0px 10px;
+}
+
+.lui_toolbar_btn_def.lui_toolbar_btn_cancel .lui_toolbar_btn_l{
+	border:1px solid #30ade3;
+	BACKGROUND-COLOR: #ffffff;
+	COLOR: #30abe4; 
+	font-weight:normal;
+}
+/********************灰色按钮***************************/
+.lui_toolbar_btn_gray{
+	display: inline-block;
+}
+.lui_toolbar_btn_gray .lui_widget_btn_icon{
+	padding:3px;
+}
+.lui_toolbar_btn_gray .lui_widget_btn{
+	padding:6px 4px;
+}
+.lui_toolbar_btn_gray .lui_toolbar_btn_l{
+	FONT-SIZE: 14px;
+	font-weight:bold;
+	height:25px;
+	LINE-HEIGHT: 25px; 
+	COLOR: #47b5e6; 
+	TEXT-ALIGN: center; 
+	DISPLAY: block;
+	BORDER:1px #bbbbbb solid;
+	BACKGROUND-COLOR: #fafafa;
+}
+.lui_toolbar_btn_gray.lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+.lui_toolbar_btn_gray.lui_icon_on .lui_toolbar_btn_l{
+	COLOR: #2f9adb;
+}
+.lui_toolbar_btn_gray .lui_widget_btn_txt{
+ 	padding:0px 10px;
+}
+/*************toolbar 横向工具栏***************/
+.lui_toolbar_frame .lui_widget_btn{
+	padding:6px 4px;
+}
+.lui_toolbar_frame .lui_toolbar_btn_l{
+	BORDER:1px #bbbbbb solid;
+	HEIGHT: 22px; 
+	LINE-HEIGHT: 22px;
+	BACKGROUND-COLOR: #fff;
+}
+.lui_toolbar_frame .lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+.lui_toolbar_frame .lui_toolbar_btn .lui_widget_btn_txt{
+	padding:0px 10px;
+	COLOR: #666;
+}
+.lui_toolbar_frame .lui_toolbar_btn_on .lui_toolbar_btn_l,
+.lui_toolbar_frame .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l{
+	BORDER:1px #30ade3 solid;
+	COLOR: #30abe4; 
+	background-color:#fff;
+}
+.lui_toolbar_frame .lui_toolbar_btn_on .lui_toolbar_btn_l .lui_widget_btn_txt,
+.lui_toolbar_frame .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l .lui_widget_btn_txt{ color:#30abe4;}
+.lui_toolbar_frame .lui_widget_btn_swh,
+.lui_toolbar_popup{
+	BACKGROUND: #FFFFFF;
+}
+
+/*************toolbar 纵向工具栏***************/
+.lui_toolbar_frame_ver .lui_widget_btn{
+	padding:4px 10px;
+	display: block;
+}
+.lui_toolbar_frame_ver .lui_widget_btn .lui_widget_btn{
+	
+}
+.lui_toolbar_frame_ver .lui_toolbar_btn_l{
+	BORDER:1px #bbbbbb solid;
+	HEIGHT: 22px; 
+	LINE-HEIGHT: 22px;
+	overflow: hidden;
+	BACKGROUND-COLOR: #fff;
+}
+.lui_toolbar_frame_ver .lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+.lui_toolbar_frame_ver .lui_toolbar_btn .lui_widget_btn_txt{
+	padding:0px 10px;
+	COLOR: #666;
+}
+.lui_toolbar_frame_ver .lui_toolbar_btn_on .lui_toolbar_btn_l,
+.lui_toolbar_frame_ver .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l{
+	BORDER:1px solid #30ade3;
+	COLOR: #30abe4; 
+}
+.lui_toolbar_frame_ver .lui_toolbar_btn_on .lui_toolbar_btn_l .lui_widget_btn_txt,
+.lui_toolbar_frame_ver .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l .lui_widget_btn_txt{
+	COLOR: #30abe4; 
+}
+.lui_toolbar_frame_ver .lui_widget_btn_ver_swh,
+.lui_toolbar_popup_ver{
+	background-color: #FFFFFF;
+}
+/*************toolbar 文档悬浮工具栏***************/
+.lui_toolbar_frame_float{
+	HEIGHT: 42px; 
+	BACKGROUND: url(../images/toolbar/top_bar_bg.png) repeat-x; 
+	BORDER-BOTTOM: #ececec 1px solid; 
+	POSITION: fixed;  
+	Z-INDEX: 5; 
+	LEFT: 0px;
+	TOP: 0px; 
+	WIDTH: 100%;
+}
+.lui_toolbar_frame_float_mark {
+	HEIGHT: 42px; 
+	POSITION: fixed;  
+	Z-INDEX: 4; 
+	LEFT: 0px;
+	TOP: 0px; 
+	WIDTH: 100%;
+}
+.lui_toolbar_frame_float .lui_widget_btn{
+	padding:6px 4px;
+}
+
+.lui_toolbar_frame_float .lui_toolbar_btn_l{
+	FONT-SIZE: 14px;
+	height:25px;
+	LINE-HEIGHT: 25px; 
+	COLOR: #fff; 
+	TEXT-ALIGN: center; 
+	DISPLAY: block;
+	border:1px solid #35a1d0;
+	BACKGROUND-COLOR: #47b5e6;
+}
+.lui_toolbar_frame_float .lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+.lui_toolbar_frame_float .lui_toolbar_btn .lui_widget_btn_txt{
+	padding:0px 10px; min-width:50px;
+}
+
+.lui_toolbar_frame_float .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l,
+.lui_toolbar_frame_float .lui_toolbar_btn_on .lui_toolbar_btn_l{
+	BACKGROUND-COLOR: #2f9adb;
+}
+
+.lui_toolbar_frame_float .lui_toolbar_content{
+	width:90%; margin:0px auto; position:relative
+}
+.lui_toolbar_frame_float .lui_toolbar_content>table{ position:absolute;  top:0px; right:0px;}
+.lui_toolbar_frame_float .lui_widget_btn_float_swh,
+.lui_toolbar_popup_float{
+	BACKGROUND: #FFFFFF;
+}
+
+/*************toolbar 悬浮竖向展示***************/
+.lui_toolbar_frame_ver_float .lui_widget_btn{
+	padding:4px 10px;
+}
+.lui_toolbar_frame_ver_float .lui_toolbar_btn_l{
+	FONT-SIZE: 14px;
+	height:25px;
+	LINE-HEIGHT: 25px; 
+	COLOR: #fff; 
+	TEXT-ALIGN: center; 
+	DISPLAY: block;
+	border:1px solid #35a1d0;
+	BACKGROUND-COLOR: #47b5e6;
+}
+.lui_toolbar_frame_ver_float .lui_widget_btn_disabled .lui_toolbar_btn_l{
+	border:1px solid #ccc;
+	BACKGROUND-COLOR: #ccc;
+}
+.lui_toolbar_frame_ver_float .lui_toolbar_btn .lui_widget_btn_txt{
+	padding:0px 10px; min-width:50px;
+}
+.lui_toolbar_frame_ver_float .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l,
+.lui_toolbar_frame_ver_float .lui_toolbar_btn_on .lui_toolbar_btn_l{
+	BACKGROUND-COLOR: #2f9adb;
+}
+.lui_toolbar_frame_ver_float .lui_widget_btn_ver_swh{
+	BACKGROUND: #FFFFFF;
+}
+
+/*************toolbar 列表排序展示***************/
+.lui_toolbar_frame_sort .lui_widget_btn{
+	padding:6px 0px;
+}
+.lui_toolbar_frame_sort .lui_toolbar_btn_l{
+	HEIGHT: 22px; 
+	LINE-HEIGHT: 22px;
+	overflow: hidden;
+	BACKGROUND-COLOR: inherit;
+}
+.lui_toolbar_frame_sort .lui_widget_btn_txt{
+ 	padding:0px 0px 0px 5px;
+}
+.lui_toolbar_frame_sort .lui_widget_btn .lui_icon_o{
+	padding: 3px 0px;
+	height: 16px;
+	float: right;
+}
+.lui_toolbar_frame_sort .lui_icon_s{
+	float: right;
+}
+.lui_toolbar_frame_sort .lui_widget_btn_swh,
+.lui_toolbar_popup_sort{
+	BACKGROUND: #FFFFFF;
+}
+/**********************toolbar 列表排序纵向展示*******************************/
+.lui_toolbar_frame_ver_sort .lui_widget_btn{
+	padding:4px 6px;
+}
+.lui_toolbar_frame_ver_sort .lui_toolbar_btn_l{
+	HEIGHT: 22px; 
+	LINE-HEIGHT: 22px;
+	COLOR: #909090; 
+	BACKGROUND-COLOR: inherit;
+}
+.lui_toolbar_frame_ver_sort .lui_widget_btn_txt{
+ 	padding:0px 0px 0px 10px;
+}
+.lui_toolbar_frame_ver_sort .lui_widget_btn .lui_icon_o{
+	padding: 3px;
+	height: 16px;
+	float: right;
+}
+.lui_toolbar_frame_ver_sort .lui_icon_s{
+	float: right;
+}
+.lui_toolbar_frame_ver_sort .lui_widget_btn_swh,
+.lui_toolbar_frame_ver_sort{
+	BACKGROUND: #FFFFFF;
+}
+
+/*togglegroup 下拉展示*/
+.lui_toolbar_toggleGroup_btn > .lui_widget_btn{
+	padding: 0px 4px;
+	margin: 0px;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn{
+	overflow: hidden;
+	vertical-align: middle;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_widget_btn{
+	background-color:#ffffff;
+	padding:0 16px 0 0;
+	BORDER:1px #bbbbbb solid;
+}
+
+.lui_toolbar_btn_def.lui_toolbar_btn_frame_togglegroup .lui_widget_btn{
+	background-color:#35a1d0;
+}
+
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn .lui_widget_btn_txt{
+	padding:0 0 0 10px;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn .lui_widget_btn_icon{
+	padding:0px 3px;
+	vertical-align: middle;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn .lui_widget_btn_icon>div{
+	margin: 2px 0px;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_on .lui_toolbar_btn_l,
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l{
+	border: none;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_l{
+	BORDER:none;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_on .lui_toolbar_btn_l{
+	BORDER:none;
+}
+
+.lui_toolbar_togglegroup_tab{
+	margin: 0px auto;
+	position: relative;
+}
+
+.lui_toolbar_togglegroup_tab .lui_toolbar_btn_selectTitle{
+	position: relative;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn{ margin-top:-1px;}
+
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_selectBox{
+	z-index:50;
+}
+
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_togglegroup_tab .lui_widget_btn{
+	display: block;
+}
+
+.lui_toolbar_btn_frame_togglegroup .lui_toolbar_btn_selectTitle .lui_widget_btn{
+	background: url("../images/toolbar/button_select.png") center right no-repeat;
+}
+.lui_toolbar_btn_frame_togglegroup .lui_widget_btn .lui_widget_btn_icon{
+	margin-right: -10px;
+}

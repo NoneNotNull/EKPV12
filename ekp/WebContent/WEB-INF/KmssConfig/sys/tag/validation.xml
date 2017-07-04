@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+	<formset>
+		<form
+			name="sysTagCategoryForm">
+			<field
+				property="fdName"
+				depends="maxlength,required">
+				<arg
+					key="sysTagCategory.fdName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdManagerId"
+				depends="required">
+				<arg
+					key="sysTagCategory.fdManagerId"
+					bundle="sys-tag"
+					position="0" />
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="sysTagCategory.fdOrder"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysTagTagsForm">
+			<field
+				property="fdName"
+				depends="maxlength,required">
+				<arg
+					key="sysTagTags.fdName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysTagCommentForm">
+			<field
+				property="fdRemark"
+				depends="required">
+				<arg
+					key="sysTagComment.fdRemark"
+					bundle="sys-tag"
+					position="0" />
+			</field>
+		</form>
+		<form
+			name="sysTagMainForm">
+			<field
+				property="fdModelName"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.fdModelName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdModelId"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.fdModelId"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>36</var-value>
+				</var>
+			</field>
+
+			<field
+				property="docSubject"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.docSubject"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdKey"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.fdKey"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdTagName"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.fdTagName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="docStatus"
+				depends="maxlength">
+				<arg
+					key="sysTagMain.docStatus"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>2</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysTagApplicationLogForm">
+			<field
+				property="fdModelName"
+				depends="maxlength">
+				<arg
+					key="sysTagApplicationLog.fdModelName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdModelId"
+				depends="maxlength">
+				<arg
+					key="sysTagApplicationLog.fdModelId"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>36</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdTagName"
+				depends="maxlength">
+				<arg
+					key="sysTagApplicationLog.fdTagName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdValue"
+				depends="maxlength">
+				<arg
+					key="sysTagApplicationLog.fdValue"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="docStatus"
+				depends="maxlength">
+				<arg
+					key="sysTagApplicationLog.docStatus"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>2</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysTagTempletForm">
+			<field
+				property="fdModelName"
+				depends="maxlength">
+				<arg
+					key="sysTagTemplet.fdModelName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdModelId"
+				depends="maxlength">
+				<arg
+					key="sysTagTemplet.fdModelId"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>36</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdKey"
+				depends="maxlength">
+				<arg
+					key="sysTagTemplet.fdKey"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdTagName"
+				depends="maxlength">
+				<arg
+					key="sysTagTemplet.fdTagName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysTagMainRelationForm">
+			<field
+				property="fdTagName"
+				depends="maxlength">
+				<arg
+					key="sysTagMainRelation.fdTagName"
+					bundle="sys-tag"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

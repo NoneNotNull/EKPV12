@@ -1,0 +1,37 @@
+var datas = data;
+{$<div class="lui_doc_cko_rank_titleL">
+    <div class="lui_doc_cko_rank_titleR">
+        <div class="lui_doc_cko_rank_titleM">
+        </div>
+    </div>
+</div>
+<div class="lui_doc_cko_rank_contentL">
+	<div class="lui_doc_cko_rank_contentR">
+		<div class="lui_doc_cko_rank_contentM">
+			<table class="lui_doc_cko_rank">
+				<thead>
+					<th>排名</th>
+					<th>总积分</th>
+				</thead>
+				<tbody>$}
+
+				for(var i=0;i<datas.length;i++){
+					{$
+						<tr>
+							<td class="color_1">{%datas[i].fdName%}</td>
+							<td>{%datas[i].docScore%}</td>
+						</tr>
+					$}
+				}
+				
+				{$</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="lui_doc_cko_rank_bottomL">
+    <div class="lui_doc_cko_rank_bottomR">
+        <div class="lui_doc_cko_rank_bottomM">
+        </div>
+    </div>
+</div>$}

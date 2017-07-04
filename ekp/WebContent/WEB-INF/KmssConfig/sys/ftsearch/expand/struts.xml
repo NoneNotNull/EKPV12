@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysFtsearchChineseLegendForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchChineseLegendForm" />
+		<form-bean
+			name="sysFtsearchSynonymsSetForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchSynonymsSetForm" />
+		<form-bean
+			name="sysFtsearchSynonymForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchSynonymForm" />
+		<form-bean
+			name="sysFtsearchParticipleCategoryForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchParticipleCategoryForm" />
+		<form-bean
+			name="sysFtsearchParticipleForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchParticipleForm" />
+		<form-bean
+			name="sysFtsearchAnalysisForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchAnalysisForm" />
+		<form-bean
+			name="sysFtsearchReadLogForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchReadLogForm" />
+		<form-bean
+			name="sysFtsearchHotwordForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchHotwordForm" />
+		<form-bean
+			name="sysFtsearchWordForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchWordForm" />
+		<form-bean
+			name="sysFtsearchMultisystemForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchMultisystemForm" />		
+		<form-bean
+			name="sysFtsearchModelgroupForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchModelgroupForm" />	
+		<form-bean
+			name="tattEkpSysForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.TattEkpSysForm"/>
+		<form-bean
+			name="sysFtsearchFacetForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchFacetForm" />
+		<form-bean
+			name="fieldBoostingConfigForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.FieldBoostingConfigForm">
+		</form-bean>	
+		<form-bean
+			name="sysFtsearchUserParticipleForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchUserParticipleForm" />
+		<form-bean
+			name="sysFtsearchAmbParticipleForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.SysFtsearchAmbParticipleForm" />
+		<form-bean
+			name="displayAreaForm"
+			type="com.landray.kmss.sys.ftsearch.expand.forms.CustomDisplayAreaConfigForm"/>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchChineseLegendAction"
+			name="sysFtsearchChineseLegendForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_synonyms_set/sysFtsearchSynonymsSet"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchSynonymsSetAction"
+			name="sysFtsearchSynonymsSetForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonyms_set/sysFtsearchSynonymsSet_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonyms_set/sysFtsearchSynonymsSet_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonyms_set/sysFtsearchSynonymsSet_list.jsp" />
+		</action>
+
+	
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchParticipleCategoryAction"
+			name="sysFtsearchParticipleCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_participle/sysFtsearchParticiple"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchParticipleAction"
+			name="sysFtsearchParticipleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle/sysFtsearchParticiple_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle/sysFtsearchParticiple_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_participle/sysFtsearchParticiple_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_analysis/sysFtsearchAnalysis"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchAnalysisAction"
+			name="sysFtsearchAnalysisForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_analysis/sysFtsearchAnalysis_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_analysis/sysFtsearchAnalysis_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_analysis/sysFtsearchAnalysis_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_read_log/sysFtsearchReadLog"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchReadLogAction"
+			name="sysFtsearchReadLogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_read_log/sysFtsearchReadLog_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_read_log/sysFtsearchReadLog_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_read_log/sysFtsearchReadLog_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_hotword/sysFtsearchHotword"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchHotwordAction"
+			name="sysFtsearchHotwordForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_hotword/sysFtsearchHotword_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_hotword/sysFtsearchHotword_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_hotword/sysFtsearchHotword_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_word/sysFtsearchWord"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchWordAction"
+			name="sysFtsearchWordForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_word/sysFtsearchWord_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_word/sysFtsearchWord_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_word/sysFtsearchWord_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_multisystem/sysFtsearchMultisystem"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchMultisystemAction"
+			name="sysFtsearchMultisystemForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_multisystem/sysFtsearchMultisystem_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_multisystem/sysFtsearchMultisystem_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_multisystem/sysFtsearchMultisystem_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchModelgroupAction"
+			name="sysFtsearchModelgroupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/t_att_ekp_sys/tattEkpSys"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.TattEkpSysAction"
+			name="tattEkpSysForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/t_att_ekp_sys/tattEkpSys_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/t_att_ekp_sys/tattEkpSys_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/t_att_ekp_sys/tattEkpSys_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_facet/sysFtsearchFacet"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchFacetAction"
+			name="sysFtsearchFacetForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_facet/sysFtsearchFacet_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_facet/sysFtsearchFacet_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_facet/sysFtsearchFacet_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/fieldBoostingConfig"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.FieldBoostingConfigAction"
+			parameter="method"
+			name="fieldBoostingConfigForm"
+			scope="request">
+			<forward
+				name="config"
+				path="/sys/ftsearch/expand/fieldBoostingConfig.jsp">
+			</forward>	
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_user_participle/sysFtsearchUserParticiple"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchUserParticipleAction"
+			name="sysFtsearchUserParticipleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_user_participle/sysFtsearchUserParticiple_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_user_participle/sysFtsearchUserParticiple_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_user_participle/sysFtsearchUserParticiple_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_amb_participle/sysFtsearchAmbParticiple"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchAmbParticipleAction"
+			name="sysFtsearchAmbParticipleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_amb_participle/sysFtsearchAmbParticiple_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_amb_participle/sysFtsearchAmbParticiple_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_amb_participle/sysFtsearchAmbParticiple_list.jsp" />
+		</action>
+		<action
+			path="/sys/ftsearch/expand/sys_ftsearch_synonym/sysFtsearchSynonym"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.SysFtsearchSynonymAction"
+			name="sysFtsearchSynonymForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonym/sysFtsearchSynonym_list.jsp" />
+			<forward
+				name="edit"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonym/sysFtsearchSynonym_edit.jsp" />
+			<forward
+				name="view"
+				path="/sys/ftsearch/expand/sys_ftsearch_synonym/sysFtsearchSynonym_view.jsp" />
+		</action>
+		
+		<action
+			path="/sys/ftsearch/expand/customDisplayAreaConfig"
+			type="com.landray.kmss.sys.ftsearch.expand.actions.CustomDisplayAreaConfigAction"
+			parameter="method"
+			name="displayAreaForm"
+			scope="request">
+			<forward
+				name="config"
+				path="/sys/ftsearch/expand/customDisplayAreaConfig.jsp">
+			</forward>	
+		</action>
+	</action-mappings>
+</struts-config>

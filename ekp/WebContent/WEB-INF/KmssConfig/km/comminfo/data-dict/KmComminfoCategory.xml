@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.comminfo.model.KmComminfoCategory"
+		messageKey="km-comminfo:table.kmComminfoCategory"
+		displayProperty="fdName"
+		serviceBean="kmComminfoCategoryService"
+		table="km_comminfo_category"
+		url="/km/comminfo/km_comminfo_category/kmComminfoCategory.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-comminfo:kmComminfoCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-comminfo:kmComminfoMain.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			length="10"
+			validate="true" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="km-comminfo:kmComminfoCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			unique="false"
+			length="1000"
+			canDisplay="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="km-comminfo:kmComminfoCategory.hbmParent"
+			type="com.landray.kmss.km.comminfo.model.KmComminfoCategory"
+			column="fd_parent_id"
+			cascade="save-update"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-comminfo:kmComminfoCategory.authEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_comminfo_category_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-comminfo:kmComminfoCategory.authAllEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_comminfo_category_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-comminfo:kmComminfoCategory.authAllReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_comminfo_category_areader"
+			inverse="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-comminfo:kmComminfoCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-comminfo:kmComminfoCategory.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="km-comminfo:kmComminfoCategory.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+	</model>
+</models>

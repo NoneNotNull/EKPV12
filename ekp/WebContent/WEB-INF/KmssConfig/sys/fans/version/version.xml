@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 当设置为强制关注时，无法对帐号取消关注</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 关注机制样式及列表排序</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 关注功能</description>
+			<author>陈建林</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 关注机制代码</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+	</modifies>
+</version>

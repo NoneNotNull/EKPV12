@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 处理人操作监听 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="handlerAfterDoingWfNodeListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="handlerPassOperationEvent;lbpmHandlerRefuseEvent;lbpmHandlerCommissionEvent;lbpmHandlerCommunicateEvent;lbpmHandlerACommunicateEvent;lbpmHandlerReturnCommunicateEvent;lbpmHandlerReturnACommunicateEvent;lbpmHandlerCancelCommunicateEvent;lbpmHandlerCancelACommunicateEvent;lbpmHandlerAbandonEvent" />
+			<param
+				name="listener"
+				value="sysWfAfterDoingWfNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+	
+	<!-- 特权人操作监听 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="adminAfterDoingWfNodeListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmAdminPassEvent;lbpmAdminJumpEvent;adminAbandonOperationEvent;lbpmAdminChangeCurHandlerEvent;adminModifyProcessEvent" />
+			<param
+				name="listener"
+				value="sysWfAfterDoingWfNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+	
+	<!-- 起草人操作监听 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="drafterAfterDoingWfNodeListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="drafterSubmitEvent;drafterPressEvent;drafterReturnEvent;drafterAbandonEvent" />
+			<param
+				name="listener"
+				value="sysWfAfterDoingWfNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+</plugin>

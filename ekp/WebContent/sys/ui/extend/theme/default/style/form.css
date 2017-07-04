@@ -1,0 +1,92 @@
+/**页面背景**/
+.lui_form_body {background-color: #f7f6f6;}
+
+/**三级页面主体内容**/
+.lui_form_content{ background-color:#fff; }
+
+/** 标题**/
+.lui_form_title_frame {	}
+.lui_form_subject {text-align: center; font-size: 18px;line-height: 30px; padding: 12px 5px 5px; }
+.lui_form_title_frame .lui_form_baseinfo {font-size: 12px;text-align: center;line-height: 20px;margin:0px 0px 5px;}
+.lui_form_title_frame .lui_form_baseinfo span{margin-right: 8px;}
+
+/** 摘要**/
+.lui_form_summary_frame {border: #ebebeb 1px solid;background: #f8f8f8;font-size:12px; margin:0px 14px 10px;padding:10px 10px 6px 10px;line-height:20px;text-indent:2em;}  
+
+/** 正文和附件**/
+.lui_form_content_frame { padding:0px 14px 10px;}
+/*.lui_form_content_frame div p{ line-height:22px;}*/
+.lui_form_spacing{ border-top:1px dashed #bbb; margin-top:30px; margin-bottom:5px;}
+.lui_form_subhead{padding: 0px 5px;line-height: 30px;font-size: 14px;font-weight: bold;}
+
+/*文档信息内容*/
+.lui_form_info {line-height: 25px;list-style: none;}
+.lui_form_info li{ }
+
+/******表单控件******/
+/*按钮*/
+.lui_form_button { border:none;color: #fff;padding: 5px 10px;cursor:pointer;text-decoration: none;background-color: #51B5EB;}   
+/*输入控件颜色、大小、边距*/
+textarea,.input input,.inputsgl, select{color: #1b83d8;  padding-left:4px; font-size:12px;  font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;}
+/*下拉框*/
+select{border: 1px #b4b4b4 solid;}
+/*单选，多选*/
+input[type=checkbox],input[type=radio]{ margin-right:2px;}
+/*单行文本*/
+.inputsgl,.tb_normal .inputsgl {height: 20px;border: 0px;border-bottom: 1px solid #b4b4b4;}     /*默认、有边框*/
+.tb_simple .inputsgl {height: 25px;border: 0px;border: 1px solid #b4b4b4;}                      /*无边框*/
+/*多行文本*/
+.inputmul,textarea {height: 80px;border: 1px solid #b4b4b4;overflow-y:auto; vertical-align:top;}
+
+/*单行带选择的输入框，结构：.inputselectsgl>.input>input*/
+/*外层*/
+.inputselectsgl, .tb_normal .inputselectsgl{height: 20px;border-bottom: 1px solid #b4b4b4;position: relative;cursor: pointer;display: inline-block;*display: inline;line-height:20px;}   /*默认、有边框*/
+.tb_simple .inputselectsgl {height:25px; border: 1px solid #b4b4b4;position: relative;cursor: pointer;display: inline-block;*display: inline;line-height:25px; }
+.inputselectsglreadonly {border:none;}
+.inputselectsglreadonly input {border:none;color:#868686;}
+/*中间层*/
+.inputselectsgl .input{display:block;border: 0px;position: absolute;top:0px;bottom:0px;left: 0px;right: 23px;cursor: pointer;line-height: 20px; overflow: hidden;}
+/*里层*/
+.inputselectsgl input {width: 100%;height: 100%;border: 0px; resize: none;  overflow:hidden;}
+
+/*多行带选择的输入框，结构：.inputselectmul>.textarea>textarea*/
+/*外层*/
+.inputselectmul{height: 80px;border: 1px solid #b4b4b4;position: relative;cursor: pointer;display: inline-block;}
+/*中间层*/
+.inputselectmul .textarea {padding-left:4px;display:block;border: 0px;position: absolute;top:0px;bottom:0px;left: 0px;right: 23px;cursor: pointer;line-height: 20px;}
+/*里层*/
+.inputselectmul textarea {padding-left:0px;width: 100%;height: 100%;border: 0px; resize: none;overflow: auto;}
+
+/*选择框右边小图标*/
+.inputselectsgl .orgelement,.inputselectmul .orgelement {background: url(../images/form/orgelement.png);background-repeat: no-repeat;background-position: center center;position: absolute;width: 23px;height: 100%;right: 0px;}    /*组织*/
+.inputselectsgl .selectitem,.inputselectmul .selectitem {background: url(../images/form/selectitem.png);background-repeat: no-repeat;background-position: center center;position: absolute;width: 23px;height: 100%;right: 0px;}    /*其它*/
+.inputselectsgl .inputdatetime {background: url(../images/form/datetime.png);background-repeat: no-repeat;background-position: center center;position: absolute;width: 23px;height: 100%;right: 0px;}   /*时间*/
+.inputselectsgl .inputtime {background: url(../images/form/time.png);background-repeat: no-repeat;background-position: center center;position: absolute;width: 23px;height: 100%;right: 0px;}   /*时间*/
+.inputselectsgl .search {background: url(../images/form/search.png);background-repeat: no-repeat;background-position: center center;position: absolute;width: 23px;height: 100%;right: 0px;}    /*搜索*/
+/*多行选择框图标左边加上边线*/
+.inputselectmul .orgelement,.inputselectmul .selectitem {border-left: 1px #b4b4b4 solid;}
+
+/** 简单的通用样式，兼容旧系统 **/
+.txttitle {text-align: center;font-size: 20px;line-height: 30px;}
+.txtstrong {font-weight: normal;display: inline-block;}
+.inputread {border:0px; color:#868686}
+.inputread_normal {border:0px;}
+.td_label0 {vertical-align: baseline!important;font-size:2px!important;padding:0px!important;border:0px!important;height:29px; border-bottom:1px solid #70c8e8!important;}
+.td_label0 nobr{margin-right: 2px;}
+.td_label0 nobr input{overflow:visible;width:auto;_width:0;}
+.btnlabel1 {height: 30px;font-size:13px;border: 0px;padding:2px 3px 0px 3px;margin:0px; color:#fff; cursor:pointer;}
+.btnlabel2 {height: 30px;font-size:13px;border: 0px;padding:2px 3px 0px 3px;margin:0px;color:#47b5e6;cursor:pointer;}
+
+/* 图片 */
+.lui_multidoc_showPic tr:last-child td{ position:relative; top:10px;}
+.lui_multidoc_showPic .img_small_btnl{ background:#fff; }
+.lui_multidoc_showPic .img_small_btnr{ background:#fff;}
+.lui_multidoc_showPic  .img_small_btnbar .d_i_trig_coverL{ border-right-color:#fff;}
+.lui_multidoc_showPic .img_small_btnbar .d_i_trig_coverR{ border-left-color:#fff;}
+.lui_multidoc_showPic .img_small_btnl:hover .img_small_btnbar .d_i_trigL{ border-right-color:#aedffa;}
+.lui_multidoc_showPic .img_small_btnr:hover .img_small_btnbar .d_i_trigR{ border-left-color:#aedffa;}
+
+
+nobr {
+	display:inline-block;
+}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.admin.transfer.model.SysAdminTransferTask"
+		messageKey="sys-admin-transfer:table.sysAdminTransferTask"
+		displayProperty="fdName"
+		serviceBean="sysAdminTransferTaskService"
+		table="sys_admin_transfer_task"
+		url="/sys/admin/transfer/sys_admin_transfer_task/sysAdminTransferTask.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUuid"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdUuid"
+			type="String"
+			column="fd_uuid"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="2000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdResult"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdResult"
+			type="Integer"
+			column="fd_result"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDetails"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdDetails"
+			type="RTF"
+			column="fd_details"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdParams"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdParams"
+			type="RTF"
+			column="fd_params"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdRunTime"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.fdRunTime"
+			type="DateTime"
+			column="fd_run_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-admin-transfer:sysAdminTransferTask.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

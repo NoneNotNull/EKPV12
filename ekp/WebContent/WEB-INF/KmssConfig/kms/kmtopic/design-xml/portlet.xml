@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 简单列表展现方式 -->
+	<portlet
+		id="kms.kmtopic.new"
+		name="{kms-kmtopic:kmsKmtopicMain.list.kmtopic}"
+		module="{kms-kmtopic:module.kms.kmtopic}"
+		description="{kms-kmtopic:kmsKmtopicMain.simpleList}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmtopic/kms_kmtopic_portlet/kmsKmtopicMainPortlet.do?method=getKmsKmtopicMain&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=col"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="文档数" key="rowsize" kind="rowsize" default="6"/>
+			<var name="类型" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"最新", "value":"docPublishTime"},
+		    			{"text":"最热", "value":"docReadCount"},
+		    			{"text":"精华","value":"docIsIntroduced"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="cateid" kind="dialogJs" name="分类" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['kms/kmtopic/kms_kmtopic_main/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();" 
+				target="_self"
+				/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/kmtopic/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	<!-- 图文展现方式 -->
+	<portlet
+		id="kms.kmtopic.new.pic"
+		name="{kms-kmtopic:kmsKmtopicMain.list.kmtopic}"
+		module="{kms-kmtopic:module.kms.kmtopic}"
+		description="{kms-kmtopic:kmsKmtopicMain.listView}">
+		<source format="sys.ui.image" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/kmtopic/kms_kmtopic_portlet/kmsKmtopicMainPortlet.do?method=getKmsKmtopicMain&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=pic"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="文档数" key="rowsize" kind="rowsize" default="6"/>
+			<var name="类型" key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"最新", "value":"docPublishTime"},
+		    			{"text":"最热", "value":"docReadCount"},
+		    			{"text":"精华","value":"docIsIntroduced"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="cateid" kind="dialogJs" name="分类" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['kms/kmtopic/kms_kmtopic_main/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();" 
+				target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/kmtopic/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	<!-- 知识专辑分类概览 -->
+	<portlet
+		id="kms.kmtopic.preview"
+		name="{kms-kmtopic:kmsKmtopicMain.portlet.categoryPre}"
+		module="{kms-kmtopic:module.kms.kmtopic}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/kmtopic/kms_kmtopic_portlet_ui/kms_kmtopic_portlet_preview.jsp?currid=!{currid}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="currid" kind="dialogJs" name="选择分类" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true})})"
+				}
+			</var>
+		</vars>
+	</portlet>
+</root>

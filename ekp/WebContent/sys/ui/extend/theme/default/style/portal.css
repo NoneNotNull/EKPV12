@@ -1,0 +1,285 @@
+.lui_portal_body { background: #f7f6f6; }
+ 
+/*页眉*/
+.lui_portal_header_zone_frame_h {height: 40px;}
+.lui_portal_header_zone_frame {background: #82d0f4;position: fixed;width: 100%;top:0px;z-index: 50;}
+.lui_portal_header_nofixed {position: absolute;}
+.lui_portal_header_zone_content {height: 40px;margin: 0 auto; position: relative;}
+.lui_portal_header_zone_logo {position: absolute; }
+.lui_portal_header_zone_menu {}
+.lui_portal_header_zone_search {position: absolute;text-align: center;left: 250px;right: 300px;min-width: 350px;}
+.lui_portal_header_zone_person {position: absolute;right: 0px;}
+
+.lui_portal_header_zone_search .lui_portal_header_search_include {margin-top:6px;}
+.lui_portal_header_zone_search .lui_portal_header_search_input {width: 190px;display: inline-block;vertical-align: top;}
+.lui_portal_header_zone_search .lui_portal_header_search_btn {	background: url(../images/portal/btn_bg.png) repeat-x left top;	height: 26px;	line-height: 26px;	 padding: 0px 5px;	cursor: pointer;	margin: 0px 5px; margin-right:0px; display: inline-block;vertical-align: top;}
+.lui_portal_header_zone_search .lui_portal_header_search_btn:hover{  background:url(../images/portal/btn_bg_on.png) repeat-x left top;}
+.lui_portal_header_zone_search .lui_portal_header_search_btn input { background-color:transparent; border:0px;color: white; cursor:pointer; }
+.lui_portal_header_zone_search .lui_portal_header_search_btn:hover input{ color:#e6780f; }
+.lui_portal_header_zone_search .lui_portal_header_search_input input {border:0px;width: 98%;color: #676767;height: 26px;line-height: 26px;border: 0px;padding-left: 5px;}
+.lui_portal_header_zone_portal {position: absolute;left: 170px;}
+
+.lui_portal_header_zone_content .lui_portal_header_text {color: white; line-height:30px; cursor:pointer; padding-left:10px; padding-right:8px; margin-top:5px;}
+.lui_portal_header_zone_content .lui_portal_header_text_over { background: white; color:#333; cursor: pointer;}
+
+.lui_portal_header_zone_content .lui_portal_header_icon_arrow {vertical-align: text-bottom; background-image:url(../images/portal/arrow.png); background-position:0px 0px;}
+.lui_portal_header_zone_content .lui_portal_header_text_over .lui_portal_header_icon_arrow { background-image:url(../images/portal/arrow.png); background-position:-16px 0px; }
+
+.lui_portal_header_zone_portal_nav {display:inline-block;}
+.lui_portal_header_zone_portal_switch { display:inline-block; line-height: 25px; padding:0px 5px 0px 5px;}
+
+.lui_portal_nav_frame {
+	width: 100%;
+	background: #82d0f4;
+	border-bottom:1px solid #58b1da; 
+}
+.lui_portal_nav_body {
+	margin: 0px auto; position:relative; top:1px; padding-top:8px;height: 80px;
+	/*background: url(../images/portal/header_nav_bg.gif) no-repeat;*/
+}
+.lui_portal_nav_switch_on {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+	height: 8px;
+}
+.lui_portal_nav_switch_up {
+	background: url(../images/portal/up.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 64px;
+	height: 8px;
+	cursor: pointer;margin: 0 auto;
+}
+.lui_portal_nav_switch_off {
+	position: absolute;
+	bottom: -8px;
+	text-align: center;
+	width: 100%;
+	height: 8px;
+}
+.lui_portal_nav_switch_down {
+	background: url(../images/portal/down.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 64px;
+	height: 8px;
+	cursor: pointer;margin: 0 auto;
+}
+.lui_portal_nav_page_menu_txt {color:#fff;}
+.lui_portal_nav_page_menu_item_div,.lui_portal_nav_page_menu_item_current {cursor:pointer;padding: 8px;padding-left: 10px;padding-right: 10px;margin-left: 10px;margin-right: 10px;}
+.lui_portal_nav_page_menu_item_current { background:url(../images/portal/nav_item_bg.png) no-repeat center;}
+.lui_portal_nav_page_menu_item_current .lui_portal_nav_page_menu_txt {color:#47b5e6;}
+.lui_portal_nav_page_menu_items_div {position: relative; overflow: hidden; height: 80px;}
+.lui_portal_nav_page_menu_items_frame {position: absolute;overflow: hidden;}
+.lui_portal_nav_page_menu_items_body {display:inline-block;}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_div{ width:60px;}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_div .lui_icon_l{ width:100%}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_div .lui_portal_nav_page_menu_txt{ text-align:center}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_current{ width:60px;}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_current .lui_icon_l{ width:100%}
+.lui_portal_nav_page_menu_items_body .lui_portal_nav_page_menu_item_current .lui_portal_nav_page_menu_txt{ text-align:center}
+.lui_portal_nav_page_menu_items_left {position: absolute;width:20px;left:0px;height: 80px;background: url(../images/portal/nav_arrow_blue_left.png) no-repeat center center;}
+.lui_portal_nav_page_menu_items_left:hover {position: absolute;width:20px;left:0px;height: 80px;background: url(../images/portal/nav_arrow_blue_left_on.png) no-repeat center center;}
+.lui_portal_nav_page_menu_items_right {position: absolute;width: 20px;right:0px;height: 80px;background: url(../images/portal/nav_arrow_blue_right.png) no-repeat center center;}
+.lui_portal_nav_page_menu_items_right:hover {position: absolute;width: 20px;right:0px;height: 80px;background: url(../images/portal/nav_arrow_blue_right_on.png) no-repeat center center;}
+.lui_portal_nav_page_menu_item_hover {
+	background:url(../images/portal/nav_item_bg.png) no-repeat center;
+}
+.lui_portal_nav_page_menu_item_hover .lui_portal_nav_page_menu_txt  {
+	color:#47b5e6;
+}
+.lui_portal_nav_top_frame {padding:5px 5px 5px 10px; border-bottom:1px #F0F0F0 solid; margin:0px 5px;}
+.lui_portal_nav_top_path {float:left; line-height: 25px; padding:2px 0px 0px;}
+.lui_portal_nav_top_path_split {margin:0px 3px; font-family: SimSun;}
+.lui_portal_nav_top_path_split:after { content:'>';}
+.lui_portal_nav_top_path_split:first-child {display:none;}
+.lui_portal_nav_top_switch_border{float:right; display:inline-block; border:1px #C0C0C0 solid; cursor: pointer;}
+.lui_portal_nav_top_switch .lui_icon_s { margin-left:5px; }
+.lui_portal_nav_top_switch_content { width:200px; padding: 2px; background:white;}
+
+/**导航风格页眉**/
+.lui_portal_header_menu_frame {background: url(../images/portal/nav_header_bg.png);}
+.lui_portal_header_menu_content {height: 100px;margin: 0 auto; position: relative;background: url(../images/portal/nav_header_img.png) no-repeat center;}
+.lui_portal_header_menu_menu {height: 38px;margin: 0 auto;}
+.lui_portal_header_menu_logo {position: absolute;padding-top:30px;}
+.lui_portal_header_menu_search {position: absolute;text-align: center;left: 250px;right: 300px;min-width: 350px;}
+.lui_portal_header_menu_person {position: absolute;right: 0px;}
+
+.lui_portal_header_menu_search .lui_portal_header_search_include {margin-top:40px;}
+.lui_portal_header_menu_search .lui_portal_header_search_input {width: 290px;display: inline-block;vertical-align: top;}
+.lui_portal_header_menu_search .lui_portal_header_search_btn {	background: url(../images/portal/btn_bg.png) repeat-x left top;	height: 26px;	line-height: 26px;	padding: 0px 5px;	cursor: pointer;	margin: 0px 3px;display: inline-block;vertical-align: top;}
+.lui_portal_header_menu_search .lui_portal_header_search_btn input {background:transparent;border:0px;color: white;}
+.lui_portal_header_menu_search .lui_portal_header_search_input input {border:0px;width: 100%;color: #b6b6b6;height: 26px;line-height: 26px;border: 0px;padding-left: 5px;}
+.lui_portal_header_menu_search .lui_portal_header_search_btn:hover{  background:url(../images/portal/btn_bg_on.png) repeat-x left top;}
+.lui_portal_header_menu_search .lui_portal_header_search_btn:hover input{ color:#e6780f; }
+
+.lui_portal_header_menu_person_c_l { background: url(../images/portal/person_l.png) no-repeat left;	}
+.lui_portal_header_menu_person_c_r { background: url(../images/portal/person_r.png) no-repeat right;	}
+.lui_portal_header_menu_person_c_c { background: url(../images/portal/person_c.png) repeat-x; margin-left: 12px;margin-right: 18px; height: 30px;}
+
+.lui_portal_header_menu_content .lui_portal_header_text {line-height: 20px;padding-left:10px; padding-right:10px;margin-top: 5px;}
+.lui_portal_header_menu_content .lui_portal_header_text_over { background: white; color:#333; cursor: pointer; }
+
+.lui_portal_header_menu_content .lui_portal_header_icon_arrow {vertical-align: text-bottom; background:url(../images/portal/arrow1.png) no-repeat center center;}
+.lui_portal_header_menu_content .lui_portal_header_text_over .lui_portal_header_icon_arrow { background-image:url(../images/portal/arrow1.png); background-position:-16px 0px; }
+
+.lui_portal_header_menu_content .lui_icon_s_daiban { background: url(../images/portal/daiban.png);}
+.lui_portal_header_menu_content .lui_icon_s_daiyue { background: url(../images/portal/daiyue.png);}
+
+.lui_portal_header_menu_l {}
+.lui_portal_header_menu_r {}
+.lui_portal_header_menu_c {  }
+.lui_portal_header_menu_item_div {position: relative; overflow: hidden; height: 40px;}
+.lui_portal_header_menu_item_frame {position: absolute;overflow: hidden;}
+.lui_portal_header_menu_item_body {display:inline-block;}
+.lui_portal_header_menu_item_left {position: absolute;width:20px;left:0px;height: 38px;background: url(../images/portal/nav_arrow_blue_left.png) no-repeat center center;}
+.lui_portal_header_menu_item_left:hover {position: absolute;width:20px;left:0px;height: 38px;background: url(../images/portal/nav_arrow_blue_left_on.png) no-repeat center center;}
+.lui_portal_header_menu_item_right {position: absolute;width: 20px;right:0px;height: 38px;background: url(../images/portal/nav_arrow_blue_right.png) no-repeat center center;}
+.lui_portal_header_menu_item_right:hover {position: absolute;width: 20px;right:0px;height: 38px;background: url(../images/portal/nav_arrow_blue_right_on.png) no-repeat center center;}
+.lui_portal_header_menu_item_line {background: url(../images/portal/line.png);width: 5px;height: 38px;}
+.lui_portal_header_menu_item_current {}
+.lui_portal_header_menu_item_div {}
+.lui_portal_header_menu_item_l {margin-left: 2px;margin-right: 2px; cursor: pointer;}
+.lui_portal_header_menu_item_r {}
+.lui_portal_header_menu_item_c {
+	height: 38px;
+	margin-top: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 16px;
+	line-height: 38px;
+	color: white;
+	font-weight: bold;
+}
+.lui_portal_header_menu_item_current .lui_portal_header_menu_item_c {
+	background: #f4f4f4;
+	height: 38px;
+	margin-top: 2px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 16px;
+	line-height: 38px;
+	color: #47b5e6;
+	font-weight: bold;
+}
+.lui_portal_header_menu_item_current:hover .lui_portal_header_menu_item_c { text-decoration:underline;}
+.lui_portal_header_menu_item_hover .lui_portal_header_menu_item_c {	
+	background: #f4f4f4;
+	color: #47b5e6;
+}
+/** **/
+
+.lui_portal_header_portal, .lui_portal_header_notify, .lui_portal_header_favorite, .lui_portal_header_userinfo {float: right;}
+.lui_portal_header_portal_content {min-width:100px;background: white;}
+
+ 
+.lui_portal_header_logo_div {max-width:220px;max-height:40px;overflow: hidden;height:40px;line-height:40px;vertical-align:middle;cursor: pointer;}
+.lui_portal_header_logo_img {vertical-align:middle;}
+
+
+/*页脚*/
+.lui_portal_footer_frame{ height: 90px; background: #c8c8c8;}
+.lui_portal_footer_content{ margin: 0 auto;width: 980px;text-align: center;color: white;line-height: 23px;}
+
+
+.lui_portal_header_daiban{display: inline-block;font-size: 12px;vertical-align:top;padding-right:12px;}
+.lui_portal_header_daiyue{ display: inline-block;font-size: 12px;vertical-align:top;}
+.lui_portal_header_daiban:hover,
+.lui_portal_header_daiyue:hover{ text-decoration:underline;}
+
+/*待办样式*/
+.labelbg1{
+	BORDER-RIGHT: #7b9ebd 1px solid; 
+	PADDING-RIGHT: 2px; 
+	BORDER-TOP: #7b9ebd 1px solid; 
+	PADDING-LEFT: 2px; 
+	FONT-SIZE: 12px;
+	font-weight:bold;
+	FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#CCFFFF); 
+	BORDER-LEFT: #7b9ebd 1px solid; 
+	CURSOR: pointer; 
+	COLOR: black; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #7b9ebd 0px solid;
+	height: 23px;
+	margin-right:-1px;
+}
+.labelbg2{
+	BORDER-RIGHT: #7b9ebd 1px solid; 
+	PADDING-RIGHT: 2px; 
+	BORDER-TOP: #7b9ebd 1px solid; 
+	PADDING-LEFT: 2px; 
+	FONT-SIZE: 12px; 
+	FILTER:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#C3DAF5); 
+	BORDER-LEFT: #7b9ebd 1px solid; 
+	CURSOR: pointer; 
+	COLOR: black; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: #2C59AA 0px solid;
+	height: 23px;
+	margin-right:-1px;
+}
+img {
+	border: none;
+}
+#tagContent {
+    font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	background-color:#fff; 
+	text-align: left;
+	width:100%;
+	font-size:12px;
+	padding: 8px !important;
+	margin: 0 auto;
+}
+#tagContent>tbody>tr>td {
+    padding: 3px;
+    word-break:break-all;
+}
+#tagContent a{ 
+	text-decoration:none;
+	cursor:pointer;
+	color:#6c6c6c;
+}
+#tagContent a:hover{
+	color:#3eb2e6;
+}
+
+.trspan1{
+	font-size: 14px;
+	font-weight:bold;
+}
+
+
+.trspan2{
+	color:#FF6600;
+	font-size: 14px;
+	text-decoration:underline;
+}
+#tagContent a:hover .trspan2{ color:red!important}
+#notify_content_1{
+	display:inline-block;
+	width:13px;
+	height:11px;
+	background: url(../images/portal/icon_red.gif) 50% 30% no-repeat;
+}
+#notify_content_2{
+	display:inline-block;
+	width:13px;
+	height:11px;
+	background: url(../images/portal/icon_green.gif) 50% 30% no-repeat;
+}
+#notify_content_3{
+	display:inline-block;
+	width:13px;
+	height:11px;
+	background: url(../images/portal/icon_blue.gif) 50% 30% no-repeat;
+}
+
+/* 个人门户 */
+.lui_portal_sidebar_c_c img{ border:1px solid #e9e9e9;}
+
+
+.lui_portal_header_daiban_div{ float:left; cursor:pointer;}
+.lui_portal_header_daiyue_div{ float:left; cursor:pointer;}

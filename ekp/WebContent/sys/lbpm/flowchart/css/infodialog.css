@@ -1,0 +1,47 @@
+.showInfoDialog {
+	position: absolute;
+	z-index: 900;
+	background-color: #FFF;
+	border: 1px solid #000;
+	box-shadow: 3px 3px 4px #ADADAD;
+	-moz-box-shadow: 3px 3px 4px #ADADAD;
+	-webkit-box-shadow: 3px 3px 4px #ADADAD;
+	filter: progid : DXImageTransform.Microsoft.Shadow ( Strength = 4,
+		Direction = 135, Color = '#ADADAD' );
+	-ms-filter:
+		"progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#ADADAD')"
+		;
+}
+
+.showInfoDialog_topbar {
+	padding: 3px 5px;
+	background-color: #EEEEEE;
+}
+
+.showInfoDialog_title {
+	font-family: Arial, "宋体";
+	font-size: 13px;
+}
+
+.infoDialog_moveArea {
+	position: absolute;
+	border: 1px dashed #000000;
+	z-index: 909;
+	cursor: move;
+	opacity: 0.50;
+	filter:
+		'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=50,finishOpacity=100)'
+		;
+	background-color: #EEEEEE;
+}
+
+.showInfoDialog_close {
+	position: relative;
+	z-index: 910;
+	float: right;
+	top: -18px;
+	right: 3px;
+	width: 10px;
+	height: 10px;
+	cursor: pointer;
+}

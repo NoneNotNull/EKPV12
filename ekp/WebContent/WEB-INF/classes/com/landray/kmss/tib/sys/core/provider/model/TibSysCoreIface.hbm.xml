@@ -1,0 +1,88 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface"
+		table="tib_sys_core_iface">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdIfaceName"
+			column="fd_iface_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdIfaceKey"
+			column="fd_iface_key"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="true" />
+
+		<property
+			name="fdIfaceControl"
+			column="fd_iface_control"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdNote"
+			column="fd_note"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdControlPattern"
+			column="fd_control_pattern"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdIfaceType"
+			column="fd_iface_type"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdIfaceXml"
+			column="fd_iface_xml"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"/>
+
+		<!-- inverse="true" -->
+		<bag
+			name="fdIfaceTags"
+			table="tib_sys_core_iface_tags"
+		  	cascade="save-update">
+			<key
+				column="fd_iface_id" />
+			<many-to-many
+				class="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag"
+				column="fd_tag_id"  />
+		</bag>
+
+	</class>
+</hibernate-mapping>

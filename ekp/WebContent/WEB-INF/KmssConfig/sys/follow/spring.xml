@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysFollowPersonConfigDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.follow.dao.hibernate.SysFollowPersonConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.follow.model.SysFollowPersonConfig" />
+	</bean>
+	<bean
+		id="sysFollowPersonConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowPersonConfigServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFollowPersonConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFollowPersonConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFollowPersonConfigTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowDocDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.follow.dao.hibernate.SysFollowDocDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.follow.model.SysFollowDoc" />
+	</bean>
+	<bean
+		id="sysFollowDocTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowDocServiceImp">
+		<property
+			name="sysFollowPersonDocRelatedService">
+			<ref
+				local="sysFollowPersonDocRelatedService" />
+		</property>
+		<property
+			name="baseDao">
+			<ref
+				local="sysFollowDocDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFollowDocService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFollowDocTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowPersonDocRelatedDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.follow.dao.hibernate.SysFollowPersonDocRelatedDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.follow.model.SysFollowPersonDocRelated" />
+	</bean>
+	<bean
+		id="sysFollowPersonDocRelatedTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowPersonDocRelatedServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFollowPersonDocRelatedDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFollowPersonDocRelatedService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFollowPersonDocRelatedTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.follow.dao.hibernate.SysFollowLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.follow.model.SysFollowLog" />
+	</bean>
+	<bean
+		id="sysFollowLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFollowLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFollowLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFollowLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowResultService"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowResultWrapper">
+		<property
+			name="sysFollowDocService">
+			<ref
+				local="sysFollowDocService" />
+		</property>
+		<property
+			name="sysFollowPersonDocRelatedService">
+			<ref
+				local="sysFollowPersonDocRelatedService" />
+		</property>
+	</bean>
+
+	<!-- 配置订阅通知 -->
+	<bean
+		id="sysFollowNotifyService"
+		class="com.landray.kmss.sys.follow.execute.notify.SysFollowNotifyServiceImp">
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="sysFollowDocService">
+			<ref
+				local="sysFollowDocService" />
+		</property>
+	</bean>
+
+
+
+	<bean
+		id="tagRuledistribute"
+		class="com.landray.kmss.sys.follow.execute.rule.TagRuledistribute">
+		<property
+			name="sysTagMainService">
+			<ref
+				bean="sysTagMainService" />
+		</property>
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssParentDao" />
+		</property>
+	</bean>
+
+	<bean
+		id="categoryRuleDistribute"
+		class="com.landray.kmss.sys.follow.execute.rule.CategoryRuleDistribute">
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssParentDao" />
+		</property>
+	</bean>
+
+	<bean
+		id="followMessageServiceTarget"
+		class="com.landray.kmss.sys.follow.execute.FollowMessageServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssParentDao" />
+		</property>
+		<property
+			name="sysFollowResultService">
+			<ref
+				local="sysFollowResultService" />
+		</property>
+		<property
+			name="sysFollowLogService">
+			<ref
+				local="sysFollowLogService" />
+		</property>
+		<property
+			name="sysFollowNotifyService">
+			<ref
+				local="sysFollowNotifyService" />
+		</property>
+	</bean>
+
+	<bean
+		id="followMessageService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property
+			name="transactionManager">
+			<ref
+				bean="transactionManager" />
+		</property>
+		<property
+			name="target">
+			<ref
+				local="followMessageServiceTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="doTask">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="followMessageDispatcher"
+		class="com.landray.kmss.sys.follow.execute.FollowMessageDispatcher">
+		<property
+			name="followMessageService">
+			<ref
+				local="followMessageService" />
+		</property>
+		<property
+			name="sysFollowLogService">
+			<ref
+				local="sysFollowLogService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.follow.service.spring.SysFollowCoreServiceImp">
+				<property
+					name="sysFollowLogService">
+					<ref
+						local="sysFollowLogService" />
+				</property>
+				<property
+					name="followMessageService">
+					<ref
+						local="followMessageService" />
+				</property>
+				<property
+					name="sysFollowDocService">
+					<ref
+						local="sysFollowDocService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowMessageReceiver"
+		class="com.landray.kmss.sys.follow.cache.SysFollowMessageReceiver">
+	</bean>
+	<bean
+		id="sysFollowProcessEndListener"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowProcessEndListener">
+		<property
+			name="sysFollowLogService">
+			<ref
+				local="sysFollowLogService" />
+		</property>
+		<property
+			name="followMessageService">
+			<ref
+				local="followMessageService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFollowQuzrtzService"
+		class="com.landray.kmss.sys.follow.service.spring.SysFollowQuzrtzService">
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssParentDao" />
+		</property>
+	</bean>
+</beans>

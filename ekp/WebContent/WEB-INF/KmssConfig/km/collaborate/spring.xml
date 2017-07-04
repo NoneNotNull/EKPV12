@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmCollaborateMainReplyDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.collaborate.dao.hibernate.KmCollaborateMainReplyDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.collaborate.model.KmCollaborateMainReply" />
+
+	</bean>
+	<bean
+		id="kmCollaborateMainReplyTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateMainReplyServiceImp">
+		<property name="baseDao">
+			<ref local="kmCollaborateMainReplyDao" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmCollaborateMainReplyService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmCollaborateMainReplyTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmCollaboratePartnerInfoDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.collaborate.dao.hibernate.KmCollaboratePartnerInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.collaborate.model.KmCollaboratePartnerInfo" />
+	</bean>
+	<bean
+		id="kmCollaboratePartnerInfoTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaboratePartnerInfoServiceImp">
+		<property name="baseDao">
+			<ref local="kmCollaboratePartnerInfoDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmCollaboratePartnerInfoService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmCollaboratePartnerInfoTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmCollaborateCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.collaborate.dao.hibernate.KmCollaborateCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.collaborate.model.KmCollaborateCategory" />
+	</bean>
+	<bean
+		id="kmCollaborateCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="kmCollaborateCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmCollaborateCategoryTreeService"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateCategoryTreeService">
+		<property name="kmCollaborateCategoryService">
+			<ref local="kmCollaborateCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="kmCollaborateCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmCollaborateCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmCollaborateLogsDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.collaborate.dao.hibernate.KmCollaborateLogsDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.collaborate.model.KmCollaborateLogs" />
+	</bean>
+	<bean
+		id="kmCollaborateLogsTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateLogsServiceImp">
+		<property name="baseDao">
+			<ref local="kmCollaborateLogsDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmCollaborateLogsService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmCollaborateLogsTarget" />
+		</property>
+	</bean>
+
+<bean
+		id="kmCollaborateMainPortletService"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateMainPortletService">
+		<property name="kmCollaborateMainService">
+		    <ref local="kmCollaborateMainService"/>
+		   </property>
+		<property name="kmCollaboratePartnerInfoService">
+		    <ref local="kmCollaboratePartnerInfoService"/>
+		</property>	
+	</bean>
+	
+
+	<bean
+		id="kmCollaborateMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.collaborate.dao.hibernate.KmCollaborateMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.collaborate.model.KmCollaborateMain" />
+	</bean>
+	<bean
+		id="kmCollaborateMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.collaborate.service.spring.KmCollaborateMainServiceImp">
+		<property name="baseDao">
+			<ref local="kmCollaborateMainDao" />
+		</property>
+
+		<!-- 实现通知机制，注入sysNotifyMainCoreService -->
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="sysQuartzCoreService">
+			<ref bean="sysQuartzCoreService" />
+		</property>
+		<property name="sysNotifyTodoService">
+			<ref bean="sysNotifyTodoService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmCollaborateMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmCollaborateMainTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="copy*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="init*">PROPAGATION_REQUIRED</prop>
+				<prop key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop key="do*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 全文搜索机制start -->
+	<bean
+		id="kmCollaborateDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>kmCollaborateMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value> 
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 全文搜索机制end -->
+</beans>

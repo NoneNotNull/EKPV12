@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFuncExt"
+	messageKey="tib-common-mapping:table.tibCommonMappingFuncExt"
+	serviceBean="tibCommonMappingFuncExtService"
+	table="tib_common_mapping_func_ext"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdExceptionType"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdExceptionType"
+	type="String"
+	column="fd_exception_type"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdIsIgnore"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdIsIgnore"
+	type="Boolean"
+	column="fd_is_ignore"
+	notNull="true"
+	length="4"
+/>
+<simpleProperty
+	name="fdIsAssign"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdIsAssign"
+	type="Boolean"
+	column="fd_is_assign"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdAssignField"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdAssignField"
+	type="String"
+	column="fd_assign_field"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdAssignVal"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdAssignVal"
+	type="String"
+	column="fd_assign_val"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdAssignFieldid"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdAssignFieldid"
+	type="String"
+	column="fd_assign_fieldid"
+	notNull="false"
+	length="32"
+/>
+<modelProperty
+	name="fdRef"
+	messageKey="tib-common-mapping:tibCommonMappingFuncExt.fdRef"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	column="fd_ref_id"
+	notNull="true"
+/>
+</model></models>

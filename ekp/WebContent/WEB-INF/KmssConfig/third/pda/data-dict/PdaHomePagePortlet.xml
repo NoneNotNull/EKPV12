@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaHomePagePortlet"
+		messageKey="third-pda:table.pdaHomePagePortlet"
+		displayProperty="fdName"
+		serviceBean="pdaHomePagePortletService"
+		table="pda_home_page_portlet"
+		url="/third/pda/pda_home_page_portlet/pdaHomePagePortlet.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="third-pda:pdaHomePagePortlet.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="third-pda:pdaHomePagePortlet.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdType"
+			messageKey="third-pda:pdaHomePagePortlet.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdIconUrl"
+			messageKey="third-pda:pdaHomePagePortlet.fdIconUrl"
+			type="String"
+			column="fd_icon_url"
+			notNull="false"
+			length="200"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdFullRowFlag"
+			messageKey="third-pda:pdaHomePagePortlet.fdFullRowFlag"
+			type="String"
+			column="fd_fullrow_flag"
+			notNull="false"
+			length="2"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdLabelId"
+			messageKey="third-pda:pdaHomePagePortlet.fdLabelId"
+			type="String"
+			column="fd_label_id"
+			notNull="false"
+			length="36"
+			validate="true"
+			canDisplay="false" />
+		
+		<simpleProperty
+			name="fdModuleId"
+			messageKey="third-pda:pdaHomePagePortlet.fdModuleId"
+			type="String"
+			column="fd_module_id"
+			notNull="false"
+			length="36"
+			validate="true" 
+			canDisplay="false"/>
+
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="third-pda:pdaHomePagePortlet.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="false"
+			length="200"
+			validate="true" 
+			canDisplay="false"/>
+			
+		<simpleProperty
+			name="fdDataUrl"
+			messageKey="third-pda:pdaHomePagePortlet.fdDataUrl"
+			type="String"
+			column="fd_data_url"
+			notNull="false"
+			length="1500"
+			validate="true"
+			canDisplay="false" />
+		
+		<simpleProperty
+			name="fdContent"
+			messageKey="third-pda:pdaHomePagePortlet.fdDataContent"
+			type="String"
+			column="fd_content"
+			notNull="false"
+			length="300"
+			validate="true"
+			canDisplay="false" />
+
+	</model>
+</models>

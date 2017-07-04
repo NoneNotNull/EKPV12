@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="pda_module_config_status">
+		<value-label>
+			<value>1</value>
+			<label-key>pdaModuleConfigMain.status.enable</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>pdaModuleConfigMain.status.disable</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	<type name="pda_doc_reading_model">
+		<value-label>
+			<value>1</value>
+			<label-key>pdaModuleConfigView.readindMode.newsReadingMode</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>pdaModuleConfigView.readindMode.tableReadingMode</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	<type name="pda_module_config_subMenu_type">
+		<value-label>
+			<value>listTab</value>
+			<label-key>pdaModuleConfigMain.subMenu.type.listTab</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>doc</value>
+			<label-key>pdaModuleConfigMain.subMenu.type.doc</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>app</value>
+			<label-key>pdaModuleConfigMain.subMenu.type.app</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>ekp</value>
+			<label-key>pdaModuleConfigMain.subMenu.type.ekp</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	<type name="pda_app_type_enums">
+		<value-label>
+			<value>0</value>
+			<label-key>pdaModuleConfigMain.subMenu.app.type.iphone</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>pdaModuleConfigMain.subMenu.app.type.ipad</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>pdaModuleConfigMain.subMenu.app.type.android</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	
+	<type name="pda_tabView_labelList_fdTabType">
+		<value-label>
+			<value>module</value>
+			<label-key>pdaTabViewLabelList.fdTabType.module</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>listcategory</value>
+			<label-key>pdaTabViewLabelList.fdTabType.listcategory</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>search</value>
+			<label-key>pdaTabViewLabelList.fdTabType.search</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<!-- emp客户端目前不支持类型doc(文档类型暂时屏蔽掉),同时屏蔽掉list（列表类型）-->
+		<!--
+		<value-label>
+			<value>list</value>
+			<label-key>pdaTabViewLabelList.fdTabType.list</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>doc</value>
+			<label-key>pdaTabViewLabelList.fdTabType.doc</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		-->
+	</type>
+	
+	<type name="pda_general_config_broadcastAndriod">
+		<value-label>
+			<value>O</value>
+			<label-key>pdaGeneralConfig.broadcastAndriod.appointUser</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>Y</value>
+			<label-key>pdaGeneralConfig.broadcastAndriod.onlineUser</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>A</value>
+			<label-key>pdaGeneralConfig.broadcastAndriod.allUser</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	
+	<type name="pda_linker_type_enums">
+		<value-label>
+			<value>0</value>
+			<label-key>pdaModuleConfigMain.innerLinker</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>pdaModuleConfigMain.outerLinker</label-key>
+			<bundle>third-pda</bundle>
+		</value-label>
+	</type>
+	
+</column-enums>

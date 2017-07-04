@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>编号机制</module-name>
+		<module-path>sys/number</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>e29e19e6f4b7f59da6882f89bd4d1a81</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

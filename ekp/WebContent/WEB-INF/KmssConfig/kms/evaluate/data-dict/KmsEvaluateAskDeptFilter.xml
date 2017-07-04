@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskDeptFilter"
+		messageKey="kms-evaluate:table.kmsEvaluateAskDeptFilter"
+		displayProperty="docSubject"
+		serviceBean="kmsEvaluateAskDeptFilterService"
+		table="kms_evaluate_ask_dept_filter"
+		url="/kms/evaluate/kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.fdCreator"
+			type="String"
+			column="fd_creator"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeUnit"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.fdTimeUnit"
+			type="Integer"
+			column="fd_time_unit"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="yearEndTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.yearEndTime"
+			type="Long"
+			column="year_end_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="monthStartTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.monthStartTime"
+			type="Long"
+			column="month_start_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="monthEndTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.monthEndTime"
+			type="Long"
+			column="month_end_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="yearStartTime"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptFilter.yearStartTime"
+			type="Long"
+			column="year_start_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+	</model>
+</models>

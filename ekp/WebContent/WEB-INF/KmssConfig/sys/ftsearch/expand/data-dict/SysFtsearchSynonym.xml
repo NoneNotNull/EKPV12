@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchSynonym"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchSynonym"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchSynonymService"
+		table="sys_ftsearch_synonym"
+		url="/sys/ftsearch/expand/sys_ftsearch_synonym/sysFtsearchSynonym.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdSynonymSet"
+			messageKey="sys-ftsearch-expand:sysFtsearchSynonym.fdSynonymSet"
+			type="String"
+			column="fd_synonym_set"
+			notNull="false"
+			length="36"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+			 
+
+		<simpleProperty
+			name="docCreatorName"
+			messageKey="sys-ftsearch-expand:sysFtsearchSynonym.docCreatorName"
+			type="String"
+			column="doc_creator_name"
+			notNull="false"
+			length="36"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchSynonym.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+	
+		
+		<simpleProperty
+			name="fdCreatorId"
+			messageKey="sys-ftsearch-expand:sysFtsearchSynonym.fdCreatorId"
+			type="String"
+			column="fd_creator_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+			
+		
+		<simpleProperty
+			name="fdSynchState"
+			messageKey="sys-ftsearch-expand:sysFtsearchSynonym.fdSynchState"
+			type="Integer"
+			column="fd_synch_state"
+			notNull="false"
+			length="4"
+			validate="false"
+			 />	
+			
+
+	</model>
+</models>

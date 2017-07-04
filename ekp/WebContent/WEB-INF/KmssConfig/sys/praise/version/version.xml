@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 点赞性能问题，以及并发导致的点赞数统计问题</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 点赞在IE8下报js脚本错误</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 鼠标移动到点赞图标时的提示文字</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 点赞人员列表样式</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 点赞机制中，如果没有人点赞过，则不弹点赞人员列表框</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 点赞人员列表弹出框IE下跑位问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-30</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 点赞机制代码</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-15</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+	</modifies>
+</version>

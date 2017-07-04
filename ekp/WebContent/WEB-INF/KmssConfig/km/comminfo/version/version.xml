@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 二级页面按钮操作栏翻页功能</description>
+			<author>王腾飞</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 全文搜索部署与修改</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 编辑常用资料允许修改分类</description>
+			<author>王腾飞</author>
+			<revision-time>2014-10-21</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 全系统分类信息收集部署</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-15</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 门户多语言显示</description>
+			<author>魏本源</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 管理员工具箱导出设置页面多语言化</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 list按排序号排序，相同的排序号按创建时间倒序排序</description>
+			<author>魏本源</author>
+			<revision-time>2013-11-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建保存错误的问题</description>
+			<author>魏本源</author>
+			<revision-time>2012-12-13</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延迟加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 portlet点击更多进入模块显示数据不一致问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-11</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击portlet的新建按钮时，默认新建该分类的文档而不需要用户选择分类</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于messageKey不正确，导致pertlet中配置窗口URL出现空指针的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-25</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 常用资料中，保存并新建后，原保存的附件丢失问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-11</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置实现窗口配置时自动生成的URL由模块路径改为所选择模块或类别的精确路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-05</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>添加按分类portlet</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-02-27</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>常用资料文档增加按排序号排序</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-11-01</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改全文检索配置，解决修改文档后搜索结果为还是旧的问题，更新后需重新检索</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>常用资料中建立的文档没有“创建人”显示为空。但是编辑时是可以看到人的。</description>
+			<author>朱湖强</author>
+			<revision-time>2011-09-23</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决删除常用资料报错问题</description>
+			<author>韩晨</author>
+			<revision-time>2011-08-01</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改常用资料view页面的修改信息显示</description>
+			<author>赵义洪</author>
+			<revision-time>2011-07-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>常用资料view页面去掉详细修改信息</description>
+			<author>赵义洪</author>
+			<revision-time>2011-06-23</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>加入到模块配置列表里面</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsLogContextModuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogContextModuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogContextModule" />
+	</bean>
+	<bean
+		id="kmsLogContextModuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogContextModuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogContextModuleDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogContextModuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogContextModuleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogContextCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogContextCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogContextCategory" />
+	</bean>
+	<bean
+		id="kmsLogContextCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogContextCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogContextCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogContextCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogContextCategoryTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogAskContextDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogAskContextDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogAskContext" />
+	</bean>
+	<bean
+		id="kmsLogAskContextTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogAskContextServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogAskContextDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogAskContextService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogAskContextTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogCommonContextDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogCommonContextDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogCommonContext" />
+	</bean>
+	<bean
+		id="kmsLogCommonContextTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogCommonContextServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogCommonContextDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogCommonContextService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogCommonContextTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogAppDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogAppDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogApp" />
+	</bean>
+	<bean
+		id="kmsLogAppTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogAppServiceImp">
+		<property name="baseDao">
+			<ref local="kmsLogAppDao" />
+		</property>
+		<property name="kmsLogAppConfigService">
+			<ref local="kmsLogAppConfigService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogAppService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogAppTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogSearchDocDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogSearchDocDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogSearchDoc" />
+	</bean>
+	<bean
+		id="kmsLogSearchDocTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogSearchDocServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogSearchDocDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogSearchDocService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogSearchDocTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogDocContextDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogDocContextDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogDocContext" />
+	</bean>
+	<bean
+		id="kmsLogDocContextTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogDocContextServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogDocContextDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogDocContextService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogDocContextTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogAppHistoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogAppHistoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogAppHistory" />
+	</bean>
+	<bean
+		id="kmsLogAppHistoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogAppHistoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogAppHistoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogAppHistoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogAppHistoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogGenerateRuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogGenerateRuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogGenerateRule" />
+	</bean>
+	<bean
+		id="kmsLogGenerateRuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogGenerateRuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogGenerateRuleDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogGenerateRuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogGenerateRuleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogSearchHistoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogSearchHistoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogSearchHistory" />
+	</bean>
+	<bean
+		id="kmsLogSearchHistoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogSearchHistoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogSearchHistoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogSearchHistoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogSearchHistoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogSearchDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogSearchDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogSearch" />
+	</bean>
+	<bean
+		id="kmsLogSearchTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogSearchServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogSearchDao" />
+		</property>
+		<property name="sysFtsearchWordService">
+			<ref bean="sysFtsearchWordService"/>
+		</property>
+		<property name="kmsLogSearchDocService">
+			<ref local="kmsLogSearchDocService"/>
+		</property>
+		<property name="sysFtsearchReadLogService">
+			<ref bean="sysFtsearchReadLogService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsLogSearchService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogSearchTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean id="kmsLogBaseProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogBaseProxy">
+	</bean>
+	<bean id="kmsLogDocRecycleProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogDocRecycleProxy">
+	</bean>
+	<bean id="kmsLogCateChangeProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogCateChangeProxy">
+	</bean>
+	<bean id="kmsLogUpdateTagsProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogUpdateTagsProxy">
+	</bean>
+	<bean id="kmsLogRightDocChangeProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogRightDocChangeProxy">
+	</bean>
+	<bean id="kmsLogUpdatePropertyProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogUpdatePropertyProxy">
+	</bean>
+	<bean id="kmsLogAskBestPostProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogAskBestPostProxy">
+	</bean>
+	<bean id="kmsLogShareProxy" class="com.landray.kmss.kms.log.service.spring.KmsLogShareProxy">
+	</bean>
+	
+	
+	<bean id="kmsLogCreateService" class="com.landray.kmss.kms.log.service.KmsLogCreateService">
+		<property name="kmsCommonAdviceService">
+			<ref bean="kmsCommonAdviceService"/>
+		</property>
+		<property name="kmsLogAppService">
+			<ref local="kmsLogAppService"/>
+		</property>
+	</bean>
+	<bean id="kmsLogDocPublishCoreServiceImp" class="com.landray.kmss.kms.log.service.spring.KmsLogDocPublishCoreServiceImp">
+		<property name="kmsLogAppService">
+			<ref local="kmsLogAppService"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="kmsLogHandleFactory" class="com.landray.kmss.kms.log.handle.KmsLogHandleFactory">
+		<property name="kmsLogDocHandle">
+			<bean class="com.landray.kmss.kms.log.handle.KmsLogDocHandle">
+				<property name="kmsLogDocContextService">
+					<ref local="kmsLogDocContextService"/>
+				</property>
+				<property name="kmsLogContextCategoryService">
+					<ref local="kmsLogContextCategoryService"/>
+				</property>
+			</bean>
+		</property>
+		<property name="kmsLogCategoryHandle">
+			<bean class="com.landray.kmss.kms.log.handle.KmsLogCategoryHandle" >
+				<property name="kmsLogContextCategoryService">
+					<ref local="kmsLogContextCategoryService"/>
+				</property>
+			</bean>
+		</property>
+		<property name="kmsLogAskHandle">
+			<bean class="com.landray.kmss.kms.log.handle.KmsLogAskHandle" >
+				<property name="kmsLogContextCategoryService">
+					<ref local="kmsLogContextCategoryService"/>
+				</property>
+				<property name="kmsLogAskContextService">
+					<ref local="kmsLogAskContextService"/>
+				</property>
+			</bean>
+		</property>
+		<property name="kmsLogAskPostHandle">
+			<bean class="com.landray.kmss.kms.log.handle.KmsLogAskPostHandle" >
+				<property name="kmsLogAskContextService">
+					<ref local="kmsLogAskContextService"/>
+				</property>
+				<property name="kmsLogContextCategoryService">
+					<ref local="kmsLogContextCategoryService"/>
+				</property>
+			</bean>
+		</property>
+		<property name="kmsLogOtherHandle">
+			<bean class="com.landray.kmss.kms.log.handle.KmsLogOtherHandle">
+				<property name="kmsLogCommonContextService">
+					<ref local="kmsLogCommonContextService"/>
+				</property>
+				<property name="kmsLogContextCategoryService">
+					<ref local="kmsLogContextCategoryService"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean
+		id="kmsLogSynchronizeServiceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogSynchronizeServiceImp">
+		<property name="kmsLogAppService">
+			<ref local="kmsLogAppService"/>
+		</property>
+		<property name="kmsLogSearchService">
+			<ref local="kmsLogSearchService"/>
+		</property>
+		<property name="kmsLogHandleFactory">
+			<ref local="kmsLogHandleFactory"/>
+		</property>
+		<property name="kmsLogDocContextService">
+			<ref local="kmsLogDocContextService"/>
+		</property>
+		<property name="kmsLogContextCategoryService">
+			<ref local="kmsLogContextCategoryService"/>
+		</property>
+		<property name="kmsLogContextModuleService">
+			<ref local="kmsLogContextModuleService"/>
+		</property>
+		<property name="kmsLogAskContextService">
+			<ref local="kmsLogAskContextService"/>
+		</property>
+		<property name="kmsLogCommonContextService">
+			<ref local="kmsLogCommonContextService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsLogSynchronizeService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogSynchronizeServiceTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogContextCategoryTree"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogContextCategoryTree">
+		<property
+			name="kmsLogContextCategoryService">
+			<ref
+				local="kmsLogContextCategoryService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogContextModuleTree"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogContextModuleTree">
+		<property
+			name="kmsLogContextModuleService">
+			<ref
+				local="kmsLogContextModuleService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogInitDataService"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogInitDataService">
+		<property name="kmsLogDocContextService">
+			<ref local="kmsLogDocContextService" />
+		</property>
+		<property name="kmsLogContextCategoryService">
+			<ref local="kmsLogContextCategoryService" />
+		</property>
+		<property name="kmsLogContextModuleService">
+			<ref local="kmsLogContextModuleService" />
+		</property>
+		<property name="kmsLogGenerateRuleService">
+			<ref local="kmsLogGenerateRuleService" />
+		</property>
+		<property name="kmsLogAskContextService">
+			<ref local="kmsLogAskContextService"/>
+		</property>
+			<property name="kmsLogAppConfigService">
+			<ref bean="kmsLogAppConfigService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsLogAppConfigDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.log.dao.hibernate.KmsLogAppConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.log.model.KmsLogAppConfig" />
+	</bean>
+	<bean
+		id="kmsLogAppConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.log.service.spring.KmsLogAppConfigServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsLogAppConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsLogAppConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsLogAppConfigTarget" />
+		</property>
+	</bean>
+	
+</beans>

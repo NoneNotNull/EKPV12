@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.common.model.KmsCommonAtUser"
+		messageKey="kms-common:table.kmsCommonAtUser"
+		displayProperty="fdId"
+		serviceBean="kmsCommonAtUserService"
+		table="kms_common_at_users"
+		url="/kms/common/kms_common_at_users/kmsCommonAtUser.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-common:kmsCommonAtUser.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdMessageId"
+			messageKey="kms-common:kmsCommonAtUser.fdMessageId"
+			type="String"
+			column="fd_message_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+		
+		<modelProperty
+			name="fdAtedUser"
+			messageKey="kms-common:kmsCommonAtUser.fdAtedUserId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_ated_user_id"
+			notNull="false"
+			validate="false" />
+			
+		<modelProperty
+			name="fdAtUser"
+			messageKey="kms-common:kmsCommonAtUser.fdAtUserId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_at_user_id"
+			notNull="false"
+			validate="false" />
+			
+	</model>
+</models>

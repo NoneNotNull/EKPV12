@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+	<formset>
+		<form name="kmImissiveTypeForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveType.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveType.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveUnitCategoryForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveUnitCategory.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveUnitCategory.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveUnitForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveUnit.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdShortName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveUnit.fdShortName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdCategoryId"
+				depends="required">
+				<arg
+					key="kmImissiveUnit.fdCategoryId"
+					bundle="km-imissive"
+					position="0" />
+			</field>
+			<field
+				property="fdEmail"
+				depends="maxlength,email">
+				<arg
+					key="kmImissiveUnit.fdEmail"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdContent"
+				depends="maxlength">
+				<arg
+					key="kmImissiveUnit.fdContent"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveUnit.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveSecretGradeForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveSecretGrade.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveSecretGrade.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveEmergencyGradeForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveEmergencyGrade.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveEmergencyGrade.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveSendTemplateForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveSendTemplate.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>	
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveSendTemplate.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveSignTemplateForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveSendTemplate.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>	
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveSendTemplate.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmImissiveReceiveTemplateForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmImissiveReceiveTemplate.fdName"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="maxlength,integer">
+				<arg
+					key="kmImissiveReceiveTemplate.fdOrder"
+					bundle="km-imissive"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

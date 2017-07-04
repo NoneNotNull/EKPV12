@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!--表单事件引入 jsp 片段 扩展  -->
+	<bean id="tibSoapFormEventJspGenerator"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapFormEventJspGenerator">
+	</bean>
+	
+	<!-- soapui xml解析 类-->
+	<bean id="tibSoapMappingWebServiceXmlOperateService"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingWebServiceXmlOperateServiceImp">
+	<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+		<property name="tibCommonMappingModuleService">
+			<ref bean="tibCommonMappingModuleService" />
+		</property>
+	</bean>
+
+	<!-- 执行机器人节点 -->
+	<bean id="tibSoapWfRobotNodeRunWebServiceService"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapWfRobotNodeRunWebServiceService">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+		<property name="tibSysSoap">
+			<ref bean="tibSysSoap" />
+		</property>
+		<property name="tibCommonMappingFuncXmlOperateService">
+			<ref bean="tibSoapMappingWebServiceXmlOperateService" />
+		</property>
+		<property name="tibCommonMappingMainService">
+			<ref bean="tibCommonMappingMainService" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	
+	<!-- 获取函数分类树 -->
+	<bean id="tibSoapMappingFuncTreeListService"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingFuncTreeListService">
+		<property name="tibSysSoapCategoryService">
+			<ref bean="tibSysSoapCategoryService" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	
+	
+		<!-- 获取函数返回xml -->
+	<bean id="tibSoapMappingFuncXmlService"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingFuncXmlService">
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	
+	<!-- soapui集成扩展点 -->
+	<bean id="tibSoapMappingIntegration"
+		class="com.landray.kmss.tib.soap.mapping.plugins.TibSoapMappingIntegration">
+	</bean>
+	
+	<!-- 返回表单事件执行后的webservice soap -->
+	<bean id="tibSoapMappingFormEventFuncBackXmlService"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingFormEventFuncBackXmlService">
+	<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	
+	<!-- SOAP映射函数执行 -->
+	<bean id="tibSoapMappingRunFunction"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingRunFunction">
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+		<property name="tibSysSoap">
+			<ref bean="tibSysSoap" />
+		</property>
+		<property name="tibSoapMappingWebServiceXmlOperateService">
+			<ref bean="tibSoapMappingWebServiceXmlOperateService" />
+		</property>
+		<property name="tibCommonMappingMainService">
+			<ref bean="tibCommonMappingMainService" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	<!-- 表单控件 -->
+	<bean id="tibSoapControlTreeInfo"
+		class="com.landray.kmss.tib.soap.mapping.plugins.controls.TibSoapControlTreeInfo">
+		<property name="tibSysSoapCategoryService">
+			<ref bean="tibSysSoapCategoryService" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+		<property name="tibCommonMappControlFieldService">
+			<ref bean="tibCommonMappControlFieldService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 流程驳回 -->
+	<bean id="tibSoapMappingFlowRefuseListener"
+		class="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingFlowRefuseListener">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService"/>			
+		</property>
+		<property name="tibSoapMappingRunFunction">
+			<ref bean="tibSoapMappingRunFunction"/>			
+		</property>
+	</bean>
+	
+</beans>
+	

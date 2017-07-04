@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskAddition"
+		messageKey="kms-ask:table.kmsAskAddition"
+		displayProperty="docSubject"
+		serviceBean="kmsAskAdditionService"
+		table="kms_ask_addition"
+		url="/kms/ask/kms_ask_addition/kmsAskAddition.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-ask:kmsAskAddition.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-ask:kmsAskAddition.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-ask:kmsAskAddition.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdKmsAskTopic"
+			messageKey="kms-ask:kmsAskAddition.fdKmsAskTopic"
+			type="com.landray.kmss.kms.ask.model.KmsAskTopic"
+			column="fd_topic_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdKmsAskPost"
+			messageKey="kms-ask:kmsAskAddition.fdKmsAskPost"
+			type="com.landray.kmss.kms.ask.model.KmsAskPost"
+			column="fd_post_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

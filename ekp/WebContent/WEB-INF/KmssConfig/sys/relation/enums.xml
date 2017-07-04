@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="sysRelationEntry_fdType">
+		<value-label>
+			<value>1</value>
+			<label-key>sysRelationEntry.fdType1
+			</label-key>
+			<bundle>sys-relation</bundle>
+			<label>全文检索</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysRelationEntry.fdType2
+			</label-key>
+			<bundle>sys-relation</bundle>
+			<label>精确搜索</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>sysRelationEntry.fdType3
+			</label-key>
+			<bundle>sys-relation</bundle>
+			<label>扩展搜索</label>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>sysRelationEntry.fdType4
+			</label-key>
+			<bundle>sys-relation</bundle>
+			<label>静态网页</label>
+		</value-label>
+	</type>
+	<!-- 外部关联模块参数类型 -->
+	<type
+		name="sysRelation_fdParamType">
+		<value-label>
+			<value>string</value>
+			<label-key>sysRelationForeignParam.fdParamType.string
+			</label-key>
+			<resource />
+			<bundle>sys-relation</bundle>
+			<label>字符串</label>
+		</value-label>
+		<value-label>
+			<value>number</value>
+			<label-key>sysRelationForeignParam.fdParamType.number
+			</label-key>
+			<resource />
+			<bundle>sys-relation</bundle>
+			<label>数字</label>
+		</value-label>
+		<value-label>
+			<value>date</value>
+			<label-key>sysRelationForeignParam.fdParamType.date
+			</label-key>
+			<resource />
+			<bundle>sys-relation</bundle>
+			<label>日期</label>
+		</value-label>
+	</type>
+	
+	<!-- 关联总览（搜索目标） -->
+	<type name="sysSearchTarget">
+		<value-label>
+			<value>0</value>
+			<label-key>relationOverView.source.doc</label-key>
+			<bundle>sys-relation</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>relationOverView.related.doc</label-key>
+			<bundle>sys-relation</bundle>
+		</value-label>
+	</type>
+</column-enums>
+

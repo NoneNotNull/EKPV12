@@ -1,0 +1,34 @@
+
+	private String servicePath = "/sys/webservice/sysSynchroSetOrgWebService";
+	
+	public void setServicePath(String servicePath) {
+		this.servicePath = servicePath;
+	}
+
+	private ISysSynchroSetOrgWebService setOrgWebService=null;
+
+	public SysSynchroSetResult syncOrgElementsBaseInfo(
+			SysSynchroSetOrgContext setOrgContext) throws Exception{
+		return getService().syncOrgElementsBaseInfo(setOrgContext);
+	}
+
+	public SysSynchroSetResult syncOrgElements(
+			SysSynchroSetOrgContext setOrgContext) throws Exception
+		return getService().syncOrgElements(orgContext);
+	}
+
+	private ISysSynchroSetOrgWebService getService() {
+		if(setOrgWebService==null){
+			//创建webservice对象..
+			JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+			factory.getInInterceptors().add(new LoggingInInterceptor());
+			factory.getOutInterceptors().add(new LoggingOutInterceptor());
+			factory.getOutInterceptors().add(new AddSoapHeader());
+			factory.setServiceClass(ISysSynchroSetOrgWebService.class);
+			factory.setAddress(ResourceUtil
+					.getKmssConfigString("kmss.java.webservice.urlPrefix")
+					+ servicePath);
+			setOrgWebService= (ISysSynchroSetOrgWebService) factory.create();
+		}
+		return setOrgWebService;
+	}

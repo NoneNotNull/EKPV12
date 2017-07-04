@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-lbpmmonitor:module.sys.lbpmmonitor"
+		urlPrefix="/sys/lbpmmonitor/"
+		defaultValidator="true">
+
+		<request
+			path="sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+		</request>
+
+		<request
+			path="sys_lbpm_monitor_flowVersion/index.jsp"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+		</request>
+
+	</module>
+
+	<treeNodes type="sysconfig">
+		<treeNode
+			messageKey="sys-lbpmmonitor:module.sys.lbpmmonitor"
+			authUrl="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp">
+			<treeNode
+				messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.allFlow"
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp?method=listChildren&amp;fdStatus=20;40&amp;fdType=running">
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.errorFlow"
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp?method=listChildren&amp;fdStatus=21&amp;fdType=error">
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.finishedFlow"
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp?method=listChildren&amp;fdStatus=00;30&amp;fdType=finish">
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.recentHandleFlow"
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp?method=getRecentHandle">
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.notValidFlow"
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_clusterIndex.jsp?method=getInvalidHandler">
+			</treeNode>
+			<!-- <treeNode messageKey="sys-lbpmmonitor:sysLbpmMonitor.tree.versionMng" 
+				url="/sys/lbpmmonitor/sys_lbpm_monitor_flowVersion/index.jsp"> </treeNode> -->
+		</treeNode>
+	</treeNodes>
+
+</configs>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.formula">
+		<item
+			name="function">
+			<param
+				name="className"
+				kind="java"
+				basedOn="java.lang.Object"
+				required="true">
+				<description><![CDATA[
+				要扩展函数，您必须编写一个java文件与两个properties文件，这三个文件必须处于同一个包，如：
+				1) com/landray/kmss/sys/formula/provider/function/OtherFunction.java
+				2) com/landray/kmss/sys/formula/provider/function/OtherFunction.properties
+				3) com/landray/kmss/sys/formula/provider/function/OtherFunctionWeb.properties
+				注意这三个文件的命名格式，第一个与第二个同名（扩展名不一样），第三个后面加Web。
+				
+				第一个文件为公式运行的函数类，通过编写静态的方法，实现公式执行的逻辑，方法名、参数、返回值没有任何限制。
+				
+				第二个文件描述了公式的中文名与java类中的静态方法名的对应关系。
+				样例代码：“字符串.包含 = contains”
+				说明：在第一步的java类中有名为“contains”的静态方法，在调用公式时候，可以通过“$字符串.包含$(参数)”进行调用。
+				
+				第三个文件声明公式定义器界面显示的公式内容。
+				样例代码：
+					string.contains.name = 字符串.包含
+					string.contains.title = 判断“字符串1”是否包含“字符串2”，返回true/false
+					string.contains.param = 字符串1, 字符串2
+				说明：样例代码中，第一行为函数中文名的声明，第二行为函数的帮助信息，第三行为函数的参数，通过string.contains把这几个值联系在一起。
+				其中name和title是必需的，param若没有则可以不定义。
+				
+				输入值样例：com.landray.kmss.sys.formula.provider.function.OtherFunction
+			]]></description>
+			</param>
+			<description>扩展公式定义器中的函数部分。</description>
+		</item>
+		<description>公式定义器扩展点，支持不同的模块定义不同公式。</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.sys.formula"
+		model="*">
+		<item
+			name="function">
+			<param
+				name="className"
+				value="com.landray.kmss.sys.formula.provider.function.DateTimeFunction" />
+		</item>
+		<item
+			name="function">
+			<param
+				name="className"
+				value="com.landray.kmss.sys.formula.provider.function.OrgFunction" />
+		</item>
+		<item
+			name="function">
+			<param
+				name="className"
+				value="com.landray.kmss.sys.formula.provider.function.OtherFunction" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysDatainitXMLDataBean"
+		class="com.landray.kmss.sys.datainit.service.spring.SysDatainitXMLDataBean">
+		<property name="sysDatainitMainService">
+			<ref local="sysDatainitMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysDatainitMainService"
+		class="com.landray.kmss.sys.datainit.service.spring.SysDatainitMainServiceImp">
+		<property name="sysDatainitProcessService">
+			<ref local="sysDatainitProcessService" />
+		</property>
+		<property name="dispatchCoreService">
+			<ref bean="dispatchCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="sysDatainitProcessTarget"
+		class="com.landray.kmss.sys.datainit.service.spring.SysDatainitProcessServiceImp">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysDatainitProcessService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="sysDatainitProcessTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="exportToFile*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="importFile*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+<session-factory>
+	<!-- 各属性的配置-->
+	<!--为true表示将Hibernate发送给数据库的sql显示出来 -->
+	
+	<property name="show_sql">false</property>
+	
+	<!-- 一次读的数据库记录数 -->
+	<property name="jdbc.fetch_size">50</property>
+	
+	<!-- 设定对数据库进行批量删除 -->
+	<property name="jdbc.batch_size">30</property>
+	
+	<!-- 映射文件 --><!--
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogAppHistory.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogSearchHistory.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogContextModule.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogAppConfig.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogGenerateRule.hbm.xml" />
+	-->
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogDocContext.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogContextCategory.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogApp.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogAskContext.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogSearchDoc.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogSearch.hbm.xml" />
+	<mapping
+		resource="com/landray/kmss/kms/log/model/KmsLogCommonContext.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

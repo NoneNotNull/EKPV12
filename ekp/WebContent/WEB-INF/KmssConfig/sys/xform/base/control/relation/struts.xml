@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/xform/controls/relation"
+			type="com.landray.kmss.sys.xform.base.actions.controls.SysFormControlRelationAction"
+			parameter="method"
+			scope="request">
+			
+		</action>
+	</action-mappings>
+
+</struts-config>

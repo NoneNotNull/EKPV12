@@ -1,0 +1,36 @@
+.outable{background-color:#ffffff;}
+.tdrb {
+	border-right:1px solid #666666;
+	border-bottom:1px solid #666666;
+}
+.tdb {border-bottom:1px solid #666666;}
+.tdr {border-right:1px solid #666666;}
+.tdz {background-color:#666666;}
+.tdtime {
+	padding-top:6px;padding-bottom:6px;
+	border-top:1px solid #666666;
+	background-color:#F7F7F7;}
+a:visited {text-decoration: none;} 
+a:active {text-decoration: none;}
+a:hover {text-decoration: underline overline;}
+a:link {text-decoration: none;}
+.ng {color:#008080;}
+.topic {background-color:#09a4cf;}
+.tfont {color:#ffffff;}
+.nickStyle{filter:glow(color=#996699,direction=135);color:#ffffff;}
+td.quote {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #444444;
+    line-height: 125%;
+    background-color: #EEE;
+    border: #D1D7DC;
+    border-style: solid;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px; 
+    border: 2px dotted;
+    border-color:#999;
+}
+.trace{color:#0082bf;}

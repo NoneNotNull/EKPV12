@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-sys-core-provider:module.tib.sys.core.provider"
+		urlPrefix="/tib/sys/core/"
+		defaultValidator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_DEFAULT)">
+		<roles>
+			ROLE_TIBSYSCOREPROVIDER_DEFAULT;
+			
+			<!-- add by kezm -->
+			ROLE_TIBSYSCOREPROVIDER_ADD;
+			ROLE_TIBSYSCOREPROVIDER_EDIT;
+			ROLE_TIBSYSCOREPROVIDER_DELETE;
+			ROLE_TIBSYSCOREPROVIDER_VIEW
+		</roles>
+       <areaRoles>
+          ROLE_TIBSYSCOREPROVIDER_TAGMANAGE;
+       </areaRoles>
+
+		<request
+			path="provider/tib_sys_core_iface/tibSysCoreIface*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface">
+			
+		<!-- add by kezm   start -->	
+			<!-- 新建 -->
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_ADD)" />
+				
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_ADD)" />
+			
+			<!-- 更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_EDIT)" />
+				
+		<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_DELETE)" />
+				
+				<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_TIBSYSCOREPROVIDER_DELETE)" />
+				
+				
+		</request>
+
+	<!-- add by kezm   end -->	
+
+		<request
+			path="tib_sys_core_node/tibSysCoreNode*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.core.provider.model.TibSysCoreNode">
+		</request>
+
+		<request
+			path="tib_sys_core_tag/tibSysCoreTag*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag">
+		</request>
+		
+		<request
+			path="tib_sys_core_iface_impl/tibSysCoreIfaceImpl*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIfaceImpl">
+		</request>
+	</module>
+
+	<!--homePage
+		urlPrefix="tib/sys/core/provider"
+		url="/moduleindex.jsp?nav=/tib/sys/core/provider/tree.jsp"
+		messageKey="tib-sys-core-provider:module.tib.sys.core.provider" /-->
+
+</configs>

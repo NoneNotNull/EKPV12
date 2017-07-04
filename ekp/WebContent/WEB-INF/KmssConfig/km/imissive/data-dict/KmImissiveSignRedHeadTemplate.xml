@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveSignRedHeadTemplate"
+		messageKey="km-imissive:table.kmImissiveRedHeadTemplate"
+		displayProperty="fdName"
+		serviceBean="kmImissiveSignRedHeadTemplateService"
+		url="/km/imissive/km_imissive_sign_redhead_template/kmImissiveSignRedHeadTemplate.do?method=view&amp;fdId=${fdId}"
+		table="km_imissive_sign_redhead_tmpl">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdDesc"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.docContent"
+			type="RTF"
+			column="fd_desc"
+			length="1000000"
+			notNull="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.hbmParent"
+			type="com.landray.kmss.km.imissive.model.KmImissiveSignRedHeadTemplate"
+			cascade="save-update"
+			column="fd_parent_id"
+			notNull="false"/>
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+       
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="authNotReaderFlag"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authNotReaderFlag"
+			type="Boolean"
+			column="auth_not_reader_flag"
+			length="1"
+			notNull="false" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			length="1000"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.docCreateId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_create_id"
+			notNull="false" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+		
+		<listProperty
+			name="authEditors"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authEditorId"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_imissive_sigredtmpl_editor" />
+		<listProperty
+			name="authReaders"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authReaderId"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_imissive_sigredtmpl_reader" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authAllReaderId"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_imissive_sigredtmpl_areader" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-imissive:kmImissiveRedHeadTemplate.authAllEditorId"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="km_imissive_sigredtmpl_aeditor" />
+		<attachmentProperty
+			name="editonline"
+			messageKey="km-imissive:kmImissiveMain.attachment"
+			canDisplay="false" />
+	</model>
+</models>

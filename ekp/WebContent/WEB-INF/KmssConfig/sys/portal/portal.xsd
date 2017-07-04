@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.landray.com.cn/schema/portal"
+	elementFormDefault="qualified"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.landray.com.cn/schema/portal" xmlns:ui="http://www.landray.com.cn/schema/lui">
+
+	<xsd:import schemaLocation="../ui/lui.xsd" namespace="http://www.landray.com.cn/schema/lui"></xsd:import>
+	<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="footer" maxOccurs="unbounded"
+					minOccurs="0">
+				</xsd:element>
+				<xsd:element ref="header" maxOccurs="unbounded"
+					minOccurs="0">
+				</xsd:element>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="header">
+		<xsd:complexType mixed="true">
+			<xsd:complexContent>
+				<xsd:extension base="ui:base">
+					<xsd:sequence>
+						<xsd:element name="vars" type="ui:vars"
+							maxOccurs="1" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="file" type="xsd:string">
+					</xsd:attribute>
+					<xsd:attribute name="for"
+						type="xsd:string">
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="footer">
+		<xsd:complexType mixed="true">
+			<xsd:complexContent>
+				<xsd:extension base="ui:base">
+					<xsd:sequence>
+						<xsd:element name="vars" type="ui:vars"
+							maxOccurs="1" minOccurs="0">
+						</xsd:element>
+					</xsd:sequence>
+					<xsd:attribute name="file" type="xsd:string">
+					</xsd:attribute>
+					<xsd:attribute name="for"
+						type="xsd:string">
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

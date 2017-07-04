@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgPost"
+		messageKey="sys-organization:sysOrgElement.post"
+		displayProperty="fdName"
+		serviceBean="sysOrgPostService"
+		extendClass="com.landray.kmss.sys.organization.model.SysOrgElement"
+		discriminatorValue="4"
+		url="/sys/organization/sys_org_post/sysOrgPost.do?method=view&amp;fdId=${fdId}"
+		table="sys_org_element">
+		
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-organization:sysOrgPost.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			length="100"
+			canSearch="true" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-organization:sysOrgPost.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			validate="true" />
+		<simpleProperty
+			name="fdNo"
+			messageKey="sys-organization:sysOrgPost.fdNo"
+			type="String"
+			column="fd_no"
+			notNull="false"
+			unique="false"
+			length="100"
+			canSearch="true" 
+			validate="true"/>
+		<simpleProperty
+			name="fdKeyword"
+			messageKey="sys-organization:sysOrgPost.fdKeyword"
+			type="String"
+			column="fd_keyword"
+			notNull="false"
+			unique="false"
+			length="100"
+			canSearch="true" 
+			validate="true"/>
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="sys-organization:sysOrgPost.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false"
+			unique="false"
+			defaultValue="1"
+			canSearch="true" />
+		<simpleProperty
+			name="fdIsBusiness"
+			messageKey="sys-organization:sysOrgPost.fdIsBusiness"
+			type="Boolean"
+			column="fd_is_business"
+			notNull="false"
+			unique="false"
+			defaultValue="1"
+			canSearch="true" />
+		<simpleProperty
+			name="fdMemo"
+			messageKey="sys-organization:sysOrgPost.fdMemo"
+			type="String"
+			column="fd_memo"
+			notNull="false"
+			unique="false"
+			length="1500"
+			canSearch="true" 
+			validate="true"/>
+		<modelProperty
+			name="hbmThisLeader"
+			messageKey="sys-organization:sysOrgPost.fdThisLeader"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_this_leaderid"
+			notNull="false"
+			unique="false"
+			where="sysOrgElement.fdOrgType=4 or sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_POSTORPERSON);" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-organization:sysOrgPost.fdParent"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_parentid"
+			notNull="false"
+			unique="false"
+			canSearch="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_ORGORDEPT);"
+			where="sysOrgElement.fdOrgType=1 or sysOrgElement.fdOrgType=2"
+			treeModel="true" />
+		<listProperty
+			name="hbmPersons"
+			messageKey="sys-organization:sysOrgPost.fdPersons"
+			column="fd_postid"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			table="sys_org_post_person"
+			elementColumn="fd_personid"
+			inverse="false"
+			dialogJS="Dialog_Address(true, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+	</model>
+</models>

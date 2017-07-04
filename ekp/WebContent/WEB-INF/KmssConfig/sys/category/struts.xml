@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysCategoryMainForm"
+			type="com.landray.kmss.sys.category.forms.SysCategoryMainForm">
+		</form-bean>
+		<form-bean
+			name="sysCategoryPropertyForm"
+			type="com.landray.kmss.sys.category.forms.SysCategoryPropertyForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/category/sys_category_main/sysCategoryMain"
+			type="com.landray.kmss.sys.category.actions.SysCategoryMainAction"
+			name="sysCategoryMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/category/sys_category_main/sysCategoryMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/category/sys_category_main/sysCategoryMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/category/sys_category_main/sysCategoryMain_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/category/sys_category_property/sysCategoryProperty"
+			type="com.landray.kmss.sys.category.actions.SysCategoryPropertyAction"
+			name="sysCategoryPropertyForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/category/sys_category_property/sysCategoryProperty_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/category/sys_category_property/sysCategoryProperty_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/category/sys_category_property/sysCategoryProperty_list.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/category/criteria/sysCategoryCriteria"
+			type="com.landray.kmss.sys.category.actions.SysCategoryCriteriaAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="com.landray.kmss.sys.category.ApplicationResources"
+		key="sys-category" />
+
+</struts-config>

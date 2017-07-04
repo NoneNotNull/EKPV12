@@ -1,0 +1,36 @@
+基本调用：
+<ui:accordionpanel>
+	<ui:content title="标签1">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:accordionpanel>
+
+更换布局：
+<ui:accordionpanel layout="布局ID">
+	<ui:content title="标签1">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:accordionpanel>
+
+引用Portlet的配置和自定义混搭：
+<ui:accordionpanel>
+	<portal:portlet ref="portlet定义的ID" title="标签1" />
+	<ui:content title="标签2">
+		HTML代码
+		<ui:operation name="" href="" />
+	</ui:content>
+</ui:accordionpanel>
+
+关于展开折叠：
+ui:accordionpanel和ui:content都可以定义toggle（是否允许展开折叠），expand（默认是否展开）属性
+若ui:content不定义，则使用ui:accordionpanel的配置

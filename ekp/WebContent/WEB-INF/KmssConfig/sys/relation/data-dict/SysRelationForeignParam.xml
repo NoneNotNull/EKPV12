@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.relation.model.SysRelationForeignParam"
+		messageKey="sys-relation:table.sysRelationForeignParam"
+		serviceBean="sysRelationForeignParamService"
+		table="sys_relation_foreign_param">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdParam"
+			messageKey="sys-relation:sysRelationForeignParam.fdParam"
+			type="String"
+			column="fd_param"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdParamName"
+			messageKey="sys-relation:sysRelationForeignParam.fdParamName"
+			type="String"
+			column="fd_param_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdParamType"
+			messageKey="sys-relation:sysRelationForeignParam.fdParamType"
+			type="String"
+			column="fd_param_type"
+			notNull="false"
+			length="50" />
+		<modelProperty
+			name="sysRelationForeignModule"
+			messageKey="sys-relation:sysRelationForeignParam.sysRelationForeignModule"
+			type="com.landray.kmss.sys.relation.model.SysRelationForeignModule"
+			column="fd_module_id"
+			notNull="false" />
+	</model>
+</models>

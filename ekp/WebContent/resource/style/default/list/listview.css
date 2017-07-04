@@ -1,0 +1,170 @@
+/*
+ * 压缩类型：无
+ * listview.js 配套 css
+ */
+*{ margin:0; padding:0;}
+
+body, td, input{
+	font-size: 12px;
+	color: #333333;
+}
+a{
+	color: #003048;
+}
+a:hover{
+	color: #0052c2;
+}
+a:active{
+	color: #787878; 
+	text-decoration: underline;
+}
+.inputsgl{
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+}
+.pagenav_input{
+	color: #0066FF;
+	border-color: #999999;
+	border-style: solid;
+	border-width: 0px 0px 1px 0px;
+	width:24px;
+}
+.tr_listrow1{
+	background: #FFFFFF;
+	text-align:center;
+}
+.tr_listrow2{
+	background: #F5F5F5;
+	text-align:center;
+}
+.tr_listrowcur{
+	background: #DFDFDF;
+	text-align:center;
+}
+.barmsg{
+	text-align:center;
+	font-weight: bold;
+}
+.txtmsg{
+	color: #FF0000;
+	font-weight: bold;
+}
+.btnmsg{
+	padding: 2px 5px 0px 5px;
+	border:1px solid #000033;
+	cursor:pointer;
+}
+th.sorted,td.sorted {
+    background-color: #BBDDFF;
+}
+th.sortable a, td.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+	heigth: 100%;
+	text-decoration:none;
+}
+.tb_search{
+	border-collapse:collapse;
+	border: 1px #C0C0C0 solid;
+	background-color: #F3F3F3;
+	height:30px;
+}
+.td_search, .tb_search td{
+	border-collapse:collapse;
+	border: 0px;
+	padding:1px;
+}
+.input_search{
+	color: #0066FF;
+	border: 1px solid #C0C0C0;
+}
+.btn_search{
+	height:20px;
+	background-color:#f3f3f3;
+	border:1px solid #909090;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	font-size: 12px; 
+}
+#optBarDiv{
+	display:none;
+}
+/* list_page.js 迁移过来 */
+.tr_listfirst {
+	background:#fff; border-bottom:1px solid #ddd;
+	height:24px;
+	text-align:center;
+}
+.linelistbottom {
+	background:#77B6FB;
+	height:2px;
+}
+.barmsg, .btnmsg {
+	background:url(list_nodoc_bg.jpg);
+}
+.btnsearch {
+	padding: 2px 0px 0px 0px;
+	border:1px solid #CCCCCC;
+	cursor:point;
+	background:url(list_nodoc_bg.jpg);
+}
+th.sortable a, td.sortable a {
+	background: url(arrow_off.png) no-repeat right;
+	cursor: pointer;
+}
+th.order1 a, td.order1 a {
+	background: url(arrow_down.png) no-repeat right;
+}
+th.order2 a, td.order2 a {
+	background:url(arrow_up.png) no-repeat right;
+}
+body {
+	scrollbar-face-color:#A6DAFF;
+	scrollbar-arrow-color:#FEFEFC;
+	scrollbar-highlight-color:#FDFDFD;
+	scrollbar-3dlight-color:#E5E5E3;
+	scrollbar-shadow-color:#959794;
+	scrollbar-darkshadow-color:#E4E6E5;
+	scrollbar-track-color:#EEEEEE;
+}
+/* listview 扩宽 */
+a {
+	text-decoration: underline;
+	cursor:pointer;
+}
+th {
+	font-weight: normal;
+	font-size: 12px;
+}
+.page_left {
+	margin-top:6px;
+	float:left;
+}
+.page_right {
+	text-align:right;
+	float:right;
+}
+.center_div {
+	margin: 5px auto;
+	padding: 8px 0;
+	width: 98%;
+	text-align: left;
+}
+.msgBox {
+	background-color: #CC3300;
+	padding: 5px;
+	position: absolute;
+	top: 30px;
+	left: 10px;
+	z-index: 101;
+	color: #fff;
+}
+.msging {
+	background: #CC3300 url(ing.gif) no-repeat 3px center;
+	padding-left: 20px;
+}
+
+#List_ViewTable{ margin:20px 0 !important; border:0; border-collapse:collapse;}
+#List_ViewTable td{ border:0; border-collapse:collapse;}

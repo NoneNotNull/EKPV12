@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchAnalysis"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchAnalysis"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchAnalysisService"
+		table="sys_ftsearch_analysis"
+		url="/sys/ftsearch/expand/sys_ftsearch_analysis/sysFtsearchAnalysis.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-ftsearch-expand:sysFtsearchAnalysis.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSearchTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchAnalysis.fdSearchTime"
+			type="DateTime"
+			column="fd_search_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSearchWordSets"
+			messageKey="sys-ftsearch-expand:sysFtsearchAnalysis.fdSearchWordSets"
+			type="String"
+			column="fd_search_word_sets"
+			notNull="false"
+			length="3000"
+			validate="false" />
+
+	</model>
+</models>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.time.model.SysTimePatchwork"
+		messageKey="sys-time:table.sysTimePatchwork"
+		displayProperty="fdName"
+		serviceBean="sysTimePatchworkService"
+		table="sys_time_patchwork">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-time:sysTimePatchwork.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="hbmStartTime"
+			messageKey="sys-time:sysTimePatchwork.hbmStartTime"
+			type="Long"
+			column="fd_start_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="hbmEndTime"
+			messageKey="sys-time:sysTimePatchwork.hbmEndTime"
+			type="Long"
+			column="fd_end_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-time:sysTimePatchwork.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="sysTimeArea"
+			messageKey="sys-time:sysTimePatchwork.sysTimeArea"
+			type="com.landray.kmss.sys.time.model.SysTimeArea"
+			column="fd_area_id"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-time:sysTimePatchwork.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<listProperty
+			name="sysTimePatchworkTimeList"
+			messageKey="sys-time:sysTimePatchwork.sysTimePatchworkTimeList"
+			column="fd_work_id"
+			type="com.landray.kmss.sys.time.model.SysTimePatchworkTime"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

@@ -1,0 +1,27 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+	   <link url="/kms/ask/kms_ask_personal/kmsAsk_person.jsp" 
+	   		msgKey="kms-ask:kmsAsk.person.my" icon="lui_icon_l_icon_36" id="kms_ask_home_nav_my"/>
+	</links>
+	
+	<links type="zone-nav" order="10">
+		<link 
+			id="kms_ask_home_nav_ta"
+			url="/kms/ask/kms_ask_personal/kmsAsk_zone.jsp" 
+			msgKey="kms-ask:kmsAsk.zone.ta" />
+	</links>
+	
+	<links type="shortcut" order="10">
+		<link 
+			  id="kms_ask_shorcut_add"
+			  url="/kms/ask/kms_ask_topic/kmsAskTopic.do?method=add" 
+			  msgKey="kms-ask:kmsAskTopic.myAsk"
+			  icon="lui_icon_l_icon_45"
+		/>
+	</links>
+</root>

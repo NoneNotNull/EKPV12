@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.forum.model.KmForumTopic"
+		messageKey="km-forum:table.kmForumTopic"
+		displayProperty="docSubject"
+		url="/km/forum/km_forum/kmForumPost.do?method=view&amp;fdForumId=${kmForumCategory.fdId}&amp;fdTopicId=${fdId}"
+		serviceBean="kmForumTopicService"
+		table="km_forum_topic">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-forum:kmForumTopic.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			unique="false"
+			length="200"
+			canSubscribe="true"
+			canSearch="true" />
+		<simpleProperty
+			name="docSummary"
+			messageKey="km-forum:kmForumTopic.docSummary"
+			type="String"
+			column="doc_summary"
+			notNull="true"
+			unique="false"
+			length="200"
+			canSubscribe="true"
+			canSearch="true" />
+		<simpleProperty
+			name="fdIsAnonymous"
+			messageKey="km-forum:kmForumTopic.fdIsAnonymous"
+			type="Boolean"
+			column="fd_is_anonymous"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdStatus"
+			messageKey="km-forum:kmForumTopic.status"
+			type="String"
+			column="fd_status"
+			notNull="true"
+			unique="false"
+			length="2" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-forum:kmForumTopic.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			unique="false"
+			canSearch="true" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-forum:kmForumTopic.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="true"
+			unique="false"
+			canSearch="true" />
+		<simpleProperty
+			name="fdLastPostTime"
+			messageKey="km-forum:kmForumTopic.fdLastPostTime"
+			type="DateTime"
+			column="fd_last_post_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdReplyCount"
+			messageKey="km-forum:kmForumTopic.fdReplyCount"
+			type="Integer"
+			column="fd_reply_count"
+			notNull="false"
+			unique="false"
+			length="10"
+			canDisplay="false"
+			canSubscribe="true" />
+		<simpleProperty
+			name="fdHitCount"
+			messageKey="km-forum:kmForumTopic.fdHitCount"
+			type="Integer"
+			column="fd_hit_count"
+			notNull="false"
+			unique="false"
+			length="10"
+			canDisplay="false"
+			canSubscribe="true" />
+		<simpleProperty
+			name="fdSticked"
+			messageKey="km-forum:kmForumTopic.fdSticked"
+			type="Boolean"
+			column="fd_sticked"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdPinked"
+			messageKey="km-forum:kmForumTopic.fdPinked"
+			type="Boolean"
+			column="fd_pinked"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="fdLastPosterName"
+			messageKey="km-forum:kmForumTopic.fdLastPosterId"
+			type="String"
+			column="fd_last_poster_name"
+			notNull="false"
+			unique="false"
+			length="50"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdImportInfo"
+			messageKey="km-forum:kmForumTopic.fdImportInfo"
+			type="String"
+			column="fd_import_info"
+			notNull="false"
+			unique="false"
+			length="200"
+			canDisplay="false" />
+		<modelProperty
+			name="kmForumCategory"
+			messageKey="km-forum:kmForumTopic.fdForumId"
+			type="com.landray.kmss.km.forum.model.KmForumCategory"
+			column="fd_forum_id"
+			notNull="true"
+			unique="false"
+			dialogJS="Dialog_Tree('!{mulSelect}', '!{idField}', '!{nameField}', ';', 'kmForumCategoryTeeService&amp;categoryId=!{value}', '!{message(km-forum:dialog.tree.title)}', null, null, '!{value}', null, null,'!{message(km-forum:dialog.title)}');"
+			canSearch="true"
+			canSubscribe="true" />
+		<modelProperty
+			name="fdPoster"
+			messageKey="km-forum:kmForumTopic.fdPosterId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_poster_id"
+			notNull="true"
+			unique="false"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);"
+			canSearch="false"
+			canSubscribe="true" />
+		<modelProperty
+			name="fdLastPoster"
+			messageKey="km-forum:kmForumTopic.fdLastPosterId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_last_poster_id"
+			notNull="false"
+			unique="false"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);"
+			canSearch="false" />
+		<listProperty
+			name="forumPosts"
+			messageKey="km-forum:kmForumTopic.forumPosts"
+			column="fd_topic_id"
+			type="com.landray.kmss.km.forum.model.KmForumPost"
+			cascade="all-delete-orphan"
+			inverse="true"
+			canDisplay="false" />
+		<complexProperty
+			name="forumPosts.fdPoster"
+			messageKey="km-forum:kmForumPost.fdPosterId.title"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			canSearch="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+		<complexProperty
+			name="forumPosts.docContent"
+			messageKey="km-forum:kmForumPost.docContent"
+			type="String"
+			notNull="true"
+			canSearch="true" />
+	</model>
+</models>

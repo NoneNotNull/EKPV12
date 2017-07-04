@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<!-- 导航 -->
+		<form-bean
+			name="sysZoneNavigationForm"
+			type="com.landray.kmss.sys.zone.forms.SysZoneNavigationForm">
+		</form-bean>
+		<form-bean
+			name="sysZonePersonInfoForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePersonInfoForm">
+		</form-bean>
+		<!-- 员工黄页==添加 -->
+		<form-bean
+			name="sysZonePersonDataForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePersonDataForm" />
+		<form-bean
+			name="sysZonePersonAttenFanForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePersonAttenFanForm" />
+		<form-bean
+			name="sysZonePerDataTemplForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePerDataTemplForm" />
+		<form-bean
+			name="sysZonePersonDataCateForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePersonDataCateForm" />
+		<!-- 员工黄页==添加 -->
+		<!-- 照片墙 -->
+		<form-bean
+			name="sysZonePhotoMainForm"
+			type="com.landray.kmss.sys.zone.forms.SysZonePhotoMainForm" />
+	</form-beans>
+	
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/zone/index"
+			type="com.landray.kmss.sys.zone.actions.SysZoneIndexAction"
+			name="sysZoneNavigationForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="home"
+				path="/sys/zone/zone.jsp">
+			</forward>
+		</action>
+			<!-- 个人基本信息 -->
+		<action
+			path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo"
+			type="com.landray.kmss.sys.zone.actions.SysZonePersonInfoAction"
+			name="sysZonePersonInfoForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo_view.jsp" />
+			<forward
+				name="tagsList"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo_tags_data.jsp" />
+			<forward
+				name="searchExpert"
+				path="/sys/zone/sys_zone_personInfo/sysZoneNewPersonInfo_search_data.jsp" />
+			<forward
+				name="data"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo_data.jsp" />
+			<forward
+				name="searchDate"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfo_search_data.jsp" />
+			<forward
+				name="toSearch"
+				path="/sys/zone/zoneSearch.jsp" />
+			<forward
+				name="editPhoto"
+				path="/sys/zone/sys_zone_personInfo/sysZonePersonInfoPhoto_edit.jsp" />
+		</action>
+		<!-- 导航 -->
+		<action
+			path="/sys/zone/sys_zone_navigation/sysZoneNavigation"
+			type="com.landray.kmss.sys.zone.actions.SysZoneNavigationAction"
+			name="sysZoneNavigationForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/zone/sys_zone_navigation/sysZoneNavigation_list.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_navigation/sysZoneNavigation_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_navigation/sysZoneNavigation_edit.jsp">
+			</forward>
+			<forward
+				name="portlet"
+				path="/sys/zone/sys_zone_navigation/sysZoneNavigation_portlet.jsp">
+			</forward>
+		</action>
+		<!-- 员工黄页==添加 -->
+		<action
+			path="/sys/zone/sys_zone_person_data/sysZonePersonData"
+			type="com.landray.kmss.sys.zone.actions.SysZonePersonDataAction"
+			name="sysZonePersonDataForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_person_data/sysZonePersonData_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_person_data/sysZonePersonData_edit.jsp" />
+			<forward
+				name="data"
+				path="/sys/zone/sys_zone_person_data/sysZonePersonData_data.jsp" />
+		</action>
+
+		<action
+			path="/sys/zone/sys_zone_person_atten_fan/sysZonePersonAttenFan"
+			type="com.landray.kmss.sys.zone.actions.SysZonePersonAttenFanAction"
+			name="sysZonePersonAttenFanForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_person_atten_fan/sysZonePersonAttenFan_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_person_atten_fan/sysZonePersonAttenFan_edit.jsp" />
+			<forward
+				name="data"
+				path="/sys/zone/sys_zone_person_atten_fan/sysZonePersonAttenFan_data.jsp" />
+		</action>
+
+		<action
+			path="/sys/zone/sys_zone_per_data_templ/sysZonePerDataTempl"
+			type="com.landray.kmss.sys.zone.actions.SysZonePerDataTemplAction"
+			name="sysZonePerDataTemplForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_per_data_templ/sysZonePerDataTempl_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_per_data_templ/sysZonePerDataTempl_edit.jsp" />
+			<forward
+				name="data"
+				path="/sys/zone/sys_zone_per_data_templ/sysZonePerDataTempl_data.jsp" />
+		</action>
+		
+		<action
+			path="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate"
+			type="com.landray.kmss.sys.zone.actions.SysZonePersonDataCateAction"
+			name="sysZonePersonDataCateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate_list.jsp" />	
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate_edit.jsp" />
+			<forward
+				name="data"
+				path="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate_data.jsp" />
+		</action>
+		<!-- 员工黄页==添加 -->
+		<!-- 照片墙 -->
+		<action
+			path="/sys/zone/sys_zone_photo_main/sysZonePhotoMain"
+			type="com.landray.kmss.sys.zone.actions.SysZonePhotoMainAction"
+			name="sysZonePhotoMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/sys/zone/sys_zone_nav_link/sysZoneNavLink"
+			type="com.landray.kmss.sys.zone.actions.SysZoneNavLinkAction"
+			parameter="method"
+			input="view"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="select"
+				path="/sys/zone/sys_zone_nav_link/sysZoneNavLink_select.jsp">
+			</forward>
+			<forward
+				name="dialog"
+				path="/sys/zone/sys_zone_nav_link/sysZoneNavLink_dialog.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/zone/sys_zone_page_template/sysZonePageTemplate"
+			type="com.landray.kmss.sys.zone.actions.SysZonePageTemplateAction"
+			parameter="method"
+			input="view"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/zone/sys_zone_page_template/sysZonePageTemplate_edit.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/zone/sys_zone_addreass/sysZoneAddress"
+			type="com.landray.kmss.sys.zone.actions.SysZoneAddressAction"
+			name="sysZonePersonInfoForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/zone/address/sysZoneAddress_list.jsp">
+			</forward>
+		</action>		
+	</action-mappings>
+	
+	<message-resources
+		parameter="com.landray.kmss.sys.zone.ApplicationResources"
+		key="sys-zone" />
+</struts-config>

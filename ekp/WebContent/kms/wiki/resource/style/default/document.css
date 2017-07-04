@@ -1,0 +1,67 @@
+body{
+	background-image: url(background.jpg);
+	background-repeat: no-repeat;
+}
+#mainDiv{
+	width:80%;
+	min-width:800px;
+	_width:expression(this.offsetParent.clientWidth*0.8<800?"800px":"80%");
+	border-left:1px solid #C0C0C0;
+	border-top:1px solid #C0C0C0;
+	border-right:5px inset #bbbbbb;
+	border-bottom:5px inset #aaaaaa;
+	padding:20px;
+	background-image: url(tbbg.png);
+}
+#templateNameDiv{
+	display: inline;
+	text-align:left;
+	color:#2D4E71;
+	width:40%;
+}
+#infoDiv{
+	display: inline;
+	text-align:right;
+	color:#2D4E71;
+	width:60%;
+}
+#subjectDiv{
+	padding:40px 0px 20px 0px;
+	text-align:center;
+	font-size:24px;
+	font-weight:bold;
+}
+#sourceDiv{
+	padding-bottom: 10px;
+}
+#contentDiv{
+	text-align:left;
+	margin-top:5px;
+}
+#toTopDiv{
+	padding:20px 0px 20px 0px;
+	text-align:right;
+}
+#attachmentDiv{
+	text-align:left;
+	padding:0px 0px 20px 0px;
+}
+#relationDiv{
+}
+#evaluationDiv{
+}
+#descriptionDiv{
+	text-align:left;
+	margin: 5px;
+	background-color: #FFFDEE;
+}
+#descriptionDiv span {
+	padding: 5px;
+	width: 100%;
+}
+#descriptionDiv legend {
+	margin-left: 15px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0046D5;
+}

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsKmtopicCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmtopic.dao.hibernate.KmsKmtopicCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory" />
+	</bean>
+	<bean
+		id="kmsKmtopicCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmtopicCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmtopicCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmtopicCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsKmtopicMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.kms.kmtopic.dao.hibernate.KmsKmtopicMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain" />
+	</bean>
+	<bean
+		id="kmsKmtopicMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmtopicMainDao" />
+		</property>
+		<property
+			name="kmsKmtopicCategoryService">
+			<ref
+				bean="kmsKmtopicCategoryService" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmtopicMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmtopicMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsKmtopicCatelogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmtopic.dao.hibernate.KmsKmtopicCatelogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelog" />
+	</bean>
+	<bean
+		id="kmsKmtopicCatelogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCatelogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmtopicCatelogDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmtopicCatelogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmtopicCatelogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsKmtopicCatelogContentDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmtopic.dao.hibernate.KmsKmtopicCatelogContentDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelogContent" />
+	</bean>
+	<bean
+		id="kmsKmtopicCatelogContentTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCatelogContentServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmtopicCatelogContentDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmtopicCatelogContentService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmtopicCatelogContentTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsKmtopicMainXMLService"
+		class="com.landray.kmss.kms.kmtopic.service.KmsKmtopicMainXMLService">
+		<property name="kmsKmtopicMainService">
+			<ref local="kmsKmtopicMainService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref
+				bean="sysTagMainRelationService" />
+		</property>
+		<property name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+	</bean>
+	
+	<!--知识专辑分类概览-->
+	<bean id="kmsKmtopicCategoryPreManagerService" class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsKmtopicMainService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsKmtopicCategoryService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsKmtopicCategoryPreService"/>
+		</property>
+	</bean>	
+	<bean
+		id="kmsKmtopicCategoryPreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.kmtopic.dao.hibernate.KmsKmtopicCategoryPreviewDao">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategoryPreview" />
+	</bean>
+	<bean id="kmsKmtopicCategoryPreTarget"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryPreviewService"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsKmtopicCategoryPreDao" />
+		</property>
+		<property
+			name="kmsKmtopicMainService">
+			<ref
+				local="kmsKmtopicMainService" />
+		</property>
+		<property
+			name="kmsKmtopicCategoryService">
+			<ref
+				bean="kmsKmtopicCategoryService" />
+		</property>
+	</bean>  
+	<bean
+		id="kmsKmtopicCategoryPreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKmtopicCategoryPreTarget" />
+		</property>
+	</bean> 
+	
+	<bean
+		id="kmsKmtopicPortletService"
+		class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicPortletService">
+		<property name="kmsKmtopicCategoryService">
+			<ref bean="kmsKmtopicCategoryService"/>
+		</property>
+		<property name="kmsKmtopicMainService">
+			<ref local="kmsKmtopicMainService"/>
+		</property>
+	</bean> 
+	
+	<!-- 定时更新专辑内文件信息 -->
+	<bean id="kmsKmtopicUpdateFilesInfoService" class="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicUpdateFilesInfoService">
+		<property name="kmsKmtopicCatelogContentService">
+			<ref bean="kmsKmtopicCatelogContentService"/>
+		</property>
+	</bean>
+	
+	<!-- 日志代理配置 -->
+	<bean id="kmsKmtopicLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsKmtopicCategoryService</value>
+				<value>kmsKmtopicMainService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>
+</beans>

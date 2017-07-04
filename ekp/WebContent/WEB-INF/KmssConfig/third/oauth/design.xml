@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+<!-- 
+	<module
+		messageKey="third-oauth:module.third.oauth"
+		urlPrefix="/third/oauth/"
+		defaultValidator="roleValidator(role=ROLE_THIRDOAUTH_DEFAULT)">
+		<roles>
+			ROLE_THIRDOAUTH_DEFAULT
+		</roles>
+
+		<request
+			path="oAuth_bind_data/oauthBindData*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.oauth.model.OauthBindData">
+		</request>
+
+	</module>
+ 
+	<homePage
+		urlPrefix="third/oauth"
+		url="/moduleindex.jsp?nav=/third/oauth/tree.jsp"
+		messageKey="third-oauth:module.third.oauth" />
+-->
+	<module
+			messageKey="third-oauth:module.third.oauth"
+			urlPrefix="/third/oauth/">
+	</module>
+</configs>

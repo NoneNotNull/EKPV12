@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledgeKeyword"
+		messageKey="kms-multidoc:kmsMultidocTemplateKeyword.docKeyword"
+		serviceBean="kmsMultidocKnowledgeKeywordService"
+		table="kms_multidoc_main_keyword"
+		displayProperty="docKeyword">
+		<idProperty>
+			<generator type="native" />
+		</idProperty>
+		<simpleProperty
+			name="docKeyword"
+			messageKey="kms-multidoc:kmsMultidoc.search.docKeyword"
+			type="String"
+			column="doc_keyword"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<modelProperty
+			name="kmsMultidocKnowledge"
+			messageKey="kms-multidoc:kmsMultidocTemplateKeyword.docKeyword"
+			type="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"
+			column="fd_doc_id"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

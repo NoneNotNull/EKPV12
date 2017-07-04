@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-task:module.sys.task"
+		urlPrefix="/sys/task/"
+		defaultValidator="roleValidator(role=ROLE_SYSTASK_DEFAULT)">
+		<roles>
+		<!-- 默认权限 -->
+		ROLE_SYSTASK_DEFAULT;
+		<!-- 任务管理模块 新建、编缉、查看、删除 -->
+		ROLE_SYSTASK_CREATE;ROLE_SYSTASK_EDITOR;ROLE_SYSTASK_READER;ROLE_SYSTASK_DELETE;
+		<!-- 任务分析 新建、编缉、显示、册除-->
+		ROLE_SYSTASK_ANALYZE;
+		<!-- 终止任务-->
+		ROLE_SYSTASK_STOPTASK;
+		<!-- 任务反馈、任务评价-->
+		ROLE_SYSTASK_FEEDBACK;ROLE_SYSTASK_EVALUATE;
+		<!-- 驳回任务 -->
+		ROLE_SYSTASK_OVERRULE;
+		<!-- 分解子任务 -->
+		ROLE_SYSTASK_ADDCHILDTASK;
+		<!-- 模块配置 -->
+		ROLE_SYSTASK_CONFIG
+		</roles>
+		<!-- 我关注的任务日历-->
+		<request
+			path="sys_task_main/sysTaskMain_calendar_list.jsp"
+			defaultValidator="roleValidator(role=ROLE_SYSTASK_DEFAULT)">
+		</request>
+		
+		<!-- 任务类型配置-->
+		<request
+			path="sys_task_category/sysTaskCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.missive.model.KmMissiveType"
+			defaultValidator="roleValidator(role=ROLE_SYSTASK_CONFIG)">
+			<!-- 获取任务类型配置-->
+			<query
+				queryString="method=getTaskCategory"
+				validator="roleValidator(role=ROLE_SYSTASK_DEFAULT)" />
+		</request>
+		
+		<!-- 任务满意度配置-->
+		<request
+			path="sys_task_approve/sysTaskApprove*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.missive.model.KmMissiveType"
+			defaultValidator="roleValidator(role=ROLE_SYSTASK_CONFIG)">
+			<!-- 获取任务满意配置-->
+			<query
+				queryString="method=getTaskApprove"
+				validator="roleValidator(role=ROLE_SYSTASK_DEFAULT)" />
+		</request>
+
+		<!-- 任务管理主文档 -->
+		<request
+			path="sys_task_main/sysTaskMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.task.model.SysTaskMain">
+			<!-- 新建 -->
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_SYSTASK_CREATE)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 结项 -->
+			<query
+				queryString="method=closeTask"
+				validator="authFieldValidator(type=TASK_APPOINT)|authFieldValidator(type=TASK_DOCCREATOR)" />
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit"
+				validator="roleValidator(role=ROLE_SYSTASK_EDITOR)|authFieldValidator(type=TASK_APPOINT)|authFieldValidator(type=TASK_DOCCREATOR)" />
+			<!-- 删除单个任务 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_SYSTASK_DELETE)|authFieldValidator(type=TASK_APPOINT)|authFieldValidator(type=TASK_DOCCREATOR)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSTASK_DELETE)" />
+			<!-- 分解子任务 -->
+			<query
+				queryString="method=addChildTask"
+				validator="roleValidator(role=ROLE_SYSTASK_ADDCHILDTASK)|authFieldValidator(type=TASK_APPOINT,recid=fdTaskId)|authFieldValidator(type=TASK_DOCCREATOR,recid=fdTaskId)|authFieldValidator(type=TASK_PERFORM,recid=fdTaskId)" />	
+			<!-- 终止任务 -->
+			<query
+				queryString="method=updateStop"
+				validator="roleValidator(role=ROLE_SYSTASK_STOPTASK)|authFieldValidator(type=TASK_APPOINT,recid=fdTaskId)|authFieldValidator(type=TASK_DOCCREATOR,recid=fdTaskId)|authFieldValidator(type=TASK_PERFORM,recid=fdTaskId)" />				
+		</request>
+
+		<!-- 任务评价文档 -->
+		<request
+			path="sys_task_evaluate/sysTaskEvaluate.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.task.model.SysTaskEvaluate">
+			<!-- 创建评价文档 -->
+			<query
+				queryString="method=add|edit"
+				validator="roleValidator(role=ROLE_SYSTASK_EVALUATE)|authFieldValidator(type=TASK_APPOINT,recid=fdTaskId,model=com.landray.kmss.sys.task.model.SysTaskMain)|authFieldValidator(type=TASK_DOCCREATOR,recid=fdTaskId,model=com.landray.kmss.sys.task.model.SysTaskMain)" />	
+				<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSTASK_EVALUATE)"/>							
+		</request>
+		
+		<!-- 任务反馈文档 -->
+		<request
+			path="sys_task_feedback/sysTaskFeedback.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.task.model.SysTaskFeedback">
+			<!-- 创建反馈文档 -->
+			<query
+				queryString="method=add|quoteAdd"
+				validator="roleValidator(role=ROLE_SYSTASK_FEEDBACK)|authFieldValidator(type=TASK_PERFORM,recid=fdTaskId,model=com.landray.kmss.sys.task.model.SysTaskMain)" />
+			<!-- 查看反馈文档 --> 
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 编辑删除单个文档 -->
+			<query
+				queryString="method=edit|delete"
+				validator="roleValidator(role=ROLE_SYSTASK_DELETE)|authFieldValidator(type=TASK_DOCCREATOR)" />
+			<!-- 批量删除 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSTASK_DELETE)" />
+		</request>
+		
+		<!-- 驳回任务 -->
+		<request
+			path="sys_task_overrule/sysTaskOverrule.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.task.model.SysTaskOverrule">
+			<!-- 创建驳回文档 -->
+			<query
+				queryString="method=add|edit"
+				validator="roleValidator(role=ROLE_SYSTASK_OVERRULE)|authFieldValidator(type=TASK_APPOINT,recid=fdTaskId,model=com.landray.kmss.sys.task.model.SysTaskMain)|authFieldValidator(type=TASK_DOCCREATOR,recid=fdTaskId,model=com.landray.kmss.sys.task.model.SysTaskMain)" />
+			<!-- 查看驳回文档 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 删除单个文档和批量删除  -->
+			<query
+				queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYSTASK_DELETE)" />
+		</request>
+		
+		<!-- 任务分析-->
+		<request
+			path="sys_task_analyze/sysTaskAnalyze*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.missive.model.SysTaskAnalyze"
+			defaultValidator="roleValidator(role=ROLE_SYSTASK_ANALYZE)">
+		</request>
+
+		<!-- 任务文档过滤器 -->
+		<filters modelName="com.landray.kmss.sys.task.model.SysTaskMain">
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSTASK_READER)" />
+			<!-- 指派人 -->
+			<filter
+				type="TASK_APPOINT"
+				expression="authFieldFilter(field=fdAppoint.fdId)"/>
+			<!-- 创建人 -->
+			<filter
+				type="TASK_DOCCREATOR"
+				expression="authFieldFilter(field=docCreator.fdId)"/>
+			<!-- 接收人 -->
+			<filter
+				type="TASK_PERFORM"
+				expression="authFieldFilter(field=toSysOrgPerform.fdId)"/> 
+		</filters>	
+		
+		<!-- 任务反馈文档过滤器 -->
+		<filters modelName="com.landray.kmss.sys.task.model.SysTaskFeedback">
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=sysTaskMain.rootSysTaskMain.authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSTASK_READER)" />
+			<!-- 创建人 -->
+			<filter
+				type="TASK_DOCCREATOR"
+				expression="authFieldFilter(field=docCreator.fdId)"/>
+		</filters>	
+		
+		<!-- 任务驳回文档过滤器 -->
+		<filters modelName="com.landray.kmss.sys.task.model.SysTaskOverrule">
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=sysTaskMain.rootSysTaskMain.authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSTASK_READER)" />
+			<!-- 指派人 -->
+			<filter
+				type="TASK_APPOINT"
+				expression="authFieldFilter(field=sysTaskMain.fdAppoint.fdId)"/>
+		</filters>
+	</module>
+	<!-- 全文搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.sys.task.model.SysTaskMain"
+				validator="roleValidator(role=ROLE_SYSTASK_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 沟通系统配置 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/communicate/">
+		<request path="sys_communicate_config/sysCommunicateConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.sys.task.model.SysTaskMain"
+				validator="roleValidator(role=ROLE_SYSTASK_CONFIG)" />
+		</request>
+	</module>
+	
+	<quartz
+		messageKey="sys-task:sysTaskMain.quartz"
+		jobService="sysTaskMainService"
+		cronExpression="0 40 11 * * ?"
+		jobMethod="runCheckIsOverDue" />
+	<!-- 高级搜索 -->
+	<search
+		messageKey="sys-task:sysTask.moduleName"
+		modelName="com.landray.kmss.sys.task.model.SysTaskMain"
+		resultProperties="docSubject;fdAppoint;toSysOrgPerform;docContent;docCreator;docCreateTime;fdPlanCompleteDateTime"
+	/>	
+	<!-- 全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.sys.task.model.SysTaskMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject" 
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="Text" />
+		<luceneField
+			name="Appoint"
+			property="fdAppoint.fdName"
+			type="Text" />
+		<luceneField
+			name="content"
+			property="docContent"
+			type="text" />
+		<luceneField
+			name="category"
+			property="sysTaskCategory.fdId"
+			type="Text" />
+		<luceneField
+			name="CompleteDateTime"
+			property="fdPlanCompleteDateTime"
+			type="keyword" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+	</ftSearch>					
+		
+	<!-- 我的工作 -->
+	<treeNodes type="myjob">
+		<treeNode messageKey="sys-task:sysTask.moduleName">
+			<!-- 任务日历 -->
+			<treeNode messageKey="sys-task:tree.task.calendar" url="/sys/task/sys_task_main/sysTaskMain_calendar_view.jsp?serviceBean=sysTaskMainCalendarService">
+			</treeNode>
+			<!-- 我关注的任务 -->
+			<treeNode messageKey="sys-task:tree.my.attention" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=0">				
+			</treeNode>
+			<!-- 我指派的任务 -->
+			<treeNode messageKey="sys-task:tree.my.appoint" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1">
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.inactive" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1&amp;fdStatus=1">				
+				</treeNode>	
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.progress" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1&amp;fdStatus=2">				
+				</treeNode>
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.complete" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1&amp;fdStatus=3">				
+				</treeNode>
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.overdure" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1&amp;fdPastDue=1">				
+				</treeNode>	
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.terminate" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=1&amp;fdStatus=4">				
+				</treeNode>				
+			</treeNode>
+			<!-- 我负责的任务 -->
+			<treeNode messageKey="sys-task:tree.my.perform" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2">
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.inactive" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2&amp;fdStatus=1">				
+				</treeNode>	
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.progress" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2&amp;fdStatus=2">				
+				</treeNode>
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.complete" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2&amp;fdStatus=3">				
+				</treeNode>
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.overdure" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2&amp;fdPastDue=1">				
+				</treeNode>	
+				<treeNode messageKey="sys-task:tree.sysTaskMain.status.terminate" url="/sys/task/sys_task_main/sysTaskMain.do?method=list&amp;flag=2&amp;fdStatus=4">				
+				</treeNode>	
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<!-- 任务管理配置 -->
+	<treeNodes type="config">
+		<treeNode messageKey="sys-task:sysTask.moduleName">
+		<treeNode
+			messageKey="sys-task:tree.task.category.set"
+			url="/sys/task/sys_task_category/sysTaskCategory.do?method=list" />
+		<treeNode
+			messageKey="sys-task:tree.task.degree.set"
+			url="/sys/task/sys_task_approve/sysTaskApprove.do?method=list" />
+		<treeNode
+			messageKey="sys-task:sysTaskMain.communicateType"
+			url="/sys/communicate/sys_communicate_type/sysCommunicateType.do?method=list" />
+		<treeNode
+			messageKey="sys-task:sysTaskMain.communicateConfigTitle"
+			url="/sys/communicate/sys_communicate_config/sysCommunicateConfig.do?method=edit&amp;modelName=com.landray.kmss.sys.task.model.SysTaskMain" />
+		</treeNode>
+	</treeNodes>
+	<!-- 我的任务管理主页 -->
+	<homePage
+		urlPrefix="sys/task"
+		url="/sys/task/index.jsp"
+		messageKey="sys-task:sysTask.moduleName" 
+		config="/moduleindex_notopic.jsp?nav=/sys/task/tree.jsp"/>
+</configs>

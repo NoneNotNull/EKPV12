@@ -1,0 +1,585 @@
+﻿@IMPORT url("./select.css");
+@IMPORT url("./checkbox.css");
+@IMPORT url("./radio.css");
+@IMPORT url("./input.css");
+@IMPORT url("./editor.css");
+
+/*文档内容信息*/
+.muiDocFrame {
+	margin: 0.8rem 1rem 0rem;
+}
+.muiDocFrame .muiDocContent .muiFieldRtf{ padding-right: 0;}
+/*标题*/
+.muiDocSubject {
+	margin: 1.5rem 0 1rem;
+	color: #2e2e2e;
+	font-size: 2rem;
+	overflow: hidden;
+	line-height: 2.4rem;
+	word-break: break-all;
+	font-weight: bold;
+}
+.muiDocSubject .muiEssence{ position:relative; top:-0.3rem;}
+/*简要信息*/
+.muiDocInfo {
+	color: #777676;
+	font-size: 1.2rem;
+ 	line-height: 1.5rem;
+	height: 2.5rem;
+	border-bottom: 1px solid #E0DDDD;
+}
+
+/*文档摘要区域*/
+.muiDocSummary {
+	margin: 1rem 0;
+	padding:0.5rem;
+	color: #868686;
+	text-align: justify;
+	background-color: #f5f5f5;
+	line-height: 20px;
+	font-size: 1.4rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*文档摘要*/
+.muiDocSummarySign {
+	text-indent: 0rem;
+	padding: 0.1rem 0.4rem;
+	color: #fff;
+	background-color: #2a61be;
+	display: inline-block;
+}
+
+/*文档正文*/
+.muiDocContent {
+	text-align: justify;
+	color: #1b1b1b;
+	word-break: break-all;
+	overflow-x: hidden;
+}
+/*区域正文*/
+.muiFormContent{
+}
+.muiFormContent>div{
+	min-width: 100%;
+}
+.muiFormContent .muiSimple>tbody>tr>td{/* padding-right: 1rem;*/}
+.muiFormContent .muiSimple>tbody>tr>td .muiAccordionPanelContent .mblListItem.detailTableForward{ padding-right: 1rem;}
+/*暂定：按钮*/
+.muiButton {
+	height: 3rem;
+	line-height:3rem;
+	vertical-align:middle;
+	text-align:center;
+	border-radius:0.4rem;
+	color: #468AD8;
+	display: inline-block;
+	padding: 0rem 0.8rem;
+	font-weight:bold;
+	border: 1px #e9e9e9 solid;
+	white-space:nowrap;
+}
+.muiBgcolorD{background-color:#47b5e6 !important;}
+.muiBgcolorN{background-color:#E7E7E7 !important;}
+.muiBgcolorL{background-color:#FFFFFF !important;}
+
+.muidocLink {
+	
+}
+
+.muiNormal{
+	width: 95%;
+	border: 1px #e9e9e9 solid;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+.muiSimple{
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+.muiFieldRtf{
+	padding-right: 1rem;
+	font-size: 1.4rem;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+.muiFieldRtf img{
+	max-width: 100%!important;
+}
+.muiFieldRtf p{ margin:2px 0; font-size: 1.4rem; }
+.muiTitle{
+	color: #C0C0C0;
+}
+.muiTrTitle{
+	color:#555e67;
+	background-color: #EAEAEA;
+}
+.muiNormal > tbody > tr > td ,.muiSimple > tr > td{
+	border: 1px #e9e9e9 solid;
+	height: 4rem;
+	padding: 0rem 0.8rem;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.muiSimple > tbody > tr > td ,.muiSimple > tr > td{
+	border: 0px;
+	padding: 12px 0px;
+	vertical-align: top;
+	font-size: 1.4rem;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-bottom: 1px solid #e2e2e2;
+}
+.muiNormal > tbody > tr > td.muiTitle, .muiSimple > tr > td.muiTitle{ min-width: 70px;}
+.muiNormal td,
+.muiSimple td{ font-size: 1.4rem;}
+.muiNormal td .muiAttachments,
+.muiSimple td .muiAttachments{ margin-right: 0;}
+.muiNormal td .muiAttachmentItem .muiAttachmentItemR,
+.muiSimple td .muiAttachmentItem .muiAttachmentItemR{ text-align:right;}
+
+.muiSimple > tbody > tr:last-child > td ,.muiSimple > tr:last-child > td{
+	border-bottom: none;
+	}
+.muiSimple > tbody > tr > td:nth-child(even) ,.muiSimple > tr > td:nth-child(even){
+	padding: 10px 1rem 12px 0px;
+}
+.muiSimple > tbody > tr > td:nth-child(even) .muiAttachmentItem .muiAttachmentItemL,
+.muiSimple > tr > td:nth-child(even) .muiAttachmentItem .muiAttachmentItemL{
+	padding-left: 0;
+}
+
+.muiSimple > tbody > tr > td:nth-child(even) p,
+.muiSimple > tr > td:nth-child(even) p{
+	margin: 2px 0;
+	font-size: 1.4rem;
+}
+.muiNormal > tbody > tr > td .muiAttachments,
+.muiSimple > tr > td .muiAttachments{
+	margin-right: 0;
+}
+.muiNormal > tbody > tr > td .muiAttachmentItem .muiAttachmentItemR,
+.muiSimple > tr > td .muiAttachmentItem .muiAttachmentItemR{ text-align: right;}
+
+
+
+.muiSimple > tbody > tr:last-child > td .muiAttachments{ /*margin-right: 1rem;*/}
+.muiSimple .muiTitle{
+	width: 26%;
+	word-break: break-all;
+	vertical-align: top;
+	color: #898989;
+	font-size: 1.4rem;
+}
+.muiSimple .muiField{ text-align: left!important; padding: 0px!important;}
+.muiSimple .muiField .muiFormDatetimeText{ font-size: 1.4rem}
+
+.muiAccordionPanel{ background-color: #f0eff5}
+
+.muiAccordionPanel>div{ background-color: #fff}
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.muiDocInfo {
+		color: #777676;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
+		height: 2.5rem;
+		border-bottom: 1px solid #f0f0f0;
+	}
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiDocInfo {
+		color: #777676;
+	 	font-size: 1.3rem;
+		line-height: 1.5rem;
+		height: 2.5rem;
+		border-bottom: 1px solid #f0f0f0;
+	}
+}
+.muiFormInputArea {
+	text-align: right;
+}
+
+.muiFormInputArea .muiFormInputContent {
+	position: relative;
+	display: inline-block;
+}
+
+.muiField{
+	padding: 0.5rem 0rem;
+	min-width: 120px;
+	width:100%; 
+	display: inline-block;
+}
+	
+.muiFieldItem{
+	width:96%;
+	vertical-align: middle;
+	display: inline-table;
+}
+.muiFieldLabel{
+	min-width:6rem;
+	width:6rem;
+	color: #C0C0C0;
+	word-break: break-all;
+	word-wrap: break-word;
+	height: 2rem;
+	line-height: 2rem;
+}
+.muiFieldOpt{
+	position:relative;
+	width: 1.2rem;
+	color: #3298E0;
+	text-align: right;
+}
+.muiFieldOpt i.mui-insert {
+	width: 20px;
+	height: 20px;
+	line-height: 1.2;
+	text-align: center;
+	font-size: 1.9rem;
+	border: 1px solid #3298E0;
+	border-radius: 50%;
+	color: #3298E0;
+}
+.muiFieldOpt i.mui-address,
+.muiFieldOpt i.mui-backupList{
+	width: 20px;
+	height: 20px;
+	line-height: 1.2!important;
+	text-align: center;
+	font-size: 1.6rem!important;
+	border: 1px solid #3298E0;
+	border-radius: 50%;
+	color: #3298E0;
+}
+.muiFieldOpt i.mui-backupList{ line-height: 1.3!important;}
+.muiFieldOpt i.mui-calc{ font-size: 2.2rem;}
+.muiFieldOpt i.mui-uper{ font-size: 1.8rem;}
+
+.muiFieldItem > div{
+	display: table-cell;
+	word-break: break-all;
+	font-size: 1.4rem;
+	color: #000;
+}
+.muiFieldItem > div.muiFieldOpt{
+	color: #3298E0;
+}
+.muiFieldItem > div.muiFieldOpt .mblIconAreaInner{
+	color: #3298E0;
+}
+
+.muiFormInputContnet {
+	width: 9.5rem;
+	height: 2rem;
+}
+
+.muiFormSelect > .muiFieldItem > .muiFieldOpt span {
+	width: 0;
+	height: 0;
+	border-right: 0.5rem solid #b4b4b4;
+	border-bottom: 0.5rem solid #b4b4b4;
+	border-top: 0.5rem solid transparent;
+	border-left: 0.5rem solid transparent;
+	right: 1rem;
+	position: absolute;
+	bottom: 0.2rem;
+}
+
+.muiFormSelectContnet {
+	position: relative;
+	display: inline-block;
+	padding: 0 0.2rem;
+	width: 95%;
+	height: 100%;
+}
+
+.muiFormOptionsField{ display: block;}
+.muiFieldOptions{
+	position: relative;
+}
+.muiFieldOptions .muiFormRadio{
+	position: absolute;
+	top:1px;
+}
+.muiFieldOptions .muiFormCheckBox{
+	position: absolute;
+	top:11px;
+}
+.muiFieldOptions .muiFormCheckBox .muiFormCheckBoxOverlay{
+	font-size: 1.4rem;
+	line-height: 2rem;
+}
+
+.muiFieldOptions > .muiFieldText{
+	margin-left: 2.2rem;
+	padding: 12px 0 12px 0.2rem;
+	font-size: 1.4rem;
+	vertical-align: middle;
+	border-bottom: 1px solid #e2e2e2;
+}
+.muiFormOptionsField:first-child .muiFieldOptions > .muiFieldText{ padding-top: 2px;}
+.muiFormOptionsField:first-child .muiFieldOptions .muiFormCheckBox{ top:1px;}
+.muiFormOptionsField:first-child .muiFieldOptions .muiFormRadio{ top:-8px;}
+.muiFormOptionsField:last-child .muiFieldOptions > .muiFieldText{ border-bottom:0; padding-bottom: 5px;}
+.muiFieldRequired{
+	color: #d02300 !important;
+	display: inline-block;
+	font-size: 1.6rem;
+	width: 0.5rem;
+}
+/**编辑时后退，提示框**/
+.muiBackDialogElement{ 
+	height: 3rem;
+}
+.muiBackDialogElement > div{
+	margin: auto 0rem;
+	height: 3rem;
+	font-weight:bold;
+	line-height: 3rem;
+	vertical-align: middle;
+}
+.muiBackDialogShow .muiDialogElementContainer{
+	min-height: 10rem !important;
+}
+/***校验***/
+.muiValidate{
+	position: relative;
+	/*height: 1px;*/
+	border-top: 1px solid #FF3B30;
+}
+.muiValidateContent{
+	width: 95%;
+	position: absolute;
+	left:3%;
+	top:0.1px;
+	z-index: 1;
+	text-align: center;
+}
+
+.muiValidateShape{
+	position: absolute;
+	width: 0px;
+    height: 0px;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid rgba(67,67,67,0.8);
+    display:inline-block;
+    right: 50%;
+    margin-right: -0.5rem;
+}
+.muiValidateInfo{
+	border-radius:3px;
+	min-height: 2rem;
+	background-color: rgba(67,67,67,0.8);
+	padding: 0.3rem 0.8rem;
+	margin-top: 0.5rem;
+}
+.muiValidateIcon{
+	display: inline-block;
+}
+.muiValidateMsg{
+	display: inline-block;
+	color: #fff;
+	font-size: 1.2rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiValidateTitle{
+	color: #fff;
+	font-weight: normal;
+}
+.ateMsg{
+	display: inline-block;
+}
+
+
+.detailTableView{
+	display:none;
+	background-color: #f8f8f8;
+}
+.detailTableView >div{
+	min-width:100%;
+}
+.detailTableView .mblHeading{
+	background-color: #18b4ed;
+	color: #fff;
+	line-height: 30px;
+	height: 38px;
+}
+.detailTableView .mblHeading .mblToolBarButton{
+	margin: 0;
+}
+.detailTableView .mblHeading .mui-back{ color: #fff; font-size: 2.2rem;}
+.detailTableView .mblHeading .mblToolBarButtonLabel{ color: #fff; font-weight: 300; vertical-align:middle;}
+.detailTableView .mblHeadingSpanTitle{ display: none;}
+.detailTableView .mblHeadingDivTitle{
+	font-size: 1.8rem;
+	font-weight: bold;
+	line-height: 38px;
+	display: block;
+}
+.muiDetailTableNo{
+}
+.muiDetailTableDel{
+	float: right;
+}
+.muiDetailTableDel i{
+	margin:0 1rem;
+	font-size: 1.2rem;
+	width: 20px;
+	height: 20px;
+	line-height: 2rem;
+	text-align: center;
+	color: #ff614c;
+	border:1px solid #ff614c;
+	border-radius: 50%;
+}
+
+.detailTableNormal{
+	width:100%;
+	padding:0; 
+	margin:0rem auto;
+	border-collapse: collapse;
+	border: 0px;
+}
+.detailTableNormal .detailTableNormalTitle{
+	padding: 0.6rem 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6rem;
+	background-color: #e5e5e5;
+}
+.detailTableNormal .detailTableNormalTd{ padding: 10px 5px 0;}
+.detailTableNormal .detailTableNormalTd>td{
+	padding: 0 0.8rem;
+	padding-top: 10px!important;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal{
+	border-top: 2px solid #399be8;
+	background-color: #fff;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detailTableIndex{
+	width: 20px;
+	text-align: center;
+	font-size: 1.4rem;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detail_statistic{ min-width: 120px;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detailTableIndex span{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 14px;
+	background-color: #18b4ed;
+	border-radius: 50%;
+	text-align: center;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiFormRadio{ background: none;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiFormRadio .muiFormRadioOverlay{
+	font-size: 2.4rem;
+	text-align: center;
+}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiField{ width: 94%;}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td{
+	min-width: 32px;
+	height: 3rem;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:first-child > td{/* min-width: 120px;*/ white-space: nowrap;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td div.muiDetailTableDel{ text-align: center;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td:first-child{
+	padding: 6px 2px;
+	text-align: center;
+}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:first-child > td{
+	border:0;
+	text-align: center;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:nth-child(odd) > td{
+	background-color: #f7f7f7;
+}
+
+.detailTableSimple{
+	width:100%;
+	padding:0; 
+	margin:0rem auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0px;
+}
+.detailTableSimple .detailTableSimpleTitle{
+	padding: 0.6rem 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6rem;
+	background-color: #e5e5e5;
+}
+.detailTableSimple .detailTableSimpleTd{ }
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td{
+	padding-left: 1rem;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td .muiSimple{
+	margin-bottom: 10px;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td .muiSimple>tbody>tr>td:first-child{ padding-left: 5px;}
+
+.detailTableSimple .detailTableSimpleTd .detail_statistic{
+	text-align: left;
+	padding: 5px 0 5px 1rem;
+	font-size: 1.4rem;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_statistic label{
+	width: 21%!important;
+	line-height: 30px;
+	color: #898989;
+	display: inline-block!important;
+}
+
+.detailTableSimple .muiDetailTableNo span{
+	padding-left: 10px;
+	border-left: 5px solid #399be8;
+}
+.detailTableSimple .muiFieldItem{ background-color: #fff;}
+.detailTableSimple .detail_statistic .muiFieldOpt{ padding-right: 1rem;}
+
+.lbpmView .splitLine td select{
+	max-width:150px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+/***PC样式**/
+/** tb_normal 一般4列表格表单的样式 有边框线表格 **/
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #d2d2d2 solid;padding: 8px !important;text-align: left; margin: 0 auto;}
+.tb_normal>tbody>.tr_normal_title{ background-color:#f6f6f6; text-align:center;}
+.tb_normal>tbody>tr{border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d2d2d2;}
+.tb_normal>tbody>tr>td {padding: 8px;word-break:break-all;border-left: 1px #d2d2d2 solid; border-right: 1px #d2d2d2 solid; }
+.tb_normal>tbody>tr>.td_normal_title{ background-color:#f6f6f6;}
+
+/** tb_simple 一般2列表格表单的样式  无表框线表格 **/
+.tb_simple{border-collapse: collapse;background-color: #FFFFFF;margin: 0 auto; }
+.tb_simple>tbody>.tr_normal_title{ text-align:center;}
+.tb_simple>tbody>tr>td {padding: 5px; word-break:break-all;}
+.tb_simple>tbody>tr>.td_normal_title{ text-align:right}       /*字段名称*/
+
+/** tb_noborder 取消表格和单元格的边线 **/
+.tb_noborder{background-color: #FFFFFF;margin: 0 auto;border-collapse: collapse;padding: 0px;border: 0px;}
+.tb_noborder>tbody>tr>td {padding: 0px;border: 0px;}
+

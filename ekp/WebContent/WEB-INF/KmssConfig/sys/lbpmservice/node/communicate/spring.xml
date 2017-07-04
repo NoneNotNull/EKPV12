@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="communicateTaskBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateTaskBehaviour">
+	</bean>
+	<bean
+		id="communicateTaskProvider"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateTaskProvider">
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="communicateTaskDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateTaskDesc" />
+	<bean
+		id="communicateWorkitemBehaviour"
+		parent="abstractManualWorkitemBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateWorkitemBehaviour" />
+	<bean
+		id="communicateWorkitemDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateWorkitemDesc" />
+
+	<bean
+		id="communicateDataAccess"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateDataAccess" />
+	<!-- start 增加多级沟通范围限定查询  -->
+	<bean
+		id="lbpmCommunicateScopeService"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateScopeService">
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="sysOrgPersonService">
+			<ref
+				bean="sysOrgPersonService" />
+		</property>
+	</bean>
+
+	<bean
+		id="doForCommunicateTaskListener"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.DoForCommunicateTaskListener" />
+
+	<bean
+		id="communicateWorkitemEnterListener"
+		class="com.landray.kmss.sys.lbpmservice.node.communicate.CommunicateWorkitemEnterListener">
+	</bean>
+
+</beans>

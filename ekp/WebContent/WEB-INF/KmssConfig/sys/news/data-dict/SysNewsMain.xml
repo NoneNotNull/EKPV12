@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		messageKey="sys-news:table.sysNewsMain"
+		serviceBean="sysNewsMainService"
+		displayProperty="docSubject"
+		table="sys_news_main"
+		url="/sys/news/sys_news_main/sysNewsMain.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="sys-news:sysNewsMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			unique="false"
+			length="200"
+			canSearch="true"
+			canRelation="true"
+			canSubscribe="true" 
+			validate="true"/>
+		<simpleProperty
+			name="fdNewsSource"
+			messageKey="sys-news:sysNewsMain.fdNewsSource"
+			type="String"
+			column="fd_news_source"
+			notNull="false"
+			unique="false"
+			length="500"
+			canSearch="true"
+			canRelation="true"
+			validate="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-news:sysNewsMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canRelation="true" />
+		<simpleProperty
+			name="fdTopEndTime"
+			messageKey="sys-news:sysNewsMain.fdTopEndTime"
+			type="DateTime"
+			column="fd_top_end_time"
+			notNull="false"
+			unique="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-news:sysNewsMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="sys-news:sysNewsMain.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="docContent"
+			messageKey="sys-news:sysNewsMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			length="1000000"
+			validate="true" />
+		<simpleProperty
+			name="docReadCount"
+			messageKey="sys-news:sysNewsMain.docHits"
+			type="Long"
+			column="doc_read_count"
+			notNull="false"
+			unique="false"
+			length="19" />
+		<simpleProperty
+			name="fdImportance"
+			messageKey="sys-news:sysNewsMain.fdImportance"
+			type="Long"
+			column="fd_importance"
+			notNull="false"
+			unique="false"
+			enumType="sysNewsMain_fdImportance"
+			length="1" />
+		<simpleProperty
+			name="fdIsRolls"
+			messageKey="sys-news:sysNewsMain.fdIsRolls"
+			type="Boolean"
+			column="fd_is_rolls"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsPicNews"
+			messageKey="sys-news:sysNewsMain.fdIsPicNews"
+			type="Boolean"
+			column="fd_is_pic_news"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="fdTopDays"
+			messageKey="sys-news:sysNewsMain.fdTopDays"
+			type="Long"
+			column="fd_top_days"
+			notNull="false"
+			unique="false"
+			length="3" />
+		<simpleProperty
+			name="fdSummary"
+			messageKey="sys-news:sysNewsMain.fdSummary"
+			type="String"
+			column="fd_summary"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1500" />
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-news:sysNewsMain.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			unique="false"
+			length="1500"
+			validate="true" />
+		<simpleProperty
+			name="fdTopTime"
+			messageKey="sys-news:sysNewsMain.fdTopTime"
+			type="DateTime"
+			column="fd_top_time"
+			notNull="false"
+			canDisplay="false"
+			unique="false" />
+		<simpleProperty
+			name="fdIsLink"
+			messageKey="sys-news:sysNewsMain.fdIsLink"
+			type="Boolean"
+			column="fd_is_link"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-news:sysNewsMain.fdModuleName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-news:sysNewsMain.fdModuleId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="36" />
+		<simpleProperty
+			name="fdTopDays"
+			messageKey="sys-news:sysNewsMain.fdTopDays"
+			type="Long"
+			column="fd_top_days"
+			notNull="false"
+			unique="false"
+			length="3"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-news:sysNewsMain.fdModuleKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="100" />
+		<simpleProperty
+			name="fdLinkUrl"
+			messageKey="sys-news:sysNewsMain.fdLinkUrl"
+			type="String"
+			column="fd_link_url"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="200" />
+		<simpleProperty
+			name="fdIsTop"
+			messageKey="sys-news:sysNewsMain.fdIsTop"
+			type="Boolean"
+			column="fd_is_top"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="authChangeReaderFlag"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_reader_flag"
+			canDisplay="false"
+			readOnly="false" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="sys-news:sysNewsMain.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="docStatus"
+			messageKey="sys-news:sysNewsMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			enumType="news_status"
+			length="2" />
+		<simpleProperty
+			name="fdWriter"
+			messageKey="sys-news:sysNewsMain.fdWriter"
+			type="String"
+			column="fd_writer"
+			notNull="true"
+			unique="false"
+			canDisplay="false"
+			length="200" 
+			validate="false"/>
+		<simpleProperty
+			name="fdIsHideSubject"
+			messageKey="sys-news:sysNewsMain.fdIsHideSubject"
+			type="Boolean"
+			column="fd_is_hide_subject"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1" />
+		<simpleProperty
+			name="fdContentType"
+			messageKey="sys-news:sysNewsMain.fdContentType"
+			type="String"
+			column="fd_content_type"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			enumType="sysNewsMain_fdContentType"
+			length="8" />
+		<simpleProperty
+			name="fdHtmlContent"
+			messageKey="sys-news:sysNewsMain.fdHtmlContent"
+			type="RTF"
+			column="fd_html_content"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1000000" />
+		<simpleProperty
+			name="authAttNodownload"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttNodownload"
+			type="Boolean"
+			column="auth_att_nodownload"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNocopy"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttNocopy"
+			type="Boolean"
+			column="auth_att_nocopy"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNoprint"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttNoprint"
+			type="Boolean"
+			column="auth_att_noprint"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<modelProperty
+			name="fdTemplate"
+			messageKey="sys-news:sysNewsMain.fdTemplateId"
+			type="com.landray.kmss.sys.news.model.SysNewsTemplate"
+			column="fd_template_id"
+			notNull="false"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			canSubscribe="true"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.sys.news.model.SysNewsTemplate','!{idField}','!{nameField}',false,null,'00')" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-news:sysNewsMain.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}','!{nameField}', ';',ORG_TYPE_PERSON);" />
+		<modelProperty
+			name="fdModify"
+			messageKey="sys-news:sysNewsMain.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			canDisplay="false"
+			unique="false" />
+		<modelProperty
+			name="fdAuthor"
+			messageKey="sys-news:sysNewsMain.fdAuthorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_author_id"
+			notNull="false"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			canSubscribe="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}','!{nameField}', ';',ORG_TYPE_PERSON);" />
+		<modelProperty
+			name="fdDepartment"
+			messageKey="sys-news:sysNewsMain.fdDepartmentId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_dept_id"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}','!{nameField}', ';',ORG_TYPE_DEPT);" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="sys-news:sysNewsMain.authAllReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="sys_news_main_areader"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-news:sysNewsMain.authAllEditors"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_news_main_aeditor"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="sys-news:sysNewsMain.authOtherEditors"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="sys_news_main_oeditor"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="sys-news:table.sysNewsMainEditor"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_news_main_editor"
+			inverse="false" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="sys-news:sysNewsMain.authOtherReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="sys_news_main_oreader"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="sys-news:table.sysNewsMainReader"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="sys_news_main_reader"
+			inverse="false" />
+		<listProperty
+			name="docKeyword"
+			messageKey="sys-news:sysNews.docKeyword"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.news.model.SysNewsMainKeyword"
+			cascade="all-delete-orphan"
+			inverse="true"
+			canRelation="true"
+			canDisplay="false" />
+		<listProperty
+			name="authAttDownloads"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttDownloads"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_doc_main_attdl"
+			inverse="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttCopys"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_doc_main_attcopy"
+			inverse="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="sys-news:sysNews.SysNewsMain.authAttPrints"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_doc_main_attprint"
+			inverse="false" />
+		<attachmentProperty
+			name="Attachment"
+			messageKey="sys-news:sysNewsMain.fdMainPicture" />
+		<attachmentProperty
+			name="editonline"
+			messageKey="sys-news:sysNewsMain.editonline" />
+		<attachmentProperty
+			name="fdAttachment"
+			messageKey="sys-news:sysNewsMain.attachment" />
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="sys-news:sysNewsMain.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			canDisplay="false" />
+		<simpleProperty
+			name="authRBPFlag"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_rbp_flag"
+			canDisplay="false"
+			readOnly="false" />
+		<simpleProperty
+			name="authChangeAtt"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_att"
+			canDisplay="false"
+			readOnly="false" />	
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />	
+		
+	</model>
+</models>

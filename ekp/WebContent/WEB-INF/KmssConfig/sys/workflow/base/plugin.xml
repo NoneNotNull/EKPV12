@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<!-- 兼容驳回事件 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="publishSysFlowRefuseListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="publishSysWfEventService" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+	<!-- 权限配置兼容调整 -->
+	<extension
+		point="com.landray.kmss.sys.config.loader">
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="sysWfAuthConfigAdjuster" />
+			<param
+				name="loader"
+				value="com.landray.kmss.sys.workflow.base.service.spring.SysWfAuthConfigAdjuster" />
+			<param
+				name="order"
+				value="4" />
+		</item>
+	</extension>
+
+	<!-- 只有公文中使用 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node"
+		model="com.landray.kmss.km.missive">
+		<item
+			name="nodeAttributeExtend">
+			<param
+				name="nodeType"
+				value="reviewNode" />
+			<param
+				name="position"
+				value="newtag" />
+			<param
+				name="includeJsp"
+				value="/sys/workflow/sys_wf_approval_type/sysWfApprovalType.jsp" />
+		</item>
+		<item
+			name="nodeAttributeExtend">
+			<param
+				name="nodeType"
+				value="signNode" />
+			<param
+				name="position"
+				value="newtag" />
+			<param
+				name="includeJsp"
+				value="/sys/workflow/sys_wf_approval_type/sysWfApprovalType.jsp" />
+		</item>
+	</extension>
+
+</plugin>

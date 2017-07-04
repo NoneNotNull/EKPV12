@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 集群事件  -->
+	<bean id="personNamespaceHandler" class="com.landray.kmss.sys.person.xml.PersonNamespaceHandler">
+		<property name="groupConfigStorer">
+			<ref bean="groupConfigStorer"/>
+		</property>
+	</bean>
+	<!-- 常用分类 -->
+	<bean id="globalCategoryFavoriteCategoryDialogHandler" 
+		class="com.landray.kmss.sys.person.service.plugin.GlobalCategoryFavoriteCategoryDialogHandler">
+	</bean>
+		
+	<bean id="simpleCategoryFavoriteCategoryDialogHandler" 
+		class="com.landray.kmss.sys.person.service.plugin.SimpleCategoryFavoriteCategoryDialogHandler"></bean>
+		
+		
+	<bean
+		id="sysPersonFavoriteCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonFavoriteCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonFavoriteCategory" />
+	</bean>
+	<bean
+		id="sysPersonFavoriteCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonFavoriteCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonFavoriteCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysPersonFavoriteCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonFavoriteCategoryTarget" />
+		</property>
+	</bean>
+		
+	<!-- 个人导航 -->
+	<bean
+		id="sysPersonSysNavCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonSysNavCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonSysNavCategory" />
+	</bean>
+	<bean
+		id="sysPersonSysNavCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonSysNavCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonSysNavCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysPersonSysNavCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonSysNavCategoryTarget" />
+		</property>
+	</bean>
+		
+	<bean
+		id="sysPersonMyNavCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonMyNavCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonMyNavCategory" />
+	</bean>
+	<bean
+		id="sysPersonMyNavCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonMyNavCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonMyNavCategoryDao" />
+		</property>
+		<property name="sysNavCategoryService">
+			<ref local="sysPersonSysNavCategoryTarget"/>
+		</property>
+		<property name="sysPersonMyMergedFlagService">
+			<ref local="sysPersonMyMergedFlagService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysPersonMyNavCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonMyNavCategoryTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sysPersonNavCategoryTree" class="com.landray.kmss.sys.person.service.dialog.SysPersonNavCategoryTree">
+		<property name="sysPersonSysNavCategoryService">
+			<ref local="sysPersonSysNavCategoryService"/>
+		</property>
+	</bean>
+	<bean id="sysPersonNavLinksList" class="com.landray.kmss.sys.person.service.dialog.SysPersonNavLinksList">
+		<property name="sysPersonSysNavCategoryService">
+			<ref local="sysPersonSysNavCategoryService"/>
+		</property>
+	</bean>
+	<bean id="sysPersonNavLinksSearch" class="com.landray.kmss.sys.person.service.dialog.SysPersonNavLinksSearch"></bean>
+	
+	<!-- 横向导航 -->
+	<bean
+		id="sysPersonSysTabCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonSysTabCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonSysTabCategory" />
+	</bean>
+	<bean
+		id="sysPersonSysTabCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonSysTabCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonSysTabCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysPersonSysTabCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonSysTabCategoryTarget" />
+		</property>
+	</bean>
+		
+	<bean
+		id="sysPersonMyTabCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonMyTabCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonMyTabCategory" />
+	</bean>
+	<bean
+		id="sysPersonMyTabCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonMyTabCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonMyTabCategoryDao" />
+		</property>
+		<property name="sysTabCategoryService">
+			<ref local="sysPersonSysTabCategoryTarget"/>
+		</property>
+		<property name="sysPersonMyMergedFlagService">
+			<ref local="sysPersonMyMergedFlagService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysPersonMyTabCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonMyTabCategoryTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sysPersonTabCategoryTree" class="com.landray.kmss.sys.person.service.dialog.SysPersonTabCategoryTree">
+		<property name="sysPersonSysTabCategoryService">
+			<ref local="sysPersonSysTabCategoryService"/>
+		</property>
+	</bean>
+	<bean id="sysPersonTabLinksList" class="com.landray.kmss.sys.person.service.dialog.SysPersonTabLinksList">
+		<property name="sysPersonSysTabCategoryService">
+			<ref local="sysPersonSysTabCategoryService"/>
+		</property>
+	</bean>
+	<bean id="sysPersonTabLinksSearch" class="com.landray.kmss.sys.person.service.dialog.SysPersonTabLinksSearch"></bean>
+	
+	<bean id="sendDynamicInfoService" class="com.landray.kmss.sys.person.service.plugin.SendDynamicInfoServiceManager"></bean>
+	
+	<!-- 个人设置链接 -->
+	<bean
+		id="sysPersonCfgLinkDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.person.dao.hibernate.SysPersonCfgLinkDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonCfgLink" />
+	</bean>
+	<bean
+		id="sysPersonCfgLinkTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonCfgLinkServiceImp">
+		<property name="baseDao">
+			<ref local="sysPersonCfgLinkDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysPersonCfgLinkService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonCfgLinkTarget" />
+		</property>
+	</bean>
+	
+	<!-- 标识数据 -->
+	<bean
+		id="sysPersonMyMergedFlagDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.person.model.SysPersonMyMergedFlag" />
+	</bean>
+	<bean
+		id="sysPersonMyMergedFlagTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.person.service.spring.SysPersonMyMergedFlagService">
+		<property name="baseDao">
+			<ref local="sysPersonMyMergedFlagDao" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="sysPersonMyMergedFlagService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPersonMyMergedFlagTarget" />
+		</property>
+	</bean>
+</beans>

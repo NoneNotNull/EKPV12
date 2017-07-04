@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action 
+			path="/km/forum/mobile/kmForumMobileCategory"
+			type="com.landray.kmss.km.forum.mobile.KmForumMobileCategoryAction"
+			parameter="method"
+			unknown="false" 
+			validate="false" 
+			scope="request">
+		</action>
+		<action
+			path="/km/forum/mobile/kmForumPost"
+			type="com.landray.kmss.km.forum.mobile.KmForumMobilePostAction"
+			name="kmForumPostForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="viewTopic"
+				path="/km/forum/mobile/view/view.jsp">
+			</forward>
+			<forward
+				name="viewPost"
+				path="/km/forum/mobile/view/viewPost.jsp">
+			</forward>
+			<forward
+				name="listPost"
+				path="/km/forum/mobile/list/listPost.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+</struts-config>

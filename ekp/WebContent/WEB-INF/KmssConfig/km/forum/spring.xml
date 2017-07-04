@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="kmForumCategoryDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.km.forum.dao.hibernate.KmForumCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.forum.model.KmForumCategory" />
+	</bean>
+	<bean
+		id="kmForumCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.forum.service.spring.KmForumCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmForumCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmForumCategoryTarget" />
+		</property>
+	</bean>
+	
+	<!--主页使用-->
+	<bean
+		id="kmForumCategoryTreeService"
+		class="com.landray.kmss.km.forum.service.spring.KmForumCategoryTreeService">
+		<property
+			name="kmForumCategoryService">
+			<ref
+				local="kmForumCategoryService" />
+		</property>
+	</bean>
+	<!-- 模块导航 -->
+	<bean
+		id="kmForumCategoryTeeService"
+		class="com.landray.kmss.km.forum.service.spring.KmForumCategoryTeeService">
+		<property
+			name="kmForumCategoryService">
+			<ref
+				local="kmForumCategoryService" />
+		</property>
+	</bean>
+	<!-- 类别选择树 -->
+	<bean
+		id="kmForumCategoryTreeSelectService"
+		class="com.landray.kmss.km.forum.service.spring.KmForumCategoryTreeSelectService">
+		<property
+			name="kmForumCategoryService">
+			<ref
+				local="kmForumCategoryService" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmForumTopicDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.km.forum.dao.hibernate.KmForumTopicDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.forum.model.KmForumTopic" />
+		<property
+			name="kmForumPostDao">
+			<ref
+				local="kmForumPostDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumTopicTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.forum.service.spring.KmForumTopicServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmForumTopicDao" />
+		</property>
+		<property
+			name="kmForumCategoryService">
+			<ref
+				local="kmForumCategoryService" />
+		</property>
+		<property
+			name="kmForumScoreService">
+			<ref
+				local="kmForumScoreService" />
+		</property>
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumTopicService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmForumTopicTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="add*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="update*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="save*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="do*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="undo*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="move*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="hit*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="kmForumScoreDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.km.forum.dao.hibernate.KmForumScoreDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.forum.model.KmForumScore" />
+	</bean>
+	<bean
+		id="kmForumScoreTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.forum.service.spring.KmForumScoreServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmForumScoreDao" />
+		</property>
+		<property
+			name="sysAttMainService">
+			<ref
+				bean="sysAttMainService" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumScoreService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmForumScoreTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmForumPostDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.km.forum.dao.hibernate.KmForumPostDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.forum.model.KmForumPost" />
+	</bean>
+	<bean
+		id="kmForumPostTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.forum.service.spring.KmForumPostServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmForumPostDao" />
+		</property>
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumPostService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmForumPostTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmForumTopicPortlet"
+		class="com.landray.kmss.km.forum.service.spring.KmForumTopicPortlet">
+		<property
+			name="kmForumTopicService">
+			<ref
+				local="kmForumTopicService" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumTopicPortletHot"
+		class="com.landray.kmss.km.forum.service.spring.KmForumTopicPortletHot">
+		<property
+			name="kmForumTopicService">
+			<ref
+				local="kmForumTopicService" />
+		</property>
+	</bean>
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property
+			name="beanNames">
+			<value>kmForumTopicDao</value>
+		</property>
+		<property
+			name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+		id="kmForumRankPortlet"
+		class="com.landray.kmss.km.forum.service.spring.KmForumRankPortlet">
+		<property
+			name="kmForumScoreService">
+			<ref
+				bean="kmForumScoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmForumIndexDataService"
+		class="com.landray.kmss.km.forum.service.spring.KmForumIndexDataService">
+		<property
+			name="kmForumTopicService">
+			<ref
+				local="kmForumTopicService" />
+		</property>
+		<property
+			name="kmForumPostService">
+			<ref
+				local="kmForumPostService" />
+		</property>
+		<property
+			name="kmForumScoreService">
+			<ref
+				local="kmForumScoreService" />
+		</property>
+	</bean>
+</beans>

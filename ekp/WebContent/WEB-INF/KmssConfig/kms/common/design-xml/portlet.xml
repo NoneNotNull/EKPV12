@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<portlet
+		id="kms.common.intro"
+		name="{kms-common:kmsCommonIntroKnowledge.portlet}"
+		module="{kms-common:kmsCommonIntroKnowledge.portlet}">
+		<source  format="sys.ui.slide" type="AjaxJson">
+			<code>
+				<![CDATA[
+					{"url":"/kms/common/kms_home_knowledge_intro_portlet/kmsHomeKnowledgeIntroPortlet.do?method=getHomeKnowledgeIntro&fdIds=!{fdIds}&orderby=docAlterTime&ordertype=down"}
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var key="fdIds" kind="dialogJs" name="选择专题" required="true">
+					{"jsp":"/kms/common/kms_home_knowledge_intro_portlet/kmsHomeKnowledgeIntroPortlet.jsp"}
+			</var>
+		</vars>
+	</portlet>
+</root>

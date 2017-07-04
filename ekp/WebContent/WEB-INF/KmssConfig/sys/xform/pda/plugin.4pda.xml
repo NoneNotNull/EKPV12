@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<extension-point id="com.landray.kmss.sys.xform.pda.controls">
+		<item name="control">
+			<param name="class" kind="java"
+				basedOn="com.landray.kmss.sys.xform.base.service.parse.ParseHandler">
+				<description>解析HTML，并生成JSP的类</description>
+			</param>
+			<description>PDA表单控件</description>
+		</item>
+		<item name="scan">
+			<param name="pkg" kind="string">
+				<description>指定解析的包</description>
+			</param>
+			<description>PDA表单控件</description>
+		</item>
+		<description>
+			表单扩展点，支持把html内容解析成PDA上展现的JSP内容。
+			control - class 配置后台解析HTML生成JSP的java类。
+			scan - scan 通过指定解析包，自动注册包中所有有@ParseAnnotation注解的解析类。
+		</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.xform.jsp.generator" model="*">
+		<item name="generator">
+			<param name="bean" value="sysFormPdaJspGenerator" />
+			<param name="order" value="40"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.xform.pda.controls" model="*">
+		<item name="scan">
+			<param name="pkg" value="com.landray.kmss.sys.xform.pda.controls" />
+		</item>
+	</extension>
+	
+</plugin>

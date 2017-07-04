@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalPageDetail"
+		messageKey=""
+		serviceBean="sysPortalPageDetailService"
+		table="sys_portal_page_detail">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docContent"
+			messageKey=""
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdJsp"
+			messageKey=""
+			type="RTF"
+			column="fd_jsp"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMd5"
+			messageKey=""
+			type="String"
+			column="fd_md5"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdHeader"
+			messageKey=""
+			type="String"
+			column="fd_header"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdFooter"
+			messageKey=""
+			type="String"
+			column="fd_footer"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdLogo"
+			messageKey=""
+			type="String"
+			column="fd_logo"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdFooterVars"
+			messageKey=""
+			type="String"
+			column="fd_footer_vars"
+			notNull="false"
+			length="999" />
+		<simpleProperty
+			name="fdHeaderVars"
+			messageKey=""
+			type="String"
+			column="fd_header_vars"
+			notNull="false"
+			length="999" />
+		<simpleProperty
+			name="fdType"
+			messageKey=""
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="20" />
+		<modelProperty
+			name="sysPortalPage"
+			messageKey=""
+			type="com.landray.kmss.sys.portal.model.SysPortalPage"
+			column="fd_page_id"
+			notNull="true" />
+	</model>
+</models>

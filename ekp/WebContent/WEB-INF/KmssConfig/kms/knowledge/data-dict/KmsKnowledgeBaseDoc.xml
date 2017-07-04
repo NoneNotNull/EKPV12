@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"
+		messageKey="kms-knowledge:table.kmKnowledge"
+		displayProperty="docSubject"
+		serviceBean="kmsKnowledgeBaseDocService"
+		extendClass="com.landray.kmss.sys.doc.model.SysDocBaseInfo"
+		table="kms_knowledge_base_doc"
+		url="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc.do?method=view&amp;fdId=${fdId}&amp;fdKnowledgeType=${fdKnowledgeType}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			canSearch="true"
+			length="200"
+			canRelation="true"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			length="2"
+			canDisplay="true"
+			enumType="common_status"
+			readOnly="true" />
+
+		<simpleProperty
+			name="docIsIntroduced"
+			messageKey="sys-doc:sysDocBaseInfo.docIsIntroduced"
+			type="Boolean"
+			column="doc_is_introduced"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+		
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-doc:sysDocBaseInfo.docCreateTime"
+			canSearch="true"
+			canRelation="true"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />	
+
+		<modelProperty
+			name="docAuthor"
+			messageKey="sys-doc:sysDocBaseInfo.docAuthor"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_author_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />
+			
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-doc:sysDocBaseInfo.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}','!{nameField}', ';',ORG_TYPE_PERSON);" />
+
+		<listProperty
+			name="docPosts"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docPosts"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_post_id"
+			table="kms_knowledge_main_post"
+			inverse="false"
+			canDisplay="true" />
+
+		<modelProperty
+			name="docDept"
+			messageKey="sys-doc:sysDocBaseInfo.docDept"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_ORGORDEPT);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_dept_id"
+			notNull="true"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />
+
+		<simpleProperty
+			name="docIntrCount"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docIntrCount"
+			type="Integer"
+			column="doc_Intr_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docEvalCount"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docEvalCount"
+			type="Integer"
+			column="doc_eval_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docReadCount"
+			type="Integer"
+			column="doc_read_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docIsNewVersion"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docIsNewVersion"
+			type="Boolean"
+			column="doc_is_new_version"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authAttNodownload"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttNodownload"
+			type="Boolean"
+			column="auth_att_nodownload"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNocopy"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttNocopy"
+			type="Boolean"
+			column="auth_att_nocopy"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNoprint"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttNoprint"
+			type="Boolean"
+			column="auth_att_noprint"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />	
+
+		<modelProperty
+			name="docCategory"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.docCategory"
+			type="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+			column="doc_category_id"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory','!{idField}','!{nameField}',false,null,'00')"
+			notNull="true"
+			canRelation="true"
+			validate="false" 
+			treeModel="true" />
+
+		<listProperty
+			name="authReaders"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authReaders"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			table="kms_knowledge_main_auth_readers"
+			column="fd_doc_id"
+			elementColumn="fd_org_id"
+			inverse="false"
+			readOnly="true" />
+		<listProperty
+			name="authEditors"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authEditors"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			table="kms_knowledge_main_auth_editors"
+			column="fd_doc_id"
+			elementColumn="fd_org_id"
+			inverse="false"
+			readOnly="true" />
+
+
+		<listProperty
+			name="authOtherReaders"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authOtherReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="kms_knowledge_auth_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authOtherEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="kms_knowledge_auth_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAllReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="kms_knowledge_auth_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="kms_knowledge_auth_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttDownloads"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttDownloads"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="kms_knowledge_main_attdl"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttCopys"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="kms_knowledge_main_attcopy"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="kms-knowledge:kmsKnowledgeBaseDoc.authAttPrints"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="kms_knowledge_main_attprint"
+			inverse="false"
+			canDisplay="false" />
+
+		<listProperty
+			name="docHistoryEditions"
+			messageKey="sys-doc:sysDocBaseInfo.docHistoryEditions"
+			column="doc_origin_docid"
+			type="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"
+			inverse="true" 
+			canDisplay="true"
+			notNull="false"
+			readOnly="true" />	
+	</model>
+</models>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validator>
+	<!-- 默认过滤的关键字是 ",',<,>,(,),+,-,\,[,] -->
+	<urlscan enable="true" param="method;fdId;fdModelName;s_css"
+		keyword="&quot;;&apos;;&lt;;&gt;;(;);+;\;[;]">
+		<item url="/**/*.jsp">
+		</item>
+		<item url="/**/*.do">
+		</item>
+	</urlscan>
+	<reject>
+		<pattern>
+			<![CDATA[
+			<[\s|\u0000]*[/]*[\s|\u0000]*script[^>]*>
+			]]>
+		</pattern>
+		<pattern>
+			<![CDATA[
+			<[\s|\u0000]*[/]*[\s|\u0000]*iframe[^>]*>
+			]]>
+		</pattern>
+		<pattern>
+			<![CDATA[
+			<([\s\S][^>]*)([\s|\u0000]*(onload=|src=|href=|onerror=|javascript:|vbscript:)+)([\s\S][^>]*)>
+			]]>
+		</pattern>
+	</reject>
+	<converter>
+		<item class="com.landray.kmss.web.filter.security.ConvertorBase64">
+		</item>
+		<item class="com.landray.kmss.web.filter.security.ConvertorDes">
+		</item>
+	</converter>
+</validator>

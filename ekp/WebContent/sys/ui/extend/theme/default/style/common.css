@@ -1,0 +1,188 @@
+﻿@charset "utf-8";
+
+/* CSS reset */
+body,input,textarea,div,a,table,tr,td,th{ font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;font-size: 12px; }
+body{color: #333;}
+body,div,dl,dt,dd,ul,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin: 0; padding: 0;}
+table { border-collapse: collapse;border-spacing: 0; }
+fieldset,img { border: 0;}
+a { color: #333; text-decoration: none;}
+a:hover { color: #3eb2e6;}
+abbr,acrnym { border: 0;}
+input::-ms-clear{ display:none }    /*输入框的小叉叉图标消失*/
+*:focus { outline: none; }/* 去掉输入框点击时的边框 */
+
+.cke_editable{ padding:5px;}
+
+/*系统全局功能*/
+.textEllipsis {width: 99%;overflow: hidden;display: block;white-space: nowrap;text-overflow: ellipsis;}
+.clr {clear: both}
+.clearfloat {zoom: 1;}
+/*@清除浮动 */
+.clearfloat:after{display: block;content: 'clear';clear: both;line-height: 0;visibility: hidden;}
+/*@置顶*/
+.com_goto{position: fixed;bottom: 80px;right: 20px; width: 50px;}
+.com_export{background: url(../images/export.png) no-repeat center;width: 48px;height: 48px;background-color: white;border: 1px solid #6AB3DE;}
+.com_gototop {background:#6aafd9 url(../images/go_top.png);width: 50px;height: 50px;position: relative;bottom: 0;cursor: pointer;}
+.com_gototop:hover{ background:#c1c1c1 url(../images/go_top_on.png);width: 50px;height: 50px;}
+/*@展开||收起*/
+.com_slideDown {margin-left: 12px;padding-left: 10px;font-size: 13px;text-decoration: underline;background: url(../images/doc_arrow.png) no-repeat 0 5px;cursor: pointer;}
+.com_slideUp {margin-left: 12px;padding-left: 10px;font-size: 13px;text-decoration: underline;background: url(../images/doc_arrow.png) no-repeat 0px -23px;cursor: pointer;}
+
+/** tb_normal 一般4列表格表单的样式 有边框线表格 **/
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #d2d2d2 solid;padding: 8px !important;text-align: left; margin: 0 auto;}
+.tb_normal>tbody>.tr_normal_title{ background-color:#f6f6f6; text-align:center;}
+.tb_normal>tbody>tr{border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d2d2d2;}
+.tb_normal>tbody>tr>td {padding: 8px;word-break:break-all;border-left: 1px #d2d2d2 solid; border-right: 1px #d2d2d2 solid; }
+.tb_normal>tbody>tr>.td_normal_title{ background-color:#f6f6f6;}
+
+/** tb_simple 一般2列表格表单的样式  无表框线表格 **/
+.tb_simple{border-collapse: collapse;background-color: #FFFFFF;margin: 0 auto; }
+.tb_simple>tbody>.tr_normal_title{ text-align:center;}
+.tb_simple>tbody>tr>td {padding: 5px; word-break:break-all;}
+.tb_simple>tbody>tr>.td_normal_title{ text-align:right}       /*字段名称*/
+
+/** tb_noborder 取消表格和单元格的边线 **/
+.tb_noborder{background-color: #FFFFFF;margin: 0 auto;border-collapse: collapse;padding: 0px;border: 0px;}
+.tb_noborder>tbody>tr>td {padding: 0px;border: 0px;}
+
+/*系统全局字体颜色*/
+.com_subject,.lui_form_subject,.txttitle {color: #3e9ece;}                                                                 /*标题颜色*/
+.com_subhead,.lui_form_subhead{color: #5b5b5b;}                   /*副标题颜色*/
+.td_normal_title, .tr_normal_title>td{color: #000;}            /*字段颜色*/
+.com_author {color: #F19703;}                                                                                    /*人名强调色*/
+.com_number {color:#29aa19}	                                                                                     /*数字强调色*/
+.com_warn,.txtstrong{ color:#d02300}	                                                                                     /*警告提示*/
+.com_help,.lui_form_baseinfo{ color:#9e9e9e}	                                                                 /*辅助信息*/
+.com_btn_link { color:#37ace1; text-decoration:underline;}                                                       /*弱化按钮*/
+.com_btn_link_light{ text-decoration:underline;}
+.lui_popup_border_content .com_btn_link:hover { color:#db782c;}          /*弱化按钮*/
+.sys_notify_add{ color:#37ace1!important; text-decoration:underline; }                                       /* 日程提醒 */
+
+/*输入框提示信息字体颜色*/
+/* WebKit browsers */
+::-webkit-input-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Mozilla Firefox 19+ */
+::-moz-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+/* Internet Explorer 10+ */
+:-ms-input-placeholder { color:#9e9e9e!important; font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun; font-size:12px;}
+
+/*
+ 支持 IE 浏览器，需添加 -ms- 前缀 
+ 支持 Firefox 浏览器，需添加 -moz- 前缀 
+ 支持 Google Chrome 浏览器，需添加 -webkit- 前缀 
+ 支持 Safari 浏览器，需添加 -webkit- 前缀 
+ 支持 Opera 浏览器，需添加 -o- 前缀 
+ 支持 Opera 浏览器，需添加 -xv- 前缀 */
+/** 数据验证的样式 **/
+.validation-advice,.lui_validate{clear: both;margin: 5px 0;padding: 5px;background-color: #fff5d8;border: 1px solid #e0a385;}
+.lui_validate{cursor: pointer;}
+.validation-table{padding: 0px !important;margin: 0px !important;}
+.validation-table td {text-align:left;font-size: 12px;border: 0px; margin: 0px !important; padding: 0px 2px !important; line-height: 18px; vertical-align: middle;}
+.validation-table td:FIRST-CHILD{width: 18px !important;}
+.validation-advice-msg {font-weight: bold;}
+.validation-advice-msg .validation-advice-title{color: #cc0000 !important;;font-weight: bolder;}
+
+/*按钮背景色*/
+.com_bgcolor_d{background-color:#47b5e6}
+.com_bgcolor_n{background-color:#47b5e6}
+.com_bgcolor_l{background-color:#d6d6d6}
+
+/*按钮边框色*/
+
+.com_bordercolor_d{border-color:#35a1d0}
+.com_bordercolor_n{border-color:#35a1d0}
+.com_bordercolor_l{border-color:#c7c7c7}
+
+/*按钮字体颜色*/
+.com_fontcolor_d{ color:#fff}
+.com_fontcolor_n{ color:#fff}
+.com_fontcolor_l{color:#fff}
+
+
+/*Ie8不支持 屏幕宽度小于等于1280*/
+  .width40 {width:40px;}
+  .width60 {width:60px;}
+  .width80 {width:80px;}
+  .width100 {width:100px;}
+  .width120 {width:120px;}
+  .width160 {width:160px;}
+  .width200 {width:200px;}
+
+/*屏幕宽度小于等于1280*/
+@media screen and (max-width: 1280px) {
+  .width40 {width:40px;}
+  .width60 {width:60px;}
+  .width80 {width:80px;}
+  .width100 {width:100px;}
+  .width120 {width:120px;}
+  .width160 {width:160px;}
+  .width200 {width:200px;}
+}
+
+/*屏幕宽度在1280和1536之间*/
+@media screen and (min-width: 1281px) and (max-width: 1537px) {
+  .width40 {width:50px;}
+  .width60 {width:75px;}
+  .width80 {width:100px;}
+  .width100 {width:125px;}
+  .width120 {width:150px;}
+  .width160 {width:200px;}
+  .width200 {width:250px;}
+}
+
+/*屏幕宽度在1536和1792之间*/
+@media screen and (min-width: 1537px) and (max-width: 1793px) {
+  .width40 {width:60px;}
+  .width60 {width:90px;}
+  .width80 {width:120px;}
+  .width100 {width:150px;}
+  .width120 {width:180px;}
+  .width160 {width:240px;}
+  .width200 {width:300px;}
+}
+
+/*屏幕宽度在1792和2048之间*/
+@media screen and (min-width: 1793px) and (max-width: 2049px) {
+  .width40 {width:70px;}
+  .width60 {width:105px;}
+  .width80 {width:140px;}
+  .width100 {width:175px;}
+  .width120 {width:210px;}
+  .width160 {width:280px;}
+  .width200 {width:350px;}
+}
+
+/*屏幕宽度大于等于2048*/
+@media screen and (min-width: 2049px) {
+  .width40 {width:80px;}
+  .width60 {width:120px;}
+  .width80 {width:160px;}
+  .width100 {width:200px;}
+  .width120 {width:240px;}
+  .width160 {width:320px;}
+  .width200 {width:400px;}
+}
+
+/*浏览器兼容提示*/
+.browserTip {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+	background-color: yellow;
+	line-height: 20px;
+	text-align: center;
+	display: block;
+	height: 20px;
+}
+.browserTip div{
+	padding-left: 10px;
+	cursor: pointer;
+	display: inline;
+	padding-left: 5px;	
+	line-height: 20px;
+}

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<!-- pda相关扩展 -->
+	<extension-point id="com.landray.kmss.third.pda.extend">
+		<item name="extend">
+			<param name="modelName" kind="unid" required="true">
+				<description>模型名</description>
+			</param>
+			<param name="templateClass" kind="string">
+				<description>定义文档的类别或模板类，
+					如:com.landray.kmss.km.doc.model.KmDocTemplate</description>
+			</param>
+			<param name="extendJsp" kind="filepath" pattern="^.*?\.(jsp)$">
+				<description>定义文档查看界面附加显示功能jsp</description>
+			</param>
+			<param name="createURL" kind="filepath">
+				<description>定义创建文档URL,变量："!{cateid}"为类别id</description>
+			</param>
+			<param name="createTempURL" kind="filepath">
+				<description>定义在分类下创建文档URL,变量："!{cateid}"为类别id</description>
+			</param>
+			<param name="filterURL" kind="filepath">
+				<description>
+					筛选URL,默认为："/third/pda/pda_property_filter/pdaPropertyFilter.do?method=getPropertyFilter"
+					参数："templateName"为主文档所属分类属性名
+				</description>
+			</param>
+			<param name="headBean" kind="string">
+				<description>
+					带图片内容Bean，bean需要实现IXMLDataBean接口,多值使用","分隔
+				</description>
+			</param>
+			<param name="contentBean" kind="string">
+				<description>
+					定义内容Bean，bean需要实现IXMLDataBean接口，多值使用","分隔
+				</description>
+			</param>
+			<description>移动组件配置信息</description>
+		</item>
+		<description>移动组件配置信息</description>
+	</extension-point>
+
+	<!-- 模块自定义标签 -->
+	<extension-point id="com.landray.kmss.third.pda.tabView">
+		<item name="tabView">
+			<param name="tabName" required="true" kind="string">
+				<description>必需，标签名称。</description>
+			</param>
+			<param name="tabType" required="true" kind="string">
+				<description>必需，标签类型，类型包括home、module、search、list、listTab、doc。</description>
+			</param>
+			<param name="tabUrl" required="false" kind="filepath">
+				<description>可选，标签链接。</description>
+			</param>
+			<param name="tabBean" required="false" kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean">
+				<description>可选，标签Bean，tagType为listTab时必需，用于listTab请求数据。</description>
+			</param>
+			<param name="modelName" required="true" kind="string">
+				<description>必需，标签modelName。</description>
+			</param>
+			<param name="templateClass" kind="string">
+				<description>定义文档的类别或模板类，
+					如:com.landray.kmss.km.doc.model.KmDocTemplate</description>
+			</param>
+			<param name="tabIcon" required="false" kind="string">
+				<description>可选，标签图标。</description>
+			</param>
+			<param name="tabOrder" kind="int" default="99">
+				<description>可选，标签排序号。</description>
+			</param>
+			<description>模块自定义标签扩展</description>
+		</item>
+		<description>针对模块自定义标签扩展</description>
+	</extension-point>
+
+	<!-- 动态加载支持 PDA 的框架扩展配置  -->
+	<extension point="com.landray.kmss.sys.config.loader.extend">
+		<item name="frameworkExtend">
+			<param name="fileSuffix" value="pda" />
+		</item>
+	</extension>
+
+	<!-- PDA 登录 -->
+	<extension point="com.landray.kmss.sys.authentication">
+		<item name="authenticationProcessingFilter" enable="true">
+			<param name="bean" value="thirdPdaRedirectFilter" />
+			<param name="order" value="81" />
+		</item>
+	</extension>
+
+	<!-- action拦截 -->
+	<extension point="com.landray.kmss.common.actions">
+		<item name="interceptor">
+			<param name="bean" value="thirdPdaActionInterceptor" />
+		</item>
+	</extension>
+
+	<!-- admin.do配置 -->
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+		    <param name="properties" value="/WEB-INF/KmssConfig/third/pda/default.properties" />
+			<param name="jsp" value="/third/pda/config.jsp" />
+			<param name="type" value="application" />
+		</item>
+	</extension>
+
+	<!-- 待办推送 -->
+	<extension point="com.landray.kmss.sys.notify">
+		<item name="todoExtend" enable="true">
+			<param name="bean" value="pdaNotifyTodoProvider" />
+		</item>
+	</extension>
+
+	<!-- 兼容性检测 -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.third.pda.xform.operate" />
+			<param name="name" value="{third-pda:pda.update.title}" />
+			<param name="type" value="notify" />
+			<param name="path" value="/third/pda/" />
+			<param name="description" value="{third-pda:pda.update.desc}" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.admin.transfer">
+			<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.third.pda.transfer.PdaModuleConfigChecker" />
+			<param name="name" value="{third-pda:pda.notify.title}" />
+			<param name="type" value="notify" />
+			<param name="path" value="/third/pda/" />
+			<param name="description" value="{third-pda:pda.notify.desc}" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.admin.transfer">
+			<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.third.pda.transfer.PdaModuleConfigTransfer" />
+			<param name="name" value="{third-pda:pda.config.title}" />
+			<param name="type" value="notify" />
+			<param name="path" value="/third/pda/" />
+			<param name="description" value="{third-pda:pda.config.desc}" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.property.builder.setting"
+		model="com.landray.kmss.third.pda">
+		<item name="jspBuilder">
+			<param name="bean" value="pdaJspBuilder" />
+			<param name="ext" value="true" />
+		</item>
+	</extension>
+	
+</plugin>

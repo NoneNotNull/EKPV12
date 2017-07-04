@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingBook"
+		messageKey="km-imeeting:table.kmImeetingBook"
+		displayProperty="fdId"
+		serviceBean="kmImeetingBookService"
+		table="km_imeeting_book"
+		url="/km/imeeting/km_imeeting_book/kmImeetingBook.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imeeting:kmImeetingBook.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHoldDate"
+			messageKey="km-imeeting:kmImeetingBook.fdHoldDate"
+			type="DateTime"
+			column="fd_hold_date"
+			notNull="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFinishDate"
+			messageKey="km-imeeting:kmImeetingBook.fdFinishDate"
+			type="DateTime"
+			column="fd_finish_date"
+			notNull="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHoldDuration"
+			messageKey="km-imeeting:kmImeetingMain.fdHoldDuration"
+			type="Double"
+			column="fd_hold_duration"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRemark"
+			messageKey="km-imeeting:kmImeetingBook.fdRemark"
+			type="String"
+			column="fd_remark"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imeeting:kmImeetingBook.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="fdPlace"
+			messageKey="km-imeeting:kmImeetingBook.fdPlace"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingRes"
+			column="fd_place_id"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

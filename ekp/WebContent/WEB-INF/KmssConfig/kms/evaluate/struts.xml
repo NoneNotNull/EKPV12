@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsEvaluateDocDetailForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDocDetailForm" />
+		<form-bean
+			name="kmsEvaluatePersonalRankForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluatePersonalRankForm" />
+		<form-bean
+			name="kmsEvaluateDocRankForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDocRankForm" />
+		<form-bean
+			name="kmsEvaluatePersonalDetailForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluatePersonalDetailForm" />
+		<form-bean
+			name="kmsEvaluateDocMonthCountForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDocMonthCountForm" />
+		<form-bean
+			name="kmsEvaluatePersonMonthCountForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluatePersonMonthCountForm" />
+		<form-bean
+			name="kmsEvaluateDeptFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDeptFilterForm" />
+		<form-bean
+			name="kmsEvaluateModuleCateFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateModuleCateFilterForm" />
+		<form-bean
+			name="kmsEvaluateDocFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDocFilterForm" />
+		<form-bean
+			name="kmsEvaluatePersonalFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluatePersonalFilterForm" />
+		<form-bean
+			name="kmsEvaluateDocSearchFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateDocSearchFilterForm" />
+		<form-bean
+			name="kmsEvaluateAskDeptFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateAskDeptFilterForm" />
+		<form-bean
+			name="kmsEvaluateAskCFilterForm"
+			type="com.landray.kmss.kms.evaluate.forms.KmsEvaluateAskCFilterForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDocDetailAction"
+			name="kmsEvaluateDocDetailForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail_list.jsp" />
+			<forward
+				name="result"
+				path="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/evaluate/kms_evaluate_personal_rank/kmsEvaluatePersonalRank"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluatePersonalRankAction"
+			name="kmsEvaluatePersonalRankForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_personal_rank/kmsEvaluatePersonalRank_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_personal_rank/kmsEvaluatePersonalRank_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_personal_rank/kmsEvaluatePersonalRank_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/evaluate/kms_evaluate_doc_rank/kmsEvaluateDocRank"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDocRankAction"
+			name="kmsEvaluateDocRankForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_doc_rank/kmsEvaluateDocRank_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_doc_rank/kmsEvaluateDocRank_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_doc_rank/kmsEvaluateDocRank_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluatePersonalDetailAction"
+			name="kmsEvaluatePersonalDetailForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/evaluate/kms_evaluate_doc_month_count/kmsEvaluateDocMonthCount"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDocMonthCountAction"
+			name="kmsEvaluateDocMonthCountForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_doc_month_count/kmsEvaluateDocMonthCount_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_doc_month_count/kmsEvaluateDocMonthCount_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_doc_month_count/kmsEvaluateDocMonthCount_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/evaluate/kms_evaluate_person_month_count/kmsEvaluatePersonMonthCount"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluatePersonMonthCountAction"
+			name="kmsEvaluatePersonMonthCountForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_person_month_count/kmsEvaluatePersonMonthCount_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_person_month_count/kmsEvaluatePersonMonthCount_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_person_month_count/kmsEvaluatePersonMonthCount_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_dept_filter/kmsEvaluateDeptFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDeptFilterAction"
+			name="kmsEvaluateDeptFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_dept_filter/kmsEvaluateDeptFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_dept_filter/kmsEvaluateDeptFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_dept_filter/kmsEvaluateDeptFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateModuleCateFilterAction"
+			name="kmsEvaluateModuleCateFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_doc_filter/kmsEvaluateDocFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDocFilterAction"
+			name="kmsEvaluateDocFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_doc_filter/kmsEvaluateDocFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_doc_filter/kmsEvaluateDocFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_doc_filter/kmsEvaluateDocFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_personal_filter/kmsEvaluatePersonalFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluatePersonalFilterAction"
+			name="kmsEvaluatePersonalFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_personal_filter/kmsEvaluatePersonalFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_personal_filter/kmsEvaluatePersonalFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_personal_filter/kmsEvaluatePersonalFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_doc_search_filter/kmsEvaluateDocSearchFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateDocSearchFilterAction"
+			name="kmsEvaluateDocSearchFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_doc_search_filter/kmsEvaluateDocSearchFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_doc_search_filter/kmsEvaluateDocSearchFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_doc_search_filter/kmsEvaluateDocSearchFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateAskDeptFilterAction"
+			name="kmsEvaluateAskDeptFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/evaluate/kms_evaluate_ask_c_filter/kmsEvaluateAskCFilter"
+			type="com.landray.kmss.kms.evaluate.actions.KmsEvaluateAskCFilterAction"
+			name="kmsEvaluateAskCFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/evaluate/kms_evaluate_ask_c_filter/kmsEvaluateAskCFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/evaluate/kms_evaluate_ask_c_filter/kmsEvaluateAskCFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/evaluate/kms_evaluate_ask_c_filter/kmsEvaluateAskCFilter_list.jsp" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

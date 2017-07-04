@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 个人空间调整为员工黄页</description>
+			<author>陈建林</author>
+			<revision-time>2014-12-19</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+				<relation-module>sys/tag</relation-module>
+				<relation-module>sys/ui</relation-module>
+				<relation-module>sys/person</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 当不是ekp空间时，隐藏基本信息中的头像修改</description>
+			<author>傅游翔</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人空间没有继承主页设置的主题风格</description>
+			<author>李勇</author>
+			<revision-time>2014-08-11</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+	</modifies>
+</version>

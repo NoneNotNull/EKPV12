@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.time.model.SysTimeVacation"
+		messageKey="sys-time:table.sysTimeVacation"
+		displayProperty="fdName"
+		serviceBean="sysTimeVacationService"
+		table="sys_time_vacation">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-time:sysTimeVacation.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="hbmStartTime"
+			messageKey="sys-time:sysTimeVacation.hbmStartTime"
+			type="Long"
+			column="fd_start_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="hbmEndTime"
+			messageKey="sys-time:sysTimeVacation.hbmEndTime"
+			type="Long"
+			column="fd_end_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-time:sysTimeVacation.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="sysTimeArea"
+			messageKey="sys-time:sysTimeVacation.sysTimeArea"
+			type="com.landray.kmss.sys.time.model.SysTimeArea"
+			column="fd_area_id"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-time:sysTimeVacation.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+	</model>
+</models>

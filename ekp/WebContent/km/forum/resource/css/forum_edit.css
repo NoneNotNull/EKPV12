@@ -1,0 +1,58 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/**
+**代码制作人：马泽棉
+**制作时间：2013-5-7
+**文件内容描述：论坛,
+**修改日期：2013-5-7
+**修改内容：无
+**/
+
+/* 帖子新建 */
+.lui_sheet_c_table td{ padding:5px 0; color:#5b5b5b; font-size:12px; vertical-align:middle;}
+.tips{ margin-left:10px;}
+.lui_forum_table .qucikPost_w{ margin-left:15px;}
+.lui_forum_table .qucikPost_w .item{ margin-right:12px;}
+.lui_forum_table .qucikPost_w .item input{ margin-right:5px;}
+.attach_opt_w{ position:relative;}
+.attach_opt_w em{ margin-left:8px; display:inline-block; height:25px; line-height:25px; background:#f3f3f3; border:1px solid #e0e0e0; border-bottom:0px; padding:0px 13px; cursor:pointer;}
+.attach_opt_w .attach_opt{ height:32px; line-height:32px; margin-top:-1px; background:#f3f3f3; border:1px solid #e0e0e0;}
+.attach_opt_w .attach_opt_notify{ height:32px; line-height:32px; margin-top:-1px; background:#f3f3f3; border:1px solid #e0e0e0;border-top: 0px}
+.input_1{ height:24px; padding:0 4px; line-height:24px; color:#5b5b5b; border:1px solid #c0c0c0;}
+.sheet_i_iconBox{ width:24px; height:24px; border-left:1px solid #e8e8e8; background:url(../images/lui_third_icon_1.png) no-repeat; cursor:pointer; position:absolute; right:1px; top:1px;}
+.s_i_icon_4{ background-position:-99px 5px;}
+.i_bar{ float:left; display:inline; position:relative;}
+
+.lui_forum_table{ background:#fff; padding:16px;}
+.lui_forum_table .tr_line{ border-bottom:1px solid #e8e8e8;}
+.btn_posted{ height:37px; line-height:37px; padding:0px 24px;border:0px; font-family:"微软雅黑"; color:#fff; font-size:14px; margin-right:8px; cursor:pointer;}
+.btn_saveDraft{ height:37px; line-height:37px; background:#818181; padding:0px 24px; border:0px; color:#fff; font-size:14px; cursor:pointer;}
+.btn_posted:hover{ background:#0ca0e8;}
+.btn_saveDraft:hover{ background:#737373;}
+
+/* 阅读页面 快速回帖 */
+.forum_quickPost_read{ background:#fff; padding:22px;}
+.forum_quickPost_read table tr td{ vertical-align:top;}
+.forum_quickPost_read .td_user_img{ padding-right:24px; text-align:center;}
+.forum_quickPost_read .td_user_img img{ width:60px; height:60px;}
+.forum_quickPost_read .tips{ color:#666; margin-left:10px;}
+.forum_quickPost_read .p_upload{ padding:4px 0px; border-bottom:1px solid #e8e8e8;}
+.forum_quickPost_read .btn_posted{ float:left;}
+.forum_quickPost_read .qucikPost_w{ margin-left:15px; display:inline-block; height:37px; line-height:37px;}
+.forum_quickPost_read .qucikPost_w .item{ margin-right:12px;}
+.forum_quickPost_read .qucikPost_w .item input{ margin-right:5px;}
+/*快速回复按钮*/
+.btn_posted{ height:37px; line-height:37px; padding:0px 24px; background:#0baaf7; border:0px; font-family:"微软雅黑"; color:#fff; font-size:14px; margin-right:8px; cursor:pointer;}
+
+
+/* 快捷菜单 */
+ ol,ul{ list-style:none;}
+.forum_shortcut_menu{ position:fixed; right:20px; bottom:130px;cursor:pointer;}
+.forum_shortcut_menu ul li{ cursor:pointer; width:49px; height:50px; border:1px solid #eee; margin-top:-1px; background:#fff;}
+.forum_shortcut_menu ul li a{ display:block; width:49px; height:50px;}
+.forum_shortcut_menu ul li .menu3{ background:url(../images/02-1.png) no-repeat center;}
+.forum_shortcut_menu ul li .menu3:HOVER{ background:url(../images/02.png) no-repeat center;}
+
+/*按钮样式*/
+.forum_button{line-height:37px;width:105px;font-size:14px;text-align:center;display:inline-block}

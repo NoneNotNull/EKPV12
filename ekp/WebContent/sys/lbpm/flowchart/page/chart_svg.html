@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel=stylesheet href="../css/chart.css">
+<script>
+function _Com_GetUrlParameter(param){
+	var url = location.href;
+	var re = new RegExp();
+	re.compile("[\\?&]"+param+"=([^&]*)", "i");
+	var arr = re.exec(url);
+	if(arr==null)
+		return null;
+	else
+		return decodeURIComponent(arr[1]);
+}
+var qdomain = _Com_GetUrlParameter("domain");
+if (qdomain != null && qdomain != '') {
+	document.domain = qdomain;
+}
+</script>
+<script>
+	var Com_Parameter = {
+		ContextPath : parent.Com_Parameter.ContextPath,
+		ResPath : parent.Com_Parameter.ResPath,
+		Style : parent.Com_Parameter.Style,
+		StylePath : parent.Com_Parameter.StylePath,
+		Cache: parent.Com_Parameter.Cache,
+		IE:(typeof window.ActiveXObject!="undefined")
+	};
+	Data_XMLCatche = parent.Data_XMLCatche;
+</script>
+<script src=../js/panel.js></script>
+<script src=../js/drawer_svg.js></script>
+</head>
+<body topmargin=0 leftmargin=0 onload="FlowChartObject.Initialize();">
+<svg id="lbpmSvg" xmlns="http://www.w3.org/2000/svg"
+	xlink="http://www.w3.org/1999/xlink" version="1.1" width="100%"
+	height="100%" style="overflow: auto;">
+	<defs>
+		<filter id="filter" x="0" y="0">
+			<feOffset dx="3" dy="2" />
+			<feGaussianBlur stdDeviation="2" />
+			<feColorMatrix type="matrix"
+				values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" result="shadow" />
+			<feMerge>
+			<feMergeNode in="shadow" />
+			<feMergeNode in="SourceGraphic" />
+			</feMerge>
+		</filter>
+	</defs>
+</svg>
+<div id="clipboardData" class="userData"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateConfig"
+		messageKey="km-collaborate:table.kmCollaborateConfig"
+		displayProperty="fdDefaultReply"
+		serviceBean="kmCollaborateConfigService"
+		table="km_collaborate_config"
+		url="/km/collaborate/km_collaborate_config/kmCollaborateConfig.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdDefaultReply"
+			messageKey="km-collaborate:kmCollaborateConfig.fdDefaultReply"
+			type="String"
+			column="fd_default_reply"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDefaultRemindersDay"
+			messageKey="km-collaborate:kmCollaborateConfig.fdDefaultRemindersDay"
+			type="Integer"
+			column="fd_default_reminders_day"
+			notNull="true"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="km-collaborate:kmCollaborateConfig.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

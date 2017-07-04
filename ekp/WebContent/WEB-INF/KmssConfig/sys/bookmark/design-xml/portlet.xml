@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.landray.com.cn/schema/lui ../../../sys/ui/lui.xsd
+						http://www.landray.com.cn/schema/design ../../../design-xml.xsd">
+	
+	<portlet
+		id="sys.bookmark.portal"
+		name="{sys-bookmark:sysBookmarkMain.portlet.mine}"
+		module="{sys-bookmark:table.sysBookmarkMain}"
+		description="收藏展现">
+		<source
+			format="sys.ui.classic"
+			type="AjaxXml">
+			<code>
+				<![CDATA[
+					{"url":"/sys/common/dataxml.jsp?s_bean=sysBookmarkPortlet&cateid=!{cateid}&rowsize=!{rowsize}&type=owner"}
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var name="文档数" key="rowsize" kind="rowsize" />
+			<var key="cateid" kind="sys.tree" name="分类">
+				<![CDATA[
+					{"bean" : "sysBookmarkCategoryTreeService&parentId=!{value}&type=all"}
+				]]>
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/sys/person/setting.do?setting=sys_bookmark_person_cfg"/>
+		</operations>
+	</portlet>
+	
+</root>

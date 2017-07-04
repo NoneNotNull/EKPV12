@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogCommonContext"
+		messageKey="kms-log:table.kmsLogCommonContext"
+		displayProperty="fdSubject"
+		serviceBean="kmsLogCommonContextService"
+		table="kms_log_common_context"
+		url="/kms/log/kms_log_other_context/kmsLogCommonContext.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdMainId"
+			messageKey="kms-log:kmsLogCommonContext.fdMainId"
+			type="String"
+			column="fd_main_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="kms-log:kmsLogCommonContext.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="kms-log:kmsLogCommonContext.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-log:kmsLogCommonContext.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCategory"
+			messageKey="kms-log:kmsLogCommonContext.fdCategory"
+			type="String"
+			column="fd_category"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreatorId"
+			messageKey="kms-log:kmsLogCommonContext.fdCreatorId"
+			type="String"
+			column="fd_creator_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDepartId"
+			messageKey="kms-log:kmsLogCommonContext.fdDepartId"
+			type="String"
+			column="fd_depart_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreatorName"
+			messageKey="kms-log:kmsLogCommonContext.fdCreatorName"
+			type="String"
+			column="fd_creator_name"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDepartName"
+			messageKey="kms-log:kmsLogCommonContext.fdDepartName"
+			type="String"
+			column="fd_depart_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

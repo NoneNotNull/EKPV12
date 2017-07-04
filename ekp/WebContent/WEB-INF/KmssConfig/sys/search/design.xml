@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-search:search.mechanism"
+		urlPrefix="/sys/search/"
+		defaultValidator="true">
+		<request
+			path="search*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+		</request>
+		<request
+			path="sys_search_main/sysSearchMain*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)" >
+			<query
+				queryString="method=listConfig"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+	</module>
+</configs>

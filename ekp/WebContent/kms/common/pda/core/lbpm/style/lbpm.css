@@ -1,0 +1,22 @@
+.docView {
+	width: 98% !important;
+	border-collapse: collapse;
+}
+
+.docView .td_common {
+	padding: 4px 6px;
+	font-size: 0.9em;
+}
+
+.docView .td_common label{
+	padding: 0 6px;
+	font-size: 0.9em!important;
+}
+
+.docView tr {
+	border-bottom: 1px solid #B7B7B7;
+}
+
+.docView tr:last-child {
+	border-bottom: none;
+}

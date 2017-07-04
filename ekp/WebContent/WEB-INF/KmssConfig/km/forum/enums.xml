@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	
+	<!-- 论坛设置枚举类型定义 -->	
+	<type name="forumConfig_anonymous_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForumConfig.anonymous.yes</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForumConfig.anonymous.no</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+	<type name="forumConfig_canModifyRight_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForumConfig.canModifyRight.yes</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForumConfig.canModifyRight.no</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+	<type name="forumConfig_canModifyNickname_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForumConfig.canModifyNickname.yes</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForumConfig.canModifyNickname.no</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+
+	<type name="forumSearch_searchContent_yesno">
+		<value-label>
+			<value>false</value>
+			<label-key>kmForum.search.option.title</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>true</value>
+			<label-key>kmForum.search.option.content</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+	<type name="forumSearch_before_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForum.search.misc.before</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForum.search.misc.after</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+	<type name="forumSearch_showTopic_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForum.search.display.topic</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForum.search.display.post</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>	
+	
+	<type name="forumConfig_wordcheck_yesno">
+		<value-label>
+			<value>true</value>
+			<label-key>kmForumConfig.word.yes</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmForumConfig.word.no</label-key>
+			<bundle>km-forum</bundle>
+		</value-label>
+	</type>
+</column-enums>

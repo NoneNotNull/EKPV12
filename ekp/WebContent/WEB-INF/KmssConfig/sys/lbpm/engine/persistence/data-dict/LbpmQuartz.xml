@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmQuartz"
+		messageKey="sys-lbpm-engine:table.lbpmQuartz"
+		displayProperty="fdSubject"
+		serviceBean="lbpmQuartzService"
+		table="lbpm_quartz">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdEventId"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdEventId"
+			type="String"
+			column="fd_event_id"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdListenerId"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdListenerId"
+			type="String"
+			column="fd_listener_id"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdTaskType"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdTaskType"
+			type="String"
+			column="fd_task_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdNodeId"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdNodeId"
+			type="String"
+			column="fd_node_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdCronExpression"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdCronExpression"
+			type="String"
+			column="fd_cron_expression"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdSuspendTime"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdSuspendTime"
+			type="DateTime"
+			column="fd_suspend_time"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdRunTime"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdRunTime"
+			type="DateTime"
+			column="fd_run_time"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-lbpm-engine:lbpmQuartz.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false" />
+
+	</model>
+</models>

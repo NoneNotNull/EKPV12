@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsAskAgreeDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskAgreeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskAgree" />
+	</bean>
+	<bean
+		id="kmsAskAgreeTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskAgreeServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskAgreeDao" />
+		</property>
+		<property name="kmsAskPostService">
+			<ref bean="kmsAskPostService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsAskAgreeService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskAgreeTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskCommentDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskCommentDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskComment" />
+	</bean>
+	<bean
+		id="kmsAskCommentTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskCommentServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskCommentDao" />
+		</property>
+		<property
+			name="kmsAskPostDao">
+			<ref
+				bean="kmsAskPostDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskCommentService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskCommentTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskMoneyDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskMoneyDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskMoney" />
+	</bean>
+	<bean
+		id="kmsAskMoneyTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskMoneyServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskMoneyDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskMoneyService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskMoneyTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskPreDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskPreDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskPre" />
+	</bean>
+	<bean
+		id="kmsAskPreTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskPreServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskPreDao" />
+		</property>
+		<property
+			name="kmsAskTopicService">
+			<ref
+				local="kmsAskTopicService" />
+		</property>
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				bean="kmsAskCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskPreService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskPreTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskCategory" />
+	</bean>
+	<bean
+		id="kmsAskCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskMoneyAlterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskMoneyAlterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskMoneyAlter" />
+	</bean>
+	<bean
+		id="kmsAskMoneyAlterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskMoneyAlterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskMoneyAlterDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskMoneyAlterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskMoneyAlterTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskTopicDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskTopicDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+	</bean>
+	<bean
+		id="kmsAskTopicTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskTopicServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskTopicDao" />
+		</property>
+		<property
+			name="kmsAskMoneyService">
+			<ref
+				bean="kmsAskMoneyService" />
+		</property>
+		<property
+			name="kmsAskPostService">
+			<ref
+				bean="kmsAskPostService" />
+		</property>
+		<property
+			name="kmsAskIntroduceService">
+			<ref
+				bean="kmsAskIntroduceService" />
+		</property>
+		<property
+			name="kmsAskNotifyService">
+			<ref
+				bean="kmsAskNotifyService" />
+		</property>
+		<property
+			name="kmsAskAdditionService">
+			<ref
+				bean="kmsAskAdditionService" />
+		</property>
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				bean="kmsAskCategoryService" />
+		</property>
+		
+		<property name="sysNotifyTodoService">
+			<ref bean="sysNotifyTodoService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsAskTopicService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskTopicTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskIntroduceDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskIntroduceDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskIntroduce" />
+	</bean>
+	<bean
+		id="kmsAskIntroduceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskIntroduceServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskIntroduceDao" />
+		</property>
+		<property
+			name="kmsAskNotifyService">
+			<ref
+				bean="kmsAskNotifyService" />
+		</property>
+		<property
+			name="kmsAskPostService">
+			<ref
+				bean="kmsAskPostService" />
+		</property>
+		<property 
+			name="kmsAskTopicDao">
+			<ref
+				bean="kmsAskTopicDao"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsAskIntroduceService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskIntroduceTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskPostDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskPostDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskPost" />
+	</bean>
+	<bean
+		id="kmsAskPostTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskPostServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskPostDao" />
+		</property>
+		<property
+			name="kmsAskTopicDao">
+			<ref
+				bean="kmsAskTopicDao" />
+		</property>
+		<property
+			name="kmsAskCommentService">
+			<ref
+				bean="kmsAskCommentService" />
+		</property>
+		<property
+			name="kmsAskMoneyService">
+			<ref
+				bean="kmsAskMoneyService" />
+		</property>
+		<property
+			name="kmsAskNotifyService">
+			<ref
+				bean="kmsAskNotifyService" />
+		</property>
+
+		<property
+			name="kmsAskAdditionService">
+			<ref
+				bean="kmsAskAdditionService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskPostService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskPostTarget" />
+		</property>
+	</bean>
+	<!-- 分类树 -->
+	<bean
+		id="kmsAskCategoryTreeService"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryTreeService">
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				local="kmsAskCategoryService" />
+		</property>
+	</bean>
+
+
+	<!-- 一周推荐1次 -->
+	<bean
+		id="kmsAskIntroduceXMLService"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskIntroduceXMLService">
+		<property
+			name="kmsAskTopicService">
+			<ref
+				local="kmsAskTopicService" />
+		</property>
+	</bean>
+
+	<!-- view页面 -->
+	<bean
+		id="kmsAskViewInfoService"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskViewInfoService">
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="kmsAskPostService">
+			<ref
+				local="kmsAskPostService" />
+		</property>
+		<property
+			name="sysNotifyTodoService">
+			<ref
+				bean="sysNotifyTodoService" />
+		</property>
+		<property
+			name="kmsAskCommentService">
+			<ref
+				local="kmsAskCommentService" />
+		</property>
+		<property
+			name="kmsAskTopicService">
+			<ref
+				bean="kmsAskTopicService" />
+		</property>
+		<property
+			name="kmsAskAgreeService">
+			<ref
+				bean="kmsAskAgreeService" />
+		</property>
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				bean="kmsAskCategoryService" />
+		</property>
+		<property
+			name="kmsAskAdditionService">
+			<ref
+				bean="kmsAskAdditionService" />
+		</property>
+		<property
+			name="kmsAskMoneyService">
+			<ref
+				bean="kmsAskMoneyService" />
+		</property>
+	</bean>
+
+	<!-- 通知使用 -->
+	<bean
+		id="kmsAskNotifyService"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskNotifyService">
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+	</bean>
+
+	<!-- 补充回复|提问 -->
+	<bean
+		id="kmsAskAdditionDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskAdditionDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskAddition" />
+	</bean>
+	<bean
+		id="kmsAskAdditionTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskAdditionServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAskAdditionDao" />
+		</property>
+		<property
+			name="kmsAskTopicDao">
+			<ref
+				bean="kmsAskTopicDao" />
+		</property>
+		<property
+			name="kmsAskPostDao">
+			<ref
+				bean="kmsAskPostDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAskAdditionService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAskAdditionTarget" />
+		</property>
+	</bean>
+
+	<!--爱问权限校验 -->
+	<bean
+		id="kmsAskAuthValidator"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskAuthValidator">
+		<property
+			name="kmsAskTopicService">
+			<ref
+				bean="kmsAskTopicService" />
+		</property>
+		<property
+			name="kmsAskPostService">
+			<ref
+				bean="kmsAskPostService" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsAskCategoryListDialogService"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryListDialogService">
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				bean="kmsAskCategoryService" />
+		</property>
+	</bean>
+
+	<!-- 全文检索 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property
+			name="beanNames">
+			<value>kmsAskTopicDao</value>
+		</property>
+		<property
+			name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="kmsHomeAskService"
+		class="com.landray.kmss.kms.ask.service.portlet.KmsHomeAskService">
+		<property name="kmsAskCategoryService">
+			<ref bean="kmsAskCategoryService" />
+		</property>
+		<property name="kmsAskPreService">
+			<ref bean="kmsAskPreService" />
+		</property>
+		<property name="kmsAskTopicService">
+			<ref bean="kmsAskTopicService" />
+		</property>
+		<property name="kmsAskPostService">
+			<ref bean="kmsAskPostService" />
+		</property>
+	</bean>
+	
+	<!--主页爱问portlet -->
+	<bean id="kmsIAskDocPortlet"
+		class="com.landray.kmss.kms.ask.service.portlet.KmsIAskDocPortlet">
+		<property name="kmsAskTopicService">
+			<ref bean="kmsAskTopicService" />
+		</property>
+	</bean>
+	
+	<!--主页爱问portlet -->
+	<bean id="kmsAskPersonalPortlet"
+		class="com.landray.kmss.kms.ask.service.portlet.KmsAskPersonalPortlet">
+		<property name="kmsAskTopicService">
+			<ref bean="kmsAskTopicService" />
+		</property>
+	</bean>
+	
+	<!-- 爱问货币显示portlet-->
+	<bean name="kmsAskMoneyPortlet" class="com.landray.kmss.kms.ask.service.portlet.KmsAskMoneyPortlet">
+		<property name="kmsAskMoneyService">
+			<ref local="kmsAskMoneyService"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="kmsKk2AskTarget" 
+		parent="kmsAskTopicTarget"
+		class="com.landray.kmss.kms.ask.kk.service.spring.KmsKk2AskServiceImp">
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsKk2AskService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKk2AskTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsKk2AskPortlet" class="com.landray.kmss.kms.ask.kk.service.spring.KmsKk2AskPortlet">
+		<property name="kmsAskTopicService">
+			<ref local="kmsAskTopicService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsAskProfilePortlet" class="com.landray.kmss.kms.ask.service.portlet.KmsAskProfilePortlet">
+		<property name="kmsAskTopicService">
+			<ref local="kmsAskTopicService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsAskCategoryCheckService" class="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryCheckService">
+		<property name="kmsAskCategoryService">
+			<ref local="kmsAskCategoryService"/>
+		</property>
+	</bean>
+	
+	<!-- kms爱问webservice定义 开始-->
+	<bean id="kmsAskWebservice" class="com.landray.kmss.kms.ask.webservice.service.KmsAskWebservice">
+		<property name="kmsAddAskProcessor">
+			<ref local="kmsAddAskProcessor"/>
+		</property>	
+		<property name="kmsAskAnswerProcessor">
+			<ref local="kmsAskAnswerProcessor"/>
+		</property>	
+	</bean>
+	
+	<bean id="kmsAddAskProcessor" class="com.landray.kmss.kms.ask.webservice.processor.KmsAskProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService"/>
+		</property>
+		<property name="actualOperateService">
+			<ref local="kmsAskTopicService"/>
+		</property>
+		<property name="kmsAskCategoryService">
+			<ref local="kmsAskCategoryService"/>
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsAskAnswerProcessor" class="com.landray.kmss.kms.ask.webservice.processor.KmsAskAnswerProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService"/>
+		</property>
+		<property name="actualOperateService">
+			<ref local="kmsAskPostService"/>
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	<!-- kms爱问webservice定义结束 -->
+	
+	<!--分类概览-->
+	<bean id="kmsAskTopicCategoryPreManagerService"
+		  class="com.landray.kmss.kms.ask.service.spring.KmsAskTopicCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsAskTopicService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsAskCategoryService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsAskTopicCategoryPreviewService"/>
+		</property>
+	</bean>	
+	<bean
+		id="kmsAskTopicCategoryPreviewDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.ask.dao.hibernate.KmsAskTopicCategoryPreviewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.ask.model.KmsAskTopicCategoryPreview" />
+	</bean>
+	<bean id="kmsAskTopicCategoryPreTarget"
+		class="com.landray.kmss.kms.ask.service.spring.KmsAskTopicCategoryPreviewServiceImp"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsAskTopicCategoryPreviewDao" />
+		</property>
+		<property
+			name="kmsAskCategoryService">
+			<ref
+				bean="kmsAskCategoryService" />
+		</property>
+		<property name="kmsAskTopicService">
+			<ref bean="kmsAskTopicService"/>
+		</property>
+	</bean>  
+	<bean
+		id="kmsAskTopicCategoryPreviewService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsAskTopicCategoryPreTarget" />
+		</property>
+	</bean> 
+	
+		<bean
+		id="kmsAskLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsAskTopicService</value>
+				<value>kmsAskCategoryService</value>
+				<value>kmsAskPostService</value>
+				<value>kmsAskAgreeService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>	
+	
+	<bean id="kmsAskTopicHelpService" 
+			class="com.landray.kmss.kms.ask.service.spring.KmsAskTopicHelpService"></bean>
+</beans>

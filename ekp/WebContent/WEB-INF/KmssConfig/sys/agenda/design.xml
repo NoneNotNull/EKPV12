@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-agenda:module.sys.agenda"
+		urlPrefix="/sys/agenda/"
+		defaultValidator="roleValidator(role=ROLE_SYSAGENDA_DEFAULT)">
+		<roles>
+			ROLE_SYSAGENDA_DEFAULT
+		</roles>
+
+		<request
+			path="sys_agenda_category/sysAgendaCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.agenda.model.SysAgendaCategory">
+		</request>
+
+		<request
+			path="sys_agenda_main/sysAgendaMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.agenda.model.SysAgendaMain">
+		</request>
+
+		<request
+			path="sys_agenda_remind_record/sysAgendaRemindRecord*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.agenda.model.SysAgendaRemindRecord">
+		</request>
+
+	</module>
+
+	<homePage
+		urlPrefix="sys/agenda"
+		url="/moduleindex.jsp?nav=/sys/agenda/tree.jsp"
+		messageKey="sys-agenda:module.sys.agenda" />
+
+</configs>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../design.xsd ">
+	<module
+		messageKey="sys-xform:module.sys.title"
+		urlPrefix="/sys/xform/">
+		<roles>
+			ROLE_SYSXFORM_DB_ADMIN
+		</roles>
+		<!-- 表单映射权限 
+		<request
+			path="base/sys_form_db_table/sysFormDbTable*"
+			defaultValidator="roleValidator(role=ROLE_SYSXFORM_DB_ADMIN)">
+		</request>
+		-->
+		<!-- 表单模板生成JSP -->
+		<request
+			path="sys_form_template/sysFormTemplate*"
+			defaultValidator="roleValidator(role=ROLE_SYSXFORM_DB_ADMIN)">
+		</request>
+	</module>
+	<treeNodes
+		type="sysconfig">
+		<treeNode
+			messageKey="sys-xform:xform.title"
+			authUrl="/sys/xform/sys_form_template/sysFormTemplate?method=list">
+			<treeNode
+				messageKey="sys-xform:sysFormTemplate.config.tree.reUpdate"
+				url="/sys/xform/base/sysFormTemplateReUpdate.jsp">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+</configs>

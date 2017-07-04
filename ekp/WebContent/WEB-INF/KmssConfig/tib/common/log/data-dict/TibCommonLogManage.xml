@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.log.model.TibCommonLogManage"
+	messageKey="tib-common-log:table.tibCommonLogManage"
+	serviceBean="tibCommonLogManageService"
+	table="tib_common_log_manage"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdLogTime"
+	messageKey="tib-common-log:tibCommonLogManage.fdLogTime"
+	type="Integer"
+	column="fd_log_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdLogLastTime"
+	messageKey="tib-common-log:tibCommonLogManage.fdLogLastTime"
+	type="Integer"
+	column="fd_log_last_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdLogType"
+	messageKey="tib-common-log:tibCommonLogManage.fdLogType"
+	type="Integer"
+	column="fd_log_type"
+	notNull="false"
+	length="2"
+/>
+</model></models>

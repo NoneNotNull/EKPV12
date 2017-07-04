@@ -1,0 +1,94 @@
+<%@ include file="/kms/home/index_js.jsp" %>
+<div id="main" class="box">
+		<div class="index_a c">
+			<div class="r_t"></div>
+			<div class="r_m c">
+				<kms:portlet cssClass="index_tj toufu" title="精彩推荐" id="kmsDocIntroPortlet" dataType="Bean" dataBean="kmsDocKnowledgeIntroPortlet" beanParm="{rowsize:8}" template="portlet_lightBlue_doc_intro_index_tmpl"></kms:portlet>
+				<kms:portlet cssClass="index_zt toufu" title="知识专题" id="kmsIntroIndexPortlet" dataType="Bean" dataBean="kmsKnowledgeIntroService" beanParm="{fdModelId:\"com.landray.kmss.kms.home\"}" template="portlet_lightBlue_intro_index_tmpl" callBack="sliderDocIntro"></kms:portlet>
+				<kms:portlet cssClass="index_person toufu" title="个人知识中心" id="kmsDocPerCenter" dataType="Bean" dataBean="kmsDocKnowledgePerCenterPortlet" template="portlet_lightBlue_doc_per_center_tmpl" callBack="bindShareButton"></kms:portlet>
+			</div>
+
+			<div class="r_b"></div>		
+		</div><!-- end index_a -->
+
+		<div class="leftbar m_t10">
+		
+			<kms:portlet cssClass="box1 toufu" title="热门标签" id="kmsHotTags" dataType="Bean" dataBean="kmsHotTagsPortlet" beanParm="{}" template="portlet_lightBlue_hot_tags_tmpl" callBack="randomColor"></kms:portlet>
+
+			<!-- <kms:portlet cssClass="box1 m_t20 toufu " title="知识分类" id="kmsMultidocPre" dataType="Bean" dataBean="kmsHomeMultidocService" beanParm="{s_method:\"updateMultidocPreview\"}" template="portlet_doc_pre_tmpl"></kms:portlet>-->
+			
+			<div class="box1 m_t20">
+				<div class="title1"><h2>知识分类</h2></div>
+				<div class="box2">
+					<div id="accordian" s_bean="kmsDocknowledgeCategoryPortlet">
+					</div>	
+					<div class="clear"></div>
+				</div>
+			</div>
+			
+			<div class="box1 m_t20 toufu">
+				<div class="title1"><h2 class="h2_4">知识地图</h2><a href="javascript:void(0)" class="more" title="" onclick = "kmapListPage()">更多</a></div>
+				<h2 class="h2_y">项目知识地图</h2>
+				
+				<div class="index_map"><img src="${kmsBasePath}/common/resource/theme/lightBlue/img/index_map.jpg" alt="" /></div>
+				
+				<kms:portlet cssClass="map_classify m_t10" title="地图分类" id="kmKmapPreview" dataType="Bean" dataBean="kmsKmapPreviewPortlet" beanParm="{s_type:\"ekp\"}" template="portlet_lightBlue_kmap_pre_tmpl"></kms:portlet>
+				
+			</div><!-- end box1 -->		
+		</div><!-- end leftbar -->
+
+		<div class="content m_t10">
+		
+			<div class="box1 toufu">
+				<kms:tabportlet cssClass="tabview" id="kmsDocTabView" template="portlet_lightBlue_nav_doc_tmpl" cssStyle="height:338px">
+					<kms:portlet title="最新知识" id="kmsNewestDocPortlet" cssStyle="height:300px" dataType="Bean" dataBean="kmsDocKnowledgePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docCreateTime\"}" template="portlet_lightBlue_doc_tmpl"></kms:portlet>
+					<kms:portlet title="最热知识" id="kmsHotDocPortlet" cssStyle="height:300px" dataType="Bean" dataBean="kmsDocKnowledgePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docReadCount\"}" template="portlet_lightBlue_doc_tmpl"></kms:portlet>
+					<kms:portlet cssClass="tabBorder" title="最新订阅" cssStyle="height:300px" id="kmsMyFollowPortlet" dataType="Bean" dataBean="kmsPersonFollowPortlet" beanParm="{rowsize:10,s_method:\"personAllFollowList\" }" template="portlet_index_follow_tmpl"></kms:portlet>
+				</kms:tabportlet>
+			</div>
+
+			<div class="box1 m_t10 toufu">
+				<kms:tabportlet cssClass="tabview" id="kmsAskTabView" template="portlet_lightBlue_nav_ask_tmpl" cssStyle="height:378px">
+					<kms:portlet title="最新问答" id="kmsLatestAskPortlet" cssStyle="height:340px" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getLatestAsk\"}" template="portlet_lightBlue_ask_tmpl"></kms:portlet>
+					<kms:portlet title="高分问答" id="kmsGoodAskPortlet" cssStyle="height:340px" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getScoreAsk\"}" template="portlet_lightBlue_ask_tmpl"></kms:portlet>
+				</kms:tabportlet>
+			</div>
+			
+			<div class="box1 m_t10 toufu">
+				<kms:tabportlet cssClass="tabview" id="kmsWikiTabView" template="portlet_lightBlue_nav_wiki_tmpl" cssStyle="height:338px">
+					<kms:portlet title="最新词条" id="kmsNewestWikiPortlet" cssStyle="height:300px" dataType="Bean" dataBean="kmsWikiLightBluePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docCreateTime\"}" template="portlet_lightBlue_doc_tmpl"></kms:portlet>
+					<kms:portlet title="最热词条" id="kmsHotWikiPortlet" cssStyle="height:300px" dataType="Bean" dataBean="kmsWikiLightBluePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docReadCount\"}" template="portlet_lightBlue_doc_tmpl"></kms:portlet>
+				</kms:tabportlet>
+			</div><!-- end box1 -->
+			
+		</div><!-- end content -->
+		
+		<div class="rightbar m_t10">
+			<kms:portlet cssClass="box1 toufu" cssStyle="height:128px" title="公告区" id="sysNewsMain" dataType="Bean" dataBean="sysNewsMainPortletService" beanParm="{parentId:\"all\",rowsize:3,s_type:\"ekp\"}" template="portlet_lightBlue_news_tmpl"></kms:portlet>
+			
+			<kms:portlet cssClass="box1 m_t10 toufu" cssStyle="height:200px" title="常用链接" id="commonLink" dataType="Bean" dataBean="kmsCommonLink" beanParm="{rowsize:5}" template="portlet_lightBlue_common_link_tmpl"></kms:portlet>
+
+			<kms:portlet cssClass="box1 m_t10 toufu" title="专家推荐" id="introExpert" dataType="Bean" dataBean="kmsIntroExpertLightBluePortlet" beanParm="{fdModelId:\"com.landray.kmss.kms.home\",expert:\"true\"}" template="portlet_lightBlue_intro_expert_tmpl"></kms:portlet>
+
+
+			<div class="box1 m_t10 toufu">		
+				<div class="title1">
+					<div class="title1"><h2 class="h2_4">知识排行</h2><a href="${kmsBasePath}/communitycko/kms_communitycko_per_score_sum/kmsCommunityckoPerScoreSum.do?method=indexList" class="more" title="" target="_blank">更多</a></div>
+				</div>
+				<div class="box2">				
+					<kms:portlet cssClass="personal_box c" title="推荐之星" id="introStar" dataType="Bean" dataBean="kmsHomeIntroStarCommonService" beanParm="{s_method:\"getIntroStar\",fdModelId:\"com.landray.kmss.kms.home\"}" template="portlet_intro_star_tmpl"></kms:portlet>
+					<kms:tabportlet cssClass="tabview" id="kmsPersonalTabView" template="portlet_nav_tmpl">
+						<kms:portlet title="本月排行" id="personalIntegralMonth" dataType="Bean" dataBean="kmsPersonalIntegralMonthPortlet" beanParm="{uuid:\"${param.fdId}\"}" template="portlet_per_integral_tmpl"></kms:portlet>
+						<kms:portlet title="总排行" id="personalIntegral" dataType="Bean" dataBean="kmsPersonalIntegralPortlet" beanParm="{uuid:\"${param.fdId}\"}" template="portlet_per_integral_tmpl"></kms:portlet>
+					</kms:tabportlet>
+				</div>	
+				<div class="box2">			
+					<kms:tabportlet cssClass="tabview" id="kmsdeptPersonalTabView" template="portlet_perdept_nav_tmpl">
+						<kms:portlet title="本部门月排行" id="deptpersonalIntegral" dataType="Bean" dataBean="kmsDeptPersonalIntegralService" beanParm="{s_method:\"getMonthdeptPersonalIntegral\"}" template="portlet_perdept_integral_tmpl"></kms:portlet>
+					    <kms:portlet title="本部门总排行" id="deptpersonalIntegralMonth" dataType="Bean" dataBean="kmsDeptPersonalIntegralService" beanParm="{s_method:\"getdeptPersonalIntegral\"}" template="portlet_perdept_integral_tmpl"></kms:portlet>
+					</kms:tabportlet>
+				</div>
+			</div><!-- end box3 -->
+		</div><!-- end rightbar -->
+		<div class="clear"></div>
+	</div><!-- main end -->

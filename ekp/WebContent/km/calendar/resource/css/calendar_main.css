@@ -1,0 +1,367 @@
+﻿@charset "utf-8";  
+
+/**
+** 代码制作人:xiex
+** 制作时间：2013-11-1
+** 文件内容描述：日历相关
+** 修改日期：无
+** 修改内容：无
+**********************************************/
+h1, h2, h3, h4, h5, h6 {font-size: 100%;font-weight: normal;}
+th{text-align:left;}
+ul,ol{list-style: none;}
+
+/* 日历 */
+.lui_modules_calendar_content{ width:982px; margin:0px auto; margin-bottom:17px;}
+.lui_modules_calendar_sidebar{ width:174px; float:left;}
+.lui_modules_calendar_myCalendar .lui_common_list_ul_1 { padding:10px 0px!important;}
+.lui_modules_calendar_myCalendar .lui_common_list_ul_1 li{ height:27px; line-height:27px; padding-left:13px!important; cursor:pointer }
+.lui_modules_calendar_myCalendar .lui_common_list_ul_1 li a{ }
+.lui_modules_calendar_myCalendar .lui_common_list_ul_1 .current,.my_Calendar .list_ul_1 li:hover{ background:#fffad4;}
+
+.lui_modules_calendar_myCalendar .lui_common_list_ul_1 li .calendar_li{ display:inline-block; width:12px; height:15px; margin-top:6px; background:url(images/icon_paper.png) no-repeat right top; margin-right:7px;}
+.lui_modules_groupCalendar li a,.lui_modules_departCalendar li a,.lui_modules_myCalendar li a{ color:#000; font-size:14px;}
+.lui_modules_calendar_contentR{ width:790px; float:right;}
+
+/* 日程更多设置 */
+.calendar-setting{position: relative;padding-right: 20px!important;}
+.trig {border: 4px solid #fff;border-color: #ffd #8c8c8c;line-height: 7px;border-width: 4px 4px 0 4px;float: right;position: absolute;right: 10px;top: 15px;}
+.calendar_dropdown{ zoom:1; position:absolute; display:none; top:30px; right:0px; width:125px; padding:7px 2px; background:#929292;  min-width:47px; z-index:10}
+.calendar_dropdown li{ list-style-position:outside; height:24px; line-height:24px; cursor:pointer; width:100%; zoom:1;}
+.calendar_dropdown li a{ color:#fefefe;}
+.calendar_dropdown li:hover{ background:#47b5e6;}
+.calendar_dropdown li.split{ border-bottom:1px solid #aeaeae;}
+
+.s_c_warn{ color:#1354ca; cursor:pointer;}
+.schedule_share li{ float:left; cursor:pointer; margin-right:3px;}
+.schedule_share li.current{ color:#47b5e6;font-weight: bold;}
+
+
+/* 日历笔记 */
+.input_c_note_subject{ padding:2px; width:360px; border:0; border-bottom:1px solid #dbdbdb;}
+.textarea_c_note{ padding:2px 2px 2px; width:360px; max-width:360px; height:100px; max-height:100px; border:1px solid #dbdbdb; resize:none;}
+.link_c{ color:#3e9ece; text-decoration:underline;}
+.link_c_btn{ padding:2px 6px; min-width:20px; text-align:center; color:#6190aa; border:1px solid #6190aa; background-color:#c9e6f4;}
+.link_c_btn:hover{ background-color:#b1ddf2;}
+
+/* 农历 */
+.div_lunar{ padding:7px 0px;}
+
+
+.fc-view-agendaWeek th.fc-first { width: 110px !important; }
+.fc-view-agendaDay th.fc-first { width: 10% !important; }
+
+
+/** 弹出层 ****/
+.shade_btn_box{ display:inline-block; float:right; padding-right:12px;}
+
+/* 遮罩层1 */
+.lui_common_shade{  display:none; position:fixed; width:574px; z-index:10; background:#fff; border:1px solid #5cbaee;}
+.lui_common_divlayout{ top:0px; left:0px; z-index:10; background:#000; filter:alpha(opacity=20); opacity:0.2;}
+.lui_common_shadeTopM{ height:34px; line-height:34px; background:#47b5e6;}
+.lui_common_shadeTopM .lui_common_shadeTitle{ float:left; color:#fff; padding-left:13px;}
+.lui_common_shadeTopM .lui_common_shadeClose{ float:right; background:url(images/close.png) no-repeat center center; padding-right:18px; width:18px; height:34px; cursor:pointer;}
+
+/* 有边框的表格样式 日程共享 */
+.calendar_pop_wrapper{ zoom:1; padding:10px 17px;  position:relative; min-height:210px; padding-bottom:70px;}
+.calendar_pop_wrapper h2.title{ height:37px; line-height:37px; color:#47b5e6; font-size:18px; text-align:center; margin-bottom:10px;}
+.lui_calendar_table_1{ width:100%;}
+.lui_calendar_table_1 tr td{ height:37px; line-height:37px; border:1px solid #e8e8e8; text-align:left; padding:10px;}
+.lui_calendar_table_1 tr td.title{ background:#fcfcfc; text-align:center;}
+.lui_calendar_table_1 .txtarea{ width:475px; height:68px; padding:5px; resize:none; border:1px solid #b4b4b4; overflow:hidden;}
+.lui_calendar_table_1 .calendar_input_bar{ width:485px;  position:relative;  height:78px;}
+.lui_calendar_table_1 .calendar_input_bar .calendar_icon_1{ background:url(images/calendar_input_icon_1.png) no-repeat center; position:absolute; right:0px; top:1px; *top:2px; width:23px; height:78px; border-left:1px solid #e8e8e8; cursor:pointer;}
+
+.calendar_pop_wrapper .lui_common_shade_btnGroup{ height:60px; line-height:60px; text-align:center; padding:0px; background:#fff; position:absolute; right:2.5%; bottom:0px; width:95%; margin:0px auto;}
+.calendar_pop_wrapper .lui_common_shade_btnGroup .shade_btn_box{ display:inline-block; *display:inline; float:none; vertical-align:middle; margin-top:17px;}
+
+/* 弹出层-日历设置 */
+.lui_common_shade_btnGroup .shade_btn_box{ float:right;}
+.lui_common_shade_btnGroup .shade_btn_box li{ float:left;}
+.lui_common_shade_btnGroup .shade_btn_box li .shade_btnC a{ min-width:58px; height:28px; padding:0 5px; text-align:center; line-height:28px; font-size:13px; color:#fff; border:1px solid #33a2cf; background-color:#47b5e6; display:block;}
+.lui_common_shade_btnGroup .shade_btn_box li .shade_btnC a:hover{ background-color:#2f9adb;}
+
+/* 日程保留时间 有上边线按钮 */
+.calendar_pop_wrapper .lui_common_shade_btnGroup1{ height:60px; line-height:60px; text-align:center; padding:0px; background:#fff; position:absolute; border-top:1px dashed #c5c5c5; bottom:0px; right:2.5%; width:95%;}
+.calendar_pop_wrapper .lui_common_shade_btnGroup1 .shade_btn_box{ display:inline-block; *display:inline; float:none; vertical-align:middle; margin-top:17px;}
+.lui_common_shade_btnGroup1 .shade_btn_box{ float:right;}
+.lui_common_shade_btnGroup1 .shade_btn_box li{ float:left;}
+.lui_common_shade_btnGroup1 .shade_btn_box li .shade_btnC a{ min-width:58px; height:28px; padding:0 5px; text-align:center; line-height:28px; font-size:13px; color:#fff; border:1px solid #33a2cf; background-color:#47b5e6; display:block;}
+.lui_common_shade_btnGroup1 .shade_btn_box li .shade_btnC a:hover{ background-color:#2f9adb;}
+
+/* 日程保留时间设置 */
+.calendar_pop_wrapper p{ text-align:center;}
+.calendar_pop_wrapper .warn{ color:#f00;}
+
+/* 无边框的表格样式 新建标签 */
+.lui_calendar_color_event{background-color: #c19c53!important;}
+.lui_calendar_color_note{background-color: #5fb7c1!important;}
+.lui_calendar_table_2{ width:100%;}
+.lui_calendar_table_2 .td_txt{ height:22px; line-height:22px; padding-left:5px; width:98%; border:1px solid #c0c0c0;}
+.lui_calendar_table_2 tr td{ height:40px; line-height:40px;}
+.lui_calendar_table_2 .title{ padding-right:23px; text-align:right;}
+.lui_calendar_table_2 .sel_color{ width:14px!important; height:12px!important; display:inline-block; padding:1px; border:1px solid #c0c0c0; position:relative;}/* 拾色器 */
+.lui_calendar_table_2 .sel_color .sel_color_txt { border:0px; display:block; padding-left:13px; width:1px; height:12px; background:#6629cf; position:absolute; left:1px; top:1px; cursor:pointer;}
+.lui_calendar_table_2 .color_ul li{ width:16px; height:14px; margin-right:4px; float:left; cursor:pointer;}
+.lui_calendar_table_2 .color_ul li.select{ padding:1px; border:1px solid #c0c0c0; position:relative; top:-2px;}
+.lui_calendar_table_2 .color_ul li.select a{ display:block; width:16px; height:14px; background:#6629cf;}
+.lui_calendar_table_2 .color_ul li.color_1{ background:#ce312d;}
+.lui_calendar_table_2 .color_ul li.color_2{ background:#df4176;}
+.lui_calendar_table_2 .color_ul li.color_3{ background:#9a409b;}
+.lui_calendar_table_2 .color_ul li.color_4{ background:#6629cf;}
+.lui_calendar_table_2 .color_ul li.color_5{ background:#30659b;}
+.lui_calendar_table_2 .color_ul li.color_6{ background:#2f63cf;}
+.lui_calendar_table_2 .color_ul li.color_7{ background:#12ab99;}
+.lui_calendar_table_2 .color_ul li.color_8{ background:#2c9360;}
+.lui_calendar_table_2 .color_ul li.color_9{ background:#009802;}
+.lui_calendar_table_2 .color_ul li.color_10{ background:#64ac00;}
+.lui_calendar_table_2 .color_ul li.color_11{ background:#aaab00;}
+.lui_calendar_table_2 .color_ul li.color_12{ background:#d7af00;}
+.lui_calendar_table_2 .color_ul li.color_13{ background:#f08800;}
+.lui_calendar_table_2 .color_ul li.color_14{ background:#df5500;}
+.lui_calendar_table_2 .color_ul li.color_15{ background:#a9706f;}
+.lui_calendar_table_2 .color_ul li.color_16{ background:#8d6c8d;}
+.lui_calendar_table_2 .color_ul li.color_17{ background:#617488;}
+.lui_calendar_table_2 .color_ul li.color_18{ background:#6f82a9;}
+.lui_calendar_table_2 .color_ul li.color_19{ background:#5a8d87;}
+.lui_calendar_table_2 .color_ul li.color_20{ background:#898a4e;}
+.lui_calendar_table_2 .color_ul li.color_21{ background:#b18c55;}
+
+/* 标签管理 */
+.label_div_on{display: inline-block;width: 16px;height: 16px;left: 1px;bottom: 1px;background: url(../images/label_div_on.png) no-repeat right top;}
+.label_div_off{display: inline-block;width: 16px;height: 16px;left: 1px;bottom: 1px;}
+
+
+.label_handle_add{ width:14px; height:15px; background:url(images/handle_icon_add.png) no-repeat 0 0; display:inline-block; cursor:pointer;}
+.label_handle_del{ width:14px; height:15px; background:url(images/handle_icon_del.png) no-repeat 0 0; display:inline-block; cursor:pointer;}
+.label_handle_up{ width:14px; height:15px; background:url(images/handle_icon_upl.png) no-repeat 0 0; display:inline-block; cursor:pointer;}
+.label_handle_down{ width:14px; height:15px; background:url(images/handle_icon_down.png) no-repeat 0 0; display:inline-block; cursor:pointer;}
+.lbl_mgr_tip{ text-align:left!important; padding-left:20px; height:26px; line-height:26px;}
+
+.lui_calendar_table_3{ width:100%;}
+.lui_calendar_table_3 tr th{ height:34px; line-height:34px; border:1px solid #ccc; border-width:1px 0px; text-align:center;}
+.lui_calendar_table_3 tr td{ height:30px; line-height:30px; border-bottom:1px dashed #909090; text-align:center;}
+.lui_calendar_table_3 tr:hover td{ background:#f6f6f6;}
+.lui_calendar_table_3 .label_handle_del,.lui_calendar_table_3 .label_handle_up{ margin-right:8px;}
+.lui_calendar_table_3 tr th.title{ text-align:left; padding-left:40px;}
+.lui_calendar_table_3 tr td.title{ text-align:left; padding-left:40px;}
+.lui_calendar_table_3 .color_1{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#ff0000;}
+.lui_calendar_table_3 .color_2{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#916207;}
+.lui_calendar_table_3 .color_3{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#c59504;}
+.lui_calendar_table_3 .color_4{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#669900;}
+.lui_calendar_table_3 .color_5{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#009999;}
+.lui_calendar_table_3 .color_6{ display:inline-block; width:13px; height:13px; margin-right:10px; background:#000099;}
+
+/* 日程默认时间设置 无边框表格*/
+.lui_calendar_table_4{ width:100%;}
+.lui_calendar_table_4 tr td{ height:38px; line-height:38px; padding-right:12px;}
+.lui_calendar_table_4 .calendar_input_bar{ width:205px;  position:relative;  height:22px; line-height:22px;}
+.lui_calendar_table_4 .calendar_input_bar .td_txt{ width:195px; padding:0px 5px; height:22px; line-height:22px; border:1px solid #c0c0c0;}
+.lui_calendar_table_4 .calendar_input_bar .calendar_icon_2{ background:url(images/calendar_input_icon_2.png) no-repeat center; position:absolute; right:0px; top:1px; *top:2px; width:22px; height:22px; border-left:1px solid #e8e8e8; cursor:pointer;}
+
+
+/* 日历绑定 */
+.calendar_bindHeader{ padding-bottom:12px; padding-left:30px; padding-top:12px;}
+.calendar_bindHeader .left{ float:left; width:135px;}
+.calendar_bindHeader .right{ float:left;}
+.calendar_bindHeader .right .switch{ color:#262626; font-size:18px; font-weight:bold; height:30px; line-height:30px; position:relative;  padding-right:12px; cursor:pointer;}
+.calendar_bindHeader .right .switch .trig{ border:4px solid #777; line-height:7px; border-color:#777 #fff; border-width:4px 4px 0 4px; line-height:4px; position:absolute; right:0px; bottom:6px;}
+.power_list dt{ height:30px; line-height:30px; padding-left:30px; border-bottom:1px solid #ebebeb; font-size:14px;}
+.power_list dd{ height:54px; line-height:54px; border-bottom:1px solid #ebebeb; background:url(images/calendar_list_icon.png) no-repeat 33px center; padding-left:70px;}
+
+
+/* 日历笔记 */
+.input_c_note_subject{ padding:2px; width:336px; border:0; border-bottom:1px solid #dbdbdb;}
+.textarea_c_note{ padding:2px 2px 2px; width:336px; max-width:336px; height:100px; max-height:100px; border:1px solid #dbdbdb;}
+.link_c{ color:#3e9ece; text-decoration:underline;}
+.link_c_btn{ padding:2px 6px; min-width:20px; text-align:center; color:#6190aa; border:1px solid #6190aa; background-color:#c9e6f4;}
+.link_c_btn:hover{ background-color:#b1ddf2;}
+
+.tdToday{ background-color:#f0fcf3;}
+
+/*日程CSS*/
+.lui_calendar{max-width:380px;min-width: 320px;z-index: 10;background: #fff;border: 1px solid #d7d8da;}
+.lui_calendar_top{height: 30px;line-height: 30px;background: #d2edff;}
+.lui_calendar_top .lui_calendar_title{float: left;color: #868686;padding-left: 18px;}
+.lui_calendar_top .lui_calendar_close{float: right;background: url(../images/close3.png) no-repeat center center;padding-right: 18px;width: 18px;height: 34px;cursor: pointer;}
+.lui_calendar .lui_shades_btnGroup{height: 35px;line-height: 35px;background: #f7f5f6;border-top: 1px solid #dddddd;}
+.lui_calendar .lui_shades_btnGroup .left{padding-left: 5px;width:35%;float: left;}
+.lui_calendar .lui_shades_btnGroup .right{padding-right:0px;float: right;}
+.lui_calendar .lui_shades_btnGroup ul{padding-right:0px;}
+.lui_calendar .lui_shades_btnGroup ul li{margin-right: 5px;}
+.lui_calendar .lui_shades_btnGroup a{color: #3e9ece;cursor: pointer;}
+.lui_calendar .lui_shades_btnGroup a:hover{ color:#e79005}
+.lui_calendar .lui_shades_btnGroup select{width:85px;}
+/* 查看日程 */
+.calendar_view_content .view_sched_wrapper{padding: 15px;}
+.view_sched_wrapper .view_sched tr td{height: 20px;line-height: 20px;}
+.calendar_remind_btn{ float:left; margin-right:5px; width:15px; height:15px;}/** 取消提醒 **/
+.calendar_remind_btn a{ display:inline-block; width:15px; height:15px; margin-top:10px; background:url(../images/remind.png) no-repeat; cursor:pointer;}
+.calendar_remind_btn .remind{ background-position:0px 0px;}
+.calendar_remind_btn .unremind{ background-position:-20px 0px;}
+.shade_btn_box li{ float:left;}
+
+/* 新建日程(简单) */
+.add_sched_wrapper{padding: 15px 10px;}
+.add_sched_wrapper .add_sched{width: 100%;border-bottom: 1px dashed #cccccc;}
+.add_sched_wrapper .add_sched .txtarea{height: 20px;width: 195px;padding: 5px;border: 1px solid #dbdbdb;overflow-y: auto;overflow-x: hidden;resize: none;}
+.add_sched_wrapper .link{color: #3e9ece;cursor: pointer;}
+.add_sched_wrapper .link:hover{ color:#e79005}
+/* 新建日程(详细设置) */
+.event_lable_select{font-size: 100%;}
+.event_lable_unselect{font-size: 100%;opacity:0.7}
+.detail_sched_wrapper{padding: 15px;}
+.calendar_slideDown {margin-left: 12px;padding-left: 15px;font-size: 12px;text-decoration: underline;background: url(../images/icon_arrowd_blue.png) no-repeat 0 3px;cursor: pointer;}
+.calendar_slideUp {margin-left: 12px;padding-left: 15px;font-size: 12px;text-decoration: underline;background: url(../images/icon_arrowU_blue.png) no-repeat 0 3px;cursor: pointer;}
+
+/* 群组日历*/
+.lui_calendar_content_group {
+	width: 100%;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	background-color: white;
+}
+.lui_calendar_content_group .lui_calendar_group_person_th{
+	width:9%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+	position: relative;
+}
+.lui_calendar_content_group .lui_calendar_group_person_th div{
+	padding-left: 21px;
+	padding-right: 20px;
+	cursor: pointer;
+	display: block;
+	background: url(../images/calendar_icon_person.png) no-repeat 80% center;
+}
+.lui_calendar_content_group .lui_calendar_group_person_th .person_dialog{
+	position: absolute;
+	background-color:white;
+	border: 3px solid #83c2eb;
+	padding: 16px 6px;
+	height: auto;
+	z-index: 10;
+}
+.lui_calendar_content_group .on{
+	background-color:#83c2eb;
+}
+.lui_calendar_content_group .lui_calendar_group_person_th .person_dialog li{
+	float: left;
+	height: 18px;
+	line-height: 18px;
+	width: 70px;
+	margin: 9px 10px;
+}
+.lui_calendar_content_group .lui_calendar_group_person_th .person_dialog .lui_person_dialog_ck{
+	margin-right: 8px;
+}
+.lui_calendar_content_group .lui_calendar_group_date_th{
+	width:13%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+}
+.lui_calendar_content_group .lui_calendar_group_person{
+	width:9%;
+	text-align: center;
+	height: 42px;
+	border: 1px solid #bdbec0;
+}
+.lui_calendar_content_group .lui_calendar_group_date{
+	width:13%;
+	/*text-align: center;*/
+	height: 42px;
+	border: 1px solid #bdbec0;
+	vertical-align: top;
+	position: relative;
+}
+.lui_calendar_content_group .lui_calendar_group_data{
+	border-radius: 3px;
+	display: block;
+	border: 1px solid #01c9ad;
+	background: #ecfefe;
+	width: 100%;
+	cursor: default;
+	position: absolute;
+}
+.lui_calendar_content_group .lui_calendar_group_data_inner{
+	border-radius: 3px;
+	margin: 1px;
+}
+.lui_calendar_content_group .lui_calendar_group_data_inner:HOVER{
+	cursor: pointer;
+}
+/**群组提示**/
+#group_tips{
+	width: 332px;
+	padding: 14px;
+	background: #fff;
+	border: 3px solid #dfdfdf;
+	position:absolute;
+	z-index: 10;
+	left:100%;
+}
+.group_tips_close{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	background: url(../images/close3.png) no-repeat;
+	position: absolute;
+	right: 18px;
+	top: 18px;
+	cursor: pointer;
+}
+.group_tips_trig{
+	width: 9px;
+	height: 13px;
+	display: block;
+	position: absolute;
+	left: -9px;
+	top: 5px;
+	background: url(../images/tips_trig.png) no-repeat;
+}
+.group_tips_title{
+	height: 26px;
+	line-height: 26px;
+	margin-top: 12px;
+	color: #2b2b2b;
+	font-size: 14px;
+}
+.group_tips_title span{
+	color: #ffc15c;
+}
+.group_tips_content{
+	position: relative;
+	border-bottom: 1px solid #e9e9e9;
+	padding-bottom: 27px;
+}
+.group_tips_content ul {
+	width: 230px;
+}
+.group_tips_content ul li {
+	line-height: 20px;
+	background: url(../images/dot_ico.png) no-repeat left 8px;
+	padding-left: 8px;
+}
+.group_tips_img {
+	position: absolute;
+	right: -5px;
+	top: -5px;
+}
+.lui_calendar_group_person_th .person_dialog .lui_person_dialog_ck_ok{
+	display: none;
+	background-color: #56a8da !important;
+	background-image:none;
+	color: white;
+	text-align: center;
+	width: 35px;
+	height: 25px;
+	line-height: 25px;
+}
+.lui_calendar_content_loading,.lui_calendar_content_nodata{
+	display: none;
+	text-align: center;
+	margin-top: 10px;
+}

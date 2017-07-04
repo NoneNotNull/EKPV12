@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.signature.model.KmSignatureDocumentMain"
+		messageKey="km-signature:table.document"
+		displayProperty="docSubject"
+		serviceBean="kmSignatureDocumentMainService"
+		table="km_signature_doc_main"
+		url="/km/signature/km_signature_document_main/kmSignatureDocumentMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 自动编号 -->
+		<simpleProperty
+			name="fdDocumentId"
+			messageKey="km-signature:document.documentid"
+			type="Integer"
+			column="fd_document_id"
+			notNull="true"
+			length="10"
+			validate="false" />
+		<!-- 文档编号 -->
+		<simpleProperty
+			name="fdRecordId"
+			messageKey="km-signature:document.recordid"
+			type="String"
+			column="fd_record_id"
+			notNull="false"
+			length="50"
+			validate="false" />
+		<!-- 公文编号 -->
+		<simpleProperty
+			name="fdDocNo"
+			messageKey="km-signature:document.docno"
+			type="String"
+			column="fd_doc_no"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 用户名称 -->
+		<simpleProperty
+			name="fdUserName"
+			messageKey="km-signature:document.username"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 密级 -->
+		<simpleProperty
+			name="fdSecurity"
+			messageKey="km-signature:document.security"
+			type="String"
+			column="fd_security"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 起草人 -->
+		<simpleProperty
+			name="fdDraft"
+			messageKey="km-signature:document.draft"
+			type="String"
+			column="fd_draft"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 审核人 -->
+		<simpleProperty
+			name="fdAuditor"
+			messageKey="km-signature:document.check1"
+			type="String"
+			column="fd_auditor"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 标题 -->
+		<simpleProperty
+			name="fdTitle"
+			messageKey="km-signature:document.title"
+			type="String"
+			column="fd_title"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 抄送 -->
+		<simpleProperty
+			name="fdCopyTo"
+			messageKey="km-signature:document.copyto"
+			type="String"
+			column="fd_copy_to"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 主题 -->
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-signature:document.subject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 打印份数 -->
+		<simpleProperty
+			name="fdCopies"
+			messageKey="km-signature:document.copies"
+			type="String"
+			column="fd_copies"
+			notNull="false"
+			length="36"
+			validate="false" />
+		<!-- 日期时间 -->
+		<simpleProperty
+			name="fdDateTime"
+			messageKey="km-signature:document.datetime"
+			type="String"
+			column="fd_date_time"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+	</model>
+</models>

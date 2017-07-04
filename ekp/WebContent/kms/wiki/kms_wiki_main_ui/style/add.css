@@ -1,0 +1,152 @@
+.lui_wiki_catelog {
+	line-height: 30px;
+	min-height: 30px;
+	border-bottom: 1px #d9d9d9 solid;
+	position: relative;
+}
+
+.lui_wiki_title {
+	float: left;
+	color: #2393c5;
+	width: 60%;
+	font-size: 16px;
+	padding-left: 8px;
+	
+}
+.lui_wiki_title_c {
+	float: left;
+	width:80%;
+	font-size: 16px;
+	padding-left: 8px;
+	font-weight: bold;
+}
+
+.lui_wiki_editparagraph {
+	float: right;
+	cursor: pointer;
+	background: url(../../resource/images/edit_icon.png) no-repeat left	center;
+	padding-left: 18px;
+	padding-right: 12px;
+	position: absolute;
+	bottom: 0px;
+	right: 2px;
+}
+
+.lui_wiki_content {
+	padding: 12px 6px;
+}
+
+.lui_wiki_catelog_edit {
+	margin-bottom: 2px;
+	height: 18px;
+	line-height: 18px;
+	width: 63px;
+	text-align: center;
+	background: #5ab033;
+	border: 1px solid #409b1a;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+}
+.lui_wiki_btn_confirm {
+	float: right;
+	margin-right: 6px;
+	margin-top: 5px;
+	padding:0px 3px;
+	height: 19px;
+	line-height: 19px;
+	cursor: pointer;
+	background: #47b5e6;
+	text-align: center;
+	color: #fff;
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+}
+.lui_wiki_catelogUl li {
+	padding: 4px 0;
+}
+
+ul {
+	list-style: none;
+}
+
+.lui_catelog_dot {
+	background: url(../../resource/images/dot_ico.png) no-repeat left center;
+	padding-left: 10px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_s {
+	background: url(./images/catalog_3.png) no-repeat 45px 6px;
+	padding: 2px 0 2px 65px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_t {
+	background: url(./images/catalog_2.png) no-repeat 25px 6px;
+	padding: 2px 0 2px 45px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_f {
+	background: url(./images/catalog_1.png) no-repeat 0 6px;
+	padding: 2px 0 2px 25px;
+}
+.lui_wiki_hideDiv {
+	display:none;
+}
+.lui_wiki_showDiv {
+	display:block;
+}
+/*便签页layout*/
+.lui_tabpanel_wiki_frame {
+}
+.lui_tabpanel_wiki_navs_c {
+	vertical-align: middle;
+	height: 25px;
+}
+.lui_tabpanel_wiki_navs_item_l {
+	float: left;
+
+}
+.lui_tabpanel_wiki_navs_item_c
+{
+	padding-left: 5px;
+}
+.lui_tabpanel_wiki_navs_item_selected .lui_tabpanel_wiki_navs_item_c {
+	margin-left: 9px;
+	background-color:transparent;
+	color:#636363;
+	border-top: 1px solid #c1c1c1;
+	border-right:1px solid #c1c1c1;
+	border-left:1px solid #c1c1c1;
+	border-bottom:2px solid  #FFFFFF;
+	font-weight: bold;
+	height: 20px;
+}
+.lui_tabpanel_wiki_navs_item_c {
+	padding: 2px 10px;
+	cursor:pointer;
+}
+.lui_tabpanel_wiki_content_l {
+
+}
+
+.lui_wiki_baseInfo_ul {
+	padding: 0px 4px 0px 2px;
+}
+.lui_wiki_baseInfo_ul li{
+	padding: 4px 0;
+}
+.lui_wiki_docTitle{
+	text-align:center;
+	margin: 12px 0px;
+}
+.lui_wiki_docTitle span {
+	font-size: 18px;
+}
+.lui_wiki_clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+}

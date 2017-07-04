@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/km/collaborate/model/KmCollaborateMainReply.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/collaborate/model/KmCollaboratePartnerInfo.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/collaborate/model/KmCollaborateCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/collaborate/model/KmCollaborateLogs.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/collaborate/model/KmCollaborateMain.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

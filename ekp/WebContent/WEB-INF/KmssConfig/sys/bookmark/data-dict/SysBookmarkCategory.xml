@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+		messageKey="sys-bookmark:table.sysBookmarkCategory"
+		displayProperty="fdName"
+		serviceBean="sysBookmarkCategoryService"
+		table="sys_bookmark_category">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty 
+			name="fdCategoryType" 
+			messageKey="sys-bookmark:sysBookmarkCategory.fdCategoryType"
+			type="Integer" 
+			column="fd_category_type" 
+			notNull="false" 
+			length="1" />
+		<simpleProperty 
+			name="fdName"
+			messageKey="sys-bookmark:sysBookmarkCategory.fdName" 
+			type="String"
+			column="fd_name" 
+			notNull="false" 
+			length="200" />
+		<simpleProperty 
+			name="fdHierarchyId"
+			messageKey="sys-bookmark:sysBookmarkCategory.fdHierarchyId"
+			type="String" 
+			column="fd_hierarchy_id" 
+			notNull="false" 
+			length="1000" />
+		<simpleProperty 
+			name="docCreateTime"
+			messageKey="sys-bookmark:sysBookmarkCategory.docCreateTime"
+			type="DateTime" 
+			column="doc_create_time" 
+			notNull="false" />
+		<simpleProperty 
+			name="fdOrder"
+			messageKey="sys-bookmark:sysBookmarkCategory.fdOrder" 
+			type="Integer"
+			column="fd_order" 
+			notNull="false" 
+			length="4" />
+		<modelProperty 
+			name="docCreator" 
+			messageKey="sys-bookmark:sysBookmarkCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id" 
+			notNull="false" />
+		<modelProperty 
+			name="fdParent" 
+			messageKey="sys-bookmark:sysBookmarkCategory.fdParent"
+			type="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+			column="fd_parent_id" 
+			cascade="save-update" />
+	</model>
+</models>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	
+	<extension
+		point="com.landray.kmss.km.keydata">
+		<item
+			name="inner"
+			enable="true">
+			<param
+				name="fdType"
+				value="supplier" />
+			<param
+				name="name"
+				value="供应商" />
+			<param
+				name="syncService"
+				value="kmSupplierMainService" />
+			<param
+				name="extendProvider"
+				value="kmSupplierMainProvider" />
+		</item>
+	</extension>
+	
+	
+	<extension
+        point="com.landray.kmss.sys.number.config"
+        model="*">
+        <item name="extend">
+            <param name="modelName" value="com.landray.kmss.km.keydata.supplier.model.KmSupplierMain"/>
+            <param name="moduleName" value="{km-keydata-supplier:table.kmSupplierMain}"/>
+            <param name="isReform" value="false"/>
+         </item>
+     </extension>
+
+	
+	
+</plugin>

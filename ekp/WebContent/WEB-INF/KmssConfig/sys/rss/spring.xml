@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="sysRssCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.rss.dao.hibernate.SysRssCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.rss.model.SysRssCategory" />
+	</bean>
+	<bean
+		id="sysRssCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.rss.service.spring.SysRssCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysRssCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysRssCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysRssCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysRssCategoryTreeService"
+		class="com.landray.kmss.sys.rss.service.spring.SysRssCategoryTreeService">
+		<property name="sysRssCategoryService">
+			<ref local="sysRssCategoryService" />
+		</property>
+		<property name="sysRssMainService">
+			<ref local="sysRssMainService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysRssMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.rss.dao.hibernate.SysRssMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.rss.model.SysRssMain" />
+	</bean>
+	<bean
+		id="sysRssMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.rss.service.spring.SysRssMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysRssMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysRssMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysRssMainTarget" />
+		</property>
+	</bean>
+
+</beans>

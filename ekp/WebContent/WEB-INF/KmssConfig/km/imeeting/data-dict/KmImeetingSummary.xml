@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+		messageKey="km-imeeting:table.kmImeetingSummary"
+		displayProperty="fdName"
+		serviceBean="kmImeetingSummaryService"
+		table="km_imeeting_summary"
+		url="/km/imeeting/km_imeeting_summary/kmImeetingSummary.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imeeting:kmImeetingSummary.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			canSearch="true"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imeeting:kmImeetingSummary.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			canSearch="true"
+			validate="false" />
+			
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="km-imeeting:kmImeetingSummary.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			unique="false"/>
+			
+		<simpleProperty
+			name="docStatus"
+			messageKey="km-imeeting:kmImeetingSummary.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			length="2" 
+			enumType="common_status"/>	
+			
+		<simpleProperty
+			name="fdHoldDate"
+			messageKey="km-imeeting:kmImeetingSummary.fdHoldDate"
+			type="DateTime"
+			column="fd_hold_date"
+			notNull="false"
+			canSearch="true"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdFinishDate"
+			messageKey="km-imeeting:kmImeetingSummary.fdFinishDate"
+			type="DateTime"
+			column="fd_finish_date"
+			notNull="false"
+			canSearch="true"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdHoldDuration"
+			messageKey="km-imeeting:kmImeetingMain.fdHoldDuration"
+			type="Double"
+			column="fd_hold_duration"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherPlace"
+			messageKey="km-imeeting:kmImeetingSummary.fdOtherPlace"
+			type="String"
+			column="fd_other_place"
+			notNull="false"
+			length="36"
+			canSearch="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherHostPerson"
+			messageKey="km-imeeting:kmImeetingSummary.fdOtherHostPerson"
+			type="String"
+			column="fd_other_host_person"
+			notNull="false"
+			length="36"
+			canSearch="true"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="km-imeeting:kmImeetingSummary.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			canSearch="true"
+			length="1000000"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdHtmlContent"
+			messageKey="km-imeeting:kmImeetingSummary.fdHtmlContent"
+			type="RTF"
+			column="fd_html_content"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			length="1000000" />
+			
+		<simpleProperty
+			name="fdContentType"
+			messageKey="km-imeeting:kmImeetingSummary.fdContentType"
+			type="String"
+			column="fd_content_type"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			enumType="kmImeetingSummary_fdContentType"
+			length="8" />
+
+		<simpleProperty
+			name="fdPlanOtherAttendPerson"
+			messageKey="km-imeeting:kmImeetingSummary.fdPlanOtherAttendPerson"
+			type="String"
+			column="fd_plan_other_attend"
+			notNull="false"
+			length="1500"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdPlanOtherParticipantPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdPlanOtherParticipantPersons"
+			type="String"
+			column="fd_plan_other_partici"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdActualOtherAttendPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdActualOtherAttendPersons"
+			type="String"
+			column="fd_actual_other_attend"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="km-imeeting:kmImeetingSummary.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="authAttNocopy"
+			messageKey="km-imeeting:kmImeetingSummary.authAttNocopy"
+			type="Boolean"
+			column="auth_att_nocopy"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="authAttNodownload"
+			messageKey="km-imeeting:kmImeetingSummary.authAttNodownload"
+			type="Boolean"
+			column="auth_att_nodownload"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="authAttNoprint"
+			messageKey="km-imeeting:kmImeetingSummary.authAttNoprint"
+			type="Boolean"
+			column="auth_att_noprint"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imeeting:kmImeetingSummary.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdTemplate"
+			messageKey="km-imeeting:kmImeetingSummary.fdTemplate"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingTemplate"
+			column="fd_template_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdPlace"
+			messageKey="km-imeeting:kmImeetingSummary.fdPlace"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingRes"
+			column="fd_place"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docDept"
+			messageKey="km-imeeting:kmImeetingSummary.docDept"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_dept_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdHost"
+			messageKey="km-imeeting:kmImeetingSummary.fdHost"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_host_id"
+			notNull="false"
+			canSearch="true"
+			validate="false" />
+			
+		<modelProperty
+			name="fdEmcee"
+			messageKey="km-imeeting:kmImeetingTemplate.fdEmcee"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_emcee_id"
+			notNull="false"
+			canSearch="true"
+			validate="false"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"  />
+			
+		<modelProperty
+			name="fdMeeting"
+			messageKey="km-imeeting:kmImeetingSummary.fdMeeting"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+			column="fd_meeting_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="fdActualAttendPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdActualAttendPersons"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_imeeting_summary_a_attend"
+			column="fd_source_id"
+			elementColumn="fd_target_id" />
+
+		<listProperty
+			name="fdPlanAttendPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdPlanAttendPersons"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_imeeting_summary_p_attend"
+			column="fd_summary_id"
+			elementColumn="fd_summary_attend_id" />
+
+		<listProperty
+			name="fdCopyToPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdCopyToPersons"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_imeeting_summary_copyto"
+			column="fd_summary_id"
+			elementColumn="fd_summary_copy_to_id" />
+
+		<listProperty
+			name="fdPlanParticipantPersons"
+			messageKey="km-imeeting:kmImeetingSummary.fdPlanParticipantPersons"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_imeeting_summary_p_partici"
+			column="fd_summary_id"
+			elementColumn="fd_participant_id" />
+			
+			
+		<listProperty
+			name="authReaders"
+			messageKey="km-imeeting:kmImeetingTemplate.authReaders"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_imeeting_summary_reader"
+			inverse="false"
+			canDisplay="false" />	
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-imeeting:kmImeetingTemplate.authOtherReaders"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_imeeting_summary_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-imeeting:kmImeetingTemplate.authAllReaders"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_imeeting_summary_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-imeeting:kmImeetingTemplate.authOtherEditors"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_imeeting_summary_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-imeeting:kmImeetingTemplate.authAllEditors"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="km_imeeting_summary_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttDownloads"
+			messageKey="km-imeeting:kmImeetingTemplate.authTmpAttDownloads"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_imeeting_summary_attdl"
+			inverse="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="km-imeeting:kmImeetingTemplate.authTmpAttCopys"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_imeeting_summary_attcopy"
+			inverse="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="km-imeeting:kmMeetingTemplate.authTmpAttPrints"
+			column="fd_summary_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_imeeting_summary_attprint"
+			inverse="false" />
+
+	</model>
+</models>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension-point id="com.landray.kmss.sys.ftsearch.authPermissions">
+		<item name="searchPermissions">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>唯一标识，此标识在所有的搜索权限中都是唯一的，建议使用java bean的全限定名。</description>
+			</param>
+			<param
+				name="model"
+				required="true"
+				kind="string">
+				<description>系统模块定义</description>
+			</param>
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.ftsearch.interfaces.ISearchPermissionsService">
+				<description>搜索权限功能实现bean。请继承com.landray.kmss.sys.ftsearch.interfaces.ISearchPermissionsService。</description>
+			</param>
+			<description>autonomy搜索权限配置</description>
+		</item>
+		<description>autonomy搜索权限的扩展。若需自定义搜索权限，请实现此扩展点。</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.ftsearch.engineType">
+		<item name="ftsearch">
+			<param name="serviceName" kind="string">
+				<description>引擎名称</description>
+			</param>
+			<param name="serviceDesc" kind="string">
+				<description>引擎名称描叙，用于admin.do中配置显示</description>
+			</param>
+			<param name="searchBean" kind="spring"
+				basedOn="com.landray.kmss.sys.ftsearch.interfaces.ISearchEngine">
+				<description>搜索服务的ServiceBean，该Service必须实现接口com.landray.kmss.sys.ftsearch.interfaces.ISearchEngine</description>
+			</param>
+			<param name="indexBean" kind="spring"
+				basedOn="com.landray.kmss.sys.ftsearch.interfaces.IIndexEngine">
+				<description>索引服务的ServiceBean，该Service必须实现接口com.landray.kmss.sys.ftsearch.interfaces.IIndexEngine</description>
+			</param>
+			<description>搜索的引擎实现</description>
+		</item>
+		<description>全文检索引擎切换</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.ftsearch.viewResult">
+		<item name="viewResult">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>唯一标识，此标识在所有的搜索结果页面中都是唯一的。</description>
+			</param>
+			<param
+				name="viewType"
+				required="true"
+				kind="string">
+				<description>跳转页面类型 --首页或者结果页面</description>
+			</param>
+			<param
+				name="viewPage"
+				required="true"
+				kind="string">
+				<description>跳转页面路径</description>
+			</param>
+			<description>搜索跳转结果页面配置</description>
+		</item>
+		<description>全文搜索若需自定义搜索结果页面，请实现此扩展点。</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.ftsearch.personNameSearch">
+		<item
+			name="personSearchs">
+			<param
+				name="module"
+				kind="string"
+				required="true">
+				<description>
+					必填项
+					模块标示
+					例：com.landray.kmss.sys.zone.model.SysZonePersonInfo
+				</description>
+			</param>
+			<param
+				name="outSystem"
+				kind="string">
+				<description>
+					外系统名称，本系统不必配置此参数，外系统则必须配置此参数，与外系统配置中的系统名索引域值一致
+				</description>
+			</param>
+			<param
+				name="path"
+				kind="string">
+				<description>
+					展示图片链接，可以是action的path，也可以是其他路径
+					例：/sys/person/sys_person_zone/sysPersonZone.do?method=img
+				</description>
+			</param>
+			<param
+				name="addFieldName1"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段1的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName2"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段2的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName3"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段3的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName4"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段4的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName5"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段5的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName6"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段6的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<param
+				name="addFieldName7"
+				kind="string">
+				<description>
+					搜索结果显示扩展字段7的名称
+					例如：{sys-zone:sysZonePerson.organization}
+				</description>
+			</param>
+			<description>
+				人名搜索扩展		
+			</description>
+		</item>
+		<description>人名搜索需要自定义模块,请实现此扩展点</description>
+	</extension-point>
+	
+	<extension
+		point="com.landray.kmss.sys.ftsearch.authPermissions"
+		model="*">
+		<item
+			name="searchPermissions">
+			<param
+				name="unid"
+				value="defaultPermissions" />
+			<param
+				name="model"
+				value="default" />
+			<param
+				name="bean"
+				value="defaultSearchPermisionsService" />
+		</item>
+	</extension>
+	
+	
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">		
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/ftsearch/config.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="50" />
+		</item> 
+	</extension>
+	<extension point="com.landray.kmss.sys.cluster">
+		<item id="com.landray.kmss.sys.ftsearch.lucene.SearcherClusterReceiver" name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.ftsearch.lucene.FullTextIndexClusterMessage" />
+			<param name="service" value="searcherClusterReceiver" />
+		</item>
+		<item id="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchExportTxtServiceImp" name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchParticipleMessage" />
+			<param name="service" value="sysFtsearchExportTxtService" />
+		</item>
+	</extension>
+	
+	<!-- <extension point="com.landray.kmss.sys.ftsearch.engineType">
+		<item name="ftsearch">
+			<param name="serviceName" value="lucene"/>
+			<param name="serviceDesc" value="默认搜索"/>
+			<param name="searchBean" value="searchByLucene"/>
+			<param name="indexBean" value="indexByLucene"/>
+		</item>
+	</extension> -->
+	<extension
+		point="com.landray.kmss.sys.ftsearch.viewResult"
+		model="*">
+		<item
+			name="viewResult">
+			<param
+				name="unid"
+				value="customSearch" />
+			<param name="viewType" 
+				   value="customPage"/>	
+			<param
+				name="viewPage"
+				value="customResult.jsp"/>
+		</item>
+	</extension> 
+	<extension
+		point="com.landray.kmss.sys.admin.commontools">
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-ftsearch-db:sysFtsearch.reIndex.title}" />
+			<param
+				name="path"
+				value="/sys/ftsearch/reStartIndex.jsp" />
+			<param
+				name="description"
+				value="{sys-ftsearch-db:sysFtsearch.reIndex.hit}" />
+		</item>													
+	</extension>
+	
+</plugin>

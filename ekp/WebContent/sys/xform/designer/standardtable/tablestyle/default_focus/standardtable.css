@@ -1,0 +1,12 @@
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #e8e8e8 solid;padding: 8px !important;text-align: left;word-break: keep-all;margin: 0 auto;}
+.tb_normal .tr_normal_title{ background-color:#fcfcfc; text-align:center;}
+.tb_normal td {padding: 8px;border: 1px #e8e8e8 solid; word-break:break-all;}
+.tb_normal .td_normal_title{ background-color:#fcfcfc}
+.inputsgl,.tb_normal .inputsgl {height: 20px;border: 0px;border-bottom: 1px solid #b4b4b4;}     /*默认、有边框*/
+.inputselectsgl, .tb_normal .inputselectsgl{height: 22px;width:100%;border-bottom: 1px solid #b4b4b4;position: relative;cursor: pointer;display: inline-block;*display: inline;line-height:20px;}   /*默认、有边框*/
+
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #d2d2d2 solid;padding: 8px !important;text-align: left; margin: 0 auto;}
+.tb_normal .tr_normal_title{ background-color:#f6f6f6; text-align:center;}
+.tb_normal tr{border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d2d2d2;}
+.tb_normal tr td {padding: 8px;word-break:break-all;border-left: 1px #d2d2d2 solid; border-right: 1px #d2d2d2 solid; }
+.tb_normal tr .td_normal_title{ background-color:#f6f6f6;}

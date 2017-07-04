@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.organization.transfer.SysOrgDataUpdate" />
+			<param
+				name="name"
+				value="组织架构拼音数据更新"/>
+			<param
+				name="path"
+				value="/sys/organization/"/>
+			<param
+				name="type"
+				value="notify"/>
+			<param
+				name="description"
+				value="组织架构拼音数据更新，将重新生成组架拼音数据，更新操作地址：/sys/organization/sys_org_element/sysOrgElement.do?method=updatePinYinField" />
+		</item>
+	</extension>
+</plugin>

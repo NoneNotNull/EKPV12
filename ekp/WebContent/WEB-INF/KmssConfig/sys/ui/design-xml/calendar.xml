@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 菜单 -->
+	<layout name="日历展现" id="sys.ui.calendar.default" css="theme!calendar"
+		kind="calendar" type="Javascript" >
+		<code src="/sys/ui/extend/calendar/calendarview.js">
+		</code>
+	</layout>
+</root>

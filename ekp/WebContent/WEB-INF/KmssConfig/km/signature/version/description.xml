@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>图片化签章</module-name>
+		<module-path>km/signature</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>7e10db57573f6268d85e5bdbe4786a44</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

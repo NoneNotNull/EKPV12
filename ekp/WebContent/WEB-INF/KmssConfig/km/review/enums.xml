@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="kmReviewMain_docStatus">
+		<value-label>
+			<value>10</value>
+			<label-key>status.draft</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>status.append</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>11</value>
+			<label-key>status.refuse</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>00</value>
+			<label-key>status.discard</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>status.publish</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>31</value>
+			<label-key>status.feedback</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+	</type>
+	<type 
+		default-value="noSync"
+		name="kmReviewMain_syncDataToCalendarTime">
+		<value-label>
+			<value>noSync</value>
+			<label-key>kmReview.syncDataToCalendarTime.noSync</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>flowSubmitAfter</value>
+			<label-key>kmReview.syncDataToCalendarTime.flowSubmitAfter</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+		<value-label>
+			<value>flowPublishAfter</value>
+			<label-key>kmReview.syncDataToCalendarTime.flowPublishAfter</label-key>
+			<bundle>km-review</bundle>
+		</value-label>
+	</type>
+</column-enums>

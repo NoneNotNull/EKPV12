@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskTopic"
+		messageKey="kms-ask:table.kmsAskTopic"
+		displayProperty="docSubject"
+		serviceBean="kmsAskTopicService"
+		table="kms_ask_topic"
+		url="/kms/ask/kms_ask_topic/kmsAskTopic.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-ask:kmsAskTopic.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" 
+			canRelation="true" />
+
+		<simpleProperty
+			name="fdScore"
+			messageKey="kms-ask:kmsAskTopic.fdScore"
+			type="Integer"
+			column="fd_score"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-ask:kmsAskTopic.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false"
+			canRelation="true" />
+
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="kms-ask:kmsAskTopic.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIntroduceTime"
+			messageKey="kms-ask:kmsAskTopic.fdIntroduceTime"
+			type="DateTime"
+			column="fd_introduce_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSetTopTime"
+			messageKey="kms-ask:kmsAskTopic.fdSetTopTime"
+			type="DateTime"
+			column="fd_set_top_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdPostTime"
+			messageKey="kms-ask:kmsAskTopic.fdPostTime"
+			type="DateTime"
+			column="fd_post_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastPostTime"
+			messageKey="kms-ask:kmsAskTopic.fdLastPostTime"
+			type="DateTime"
+			column="fd_last_post_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdEndTime"
+			messageKey="kms-ask:kmsAskTopic.fdEndTime"
+			type="DateTime"
+			column="fd_end_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdReplyCount"
+			messageKey="kms-ask:kmsAskTopic.fdReplyCount"
+			type="Integer"
+			column="fd_reply_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="kms-ask:kmsAskTopic.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="false"
+			length="1"
+			validate="false" />
+			
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-ask:kmsAskTopic.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdPostFrom"
+			messageKey="kms-ask:kmsAskTopic.fdPostFrom"
+			type="String"
+			column="fd_post_from"
+			notNull="true"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsLimit"
+			messageKey="kms-ask:kmsAskTopic.fdIsLimit"
+			type="Boolean"
+			column="fd_is_limit"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="fdPosterType"
+			messageKey="kms-ask:kmsAskTopic.fdPosterType"
+			type="Integer"
+			column="fd_poster_type"
+			notNull="true"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPosterTypeListIds"
+			messageKey="kms-ask:kmsAskTopic.fdPosterTypeList"
+			type="String"
+			column="fd_type_list"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-ask:kmsAskPost.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="true"
+			length="1000000"
+			validate="true" 
+			canRelation="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-ask:kmsAskTopic.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			notNull="false"
+			validate="false" 
+			canRelation="true" />
+
+		<modelProperty
+			name="fdPoster"
+			messageKey="kms-ask:kmsAskTopic.fdPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_poster_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdLastPoster"
+			messageKey="kms-ask:kmsAskTopic.fdLastPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_last_poster_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdKmsAskCategory"
+			messageKey="kms-ask:table.kmsAskCategory"
+			type="com.landray.kmss.kms.ask.model.KmsAskCategory"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.kms.ask.model.KmsAskCategory','!{idField}','!{nameField}',true,';','00')" 
+			column="fd_category_id"
+			notNull="false"
+			validate="true" 
+			canRelation="true" />
+
+		<listProperty
+			name="fdKmsAskPostList"
+			messageKey="kms-ask:kmsAskTopic.fdKmsAskPostList"
+			type="com.landray.kmss.kms.ask.model.KmsAskPost"
+			column="fd_topic_id"
+			cascade="all-delete-orphan" />
+
+	</model>
+</models>

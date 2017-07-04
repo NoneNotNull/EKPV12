@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibSoapSyncTempFuncForm"
+			type="com.landray.kmss.tib.soap.sync.forms.TibSoapSyncTempFuncForm" />
+		<form-bean
+			name="tibSoapSyncCategoryForm"
+			type="com.landray.kmss.tib.soap.sync.forms.TibSoapSyncCategoryForm" />
+		<form-bean
+			name="tibSoapSyncJobForm"
+			type="com.landray.kmss.tib.soap.sync.forms.TibSoapSyncJobForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSyncTempFunc"
+			type="com.landray.kmss.tib.soap.sync.actions.TibSoapSyncTempFuncAction"
+			name="tibSoapSyncTempFuncForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSyncTempFunc_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSyncTempFunc_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSyncTempFunc_list.jsp" />
+			<forward
+				name="list_table"
+				path="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSync_index_table_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/soap/sync/tib_soap_sync_category/tibSoapSyncCategory"
+			type="com.landray.kmss.tib.soap.sync.actions.TibSoapSyncCategoryAction"
+			name="tibSoapSyncCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/soap/sync/tib_soap_sync_category/tibSoapSyncCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/soap/sync/tib_soap_sync_category/tibSoapSyncCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/soap/sync/tib_soap_sync_category/tibSoapSyncCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/soap/sync/tib_soap_sync_category/tibSoapSyncCategory_tree.jsp" />
+		</action>
+
+		<action
+			path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob"
+			type="com.landray.kmss.tib.soap.sync.actions.TibSoapSyncJobAction"
+			name="tibSoapSyncJobForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob_list.jsp" />
+			<forward
+				name="tableList"
+				path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob_table_list.jsp" />
+		</action>
+		<!-- 新UED -->
+		<action
+			path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJobIndex"
+			type="com.landray.kmss.tib.soap.sync.actions.TibSoapSyncJobIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob_ui_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

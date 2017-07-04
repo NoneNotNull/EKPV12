@@ -1,0 +1,72 @@
+.lui_wiki_index_label {
+	width: 74px;
+	text-align: right;
+	float: left;
+	color: #969696;
+}
+.lui_wiki_index_text {
+	width: 74px;
+	text-align: left;
+	float: left;
+}
+.lui_wiki_txtBox_info_readCount {
+	width: 66px;
+	padding-left: 24px;
+	background: url(../style/images/grid_read_count.png) no-repeat 4px
+	 50%;
+	float: left;
+}
+.lui_wiki_xtBox_info_score {
+	width: 66px;
+	padding-left: 24px;
+	background: url(../style/images/grid_score.png) no-repeat 4px 50%;
+	float: left;
+}
+.lui_wiki_txtBox {
+	margin: 10px 0px 12px 0px;
+	color: #969696;
+}
+.lui_wiki_textEllipsis {
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.lui_wiki_txtBox_info_txt {
+	color: #969696;
+	font-size: 12px;
+	cursor: default;
+}
+.lui_wiki_txtBox_info_num {
+	margin: 0 2px;
+	font-size: 12px;
+	cursor: default;
+}
+.lui_wiki_txtBox_label {
+	margin-top: 7px;
+}
+.lui_wiki_txtBox_img {
+	margin: 8px 0px 5px 0px;
+}
+.lui_wiki_index_ImgBox{
+	border:2px solid transparent;
+	padding:5px 6px;
+}
+.lui_wiki_index_ImgBox:hover {
+	border:2px solid #3e9ece;
+}
+.lui_wiki_img {
+	display:block;
+	border: 1px solid #d9d9d9;
+	width:170px;
+	height:147px;
+}
+lui_expert_img img {
+	display:none;
+    overflow:hidden; 
+}
+.lui_wiki_sort_box  .lui_widget_btn_txt {
+	max-width: 53px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

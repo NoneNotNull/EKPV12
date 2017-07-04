@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+	PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocKnowledge.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocTemplateKeyword.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocKnowledgeKeyword.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocSn.hbm.xml" />
+		<!-- 
+			<mapping
+				resource="com/landray/kmss/kms/multidoc/model/KmsMultidocFilterConfig.hbm.xml" />
+			<mapping
+				resource="com/landray/kmss/kms/multidoc/model/KmsMultidocFilterConfigMain.hbm.xml" />
+			-->
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocKnowledgePre.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/kms/multidoc/model/KmsMultidocCategoryPreview.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

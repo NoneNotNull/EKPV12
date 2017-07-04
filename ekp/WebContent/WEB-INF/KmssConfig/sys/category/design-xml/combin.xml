@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd">
+	<combin id="menu.path.category" name="全局分类路径导航【二\三级页面】" file="/sys/category/ui/path_category.jsp"></combin>
+	<combin id="menu.nav.category" name="全局分类默认分类导航【二级页面】" file="/sys/category/ui/nav_category.jsp"></combin>
+	<combin id="menu.nav.category.flat" name="全局分类面板分类导航【二级页面】" file="/sys/category/ui/nav_category_flat.jsp"></combin>
+	<combin id="menu.nav.category.all" name="全局分类所有分类【二级页面】" file="/sys/category/ui/nav_category_all.jsp"></combin>
+</root>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module urlPrefix="km/review">
+		<!--业务模块对PDA暴露的列表链接  messageKey必须 , type：doc,list-->
+		<config messageKey="sys-category-pda:pda.cate.title" 
+			type="list"
+			dataUrl="/sys/category/pda/sysCategory.do?method=pdaCategory&amp;templateClass=com.landray.kmss.km.review.model.KmReviewTemplate" />
+	</module>
+</pdaConfig>

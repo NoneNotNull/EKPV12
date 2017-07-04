@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.signature.model.KmSignatureDocumentSignature"
+		messageKey="km-signature:table.documentSignature"
+		displayProperty="recordid"
+		serviceBean="kmSignatureDocumentSignatureService"
+		table="km_signature_doc_signature"
+		url="/km/signature/km_signature_document_signature/kmSignatureDocumentSignature.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 自动编号 -->
+		<simpleProperty
+			name="fdDocumentSignatureId"
+			messageKey="km-signature:documentSignature.id"
+			type="Integer"
+			column="fd_document_signature_id"
+			notNull="true"
+			length="10"
+			validate="false" />
+		<!-- 此印章对应的文档编号 -->
+		<simpleProperty
+			name="fdRecordId"
+			messageKey="km-signature:documentSignature.recordid"
+			type="String"
+			column="fd_record_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+		<!-- 此印章对应的字段(或区域名称) -->
+		<simpleProperty
+			name="fdFieldName"
+			messageKey="km-signature:documentSignature.fieldname"
+			type="String"
+			column="fd_field_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 此印章对应的印章信息(即当前印章的加密图片信息) -->
+		<simpleProperty
+			name="fdFieldValue"
+			messageKey="km-signature:documentSignature.fieldvalue"
+			column="fd_field_value"
+			type="String"
+			notNull="false"
+			validate="false" />
+		<!-- 用户名称 -->
+		<simpleProperty
+			name="fdUserName"
+			messageKey="km-signature:documentSignature.username"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 印章时间 -->
+		<simpleProperty
+			name="fdDateTime"
+			messageKey="km-signature:documentSignature.datetime"
+			type="DateTime"
+			column="fd_date_time"
+			notNull="false"
+			validate="false" />
+		<!-- 印章用户IP地址 -->
+		<simpleProperty
+			name="fdHostName"
+			messageKey="km-signature:documentSignature.hostname"
+			type="String"
+			column="fd_host_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+	</model>
+</models>

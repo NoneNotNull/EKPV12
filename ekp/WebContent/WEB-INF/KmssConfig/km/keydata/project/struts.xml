@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmProjectMainForm"
+			type="com.landray.kmss.km.keydata.project.forms.KmProjectMainForm" />
+		<form-bean
+			name="kmProjectCategoryForm"
+			type="com.landray.kmss.km.keydata.project.forms.KmProjectCategoryForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/keydata/project/km_project_main/kmProjectMain"
+			type="com.landray.kmss.km.keydata.project.actions.KmProjectMainAction"
+			name="kmProjectMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/keydata/project/km_project_main/kmProjectMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/project/km_project_main/kmProjectMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/project/km_project_main/kmProjectMain_list.jsp" />
+			<forward
+				name="listChildren"
+				path="/km/keydata/project/km_project_main/kmProjectMain_list.jsp" />
+			<forward
+				name="showUsed"
+				path="/km/keydata/project/keydataUsed_view.jsp" />
+		</action>
+		
+		<action
+			path="/km/keydata/project/km_project_category/kmProjectCategory"
+			type="com.landray.kmss.km.keydata.project.actions.KmProjectCategoryAction"
+			name="kmProjectCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/keydata/project/km_project_category/kmProjectCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/project/km_project_category/kmProjectCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/project/km_project_category/kmProjectCategory_list.jsp" />
+		</action>
+
+
+	</action-mappings>
+</struts-config>

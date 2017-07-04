@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Kanvas演示</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="Kanvas.js">
+        </script>
+        <style>
+        	body, html {
+        		margin: 0;
+        		padding: 0;
+        	}
+        </style>
+        <script type="text/javascript">
+        	
+            var kvs = new Kanvas({id: 'demo', width: '100%', height: '100%'});
+			
+			kvs.onReady(function(){
+				kvs.setImgUploadServer('url');
+			});
+			
+			function getData(){
+				var data = kvs.getBase64Data();
+				alert(data);
+			};
+			
+			//测试数据导入, 成功后会看到一个正方形
+			var testData = "eNpdkMFqwzAMhu99CqF7mzZdC4W4pzEo9LSxB/BiEYs6drDVrnn72VkKpbfvR7/Eh5qL9jedjguAxpI2FOFGMXHwCuvVGiHJ6Oj0rvCL+8ERVlO1D+bqaGbNvkDGSK0AG4UbhCGGgaKMChFkHEhhmT4d/GDnEO4Kl4fDaoeQm8tNvSv4y0ZsvlJnAUvcWZlDDKJlksuhDS5Ehdvt2/6RTt7QfRqK5fbiKaVJJrXaUaF/5erh3Px0r4vcd9+f52KdqXiuy1JTzY/6AzhdWXg=";
+			function importData(){
+				kvs.setBase64Data(testData);	
+			};
+			
+			//弹出属性面板
+			kvs.onLinkBtnClicked(function(e){
+				alert('属性面板弹出' + e.data);
+			});
+			
+			//设置数据关联
+			var linkData = 'awoefijawefjwief';
+			function setLinkInfo(){
+				kvs.setLinkData(linkData);
+			};
+			
+        </script>
+    </head>
+    <body>
+    	<input type="button" value="导出数据" onclick="getData()"/>
+    	<input type="button" value="导入数据" onclick="importData()"/>
+    	<input type="button" value="设置数据关联" onclick="setLinkInfo()"/>
+        <div id="demo"></div>
+    </body>
+</html>

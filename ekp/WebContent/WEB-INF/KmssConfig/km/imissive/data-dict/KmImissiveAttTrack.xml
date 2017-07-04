@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveAttTrack"
+		messageKey="km-imissive:table.kmImissiveAttTrack"
+		displayProperty="fdId"
+		serviceBean="kmImissiveAttTrackService"
+		table="km_imissive_att_track"
+		url="/km/imissive/km_imissive_att_track/kmImissiveAttTrack.do?method=view&amp;fdId=${fdId}"> 	
+	    <idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdMainId"
+			messageKey="km-imissive:kmImissiveAttTrack.fdMainId"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fdNodeName"
+			messageKey="km-imissive:kmImissiveAttTrack.fdNodeName"
+			type="String"
+			column="fd_nodename"
+			notNull="false"
+			length="200"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fileId"
+			messageKey="km-imissive:kmImissiveAttTrack.fileId"
+			type="String"
+			column="file_id"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fileName"
+			messageKey="km-imissive:kmImissiveAttTrack.fileName"
+			type="String"
+			column="file_name"
+			notNull="false"
+			length="200"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fileType"
+			messageKey="km-imissive:kmImissiveAttTrack.fileType"
+			type="String"
+			column="file_type"
+			notNull="false"
+			length="2"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveAttTrack.docCreateTime"
+			type="Date"
+			column="doc_create_time"
+			notNull="false" />	
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveAttTrack.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_create_id"
+			notNull="false"
+			canSearch="true"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);"
+			canRelation="true" />
+	</model>
+</models>

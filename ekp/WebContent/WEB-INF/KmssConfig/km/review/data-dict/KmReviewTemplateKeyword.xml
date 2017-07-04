@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.review.model.KmReviewTemplateKeyword"
+		messageKey="km-review:table.kmReviewTemplateKeyword"
+		serviceBean="kmReviewTemplateKeywordService"
+		table="km_review_template_keyword"
+		displayProperty="docKeyword">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docKeyword"
+			messageKey="km-review:kmReviewKeyword.fdKeyword"
+			type="String"
+			column="doc_keyword"
+			notNull="true"
+			unique="false"
+			length="200" />
+		<modelProperty
+			name="kmReviewTemplate"
+			messageKey="km-review:kmReviewKeyword.kmReviewTemplate"
+			type="com.landray.kmss.km.review.model.KmReviewTemplate"
+			column="fd_object_id"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+	</model>
+</models>

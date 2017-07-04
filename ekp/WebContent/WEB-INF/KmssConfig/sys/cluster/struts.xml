@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysClusterServerForm"
+			type="com.landray.kmss.sys.cluster.forms.SysClusterServerForm" />
+		<form-bean
+			name="sysClusterGroupForm"
+			type="com.landray.kmss.sys.cluster.forms.SysClusterGroupForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/cluster/sys_cluster_server/sysClusterServer"
+			type="com.landray.kmss.sys.cluster.actions.SysClusterServerAction"
+			name="sysClusterServerForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/cluster/sys_cluster_server/sysClusterServer_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/cluster/sys_cluster_server/sysClusterServer_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/cluster/sys_cluster_server/sysClusterServer_list.jsp" />
+		</action>
+		<action
+			path="/sys/cluster/sys_cluster_group/sysClusterGroup"
+			type="com.landray.kmss.sys.cluster.actions.SysClusterGroupAction"
+			name="sysClusterGroupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/cluster/sys_cluster_group/sysClusterGroup_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/cluster/sys_cluster_group/sysClusterGroup_list.jsp" />
+		</action>
+		<action
+			path="/sys/cluster/sys_cluster_dispatcher/sysClusterDispatcher"
+			type="com.landray.kmss.sys.cluster.actions.SysClusterDispatcherAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/cluster/sys_cluster_dispatcher/sysClusterDispatcher_list.jsp" />
+		</action>
+		<action
+			path="/sys/cluster/sys_cluster_group_func/sysClusterGroupFunc"
+			type="com.landray.kmss.sys.cluster.actions.SysClusterGroupFuncAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/cluster/sys_cluster_group_func/sysClusterGroupFunc_list.jsp" />
+		</action>
+		<action
+			path="/resource/sys/cluster/config"
+			type="com.landray.kmss.sys.cluster.actions.SysClusterConfigAction"
+			parameter="method"
+			scope="request">
+		</action>
+	</action-mappings>
+</struts-config>

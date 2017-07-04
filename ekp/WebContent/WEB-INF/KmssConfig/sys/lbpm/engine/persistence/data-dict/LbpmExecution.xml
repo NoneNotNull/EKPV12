@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmExecution"
+		messageKey="sys-lbpm-engine:table.lbpmExecution"
+		displayProperty="fdName"
+		serviceBean="lbpmExecutionService"
+		table="lbpm_execution">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdActivityType"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdActivityType"
+			type="String"
+			column="fd_activity_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdActivityId"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdActivityId"
+			type="String"
+			column="fd_activity_id"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdState"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdState"
+			type="String"
+			column="fd_state"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdSuspendHistoryState"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdSuspendHistoryState"
+			type="String"
+			column="fd_suspend_history_state"
+			notNull="false"
+			length="50" />
+
+		<modelProperty
+			name="fdProcessInstance"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdProcessInstance"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdParent"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmExecution"
+			column="fd_parent_id"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdLockedKey"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdLockedKey"
+			type="String"
+			column="fd_locked_key"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdLockedDate"
+			messageKey="sys-lbpm-engine:lbpmExecution.fdLockedDate"
+			type="DateTime"
+			column="fd_locked_date"
+			notNull="false" />
+
+	</model>
+</models>

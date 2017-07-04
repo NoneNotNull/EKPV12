@@ -1,0 +1,82 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIfaceImpl"
+		table="tib_sys_core_iface_impl">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdName"
+			column="fd_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdImplRef"
+			column="fd_impl_ref"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdImplRefName"
+			column="fd_impl_ref_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+
+		<property
+			name="fdFuncType"
+			column="fd_func_type"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+
+		<property
+			name="fdImplRefData"
+			column="fd_impl_ref_data"
+			update="true"
+			insert="true"
+			length="3000"
+			not-null="false" />
+
+		<property
+			name="fdIfaceXmlStatus"
+			column="fd_iface_xml_status"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdOrderBy"
+			column="fd_order_by"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<many-to-one
+			name="tibSysCoreIface"
+			column="tib_sys_core_iface"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

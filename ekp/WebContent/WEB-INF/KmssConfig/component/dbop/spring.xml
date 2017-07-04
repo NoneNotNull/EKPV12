@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="compDbcpDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.component.dbop.dao.hibernate.CompDbcpDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.component.dbop.model.CompDbcp" />
+	</bean>
+	<bean
+		id="compDbcpTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.component.dbop.service.spring.CompDbcpServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="compDbcpDao" />
+		</property>
+	</bean>
+	<bean
+		id="compDbcpService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="compDbcpTarget" />
+		</property>
+	</bean>
+	<bean
+		id="compDbcpXMLService"
+		class="com.landray.kmss.component.dbop.service.spring.CompDbcpXMLServiceImp">
+		<property
+			name="compDbcpService">
+			<ref
+				local="compDbcpService" />
+		</property>
+	</bean>
+</beans>

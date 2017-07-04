@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-calendar:module.km.calendar"
+		urlPrefix="/km/calendar/"
+		defaultValidator="roleValidator(role=ROLE_KMCALENDAR_DEFAULT)">
+		<roles>
+			ROLE_KMCALENDAR_DEFAULT;
+			ROLE_KMCALENDAR_BASE_CONFIG;
+			ROLE_KMCALENDAR_MULTI_CREATE;
+		</roles>
+
+        <request
+			path="km_calendar_base_config/kmCalendarBaseConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarBaseConfig">
+			<query
+				queryString="method=add|save|saveadd|view|edit"
+				validator="roleValidator(role=ROLE_KMCALENDAR_BASE_CONFIG)" />
+		</request>
+		
+		<request
+			path="km_calendar_main/kmCalendarMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarMain">
+			<!-- 保存 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMCALENDAR_DEFAULT)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authFieldValidator(type=creator)|authFieldValidator(type=owner)" />
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update*|clearRemind"
+				validator="authFieldValidator(type=SYS_EDITOR)|authFieldValidator(type=owner)|authFieldValidator(type=creator)" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete*"
+				validator="authFieldValidator(type=owner)|authFieldValidator(type=creator)" />
+
+		</request>
+		
+		<request
+			path="km_calendar_auth/kmCalendarAuth*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarAuth">
+			<query
+				queryString="method=eidt*|update*|save*|delete*"
+				validator="authFieldValidator(type=creator)" />
+		</request>
+		
+		<request
+			path="km_calendar_share_group/kmCalendarUserShareGroup*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarShareGroup">
+			<query
+				queryString="method=eidt*|update*|save*|delete*"
+				validator="authFieldValidator(type=owner)|authFieldValidator(type=creator)" />
+		</request>
+		
+		<request
+			path="km_calendar_share_group/kmCalendarShareGroup*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarShareGroup">
+			<query
+				queryString="method=eidt*|update*|save*|delete*"
+				validator="authFieldValidator(type=owner)|authFieldValidator(type=creator)" />
+		</request>
+		
+		<request
+			path="km_calendar_label/kmCalendarLabel*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarLabel">
+			<query
+				queryString="method=add*|list*|view*|edit*|update*"
+				validator="authFieldValidator(type=fdCreator)" />
+		</request>
+		
+		<request
+			path="km_calendar_label/kmCalendarUserLabel*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarLabel">
+			<query
+				queryString="method=add*|list*|view*|edit*|update*"
+				validator="authFieldValidator(type=fdCreator)" />
+		</request>
+
+	
+	<!-- 
+		<request
+			path="km_calendar_default_reader/kmCalendarDefaultReader*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarDefaultReader">
+		</request>
+
+		<request
+			path="km_calendar_sync_bind/kmCalendarSyncBind*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarSyncBind">
+		</request>
+
+		<request
+			path="km_calendar_sync_mapping/kmCalendarSyncMapping*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarSyncMapping">
+		</request>
+
+		<request
+			path="km_calendar_default_maintainer/kmCalendarDefaultMaintainer*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarDefaultMaintainer">
+		</request>
+ 	
+		
+		<request
+			path="km_calendar_out_cache/kmCalendarOutCache*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.calendar.model.KmCalendarOutCache">
+		</request>
+		-->
+		
+		<!-- 日程的过滤器 -->
+		<filters modelName="com.landray.kmss.km.calendar.model.KmCalendarMain">
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+			
+			<filter
+				type="owner"
+				expression="authFieldFilter(field=docOwner.fdId)" />
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=fdAuthorityType,value='PUBLIC')" />
+					 
+			
+
+			 
+		</filters>
+		
+		<filters modelName="com.landray.kmss.km.calendar.model.KmCalendarLabel">
+			<filter
+				type="fdCreator"
+				expression="authFieldFilter(field=fdCreator.fdId)" />
+			
+		</filters>
+		
+		<filters modelName="com.landray.kmss.km.calendar.model.KmCalendarShareGroup">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			
+		</filters>
+		
+		<filters modelName="com.landray.kmss.km.calendar.model.KmCalendarAuth">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			
+		</filters>
+	</module>
+	
+	<quartz	messageKey="km-calendar:CMSSynchroTitle" 
+		jobService="CMSSynchroService"
+		cronExpression="0 0 0/6 * * ?"
+		jobMethod="synchroAll" enable="false"/>
+	
+	<!-- 删除超过保存期限的日程 -->
+	<quartz
+		messageKey="km-calendar:kmCalendarMain.calendar.timing.delete"
+		jobService="kmCalendarTimingDeleteService"
+		jobMethod="deleteCalendarTiming"
+		enable="true"
+		cronExpression="0 0 1 * * ?"
+		runType="SINGLENODE" />
+	<!-- 时间管理配置 -->
+	<homePage
+		urlPrefix="km/calendar"
+		url="/km/calendar/index.jsp"  
+		messageKey="km-calendar:module.km.calendar"
+		config="/moduleindex_notopic.jsp?nav=/km/calendar/tree.jsp" />
+</configs>

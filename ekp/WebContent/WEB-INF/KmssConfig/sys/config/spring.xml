@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysEmptyDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.config.dao.SysEmptyDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.config.model.SysEmpty" />
+	</bean>
+	<bean
+		id="sysEmptyTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.config.service.SysEmptyServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysEmptyDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysEmptyService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysEmptyTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysLicenseNotifyService"
+		class="com.landray.kmss.sys.config.service.SysLicenseNotifyService">
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+</beans>

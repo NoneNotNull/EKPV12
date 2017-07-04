@@ -1,0 +1,122 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>流转_阅读</title>
+<script>
+	var path = location.href;
+	var index = path.lastIndexOf("/lbpm/");
+	path = path.substring(0, index) + "/../";
+	Com_Parameter = {
+		ContextPath:path,
+		ResPath:path+"resource/",
+		Style:"default",
+		StylePath:path+"resource/style/default/"
+	};
+</script>
+</head>
+<body>
+<textarea name="content" style="display:none"><process nodesIndex="10" linesIndex="11" iconType="2">
+<nodes>
+<startNode id="N1" name="开始节点" x="300" y="20" />
+<draftNode id="N2" name="起草节点" x="300" y="80" />
+<endNode id="N3" name="结束节点" x="300" y="360" />
+<reviewNode id="N4" name="审批节点" x="300" y="140" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+<manualBranchNode id="N5" name="人工决策" x="300" y="200" />
+<reviewNode id="N6" name="审批节点" x="460" y="220" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+<reviewNode id="N7" name="审批节点" x="460" y="140" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+<reviewNode id="N8" name="审批节点" x="140" y="220" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+<reviewNode id="N9" name="审批节点" x="140" y="300" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+<reviewNode id="N10" name="审批节点" x="300" y="300" ignoreOnHandlerEmpty="true" processType="0" ignoreOnHandlerSame="true" canModifyMainDoc="false" optHandlerCalType="2" useOptHandlerOnly="false" dayOfNotify="0" dayOfPass="0" canModifyFlow="false">
+<operations>
+<creatorOperation name="通过" type="101" />
+</operations>
+</reviewNode>
+</nodes>
+<lines>
+<line id="L1" startPosition="3" endPosition="1" startNodeId="N1" endNodeId="N2" points="360,60;360,80" />
+<line id="L2" startPosition="3" endPosition="1" startNodeId="N2" endNodeId="N4" points="360,120;360,140" />
+<line id="L3" startPosition="3" endPosition="1" startNodeId="N4" endNodeId="N5" points="360,180;360,200" />
+<line id="L4" startPosition="3" endPosition="1" startNodeId="N5" endNodeId="N10" points="360,280;360,300" />
+<line id="L5" startPosition="2" endPosition="4" startNodeId="N5" endNodeId="N6" points="420,240;460,240" />
+<line id="L6" startPosition="1" endPosition="3" startNodeId="N6" endNodeId="N7" points="520,220;520,180" />
+<line id="L7" startPosition="4" endPosition="2" startNodeId="N7" endNodeId="N4" points="460,160;420,160" />
+<line id="L8" startPosition="4" endPosition="2" startNodeId="N5" endNodeId="N8" points="300,240;260,240" />
+<line id="L9" startPosition="3" endPosition="1" startNodeId="N8" endNodeId="N9" points="200,260;200,300" />
+<line id="L10" startPosition="2" endPosition="4" startNodeId="N9" endNodeId="N10" points="260,320;300,320" />
+<line id="L11" startPosition="3" endPosition="1" startNodeId="N10" endNodeId="N3" points="360,340;360,360" />
+</lines>
+</process></textarea>
+
+<textarea name="status" style="display:none"><process-status>
+<historyNodes>
+<node modelId="1" id="N1" routeType="NORMAL" targetId="N2" />
+<node modelId="2" id="N2" routeType="NORMAL" targetId="N4" />
+<node modelId="3" id="N4" routeType="NORMAL" targetId="N5" />
+<node modelId="4" id="N5" routeType="NORMAL" targetId="N6" />
+<node modelId="5" id="N6" routeType="NORMAL" targetId="N7" />
+<node modelId="6" id="N7" routeType="NORMAL" targetId="N4" />
+<node modelId="7" id="N4" routeType="NORMAL" targetId="N5" />
+<node modelId="8" id="N5" routeType="NORMAL" targetId="N8" />
+<node modelId="9" id="N8" routeType="BACK" targetId="N4" targetModelId="7" />
+<node modelId="10" id="N4" routeType="RESUME" targetId="N8" />
+</historyNodes>
+<runningNodes>
+<node id="N8" />
+</runningNodes>
+</process-status></textarea>
+<script>
+function WorkFlow_ModifyProcess(contentField, statusField){
+	var param = {
+		processData: document.getElementsByName(contentField)[0].value,
+		statusData: document.getElementsByName(statusField)[0].value,
+		Window:window
+	};
+	var winStyle = "dialogWidth:"+window.screen.width+"px;dialogHeight:"+window.screen.height+"px;center:yes;scroll:no;resizable:yes";
+	var rtnVal = showModalDialog("html/panel.html?edit=true&extend=oa&template=false", param, winStyle);
+	if(rtnVal!=null){
+		document.getElementsByName(contentField)[0].value = rtnVal;
+		if_flowchart.location.reload();
+	}
+}
+</script>
+<table width="95%" border=1>
+	<tr>
+		<td width="100" height="500">
+			流程调用
+		</td>
+		<td>
+			<iframe id=if_flowchart src="html/panel.html?edit=false&extend=oa&template=false&contentField=content&statusField=status"
+				width="100%" height="100%" scrolling="no"></iframe>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			修改流程
+		</td>
+		<td>
+			<a href="javascript:WorkFlow_ModifyProcess('content', 'status');">修改流程</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

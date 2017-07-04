@@ -1,0 +1,15 @@
+﻿.muiNavBarButton.mblTabBar .muiBookmarkTabButton.mui.mui-star-on{
+	color: #ffcc33;
+}
+
+@-webkit-keyframes bookmaskscale{
+	0.1%{-webkit-transform:scale(1);}
+    50%{-webkit-transform:scale(1.2);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.muiBookMaskScale{
+	-webkit-animation-name: bookmaskscale;
+	-webkit-animation-duration: 0.3s;
+	-webkit-animation-fill-mode: both;
+}

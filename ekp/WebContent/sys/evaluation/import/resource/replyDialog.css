@@ -1,0 +1,171 @@
+body{
+	background: url("images/bordeLine.jpg") 58px 0 repeat-y;
+}
+.eval_re_cont {
+	margin-bottom: 0px;
+	color: black;
+	line-height: 24px;
+	word-break: break-all;
+	padding-left:50px;
+}
+.eval_reply_author {
+	margin-right: 5px;
+}
+.eval_reply_p {
+	margin-right: 8px;
+	margin-left: 8px;
+	color: #6b6b6b;
+}
+.rtnPerson {
+	float:left;
+	top: 13px;
+	width: 35px;
+	height: 35px;
+	border: 1px solid #e2e2e2;
+}
+.reply_infos{
+	width:660px;
+}
+.reply_time_d{
+	width: 80px;
+	line-height: 16px;
+	float: left;
+	left: 0;
+	text-align: center;
+	height:35px;
+	background: rgb(245,250,253);
+	top:10px;
+	padding: 5px;
+}
+.bottom_line{
+	border-bottom: 1px dotted #ccc;
+	margin-left: 107px;
+	padding: 8px 3px 5px;
+	min-height:47px;
+    height:auto !important;
+    height:47px;
+}
+.bg_color{
+	/**background:#eaf4f9;**/
+}
+.dialog_reply_input{
+	height: 50px;
+	width: 100%;
+	overflow-y:auto;
+	float:right;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid #e6e6e6;
+}
+.eval_biaoqing{
+	clear:both;
+}
+.reply_expend{
+	width: 100%;
+	display:none;
+	clear:both;
+	background: rgb(231,240,247);
+}
+.reply_btn_style{
+	padding-top:5px;
+}
+.eval_btn_submit{
+}
+.eval_reply_tip{
+	float: right;
+}
+.eval_re_reply{
+	cursor: pointer;
+	color:#0a8cd2;
+	background: url(images/icon_comment.png) no-repeat left center;
+	padding-left: 20px;
+	margin-left:20px;
+}
+.dialog_reply_del{
+	color: #2182d1;
+	cursor: pointer;
+}
+.dialog_separate{
+	color: #aeaeae;
+	margin: 0 6px 0 8px;
+}
+.lui_icon_on .lui_toolbar_btn_l{
+	color:#fff!important;
+}
+.dialog_rep_btn{
+	/**overflow:hidden;**/
+	height: auto;
+	width:100%;
+}
+.reply_textarea{
+	border: 1px solid #e6e6e6;
+	background: white;
+	width: 100%;
+	height: 75px;
+	overflow: hidden;
+	clear: both;
+}
+.dialog_reply_cont{
+	margin: 10px 20px 5px;
+	clear: both;
+	width:504px;
+}
+.eval_icons {
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 20px;
+	background: url(images/icon_biaoqing.png) no-repeat 0 50%;
+	cursor: pointer;
+	float: left;
+	margin-top: 2px;
+	margin-left:18px;
+}
+.eval_biao_qing {
+	width: 648px;
+	position: absolute;
+	border-radius: 3px;
+	z-index: 999;
+	background: #fff;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	overflow: auto;
+}
+.eval_bq_close {
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	cursor: pointer;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+	background: url(images/close.png) no-repeat 0 50%;
+}
+.eval_bq {
+	height: 100%;
+	float: right;
+}
+.lui_eval_biaoqing {
+	cursor: pointer;
+	text-align: center;
+	float:left;
+}
+li{
+	list-style:none;
+}
+.replyers_dot{
+	color:#F19703
+}
+.reply_fix{
+	height:41px;
+}
+.reply_expend .trig {
+	display: inline-block;
+	/**width: 18px;**/
+	height: 9px;
+	background: url(images/ico_trig2.png) no-repeat left center;
+	position: relative;
+	right: 12px;
+	top: -8px;
+	float: right;
+}

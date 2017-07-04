@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplate"
+		messageKey="sys-lbpmservice-support:table.lbpmTemplate"
+		displayProperty="fdName"
+		serviceBean="lbpmTemplateService"
+		table="lbpm_template"
+		url="/sys/lbpmservice/support/lbpm_template/lbpmTemplate.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdType"
+			type="Integer"
+			column="fd_type"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsDefault"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdIsDefault"
+			type="Boolean"
+			column="fd_is_default"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsCommon"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdIsCommon"
+			type="Boolean"
+			column="fd_is_common"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsDelete"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdIsDelete"
+			type="Boolean"
+			column="fd_is_delete"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<modelProperty
+			name="fdCommon"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdCommon"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplate"
+			column="fd_common_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="sys-lbpmservice-support:lbpmTemplate.fdCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_creator_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="fdChangeHistorys"
+			messageKey="sys-lbpmservice-support:table.lbpmTemplateChangeHistory"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplateChangeHistory"
+			cascade="delete"
+			inverse="true" />
+
+	</model>
+</models>

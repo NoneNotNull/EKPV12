@@ -1,0 +1,36 @@
+.lui_wiki_portlet_hot_row {
+	padding: 5px 0px 10px 0px;
+	position: relative;
+	overflow: hidden;
+}
+.lui_wiki_portlet_hot_text {
+	padding-left: 32px;
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+	word-break: break-all;
+	white-space: nowrap;
+}
+.lui_wiki_portlet_hot_rank {
+	position: absolute;
+	top: 4px;
+	left: 0px;
+	width: 26px;
+	text-align: center;
+	font-size: 13px;
+}
+.lui_wiki_portlet_hot_no1 .lui_wiki_portlet_hot_rank {
+	color:#ffffff;
+	top: 5px;
+	background: url(../style/images/entry_no_first.png) no-repeat center;
+}
+.lui_wiki_portlet_hot_no2 .lui_wiki_portlet_hot_rank, .lui_wiki_portlet_hot_no3 .lui_wiki_portlet_hot_rank{
+	color:#ffffff;
+	background: url(../style/images/entry_no.png) no-repeat center;
+	top: 5px;
+}
+.lui_wiki_portlet_hot_no1 .lui_wiki_portlet_hot_text,
+.lui_wiki_portlet_hot_no2 .lui_wiki_portlet_hot_text,
+.lui_wiki_portlet_hot_no3 .lui_wiki_portlet_hot_text{
+	font-size:14px;
+}

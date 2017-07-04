@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.log.model.TibCommonLogMainBackup"
+	messageKey="tib-common-log:table.tibCommonLogMainBackup"
+	serviceBean="tibCommonLogMainBackupService"
+	table="tib_common_log_main_backup"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="funcName"
+	messageKey="tib-common-log:tibCommonLogMainBackup.funcName"
+	type="String"
+	column="func_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdIsErr"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdIsErr"
+	type="String"
+	column="fd_is_err"
+	notNull="false"
+	length="2"
+/>
+<simpleProperty
+	name="fdExtMsg"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdExtMsg"
+	type="String"
+	column="fd_ext_msg"
+	notNull="false"
+	length="500"
+/>
+<simpleProperty
+	name="fdType"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdType"
+	type="Integer"
+	column="fd_type"
+	notNull="false"
+	length="2"
+/>
+<simpleProperty
+	name="fdLogType"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdLogType"
+	type="String"
+	column="fd_log_type"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdTargetHost"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdTargetHost"
+	type="String"
+	column="fd_target_host"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdUrl"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdUrl"
+	type="String"
+	column="fd_url"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdPoolName"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdPoolName"
+	type="String"
+	column="fd_pool_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdStartTime"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdStartTime"
+	type="DateTime"
+	column="fd_start_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdEndTime"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdEndTime"
+	type="DateTime"
+	column="fd_end_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdImportPar"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdImportPar"
+	type="RTF"
+	column="fd_import_par"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="fdExportPar"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdExportPar"
+	type="RTF"
+	column="fd_export_par"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="fdMessages"
+	messageKey="tib-common-log:tibCommonLogMainBackup.fdMessages"
+	type="String"
+	column="fd_messages"
+	notNull="false"
+	length="2000"
+/>
+</model></models>

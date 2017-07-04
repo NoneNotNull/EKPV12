@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchWord"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchWord"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchWordService"
+		table="sys_ftsearch_word"
+		url="/sys/ftsearch/expand/sys_ftsearch_word/sysFtsearchWord.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSearchWord"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdSearchWord"
+			type="String"
+			column="fd_search_word"
+			notNull="true"
+			length="255"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserId"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdUserId"
+			type="String"
+			column="fd_user_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSearchTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdSearchTime"
+			type="DateTime"
+			column="fd_search_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdContainSpace"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdContainSpace"
+			type="Boolean"
+			column="fd_contain_space"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSearchByButton"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdSearchByButton"
+			type="Boolean"
+			column="fd_search_by_button"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSearchPage"
+			messageKey="sys-ftsearch-expand:sysFtsearchWord.fdSearchPage"
+			type="Integer"
+			column="fd_search_page"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

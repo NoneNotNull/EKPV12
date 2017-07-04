@@ -1,0 +1,77 @@
+/*圆边--精简*/
+.border-radius (@radius: 5px) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+/*圆边--自定义*/
+.border-radius-custom (@topleft: 5px, @topright: 5px, @bottomleft: 5px, @bottomright: 5px) {
+    -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+    -moz-border-radius: @topleft @topright @bottomright @bottomleft;
+    border-radius: @topleft @topright @bottomright @bottomleft;
+}
+
+/*盒子阴影，x横向，y竖向，blur模糊半径【模糊度】，alpha透明度*/
+.box-shadow (@x: 0px, @y: 3px, @blur: 5px, @alpha: 0.5) {
+    -webkit-box-shadow:  @x @y @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow:  @x @y @blur rgba(0, 0, 0, @alpha);
+    box-shadow:  @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+/*渐变过度，prop样式属性名【all所有属性】，time过渡时间，ease过度方式【ease，linear，linear，ease-out，ease-in-out，cubic-bezier|http://www.w3cplus.com/content/css3-transition|】*/
+.transition (@prop: all, @time: 1s, @ease: linear) {
+    -webkit-transition: @prop  @time @ease;
+    -moz-transition: @prop  @time @ease;
+    -o-transition: @prop  @time @ease;
+    -ms-transition: @prop  @time @ease;
+    transition: @prop  @time @ease;
+}
+/*渐变过度【prop为css3属性】*/
+.transitionCss3(@prop: all, @time: 1s, @ease: linear){
+	@aa : '-webkit-@{prop}';
+	-webkit-transition: @aa  @time @ease;
+    -moz-transition:  -moz-@prop  @time @ease;
+    -o-transition: -o-@prop  @time @ease;
+    -ms-transition: -ms-@prop  @time @ease;
+    transition: @prop  @time @ease;	
+}
+
+/*变形，rotate旋转角度，scale缩放，skew倾斜，translate水平移动*/
+.transform (@rotate: 90deg, @scale: 1, @skew: 1deg, @translate: 10px) {
+    -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+    transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translate);
+}
+
+/*3d变形*/
+.transform3d (@x:0,@y:0,@z:0){
+	-webkit-transform: translate3d(@x, @y, @z);
+	-moz-transform: translate3d(@x, @y, @z);
+	transform: translate3d(@x, @y, @z);
+}
+
+/*变形，rotate旋转角度，scale缩放，skew倾斜，translatex水平移动，translatey垂直移动*/
+.transformTran (@rotate: 90deg, @scale: 1, @skew: 1deg, @translatex: 10px, @translatey:10px) {
+    -webkit-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translatex,@translatey);
+    -moz-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translatex,@translatey);
+    -o-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translatex,@translatey);
+    -ms-transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translatex,@translatey);
+    transform: rotate(@rotate) scale(@scale) skew(@skew) translate(@translatex,@translatey);
+}
+
+/*动画，name动画名称，time时间，ease过度方式【具体如transition】*/
+.animation(@name: facein, @time: 1s, @ease:linear){
+	-moz-animation:@name @time @ease;
+	-webkit-animation:@name @time @ease;
+	-o-animation:@name @time @ease;
+	-ms-animation:@name @time @ease;
+	animation:@name @time @ease;
+}
+
+/*文本阴影*/
+.text-shadow(@topleft:1px ,@topright:1px ,@bottomright:1px, @bottomleft:1px){
+	text-shadow:@topleft @topright @bottomright @bottomleft;
+}

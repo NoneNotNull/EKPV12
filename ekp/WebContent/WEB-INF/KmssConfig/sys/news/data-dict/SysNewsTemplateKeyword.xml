@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.news.model.SysNewsTemplateKeyword"
+		messageKey="sys-news:table.sysNewsTemplateKeyword"
+		serviceBean="sysNewsTemplateKeywordService"
+		table="sys_news_template_keyword"
+		displayProperty="docKeyword">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docKeyword"
+			messageKey="sys-news:table.sysNewsTemplateKeyword"
+			type="String"
+			column="doc_keyword"
+			notNull="false"
+			unique="false"
+			length="200"/>
+		<modelProperty
+			name="sysNewsTemplate"
+			messageKey="sys-news:table.sysNewsTemplate"
+			type="com.landray.kmss.sys.news.model.SysNewsTemplate"
+			column="fd_template_id"
+			notNull="true"
+			unique="false" 
+			canDisplay="false"/>
+	</model>
+</models>

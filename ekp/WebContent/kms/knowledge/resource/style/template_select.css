@@ -1,0 +1,35 @@
+
+.lui_template_frame_item {
+	width: 236px;
+	height: 220px;
+	border: 1px solid #fff;
+	background-color: #f7f7f7;
+	overflow-x: none;
+	overflow-y: scroll;
+	float: left;
+	padding-top: 8px;
+}
+
+.lui_template_content li{
+	line-height: 28px;
+}
+.lui_template_content li .lui_template_itemLink_single {
+	width: 95%;
+	height: 26px;
+	margin: 1px;
+	padding: 0 4px;
+	line-height: 26px;
+	color: #333;
+	display: block;
+	position: relative;
+}
+
+.lui_template_content li.lui_template_li_on,.lui_template_content li:hover {
+	margin: 0;
+	border: 1px solid #ccc;
+	color: #2b97d5;
+}
+
+.lui_template_content li.lui_template_li_on {
+	background-color: #fff;
+}

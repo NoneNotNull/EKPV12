@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action path="/sys/category/mobile/sysSimpleCategory"
+			type="com.landray.kmss.sys.simplecategory.mobile.MobileSimpleCategoryAction" parameter="method"
+			unknown="false" validate="false" scope="request">
+		</action>
+	</action-mappings>
+</struts-config>

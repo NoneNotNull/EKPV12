@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-imeeting:module.km.imeeting"
+		urlPrefix="/km/imeeting/"
+		defaultValidator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)">
+		<roles>
+			ROLE_KMIMEETING_DEFAULT;
+			ROLE_KMIMEETING_SETTING;
+			ROLE_KMIMEETING_CHANGE;
+			ROLE_KMIMEETING_CANCEL;
+			ROLE_KMIMEETING_OPTALL;
+			ROLE_KMIMEETING_CHANGETEMPLATE;
+			ROLE_KMIMEETING_CREATE;
+			ROLE_KMIMEETING_DELETE;
+			ROLE_KMIMEETING_READER;
+			ROLE_KMIMEETING_CATEGORY_MAINTAINER;
+			ROLE_KMIMEETING_MANUALPUBLISH;
+			ROLE_KMIMEETING_PRINT_NOTIFY;
+			ROLE_KMIMEETING_PRINT_FEEDBACK;
+			ROLE_KMIMEETING_CIRCULATION_CREATE;
+		    ROLE_KMIMEETING_CIRCULATION_DELETE;
+			ROLE_KMIMEETING_BOOKCREATE;
+			ROLE_KMIMEETING_BOOKUPDATE;
+			ROLE_KMIMEETING_BOOKDELETE;
+			ROLE_KMIMEETING_SUMMARY_CREATE;
+			ROLE_KMIMEETING_SUMMARY_EDITOR;
+			ROLE_KMIMEETING_SUMMARY_READER;
+			ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER;
+			ROLE_KMIMEETING_RES_CREATE;
+			ROLE_KMIMEETING_RES_READER;
+			ROLE_KMIMEETING_RES_EDITOR;
+			ROLE_KMIMEETING_RES_DELETE;
+			ROLE_KMIMEETING_STAT_MAINTAINER;
+			ROLE_KMIMEETING_STAT_READER
+		</roles>
+		
+		<!-- 会议室资源分类 -->
+		<request
+			path="km_imeeting_res_category/kmImeetingResCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingResCategory,adminRoleName=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER">
+			<!-- 新增-->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryEditorValidator()|sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 复制 -->
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		
+		<!-- 会议室资源 -->
+		<request
+			path="km_imeeting_res/kmImeetingRes*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingRes,cateModel=com.landray.kmss.km.imeeting.model.KmImeetingResCategory">
+			<!-- 指定模板下新增 -->
+			<query
+				queryString="method=add&amp;categoryId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=categoryId)" />
+			<!-- 新增 -->
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_CREATE)" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save&amp;categoryId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=categoryId)" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=categoryId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|roleValidator(role=ROLE_KMIMEETING_RES_READER)" />
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit"
+				validator="authFieldValidator(type=SYS_EDITOR)|roleValidator(role=ROLE_KMIMEETING_RES_EDITOR)&amp;[roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|authSimpleCategoryEditorValidator(property=docCategory)]" />
+			<!-- 文档中的删除 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_DELETE)&amp;[roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|authSimpleCategoryEditorValidator(property=docCategory)]" />
+			<!-- 删除所有其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_DELETE)&amp;[roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId)]" />
+			<query
+				queryString="method=listUse"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_READER)" />
+		</request>
+		
+		<!-- 会议设备 -->
+		<request
+			path="km_imeeting_device/kmImeetingDevice*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingDevice">
+			<!-- 维护 -->
+			<query
+				queryString="method=add|save|saveadd|view|edit|delete|deleteall"
+				validator="roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)" />
+		</request>
+		
+		<!-- 会议模板 -->
+		<request
+			path="km_imeeting_template/kmImeetingTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingTemplate">
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="authCategoryReaderValidator(cateid=docCategoryId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authCategoryEditorValidator(property=docCategory)" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="authFieldValidator(type=SYS_EDITOR)|authCategoryEditorValidator(property=docCategory)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="authCategoryEditorValidator(cateid=parentId)" />
+		</request>
+		
+		<!-- 会议室预约 -->
+		<request
+			path="km_imeeting_book/kmImeetingBook*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingBook">
+			<!-- 保存 -->
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_KMIMEETING_BOOKCREATE)|authFieldValidator(type=creator)" />
+			<!-- 更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_KMIMEETING_BOOKUPDATE)|authFieldValidator(type=creator)" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMIMEETING_BOOKDELETE)|authFieldValidator(type=creator)" />
+		</request>
+		
+		<request
+			path="km_imeeting_main/kmImeetingMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain,templatemodel=com.landray.kmss.km.imeeting.model.KmImeetingTemplate">
+			<!-- 发送会议通知单 -->
+			<query
+				queryString="method=sendNotify"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;[authFieldValidator(type=creator)|authFieldValidator(type=emcee)]" />
+			<!-- 复制会议安排 -->
+			<query
+				queryString="method=add&amp;copyMeeting=*"
+				validator="fieldValueValidator(recid=meetingId,fieldproperty=docStatus,value=30)&amp;authFieldValidator(recid=meetingId,type=creator)&amp;roleValidator(role=ROLE_KMIMEETING_CREATE)" />
+			<!-- 新建会议安排 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_CREATE)&amp;authCategoryReaderValidator(templateid=fdTemplateId)" />
+			<!-- 保存会议安排 -->
+			<query
+				queryString="method=save|saveDraft"
+				validator="roleValidator(role=ROLE_KMIMEETING_CREATE)&amp;authCategoryReaderValidator(templateid=fdTemplateId)" />
+			<!-- 阅读会议安排 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authCategoryEditorValidator(property=fdTemplate)" />
+			<!-- 编辑、更新会议安排 -->
+			<query
+				queryString="method=edit"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10;11)&amp;authFieldValidator(type=creator)|authFieldValidator(type=SYS_EDITOR)" />
+			<!-- 删除会议安排 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|roleValidator(role=ROLE_KMIMEETING_DELETE)&amp;[authCategoryEditorValidator(property=fdTemplate,role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 删除所有会议安排草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+			<!-- 删除所有会议安排其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMIMEETING_DELETE)&amp;[roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)]" />
+			<!-- 催办会议 -->
+			<query
+				queryString="method=hastenMeeting"
+				validator="[authFieldValidator(type=creator)|authFieldValidator(type=emcee)]&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;fieldValueValidator(fieldproperty=isNotify,value=true)" />
+			<!-- 取消会议安排 -->
+			<query
+				queryString="method=cancelMeeting"
+				validator="[authFieldValidator(type=creator)|authFieldValidator(type=emcee)|roleValidator(role=ROLE_KMIMEETING_CANCEL)]&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;fieldValueValidator(fieldproperty=isNotify,value=true)" />
+			<!-- 会议变更 -->
+			<query
+				queryString="method=changeMeeting"
+				validator="[authFieldValidator(type=creator)|authFieldValidator(type=emcee)|roleValidator(role=ROLE_KMIMEETING_CHANGE)]&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;fieldValueValidator(fieldproperty=isNotify,value=true)" />
+			<!-- 维护界面 -->
+			<query
+				queryString="method=manageList"
+				validator="fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<!-- 转移模板按钮 -->
+			<query
+				queryString="method=changeTemplate&amp;nodeType=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_CHANGETEMPLATE)&amp;[fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 转移模板提交 -->
+			<query
+				queryString="method=changeTemplate&amp;categoryId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_CHANGETEMPLATE)" />
+		</request>
+		
+		<!-- 会议纪要文档权限 -->
+		<request
+			path="km_imeeting_summary/kmImeetingSummary*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingSummary,templatemodel=com.landray.kmss.km.imeeting.model.KmImeetingTemplate">
+			<query
+				queryString="method=operateSummary"
+				validator="fieldValueValidator(recid=meetingId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain,fieldproperty=docStatus,value=30)" />
+			<!-- 新建 -->
+			<query
+				queryString="method=add&amp;meetingId=*"
+				validator="fieldValueValidator(recid=meetingId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain,fieldproperty=docStatus,value=30)" />
+			<!-- 新建会议纪要 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_SUMMARY_CREATE)&amp;authCategoryReaderValidator(templateid=fdTemplateId)" />
+			<!-- 阅读会议纪要 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authCategoryEditorValidator(property=fdTemplate)" />
+			<!-- 编辑会议纪要 -->
+			<query
+				queryString="method=edit|update"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10;11)&amp;authFieldValidator(type=creator)|authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30)&amp;roleValidator(role=ROLE_KMIMEETING_SUMMARY_EDITOR)&amp;[authCategoryEditorValidator(property=fdTemplate,role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_MEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 删除会议纪要 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|roleValidator(role=ROLE_KMIMEETING_DELETE)&amp;[authCategoryEditorValidator(property=fdTemplate,role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 删除所有会议纪要草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+			<!-- 删除所有会议纪要其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMIMEETING_DELETE)&amp;[roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)|fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)]" />
+			<!-- 维护界面 -->
+			<query
+				queryString="method=manageList"
+				validator="fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<!-- 转移模板按钮 -->
+			<query
+				queryString="method=changeTemplate&amp;nodeType=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_CHANGETEMPLATE)&amp;[fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 转移模板提交 -->
+			<query
+				queryString="method=changeTemplate&amp;categoryId=*"
+				validator="roleValidator(role=ROLE_KMIMEETING_CHANGETEMPLATE)" />
+		</request>
+		
+		<request
+			path="km_imeeting_main_history/kmImeetingMainHistory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingMainHistory">
+		</request>
+
+		<request
+			path="km_imeeting_stat/kmImeetingStat*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingStat">
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+		</request>
+
+		<request
+			path="km_imeeting_agenda/kmImeetingAgenda*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingAgenda">
+		</request>
+
+		<request
+			path="km_imeeting_main_feedback/kmImeetingMainFeedback*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.imeeting.model.KmImeetingMainFeedback">
+		</request>
+		
+		<!-- 会议室资源过滤器 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingRes">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMIMEETING_RES_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docKeeper.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		
+		<!-- 会议模板 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingTemplate">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)" />	
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_KMIMEETING_CATEGORY_MAINTAINER)" />				
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		
+		<!-- 会议设备 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingDevice">
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)" />
+		</filters>	
+		
+		<!-- 会议预约过滤器 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingBook">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>		
+		
+		<!-- 会议安排过滤器 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="emcee"
+				expression="authFieldFilter(field=fdEmcee.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMIMEETING_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		
+		<!-- 会议纪要过滤器 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingSummary">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMIMEETING_SUMMARY_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		
+		<!-- 会议统计 -->
+		<filters
+			modelName="com.landray.kmss.km.imeeting.model.KmImeetingStat">
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+		</filters>
+		
+	</module>
+	
+	<!-- 搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.imeeting.model.KmImeetingMain"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+		</request>
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!--发布机制权限-->
+	<module
+		messageKey=""
+		urlPrefix="/sys/news/">
+		<request path="sys_news_publish_main/sysNewsPublishMain_viewManualFrame.jsp*">
+			<query
+				queryString="fdModelNameParam=com.landray.kmss.km.imeeting.model.KmImeetingMain"
+				validator="roleValidator(role=ROLE_KMIMEETING_MANUALPUBLISH,recid=fdModelIdParam,model=com.landray.kmss.km.imeeting.model.KmImeetingMain)" />
+		</request>
+	</module>
+	
+	<!-- 传阅权限 -->
+	<module messageKey="" urlPrefix="/sys/circulation/">
+		<request path="sys_circulation_main/sysCirculationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingMain&amp;method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMIMEETING_CIRCULATION_CREATE,recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingMain&amp;method=delete"
+				validator="roleValidator(role=ROLE_KMIMEETING_CIRCULATION_DELETE,recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingMain)&amp;[authCategoryEditorValidator(property=fdTemplate,model=com.landray.kmss.km.imeeting.model.KmImeetingMain,recid=fdModelId)|roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingMain"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingSummary&amp;method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMIMEETING_CIRCULATION_CREATE,recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingSummary)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingSummary,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingSummary&amp;method=delete"
+				validator="roleValidator(role=ROLE_KMIMEETING_CIRCULATION_DELETE,recid=fdModelId,model=com.landray.kmss.km.imeeting.model.KmImeetingSummary)&amp;[authCategoryEditorValidator(property=fdTemplate,model=com.landray.kmss.km.imeeting.model.KmImeetingSummary,recid=fdModelId)|roleValidator(role=ROLE_KMIMEETING_RES_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMIMEETING_OPTALL)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">			
+			<query
+				queryString="fdModelName=com.landray.kmss.km.imeeting.model.KmImeetingTemplate"
+				validator="roleValidator(role=ROLE_KMIMEETING_SETTING)" />
+		</request>
+	</module>
+	
+	<!-- 通用编号规则设置权限 -->
+	<module urlPrefix="/sys/number/">
+		<request path="sys_number_main/sysNumberMain*">
+			<query
+			    queryString="method=list|add|edit|update|delete&amp;isCustom=2&amp;modelName=com.landray.kmss.km.imeeting.model.KmImeetingMain" 
+				validator="roleValidator(role=ROLE_KMIMEETING_SETTING)"/>
+		</request>
+	</module>
+	
+	<!-- 参数设置 -->
+	<module messageKey="" urlPrefix="/sys/appconfig/">
+		<request path="sys_appconfig/sysAppConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.km.imeeting.model.KmImeetingConfig"
+				validator="roleValidator(role=ROLE_KMIMEETING_SETTING)" />
+		</request>
+	</module>
+	
+	<!-- 全文搜索 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.imeeting.model.KmImeetingMain"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+			<query
+				queryString="modelName=com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+				validator="roleValidator(role=ROLE_KMIMEETING_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 过期会议待办清理定时任务 -->
+	<quartz
+		cronExpression="0 0 5 * * ?"
+		jobService="kmImeetingMainService"
+		jobMethod="deleteExpiredTodo"
+		messageKey="km-imeeting:kmImeeting.expiredMeeting.quartz" />
+	
+	<!-- 催办会议纪要 -->
+	<quartz
+		cronExpression="0 0 5 * * ?"
+		jobService="kmImeetingSummaryService"
+		jobMethod="hastenMeetingSummary"
+		messageKey="km-imeeting:kmImeeting.hastenSummary.quartz" />
+	
+	<!-- 催办会议组织人召开会议定时任务 -->
+	<quartz
+		cronExpression="0 0 2 * * ?"
+		messageKey="km-imeeting:kmImeetingTemplate.notifyEmceeQuartz"
+		jobService="kmImeetingTemplateService"
+		jobMethod="doNotifyEmceeToDo"
+		enable="true"
+		runType="SINGLENODE" />
+		
+	<search 
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingMain" 
+		messageKey="km-imeeting:kmImeetingMain.search"
+		resultProperties="fdName;fdHoldDate;fdFinishDate;fdOtherHostPerson;fdOtherAttendPerson;fdOtherParticipantPerson;fdRemark;docCreateTime;docCreator;fdEmcee;fdSummaryInputPerson;fdHost;fdAttendPersons;fdParticipantPersons;fdCopyToPersons"/>
+		
+	<search 
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingSummary" 
+		messageKey="km-imeeting:KmImeetingSummary.search"
+		resultProperties="fdName;docCreateTime;fdHoldDate;fdFinishDate;fdOtherPlace;fdOtherHostPerson;docContent"/>
+		
+	<!-- 主文档全文检索 -->
+	<ftSearch
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+		boost="2.0"
+		timeField="docCreateTime">
+		<luceneField
+			name="subject"
+			property="fdName"
+			type="text" />
+		<luceneField
+			name="category"
+			property="fdTemplate.docCategory.fdHierarchyId"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+	</ftSearch>
+	
+	<!-- 纪要全文检索 -->
+	<ftSearch
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+		boost="2.0"
+		timeField="docCreateTime">
+		<luceneField
+			name="subject"
+			property="fdName"
+			type="text" />
+		<luceneField
+			name="category"
+			property="fdTemplate.docCategory.fdHierarchyId"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+	</ftSearch>
+	
+	<homePage
+		urlPrefix="km/imeeting"
+		url="/km/imeeting/index.jsp"
+		messageKey="km-imeeting:module.km.imeeting" 
+		config="/moduleindex_notopic.jsp?nav=/km/imeeting/tree.jsp"/>
+		
+	 <!-- 会议类别管理配置 -->
+	<categoryMng
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingTemplate"
+		messageKey="km-imeeting:tree.template.title"
+		serviceName="kmImeetingTemplateTreeService"
+		adminRoleName="ROLE_KMIMEETING_CATEGORY_MAINTAINER" />
+		
+	<!-- 会议主文档流程 -->
+	<flowDef
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+		templateModelName="com.landray.kmss.km.imeeting.model.KmImeetingTemplate"
+		key="ImeetingMain"
+		templatePropertyName="fdTemplate"
+		messageKey="km-imeeting:kmImeetingTemplate.mainflow"
+		moduleMessageKey="km-imeeting:module.km.imeeting"
+		type="oa" />
+	
+	<!-- 会议纪要流程 -->
+	<flowDef
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingSummary"
+		templateModelName="com.landray.kmss.km.imeeting.model.KmImeetingTemplate"
+		key="ImeetingSummary"
+		templatePropertyName="fdTemplate"
+		messageKey="km-imeeting:kmImeetingTemplate.summaryTemplate"
+		moduleMessageKey="km-imeeting:module.km.imeeting"
+		type="oa" />
+
+</configs>

@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	    <mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveType.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveAttTrack.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveUnitCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveUnit.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSecretGrade.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveEmergencyGrade.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSignTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSendTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveReceiveTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveTemplateCfg.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveRedHeadTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSignRedHeadTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSendMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveReceiveMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSignMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveReturnOpinion.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveSignRelation.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveReg.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imissive/model/KmImissiveRegDetailList.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

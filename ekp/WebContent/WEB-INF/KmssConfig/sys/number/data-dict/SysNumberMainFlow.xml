@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.number.model.SysNumberMainFlow"
+		messageKey="sys-number:table.sysNumberMainFlow"
+		displayProperty="fdId"
+		serviceBean="sysNumberMainFlowService"
+		table="sys_number_main_flow"
+		url="/sys/number/sys_number_main_flow/sysNumberMainFlow.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdContentSimple"
+			messageKey="sys-number:sysNumberMainFlow.fdContentSimple"
+			type="String"
+			column="fd_content_simple"
+			notNull="false"
+			length="5000"
+			validate="false" 
+			canSearch="false"
+			/>
+
+		<simpleProperty
+			name="fdFlowNum"
+			messageKey="sys-number:sysNumberMainFlow.fdFlowNum"
+			type="Integer"
+			column="fd_flow_num"
+			notNull="false"
+			length="10"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdVirtualNumberValue"
+			messageKey="sys-number:sysNumberMainFlow.fdVirtualNumberValue"
+			type="String"
+			column="fd_virtual_number_value"
+			notNull="false"
+			length="200"
+			validate="false" />
+		
+		<simpleProperty
+			name="fdLimits"
+			messageKey="sys-number:sysNumberMainFlow.fdLimits"
+			type="String"
+			column="fd_limits"
+			notNull="false"
+			length="200"
+			validate="false" />
+		
+		<modelProperty
+			name="fdNumberMain"
+			messageKey="sys-number:sysNumberMainFlow.fdNumberMain"
+			type="com.landray.kmss.sys.number.model.SysNumberMain"
+			column="fd_number_main_id"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

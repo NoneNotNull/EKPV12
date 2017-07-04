@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchCategoryModel.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchChineseLegend.hbm.xml" />
+		<!-- 
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchSynonymsSet.hbm.xml" />
+		 -->
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchSynonym.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchParticipleCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchParticiple.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchAnalysis.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchReadLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchHotword.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchWord.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchMultisystem.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchModelgroup.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/TattEkpSys.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchFacet.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchUserParticiple.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/ftsearch/expand/model/SysFtsearchAmbParticiple.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 主文档权限变更事件 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmMainModelRightChangeEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmext:lbmp.eventType.lbpmMainModelRightChangeEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmext.mainmodel.LbpmMainModelRightChangeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmext.mainmodel.LbpmMainModelRightChangeEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

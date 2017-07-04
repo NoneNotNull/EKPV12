@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" kind="string" required="true">
+				<description>中文显示资源名</description>
+			</param>
+			<param name="moduleKey" kind="string" required="false">
+				<description>所属模块名称</description>
+			</param>
+			<param name="className" kind="string" required="true">
+				<description>操作类名</description>
+			</param>
+			<param name="operateMethod" kind="string" required="true">
+				<description>方法名</description>
+			</param>
+			<param name="modelName" kind="string" required="true">
+				<description>modelName</description>
+			</param>
+			<param name="type" kind="int" required="false">
+				<description>日志类型：1:文档维护,2:分类维护,3:文档应用,4:问答维护,5:搜索,6:其它,7:爱问回复日志</description>
+			</param>
+			<param name="logServiceBean" kind="string" required="false">
+				<description>日志处理bean,自定义写日志</description>
+			</param>
+			<description>日志类型</description>
+		</item>
+		<item name="log.module">
+			<param name="fdKey" required="true" kind="string">
+				<description>模块key </description>
+			</param>
+			<param name="moduleName" required="true" kind="string">
+				<description>模块名称 </description>
+			</param>
+			<param name="categoryField" kind="string" required="false">
+				<description>日志内容所属分类字段</description>
+			</param>
+			<description>注册统计日志的模块</description>
+		</item>
+		<description>配置KMS日志</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLogType.read"/>
+			<param name="className" value="com.landray.kmss.sys.readlog.service.spring.SysReadLogServiceImp"/>
+			<param name="operateMethod" value="read"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge,com.landray.kmss.kms.wiki.model.KmsWikiMain,com.landray.kmss.kms.kmaps.model.KmsKmapsMain,com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="3"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLogType.introduce"/>
+			<param name="className" value="com.landray.kmss.sys.introduce.service.spring.SysIntroduceMainServiceImp"/>
+			<param name="operateMethod" value="introduce"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge,com.landray.kmss.kms.wiki.model.KmsWikiMain,com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="3"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLogType.evaluation"/>
+			<param name="className" value="com.landray.kmss.sys.evaluation.service.spring.SysEvaluationMainServiceImp"/>
+			<param name="operateMethod" value="evaluation"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge,com.landray.kmss.kms.wiki.model.KmsWikiMain,com.landray.kmss.kms.kmaps.model.KmsKmapsMain,com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="3"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.config.loader.extend">
+		<item name="frameworkExtend">
+			<param name="fileSuffix" value="log"></param>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/kms/log/logConfig.jsp" />
+			<param name="type" value="application" />
+			<param name="order" value="80" />
+		</item>
+	</extension>
+</plugin>

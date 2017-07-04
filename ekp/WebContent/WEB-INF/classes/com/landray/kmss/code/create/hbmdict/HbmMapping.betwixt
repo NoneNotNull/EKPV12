@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info primitiveTypes="attribute">
+	<element name="hibernate-mapping">
+		<element
+			name="class"
+			property="classes" />
+		<element
+			name="subclass"
+			property="subclasses" />
+		<addDefaults />
+	</element>
+</info>

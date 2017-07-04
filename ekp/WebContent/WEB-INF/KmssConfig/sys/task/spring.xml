@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="sysTaskMainDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskMain" />
+	</bean>
+	<bean id="sysTaskMainTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskMainDao" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="sysTaskFeedbackService">
+			<ref local="sysTaskFeedbackService" />
+		</property>
+		<property name="sysQuartzCoreService">
+			<ref bean="sysQuartzCoreService" />
+		</property>
+		<property
+				name="backgroundAuthService">
+			<ref
+				bean="backgroundAuthService" />
+	    </property>
+	</bean>
+	<bean id="sysTaskMainService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskMainTarget"/>
+		</property>
+	</bean>
+	<bean id="sysTaskMainPortletService"
+  		class="com.landray.kmss.sys.task.service.spring.SysTaskMainPortletService">
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService"/>
+		</property>
+	</bean>
+	<bean id="sysTaskFeedbackDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskFeedbackDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskFeedback" />
+	</bean>
+	<bean id="sysTaskFeedbackTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskFeedbackServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskFeedbackDao" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean id="sysTaskFeedbackService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskFeedbackTarget"/>
+		</property>
+	</bean>
+
+	<bean id="sysTaskEvaluateDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskEvaluateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskEvaluate" />
+	</bean>
+	<bean id="sysTaskEvaluateTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskEvaluateServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskEvaluateDao" />
+		</property>
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService" />
+		</property>
+	</bean>
+	<bean id="sysTaskEvaluateService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskEvaluateTarget"/>
+		</property>
+	</bean>
+
+	<bean id="sysTaskCategoryDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskCategory" />
+	</bean>
+	<bean id="sysTaskCategoryTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskCategoryDao" />
+		</property>
+	</bean>
+	<bean id="sysTaskCategoryService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskCategoryTarget"/>
+		</property>
+	</bean>
+	<bean id="sysTaskGetCategoryService"
+		class="com.landray.kmss.sys.task.service.spring.SysTaskGetCategoryService">
+		<property name="sysTaskCategoryService">
+			<ref local="sysTaskCategoryService" />
+		</property>
+	</bean>
+	<bean id="sysTaskApproveDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskApproveDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskApprove" />
+	</bean>
+	<bean id="sysTaskApproveTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskApproveServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskApproveDao" />
+		</property>
+	</bean>
+	<bean id="sysTaskApproveService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskApproveTarget"/>
+		</property>
+	</bean>
+	<bean id="sysTaskMainCalendarAttentionService" 
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskMainCalendarAttentionServiceImp">
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService" />
+		</property>
+	</bean>
+	<bean id="sysTaskMainCalendarService" 
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskMainCalendarServiceImp">
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService" />
+		</property>
+	</bean>
+	
+	<bean id="sysTaskAnalyzeDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskAnalyzeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskAnalyze" />
+	</bean>
+	<bean id="sysTaskAnalyzeTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskAnalyzeServiceImp">
+		<property name="baseDao">
+			<ref local="sysTaskAnalyzeDao" />
+		</property>
+	</bean>
+	<bean id="sysTaskAnalyzeService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskAnalyzeTarget"/>
+		</property>
+	</bean>
+	
+	<bean id="sysTaskOverruleDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.task.dao.hibernate.SysTaskOverruleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.task.model.SysTaskOverrule" />
+	</bean>
+	<bean id="sysTaskOverruleTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskOverruleServiceImp">
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="baseDao">
+			<ref local="sysTaskOverruleDao" />
+		</property>
+	</bean>
+	<bean id="sysTaskOverruleService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTaskOverruleTarget"/>
+		</property>
+	</bean>
+	
+	<bean id="sysTaskMainTreeService" 
+   		class="com.landray.kmss.sys.task.service.spring.SysTaskMainTreeServiceImp">
+		<property name="sysTaskMainService">
+			<ref local="sysTaskMainService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysTaskDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sysTaskMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+</beans>

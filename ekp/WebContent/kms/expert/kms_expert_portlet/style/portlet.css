@@ -1,0 +1,54 @@
+.lui_expert_box_2 {
+	padding-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 10px;
+	margin: 10px 0 6px ;
+	width: 100%;	
+	float: left;
+	position:relative;
+}
+
+.lui_expert_askBtn_2{
+	width: 53px;
+	height: 18px;
+	padding: 0 5px;
+	line-height: 18px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #47b5e6;
+	background-color: #47b5e6;
+	display: block;
+}
+a.lui_expert_askBtn_2:hover {
+	color: #fff;
+	background-color: #3e9ece;
+}
+.lui_expert_box_2 ul {
+	/* width:250px;*/
+	 list-style: none;
+}
+.lui_expert_box_2 ul li{
+	margin-bottom: 3px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	height:19px;
+	white-space:nowrap;
+}
+.lui_expert_box_2 ul li:last-child{ height:22px;}
+a.lui_expert_img {
+	display:block;
+	height:105px;
+	width:102px;
+	border: 1px solid #d9d9d9;
+	margin-right: 5px;
+	float:left;
+	padding:2px;
+}
+a.lui_expert_img img {
+	display:none;
+    overflow:hidden; 
+    /*visibility: hidden;*/
+}
+.lui_expert_bottom_border {
+	border-bottom: 1px dotted #8d8d8d;
+}

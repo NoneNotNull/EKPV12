@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.property.model.SysPropertyCategory"
+		messageKey="sys-property:table.sysPropertyCategory"
+		displayProperty="fdName"
+		serviceBean="sysPropertyCategoryService"
+		table="sys_property_category"
+		url="/sys/property/sys_property_category/sysPropertyCategory.do?method=edit&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-property:sysPropertyCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-property:sysPropertyCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-property:sysPropertyCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-property:sysPropertyCategory.docCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="sys-property:sysPropertyCategory.authReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_knowledge_cate_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="sys-property:sysPropertyCategory.authEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_knowledge_cate_editor"
+			inverse="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="sys-property:sysPropertyCategory.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="36"
+			validate="true" />
+	</model>
+</models>

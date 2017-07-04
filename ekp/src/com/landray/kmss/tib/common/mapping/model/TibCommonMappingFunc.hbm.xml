@@ -1,0 +1,76 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+		table="tib_common_mapping_func">
+		<id name="fdId" column="fd_id" length="36">
+			<generator class="assigned" />
+		</id>
+		<property name="fdTemplateId" column="fd_template_id" update="true"
+			insert="true" length="36" not-null="false" />
+		<property name="fdInvokeType" column="fd_invoke_type" update="true"
+			insert="true" length="4" not-null="false" />
+
+
+		<!-- 集成类型 -->
+		<property name="fdIntegrationType" column="fd_integration_type" update="true" insert="true"
+			not-null="false" />
+
+
+
+		<property name="fdOrder" column="fd_order" update="true"
+			insert="true" length="4" not-null="false" />
+
+		<property name="fdFuncMark" column="fd_func_mark" update="true"
+			insert="true" length="1000" not-null="false" />
+
+		<property name="fdRfcParamXml" column="fd_rfc_param_xml"
+			update="true" insert="true" type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" length="1000000" not-null="false" />
+
+		<property name="fdJspSegmen" column="fd_jsp_segmen" update="true"
+			insert="true" type="com.landray.kmss.common.dao.ClobStringType" lazy="true"
+			length="1000000" not-null="false" />
+		<property name="fdJspSegmentActual" column="fd_jsp_segment_actual" update="true"
+			insert="true" type="com.landray.kmss.common.dao.ClobStringType" lazy="true"
+			length="1000000" not-null="false" />
+		<property name="fdUse" column="fd_use" update="true" insert="true"
+			not-null="false" />
+		
+		<!-- *********************综合外键关联********************************** -->
+			<!--<many-to-one name="fdRfcSetting" column="fd_rfc_setting_id"
+			insert="true" update="true" not-null="false" />
+
+		 // 2012-08-11 添加字段 
+		--><!--<many-to-one name="fdWsServiceMain" column="fd_ws_service_main_id"
+			insert="true" update="true" not-null="false" />
+			
+		
+		--><!--<many-to-one name="tibCommonMappingBaseSetting" column="erp_ekp_setting_id"
+			insert="true" update="true" not-null="false" />
+		-->
+		
+		<!--<many-to-one name="tibCommonMappingBaseSetting" column="erp_ekp_setting_id"
+			insert="true" update="true" not-null="false" />
+		
+		-->
+		<property name="fdRefId" column="fd_ref_id" update="true" insert="true"
+			not-null="false" />
+		
+		<property name="fdRefName" column="fd_ref_name" update="true" insert="true"
+			not-null="false" />	
+		<!-- ******************************************************* -->
+		
+		<many-to-one name="fdMain" column="fd_main_id" insert="true"
+			update="true" not-null="false" />
+
+		<bag name="fdExtend" inverse="true" cascade="all-delete-orphan" lazy="true">
+			<key column="fd_ref_id" />
+			<one-to-many class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFuncExt" />
+		</bag>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFuncExt"
+		table="tib_common_mapping_func_ext">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		
+		<property
+			name="fdExceptionType"
+			column="fd_exception_type"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+
+		<property
+			name="fdIsIgnore"
+			column="fd_is_ignore"
+			update="true"
+			insert="true"
+			length="4"
+			not-null="true" />
+
+		<property
+			name="fdIsAssign"
+			column="fd_is_assign"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdAssignField"
+			column="fd_assign_field"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+			
+		<property
+			name="fdAssignVal"
+			column="fd_assign_val"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdAssignFieldid"
+			column="fd_assign_fieldid"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+
+		<many-to-one
+			name="fdRef"
+			column="fd_ref_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

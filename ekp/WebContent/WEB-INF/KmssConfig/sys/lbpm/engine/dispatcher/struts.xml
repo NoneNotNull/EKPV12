@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="lbpmWorkerServerForm"
+			type="com.landray.kmss.sys.lbpm.engine.dispatcher.config.forms.LbpmWorkerServerForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/lbpm/engine/dispatcher/lbpmWorkerServer"
+			type="com.landray.kmss.sys.lbpm.engine.dispatcher.config.actions.LbpmWorkerServerAction"
+			name="lbpmWorkerServerForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpm/engine/dispatcher/lbpmWorkerServer_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpm/engine/dispatcher/lbpmWorkerServer_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpm/engine/dispatcher/lbpmWorkerServer_list.jsp" />
+		</action>
+	</action-mappings>
+	
+	<message-resources
+		parameter="com.landray.kmss.sys.lbpm.engine.dispatcher.config.ApplicationResources"
+		key="sys-lbpm-engine-dispatcher" />
+	
+</struts-config>

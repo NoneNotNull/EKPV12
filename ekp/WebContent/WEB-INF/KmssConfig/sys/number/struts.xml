@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysNumberMainMappForm"
+			type="com.landray.kmss.sys.number.forms.SysNumberMainMappForm" />
+		<form-bean
+			name="sysNumberMainFlowForm"
+			type="com.landray.kmss.sys.number.forms.SysNumberMainFlowForm" />
+		<form-bean
+			name="sysNumberMainForm"
+			type="com.landray.kmss.sys.number.forms.SysNumberMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/number/sys_number_main_mapp/sysNumberMainMapp"
+			type="com.landray.kmss.sys.number.actions.SysNumberMainMappAction"
+			name="sysNumberMainMappForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/number/sys_number_main_mapp/sysNumberMainMapp_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/number/sys_number_main_mapp/sysNumberMainMapp_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/number/sys_number_main_mapp/sysNumberMainMapp_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/number/sys_number_main_flow/sysNumberMainFlow"
+			type="com.landray.kmss.sys.number.actions.SysNumberMainFlowAction"
+			name="sysNumberMainFlowForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/number/sys_number_main_flow/sysNumberMainFlow_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/number/sys_number_main_flow/sysNumberMainFlow_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/number/sys_number_main_flow/sysNumberMainFlow_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/number/sys_number_main/sysNumberMain"
+			type="com.landray.kmss.sys.number.actions.SysNumberMainAction"
+			name="sysNumberMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/number/sys_number_main/sysNumberMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/number/sys_number_main/sysNumberMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/number/sys_number_main/sysNumberMain_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

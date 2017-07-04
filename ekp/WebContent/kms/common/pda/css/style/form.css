@@ -1,0 +1,86 @@
+.lui-input-select,.lui-input {
+	position: relative;
+	margin: 10px 0;
+}
+
+.lui-input-select input {
+	padding: 2px;
+	height: 20px;
+	border: 0px;
+	border-bottom: 1px solid #b4b4b4;
+	background-color: inherit;
+	width: 100%;
+}
+
+.lui-input-select span {
+	width: 0;
+	height: 0;
+	border-right: 7px solid #b4b4b4;
+	border-bottom: 5px solid #b4b4b4;
+	border-top: 5px solid transparent;
+	border-left: 7px solid transparent;
+	position: relative;
+	right: 0;
+	position: absolute;
+	bottom: 5px
+}
+
+.lui-input input {
+	padding: 2px 0px;
+	height: 20px;
+	border: 0px;
+	border-bottom: 1px solid #b4b4b4;
+	background-color: inherit;
+	width: 100%;
+}
+
+.lui-content-section {
+	padding: 0 10px;
+	background: #fff;
+	position: absolute;
+	top: 0;
+	bottom: 50px;
+	left: 0;
+	right: 0;
+	overflow: auto;
+	/*z-index: -1;*/
+}
+
+.validation-advice,.lui_validate {
+	clear: both;
+	margin: 5px 0 0 0 ;
+	background-color: #fff5d8;
+	border: 1px solid #e0a385;
+}
+
+.lui_validate {
+	cursor: pointer;
+}
+
+.validation-table {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.validation-table td {
+	text-align: left;
+	font-size: 12px;
+	border: 0px;
+	margin: 0px !important;
+	padding: 0px 2px !important;
+	line-height: 18px;
+	vertical-align: middle;
+}
+
+.validation-table td:FIRST-CHILD {
+	width: 18px !important;
+}
+
+.validation-advice-msg {
+	font-weight: bold;
+}
+
+.validation-advice-msg .validation-advice-title {
+	color: #cc0000 !important;;
+	font-weight: bolder;
+}

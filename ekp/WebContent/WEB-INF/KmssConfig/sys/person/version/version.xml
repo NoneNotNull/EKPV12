@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 个人空间入口新增个人社区判断</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 个人设置保存后不自动关闭窗口</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-26</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人设置链接目标窗口无效问题</description>
+			<author>傅游翔</author>
+			<revision-time>2015-01-08</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心支持多子系统部署</description>
+			<author>李勇</author>
+			<revision-time>2014-12-08</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 fixed组件</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie8下js不支持输出日志函数的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 当分类删除后，常用分类依然存在，并且无法删除</description>
+			<author>傅游翔</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 非默认样式下，导航设置中点击系统引入，翻页控件不能完整显示出来</description>
+			<author>傅游翔</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 窗口标签设置页面点击删除报错</description>
+			<author>傅游翔</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 默认个人门户展现模版根据屏幕大小自适应问题</description>
+			<author>李勇</author>
+			<revision-time>2014-10-08</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于数据库和配置文件数据不一致导致的报错</description>
+			<author>傅游翔</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 左侧导航展开折叠记忆功能</description>
+			<author>傅游翔</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 用户打开过导航配置，管理员再修改导航推送实效问题</description>
+			<author>傅游翔</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 头像重定向导致需要重新登录问题，改为直接输出真实地址</description>
+			<author>傅游翔</author>
+			<revision-time>2014-06-21</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 常用链接只刷新筛选项，不刷新页面方式</description>
+			<author>傅游翔</author>
+			<revision-time>2014-06-20</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 判断是否属于注册链接，非注册链接直接使用原始链接</description>
+			<author>傅游翔</author>
+			<revision-time>2014-04-17</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAdminTransferTaskForm"
+			type="com.landray.kmss.sys.admin.transfer.forms.SysAdminTransferTaskForm" />
+		<form-bean
+			name="sysAdminTransferModuleForm"
+			type="com.landray.kmss.sys.admin.transfer.forms.SysAdminTransferModuleForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/admin/transfer/sys_admin_transfer_task/sysAdminTransferTask"
+			type="com.landray.kmss.sys.admin.transfer.actions.SysAdminTransferTaskAction"
+			name="sysAdminTransferTaskForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/admin/transfer/sys_admin_transfer_task/sysAdminTransferTask_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/admin/transfer/sys_admin_transfer_task/sysAdminTransferTask_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/admin/transfer/sys_admin_transfer_task/sysAdminTransferTask_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/admin/transfer/sys_admin_transfer_module/sysAdminTransferModule"
+			type="com.landray.kmss.sys.admin.transfer.actions.SysAdminTransferModuleAction"
+			name="sysAdminTransferModuleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/admin/transfer/sys_admin_transfer_module/sysAdminTransferModule_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/admin/transfer/sys_admin_transfer_module/sysAdminTransferModule_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/admin/transfer/sys_admin_transfer_module/sysAdminTransferModule_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

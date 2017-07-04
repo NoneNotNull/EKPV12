@@ -1,0 +1,576 @@
+﻿.lui_portlet_operations {
+	text-align: right;
+	padding-right: 10px;
+	font-size:14px;
+}
+.lui_portlet_operation {
+	display: inline-block;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	text-decoration:underline;
+	cursor:pointer;
+}
+.lui_portlet_operation span {
+	vertical-align: middle;
+	padding-left: 3px;
+} 
+[data-lui-type='lui/panel!Content'] {
+	padding: 8px;
+}
+.lui_panel_nonecontent {
+	padding: 0px;
+}
+/*/////////////////////accordionpanel//////////////////////////*/
+.lui_accordionpanel_content_inside { 
+}
+
+/** 可折叠面板  **/
+.lui_accordionpanel_frame 
+{
+    background-color:#fff; height:100%;
+}
+.lui_accordionpanel_header_c {
+	background-color: #4eb7ee;
+	line-height: 35px;	
+	height: 35px;
+}
+.lui_accordionpanel_header_c:hover{ background:#30a4dc;}
+.lui_accordionpanel_nav_c{
+	position:relative;
+}
+.lui_accordionpanel_nav_text {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	width: 80%;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.lui_accordionpanel_toggle_up {
+	position:absolute;
+	top:0px;
+	right:0px;
+	float: right;
+	cursor: pointer;
+	background: url(../images/panel/toggle1.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_accordionpanel_toggle_down {
+	float: right;
+	cursor: pointer;
+	background: url(../images/panel/toggle2.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.lui_accordionpanel_content_frame{  border-bottom:1px solid #fff}
+.lui_accordionpanel_content_c {
+	background-color: #FFFFFF;
+}
+/** float **/
+
+.lui_accordionpanel_float_content {
+	margin-top:20px;
+	background-color: white;
+	border: #5d9ad0 1px solid
+}
+.lui_accordionpanel_float_header_title 
+{
+    padding:10px 10px 0px 10px;
+	position: relative;
+}
+.lui_accordionpanel_float_header_text  
+{
+    height:20px;
+    line-height:20px;
+    color:#54a3cc; 
+    font-size:14px;
+}
+.lui_accordionpanel_float_header_close {
+	position:absolute;
+	right:10px;
+	top:10px;
+	background: url('../images/panel/accordionpanel_close.png') no-repeat right center;
+	width: 20px;
+	height: 20px;
+	cursor:pointer;
+}
+
+.lui_accordionpanel_float_navs {
+	position: fixed;
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	height:40px;
+	background-color: #47b5e6;
+}
+.lui_accordionpanel_float_navs_l {
+	margin: 0px auto;
+	width: 980px;
+}
+.lui_accordionpanel_float_nav_item_before {
+	display: inline-block;
+	height: 40px;
+}
+.lui_accordionpanel_float_nav_item:first-child {	
+	border-left:#f3f1f2 1px solid;
+}
+.lui_accordionpanel_float_navs_c {
+	height: 39px;
+	line-height: 39px;
+}
+.lui_accordionpanel_float_nav_item {
+	border-right:#f3f1f2 1px solid;
+	display: inline-block;
+	vertical-align: top;
+	color:#fff;
+	height: 100%;
+}
+.lui_accordionpanel_float_nav_item_l {
+	vertical-align: top;
+	cursor: pointer;
+	padding-left: 12px;
+	padding-right: 12px;
+	height: 100%;
+}
+.selected .lui_accordionpanel_float_nav_item_l{
+	vertical-align: top;
+	cursor: pointer;
+	background-color: white;
+	padding-left: 12px;
+	padding-right: 12px;
+	color:#46b6e6; 
+	font-weight:bold; 
+	border-bottom: #45b3e4 1px solid;
+	height: 100%;
+}
+.lui_accordionpanel_float_nav_item_after {
+	display: inline-block;
+	height: 40px;
+	border-left: #f3f1f2 1px solid;
+}
+.lui_accordionpanel_float_content_c .lui_panel_content_inside { 
+}
+/*/////////////////////tabpage//////////////////////////*/
+.lui_tabpage_content_inside { 
+}
+
+.lui_tabpage_frame {
+}
+.lui_tabpage_header_c {
+	background-color: #35a9dc;
+	line-height: 35px;	
+	height: 35px;
+}
+.lui_tabpage_nav_text {
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+.lui_tabpage_toggle_up {
+	float: right;
+	cursor: pointer;
+	background: url(../images/panel/toggle1.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_tabpage_toggle_down {
+	float: right;
+	cursor: pointer;
+	background: url(../images/panel/toggle2.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.lui_tabpage_content_c {
+	background-color: #FFFFFF;
+}
+.lui_tabpage_float_content {
+	margin-top:20px;
+	background-color: white;
+	
+}
+.lui_tabpage_float_header_l
+{
+    border-bottom: #c2e2ef 1px solid
+    }
+.lui_tabpage_float_content:FIRST-CHILD {
+	margin-top: 0px !important;
+}
+.lui_tabpage_float_header_title 
+{
+    padding:6px 10px 6px 16px;
+	position: relative;
+}
+.lui_tabpage_float_header_text  
+{
+    height:20px;
+    line-height:20px;
+    color:#52a4c9; 
+    font-size:15px;
+    font-weight:bold;
+}
+.lui_tabpage_float_header_text>div{ font-size:15px;}
+.lui_tabpage_float_header_close {
+	position:absolute;
+	right:10px;
+	top:10px;
+	background: url('../images/panel/accordionpanel_close.png') no-repeat right center;
+	width: 20px;
+	height: 20px;
+	cursor:pointer;
+}
+
+.lui_tabpage_float_navs {
+	position: fixed;
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	height:41px;
+	padding-top:4px;
+	z-index:5;
+	background: url('../images/panel/tabpage_float_navs_bg.png') repeat-x;
+}
+.lui_tabpage_float_navs_mark {	
+	position: fixed;
+	bottom: 0px;
+	left:0px;
+	right:0px;
+	height:41px;
+	z-index:4;
+	width: 100%;
+	border: 0px;
+}
+.lui_tabpage_float_navs_c {
+	margin: 0px auto;
+	width:90%;
+}
+.lui_tabpage_float_nav_item_before {
+	display: inline-block;
+	height: 40px;
+}
+.lui_tabpage_float_navs_c {
+	height: 36px;
+	line-height:36px;
+	 margin-top:5px;
+}
+.lui_tabpage_float_nav_item {
+	display: inline-block;
+	vertical-align: top;
+	height: 36px;
+	background-color:#f2f2f2;
+	margin-right:5px;
+	min-width:88px;
+	font-size:14px;
+	font-weight:bold;
+	border:1px solid #d3d3d3;
+	 color:#57c0ef;
+}
+.lui_tabpage_float_navs_c .selected{  border:none; color:#fff; }
+.lui_tabpage_float_nav_item_l {
+	vertical-align: top;
+	cursor: pointer;
+	padding-left: 12px;
+	padding-right: 12px;
+	height: 100%;
+	min-width:48px;
+}
+.lui_tabpage_float_nav_item:hover{ color:#1b84d5;}
+.lui_tabpage_float_nav_item_c{ text-align:center; font-size:14px;}
+.lui_tabpage_float_nav_item_c>div{ font-size:14px;}
+.selected .lui_tabpage_float_nav_item_l{
+	vertical-align: top;
+	cursor: pointer;
+	padding-left: 12px;
+	padding-right: 12px;
+	background-color:#57c0ef;
+}
+.lui_tabpage_float_nav_item_after {
+	display: inline-block;
+	height: 40px;
+	border-left: #f3f1f2 1px solid;
+}
+.lui_tabpage_float_content_c{ padding:0px 6px;}
+.lui_tabpage_float_content_c .lui_panel_content_inside { 
+}
+/*/////////////////////singnpanel//////////////////////////*/
+/**====== 公共 ======**/
+.lui_panel_content_inside { 
+	text-overflow: ellipsis;
+}
+
+/**====== 默认单标签 ======**/
+.lui_panel_frame {
+}
+.lui_panel_navs_c {
+	font-size: 14px;
+	background-color: #51b6ec;
+	color: #FFFFFF;
+	line-height: 35px;
+	padding-left:10px;
+	vertical-align: middle;
+}
+.lui_panel_navs_item_l {
+	float: left;
+}
+.lui_panel_navs_item_c
+{
+	padding-left: 5px;
+	font-weight: bold;
+    font-size:14px;
+}
+.lui_panel_toggle {	
+	float: right;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	padding: 2px;
+}
+.lui_panel_toggle_up {
+	background: url(../images/panel/toggle1.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_panel_toggle_down {
+	background: url(../images/panel/toggle2.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}
+
+.lui_panel_content_c {
+	background-color: #FFFFFF;
+}
+
+/**====== 浅色单标签 ======**/
+.lui_panel_light_frame {
+}
+.lui_panel_light_navs_c {
+	font-size: 12px;
+	background:url(../images/panel/siglepanel_light_titlebg.png) repeat-x;
+	height: 33px;
+	color: #666664;
+	line-height: 33px;
+	vertical-align: middle;
+	font-weight:bold; 
+	padding-left:5px; 
+	border-bottom:1px solid #c3e3f2
+}
+.lui_panel_light_navs_item_l {
+	float: left;
+}
+.lui_panel_light_navs_item_c {
+	padding-left: 5px;
+	font-weight: bold;
+	font-size:14px;
+}
+.lui_panel_light_toggle {	
+	float: right;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+	padding: 2px;
+}
+.lui_panel_light_toggle_up {
+	background: url(../images/panel/toggle_light_1.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_panel_light_toggle_down {
+	background: url(../images/panel/toggle_light_2.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.lui_panel_light_content_c {
+	background-color: #FFFFFF;
+}
+.lui_panel_light_content_inside { 
+}
+
+/*/////////////////////默认多标签//////////////////////////*/
+.lui_tabpanel_frame {
+}
+.lui_tabpanel_navs_c {
+	font-size: 14px;
+	background-color: #51b6ec;
+	height: 35px;
+	color: #FFFFFF;
+	line-height: 35px;
+	/*padding-left:10px;*/
+	vertical-align: middle;
+}
+.lui_tabpanel_navs_item_l {
+	float: left;
+	overflow: hidden;
+	height: 35px;
+}
+.lui_tabpanel_navs_item_c
+{
+	word-break: break-all;
+	padding-left: 5px;
+    font-size:14px;
+}
+.lui_tabpanel_navs_item_c:hover{ color:#bcdcf5;}
+.lui_tabpanel_navs_item_selected .lui_tabpanel_navs_item_c {
+	background-color:#fff;
+	color:#636363;
+    font-weight:bold;
+}
+.lui_tabpanel_navs_item_c {
+	padding: 0px 10px;
+	cursor:pointer;
+}
+.lui_tabpanel_content_l {
+	background-color: #FFFFFF;
+}
+
+/**====== 浅色多标签 ======**/
+.lui_tabpanel_light_frame {
+}
+.lui_tabpanel_light_navs_c {
+	font-size: 12px;
+	background-color:#e7f4fc;
+	height: 33px;
+	color: #FFFFFF;
+	line-height: 35px;
+	padding-left:10px;
+	border-bottom:1px solid #c3e3f2;
+	vertical-align: middle;
+}
+.lui_tabpanel_light_navs_item_l {
+	float: left;
+	overflow: hidden;
+}
+.lui_tabpanel_light_navs_item_c{
+	padding-left: 5px;
+	margin-top:1px;
+	height:31px;
+	line-height:30px;
+    font-size:14px;
+	color:#333;
+}
+.lui_tabpanel_light_navs_item_c:hover{ color:#000;}
+.lui_tabpanel_light_navs_item_selected .lui_tabpanel_light_navs_item_c {
+	background-color:#fff;
+	color:#000;
+	border:1px solid #c3e3f2;
+	border-top-width:2px;
+	border-bottom:none;
+	font-weight:bold;
+}
+.lui_tabpanel_light_navs_item_c {
+	padding: 0px 10px;
+	cursor:pointer;
+}
+.lui_tabpanel_light_content_l {
+	background-color: #FFFFFF;
+	
+}
+
+/**====== 边线多标签 ======**/
+.lui_tabpanel_border_frame {
+	border: 2px #51b6ec solid;
+	background-color: #FFFFFF;
+}
+
+.lui_tabpanel_border_content_over {
+	background-color: #F9F9F9;
+}
+
+.lui_tabpanel_border_space, .lui_tabpanel_border_space_first {
+	padding:0px 3px;
+}
+.lui_tabpanel_border_title_c {
+	font-size: 14px;
+	font-weight: bold;
+	padding:5px;
+	border-bottom:1px #F0F0F0 solid;
+	margin:3px 3px 0px 3px;
+}
+/*@--分类导航--*/
+.lui_accordionpanel_slide_frame 
+{
+    background-color:#f3f3f3; height:100%;
+}
+.lui_accordionpanel_slide_header_c {
+	height: 34px;
+	line-height: 34px;
+	color: #484848;
+	background-color: #f3f3f3
+}
+
+.lui_accordionpanel_slide_nav_c{
+}
+
+.lui_accordionpanel_slide_nav_text {
+	font-size: 13px;
+	position: relative;
+	display: block;
+}
+.lui_accordionpanel_slide_nav_text a{ color:#1b84d5;
+	left: 30px;
+	right: 0;
+	position: absolute;
+	width: 70%;
+	display:block;
+	float:left;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.lui_accordionpanel_slide_nav_text a:hover{ color:#1b84d5;}
+.lui_accordionpanel_slide_text_down a{ color:#666;}
+.lui_accordionpanel_slide_toggle_up {
+	float: left;
+	cursor: pointer;
+	background: url(../images/panel/toggle_slideup.png);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_accordionpanel_slide_toggle_down {
+	float: left;
+	cursor: pointer;
+	background: url(../images/panel/toggle_slidedown.png);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}
+.lui_accordionpanel_slide_content_frame{ border-bottom:1px solid #fff }
+.lui_accordionpanel_slide_content_c {
+	background-color: #FFFFFF;
+	width: 100%;
+}
+
+.lui_nonepanel_transparent {
+}
+.lui_nonepanel_color {
+	background-color: #FFFFFF;
+}
+/* 三级页面 可折叠标签 */
+.lui_form_sidebar .lui_accordionpanel_content_frame{ margin-bottom:15px;}
+.lui_form_sidebar .lui_accordionpanel_frame{ background-color:transparent;}
+
+.lui_panel_ext_padding {
+	padding: 0px;
+}

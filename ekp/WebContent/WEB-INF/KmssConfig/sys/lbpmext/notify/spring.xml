@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 消息机制对接服务 -->
+	<bean
+		id="lbpmNotifyService"
+		class="com.landray.kmss.sys.lbpmext.notify.LbpmNotifyServiceImp">
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="mainModelPerstenceService">
+			<ref
+				bean="lbpmMainModelPerstenceService" />
+		</property>
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+	</bean>
+</beans>

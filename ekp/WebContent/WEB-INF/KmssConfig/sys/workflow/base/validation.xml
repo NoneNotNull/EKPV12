@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<form
+			name="sysWfApprovalTypeForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysWfApprovalType.fdName"
+					bundle="sys-workflow"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

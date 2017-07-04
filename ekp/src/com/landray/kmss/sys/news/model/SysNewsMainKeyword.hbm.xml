@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.sys.news.model.SysNewsMainKeyword"
+		table="sys_news_main_keyword">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+
+
+		<property
+			name="docKeyword"
+			column="doc_keyword"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+
+		<many-to-one
+			name="sysNewsMain"
+			column="fd_main_id"
+			insert="true"
+			update="true"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>

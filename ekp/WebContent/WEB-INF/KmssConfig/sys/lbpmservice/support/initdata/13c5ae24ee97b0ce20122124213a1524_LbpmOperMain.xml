@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_30" class="java.beans.XMLDecoder"> 
+ <object class="java.util.HashMap"> 
+  <void method="put"> 
+   <string>fdOperations</string> 
+   <object class="java.util.ArrayList"> 
+    <void method="add"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>fdOperName</string> 
+       <string>催办</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperator</string> 
+       <object class="java.util.HashMap"> 
+        <void method="put"> 
+         <string>fdId</string> 
+         <string>13c5ae24ee97b0ce20122124213a1524</string> 
+        </void> 
+        <void method="put"> 
+         <string>class</string> 
+         <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="put"> 
+       <string>fdHandlerType</string> 
+       <string>drafter</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdId</string> 
+       <string>13c5ae3777c56f22f191103456c9f489</string> 
+      </void> 
+      <void method="put"> 
+       <string>class</string> 
+       <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOrder</string> 
+       <int>0</int> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperType</string> 
+       <string>drafter_press</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>fdOperName</string> 
+       <string>签字</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperator</string> 
+       <object class="java.util.HashMap"> 
+        <void method="put"> 
+         <string>fdId</string> 
+         <string>13c5ae24ee97b0ce20122124213a1524</string> 
+        </void> 
+        <void method="put"> 
+         <string>class</string> 
+         <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="put"> 
+       <string>fdHandlerType</string> 
+       <string>handler</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdId</string> 
+       <string>13c5ae3778b78daf26ee8064da390dbc</string> 
+      </void> 
+      <void method="put"> 
+       <string>class</string> 
+       <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOrder</string> 
+       <int>0</int> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperType</string> 
+       <string>handler_sign</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>fdOperName</string> 
+       <string>撤回</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperator</string> 
+       <object class="java.util.HashMap"> 
+        <void method="put"> 
+         <string>fdId</string> 
+         <string>13c5ae24ee97b0ce20122124213a1524</string> 
+        </void> 
+        <void method="put"> 
+         <string>class</string> 
+         <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="put"> 
+       <string>fdHandlerType</string> 
+       <string>drafter</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdId</string> 
+       <string>13c5ae3777c8875ff24ae1743cea95e5</string> 
+      </void> 
+      <void method="put"> 
+       <string>class</string> 
+       <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOrder</string> 
+       <int>1</int> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperType</string> 
+       <string>drafter_return</string> 
+      </void> 
+     </object> 
+    </void> 
+    <void method="add"> 
+     <object class="java.util.HashMap"> 
+      <void method="put"> 
+       <string>fdOperName</string> 
+       <string>废弃</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperator</string> 
+       <object class="java.util.HashMap"> 
+        <void method="put"> 
+         <string>fdId</string> 
+         <string>13c5ae24ee97b0ce20122124213a1524</string> 
+        </void> 
+        <void method="put"> 
+         <string>class</string> 
+         <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain</string> 
+        </void> 
+       </object> 
+      </void> 
+      <void method="put"> 
+       <string>fdHandlerType</string> 
+       <string>drafter</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdId</string> 
+       <string>13c5ae3778b88867da162ff4cb4bad13</string> 
+      </void> 
+      <void method="put"> 
+       <string>class</string> 
+       <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations</string> 
+      </void> 
+      <void method="put"> 
+       <string>fdOrder</string> 
+       <int>2</int> 
+      </void> 
+      <void method="put"> 
+       <string>fdOperType</string> 
+       <string>drafter_abandon</string> 
+      </void> 
+     </object> 
+    </void> 
+   </object> 
+  </void> 
+  <void method="put"> 
+   <string>fdId</string> 
+   <string>13c5ae24ee97b0ce20122124213a1524</string> 
+  </void> 
+  <void method="put"> 
+   <string>class</string> 
+   <string>com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIsDefault</string> 
+   <boolean>true</boolean> 
+  </void> 
+  <void method="put"> 
+   <string>fdName</string> 
+   <string>标准签字</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdNodeType</string> 
+   <string>signNode</string> 
+  </void> 
+ </object> 
+</java> 

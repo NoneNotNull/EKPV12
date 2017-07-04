@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmUsage"
+		messageKey="sys-lbpmservice-support:table.lbpmUsage"
+		displayProperty="fdUsageContent"
+		serviceBean="lbpmUsageService"
+		table="lbpm_usage"
+		url="/sys/lbpmservice/support/lbpm_usage/lbpmUsage.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUsageContent"
+			messageKey="sys-lbpmservice-support:lbpmUsage.fdUsageContent"
+			type="String"
+			column="fd_usage_content"
+			notNull="false"
+			length="2000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsSysSetup"
+			messageKey="sys-lbpmservice-support:lbpmUsage.fdIsSysSetup"
+			type="Boolean"
+			column="fd_is_sys_setup"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-lbpmservice-support:lbpmUsage.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="sys-lbpmservice-support:lbpmUsage.fdCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_creator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

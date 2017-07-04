@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="lbpmBaseInfoService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmBaseInfoService">
+	</bean>
+
+	<bean
+		id="lbpmTemplateDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplate" />
+	</bean>
+	<bean
+		id="lbpmTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmTemplateDao" />
+		</property>
+		<property name="internalProcessDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+		<property name="lbpmTemplateChangeHistoryService">
+			<ref local="lbpmTemplateChangeHistoryService" />
+		</property>
+		<property name="lbpmOrgParseService">
+			<ref bean="lbpmOrgParseService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTemplateService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmTemplateTarget" />
+		</property>
+	</bean>
+
+	<!-- 流程模板机制 -->
+	<bean
+		id="lbpmTemplateInnerTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmTemplateDao" />
+		</property>
+		<property name="internalProcessDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+		<property name="lbpmTemplateChangeHistoryService">
+			<ref local="lbpmTemplateChangeHistoryService" />
+		</property>
+		<property name="lbpmOrgParseService">
+			<ref bean="lbpmOrgParseService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTemplateInnerService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="lbpmTemplateInnerTarget" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTemplateCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmTemplateCoreServiceImp">
+				<property name="lbpmTemplateService">
+					<ref local="lbpmTemplateInnerService" />
+				</property>
+				<property name="internalProcessDefinitionService">
+					<ref bean="lbpmProcessDefinitionService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmTemplateChangeHistoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmTemplateChangeHistoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplateChangeHistory" />
+	</bean>
+	<bean
+		id="lbpmTemplateChangeHistoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmTemplateChangeHistoryServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmTemplateChangeHistoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTemplateChangeHistoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmTemplateChangeHistoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmAuditNoteDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmAuditNoteDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNote" />
+	</bean>
+	<bean
+		id="lbpmAuditNoteTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmAuditNoteDao" />
+		</property>
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+		<property name="lbpmAuthorizeHolderService">
+			<ref local="lbpmAuthorizeHolderService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmAuditNoteService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmAuditNoteTarget" />
+		</property>
+	</bean>
+
+	<!-- 记录审批意见可查看节点 -->
+	<bean
+		id="lbpmAuditNoteRtNodeListener"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteRtNodeListener">
+	</bean>
+	<bean
+		id="lbpmAuditNoteAddBranchNoteListener"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteAddBranchNoteListener">
+	</bean>
+	<bean
+		id="lbpmAuditNoteModifyProcessListener"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteModifyProcessListener">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+	</bean>
+
+	<!-- 更新关联附件 -->
+	<bean
+		id="updateAuditNoteRelationAttachmentListener"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.UpdateAuditNoteRelationAttachmentListener">
+		<property name="sysAttMainCoreService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+
+	<!-- 审批记录加载器 -->
+	<bean
+		id="lbpmAuditNoteLoader"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteLoader">
+		<property name="sysAttachmentService">
+			<ref bean="sysAttachmentService" />
+		</property>
+		<property name="lbpmAuditNoteService">
+			<ref bean="lbpmAuditNoteService" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmUsageDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmUsageDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmUsage" />
+	</bean>
+	<bean
+		id="lbpmUsageTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmUsageServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmUsageDao" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmUsageService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmUsageTarget" />
+		</property>
+	</bean>
+
+	<!-- 流程界面的service,如暂存意见，特权人、起草人处理 -->
+
+	<bean
+		id="lbpmProcessDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmProcessDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess" />
+	</bean>
+	<bean
+		id="lbpmProcessTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmProcessServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmProcessDao" />
+		</property>
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+		<property name="orgParseService">
+			<ref bean="lbpmOrgParseService" />
+		</property>
+		<property name="auditNoteService">
+			<ref bean="lbpmAuditNoteService" />
+		</property>
+		<property name="sysAttachmentService">
+			<ref bean="sysAttachmentService" />
+		</property>
+		<property name="expecterLogService">
+			<ref bean="lbpmExpecterLogService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmProcessService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmProcessTarget" />
+		</property>
+	</bean>
+
+
+	<bean
+		id="lbpmOperationsDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmOperationsDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations" />
+	</bean>
+	<bean
+		id="lbpmOperationsTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmOperationsServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmOperationsDao" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmOperationsService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmOperationsTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmOperMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.lbpmservice.support.dao.hibernate.LbpmOperMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain" />
+	</bean>
+	<bean
+		id="lbpmOperMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmOperMainServiceImp">
+		<property name="baseDao">
+			<ref local="lbpmOperMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmOperMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmOperMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="getOperationsByNodeService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.GetOperationsByNodeService" />
+
+	<bean
+		id="getOperTypesByNodeService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.GetOperTypesByNodeService">
+		<property name="lbpmOperMainService">
+			<ref local="lbpmOperMainService" />
+		</property>
+	</bean>
+
+	<bean
+		id="getOperationsByDefinitionService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.GetOperationsByDefinitionService">
+		<property name="lbpmOperMainService">
+			<ref local="lbpmOperMainService" />
+		</property>
+	</bean>
+
+
+	<!-- 阅读记录服务 -->
+	<bean
+		id="lbpmProcessReadLogServiceTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmProcessReadLogServiceImp">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmProcessReadLogService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="lbpmProcessReadLogServiceTarget" />
+		</property>
+	</bean>
+
+	<!-- 流程对接服务 -->
+	<bean
+		id="lbpmProcessCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmProcessCoreServiceImp">
+				<property name="accessManager">
+					<ref bean="accessManager" />
+				</property>
+				<property name="processExecuteService">
+					<ref bean="lbpmProcessExecuteService" />
+				</property>
+				<property name="lbpmTemplateService">
+					<ref local="lbpmTemplateService" />
+				</property>
+				<property name="lbpmProcessReadLogService">
+					<ref local="lbpmProcessReadLogService" />
+				</property>
+				<property name="lbpmAuditNoteService">
+					<ref local="lbpmAuditNoteService" />
+				</property>
+				<property name="lbpmExpecterLogService">
+					<ref bean="lbpmExpecterLogService" />
+				</property>
+				<property name="processDefinitionService">
+					<ref bean="lbpmProcessDefinitionService" />
+				</property>
+				<property name="lbpmProcessService">
+					<ref bean="lbpmProcessService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="lbpmHandlerParseService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmHandlerParseService">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<!-- 授权信息服务 -->
+	<bean
+		id="lbpmAuthorizeHolderService"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuthorizeHolderServiceImp">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="lbpmExpecterLogService">
+			<ref bean="lbpmExpecterLogService" />
+		</property>
+	</bean>
+	<!-- 节点处理人校验器 -->
+	<bean
+		id="lbpmNodeHandlerHolder"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmNodeHandlerHolder" />
+
+	<bean
+		id="lbpmOptHandlerTreeService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmOptHandlerTreeService">
+				<property name="baseCoreInnerService">
+					<ref bean="KmssBaseCoreService" />
+				</property>
+				<property name="sysOrgPersonService">
+					<ref bean="sysOrgPersonService" />
+				</property>
+				<property name="processServiceManager">
+					<ref bean="lbpmProcessServiceManager" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 导入导出 -->
+	<bean
+		id="definitionExportAndImportBean"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.DefinitionExportAndImportBean">
+		<property name="internalProcessDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+		<property name="lbpmTemplateService">
+			<ref bean="lbpmTemplateService" />
+		</property>
+	</bean>
+
+	<!-- 流程 -->
+	<bean
+		id="lbpmErrorQueueDataBean"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.ErrorQueueDataBean">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processQueueService">
+			<ref bean="lbpmProcessQueueService" />
+		</property>
+	</bean>
+
+	<!-- 驳回相关信息管理服务 -->
+	<bean
+		id="lbpmManualRefuseHolder"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmManualRefuseHolder">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+
+	<!-- 无效处理人的流程通知 -->
+	<bean
+		id="lbpmUnavailableHandlerNotify"
+		class="com.landray.kmss.sys.lbpmservice.quartz.LbpmUnavailableHandlerNotify">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	
+	<bean
+		id="lbpmProcessCurrentInfoTarget"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmProcessCurrentInfoServiceImp">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="authorizeHolder">
+			<ref bean="lbpmAuthorizeHolderService" />
+		</property>
+		<property name="lbpmExpecterLogService">
+			<ref bean="lbpmExpecterLogService" />
+		</property>
+	</bean>
+	
+	<bean id="lbpmProcessCurrentInfoService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessCurrentInfoTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean
+		id="lbpmClearWorkingStorageAdditionListener"
+		class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmClearWorkingStorageAdditionListener">
+	</bean>
+
+</beans>

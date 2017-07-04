@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="exampleRulesCategoryForm"
+			type="com.landray.kmss.example.rules.forms.ExampleRulesCategoryForm" />
+		<form-bean
+			name="exampleRulesMainForm"
+			type="com.landray.kmss.example.rules.forms.ExampleRulesMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/example/rules/example_rules_category/exampleRulesCategory"
+			type="com.landray.kmss.example.rules.actions.ExampleRulesCategoryAction"
+			name="exampleRulesCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/example/rules/example_rules_category/exampleRulesCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/example/rules/example_rules_category/exampleRulesCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/example/rules/example_rules_category/exampleRulesCategory_list.jsp" />
+		</action>
+
+		<action
+			path="/example/rules/example_rules_main/exampleRulesMain"
+			type="com.landray.kmss.example.rules.actions.ExampleRulesMainAction"
+			name="exampleRulesMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/example/rules/example_rules_main/exampleRulesMain_view.jsp" />
+			<forward
+				name="view.4m"
+				path="/example/rules/example_rules_main/mobile/view.jsp" />
+			<forward
+				name="edit"
+				path="/example/rules/example_rules_main/exampleRulesMain_edit.jsp" />
+			<forward
+				name="data"
+				path="/example/rules/example_rules_main/exampleRulesMain_data.jsp" />
+			<forward
+				name="data.4m"
+				path="/example/rules/example_rules_main/mobile/list.jsp" />
+		</action>
+
+
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.example.rules.ApplicationResources"
+		key="example-rules" />
+</struts-config>

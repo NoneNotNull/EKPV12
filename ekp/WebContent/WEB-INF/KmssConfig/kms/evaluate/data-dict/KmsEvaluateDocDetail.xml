@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+		messageKey="kms-evaluate:table.kmsEvaluateDocDetail"
+		displayProperty="countId"
+		serviceBean="kmsEvaluateDocDetailService"
+		table="kms_evaluate_doc_detail"
+		url="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="36"
+			canSearch="true"
+			validate="false" />
+			
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docCreateTime"
+			type="DateTime"
+			canSearch="true"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docWeekCount"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docWeekCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+			column="doc_week_count"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docMonthCount"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docMonthCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+			column="doc_month_count"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docYearCount"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docYearCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+			column="doc_year_count"
+			notNull="false"
+			validate="false" />
+			
+		<modelProperty
+			name="docCumulativeCount"
+			messageKey="kms-evaluate:kmsEvaluateDocDetail.docCumulativeCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+			column="doc_cumulative_count"
+			notNull="false"
+			validate="false" />
+			
+
+	</model>
+</models>

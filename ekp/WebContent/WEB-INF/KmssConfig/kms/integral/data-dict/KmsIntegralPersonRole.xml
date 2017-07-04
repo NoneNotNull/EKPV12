@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralPersonRole"
+		messageKey="kms-integral:table.kmsIntegralPersonRole"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralPersonRoleService"
+		table="kms_integral_person_role"
+		url="/kms/integral/kms_integral_person_role/kmsIntegralPersonRole.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-integral:kmsIntegralPersonRole.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdBalance"
+			messageKey="kms-integral:kmsIntegralPersonRole.fdBalance"
+			type="Double"
+			column="fd_balance"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-integral:kmsIntegralPersonRole.fdPerson"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_person"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

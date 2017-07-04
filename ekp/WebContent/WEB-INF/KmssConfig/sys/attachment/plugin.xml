@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point
+		id="com.landray.kmss.sys.attachment.jg.function">
+		<!-- 消息机制扩展点定义 -->
+		<item
+			name="function">
+			<param
+				name="key"
+				required="true"
+				kind="unid">
+				<description>金格控件具体功能特性标示</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>金格控件功能特性名称</description>
+			</param>
+			<param
+				name="function"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.attachment.jg.ISysAttachmentJGFunction">
+				<description>
+					金格控件功能特性处理类
+				</description>
+			</param>
+			
+			<description>金格控件功能定义扩展点定义。</description>
+		</item>
+		<description>金格控件功能定义扩展点。</description>
+	</extension-point>
+	
+	<extension-point
+		id="com.landray.kmss.sys.attachment.jg.function.addition">
+		<!-- 消息机制扩展点定义 -->
+		<item
+			name="function">
+			<param
+				name="key"
+				required="true"
+				kind="unid">
+				<description>金格附加功能特性标示</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>金格附加功能特性名称</description>
+			</param>
+			<param
+				name="function"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.attachment.jg.ISysAttachmentJGAddtionFunction">
+				<description>
+					金格附加功能特性处理类
+				</description>
+			</param>
+			
+			<description>金格附加功能特性定义扩展点定义。,如：当前只允许一个人编辑附件等和ekp需要和金格交叉的功能</description>
+		</item>
+		<description>金格附加功能特性定义扩展点。</description>
+	</extension-point>
+
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/sys/attachment/attConfig.jsp" />
+			<param name="type" value="base" />
+			<param name="order" value="40" />
+		</item>
+	</extension>
+
+	<!-- 附件及RTF初始化导入导出扩展项 -->
+	<extension point="com.landray.kmss.sys.datainit" model="*">
+		<item name="datainit">
+			<param name="bean" value="attachmentDataInit" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="aspose_htmlviewer" />
+			<param name="viewerPath" value="/sys/attachment/viewer/aspose_htmlviewer.jsp" />
+			<param name="extName" value="doc;docx;ppt;pptx;wps;xls;xlsx;et;pdf" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+	  
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="aspose_swfviewer" />
+			<param name="viewerPath" value="/sys/attachment/viewer/aspose_swfviewer.jsp" />
+			<param name="extName" value="doc;docx;ppt;pptx;wps;xls;xlsx;et;pdf" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="aspose_picviewer" />
+			<param name="viewerPath" value="/sys/attachment/viewer/aspose_picviewer.jsp" />
+			<param name="extName" value="doc;docx" />
+			<param name="order" value="2" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="jg_viewer" />
+			<param name="viewerPath" value="/sys/attachment/viewer/jg_viewonline.jsp" />
+			<param name="extName" value="doc;docx;xls;xlsx;ppt;pptx" />
+			<param name="order" value="2" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="video_viewer" />
+			<param name="viewerPath" value="/sys/attachment/viewer/video_viewer.jsp" />
+			<param name="extName" value="flv;f4v;ogg;wmv;wmv9;3gp;mp4;mp2;mpa;mpe;mpeg;mpg;mpv2;mov;qt;lsf;lsx;asf;asr;asx;avi;movie;rm;rmvb;wrf" />
+			<param name="order" value="2" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="viewer">
+			<param name="viewerKey" value="aspose_mobilehtmlviewer" />
+			<param name="viewerPath" value="/sys/attachment/mobile/viewer/viewer.jsp" />
+			<param name="extName" value="doc;docx;wps;ppt;pptx;xls;xlsx;et;pdf" />
+			<param name="order" value="3" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.attachment.transfer.SysAttTransferTask" />
+			<param
+				name="name"
+				value="附件数据迁移" />
+			<param
+				name="path"
+				value="/sys/attachment/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.attachment.transfer.SysAttTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.attachment.transfer.SysAttTransferTask" />
+			<param
+				name="description"
+				value="aspose附件数据迁移" />
+		</item>
+	</extension>
+</plugin>

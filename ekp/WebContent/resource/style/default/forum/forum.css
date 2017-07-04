@@ -1,0 +1,71 @@
+.bodyline {
+	border-right: #98aab1 1px solid; 
+	border-top: #98aab1 1px solid; 
+	border-left: #98aab1 1px solid; 
+	border-bottom: #98aab1 1px solid; 
+	background-color: #ffffff;
+}
+.forumline {
+	border-right: #006699 2px solid; 
+	border-top: #006699 2px solid; 
+	border-left: #006699 2px solid; 
+	border-bottom: #006699 2px solid; 
+	background-color: #ffffff;
+}
+.forumtitle{
+	#background-color:#09a4cf;
+	background-color:#006699;
+	font-size: 12px;
+	color: #ffa34f;
+}
+
+td.row1 {
+	background-color: #efefef;
+}
+td.row2 {
+	background-color: #dee3e7;
+}
+td.row3 {
+	border-right: #ffffff solid; 
+	border-top: #ffffff solid; 
+	background-image:  url(../images/cellpic1.gif);
+	border-left: #ffffff solid;
+	border-bottom: #ffffff solid;
+	height: 28px; background-color: #dfdfdf ;
+	border-top-width: 0px; 
+	border-left-width: 1px; 
+	border-bottom-width: 0px;
+	border-right-width: 0px 
+}
+
+.gen {
+	font-size: 12px;
+}
+.genmed {
+	font-size: 12px;
+}
+.gensmall {
+	font-size: 12px;
+}
+.gen {
+	color: #000000;
+}
+.genmed {
+	color: #000000;
+}
+.gensmall {
+	color: #000000;
+}
+.forumlink {
+	font-weight: bold; 
+	font-size: 12px; 
+	color: #006699;
+}
+a.forumlink {
+	color: #006699; 
+	text-decoration: none;
+}
+a.forumlink:hover {
+	color: #dd6900; 
+	text-decoration: underline;
+}

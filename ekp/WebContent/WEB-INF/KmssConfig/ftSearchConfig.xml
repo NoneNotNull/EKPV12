@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<luceneIndex>
+	<!-- 检索和查询分词类和属性设置-->
+	<!-- org.apache.lucene.analysis.StopAnalyzer -->
+	<!-- org.apache.lucene.analysis.SimpleAnalyzer-->
+	<!-- org.apache.lucene.analysis.standard.StandardAnalyzer-->
+	<!-- org.apache.lucene.analysis.WhitespaceAnalyzer-->
+	<!-- org.apache.lucene.analysis.fr.FrenchAnalyzer-->
+	<!-- org.mira.lucene.analysis.IK_CAnalyzer-->
+	<!-- org.apache.lucene.analysis.cn.ChineseAnalyzer-->
+	<!-- org.apache.lucene.analysis.cz.CzechAnalyzer-->
+	<!-- org.apache.lucene.analysis.ru.RussianAnalyzer-->
+	<!-- com.landray.kmss.sys.ftsearch.analysis.cn.ChineseAnalyzer-->
+	<!-- org.mira.lucene.analysis.IK_CAnalyzer-->
+	<properties>
+<!--		<analyzer class="org.mira.lucene.analysis.IK_CAnalyzer"/>-->
+		<analyzer class="net.paoding.analysis.analyzer.PaodingAnalyzer"/>
+		<createIndex value="auto"/>
+		<indexWriterProperty mergeFactor="100" maxMergeDocs="2147483647" optimize="true"/>
+	</properties>
+	
+	<!-- 文件内容检索设置-->													
+	<index>
+		<!-- XML文件解析类设置和属性设置-->
+		<xml>
+			<xmlFile ns="default" setBoost="0.5">
+				<indexer class="com.landray.kmss.sys.ftsearch.index.xml.XmlFileIndexer">
+					<mime>text/xml</mime>					
+				</indexer>
+				<fields>
+					<luceneField name="fullText" xpathSelect="//*" type="Text" ocurSep="|"/>
+				</fields>	
+			</xmlFile>
+		</xml>
+	
+		<!-- 混合检索属性设置-->
+		<mixedIndexing>
+			<fields>
+				<luceneField fileMimeType="text/plain"/>
+				<luceneField fileMimeType="text/html"/>
+				<luceneField fileMimeType="text/xml"/>
+				<luceneField fileMimeType="application/pdf"/>
+				<luceneField fileMimeType="application/vnd.ms-excel"/>
+				<luceneField fileMimeType="application/msword"/>
+				<luceneField fileMimeType="application/vnd.ms-powerpoint"/>
+				<luceneField fileMimeType="application/rtf"/>
+				<luceneField fileMimeType="application/x-shockwave-flash"/>
+				<luceneField fileMimeType="application/rss+xml"/>
+				<luceneField fileMimeType="application/vnd.sun.xml.writer"/>
+				<luceneField fileMimeType="application/vnd.oasis.opendocument.text"/>
+				<!-- 
+				<luceneField fileMimeType="application/zip"/>
+				 -->
+				 <luceneField fileMimeType="application/zip"/> <!--1122 -->
+			</fields>
+		</mixedIndexing>
+		
+		<!-- MS_WORD文件解析类设置和属性设置-->
+		<msWord setBoost="1.2">
+		 	<indexer class="com.landray.kmss.sys.ftsearch.index.msword.WordIndexer">
+				<mime>application/msword</mime>	
+				<mime>application/vnd.openxmlformats-officedocument.wordprocessingml.document</mime>			
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>	
+		</msWord>
+		
+		<!-- MS_EXCEL文件解析类设置和属性设置-->
+		<msExcel setBoost="1.3">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.excel.POIExcelIndexer">
+				<mime>application/vnd.ms-excel</mime>				
+				<mime>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</mime>	
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>	
+		</msExcel>
+
+		<!-- MS_PPT文件解析类设置和属性设置-->
+		<msPowerPoint setBoost="1.2">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.powerpoint.PPTIndexer">
+				<mime>application/vnd.ms-powerpoint</mime>	
+				<mime>application/vnd.openxmlformats-officedocument.presentationml.presentation</mime>
+			</indexer>
+			<fields>				
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>				
+		</msPowerPoint>
+		
+		<!-- HTML文件解析类设置和属性设置-->
+		<html setBoost="1.4">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.html.HtmlParserIndexer">
+				<mime>text/html</mime>				
+				<mime>application/x-asp</mime>					
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>	
+  			
+		</html>
+		
+		<!-- RTF文件解析类设置和属性设置-->
+		<rtf setBoost="1.5">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.rtf.RTFIndexer">
+				<mime>application/rtf</mime>				
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>				
+		</rtf>
+		
+		<!-- PDF文件解析类设置和属性设置-->
+		<pdf setBoost="1.6">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.pdf.PdfIndexer">
+				<mime>application/pdf</mime>
+			</indexer>
+			<fields>
+				<luceneField name="fullText" get="content" type="Text"/>
+				<!--<luceneField name="title" get="title" type="Text" />
+				<luceneField name="author" get="author" type="Text" />
+				<luceneField name="creator" get="creator" type="Text" />
+				<luceneField name="summary" get="summary" type="Text" />
+				<luceneField name="keywords" get="keywords" type="Text" />
+				<luceneField name="producer" get="producer" type="Text" />
+				<luceneField name="subject" get="subject" type="Text" />
+				<luceneField name="trapped" get="trapped" type="Text" />
+				<luceneField name="creationDate" get="creationDate" type="DateToString" />
+				<luceneField name="modificationDate" get="modificationDate" type="DateToString" />-->
+			</fields>
+		</pdf>
+
+		<!-- SWF文件解析类设置和属性设置-->
+		<swf setBoost="1.1">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.swf.SWFIndexer">
+				<mime>application/x-shockwave-flash</mime>				
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>				
+		</swf>
+
+		<!-- RSS文件解析类设置和属性设置-->
+		<rss setBoost="1.2">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.rss.RSSIndexer">
+				<mime>application/rss+xml</mime>				
+			</indexer>
+			<fields>	
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>				
+		</rss>
+
+		<!-- TXT文件解析类设置和属性设置-->
+		<txt setBoost="1.8">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.txt.TXTIndexer">
+				<mime>text/plain</mime>			
+			</indexer>
+			<fields>
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>	
+		</txt>
+		
+		<!-- openOffice文件解析类设置和属性设置-->
+		<openOffice setBoost="1.1">
+			<indexer class="com.landray.kmss.sys.ftsearch.index.openoffice.OOIndexer">
+				<mime>application/vnd.sun.xml.writer</mime>				
+			</indexer>
+			<indexer class="com.landray.kmss.sys.ftsearch.index.openoffice.OOIndexer2">
+				<mime>application/vnd.oasis.opendocument.text</mime>				
+			</indexer>
+			<fields>
+				<luceneField name="fullText" xpathSelect="//office:body//*" type="Text" ocurSep=" "/>
+			</fields>			
+		</openOffice>
+		
+		<!-- ZIP文件解析类设置和属性设置-->
+		<!-- 	-->
+		<zip>
+			<indexer class="com.landray.kmss.sys.ftsearch.index.zip.ZIPIndexer">
+				<mime>application/zip</mime>				
+			</indexer>
+			<fields>
+	
+				<!--Mimetypes to index in a zip file -->
+		<!-- 
+				<luceneField fileMimeType="text/plain"/>
+				<luceneField fileMimeType="text/html"/>
+				<luceneField fileMimeType="text/xml"/>
+				<luceneField fileMimeType="application/pdf"/>
+				<luceneField fileMimeType="application/vnd.ms-excel"/>
+				<luceneField fileMimeType="application/msword"/>
+				<luceneField fileMimeType="application/vnd.ms-powerpoint"/>
+				<luceneField fileMimeType="application/rtf"/>
+				<luceneField fileMimeType="application/x-shockwave-flash"/>
+				<luceneField fileMimeType="application/rss+xml"/>
+				<luceneField fileMimeType="application/vnd.sun.xml.writer"/>
+				<luceneField fileMimeType="application/vnd.oasis.opendocument.text"/>	
+			</fields>
+			-->		
+			<luceneField name="fullText" get="content" type="Text"/>
+				 </fields>
+		</zip> 
+		 	
+		<!-- MP3文件解析类设置和属性设置-->
+		<mp3>
+			<indexer class="com.landray.kmss.sys.ftsearch.index.audio.MP3Indexer">
+				<mime>audio/mpeg</mime>				
+			</indexer>
+			<fields>
+				<luceneField name="channels" get="channels" type="Text"/>
+				<luceneField name="channelsmode" get="channelsmode" type="Text"/>
+				<luceneField name="version" get="version" type="Text"/>
+				<luceneField name="samplingrate" get="samplingrate" type="Text"/>
+				<luceneField name="layer" get="layer" type="Text"/>
+				<luceneField name="emphasis" get="emphasis" type="Text"/>
+				<luceneField name="nominalbitrate" get="nominalbitrate" type="Text"/>
+				<luceneField name="duration" get="duration" type="Text"/>
+				<luceneField name="location" get="location" type="Text"/>
+				<luceneField name="size" get="size" type="Text"/>
+				<luceneField name="copyright" get="copyright" type="Text"/>
+				<luceneField name="crc" get="crc" type="Text"/>
+				<luceneField name="original" get="original" type="Text"/>
+				<luceneField name="vbr" get="vbr" type="Text"/>
+				<luceneField name="track" get="track" type="Text"/>
+				<luceneField name="year" get="year" type="Text"/>
+				<luceneField name="genre" get="genre" type="Text"/>
+				<luceneField name="title" get="title" type="Text"/>
+				<luceneField name="artist" get="artist" type="Text"/>
+				<luceneField name="album" get="album" type="Text"/>
+				<luceneField name="comments" get="comments" type="Text"/>
+				<luceneField name="fullText" get="content" type="Text"/>
+			</fields>	
+		</mp3>
+		
+	</index>
+	
+	<!-- 内容查询设置-->													
+	<search>
+		<!-- org.apache.lucene.sys.ftsearch.TermQuery -->
+ 		<!-- org.apache.lucene.sys.ftsearch.PrefixQuery -->
+ 		<!-- org.apache.lucene.sys.ftsearch.FuzzyQuery -->
+ 		<!--	
+       	<queryTerm class="org.apache.lucene.sys.ftsearch.WildcardQuery">
+        	<term field="creator"/>
+       	</queryTerm>
+       	<rangeQuery>
+        	<term field="creator"/>
+            <booleanInclusive value="true"/>
+      	 </rangeQuery>
+     	 <queryParser>
+    	 	<defaultSearchField value="title"/>
+   	    </queryParser>
+ 		 -->
+
+ 		 <!--If you want to sys.ftsearch the field add it in the element sys.ftsearchFields -->
+ 		 <!-- 新增keyword,creator也加入 -->
+		<multiFieldQueryParser>
+					<searchFields sep=",">title,subject,fileName,fullText,content,creator,keyword,juniorSummary,attachemnt</searchFields>
+		</multiFieldQueryParser>
+	</search>
+
+	<!-- 查询结果设置-->													
+	<searchResult>
+		<fieldsToDisplay setHighlighter="true">		
+		<!-- 
+			<luceneField name="docKey" label="docKey"/>	
+			<luceneField name="modelName" label="modelName"/>	
+			<luceneField name="linkStr" label="linkStr"/>
+			<luceneField name="title" label="title"/>	
+			<luceneField name="subject" label="subject"/>	
+			<luceneField name="category" label="category"/>	
+			<luceneField name="author" label="author"/>	
+			<luceneField name="creator" label="creator"/>	
+			<luceneField name="createTime" label="createTime"/>
+			<luceneField name="keyword" label="keyword"/>
+			<luceneField name="fileName" label="filename"/>	
+			<luceneField name="fullText" label="full text" setFragmenter="100"  type="Text"/>		
+			<luceneField name="content" label="docContent"  fieldType="content" setFragmenter="100"  type="Text"/>	
+			 -->		
+			<luceneField name="docKey" label="docKey"/>	
+			<luceneField name="modelName" label="modelName"/>	
+			<luceneField name="linkStr" label="linkStr"/>
+			<luceneField name="title" label="title" type="Text" fieldType="title"/>	
+			<luceneField name="subject" label="subject" type="Text" fieldType="title"/>	
+			<luceneField name="category" label="category" />	
+			<luceneField name="author" label="author" type="Text" fieldType="author"/>	
+			<luceneField name="creator" label="creator" type="Text" fieldType="creator"/>	
+			<luceneField name="createTime" label="createTime"/>
+			<luceneField name="keyword" label="keyword"  type="Text" fieldType="keyword"/>
+			<luceneField name="fileName" label="filename"  type="Text" fieldType="attachment"/>	
+			<luceneField name="fullText" label="full text" setFragmenter="100"  type="Text" fieldType="attachment"/>	
+			<luceneField name="content" label="docContent"  fieldType="content" setFragmenter="100"  type="Text"/>	
+			<luceneField name="attachemnt" label="fdAttachment" setFragmenter="100" type="Text"  fieldType="attachment"/>	
+			<luceneField name="juniorSummary" label="fdJuniorSummary"   fieldType="summary"  setFragmenter="100" type="Text"/>	
+			
+			<!-- 
+			<luceneField name="middleSummary" label="fdMiddleSummary"  fieldType="summary"   setFragmenter="100" type="Text"  role="ROLE_KMDOC_RELEASE_MIDDLE,ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="middleDocContent" label="fdMiddleDocContent"   fieldType="content" setFragmenter="100" type="Text"  role="ROLE_KMDOC_RELEASE_MIDDLE,ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="middleAttachment" label="fdMiddleAttachment" setFragmenter="100" type="Text"  fieldType="attachment"   role="ROLE_KMDOC_RELEASE_MIDDLE,ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="highSummary" label="fdHighSummary"   fieldType="summary"  setFragmenter="100" type="Text"  role="ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="highDocContent" label="fdHighDocContent"   fieldType="content" setFragmenter="100" type="Text" role="ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="highAttachment" label="fdHighAttachment" setFragmenter="100" type="Text"   fieldType="attachment" role="ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="highFileName" label="highFileName"  type="Text"   fieldType="attachment" role="ROLE_KMDOC_RELEASE_HIGH"/>	
+			<luceneField name="middleFileName" label="middleFileName"  type="Text"   fieldType="attachment" role="ROLE_KMDOC_RELEASE_MIDDLE,ROLE_KMDOC_RELEASE_HIGH"/>	
+		-->
+			<luceneField name="mimeType" label="mimeType"/>	
+		</fieldsToDisplay>
+	</searchResult>
+	
+</luceneIndex>

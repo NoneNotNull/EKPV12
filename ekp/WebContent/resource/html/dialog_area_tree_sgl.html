@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script type="text/javascript">
+var Com_Parameter = {
+	ContextPath:parent.Com_Parameter.ContextPath,
+	ResPath:parent.Com_Parameter.ResPath,
+	Style:parent.Com_Parameter.Style,
+	StylePath:parent.Com_Parameter.StylePath,
+	JsFileList:new Array,
+	DialogLang:parent.Com_Parameter.DialogLang,
+	Lang:parent.Com_Parameter.Lang
+};
+var dialogObject = parent.dialogObject;
+Com_Parameter.XMLDebug = dialogObject.XMLDebug;
+var Data_XMLCatche = dialogObject.XMLCatche;
+</script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript">Com_IncludeFile("treeview.js");</script>
+<script type="text/javascript">
+var LKSTree;
+Tree_IncludeCSSFile();
+function generateTree(){
+	LKSTree = dialogObject.tree;
+	LKSTree.DOMElement = document.getElementById("treeDiv");
+	LKSTree.ClickNode = TreeFunc_ClickNode;
+	LKSTree.DrawNode = TreeFunc_DrawNode;
+	LKSTree.DrawNodeIndentHTML = TreeFunc_DrawNodeIndentHTML;
+	LKSTree.DrawNodeOuterHTML = TreeFunc_DrawNodeOuterHTML;
+	LKSTree.DrawNodeInnerHTML = TreeFunc_DrawNodeInnerHTML;
+	LKSTree.ExpandNode = TreeFunc_ExpandNode;
+	LKSTree.GetCheckedNode = TreeFunc_GetCheckedNode;
+	LKSTree.SelectNode = TreeFunc_SelectNode;
+	LKSTree.SetCurrentNode = TreeFunc_SetCurrentNode;
+	LKSTree.SetNodeChecked = TreeFunc_SetNodeChecked;
+	LKSTree.SetTreeRoot = TreeFunc_SetTreeRoot;
+	LKSTree.OnNodeQueryClick = Dialog_OnNodeQueryClick;
+	LKSTree.Show = TreeFunc_Show;
+	LKSTree.isShowCheckBox = true;
+	LKSTree.isMultSel = false;
+	LKSTree.DblClickNode = DialogTree_DblClickNode;
+	LKSTree.Show();	
+}
+function Com_DialogReturnOK(){
+	var rtnVal = new Array;
+	var selectNodes = LKSTree.GetCheckedNode();
+	if(selectNodes!=null){
+		selectNodes = new Array(selectNodes);
+		for(var i = 0; i < selectNodes.length; i++){
+			rtnVal[i] = new Array;
+			rtnVal[i]["id"] = selectNodes[i].value;
+			rtnVal[i]["name"] = (selectNodes[i].text!=null && selectNodes[i].text!="")?selectNodes[i].text:selectNodes[i].title;
+			rtnVal[i]["nodeId"] = selectNodes[i].id;
+		}
+	}
+	if(rtnVal.length==0)
+		alert(Com_Parameter.DialogLang.requiredSelect);
+	else
+		parent.Com_DialogReturn(rtnVal);
+}
+function Com_DialogReturnDefArea(){
+	var rtnVal = new Array;
+	var selectNodes = LKSTree.GetCheckedNode();
+	if(selectNodes!=null){
+		selectNodes = new Array(selectNodes);
+		for(var i = 0; i < selectNodes.length; i++){
+			rtnVal[i] = new Array;
+			rtnVal[i]["id"] = selectNodes[i].value;
+			rtnVal[i]["name"] = (selectNodes[i].text!=null && selectNodes[i].text!="")?selectNodes[i].text:selectNodes[i].title;
+			rtnVal[i]["nodeId"] = selectNodes[i].id;
+			rtnVal[i]["flag"] = "defArea";
+		}
+	}
+	if(rtnVal.length==0)
+		alert(Com_Parameter.DialogLang.requiredSelect);
+	else
+		parent.Com_DialogReturn(rtnVal);
+}
+function Dialog_OnNodeQueryClick(node){
+	node.action = null;
+	node.parameter = null;
+}
+function DialogTree_DblClickNode(nodeId){
+	var node = Tree_GetNodeByID(this.treeRoot, nodeId);
+	if(node!=null && node.value!=null && node.value!=""){
+		var rtnVal = new Array;
+		rtnVal[0] = new Array;
+		rtnVal[0]["id"] = node.value;
+		rtnVal[0]["name"] = (node.title==null || node.title=="")?node.text:node.title;
+		rtnVal[0]["nodeId"] = node.id; 
+		parent.Com_DialogReturn(rtnVal);
+	}
+}
+</script>
+</head>
+<body>
+<div id=treeDiv class="treediv"></div>
+<script>generateTree();</script>
+</body>
+</html>

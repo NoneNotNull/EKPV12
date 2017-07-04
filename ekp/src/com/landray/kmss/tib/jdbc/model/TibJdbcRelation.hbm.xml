@@ -1,0 +1,49 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.jdbc.model.TibJdbcRelation"
+		table="tib_jdbc_relation">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdUseExplain"
+			column="fd_use_explain"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdSyncType"
+			column="fd_sync_type"
+			update="true"
+			insert="true"
+			length="3000"
+			not-null="true" />
+
+		<many-to-one
+			name="tibJdbcMappManage"
+			column="tib_jdbc_mapp_manage"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+		<many-to-one
+			name="tibJdbcTaskManage"
+			column="tib_jdbc_task_manage"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

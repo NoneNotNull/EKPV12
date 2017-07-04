@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNoteRtReader"
+		messageKey="sys-lbpmservice-support:table.lbpmAuditNoteRtReader"
+		serviceBean="lbpmAuditNoteRtReaderService"
+		table="lbpm_audit_note_rt_reader">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<modelProperty
+			name="fdNote"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtReader.fdNote"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNote"
+			column="fd_note_id"
+			notNull="true" />
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtReader.fdProcessId"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="true" />
+		<simpleProperty
+			name="fdOrgId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtReader.fdOrgId"
+			type="String"
+			column="fd_org_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdFactId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtReader.fdFactId"
+			type="String"
+			column="fd_fact_id"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdPrivateGroup"
+			messageKey="sys-lbpmservice-support:lbpmAuditNoteRtReader.fdPrivateGroup"
+			type="String"
+			column="fd_private_group"
+			notNull="false"
+			length="100" />
+	</model>
+</models>

@@ -1,0 +1,69 @@
+.lui_fans_listfollow_btn {
+	position: absolute;
+	display: block;
+	right: 0;
+	top: 5px;
+}
+.lui_fans_btn_focus {
+	padding: 0 10px;
+	height: 24px;
+	line-height: 24px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #60c230;
+	cursor: pointer;
+	display: block;
+}
+.lui_fans_btn_focus:hover{
+    background-color:#29a629;
+}
+
+.lui_fans_btn_focused {
+	padding: 0 6px;
+	height: 24px;
+	line-height: 24px;
+	color: #686868;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #f0f0f0;
+	display: block;
+}
+.lui_fans_btn_focused:hover{
+    background-color:#e1e1e1;
+}
+.lui_fans_btn_focus_tag {
+	padding: 3px 4px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #60c230;
+	cursor: pointer;
+	display: block;
+}
+.lui_fans_btn_focus_tag:hover{
+    background-color:#29a629;
+}
+.lui_fans_btn_focused_tag {
+	padding: 3px 4px;
+	color: #686868;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #f0f0f0;
+	display: block;
+}
+.lui_fans_btn_focused_tag:hover{
+    background-color:#e1e1e1;
+}
+.lui_fans_listfollow_btn_tag {
+	position:absolute;
+	display:block;
+    right:0px;
+    top:0px;
+}
+.lui_fans_listfollow_btn_tag {
+	position:absolute;
+	display:block;
+    right:0px;
+    top:0px;
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 删除指定的门户，返回提示框改为展示返回按钮</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-30</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户支持多子系统部署</description>
+			<author>李勇</author>
+			<revision-time>2014-12-08</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+				<relation-module>sys/ui</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典messagekey与资源文件不匹配</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 二级页面页眉与表头重叠的问题</description>
+			<author>李勇</author>
+			<revision-time>2014-08-25</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户页面支持百分比宽度</description>
+			<author>李勇</author>
+			<revision-time>2014-08-20</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 门户部件的模块被删除后门户页面编辑时提醒用户部件被删除</description>
+			<author>李勇</author>
+			<revision-time>2014-08-04</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 EKP门户部件支持IBM Portal</description>
+			<author>李勇</author>
+			<revision-time>2014-07-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 门户有些配置页面多语言显示Bug</description>
+			<author>李勇</author>
+			<revision-time>2014-05-26</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户首页的加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 查看版本信息页面</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-09</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+	</modifies>
+</version>

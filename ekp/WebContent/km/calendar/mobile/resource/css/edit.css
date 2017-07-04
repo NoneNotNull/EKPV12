@@ -1,0 +1,199 @@
+@CHARSET "utf-8";
+*{
+	padding: 0;
+	margin: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.muiImportBox .muiImportSubject{ 
+	background-color: #fff;
+	color: #bbbfc1;
+	font-size: 1.4rem;
+}
+.docSubjectTextArea{
+	padding: 0;
+	background-color: #fff;
+}
+.docSubjectTextArea .muiFieldItem{ width: 100%;}
+.docSubjectTextArea .muiFormTextarea {
+	width: 100%;
+	border: 0;
+	outline: none;
+	font-size: 1.4rem;
+	height: 10rem!important;
+	resize: none;
+	padding: 1rem 0;
+}
+.docSubjectTextArea .muiFieldItem > div{ padding: 0 1rem;}
+.muiImportBox .locationInput{
+	width: 100%;
+	padding: 0.8rem 1rem;
+	background-color: #fff;
+	border: 1px solid #e2e2e2;
+}
+
+.muiHeader.muiCalendarHeader {
+	overflow: visible;
+}
+
+.muiHeader.muiCalendarHeader .muiNavbar {
+	overflow: visible!important;
+}
+
+.kmCalendarNavBar ul{
+	width: 100%;
+	display: table;
+	border-bottom: 1px solid #d9d7d7;
+	background-color: #fafafa;
+}
+
+.kmCalendarNavBar ul li {
+	text-align: center;
+	vertical-align: top;
+	color: #848484;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.kmCalendarNavBar ul li .mui {
+	display: inline-block;
+	font-family: FontMui;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	top:-1px;
+}
+
+.kmCalendarNavBar ul li .icon {
+	margin-right: 3px;
+	padding: 0;
+	width: 4rem;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	color: #848484;
+	border: 1px solid #848484;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+}
+
+.muiCalendarNavBarSelected {
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	background-color: white;
+	-webkit-transition: 300ms linear;
+	z-index: 99;
+}
+
+.muiCalendarHeader .muiCalendarNavBarSelected .arrM {
+	bottom: 1px;
+	border-bottom-color: #d9d7d7;
+}
+
+.muiCalendarHeader .muiCalendarNavBarSelected .arrC {
+	bottom:0;
+	border-bottom-color: #fff;
+}
+
+.muiCalendarNavBarSelected .arr {
+	position: absolute;
+	left: 50%;
+	margin-left: -7.4rem;
+	border-color: transparent;
+	border-style: dashed dashed solid;
+	border-width: 6px;
+}
+
+.kmCalendarNavBar .muiNavitem.muiNavitemSelected span{
+	color: #2c79c7;
+	font-weight:normal;
+}
+
+.kmCalendarNavBar .muiNavitem.muiNavitemSelected .icon{
+	color: #2c79c7;
+	border-color: #2c79c7;
+}
+
+.kmCalendarNavBar ul li .txt {
+	display: inline-block;
+	font-size: 1.4rem;
+}
+
+
+#notifyView,#dateView,#labelView{
+	background-color: #fff;
+	border-bottom: 1px solid #d9d7d7;
+}
+
+.muiCalendarHeader .mblView{background:#fff;}
+
+/** 时间 **/
+
+
+.muiCalendarDatetimeContainer{
+	width: 95%;
+	padding: 1rem 4%;
+}
+
+.muiCalendarDatetimeContainer .muiFormSelect{
+	transition-property: all;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	transition-delay: 0s;
+}
+
+.muiCalendarDatetimeContainer>div{ 
+	text-align: center; 
+	white-space: nowrap;
+	margin-right: 0.5rem;
+	display: inline-block;
+}
+
+.muiCalendarDatetimeContainer .muiCalendarDateText{
+	font-size:1.3rem;
+}
+
+.muiCalendarDatetime .muiField{
+	border:1px solid #ececec;
+	background-color: #fff;
+	min-width: 8rem;
+	padding: 6px 5px;
+	width: auto;
+}
+
+.mblSwDefaultShape.kmCalendarSwitch{
+	width: 4.5rem;
+	float: right;
+}
+
+.kmCalendarSwitch .mblSwitchBgLeft {
+	background-color: #29B5EB;
+	background-image: none;
+}
+
+.muiCalendarAllDay{
+	padding: 1rem 4%;
+	font-size: 1.4rem;
+	line-height: 2.5rem;
+}
+
+.muiCalendarLabelContainer{
+	width: 95%;
+	padding: 1rem 4%;
+}
+
+.calendarOptBar{
+	
+}
+
+.calendarOptButton{
+	
+}

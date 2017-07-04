@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="sysNotifyQueueDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.queue.dao.hibernate.SysNotifyQueueDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.queue.model.SysNotifyQueue" />
+	</bean>
+	<bean
+		id="sysNotifyQueueTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.notify.queue.service.spring.SysNotifyQueueServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyQueueDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyQueueService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyQueueTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifyQueueErrorDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.queue.dao.hibernate.SysNotifyQueueErrorDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.queue.model.SysNotifyQueueError" />
+	</bean>
+	<bean
+		id="sysNotifyQueueErrorTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.notify.queue.service.spring.SysNotifyQueueErrorServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyQueueErrorDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyQueueErrorService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyQueueErrorTarget" />
+		</property>
+	</bean>
+
+	<!-- 消息队列服务 -->
+	<bean id="notifyQueueExecuteServiceTarget"
+		class="com.landray.kmss.sys.notify.queue.service.spring.NotifyQueueExecuteServiceImp">
+		<property name="sysNotifyQueueService">
+			<ref local="sysNotifyQueueService" />
+		</property>
+		<property name="sysNotifyQueueErrorService">
+			<ref local="sysNotifyQueueErrorService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+	</bean>
+	<bean id="notifyQueueExecuteService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="notifyQueueExecuteServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="active*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="doNotify*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 消息队列调度 -->
+	<bean id="notifyQueueExecuteDispatcher"
+		class="com.landray.kmss.sys.notify.queue.service.spring.NotifyQueueExecuteDispatcher">
+		<property name="notifyQueueExecuteService">
+			<ref local="notifyQueueExecuteService" />
+		</property>
+	</bean>
+
+	<!-- 消息执行者 -->
+	<bean id="notifyExecutorTarget"
+		class="com.landray.kmss.sys.notify.provider.NotifyExecutor">
+	</bean>
+	<bean id="notifyExecutor" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="notifyExecutorTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 待办执行者 -->
+	<bean id="todoExtendExecutor"
+		class="com.landray.kmss.sys.notify.provider.TodoExtendExecutor">
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property
+			name="orgService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+
+	<!-- 待办扩展执行者 -->
+	<bean id="todoExecutorTarget"
+		class="com.landray.kmss.sys.notify.provider.TodoExecutor">
+		<property name="sysNotifyQueueService">
+			<ref local="sysNotifyQueueService" />
+		</property>
+		<property name="sysNotifyTodoService">
+			<ref bean="sysNotifyTodoService" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+	</bean>
+	<bean id="todoExecutor" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="todoExecutorTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

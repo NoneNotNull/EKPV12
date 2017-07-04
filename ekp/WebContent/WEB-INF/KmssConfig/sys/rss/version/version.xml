@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 RSSportlet显示异常</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-10</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类权限控制问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-08-16</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>去除主页模块选择树中的RSS模块前面的选择框</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-21</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.kms.multidoc.model.KmsMultidocCategoryPreview" 
+		table="kms_multidoc_category_preview">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		<property
+			name="fdPreContent"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true"
+			column="fd_pre_content" 
+			length="1000000"/>
+		<property
+			name="alterDate"
+			column="alert_date"
+			update="true"
+			insert="true"
+			not-null="false"/>
+		<property
+			name="createDate"
+			column="create_date"
+			update="true"
+			insert="true"
+			not-null="false"/>
+		<property
+			name="isDataIsolation"
+			column="is_data_isolation"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="10"/>			
+		<property
+			name="authAreaId"
+			column="auth_area_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />		
+		<property
+			name="fdCategoryId"
+			column="fd_cate_id"
+			length="36"
+			update="true"
+			insert="true"
+			not-null="false" />
+	</class>
+</hibernate-mapping>

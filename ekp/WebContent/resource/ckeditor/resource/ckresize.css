@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+.ckeditor_container {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
+.ckeditor_container .ckeditor_kanban {
+	height: 100%;
+	overflow: hidden;
+	margin: 0 45px;
+}
+
+.ckeditor_container .ckeditor_kanban .ckeditor_bdiv {
+	position: relative;
+	overflow: auto;
+	height: 100%;
+	text-align: center;
+}
+
+.ckeditor_container .ckeditor_kanban .ckeditor_bdiv.nomal {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+.ckeditor_container .ckeditor_kanban .ckeditor_bdiv.nomal img {
+	position: static;
+	vertical-align: middle;
+}
+
+.ckeditor_container .ckeditor_kanban .ckeditor_tip {
+	background: #000;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+}
+
+.ckeditor_container .ckeditor_kanban .ckeditor_tip span {
+	width: 330px;
+	height: 110px;
+	padding-left: 90px;
+	background: url("./img/back.png") no-repeat;
+	display: block;
+	font-size: 30px;
+	color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -210px;
+	margin-top: -55px;
+}
+
+.ckeditor_container .ckeditor_kanban img { /*position: absolute;*/
+	vertical-align: middle;
+}
+
+.ckeditor_container .ckeditor_toolbar_plugins {
+	position: fixed;
+	top: 50px;
+	right: 5px;
+	height: 100%;
+}
+
+.ckeditor_container .ckeditor_toolbar_plugins div {
+	cursor: pointer;
+}
+
+.ckeditor_container .magnify {
+	width: 30px;
+	height: 30px;
+	background: url("./img/magnify.png");
+}
+
+.ckeditor_container .magnify.shrink {
+	background: url("./img/shrink.png");
+}
+
+.ckeditor_container_up .ckeditor_left {
+	position: absolute;
+	top: 45%;
+	width: 27px;
+	height: 44px;
+	left: 0;
+	background: url("./img/pointer.png") 0 0;
+	overflow: hidden;
+}
+
+.ckeditor_container_up .ckeditor_right {
+	position: absolute;
+	top: 45%;
+	width: 27px;
+	height: 44px;
+	right: 0;
+	background: url("./img/pointer.png") 0 -45px;
+	overflow: hidden;
+}
+
+.ckeditor_container .ckeditor_thumb {
+	position: absolute;
+	right: 30px;
+	opacity: 0.5;
+	bottom: 50px;
+	width: 110px;
+	overflow: hidden;
+	border: 1px solid #5b5b5b;
+	background-color: #000;
+	text-align: center;
+	line-height: 112px;
+	display: none;
+}
+
+.ckeditor_container .ckeditor_thumb .ckeditor_thumb_img {
+	vertical-align: middle;
+	max-width: 110px;
+	max-height: 110px;
+}
+
+.ckeditor_container .ckeditor_thumb .ckeditor_selected {
+	position: absolute;
+	border: 3px solid #FCFF3C;
+	z-index: 999;
+	background: url(about:blank)
+}
+
+.ckeditor_close {
+	position: fixed;
+	top: 5px;
+	right: 5px;
+	width: 30px;
+	height: 30px;
+	background: url("./img/close.png") no-repeat;
+	cursor: pointer;
+}

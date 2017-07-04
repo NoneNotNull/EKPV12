@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsLogAppHistoryForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogAppHistoryForm" />
+		<form-bean
+			name="kmsLogContextModuleForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogContextModuleForm" />
+		<form-bean
+			name="kmsLogDocContextForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogDocContextForm" />
+		<form-bean
+			name="kmsLogContextCategoryForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogContextCategoryForm" />
+		<form-bean
+			name="kmsLogAppForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogAppForm" />
+		<form-bean
+			name="kmsLogAskContextForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogAskContextForm" />
+		<form-bean
+			name="kmsLogSearchDocForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogSearchDocForm" />
+		<form-bean
+			name="kmsLogGenerateRuleForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogGenerateRuleForm" />
+		<form-bean
+			name="kmsLogSearchHistoryForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogSearchHistoryForm" />
+		<form-bean
+			name="kmsLogSearchForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogSearchForm" />
+		<form-bean
+			name="kmsLogConfigForm"
+			type="com.landray.kmss.kms.log.forms.KmsLogConfigForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/log/kms_log_context_module/kmsLogContextModule"
+			type="com.landray.kmss.kms.log.actions.KmsLogContextModuleAction"
+			name="kmsLogContextModuleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_context_module/kmsLogContextModule_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_context_module/kmsLogContextModule_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_context_module/kmsLogContextModule_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_doc_context/kmsLogDocContext"
+			type="com.landray.kmss.kms.log.actions.KmsLogDocContextAction"
+			name="kmsLogDocContextForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_doc_context/kmsLogDocContext_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_doc_context/kmsLogDocContext_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_doc_context/kmsLogDocContext_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_context_category/kmsLogContextCategory"
+			type="com.landray.kmss.kms.log.actions.KmsLogContextCategoryAction"
+			name="kmsLogContextCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_context_category/kmsLogContextCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_context_category/kmsLogContextCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_context_category/kmsLogContextCategory_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_app/kmsLogApp"
+			type="com.landray.kmss.kms.log.actions.KmsLogAppAction"
+			name="kmsLogAppForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_app/kmsLogApp_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_app/kmsLogApp_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_app/kmsLogApp_list.jsp" />
+			<forward
+				name="personList"
+				path="/kms/log/kms_log_app/kmsLogApp_list_personal.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_search_doc/kmsLogSearchDoc"
+			type="com.landray.kmss.kms.log.actions.KmsLogSearchDocAction"
+			name="kmsLogSearchDocForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_search_doc/kmsLogSearchDoc_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_search_doc/kmsLogSearchDoc_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_search_doc/kmsLogSearchDoc_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_app_history/kmsLogAppHistory"
+			type="com.landray.kmss.kms.log.actions.KmsLogAppHistoryAction"
+			name="kmsLogAppHistoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_app_history/kmsLogAppHistory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_app_history/kmsLogAppHistory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_app_history/kmsLogAppHistory_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_generate_rule/kmsLogGenerateRule"
+			type="com.landray.kmss.kms.log.actions.KmsLogGenerateRuleAction"
+			name="kmsLogGenerateRuleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_generate_rule/kmsLogGenerateRule_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_generate_rule/kmsLogGenerateRule_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_generate_rule/kmsLogGenerateRule_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_search_history/kmsLogSearchHistory"
+			type="com.landray.kmss.kms.log.actions.KmsLogSearchHistoryAction"
+			name="kmsLogSearchHistoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_search_history/kmsLogSearchHistory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_search_history/kmsLogSearchHistory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_search_history/kmsLogSearchHistory_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/log/kms_log_search/kmsLogSearch"
+			type="com.landray.kmss.kms.log.actions.KmsLogSearchAction"
+			name="kmsLogSearchForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_search/kmsLogSearch_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_search/kmsLogSearch_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_search/kmsLogSearch_list.jsp" />
+			<forward
+				name="personList"
+				path="/kms/log/kms_log_search/kmsLogSearch_list_personal.jsp" />
+		</action>
+		
+		<action
+			path="/kms/log/kms_log_ask_context/kmsLogAskContext"
+			type="com.landray.kmss.kms.log.actions.KmsLogAskContextAction"
+			name="kmsLogAskContextForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/log/kms_log_ask_context/kmsLogAskContext_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_ask_context/kmsLogAskContext_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/log/kms_log_ask_context/kmsLogAskContext_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/log/kms_log_config/kmsLogConfig"
+			type="com.landray.kmss.kms.log.actions.KmsLogConfigAction"
+			name="kmsLogConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/log/kms_log_config/kmsLogBaseConfig.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

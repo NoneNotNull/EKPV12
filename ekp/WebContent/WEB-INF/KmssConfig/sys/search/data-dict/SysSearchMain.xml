@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.search.model.SysSearchMain"
+	messageKey="sys-search:table.sysSearchMain"
+	displayProperty="fdName"
+	serviceBean="sysSearchMainService"
+	table="sys_search_main"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="sys-search:sysSearchMain.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdCondition"
+	messageKey="sys-search:sysSearchMain.fdCondition"
+	type="String"
+	column="fd_condition"
+	notNull="true"
+	length="3000"
+/>
+<simpleProperty
+	name="fdDisplay"
+	messageKey="sys-search:sysSearchMain.fdDisplay"
+	type="String"
+	column="fd_display"
+	notNull="true"
+	length="3000"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-search:sysSearchMain.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdCreateTime"
+	messageKey="sys-search:sysSearchMain.fdCreateTime"
+	type="DateTime"
+	column="fd_create_time"
+	notNull="true"
+/>
+<modelProperty
+	name="fdCreator"
+	messageKey="sys-search:sysSearchMain.fdCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+	column="fd_creator_id"
+	notNull="true"
+/>
+</model></models>

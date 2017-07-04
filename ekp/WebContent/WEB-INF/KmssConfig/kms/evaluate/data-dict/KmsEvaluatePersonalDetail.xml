@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalDetail"
+		messageKey="kms-evaluate:table.kmsEvaluatePersonalDetail"
+		displayProperty="fdCreator"
+		serviceBean="kmsEvaluatePersonalDetailService"
+		table="kms_evaluate_personal_detail"
+		url="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docWeekCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.docWeekCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank"
+			column="doc_week_count"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docMonthCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.docMonthCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank"
+			column="doc_month_count"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docYearCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.docYearCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank"
+			column="doc_year_count"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docCumulativeCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.docCumulativeCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank"
+			column="doc_cumulative_count"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluatePersonalDetail.fdCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_creator"
+			notNull="true"
+			validate="true"
+			canSearch="true" />
+
+	</model>
+</models>

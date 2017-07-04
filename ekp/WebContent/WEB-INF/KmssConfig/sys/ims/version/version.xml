@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 ims管理器扩展点重新定义</description>
+			<author>张添</author>
+			<revision-time>2012-07-11</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 当没有扩展点的时候admin.do不显示ims,kk集成的配置项</description>
+			<author>张添</author>
+			<revision-time>2012-07-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 KK集成模块在admin.do 因为权限无法请求js资源问题</description>
+			<author>张添</author>
+			<revision-time>2012-06-01</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 im在admin.do 引入js错误问题</description>
+			<author>张添</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 某些环境下带注析的页面代码互相影响，导致admin.do保存不到</description>
+			<author>张添</author>
+			<revision-time>2012-05-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 im管理器关联信息</description>
+			<author>张添</author>
+			<revision-time>2012-05-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 im管理器</description>
+			<author>张添</author>
+			<revision-time>2012-04-01</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+	</modifies>
+</version>

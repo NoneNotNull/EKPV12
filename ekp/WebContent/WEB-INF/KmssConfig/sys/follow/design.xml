@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-follow:module.sys.follow"
+		urlPrefix="/sys/follow/"
+		defaultValidator="true">
+
+		<request
+			path="sys_follow_doc/sysFollowDoc*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.follow.model.SysFollowDoc">
+		</request>
+
+		<request
+			path="sys_follow_person_config/sysFollowPersonConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.follow.model.SysFollowPersonConfig">
+		</request>
+
+		<request
+			path="sys_follow_log/sysFollowLog*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.follow.model.SysFollowLog">
+		</request>
+
+	</module>
+	
+	<!-- 定时删除订阅已读数据 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="sysFollowQuzrtzService"
+		messageKey="sys-follow:sysFollow.quartz.delete"
+		jobMethod="deleteFollowDoc" />
+
+	<homePage
+		urlPrefix="sys/follow"
+		messageKey="sys-follow:module.sys.follow"
+		config="/sys/follow/sys_follow_config/sysFollowConfig.do?method=edit" 
+		type="global"/>
+
+</configs>

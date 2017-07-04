@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	
+	
+	
+		
+		
+	<module
+		messageKey="third-ecalendar:module.third.ecalendar"
+		urlPrefix="/third/ecalendar/"
+		defaultValidator="true">
+		<roles>
+			ROLE_ECALENDAR_DEFAULT
+		</roles>
+		
+		 <request
+			path="ecalendar_bind_data/ecalendarBindData*">
+			<query
+				queryString="method=edit|update"
+				validator="true" />
+		</request>
+		
+		 <request
+			path="ecalendar">
+			<query
+				queryString="method=testConnect"
+				validator="true" />
+		</request>
+	</module>
+
+	
+</configs>

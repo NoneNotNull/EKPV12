@@ -1,0 +1,234 @@
+.lui-rowtable-table article>a:first-child {
+	height: 64px;
+	width: 5.5em;
+	position: absolute;
+	left: 0.25em;
+	top: 0.15em;
+	border: 1px solid #ecebeb;
+	line-height: 60px;
+	text-align: center;
+}
+
+.lui-rowtable-table img {
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.lui-rowtable-table>li {
+	border: solid 1.6px #DDDDDD;
+	margin: 0.4em 0;
+	background: #fff;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.lui-column-table>li {
+	margin: 0.4em 0 0.6em;
+	background-color: #fff;
+	padding: 8px;
+}
+
+.lui-column-table .info{
+	margin-top: 4px;
+}
+
+.lui-column-table .info>li{
+	float: left;
+	font-size: 0.75em;
+	position: relative;
+	top: 3px;
+	font-weight: bold;
+	
+}
+
+.lui-column-table .info>li:last-child {
+	float: right;
+}
+
+.lui-column-table .info>li:last-child li {
+	float: left;
+	padding-right: 6px;
+}
+
+.lui-rowtable-table li h3,.lui-column-table li h3 {
+	margin: 0 0 5px;
+}
+
+.lui-rowtable-table li h3 a,.lui-column-table li h3 a {
+	font-size: 0.85em;
+	color: #000 !important;
+	text-decoration: none;
+	word-break:break-all;
+}
+
+.lui-rowtable-table article {
+	padding-left: 6.5em;
+	position: relative;
+	min-height: 4.5em;
+}
+
+.lui-rowtable-table p,.lui-column-table p {
+	font-size: 0.8em;
+	line-height: 1.2em;
+	margin-bottom: 0.2em;
+	overflow : hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #5A5A5A;
+}
+
+.lui-rowtable-table p {
+	height: 1.5em;
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+}
+
+/*
+.___falls___ {
+	position: absolute;
+	left: -9999px;
+	top: -9999px;
+}
+
+.___falls___ ul {
+	padding: 2px;
+	position: absolute;
+	bottom: 7px;
+	left: 2px;
+	right: 2px;
+}
+
+.___falls___ div {
+	background-color: #000;
+	bottom: 6px;
+	left: 2px;
+	right: 2px;
+	height: 25px;
+	position: absolute;
+	opacity: 0.3;
+}*/
+.lui-listview {
+	position: relative;
+	margin: 0 -10px;
+}
+
+.lui-listview-container {
+	-webkit-transition: -webkit-transform 500ms ease;
+	position: absolute;
+	width: 9999px;
+	left: 0;
+	background-color: #D6D6D6;
+}
+
+.lui-top {
+	z-index: 10;
+	position: fixed;
+	height: 40px;
+	width: 40px;
+	bottom: 40px;
+	right: 0px;
+	background-size: 40px 40px;
+	background: url(../images/top.png) no-repeat 50% 50%;
+}
+
+.lui-add {
+	margin-bottom: 2px;
+	z-index: 10;
+	position: fixed;
+	height: 40px;
+	width: 40px;
+	bottom: 80px;
+	right: 0px;
+	background-size: 40px 40px;
+	background: url(../images/add.png) no-repeat 50% 50%;
+}
+
+.loading {
+	margin: 0 -10px;
+	background-color: #efedee;
+	display: none;
+	height: 50px;
+	font-size: 16px;
+	line-height: 50px;
+	color: #303339;
+	border-bottom: 1px solid #CDCDCD;
+	text-align: center;
+	background-color: #efedee;
+}
+
+.loading>span {
+	padding-left: 25px;
+	background: url(../images/ajax_loader.gif) left center no-repeat;
+	background-size: 16px 16px;
+}
+
+.lui-grid-table>li {
+	border: solid 1.6px #DDDDDD;
+	margin: 0.4em 0;
+	background: #fff;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.lui-grid-table .info a {
+	display: block;
+}
+
+.lui-grid-table .info>span{
+	margin-top: 4px;
+	display: block;
+}
+
+.lui-grid-table .info img {
+	width: 100%;
+	height: auto;
+}
+
+.lui-grid-table li h3 {
+	margin: 0 0 4px 0;
+}
+
+.lui-grid-table li h3 a {
+	font-size: 0.85em;
+	color: #000 !important;
+	text-decoration: none;
+}
+
+.lui-grid-table p.description {
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+	margin-bottom: 0.2em;
+}
+
+.lui-grid-table p.description{
+	font-size: 0.8em;
+	position: relative;
+	top: 3px;
+}
+
+.lui-grid-table p.date {
+	float: left;
+	font-size: 0.75em;
+	top: 5px;
+	position: relative;
+}
+
+.lui-grid-table .lui-grid-b {
+	float: right;
+}
+
+.lui-grid-table .lui-grid-b li {
+	width: auto;
+	padding: 2px;
+}
+
+.lui-grid-table .more {
+	float: right;
+	font-size: 0.8em;
+	color: #000;
+}

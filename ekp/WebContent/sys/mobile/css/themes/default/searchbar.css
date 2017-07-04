@@ -1,0 +1,173 @@
+﻿.muiSearchButton{
+	color:#3564aa;
+	min-width:4rem;
+	height: 100%;
+	cursor: pointer;
+}
+
+.muiSearchBarDiv{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 100%;
+	z-index:10;
+	padding: 0rem 0rem;
+	overflow: hidden;
+	-webkit-transition: -webkit-transform 400ms linear;
+	-webkit-transform:translate3d(100%, 0, 0);
+}
+.muiSearchBar{
+	width:100%;
+	vertical-align: middle;
+	background-color: #f7f7f7;
+	border-bottom:1px solid #e8e8e8;
+}
+.muiSearchBar > form{
+	height: 100%;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.muiSearchBarContainer{
+	display:table;
+	width:95%;
+	height: 2.8rem;
+	line-height: 2.8rem;
+	margin: 0rem auto;
+	
+}
+.muiSearchBarContainer > div{
+	vertical-align: middle;
+	display: table-cell;
+}
+.muiSearchDiv{
+	position: relative;
+	border: 0.1rem solid #d7d7d7;
+	background-color: #fff;
+	border-radius: 0.4rem;
+	height: 100%;
+	overflow: hidden;
+}
+.muiSearchIcon,.muiSearchInput,.muiSearchClear{
+	border: none !important;
+	width: 2.5rem;
+	font-size:2rem;
+	height: 100%;
+	line-height: 2.8rem;
+	vertical-align: middle;
+	display: inline-block;
+	background:none !important;
+}
+.muiSearchIcon,.muiSearchClear{
+	position: absolute;
+	color: #93989d;
+	text-align:center;
+}
+.muiSearchIcon{
+	top:0rem;
+	left:0.5rem;
+}
+.muiSearchClear{
+	top:0rem;
+	right:0;
+	display: none;
+	z-index: 14 !important;
+}
+.muiSearchInput{
+	position: absolute;
+	padding:0rem 2rem 0rem 3.2rem;
+	top:0rem;
+	width:100%;
+	text-align:left;
+	font-size:1.4rem;
+	line-height:2.8rem;
+	height:2.8rem;
+	vertical-align:middle;
+	outline:none;
+	background-color:none;
+	-webkit-appearance:none;
+	-webkit-box-shadow:none;
+	appearance:none;
+	box-shadow:none;
+}
+/*.muiSearchInput::-webkit-input-placeholder{}*/
+.muiSearchBtnDiv{
+	text-align: center;
+	width:4.8rem;
+	height:100%;
+	overflow: hidden;
+}
+.muiSearchCancelBtn{
+	padding:0rem 0.3rem;
+    text-align:center;
+    vertical-align:middle;
+    font-size:1.4rem;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.muiSearchPrompt{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	z-index:10;
+	overflow:hidden;
+	background-color:rgba(255, 255, 255 , 1);
+	padding: 0rem 0rem;
+	-webkit-transition:-webkit-transform 400ms linear;
+	-webkit-transform:translate3d(100%, 0, 0);
+}
+
+.muiSearchPrompt .muiSearchRecord,.muiSearchPrompt .muiSearchOpt{
+	color: #555;
+}
+.muiSearchPrompt .muiSearchRecord{
+	width: 100%;
+	margin: 0px auto;
+	margin-bottom: 1.2rem;
+}
+.muiSearchPrompt .muiSearchNoRecord{
+	margin: 0rem 1rem;
+	color:#999;	
+	border-bottom:1px dashed #ddd;
+	height:3.2rem;
+	line-height:3.2rem;
+	font-size:1.4rem;
+
+
+}
+.muiSearchPrompt .muiSearchOpt{
+	text-align: center;
+	margin-top: 2.5rem;
+}
+.muiSearchRecord > div{
+	padding: 1.2rem 1rem;
+	margin:0 1rem;
+	border-bottom:  #e5e5e5 solid 1px;
+	color:#0c0c0c
+}
+.muiSearchOpt >div{
+	display: inline-block;
+}
+
+.muiSearchOpt .muiSearchClearBtn{
+    width:60%;
+    margin:0 auto;
+	padding: 1rem 0;
+    color:#fff;
+	background-color: #55B3F4;
+    border-radius:0.2rem;
+	cursor: pointer;
+}
+
+.muiSearchTitle{
+margin: 0rem 1rem;
+	color:#999;	
+	border-bottom:1px dashed #ddd;
+	height:3.2rem;
+	line-height:3.2rem;
+	font-size:1.4rem;
+}
+.muiSearchTitle span{
+
+}

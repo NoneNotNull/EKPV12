@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.notify.model.SysNotifyTodoDoneInfo"
+	messageKey="sys-notify:table.sysNotifyTodoDoneInfo"
+	serviceBean="sysNotifyTodoDoneInfoService"
+	table="sys_notify_todo_done_info"
+>
+<idProperty><generator
+	type="native"
+/></idProperty>
+<simpleProperty
+	name="fdFinishTime"
+	messageKey="sys-notify:sysNotifyTodoDoneInfo.fdFinishTime"
+	type="DateTime"
+	column="fd_finish_time"
+	notNull="false"
+	unique="false"
+/>
+<modelProperty
+	name="todo"
+	messageKey="sys-notify:sysNotifyTodoDoneInfo.todo"
+	type="com.landray.kmss.sys.notify.model.SysNotifyTodo"
+	column="fd_todoid"
+	notNull="false"
+	unique="false"
+/>
+<modelProperty
+	name="orgElement"
+	messageKey="sys-notify:sysNotifyTodoDoneInfo.orgElement"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_elementid"
+	notNull="false"
+	unique="false"
+/>
+</model></models>

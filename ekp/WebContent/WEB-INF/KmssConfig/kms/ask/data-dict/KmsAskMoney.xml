@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskMoney"
+		messageKey="kms-ask:table.kmsAskMoney"
+		displayProperty="docSubject"
+		serviceBean="kmsAskMoneyService"
+		table="kms_ask_money"
+		url="/kms/ask/kms_ask_money/kmsAskMoney.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdMoneyFree"
+			messageKey="kms-ask:kmsAskMoney.fdMoneyFree"
+			type="Integer"
+			column="fd_money_free"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdMoneyWin"
+			messageKey="kms-ask:kmsAskMoney.fdMoneyWin"
+			type="Integer"
+			column="fd_money_win"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdMoneySpend"
+			messageKey="kms-ask:kmsAskMoney.fdMoneySpend"
+			type="Integer"
+			column="fd_money_spend"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

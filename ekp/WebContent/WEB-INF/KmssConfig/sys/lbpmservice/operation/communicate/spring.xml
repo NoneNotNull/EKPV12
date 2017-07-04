@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="lbpmHandlerCancelCommunicateBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCancelCommunicateBehaviour">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmHandlerCommunicateBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCommunicateBehaviour">
+		<property name="orgTemporaryStore">
+			<ref bean="orgTemporaryStore" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmHandlerReturnCommunicateBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerReturnCommunicateBehaviour" />
+	<!-- 多级沟通绑定 -->
+	<bean
+		id="handlerCommunicateBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.HandlerCommunicateBinder">
+	</bean>
+	<bean
+		id="handlerReturnCommunicateBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.HandlerReturnCommunicateBinder">
+	</bean>
+	<bean
+		id="handlerCancelCommunicateBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.HandlerCancelCommunicateBinder">
+	</bean>
+
+	<bean
+		id="lbpmHandlerCommunicateAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCommunicateAccessor">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmHandlerCommunicateListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCommunicateListener">
+	</bean>
+</beans>

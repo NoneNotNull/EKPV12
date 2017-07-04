@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<web ID="13d86c6c285b2828fd58663484c966bf"><Input><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://WebXml.com.cn/">
+			<!--{"title":""}--><soapenv:Header></soapenv:Header>
+			<soapenv:Body>
+				<web:getSupportCity>
+					<!--Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","ctype":"string","title":""}-->
+					<web:byProvinceName>广东</web:byProvinceName>
+				</web:getSupportCity>
+			</soapenv:Body>
+		</soapenv:Envelope></Input><Output><soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://WebXml.com.cn/">
+			<!--{"title":"","isSuccess":"","isFail":""}--><soapenv:Header/>
+			<soapenv:Body>
+				<web:getSupportCityResponse>
+					<!--Optional:|erp_web={"minOccurs":"0", "maxOccurs":"1"}-->
+					<web:getSupportCityResult>
+						<!--Zero or more repetitions:|erp_web={"minOccurs":"0","maxOccurs":"2147483647","title":"","isSuccess":"","isFail":""}-->
+						<web:string/>
+					</web:getSupportCityResult>
+				</web:getSupportCityResponse>
+			</soapenv:Body>
+		</soapenv:Envelope></Output><Fault><!--Optional:|erp_web={"minOccurs":"1", "maxOccurs":"1"}-->
+		<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+			<!--Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","title":""}-->
+			<soapenv:Header>
+				<!--You may enter ANY elements at this point-->
+			</soapenv:Header>
+			<!--Optional:|erp_web={"minOccurs":"1", "maxOccurs":"1"}-->
+			<soapenv:Body>
+				<!--You may enter ANY elements at this point-->
+				<soapenv:Fault>
+					<!--Optional:|erp_web={"minOccurs":"1","maxOccurs":"1","ctype":"QName","title":""}-->
+					<faultcode/>
+					<!--Optional:|erp_web={"minOccurs":"1","maxOccurs":"1","title":""}-->
+					<faultstring xml:lang=""/>
+					<!--Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","ctype":"anyURI","title":""}-->
+					<faultactor/>
+					<!--Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","title":""}-->
+					<detail>
+						<!--You may enter ANY elements at this point-->
+					</detail>
+				</soapenv:Fault>
+			</soapenv:Body>
+		</soapenv:Envelope></Fault></web>

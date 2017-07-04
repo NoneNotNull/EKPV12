@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+	<formset>
+		<form name="compDbcpForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdName"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdType"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdType"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdDriver"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdDriver"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdUrl"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdUrl"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1000</var-value>
+				</var>
+			</field>
+			<field
+				property="fdUsername"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdUsername"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+			<field
+				property="fdPassword"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdPassword"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+			<field
+				property="fdDescription"
+				depends="required,maxlength">
+				<arg
+					key="compDbcp.fdDescription"
+					bundle="component-dbop"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+		</form>
+		
+	</formset>
+</form-validation>

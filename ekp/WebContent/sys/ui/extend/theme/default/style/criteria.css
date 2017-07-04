@@ -1,0 +1,831 @@
+@CHARSET "UTF-8";
+
+/* ---------- 基础布局 ------------- */
+.criteria {
+	color: #797874;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+.criteria .hidden {
+	display: none;
+}
+
+.criteria a {
+	text-decoration: none;
+}
+
+.criteria .criterion a.selected {
+	color: #E3922D;
+}
+
+.criteria .criterion a.selected span {
+	text-decoration: underline;
+}
+
+.criteria .criterion a:hover,.criteria a:hover {
+	color: #E3922D;
+}
+
+/* ---------- 筛选项 ------------- */
+.criterions {
+	border-top: 1px solid #FBE7B1;
+	border-bottom: 1px solid #FBE7B1;
+	margin-top: -1px;
+	background-color: #FDF6E2;
+	overflow: hidden;
+}
+
+.criterion {
+	border-color: #FBE7B1 #FBE7B1 #C6C1BA;
+	border-style: solid solid dotted;
+	border-width: 0 1px 1px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.criterion-normal {
+	padding: 0;
+	margin: 0;
+}
+
+.criterion: :after,.criterion: :before,.criterion ul: :after,.criterion ul:
+	:before {
+	display: table;
+	content: "";
+	overflow: hidden;
+	clear: both;
+}
+
+.criterion,.criterion ul {
+	zoom: 1;
+	z-index: 1;
+}
+
+.criterion ul,.criterion ol {
+	list-style: none;
+}
+
+.criteria-border {
+	position: relative;
+	top: -2px;
+	border-top: 1px solid #FBE7B1;
+	height: 0;
+	overflow: hidden;
+	z-index: 2;
+}
+
+/* ------ 筛选项标题 ------ */
+.criterion-title,.criterion-title a {
+	display: block;
+	height: auto;
+	line-height: 16px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #333;
+}
+
+.criterion-title {
+	padding: 0;
+	text-indent: 13px;
+	float: left;
+	/* background-color: #FDF6E2; */
+	width: 15%;
+	text-align: right;
+}
+
+.criterion-title>div { /* display: inline; */
+	line-height: 33px;
+	/* float: right; */
+	padding-right: 22px;word-break:break-all;word-wrap:break-word; /*强制换行*/
+}
+
+.criterion-title>div.person {
+	line-height: 20px;
+	width: 78px;
+	text-indent: 0;
+	float: right;
+	margin-bottom: 8px
+}
+
+.criterion-value {
+	position: relative;
+	float: left;
+	width: 85%;
+	padding: 0;
+	background-color: #FEFAEE; +
+	padding: 6px 0px;
+	max-height: 68px;
+}
+
+.criterion-title .criterion-title-popup-div {
+	padding-right: 0px;
+	line-height: 32px;
+	position: relative;
+	cursor: pointer;
+}
+
+/* 修补弹出菜单在标题中的问题 */
+.criterion-title-popup-div .lui_menu_frame_nav .lui_menu_content>div {
+	float: none;
+}
+
+/*修复无菜单情况下标志消失位置偏移的问题*/
+.criterion-title-popup-div .lui_item_txt {
+	position: absolute;
+	right: 20px;
+}
+
+.criterion-title-popup-div .lui_item_content {
+	height: 28px;
+}
+
+/* ------ 筛选项数据选项 ------ */
+.criterion-value ul,.criterion-value li,.criteria-popup-value li {
+	padding: 0;
+	margin: 0;
+}
+
+.criterion-value ul {
+	position: relative;
+	margin-right: 40px;
+	margin-left: 10px;
+}
+
+.criterion-value li,.criteria-popup-value li {
+	margin: 2px 7px;
+	padding: 2px 6px 2px 0;
+	float: left;
+	line-height: 24px;
+}
+
+.criterion-value li a,.criteria-popup-value li a {
+	text-decoration: none;
+	color: #333;
+}
+
+.criterion-value .checkbox,.criteria-popup-value .checkbox {
+	float: left;
+	width: 12px;
+	height: 12px;
+	background: transparent url(../images/criteria/criteria.png) no-repeat
+		scroll 0 -80px;
+	margin-top: 6px;
+	font-size: 0;
+	overflow: hidden;
+}
+
+.criterion-value .radio .checkbox,.criteria-popup-value .radio .checkbox
+	{
+	display: none;
+}
+
+.criterion-value .selected .checkbox,.criteria-popup-value .selected .checkbox
+	{
+	background-position: 0 -59px;
+}
+
+.criterion-value .text,.criteria-popup-value .text {
+	margin-left: 6px;
+	_margin-left: 3px;
+	cursor: pointer;
+	
+}
+
+.criterion-expand {
+	height: auto;
+	display: inline-block;
+	margin-top: 2px;
+	padding-top: 3px !important;
+}
+
+.criterion-collapse {
+	height: auto;
+	overflow: hidden;
+}
+
+.criterion-more{
+	color:#DC772A;
+	display: none;
+	float: right;
+	margin: 2px 0px 0;
+	padding: 3px 9px 3px;
+	line-height: 24px;
+	cursor: pointer;
+}
+
+.criterion-more-down,.criterion-more-up{
+	width: 0;
+    height: 0;
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #DC772A transparent transparent;
+    display: inline-block;
+}
+
+.criterion-more-down.criterion-more-up{
+    border-width: 0 8px 8px;
+    border-color: transparent transparent #DC772A;
+}
+
+.criterion-options {
+	position: absolute;
+	right: 0;
+	top: 2px;
+	width: 170px;
+	min-width: 85px;
+	max-width: 200px;
+	z-index: 1;
+}
+
+.criterion-had-more .criterion-more{
+	display: inline-block;
+}
+
+/*---------弹出选项---------*/
+.criteria-popup-value {
+	padding: 0 0 0 0;
+	color: #797874;
+	font-family: tahoma, arial, 宋体;
+	font-size: 12px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+}
+
+.criteria-popup-value a {
+	text-decoration: none;
+}
+
+.criteria-popup-value a.selected {
+	color: #E3922D;
+}
+
+.criteria-popup-value a:hover {
+	color: #E3922D;
+}
+
+.criteria-popup-value li {
+	list-style: none;
+}
+
+.criteria-popup .criterion-expand {
+	margin-left: 5px;
+	width: 100%;
+}
+
+.criteria-popup .checkbox {
+	margin-top: 8px;
+}
+
+.criteria-popup .text {
+	width: 100px;
+}
+
+.criteria-popup .arrow {
+	float: left;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-style: dashed;
+	border-color: transparent;
+	border-width: 5px;
+	font-size: 0;
+	border-top-style: solid;
+	border-top-color: #999;
+	padding: 0;
+	margin: 8px 0 5px 8px;
+}
+
+.criteria-popup .popup-area {
+	display: block;
+	float: left;
+	border: 1px solid #999;
+	background-color: #fff;
+	margin-left: 5px;
+	padding: 0px 5px;
+}
+
+/*---------更多选项---------*/
+.criteria-extra {
+	display: block;
+	height: 29px;
+	position: relative;
+	top: -1px;
+	z-index: 2;
+}
+
+.criteria-extra-border {
+	background: #FBE7B1;
+	border: 1px solid #FBE7B1;
+	border-top: 0;
+	display: block;
+	font-size: 0;
+	height: 2px;
+	line-height: 2px;
+	overflow: hidden;
+}
+
+.criteria-extra-more {
+	background-color: #FBE7B1;
+	border-color: #FBE7B1 #FBE7B1 #FBE7B1;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+	top: 2px;
+	right: 45%;
+	z-index: 1;
+	display: block;
+	height: 16px;
+	width: 120px;
+	color: #806f66;
+	font-size: 12px;
+	line-height: 14px;
+	/* text-indent: 25px; */
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+}
+
+.criteria-extra .arrow {
+	position: relative;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-style: dashed;
+	border-color: transparent;
+	border-width: 5px;
+	font-size: 0;
+	border-top-style: solid;
+	border-top-color: #999;
+	top: 3px;
+	left: 2px;
+	padding: 0;
+	margin: 0;
+}
+
+.criteria-extra .arrow-inner {
+	position: absolute;
+	top: -6px;
+	left: -4px;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-style: dashed;
+	border-color: transparent;
+	border-width: 4px;
+	font-size: 0;
+	border-top-style: solid;
+	border-top-color: #FBE7B1;
+	padding: 0;
+	margin: 0;
+}
+
+.criteria-extra .expand .arrow {
+	position: relative;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-style: dashed;
+	border-color: transparent;
+	border-width: 5px;
+	font-size: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #999;
+	top: -2px;
+	left: 2px;
+	padding: 0;
+	margin: 0;
+}
+
+.criteria-extra .expand .arrow-inner {
+	position: absolute;
+	top: -3px;
+	left: -4px;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-style: dashed;
+	border-color: transparent;
+	border-width: 4px;
+	font-size: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #FBE7B1;
+	padding: 0;
+	margin: 0;
+}
+
+/*---------全部清除按钮----------*/
+li.criterion-all {
+	margin: 2px 0 0 4px;
+	padding: 3px 1px 3px 0
+}
+
+li.criterion-all a { /* border:1px solid #f1c996;*/
+	padding: 0px 8px;
+	display: block;
+	content: "";
+	overflow: hidden;
+	clear: both;
+}
+
+li.criterion-all a .text { /*color:#e3922d;*/
+	margin: 0;
+	line-height: 22px;
+}
+
+/*---------级联分类选项类型---------*/
+li.criterion-hierarchy-parent {
+	margin: 2px 0 0 1px;
+}
+
+li.criterion-hierarchy-parent a {
+	background: #feedcf url(../images/criteria/parent_arrow.png) no-repeat
+		right center;
+	padding: 0px 18px 0px 0px;
+	display: block;
+	content: "";
+	overflow: hidden;
+	clear: both;
+	border: 1px solid #f8d383;
+}
+
+li.criterion-hierarchy-parent a .text {
+	color: #e7873a;
+	line-height: 22px;
+}
+
+.criterion-hierarchy-parent .up {
+	
+}
+
+.criterion-hierarchy .criterion-collapse {
+	padding-top: 4px;
+	/*height: 36px;*/
+}
+
+/* ---------- 已经选中 ------------- */
+.criteria-selected {
+	background-color: #FEFAEE;
+	border-color: #FBE7B1;
+	border-style: solid;
+	border-width: 1px 1px 0 1px;
+	padding: 4px 0 1px 0;
+	height: auto;
+	overflow: hidden;
+}
+
+.criteria-selected,.criteria-selected ul {
+	zoom: 1;
+}
+
+.criteria-selected ul {
+	overflow: hidden;
+	width: 85%;
+}
+
+.criteria-selected ul,.criteria-selected ol {
+	list-style: none;
+}
+
+.criteria-selected: :after,.criteria-selected: :before {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.criteria-selected .criterion-title {
+	height: 30px;
+	text-align: right;
+	text-indent: 22px;
+	width: 13.6%;
+}
+
+.criteria-selected .criterion-value {
+	overflow: visible;
+	width: 85%;
+}
+
+.criteria-selected .criterion-value li {
+	border: 1px solid #FBE7B1;
+	padding: 0 6px 0 6px;
+	margin: 0 10px 3px 0;
+	float: left;
+	/*line-height: 24px;*/
+}
+
+.criteria-selected .criterion-value>li {
+	height: 30px;
+	/*line-height: 24px;*/
+}
+
+.criteria-selected .criterion-title {
+	font-weight: bolder;
+	color: #7A5B00;
+	line-height: 30px;
+}
+
+.criteria-selected .criterion-value li[data-criterion-key] a,.criteria-selected .criterion-value li[data-criterion-key] a:hover,.criteria-selected .criterion-value li[data-criterion-key] a .text
+	{
+	cursor: default;
+}
+
+.criteria-selected .criterion-value li a .text {
+	color: #7A5B00;
+}
+
+.criteria-selected .cancel {
+	background: transparent url(../images/criteria/criteria.png) no-repeat
+		scroll 0 -146px;
+	float: right;
+	width: 12px;
+	height: 12px;
+	margin-top: 6px;
+	margin-left: 6px;
+	font-size: 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.criteria-selected .criterion-options .multi-option {
+	top: 3px;
+	/* position: absolute; */
+	margin-right: 6px;
+	float: right;
+	text-decoration: none;
+	color: #E69B4B;
+	border-color: #E89F42;
+	border-style: solid;
+	border-width: 1px;
+	padding: 3px 3px 3px 20px;
+	background: #FDEECE url(../images/criteria/multi-option.png) no-repeat
+		scroll 3px 5px;
+}
+
+.criteria-selected .criterion-options .multi-option:hover {
+	background-color: #fbe9b8
+}
+
+/***-----确定按钮---**/
+.criteria .commit-action,.criteria-popup-value .commit-action {
+	color: #E69B4B;
+	border: 1px solid #E89F42 !important;
+	background-color: #FDEFCF;
+	padding: 0px 6px;
+	cursor: pointer;
+	height: 23px !important;
+	line-height: 23px;
+	margin: 2px 0 2px 6px;
+}
+.criteria .commit-action:hover,.criteria-popup-value .commit-action:hover{ background:#fbe9b8;}
+.criteria input.commit-action,.criteria-popup-value input.commit-action
+	{
+	height: 25px !important;
+	float: left;
+}
+
+.criteria .commit-action a,.criteria .criteria-selected li .commit-action a,.criteria-popup-value .commit-action a
+	{
+	color: #E69B4B;
+	cursor: pointer;
+}
+
+/**-------=========== criteria_search ==========-------**/
+.criteria_search {
+	width: 214px;
+	height: 26px;
+	line-height: 26px;
+	border: 1px solid #c9c9c9;
+	background-color: #fff;
+	position: relative;
+	margin-top: 9px;
+	margin-right: 8px;
+	float: right;
+}
+
+.criteria_search_t {
+	border: 0;
+	outline: none;
+	width: 180px;
+	height: 26px;
+	color: #999;
+	line-height: 26px;
+	padding-left: 10px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+.criteria_search_b {
+	border: 0;
+	cursor: pointer;
+	width: 30px;
+	height: 26px;
+	background: #fff url(../images/criteria/search_btn.png) no-repeat center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.criteria_search_b:hover{ background:url(../images/criteria/search_btn_on.png) no-repeat center;}
+.search-box .search-box-btn{ background: transparent url(../images/criteria/search_btn.png) no-repeat center;}
+.search-box-btn:hover{ background: transparent url(../images/criteria/search_btn_on.png) no-repeat center;}
+
+/**-------=========== criteria_calendar ==========-------**/
+.criterion-value .lui_criteria_date_span,.criteria-popup-value .lui_criteria_date_span
+	{
+	float: left;
+	cursor: pointer;
+	margin: 2px 1px 0 4px;
+	position: relative;
+}
+
+.criterion-value .lui_criteria_date_span input,.criteria-popup-value .lui_criteria_date_span input
+	{
+	width: 138px;
+	height: 24px;
+	margin: 0;
+	padding: 0 10px;
+	color: #797874;
+	background-color: #fff;
+	line-height: 24px;
+	border: 1px solid #cacaca;
+}
+
+.criterion-value .grid,.criteria-popup-value .grid {
+	float: left;
+	margin: 0 1px;
+}
+
+.criterion-value .lui_criteria_date_li,.criteria-popup-value .lui_criteria_date_li
+	{
+	margin: 0;
+}
+
+.criterion-value .lui_criteria_date_select,.criteria-popup-value .lui_criteria_date_select
+	{
+	width: 16px;
+	height: 15px;
+	background: url(../images/criteria/date-input.png) no-repeat 0 -25px;
+	cursor: pointer;
+	position: absolute;
+	top: 6px;
+	right: 5px;
+}
+
+.criterion-value .lui_criteria_date_select:hover,.criteria-popup-value .lui_criteria_date_select:hover
+	{
+	background-position: 0 0;
+}
+
+.criterion-value .lui_criteria_date_validate_container{
+	display: none;
+}
+
+.criterion-value .lui_criteria_date_validate {
+	height: 18px;
+	width: 148px;
+	visibility: hidden;
+	float:left;
+	margin: 2px 1px 0 4px;
+	padding: 5px;
+	border: 1px solid #e0a385;
+	background-color: #fff5d8;
+	color: #cc0000;
+	font-weight:bolder;
+	line-height: normal;
+}
+.criterion-value .lui_criteria_date_validate.sec{
+	margin-left : 11px; 
+}
+
+.criterion-value .lui_criteria_date_validate .text{
+	display: inline-block;
+	float: none;
+	cursor: auto;
+	overflow: visible;
+}
+
+/* ------- 输入框 ---------- */
+.criterion-value .criteria-input-text {
+	float: left;
+	cursor: pointer;
+	margin: 2px 1px 0 0;
+	position: relative;
+}
+
+.criterion-value .criteria-input-text input {
+	width: 180px;
+	height: 24px;
+	margin: 0;
+	padding: 0 10px;
+	color: #797874;
+	background-color: #fff;
+	line-height: 24px;
+	border: 1px solid #cacaca;
+}
+
+.criterion-value .criteria-input-number {
+	float: left;
+	cursor: pointer;
+	margin: 2px 1px 0 0;
+	position: relative;
+}
+
+.criterion-value .criteria-input-number input {
+	width: 50px;
+	height: 22px;
+	margin: 0;
+	padding: 0 10px;
+	color: #797874;
+	background-color: #fff;
+	line-height: 24px;
+	border: 1px solid #cacaca;
+}
+
+.criterion-value .criteria-input-li {
+	margin: 0;
+}
+
+/*@已选条件搜索框*/
+.criterion-other .criterion .criteria-input-text {
+	width: 109px;
+	margin: 0;
+	height: 24px;
+}
+
+.criterion-other .criterion .criteria-input-text input {
+	border: 0;
+	outline: none;
+	width: 85px;
+	height: 24px;
+	color: #797874;
+	background: #FDF9EE;
+	line-height: 24px;
+	padding-left: 5px;
+	position: absolute;
+	top: 0;
+}
+
+.criterion-other .criterion .criteria-input-text .criteria-input-cancel
+	{
+	border: 0;
+	cursor: pointer;
+	width: 20px;
+	height: 22px;
+	background: transparent url(../images/criteria/search_cancel.png)
+		no-repeat center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.criterion-other .criterion .criteria-input-text .criteria-input-ok {
+	border: 0;
+	cursor: pointer;
+	width: 20px;
+	height: 22px;
+	background: transparent url(../images/criteria/search_btn.png) no-repeat
+		center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+.criterion-other .criterion .criteria-input-text .criteria-input-ok:hover { background:transparent url(../images/criteria/search_btn_on.png) no-repeat center;}
+
+.criterion-other .criterion {
+	width: 109px;
+	height: 24px;
+	line-height: 20px;
+	border: 1px solid #DADADA;
+	display: inline-block;
+	background-color: #FEFAEF;
+	position: relative;
+}
+
+.criterion-other .criterion li {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.criteria-selected .criterion-value li.criterion-other {
+	display: inline-block;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.criteria-selected .criterion-other {
+	width: 120px;
+}

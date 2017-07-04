@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchCategoryModel"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchCategoryModel"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchCategoryModelService"
+		table="sys_ftsearch_category_model">
+
+		<idProperty>
+			<generator
+				type ="assigned" />
+		</idProperty>
+		
+		
+		<simpleProperty
+			name="fdParentId"
+			messageKey="sys-ftsearch-expand:sysFtsearchCategoryModel.fdParentId"
+			type="String"
+			column="fd_parent_id"
+			notNull="true"
+			length="200"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="sys-ftsearch-expand:sysFtsearchCategoryModel.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="true"
+			length="200"
+			validate="false" />
+		<simpleProperty
+			name="fdCategoryInfoKey"
+			messageKey="sys-ftsearch-expand:sysFtsearchCategoryModel.fdCategoryInfoKey"
+			type="String"
+			column="fd_category_info_key"
+			notNull="true"
+			length="2000"
+			validate="false" />
+		<simpleProperty
+			name="fdCategoryInfo"
+			messageKey="sys-ftsearch-expand:sysFtsearchCategoryModel.fdCategoryInfo"
+			type="String"
+			column="fd_category_info"
+			notNull="false"
+			length="1000"
+			validate="false" />
+	</model>
+</models>

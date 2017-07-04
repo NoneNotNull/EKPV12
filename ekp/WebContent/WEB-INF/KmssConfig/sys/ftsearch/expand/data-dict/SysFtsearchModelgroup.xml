@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchModelgroup"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchModelgroup"
+		displayProperty="fdCategoryName"
+		serviceBean="sysFtsearchModelgroupService"
+		table="sys_ftsearch_modelgroup"
+		url="/sys/ftsearch/expand/sys_ftsearch_modelgroup/sysFtsearchModelgroup.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCategoryName"
+			messageKey="sys-ftsearch-expand:sysFtsearchModelgroup.fdCategoryName"
+			type="String"
+			column="fd_category_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCategoryModel"
+			messageKey="sys-ftsearch-expand:sysFtsearchModelgroup.fdCategoryModel"
+			type="String"
+			column="fd_category_model"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

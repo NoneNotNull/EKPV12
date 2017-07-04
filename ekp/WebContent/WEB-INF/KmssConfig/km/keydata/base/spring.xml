@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmKeydataBaseDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.keydata.base.dao.hibernate.KmKeydataBaseDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.keydata.base.model.KmKeydataBase" />
+	</bean>
+	<bean
+		id="kmKeydataBaseTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.keydata.base.service.spring.KmKeydataBaseServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmKeydataBaseDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmKeydataBaseService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmKeydataBaseTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmKeydataUsedDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.keydata.base.dao.hibernate.KmKeydataUsedDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.keydata.base.model.KmKeydataUsed" />
+	</bean>
+	<bean
+		id="kmKeydataUsedTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.keydata.base.service.spring.KmKeydataUsedServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmKeydataUsedDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmKeydataUsedService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmKeydataUsedTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmKeydataPluginShowDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.keydata.base.dao.hibernate.KmKeydataPluginShowDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.keydata.base.model.KmKeydataPluginShow" />
+	</bean>
+	
+	<bean
+		id="kmKeydataPluginShowTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.keydata.base.service.spring.KmKeydataPluginShowServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmKeydataPluginShowDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmKeydataPluginShowService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmKeydataPluginShowTarget" />
+		</property>
+	</bean>
+	
+	
+	
+	
+	<bean id="kmKeydataExtendService" class="com.landray.kmss.km.keydata.base.service.spring.KmKeydataExtendService">
+	</bean>
+	
+	<bean id="keydataSynchroService" class="com.landray.kmss.km.keydata.synchro.KeydataSynchroService">
+		<property
+			name="kmKeydataBaseService">
+			<ref
+				local="kmKeydataBaseService" />
+		</property>
+	</bean>
+
+</beans>

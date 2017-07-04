@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 开始 -->
+	<bean id="synchroInIteratorProviderRunnerTarget"
+		class="com.landray.kmss.sys.oms.in.OMSSynchroInIteratorProviderRunner">
+		<property name="orgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+		<property name="orgOrgService">
+			<ref bean="sysOrgOrgService" />
+		</property>
+		<property name="orgDeptService">
+			<ref bean="sysOrgDeptService" />
+		</property>
+		<property name="orgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property name="orgPostService">
+			<ref bean="sysOrgPostService" />
+		</property>
+		<property name="orgGroupService">
+			<ref bean="sysOrgGroupService" />
+		</property>
+		<property name="orgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="passwordEncoder">
+			<ref bean="passwordEncoder" />
+		</property>
+	</bean>
+	<bean id="synchroInIteratorProviderRunner" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="synchroInIteratorProviderRunnerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="synchro*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 结束 -->
+	<bean id="synchroInProviderRunnerTarget" class="com.landray.kmss.sys.oms.in.OMSSynchroInProviderRunner">
+		<property name="orgElementService">
+			<ref bean="sysOrgElementService" />
+		</property>
+		<property name="orgOrgService">
+			<ref bean="sysOrgOrgService" />
+		</property>
+		<property name="orgDeptService">
+			<ref bean="sysOrgDeptService" />
+		</property>
+		<property name="orgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property name="orgPostService">
+			<ref bean="sysOrgPostService" />
+		</property>
+		<property name="orgGroupService">
+			<ref bean="sysOrgGroupService" />
+		</property>
+		<property name="orgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="passwordEncoder">
+			<ref bean="passwordEncoder" />
+		</property>
+	</bean>
+
+	<bean id="synchroInProviderRunner" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="synchroInProviderRunnerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="synchro*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="synchroInService" class="com.landray.kmss.sys.oms.in.OMSSynchroInService">
+		<property name="synchroOrgNotify">
+			<ref local="synchroOrgNotify" />
+		</property>
+		<property name="providerRunner">
+			<ref local="synchroInProviderRunner" />
+		</property>
+		<property name="secondProviderRunner">
+			<ref local="synchroInIteratorProviderRunner" />
+		</property>
+	</bean>
+
+	<!-- synchro out -->
+	<bean id="synchroOutContextTarget" class="com.landray.kmss.sys.oms.out.OMSSynchroOutContextImp">
+		<property name="sysOMSCacheService">
+			<ref bean="sysOMSCacheService" />
+		</property>
+		<property name="services">
+			<list>
+				<ref bean="sysOrgOrgService" />
+				<ref bean="sysOrgDeptService" />
+				<ref bean="sysOrgPersonService" />
+				<ref bean="sysOrgPostService" />
+				<ref bean="sysOrgGroupService" />
+			</list>
+		</property>
+	</bean>
+	<bean id="synchroOutContext" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="synchroOutContextTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="delete*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="update*">PROPAGATION_REQUIRES_NEW
+				</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="synchroOutService" class="com.landray.kmss.sys.oms.out.OMSSynchroOutService">
+		<property name="kmssJobLoggerFactory">
+			<ref bean="kmssJobLoggerFactory" />
+		</property>
+		<property name="synchroOrgNotify">
+			<ref local="synchroOrgNotify" />
+		</property>
+		<property name="synchroOutContext">
+			<ref local="synchroOutContext" />
+		</property>
+	</bean>
+
+	<!-- notify -->
+	<bean id="orgSynchroNotifyTemplateEmptyDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.common.dao.EmptyDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.oms.notify.model.OrgSynchroNotifyTemplateEmpty" />
+	</bean>
+	<bean id="orgSynchroNotifyTemplateEmptyTarget" parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="orgSynchroNotifyTemplateEmptyDao" />
+		</property>
+	</bean>
+	<bean id="orgSynchroNotifyTemplateEmptyService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="orgSynchroNotifyTemplateEmptyTarget" />
+		</property>
+	</bean>
+
+	<bean id="synchroOrgNotify"
+		class="com.landray.kmss.sys.oms.notify.service.spring.SynchroOrgNotifyImp">
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+
+</beans>

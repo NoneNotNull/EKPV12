@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+	<!-- 分支节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="138d782ebaf1fddde619d3742b1827e9">
+			<param
+				name="type"
+				value="joinNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.nodeType.joinNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpm.engine.node.joinnode.JoinNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpm/engine/node/joinnode/node_attribute.jsp" />
+			<param
+				name="taskBehaviour"
+				value="joinNodeBehaviour" />
+			<param
+				name="nodeDescType"
+				value="joinNodeDesc" />
+		</item>
+		<item
+			name="nodeDescType">
+			<param
+				name="type"
+				value="joinNodeDesc" />
+			<param
+				name="chartJs"
+				value="/sys/lbpm/engine/node/joinnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpm/engine/node/joinnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="joinNodeDesc" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="joinStrategyEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine-node-joinnode:lbpm.eventType.joinStrategyEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.node.joinnode.JoinStrategyEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.node.joinnode.JoinStrategyEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+</plugin>

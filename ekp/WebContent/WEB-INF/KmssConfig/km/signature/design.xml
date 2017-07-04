@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-signature:module.km.signature"
+		urlPrefix="/km/signature/"
+		defaultValidator="roleValidator(role=ROLE_SIGNATURE_DEFAULT)">
+		<roles>
+			ROLE_SIGNATURE_DEFAULT;
+			ROLE_SIGNATURE_COMPANY;
+			ROLE_SIGNATURE_ADMIN;
+			ROLE_SIGNATURE_ADD;
+			ROLE_SIGNATURE_CATEGORY_MAINTAINER;
+			ROLE_SIGNATURE_CHGPWD
+		</roles>
+
+		<request
+			path="km_signature_document_main/kmSignatureDocumentMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureDocumentMain">
+		</request>
+		
+		<request
+			path="km_signature_category/kmSignatureCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureCategory">
+		</request>
+		
+		<request
+			path="km_signature_document_history/kmSignatureDocumentHistory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureDocumentHistory">
+		</request>
+
+		<request
+			path="km_signature_document_signature/kmSignatureDocumentSignature*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureDocumentSignature">
+		</request>
+
+		<!-- 主文档权限 -->
+		<request
+			path="km_signature_main/kmSignatureMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureMain">
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authFieldValidator(type=creator,recid=fdId)" />
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_SIGNATURE_ADMIN)|roleValidator(role=ROLE_SIGNATURE_ADD)|roleValidator(role=ROLE_SIGNATURE_COMPANY)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SIGNATURE_ADMIN)" />
+			<query
+				queryString="method=delete|edit"
+				validator="roleValidator(role=ROLE_SIGNATURE_ADMIN)|authFieldValidator(type=creator,recid=fdId)" />
+			<query
+				queryString="method=chgPwd|savePwd"
+				validator="roleValidator(role=ROLE_SIGNATURE_CHGPWD)" />
+		</request>
+		<!-- 模板权限 -->
+		 <request
+			path="km_signature_category/kmSignatureCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.signature.model.KmSignatureCategory,adminRoleName=ROLE_SIGNATURE_CATEGORY_MAINTAINER">	
+		 	<!-- 新增 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />		
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+		</request>
+		<filters
+			modelName="com.landray.kmss.km.signature.model.KmSignatureMain">
+			<filter
+		  		type="SYS_READER"
+		       	expression="authFieldFilter(field=fdUsers.fdId)" />
+		    <filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SIGNATURE_ADMIN)" />
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>
+	</module>
+	
+	<search
+		modelName="com.landray.kmss.km.signature.model.KmSignatureMain"
+		messageKey="km-signature:tree.title"
+		resultUrl="/km/signature/km_signature_main/kmSignatureMain.do?method=result" />
+		
+	<!-- 
+	<quartz
+		messageKey="km-signature:module.km.signature.deleteSigDom.quartz"  
+		jobService="deleteSigDomService"    
+		jobMethod="add" 
+		cronExpression="0 0 3 * * ?" />
+	 -->
+
+	<homePage
+		urlPrefix="km/signature"
+		url="/moduleindex.jsp?nav=/km/signature/tree.jsp"
+		messageKey="km-signature:module.km.signature"
+		config="/moduleindex_notopic.jsp?nav=/km/signature/tree.jsp" />
+
+</configs>

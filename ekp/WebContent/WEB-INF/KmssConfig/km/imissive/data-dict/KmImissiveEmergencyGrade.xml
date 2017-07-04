@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveEmergencyGrade"
+		messageKey="km-imissive:table.kmImissiveEmergencyGrade"
+		displayProperty="fdName"
+		serviceBean="kmImissiveEmergencyGradeService"
+		table="km_imissive_emergency_grade">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveEmergencyGrade.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="km-imissive:kmImissiveEmergencyGrade.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-imissive:kmImissiveEmergencyGrade.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveEmergencyGrade.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveEmergencyGrade.docCreateId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_create_id"
+			notNull="false" />
+	</model>
+</models>

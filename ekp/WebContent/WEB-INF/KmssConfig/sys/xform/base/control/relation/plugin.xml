@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 数据关联控件数据源扩展接口 -->
+	<extension-point id="com.landray.kmss.sys.xform.relation.params">
+		<item name="config">
+			
+			<param name="sourceName" required="true" kind="string">
+				<description>数据源名称</description>
+			</param>
+			<param name="sourceUUID" required="true" kind="string">
+				<description>数据源唯一标识，该标识不可被修改</description>
+			</param>
+			<param name="sourceBean" required="true" kind="spring" basedOn="com.landray.kmss.sys.xform.base.service.controls.relation.SysFormRelation">
+				<description><![CDATA[
+				数据源实现接口
+				]]>
+				</description>
+			</param>
+			<param name="paramsURL"  kind="string">
+				<description>业务选择URL地址，改地址为空时，数据源名称即业务名称</description>
+			</param>
+			<param name="order"  kind="int">
+				<description>数据源选择排序</description>
+			</param>
+			<description>参数配置</description>
+		</item>
+		<description>
+			数据关联控件扩展点
+		</description>
+	</extension-point>
+</plugin>

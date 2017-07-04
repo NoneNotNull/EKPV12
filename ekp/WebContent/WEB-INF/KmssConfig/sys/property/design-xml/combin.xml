@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<combin id="criterion.sys.property.tree" name="自定义树筛选【属性库筛选器】" file="/sys/property/criteria/propertyTree.jsp">
+	</combin>
+	<combin id="criterion.sys.property.org" name="组织架构筛选【属性库筛选器】" file="/sys/property/criteria/propertyOrg.jsp">
+	</combin>
+</root>

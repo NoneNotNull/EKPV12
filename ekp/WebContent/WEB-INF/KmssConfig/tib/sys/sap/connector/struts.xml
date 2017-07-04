@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibSysSapRfcTableForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcTableForm" />
+		<form-bean
+			name="tibSysSapServerSettingForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapServerSettingForm" />
+		<form-bean
+			name="tibSysSapServerSettingExtForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapServerSettingExtForm" />
+		<form-bean
+			name="tibSysSapRfcCategoryForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcCategoryForm" />
+		<form-bean
+			name="tibSysSapJcoSettingForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapJcoSettingForm" />
+		<form-bean
+			name="tibSysSapRfcSettingForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcSettingForm" />
+		<form-bean
+			name="tibSysSapRfcExportForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcExportForm" />
+		<form-bean
+			name="tibSysSapRfcImportForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcImportForm" />
+			<form-bean
+			name="tibSysSapRfcSearchInfoForm"
+			type="com.landray.kmss.tib.sys.sap.connector.forms.TibSysSapRfcSearchInfoForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<!--新UED-->
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSettingIndex"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapServerSettingIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSetting_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSetting"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapServerSettingAction"
+			name="tibSysSapServerSettingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSetting_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSetting_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting/tibSysSapServerSetting_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_server_setting_ext/sapServerSettingExt"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapServerSettingExtAction"
+			name="tibSysSapServerSettingExtForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting_ext/tibSysSapServerSettingExt_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting_ext/tibSysSapServerSettingExt_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_server_setting_ext/tibSysSapServerSettingExt_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_category/tibSysSapRfcCategory"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcCategoryAction"
+			name="tibSysSapRfcCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_category/tibSysSapRfcCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_category/tibSysSapRfcCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_category/tibSysSapRfcCategory_list.jsp" />
+		    <!-- 分类删除错误跳转 -->
+		    <forward 
+		        name="cateError" 
+		        path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_Error.jsp">
+		        </forward>
+		</action>
+		<!-- JCO设置新UED -->
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSettingIndex"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapJcoSettingIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapJcoSettingAction"
+			name="tibSysSapJcoSettingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting_list.jsp" />
+		</action>
+		<!-- RFC函数管理新UED-->
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSettingIndex"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcSettingIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcSettingAction"
+			name="tibSysSapRfcSettingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="detail"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_detail.jsp"/>
+			<forward
+				name="detailView"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_detailView.jsp"/>
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_export/tibSysSapRfcExport"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcExportAction"
+			name="tibSysSapRfcExportForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_export/tibSysSapRfcExport_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_export/tibSysSapRfcExport_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_export/tibSysSapRfcExport_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_import/tibSysSapRfcImport"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcImportAction"
+			name="tibSysSapRfcImportForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_import/tibSysSapRfcImport_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_import/tibSysSapRfcImport_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_import/tibSysSapRfcImport_list.jsp" />
+		</action>
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_table/tibSysSapRfcTable"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcTableAction"
+			name="tibSysSapRfcTableForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_table/tibSysSapRfcTable_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_table/tibSysSapRfcTable_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_table/tibSysSapRfcTable_list.jsp" />
+		</action>
+		<action
+			path="/tib/sys/sap/connector/tib_sys_sap_rfc_search_info/tibSysSapRfcSearchInfo"
+			type="com.landray.kmss.tib.sys.sap.connector.actions.TibSysSapRfcSearchInfoAction"
+			name="tibSysSapRfcSearchInfoForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_search_info/tibSysSap_rfcSearchInfo_list.jsp" />
+		<forward
+				name="view_result"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_search_info/tibSysSap_rfcSearchInfo_view_result.jsp" />
+			<forward
+				name="query_edit"
+				path="/tib/sys/sap/connector/tib_sys_sap_rfc_search_info/tibSysSap_rfcSearchInfo_query_edit.jsp" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,73 @@
+var target = render.vars.target?render.vars.target:'_blank';
+var extend = param.extend==null?"":"_"+param.extend;
+
+//绘制标题
+	var drawTitle = function(prefix, oneData){
+{$		<div class="lui_dataview_{%prefix%}_l">
+			<div class="lui_dataview_{%prefix%}_r">
+				<div class="lui_dataview_{%prefix%}_c">
+$}
+		drawHref(oneData);
+{$				</div>
+			</div>
+		</div>
+$}
+	}
+
+//绘制HREF
+	var drawHref = function(oneData){
+		var text = env.fn.formatText(oneData.text);
+		if(oneData.href!=null){
+{$		<a title="{% text %}" href="{% env.fn.formatUrl(oneData.href) %}" target="{% target %}">
+			{% text %}
+		</a>
+$}
+		}else{
+{$		<span title="{% text %}">
+			{% text %}
+		</span>
+$}
+		}
+	}
+
+//绘制内容
+{$	<div class="lui_dataview_treemenu3{%extend%}">
+$}
+	for(var i=0; i<data.length; i++){
+{$		<div class="lui_dataview_treemenu3{%extend%}_lv1_all">
+$}
+		var lv1 = data[i];
+		drawTitle("treemenu3"+extend+"_lv1", lv1);
+// ====== 第二级 ======
+		if(lv1.children!=null && lv1.children.length>0){
+			for(var j=0; j<lv1.children.length; j++){
+{$			<div class="lui_dataview_treemenu3{%extend%}_lv2_all">
+$}
+				var lv2 = lv1.children[j];
+				drawTitle("treemenu3"+extend+"_lv2", lv2);
+// ============ 第三级 ============
+				if(lv2.children!=null && lv2.children.length>0){
+{$				<ul class="lui_dataview_treemenu3{%extend%}_lv3_all">
+$}
+					for(var k=0; k<lv2.children.length; k++){
+						var lv3 = lv2.children[k];
+{$					<li>
+$}
+						drawHref(lv3);
+{$					</li>
+$}
+					}
+{$				</ul>
+$}
+				}
+// ============ 第三级 ============
+{$			</div>
+$}
+			}
+		}
+// ====== 第二级 ======
+{$		</div>
+$}
+	}
+{$	</div>
+$}

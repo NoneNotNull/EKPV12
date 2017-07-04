@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="robotNodeConfigService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeConfigServiceImp">
+	</bean>
+	
+	<bean
+		id="robotNodeBehaviourService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.RobotNodeBehaviour">
+		<property name="robotNodeConfigService">
+		    <ref bean="robotNodeConfigService" />
+		</property>
+		<property name="robotNodeServiceAdapter">
+		    <ref bean="lbpmRobotNodeServiceAdapter" />
+		</property>
+	</bean>
+	<bean
+		id="robotNodeDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.RobotNodeDesc" />
+	
+	<bean
+		id="robotNodeRDBService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeRDBServiceImp">
+	</bean>
+	
+	<bean
+		id="robotNodeReadUseSQLService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeReadUseSQLServiceImp">
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+	</bean>
+
+	<bean
+		id="robotNodeWriteUseSQLService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeWriteUseSQLServiceImp">
+	</bean>
+	
+	<bean
+		id="robotNodeUpdateFormDataService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeUpdateFormDataServiceImp">
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+	</bean>
+	
+	<bean
+		id="robotNodeRunScriptService"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.RobotNodeRunScriptServiceImp">
+	</bean>
+	
+	<bean
+		id="lbpmRobotNodeServiceAdapter"
+		class="com.landray.kmss.sys.lbpmservice.node.robotnode.support.DefaultRobotNodeServiceAdapter">
+	</bean>
+</beans>

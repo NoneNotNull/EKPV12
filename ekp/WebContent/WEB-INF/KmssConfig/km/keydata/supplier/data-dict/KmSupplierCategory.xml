@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory"
+		messageKey="km-keydata-supplier:table.kmSupplierCategory"
+		displayProperty="fdName"
+		serviceBean="kmSupplierCategoryService"
+		table="km_keydata_supplier_category"
+		url="/km/keydata/supplier/km_supplier_category/kmSupplierCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-keydata-supplier:kmSupplierCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-keydata-supplier:kmSupplierCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-keydata-supplier:kmSupplierCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-keydata-supplier:kmSupplierCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-keydata-supplier:kmSupplierCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-keydata-supplier:kmSupplierCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="false" />
+			
+		<listProperty
+			name="authTmpReaders"
+			messageKey="km-keydata-supplier:kmSupplierCategory.authTmpReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="report_doc_tmp_main_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpEditors"
+			messageKey="km-keydata-supplier:kmSupplierCategory.authTmpEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="report_doc_tmp_main_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttPrints"
+			messageKey="km-keydata-supplier:kmSupplierCategory.authTmpAttPrints"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="report_doc_tmp_main_attprint"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttCopys"
+			messageKey="km-keydata-supplier:kmSupplierCategory.authTmpAttCopys"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="report_doc_tmp_main_attcopy"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authTmpAttDownloads"
+			messageKey="km-keydata-supplier:kmSupplierCategory.authTmpAttDownloads"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="report_doc_tmp_main_attdl"
+			inverse="false"
+			canDisplay="false" />
+
+
+	</model>
+</models>

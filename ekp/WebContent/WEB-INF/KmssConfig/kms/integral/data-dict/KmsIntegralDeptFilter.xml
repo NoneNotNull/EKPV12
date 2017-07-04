@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralDeptFilter"
+		messageKey="kms-integral:table.kmsIntegralDeptFilter"
+		displayProperty="docSubject"
+		serviceBean="kmsIntegralDeptFilterService"
+		table="kms_integral_dept_filter"
+		url="/kms/integral/kms_integral_dept_filter/kmsIntegralDeptFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-integral:kmsIntegralDeptFilter.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeUnit"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdTimeUnit"
+			type="Integer"
+			column="fd_time_unit"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="monthStartTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.monthStartTime"
+			type="Long"
+			column="month_start_time"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="monthEndTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.monthEndTime"
+			type="Long"
+			column="month_end_time"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="yearStartTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.yearStartTime"
+			type="Long"
+			column="year_start_time"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="yearEndTime"
+			messageKey="kms-integral:kmsIntegralDeptFilter.yearEndTime"
+			type="Long"
+			column="year_end_time"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTotalScore"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdTotalScore"
+			type="Boolean"
+			column="fd_total_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocScore"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdDocScore"
+			type="Boolean"
+			column="fd_doc_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpScore"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdExpScore"
+			type="Boolean"
+			column="fd_exp_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherScore"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdOtherScore"
+			type="Boolean"
+			column="fd_other_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTotalRiches"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdTotalRiches"
+			type="Boolean"
+			column="fd_total_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocRiches"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdDocRiches"
+			type="Boolean"
+			column="fd_doc_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpRiches"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdExpRiches"
+			type="Boolean"
+			column="fd_exp_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherRiches"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdOtherRiches"
+			type="Boolean"
+			column="fd_other_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-integral:kmsIntegralDeptFilter.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

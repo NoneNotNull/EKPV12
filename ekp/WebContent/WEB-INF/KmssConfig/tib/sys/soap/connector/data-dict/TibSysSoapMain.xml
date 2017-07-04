@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+	messageKey="tib-sys-soap-connector:table.tibSysSoapMain"
+	serviceBean="tibSysSoapMainService"
+	table="tib_sys_soap_main"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdType"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.fdType"
+	type="String"
+	column="fd_type"
+	notNull="true"
+/>
+<simpleProperty
+	name="docSubject"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docSubject"
+	type="String"
+	column="doc_subject"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="docStatus"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docStatus"
+	type="String"
+	column="doc_status"
+	notNull="true"
+	length="2"
+/>
+<simpleProperty
+	name="docCreateTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docCreateTime"
+	type="DateTime"
+	column="doc_create_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="docAlterTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docAlterTime"
+	type="DateTime"
+	column="doc_alter_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="wsEnable"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsEnable"
+	type="Boolean"
+	column="ws_enable"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="wsMapperTemplate"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsMapperTemplate"
+	type="RTF"
+	column="ws_mapper_template"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="wsSoapVersion"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsSoapVersion"
+	type="String"
+	column="ws_soap_version"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="wsBindFunc"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsBindFunc"
+	type="String"
+	column="ws_bind_func"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="wsMarks"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsMarks"
+	type="String"
+	column="ws_marks"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="wsBindFuncInfo"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.wsBindFuncInfo"
+	type="String"
+	column="ws_bind_func_info"
+	notNull="false"
+	length="500"
+/>
+<modelProperty
+	name="docCategory"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docCategory"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapCategory"
+	column="doc_category_id"
+	notNull="false"
+/>
+<modelProperty
+	name="tibSysSoapSetting"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.tibSysSoapSetting"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSetting"
+	column="ws_server_setting"
+	notNull="false"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+	column="doc_creator"
+	notNull="false"
+/>
+<simpleProperty
+	name="docIsNewVersion"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docIsNewVersion"
+	type="Boolean"
+	column="doc_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+	name="docIsLocked"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docIsLocked"
+	type="Boolean"
+	column="doc_is_locked"
+	notNull="false"
+/>
+<simpleProperty
+	name="docMainVersion"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docMainVersion"
+	type="Long"
+	column="doc_main_version"
+	notNull="false"
+	length="1"
+/>
+<simpleProperty
+	name="docAuxiVersion"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docAuxiVersion"
+	type="Long"
+	column="doc_auxi_version"
+	notNull="false"
+	length="1"
+/>
+<listProperty
+	name="docHistoryEditions"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docHistoryEditions"
+	column="doc_origin_docid"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+	inverse="true"
+/>
+<modelProperty
+	name="docOriginDoc"
+	messageKey="tib-sys-soap-connector:tibSysSoapMain.docOriginDoc"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+	column="doc_origin_docid"
+	notNull="false"
+/>
+</model></models>

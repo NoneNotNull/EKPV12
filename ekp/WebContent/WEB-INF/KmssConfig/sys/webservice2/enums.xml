@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="sys_webservice_main_fd_startup_type">
+		<value-label>
+			<value>0</value>
+			<label-key>sysWebserviceMain.fdStartupType.auto</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysWebserviceMain.fdStartupType.manual</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysWebserviceMain.fdStartupType.disable</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>		
+	</type>	
+	<type
+		name="sys_webservice_log_fd_exec_result">
+		<value-label>
+			<value>0</value>
+			<label-key>sysWebserviceLog.fdExecResult.success</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysWebserviceLog.fdExecResult.occur.exception</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysWebserviceLog.fdExecResult.unauthorized.user</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>	
+		<value-label>
+			<value>3</value>
+			<label-key>sysWebserviceLog.fdExecResult.illegal.ip</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>	
+		<value-label>
+			<value>4</value>
+			<label-key>sysWebserviceLog.fdExecResult.locked.user</label-key>
+			<bundle>sys-webservice2</bundle>
+		</value-label>						
+	</type>		
+	
+	
+</column-enums>

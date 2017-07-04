@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.signature.model.KmSignatureMain"
+		messageKey="km-signature:table.signature"
+		displayProperty="fdMarkName"
+		serviceBean="kmSignatureMainService"
+		table="km_signature_main"
+		url="/km/signature/km_signature_main/kmSignatureMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 自动编号 -->
+		<simpleProperty
+			name="fdSignatureId"
+			messageKey="km-signature:signature.signatureid"
+			type="Integer"
+			column="fd_signature_id"
+			notNull="true"
+			length="10"
+			validate="false" />
+		<!-- 用户名称 -->
+		<simpleProperty
+			name="fdUserName"
+			messageKey="km-signature:signature.username"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 用户密码 -->
+		<simpleProperty
+			name="fdPassword"
+			messageKey="km-signature:signature.password"
+			type="String"
+			column="fd_password"
+			notNull="false"
+			length="36"
+			validate="false" />
+		<!-- 印章名称 -->
+		<simpleProperty
+			name="fdMarkName"
+			messageKey="km-signature:signature.markname"
+			type="String"
+			column="fd_mark_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 印章类型 -->
+		<simpleProperty
+			name="fdMarkType"
+			messageKey="km-signature:signature.marktype"
+			type="String"
+			column="fd_mark_type"
+			notNull="false"
+			length="40"
+			validate="false" />
+		<!-- 印章信息 -->
+		<simpleProperty
+			name="fdMarkBody"
+			messageKey="km-signature:signature.markbody"
+			type="Blob"
+			length="1000000"
+			column="fd_mark_body"
+			notNull="false"
+			validate="false" />
+		<!-- 印章目录 -->
+		<simpleProperty
+			name="fdMarkPath"
+			messageKey="km-signature:signature.markpath"
+			type="String"
+			column="fd_mark_path"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 签章类型 -->
+		<simpleProperty
+			name="fdDocType"
+			messageKey="km-signature:signature.docType"
+			type="Long"
+			column="fd_doc_type"
+			notNull="false"
+			enumType="menu.kmSignatureMain.fdDocType"
+			length="1" 
+			canSearch="true"
+			canDisplay="true"/>
+		<!-- 是否有效 -->
+		<simpleProperty
+			name="docInForce"
+			messageKey="km-signature:signature.docInForce"
+			type="Long"
+			column="doc_in_force"
+			notNull="false"
+			enumType="menu.kmSignatureMain.docInForce"
+			length="1" 
+			canSearch="true"
+			canDisplay="true"/>
+		<!-- 印章大小 -->
+		<simpleProperty
+			name="fdMarkSize"
+			messageKey="km-signature:signature.marksize"
+			type="Integer"
+			column="fd_mark_size"
+			notNull="false"
+			length="10"
+			validate="false" />
+		<!-- 印章保存时间 -->
+		<simpleProperty
+			name="fdMarkDate"
+			messageKey="km-signature:signature.markdate"
+			type="DateTime"
+			column="fd_mark_date"
+			notNull="false"
+			validate="false" />
+		<!-- 创建人 -->
+		<modelProperty
+			name="docCreator"
+			messageKey="km-signature:signature.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false" />
+		<!-- 授权用户 -->
+		<listProperty
+			name="fdUsers"
+			messageKey="km-signature:signature.users"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_signature_users"
+			column="fd_signature_id"
+			elementColumn="fd_org_id" />
+		<!-- 文档状态 -->
+		<simpleProperty
+			name="docStatus"
+			messageKey="km-signature:signature.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="20"
+			validate="false" />
+		<!-- 签章分类 -->
+		<modelProperty
+			name="fdTemp"
+			messageKey="km-signature:signature.fdTemp"
+			type="com.landray.kmss.km.signature.model.KmSignatureCategory"
+			column="fd_temp"
+			notNull="false"
+			validate="true" />
+			
+	</model>
+</models>

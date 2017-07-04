@@ -1,0 +1,124 @@
+.muiAttViewerOverlay {
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.muiAttViewerContent {
+	position: relative;
+	text-align: center;
+}
+
+.muiAttViewerPPtIframe {
+	margin: 2rem 0;
+}
+
+.muiAttViewerContent iframe {
+	display: inline-block;
+	border: none;
+	vertical-align: middle;
+}
+
+.muiAttViewerContent.muiAttViewerExcelContent {
+	-webkit-overflow-scrolling: touch;
+	overflow: scroll;
+}
+
+.muiAttViewerContent.muiAttViewerExcelContent iframe {
+	margin: 2rem 0;
+	border: 1px #838383 solid;
+	overflow: scroll;
+}
+
+.muiAttViewerContent .muiAttViewerNo {
+	position: absolute;
+}
+
+.muiAttViewerContent .muiAttViewerRate {
+	position: absolute;
+}
+
+.muiAttViewerContent .muiAttViewerSlider {
+	position: fixed;
+	bottom: 0;
+	z-index: 3;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+	display: none;
+	height: 3.5rem;
+	line-height: 3.5rem;
+}
+
+.muiAttViewerPageSlider {
+	position: relative;
+}
+
+.muiAttViewerPage {
+	font-size: 1.2rem;
+	color: #fff;
+	float: right;
+	display: inline-block;
+	padding-right: 0.5rem;
+}
+
+.muiAttViewerContent .mblSliderH {
+	vertical-align: middle;
+	display: inline-block;
+	width: 60%;
+}
+
+.muiAttViewerContent .mblSliderH .mblSliderHandle {
+	border-radius: 50%;
+	width: 6rem;
+	height: 6rem;
+	margin: -3rem 0 0 -3rem;
+	border: 1px solid #838383;
+}
+
+.muiAttViewerPPtPage {
+	position: fixed;
+	top: 2rem;
+	left: 2rem;
+}
+
+.muiAttViewerPPtPage .muiAttViewerPage {
+	position: static;
+}
+
+.muiAttViewerSlider .mui.mui-back {
+	color: #fff;
+	font-weight: bolder;
+	font-size: 2rem;
+	float: left;
+	line-height: 3.5rem;
+	padding: 0 1rem;
+	width: 2.8rem;
+}
+
+.muiAttViewerSlider>div:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiAttViewerSlider>div {
+	vertical-align: middle;
+	display: inline-block;
+	width: 100%;
+}
+
+.muiAttViewerImg {
+	max-width: 100%;
+	max-height: 100%;
+	height: auto;
+	vertical-align: middle;
+	padding: 0;
+	height: auto;
+	margin: 0;
+}

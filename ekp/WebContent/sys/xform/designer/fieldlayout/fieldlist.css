@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+.field_panel_normal{
+	width:80%;
+	margin:2px 5px;
+	padding:1px 5px;
+}
+.field_panel_choosed{
+	margin:2px 5px;
+	width:80%;
+	padding:1px 5px;
+	color:#3099da;
+}
+.field_panel_click{
+	width:80%;
+	margin:2px 5px;
+	padding:1px 5px;
+	cursor: pointer;
+	color:#3099da;
+	background-color:#fff;
+	border:1px solid #ccc;
+}
+.field_panel_mouseover{
+	width:80%;
+	margin:2px 5px;
+	padding:1px 5px;
+	cursor: pointer;
+	
+	border:1px solid #ccc
+}

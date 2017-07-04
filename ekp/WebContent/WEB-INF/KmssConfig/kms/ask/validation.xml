@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+
+	<formset>
+	
+		<form name="kmsAskTopicForm">
+			<field
+				property="fdKmsAskCategoryId"
+				depends="required">
+				<arg
+					key="kmsAskTopic.fdCategory.fdId"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+		</form>
+		
+		<form name="kmsKnowledgeMoneyConfigForm">
+			<field
+				property="fdInitMoney"
+				depends="required,integer">
+				<arg
+					key="kmsKnowledgeMoneyConfig.fdInitMoney"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+		</form>
+		
+		<form name="kmsAskConfigForm">
+			<field
+				property="fdSamePost"
+				depends="required,integer">
+				<arg
+					key="kmsAskConfig.fdSamePost"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+			<field
+				property="fdDayBase"
+				depends="required,integer">
+				<arg
+					key="kmsAskConfig.fdDayBase"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+			<field
+				property="fdDayWarn"
+				depends="required,integer">
+				<arg
+					key="kmsAskConfig.fdDayWarn"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+			<field
+				property="fdTopScore"
+				depends="required,integer">
+				<arg
+					key="kmsAskConfig.fdTopScore"
+					bundle="kms-ask"
+					position="0" />
+			</field>
+		</form>
+		
+		<form name="kmsAskCategoryForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmsAskCategory.fdName"
+					bundle="kms-ask"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		
+	</formset>
+</form-validation>

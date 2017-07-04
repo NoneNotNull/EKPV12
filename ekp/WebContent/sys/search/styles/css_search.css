@@ -1,0 +1,122 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*高级搜索*/
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif, "宋体";
+	font-size: 12px;
+	color: #333;
+}
+body {
+	background-color: #FFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+a:link, a:visited, a:active{
+	font-size:12px;
+	color:#434343;
+	text-decoration:none;
+}
+a:hover {
+	font-size:12px;
+	color:#003cff;
+	text-decoration:none;
+	font-family: Arial, Helvetica, sans-serif, "宋体";
+}
+
+.bg_top{
+	background-image: url(../images/Search_top_bg.jpg);
+	background-repeat: repeat-X;
+	}
+	
+.bg_top_result{
+	background-image: url(../images/Search_top_bg.jpg);
+	background-repeat: repeat-X;
+	}	
+.table_bk_search{
+	border: 1px solid #e0e0e0;
+	background-color: #f8f8f8;
+}
+.textfield_search1{
+	height: 28px;
+	border: 2px solid #74b8ff;
+	font-family: Arial, Helvetica, sans-serif, "宋体";
+	font-size: 14px;
+	color: #0077fd;
+	line-height: 25px;
+	}
+.textfield_search2{
+	height: 22px;
+	border: 1px solid #d5d5d5;
+	font-family: Arial, Helvetica, sans-serif, "宋体";
+	font-size: 12px;
+	color: #4a4a4a;
+	line-height: 22px;
+	}
+	
+	
+/*搜索结果*/
+
+.bg1_top_search{
+	background-image: url(images/search2_top_bg2.gif);
+	background-repeat: repeat-X;
+	}
+
+.bg2_top_search{
+	background-image: url(images/search2_top_bg.jpg);
+	background-repeat: no-repeat;
+	}	
+	
+a.search_z_blue14:link, a.search_z_blue14:visited, a.search_z_blue14:active{
+	font-size: 14px;
+	color: #003acc;
+	font-weight: normal;
+	line-height: 25px;
+	text-decoration: underline;
+}
+a.search_z_blue14:hover {font-size:14px; color:#ff0000; text-decoration:underline;}
+
+a.search_z_blue12:link, a.search_z_blue12:visited, a.search_z_blue12:active{
+	font-size: 12px;
+	color: #55adff;
+	font-weight: normal;
+	line-height: 30px;
+	text-decoration: underline;
+}
+a.search_z_blue12:hover {font-size:12px; color:#0084ff; text-decoration:none;}
+
+
+.search_z_red14 {
+	font-size: 14px;
+	color: #ff0000;
+	font-weight: normal;
+	line-height: 30px;
+	text-decoration: underline;
+}
+.search_z_red12 {
+	font-size: 12px;
+	color: #ff0000;
+	line-height: 21px;
+}
+.search_z_black12 {
+	font-size: 12px;
+	color: #000000;
+	line-height: 21px;
+}
+.search_z_gray12 {
+	font-size: 12px;
+	color: #777777;
+	line-height: 25px;
+}
+.search_line_gray {
+	font-size: 12px;
+	color: #d6d4d4;
+	line-height: 25px;
+}
+.search_fw_black14 {
+	font-size: 14px;
+	color: #4e4e4e;
+	line-height: 25px;
+}

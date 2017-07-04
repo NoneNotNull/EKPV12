@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmQueueLog"
+		messageKey="sys-lbpm-engine:table.lbpmQueueLog"
+		serviceBean="lbpmQueueLogService"
+		table="lbpm_queue_log">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdTaskType"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdTaskType"
+			type="String"
+			column="fd_task_type"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdQueueTime"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdQueueTime"
+			type="DateTime"
+			column="fd_queue_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdStopTime"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdStopTime"
+			type="DateTime"
+			column="fd_stop_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdDurationInMillis"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdDurationInMillis"
+			type="Long"
+			column="fd_duration_in_millis"
+			notNull="false" />
+		<simpleProperty
+			name="fdServerId"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdServerId"
+			type="String"
+			column="fd_server_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdIsSucc"
+			messageKey="sys-lbpm-engine:lbpmQueueLog.fdIsSucc"
+			type="Boolean"
+			column="fd_is_succ"
+			notNull="false" />
+	</model>
+</models>

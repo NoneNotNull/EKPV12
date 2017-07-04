@@ -1,0 +1,24 @@
+@-webkit-keyframes shake {
+  0% {opacity: 0;-webkit-transform: scale(.3);}
+  50% {opacity: 1;-webkit-transform: scale(1.05);}
+  70% {-webkit-transform: scale(.9);}
+  100% {opacity: 1;-webkit-transform: scale(1);}
+}
+
+@-webkit-keyframes flag{
+	0%{-webkit-transform:scale(0);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.shake{
+	-webkit-animation-name: shake;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-fill-mode: both;
+}
+
+.flag{
+	-webkit-animation-name: flag;
+	-webkit-animation-duration: 1.5s;
+	-webkit-animation-fill-mode: both;
+	
+}

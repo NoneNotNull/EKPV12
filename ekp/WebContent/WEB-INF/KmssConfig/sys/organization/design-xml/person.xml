@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	<links type="setting-info">
+		<link 
+			id="sys_organization_chg_my_pwd"
+			url="/sys/organization/sys_org_person/chgPersonInfo.do?method=chgMyPwd" 
+			msgKey="sys-organization:sysOrgPerson.button.changePassword" />
+		<!--<link 
+			id="sys_organization_lang_info"
+			url="/sys/organization/sys_org_person/chgPersonInfo.do?method=chgInfo&amp;forward=chgInfoUi" 
+			msgKey="sys-organization:sysOrgPerson.button.changeInfo" />-->
+	</links>
+	<links type="setting">
+		<link 
+			id="sys_organization_address_info"
+			url="/sys/organization/sys_org_person/sysOrgPerson.do?method=addressModify&amp;forward=addressUi" 
+			msgKey="sys-organization:sysOrgPerson.button.changeMyAddress" />
+	</links>
+</root>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- toolbar -->
+	<layout id="sys.ui.toolbar.default"		
+		name="横向工具栏" 
+		css="theme!toolbar"
+		kind="toolbar" 
+		type="Javascript"
+		thumb="/sys/ui/extend/toolbar/help/toolbar.jpg">
+		<code src="/sys/ui/extend/toolbar/toolbar.js">
+		</code>
+	</layout>
+	<layout id="sys.ui.toolbar.ver.default"		
+		name="工具栏竖向展示" 
+		css="theme!toolbar"
+		kind="toolbar" 
+		type="Javascript"
+		thumb="/sys/ui/extend/toolbar/help/toolbar_ver.jpg">
+		<code src="/sys/ui/extend/toolbar/toolbar_vertical.js">
+		</code>
+	</layout>
+	<layout id="sys.ui.toolbar.float"		
+		name="悬浮工具栏" 
+		css="theme!toolbar"
+		kind="toolbar" 
+		type="Javascript"
+		thumb="/sys/ui/extend/toolbar/help/toolbar_float.jpg">
+		<code src="/sys/ui/extend/toolbar/toolbar_float.js">
+		</code>
+	</layout>
+	<layout id="sys.ui.toolbar.sort"		
+		name="列表排序工具栏" 
+		css="theme!toolbar"
+		kind="toolbar" 
+		type="Javascript"
+		thumb="/sys/ui/extend/toolbar/help/toolbar_sort.jpg">
+		<code src="/sys/ui/extend/toolbar/toolbar.js" extend="sort">
+		</code>
+	</layout>
+	<layout id="sys.ui.toolbar.togglegroup.default"		
+		name="下拉按钮" 
+		css="theme!toolbar"
+		kind="toolbar" 
+		type="Javascript"
+		thumb="/sys/ui/extend/toolbar/help/toolbar_sort.jpg">
+		<code src="/sys/ui/extend/toolbar/toggle_group.js">
+		</code>
+	</layout>
+
+</root>

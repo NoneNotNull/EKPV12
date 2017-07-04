@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="handlerPassOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerPassOperationBehaviour" />
+	<bean
+		id="handlerSignOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerPassOperationBehaviour" />
+	<bean
+		id="handlerPassOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerPassOperationBinder">
+	</bean>
+	<bean
+		id="handlerPassOperationAccessor"
+		parent="abstractPassOperationAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerPassOperationAccessor">
+	</bean>
+	<bean
+		id="handlerSignOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerSignOperationBinder">
+	</bean>
+	<bean
+		id="modifyNodeAttributeAdditionOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.ModifyNodeAttributeAdditionOperationBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+		<property name="processDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	<bean
+		id="modifyNodeAttributeAdditionOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.ModifyNodeAttributeAdditionOperationBinder">
+	</bean>
+	<bean
+		id="nodeSuspendOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.NodeSuspendOperationBehaviour" />
+	<bean
+		id="handlerSuspendOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerSuspendOperationBinder">
+	</bean>
+	<bean
+		id="nodeResumeOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.NodeResumeOperationBehaviour" />
+	<bean
+		id="handlerResumeOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.HandlerResumeOperationBinder">
+	</bean>
+	<!-- 处理人超级驳回操作 -->
+	<bean
+		id="lbpmHandlerSuperRefuseBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerSuperRefuseBehaviour">
+		<property name="concurrentFinder">
+			<ref bean="concurrentFinder" />
+		</property>
+		<property name="refuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmHandlerSuperRefuseAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerSuperRefuseAccessor">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<!-- 处理人驳回操作 -->
+	<bean
+		id="lbpmHandlerRefuseBehaviour"
+		parent="lbpmHandlerSuperRefuseBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerRefuseBehaviour">
+	</bean>
+	<bean
+		id="lbpmHandlerRefuseBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerRefuseBinder">
+	</bean>
+	<bean
+		id="lbpmHandlerRefuseAccessor"
+		parent="lbpmHandlerSuperRefuseAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerRefuseAccessor">
+	</bean>
+	<!-- 处理人转办操作 -->
+	<bean
+		id="lbpmHandlerCommissionBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerCommissionBehaviour" />
+	<bean
+		id="lbpmHandlerCommissionBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerCommissionBinder">
+	</bean>
+	<bean
+		id="lbpmHandlerCommissionWorkitemEnterListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerCommissionWorkitemEnterListener">
+	</bean>
+
+	<!-- 处理人废弃操作 -->
+	<bean
+		id="lbpmHandlerAbandonBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerAbandonBehaviour" />
+	<bean
+		id="lbpmHandlerAbandonBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerAbandonBinder">
+	</bean>
+	<bean
+		id="suspendOperationListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.SuspendOperationListener">
+	</bean>
+	<bean
+		id="resumeOperationListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.ResumeOperationListener">
+	</bean>
+	<bean
+		id="jumpRouteListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.JumpRouteListener">
+	</bean>
+	<bean
+		id="backRouteListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.BackRouteListener">
+	</bean>
+	<bean
+		id="sendNotifyToCommisionListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.SendNotifyToCommisionListener">
+	</bean>
+
+
+	<!-- 暂存审批记录附加操作 -->
+	<bean
+		id="lbpmWorkingStorageAdditionOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.WorkingStorageAdditionOperationBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmWorkingStorageAdditionOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.WorkingStorageAdditionOperationBinder">
+	</bean>
+
+	<bean
+		id="lbpmHandlerRefuseAuditNoteReadersAdjuster"
+		class="com.landray.kmss.sys.lbpmservice.operation.handler.LbpmHandlerRefuseAuditNoteReadersAdjuster">
+		<property name="lbpmAuditNoteService">
+			<ref bean="lbpmAuditNoteService" />
+		</property>
+	</bean>
+	<!--驳回或跳转进入分支监听 -->
+	<bean
+		id="enterConcurrentScopeListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.EnterConcurrentScopeListener">
+		<property name="concurrentFinder">
+			<ref bean="concurrentFinder" />
+		</property>
+	</bean>
+	<!--JoinStrategyEvent事件监听 -->
+	<bean
+		id="joinNodeAutoCompleteStrategyListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.JoinNodeAutoCompleteStrategyListener">
+	</bean>
+</beans>
+

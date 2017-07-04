@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="http://www.example.org/area-isolation" 
+		   xmlns="http://www.example.org/area-isolation"
+		   elementFormDefault="qualified">
+  <xs:element name="isolationConfig">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="modules"/>
+        <xs:element minOccurs="0" ref="scenes"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="modules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="model"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="model">
+    <xs:complexType>
+      <xs:attribute name="className" use="required"/>
+      <xs:attribute name="isolationType" use="required" type="isolationType"/>
+	  <xs:attribute name="desc" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scenes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="scene"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="scene">
+    <xs:complexType>
+	  <xs:attribute name="key" use="required" type="xs:NCName"/>
+      <xs:attribute name="isolationType" use="required" type="isolationType"/>
+      <xs:attribute name="desc" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="isolationType">
+    <xs:restriction base="xs:string">
+      <!-- 对本场所的数据可见  -->
+      <xs:enumeration value="SELF"/>
+      <!-- 对下级场所的数据可见  -->
+      <xs:enumeration value="CHILD"/>
+      <!-- 对上级场所的数据可见  -->
+      <xs:enumeration value="SUPER"/>
+      <!-- 对上下级场所的数据都可见  -->
+	  <xs:enumeration value="BRANCH"/>
+    </xs:restriction>
+  </xs:simpleType>  
+</xs:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension point="com.landray.kmss.sys.authentication">
+		<item name="authenticationProcessingFilter" enable="true">
+			<param name="bean" value="dbBehaviorRequestLogger" />
+			<param name="order" value="10" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.admin.commontools">
+		<item name="tools">
+			<param name="name" value="下载模块信息"/>
+			<param name="path" value="/dbcenter/behavior/config.do?method=design" />
+			<param name="description" value="下载模块信息，下载后的文件可以上传到蓝凌服务网站，用于模块访问量统计分析" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/dbcenter/behavior/config.jsp" />
+			<param name="type" value="baseAdvance" />
+			<param name="properties" value="/WEB-INF/KmssConfig/dbcenter/behavior/default.properties" />
+			<param name="order" value="11" />
+		</item>
+	</extension>
+</plugin>

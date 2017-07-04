@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<!-- 性别 -->
+	<type name="sys_zone_person_sex" default-value="M">
+	   <value-label>
+			<value>M</value>
+			<label-key>sysZonePersonInfo.fdSex.man</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+		<value-label>
+			<value>F</value>
+			<label-key>sysZonePersonInfo.fdSex.woman</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+	</type>
+	<type name="sysZone_fdStatus" default-value="2">
+		<value-label>
+			<value>1</value>
+			<label-key>status.stoped</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>status.started</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+	</type>
+	<type name="sysZone_fdShowType" default-value="pc">
+		<value-label>
+			<value>pc</value>
+			<label-key>sysZoneNavigation.pc</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+		<value-label>
+			<value>mobile</value>
+			<label-key>sysZoneNavigation.mobile</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+	</type>	
+	
+	<type name="sysZone_fdTarget" default-value="_self">
+		<value-label>
+			<value>_self</value>
+			<label-key>sysZoneNavLink.target._self</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+		<value-label>
+			<value>_blank</value>
+			<label-key>sysZoneNavLink.target._blank</label-key>
+			<bundle>sys-zone</bundle>
+		</value-label>
+	</type>		
+</column-enums>

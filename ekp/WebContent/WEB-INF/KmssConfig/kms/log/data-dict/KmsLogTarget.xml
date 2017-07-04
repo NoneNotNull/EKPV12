@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogTarget"
+		messageKey="kms-log:table.kmsLogTarget"
+		displayProperty="docSubject"
+		serviceBean="kmsLogTargetService"
+		table="kms_log_target"
+		url="/kms/log/kms_log_target/kmsLogTarget.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-log:kmsLogTarget.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-log:kmsLogTarget.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-log:kmsLogTarget.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="kms-log:kmsLogTarget.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="fdCategory"
+			messageKey="kms-log:kmsLogTarget.fdCategory"
+			type="com.landray.kmss.kms.log.model.KmsLogTargetCategory"
+			column="fd_category"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdDepart"
+			messageKey="kms-log:kmsLogTarget.fdDepart"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_depart"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-log:kmsLogTarget.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdAuthor"
+			messageKey="kms-log:kmsLogTarget.fdAuthor"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_author"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

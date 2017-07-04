@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysNumberMainMappDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.number.dao.hibernate.SysNumberMainMappDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.number.model.SysNumberMainMapp" />
+	</bean>
+	<bean
+		id="sysNumberMainMappTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.number.service.spring.SysNumberMainMappServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNumberMainMappDao" />
+		</property>
+		<property name="sysNumberMainService">
+			<ref local="sysNumberMainService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysNumberMainMappService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNumberMainMappTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNumberMainFlowDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.number.dao.hibernate.SysNumberMainFlowDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.number.model.SysNumberMainFlow" />
+	</bean>
+	<bean
+		id="sysNumberMainFlowTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.number.service.spring.SysNumberMainFlowServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNumberMainFlowDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNumberMainFlowService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNumberMainFlowTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNumberMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.number.dao.hibernate.SysNumberMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.number.model.SysNumberMain" />
+	</bean>
+	<bean
+		id="sysNumberMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.number.service.spring.SysNumberMainServiceImp">
+		<property
+			name="baseDao">
+			<ref local="sysNumberMainDao" />
+		</property>
+		<property name="sysNumberMainFlowService">
+				<ref local="sysNumberMainFlowService"/>
+		</property>
+	</bean>
+	<bean
+		id="sysNumberMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNumberMainTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysNumberMainMappCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.number.service.spring.SysNumberMainMappCoreServiceImp">
+				<property
+					name="sysNumberMainMappService">
+					<ref
+						local="sysNumberMainMappService" />
+				</property>
+				<property name="sysNumberMainService">
+					<ref local="sysNumberMainService"/>
+				</property>
+				<property name="sysNumberMainFlowService">
+					<ref local="sysNumberMainFlowService"/>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="sysNumberFlowService" class="com.landray.kmss.sys.number.service.spring.SysNumberFlowServiceImp">
+				<property name="sysNumberMainMappService">
+					<ref local="sysNumberMainMappService" />
+				</property>
+				<property name="sysNumberMainService">
+					<ref local="sysNumberMainService"/>
+				</property>
+				<property name="sysNumberMainFlowService">
+					<ref local="sysNumberMainFlowService"/>
+				</property>
+	</bean>
+	
+	<bean id="sysNumberMainFlowTreeService" class="com.landray.kmss.sys.number.service.spring.SysNumberMainFlowTreeService">
+	</bean>
+
+</beans>

@@ -1,0 +1,19 @@
+.pageBox{ border-top:1px solid #e1e1e1; padding:17px 0 20px; margin:5px 0 0;vertical-align: middle;}
+.pageNav_tb{ width:100%; margin:0; padding:0; border:0; height:22px; overflow:hidden;}
+.pageNav_tb td{ vertical-align:middle; border:0; line-height:22px; height:22px; overflow:hidden; white-space:nowrap; margin:0; padding:0;}
+.pageNav_tb a { display:inline-block; height:16px; padding:2px 6px; margin:0 2px; color:#515151; text-decoration:none; font-weight:bold; text-align:center; line-height:16px;}
+.pageNav_tb a:hover {color: #09c;}
+.pageNav_tb a b{float: left;cursor: pointer;font-size: 12px;font-weight: bold; margin:0; padding:0;}
+.pageNav_tb strong {height: 16px;padding: 2px 6px;margin: 0 2px;text-decoration: none;color: #FD7801;font-weight: bold;background-color:#FAFAFB;border: 1px solid #EDEDED; line-height:16px;}
+.pageNav_tb input{width:25px; text-align:center; height:18px; margin:0 3px; padding:0;}
+.btn_go{ display:inline-block; background:url(btn_go.gif) no-repeat; width:35px; height:20px !important; margin:0 0 0 6px !important; padding:0 !important; color:#333 !important; font:normal 11px Arial; text-align:center; line-height:20px !important;}
+.pageNav_tb td .refresh{font-weight: normal;padding-bottom: 0px;}
+
+.pagesDiv{height: 70px;padding-top: 20px;text-align: center;}
+.pagesDiv span {padding-top: 2px 0;height: 30px;}
+.pagesDiv span a {height: 16px;padding: 3px 8px;float: left;margin: 0 2px;text-decoration: none;font-weight: bold;}
+.pagesDiv span a:hover {color: #09c;}
+.pagesDiv span a b {height: 100%;float: left;cursor: pointer;font-size: 12px;font-weight: bold;}
+.pagesDiv span strong {height: 16px;padding: 2px 6px;float: left;margin: 0 2px;text-decoration: none;color: #FD7801;font-weight: bold;background-color:#FAFAFB;border: 1px solid #EDEDED;}
+
+.page_box{ white-space:nowrap;}

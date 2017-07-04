@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-collaborate:module.km.collaborate"
+		urlPrefix="/km/collaborate/"
+		defaultValidator="roleValidator(role=ROLE_KMCOLLABORATE_DEFAULT)">
+		<roles>
+			ROLE_KMCOLLABORATE_DEFAULT;
+			ROLE_KMCOLLABORATECATEGORY_ADMIN;
+			ROLE_KMCOLLABORATE_PARAMETERP_SETTINGS;
+			ROLE_KMCOLLABORATEMAIN_CREATE;
+			ROLE_KMCOLLABORATEMAIN_VIEW;
+			ROLE_KMCOLLABORATEMAIN_EDIT;
+			ROLE_KMCOLLABORATEMAIN_DELETE;
+			ROLE_KMCOLLABORATEMAIN_END;
+		</roles>
+
+        
+		<request
+			path="km_collaborate_main_reply/kmCollaborateMainReply*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMainReply">
+			<query queryString="method=viewMore" validator="true"/>
+			<!-- 回复列表   用户是【工作沟通_阅读所有文档】角色、查看所有文档权限的用户、编辑所有文档和回复权限的用户、文档的参与者可以看到回复列表-->
+			<query queryString="method=replyList"
+				validator="roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT;ROLE_KMCOLLABORATEMAIN_VIEW;ROLE_KMCOLLABORATEMAIN_DELETE;ROLE_KMCOLLABORATEMAIN_END)|authFieldValidator(recid=mainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,type=PERSON)"/>
+			
+			<!-- 回复权限   文档为发布状态且用户是文档的参与者可以执行回复的操作-->
+			<query queryString="method=saveReply"
+				validator="fieldValueValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,fieldproperty=docStatus,value=30)&amp;authFieldValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,type=PERSON)" />
+			
+			<!-- 编辑回复权限  文档为发布状态且用户是创建者或编辑所有文档权限的人可以执行编辑回复操作 -->
+			<query queryString="method=updateReply"
+				validator="fieldValueValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,fieldproperty=docStatus,value=30)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT)|fieldValueValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=creator)"/>
+			<query  queryString="method=edit" validator="authFieldValidator(type=creator)|roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT)"/>
+			<query queryString="method=copy" validator="false" />
+		
+		</request>
+
+		<request
+			path="km_collaborate_partner_info/kmCollaboratePartnerInfo*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaboratePartnerInfo">
+			
+			<!-- 增加人员  文档为发布状态，且用户是文档的参与者，且选中“允许参与者追加，转发 ”项 -->
+			<query queryString="method=saveCondition"
+				validator="fieldValueValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,fieldproperty=docStatus,value=30,fieldproperty=fdPartnerOperating,value=true)&amp;authFieldValidator(recid=fdCommunicationMainId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,type=PERSON)"/>
+			
+			<!-- 删除参与人员   文档状态为发布状态，创建人有权剔除未开封的参与者-->
+			<query queryString="method=delete"
+				validator="fieldValueValidator(recid=fdParentId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,fieldproperty=docStatus,value=30)&amp;fieldValueValidator(fieldproperty=fdIsRead,value=false)&amp;authFieldValidator(recid=fdParentId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain,type=creator)"/>
+
+		</request>
+
+		<request
+			path="km_collaborate_config/kmCollaborateConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaborateConfig">
+			
+			<!-- 参数设置     仅赋予【工作沟通_参数设置】角色的用户有权限对工作沟通的参数设置信息进行修改操作，普通用户身份无权限访问 -->
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_KMCOLLABORATE_PARAMETERP_SETTINGS)" />
+				
+			<query queryString="method=*" validator="false" />
+			
+		</request>
+
+		<request
+			path="km_collaborate_category/kmCollaborateCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaborateCategory">
+			
+			<!-- 对工作沟通的类别进行创建、修改、删除操作进行权限拦截 -->
+			<query queryString="method=add|save|saveadd|edit|update|delete|deleteall|transfer"
+				validator="roleValidator(role=ROLE_KMCOLLABORATECATEGORY_ADMIN)" />
+				
+		</request>
+
+		<request
+			path="km_collaborate_logs/kmCollaborateLogs*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaborateLogs">
+		</request>
+		
+		<request
+			path="km_collaborate_main/kmCollaborateMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.collaborate.model.KmCollaborateMain">
+			
+			<query queryString="method=list|pdalastList|pdaFirstList|setHtml|showKeydataUsed" validator="true"/>
+			<!--  是否参与者的验证  -->
+			<query queryString="method=partners"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=PERSON)" />
+			
+			<!-- 回复权限url权限   文档为发布状态且用户是文档的参与者可以执行回复的操作-->
+			 <query queryString="method=saveReply"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=PERSON)|fieldValueValidator(fieldproperty=docStatus,value=30)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT)" />
+			
+			
+			<!-- 删除参与人员url权限   文档状态为发布状态，创建人有权剔除未开封的参与者-->
+			<query queryString="method=deletePartner"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;fieldValueValidator(recid=fdPartnerInfoId,model=com.landray.kmss.km.collaborate.model.KmCollaboratePartnerInfo,fieldproperty=fdIsRead,value=false)&amp;authFieldValidator(type=creator)"/>
+			
+			<!-- 增加人员url权限  文档为发布状态，用户是文档的参与者，选中“允许参与者追加，转发 ”项 -->
+			<query queryString="method=saveCondition"
+				validator="fieldValueValidator(fieldproperty=fdPartnerOperating,value=true)&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=PERSON)"/>
+			
+		   	<!-- 转发  勾选了“允许参与者追加，转发”可以进行转发操作 -->
+		   	<query queryString="method=add&amp;showForward=true"
+				validator="fieldValueValidator(recid=showid,fieldproperty=fdPartnerOperating,value=true)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_CREATE)&amp;authFieldValidator(recid=showid,type=PERSON)" />
+		   
+		    <!-- 保存 仅赋予【工作沟通_创建工作沟通】角色的用户可见新建按钮，发起工作沟通事项-->
+			<query queryString="method=save|saveadd|add|saveDraft|checkIfMore"
+				validator="roleValidator(role=ROLE_KMCOLLABORATEMAIN_CREATE)" />
+				
+			<!-- 阅读 文档状态为发布状态,且是参与者或者是【工作沟通_阅读所有文档】角色、【工作沟通_编辑工作沟通】角色、【工作沟通_删除工作沟通】角色、【工作沟通_结束沟通】角色可以阅读 -->
+			<query queryString="method=view|condition|viewCollaborate"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|fieldValueValidator(fieldproperty=docStatus,except=10)&amp;authFieldValidator(type=PERSON)|fieldValueValidator(fieldproperty=docStatus,except=10)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT;ROLE_KMCOLLABORATEMAIN_VIEW;ROLE_KMCOLLABORATEMAIN_DELETE;ROLE_KMCOLLABORATEMAIN_END)" />
+			
+			<!-- 草稿  文档状态为草稿，且用户是参与者 -->
+			<query queryString="method=updateDraft|update|viewDefault|checkIfMore"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)" /> 				
+			<query queryString="method=edit"
+				validator="authFieldValidator(type=PERSON)|roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT)|fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)" /> 	
+			
+			<!-- 编辑 文档状态为发布状态,且用户是创建者或者拥有编辑工作沟通权限的人-->
+			<query queryString="method=editContent|updateContent"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_EDIT)|fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=creator)"/>
+			<!-- 标记 -->
+			<query queryString="method=mark"
+				validator="authFieldValidator(type=PERSON)"/>
+			<!-- 删除 用户是【工作沟通_删除工作沟通】角色-->
+			<query queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMCOLLABORATEMAIN_DELETE)" /> 
+		    <!-- 删除沟通机制 用户是【工作沟通_删除工作沟通】角色-->
+		    <query queryString="method=deleteInclude"
+				validator="roleValidator(role=ROLE_KMCOLLABORATEMAIN_DELETE)" /> 		
+			<!-- 结束沟通 文档状态问30且用户是创建者或者拥有结束工作沟通的权限的人 -->
+			<query queryString="method=conclude"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;roleValidator(role=ROLE_KMCOLLABORATEMAIN_END)|fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=creator)"/>
+			<query queryString="method=delete" validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)"/>
+			<query queryString="method=result|read" validator="true"/>
+			<!-- 配置删除草稿权限 -->
+			<query queryString="method=deleteaBatch" validator="true"/>
+			<query queryString="*" validator="false"/>
+		</request>
+		
+		<filters
+			modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMainReply">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>
+		
+		<filters
+			modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMain">
+			
+			<filter type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			
+			<filter type="PERSON"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			
+			<filter type="PERSON"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMCOLLABORATEMAIN_VIEW)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMCOLLABORATEMAIN_EDIT)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMCOLLABORATEMAIN_DELETE)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMCOLLABORATEMAIN_END)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+		</filters>
+	</module>
+	<!-- 全文搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+				validator="roleValidator(role=ROLE_KMCOLLABORATE_DEFAULT)" />
+		</request>
+	</module>
+	<search
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+		messageKey="km-collaborate:kmcollaborateMain.fdContent"
+		resultUrl="/km/collaborate/km_collaborate_main/kmCollaborateMain.do?method=result" />
+	
+	<!-- <search
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+		messageKey="km-collaborate:kmcollaborateMain.ExactPhrase.search" 
+		resultProperties="docSubject;docCreator;docCreateTime;" 
+		 /> -->
+	<ftSearch
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime"> <!-- 更新时间 注意：此处产品80以上版本为fdLastModifiedTime -->
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="Text" />  
+		<luceneField
+			name="content"
+			property="fdContent"
+			type="Text" />
+		<luceneField
+			name="category"
+			property="fdCategory.fdId"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="Text" />  
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />  
+	</ftSearch>
+	
+	<homePage
+		urlPrefix="km/collaborate"
+		url="/km/collaborate/index.jsp"
+		messageKey="km-collaborate:module.km.collaborate"
+		config="/moduleindex_notopic.jsp?nav=/km/collaborate/tree.jsp" />
+
+</configs>

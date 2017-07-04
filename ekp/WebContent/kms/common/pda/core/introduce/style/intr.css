@@ -1,0 +1,180 @@
+.lui-introduce-footer {
+	bottom: 0;
+	position: absolute;
+	background-color: #fff;
+	min-height: 120px;
+	border-top: 1px solid #EDEDEE;
+	width: 100%;
+}
+#introduce_list {
+	overflow-y: scroll;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.lui-intr-reason {
+	word-warp:break-word;
+	word-break:break-all;
+}
+.lui-intr-bottom {
+	bottom: 125px;
+}
+.lui-intr-no-bottom {
+	bottom: 0px;
+}
+.lui-intr-star li {
+	float: left;
+}
+
+.lui-intr-tip{
+	position: relative;
+	top: 5px;
+	font-size: 0.9em;
+	float: left;
+	margin-left: 10px;
+}
+.lui-intr-star {
+	float: left;
+	position: relative;
+}
+.lui-intr-to {
+	display: inline-block;
+	padding: 0px 3px;
+}
+
+.lui-intr-to-box {
+	margin-top: 3px;
+	border-radius: 5px;
+	border: 1px solid #DADADA;
+	display: inline-block;
+}
+
+.lui-introduce-editinfo {
+		position: absolute;
+		width:100%;
+}
+
+.lui-introduce-editinfo li{
+	margin: 5px 2px 5px 0px;
+}
+
+.lui-intro-to-selected {
+	background-color: #3284D0;
+	color: #FFFFFF;
+}
+
+.lui-introduce-submit {
+	width: 100%;
+	margin: 5px 0;
+	height: 40px;
+}
+.lui-introduce-footer .lui-introduce-input-div {
+	left: 10px;
+	right: 80px;
+	position: absolute;
+	margin-top: 3px;
+}	
+.lui-introduce-input-div input {
+	padding: 8px;
+	border-radius: 5px;
+	border: 1px solid #DADADA;
+	margin-right: 30px;
+	width: 100%;
+}
+.lui-intr-goal-span {
+	margin-left: 10px;
+	font-size: 0.9em;
+	position: relative;
+	top:-1px;
+}
+.lui-intr-goal {
+	position: relative;
+	right: 0px;
+	left: 0px;
+}
+.lui-intr-goal-input {
+	border: 1px solid #DADADA;
+	background-color: #F9F9F9;
+	width:73%;
+}
+
+.lui-intr-to-left {
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+}
+.lui-intr-to-right {
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+}
+.lui-intr-summary-time{
+	font-size: 0.9em;
+	float: left;
+	color: #9A9A9A;
+	margin-right: 2px;
+}
+.lui-intr-intrer {
+	font-size: 0.9em;
+	float: left;
+	color: #F09802;
+}
+.lui-intrto-summary-detail {
+	display: block;
+	background: url("../images/expanded.png") no-repeat left center;
+	padding-left: 16px;
+	font-size: 0.8em;
+}
+.lui-intr-list .lui-intr-list-li {
+	padding: 10px 0;
+	border-bottom: 1px solid #EDEDEE;
+}
+.lui-intr-info {
+	margin-top: 3px;
+	padding: 3px 0px;
+}
+.lui-intro-submit-btn {
+	display: inline;
+	background-color: #90CDF7;
+	border-radius: 10%;
+	padding: 8px;
+	color: #fff;
+	position: absolute;
+	right: 6px;
+    margin-top: 3px;
+}
+.selectIcon {
+	text-align:center;
+	font-size: 16px;
+	font-weight: bolder;
+	text-align: center;
+	height:20px;
+	width:20px;
+	border:none;
+	background: url(../images/ico_select.png) no-repeat 50% 50%;
+	cursor: pointer;
+	background-size: 20px 20px;
+}
+.goals_textEllipsis {
+	position:relative;
+	right:0px;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.lui-intro-dialog-tip {
+	padding:10px 5px;
+	position: absolute;
+	z-index: 10px;
+	min-width: 200px;
+	border-radius: 9px;
+	background-color: #4691D5;
+	color:#FFFFFF;
+	bottom: 140px;
+	left: 20%;
+	display:none
+}
+.lui-intr-no-list {
+	padding: 5px 4px;
+}

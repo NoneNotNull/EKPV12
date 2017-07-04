@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+
+	<formset>
+		<form name="kmReviewMainForm">
+
+			<field
+				property="docSubject"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewMain.docSubject"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+
+
+		<form name="kmReviewFeedbackInfoForm">
+			<field
+				property="fdSummary"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewFeedbackInfo.fdSummary"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+
+		<!-- 模板 -->
+		<form name="kmReviewTemplateForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewTemplate.fdName"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdCategoryName"
+				depends="required">
+				<arg
+					key="kmReviewMain.fdCatoryName"
+					bundle="km-review"
+					position="0" />
+			</field>
+			<field
+				property="fdNumberPrefix"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewTemplate.fdNumberPrefix"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+
+		<form name="kmReviewTemplateKeywordForm">
+			<field
+				property="fdObjectId"
+				depends="required">
+				<arg
+					key="table.kmReviewTemplate"
+					bundle="table.km-review"
+					position="0" />
+			</field>
+
+			<field
+				property="fdKeyword"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewTemplateKeyword.fdKeyword"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="kmReviewDocKeywordForm">
+
+
+			<field
+				property="fdObjectId"
+				depends="required">
+				<arg
+					key="table.kmReviewMain"
+					bundle="table.km-review"
+					position="0" />
+			</field>
+
+			<field
+				property="fdKeyword"
+				depends="required,maxlength">
+				<arg
+					key="kmReviewDocKeyword.fdKeyword"
+					bundle="km-review"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

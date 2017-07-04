@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tib key="U8-GL_accvouch" id="调用方自定义，建议为当前时间戳" modelname="财务报销">
+  <in>
+  	<accvouch>
+  		<record>
+			<NCVouchID version="U870" ctype="nvarchar" minlength="0" maxlength="60" required="0"></NCVouchID>
+			<CErrReason version="U870" ctype="nvarchar" minlength="0" maxlength="512" required="0"></CErrReason>
+			<iBG_ControlResult version="U870" ctype="smallint" minlength="0" maxlength="2" required="0"></iBG_ControlResult>
+			<cBudgetBuffer version="U870" ctype="nvarchar" minlength="0" maxlength="10" required="0"></cBudgetBuffer>
+			<daudit_date version="U871" ctype="datetime" minlength="0" maxlength="8" required="0"></daudit_date>
+			<BG_AuditRemark version="U870" ctype="nvarchar" minlength="0" maxlength="512" required="0"></BG_AuditRemark>
+			<iperiod version="U861" ctype="tinyint" minlength="0" maxlength="1" required="1"></iperiod>
+			<csign version="U861" ctype="varchar" minlength="0" maxlength="8" required="1"></csign>
+			<isignseq version="U861" ctype="int" minlength="0" maxlength="4" required="1"></isignseq>
+			<inid version="U861" ctype="smallint" minlength="0" maxlength="2" required="1"></inid>
+			<dbill_date version="U861" ctype="datetime" minlength="0" maxlength="8" required="1"></dbill_date>
+			<idoc version="U861" ctype="smallint" minlength="0" maxlength="2" required="1"></idoc>
+			<cbill version="U861" ctype="varchar" minlength="0" maxlength="20" required="1"></cbill>
+			<ccheck version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></ccheck>
+			<cbook version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></cbook>
+			<ibook version="U861" ctype="tinyint" minlength="0" maxlength="1" required="1"></ibook>
+			<ccashier version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></ccashier>
+			<iflag version="U861" ctype="tinyint" minlength="0" maxlength="1" required="0"></iflag>
+			<ctext1 version="U861" ctype="varchar" minlength="0" maxlength="10" required="1"></ctext1>
+			<ctext2 version="U861" ctype="varchar" minlength="0" maxlength="10" required="1"></ctext2>
+			<cdigest version="U861" ctype="varchar" minlength="0" maxlength="60" required="1"></cdigest>
+			<ccode version="U861" ctype="varchar" minlength="0" maxlength="15" required="1"></ccode>
+			<cexch_name version="U861" ctype="varchar" minlength="0" maxlength="8" required="0"></cexch_name>
+			<md version="U861" ctype="money" minlength="0" maxlength="8" required="1"></md>
+			<mc version="U861" ctype="money" minlength="0" maxlength="8" required="1"></mc>
+			<md_f version="U861" ctype="money" minlength="0" maxlength="8" required="1"></md_f>
+			<mc_f version="U861" ctype="money" minlength="0" maxlength="8" required="1"></mc_f>
+			<nfrat version="U861" ctype="float" minlength="0" maxlength="8" required="1"></nfrat>
+			<nd_s version="U861" ctype="float" minlength="0" maxlength="8" required="1"></nd_s>
+			<nc_s version="U861" ctype="float" minlength="0" maxlength="8" required="1"></nc_s>
+			<csettle version="U861" ctype="varchar" minlength="0" maxlength="3" required="0"></csettle>
+			<cn_id version="U861" ctype="varchar" minlength="0" maxlength="30" required="0"></cn_id>
+			<dt_date version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></dt_date>
+			<cdept_id version="U861" ctype="varchar" minlength="0" maxlength="12" required="1"></cdept_id>
+			<cperson_id version="U861" ctype="varchar" minlength="0" maxlength="20" required="1"></cperson_id>
+			<ccus_id version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></ccus_id>
+			<csup_id version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></csup_id>
+			<citem_id version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></citem_id>
+			<citem_class version="U861" ctype="varchar" minlength="0" maxlength="2" required="0"></citem_class>
+			<iyear version="U861" ctype="varchar" minlength="0" maxlength="4" required="1"></iyear>
+			<Iyperiod version="U861" ctype="varchar" minlength="0" maxlength="6" required="1"></Iyperiod>
+			<cname version="U861" ctype="varchar" minlength="0" maxlength="40" required="0"></cname>
+			<ccode_equal version="U861" ctype="varchar" minlength="0" maxlength="50" required="1"></ccode_equal>
+			<iflagbank version="U861" ctype="tinyint" minlength="0" maxlength="1" required="0"></iflagbank>
+			<iflagPerson version="U861" ctype="tinyint" minlength="0" maxlength="1" required="0"></iflagPerson>
+			<bdelete version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bdelete>
+			<coutaccset version="U861" ctype="varchar" minlength="0" maxlength="3" required="0"></coutaccset>
+			<ioutyear version="U861" ctype="smallint" minlength="0" maxlength="2" required="0"></ioutyear>
+			<coutsysname version="U861" ctype="varchar" minlength="0" maxlength="10" required="0"></coutsysname>
+			<coutsysver version="U861" ctype="varchar" minlength="0" maxlength="10" required="0"></coutsysver>
+			<doutbilldate version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></doutbilldate>
+			<ioutperiod version="U861" ctype="tinyint" minlength="0" maxlength="1" required="0"></ioutperiod>
+			<coutsign version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></coutsign>
+			<coutno_id version="U861" ctype="varchar" minlength="0" maxlength="30" required="0"></coutno_id>
+			<doutdate version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></doutdate>
+			<coutbillsign version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></coutbillsign>
+			<coutid version="U861" ctype="varchar" minlength="0" maxlength="50" required="0"></coutid>
+			<bvouchedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bvouchedit>
+			<bvouchAddordele version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bvouchAddordele>
+			<bvouchmoneyhold version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bvouchmoneyhold>
+			<bvalueedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bvalueedit>
+			<bcodeedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bcodeedit>
+			<ccodecontrol version="U861" ctype="varchar" minlength="0" maxlength="50" required="0"></ccodecontrol>
+			<bPCSedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bPCSedit>
+			<bDeptedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bDeptedit>
+			<bItemedit version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bItemedit>
+			<bCusSupInput version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bCusSupInput>
+			<cDefine1 version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></cDefine1>
+			<cDefine2 version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></cDefine2>
+			<cDefine3 version="U861" ctype="varchar" minlength="0" maxlength="20" required="0"></cDefine3>
+			<cDefine4 version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></cDefine4>
+			<cDefine5 version="U861" ctype="int" minlength="0" maxlength="4" required="0"></cDefine5>
+			<cDefine6 version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></cDefine6>
+			<cDefine7 version="U861" ctype="float" minlength="0" maxlength="8" required="0"></cDefine7>
+			<cDefine8 version="U861" ctype="varchar" minlength="0" maxlength="4" required="0"></cDefine8>
+			<cDefine9 version="U861" ctype="varchar" minlength="0" maxlength="8" required="0"></cDefine9>
+			<cDefine10 version="U861" ctype="varchar" minlength="0" maxlength="60" required="0"></cDefine10>
+			<cDefine11 version="U861" ctype="varchar" minlength="0" maxlength="120" required="0"></cDefine11>
+			<cDefine12 version="U861" ctype="varchar" minlength="0" maxlength="120" required="0"></cDefine12>
+			<cDefine13 version="U861" ctype="varchar" minlength="0" maxlength="120" required="0"></cDefine13>
+			<cDefine14 version="U861" ctype="varchar" minlength="0" maxlength="120" required="0"></cDefine14>
+			<cDefine15 version="U861" ctype="int" minlength="0" maxlength="4" required="0"></cDefine15>
+			<cDefine16 version="U861" ctype="float" minlength="0" maxlength="8" required="0"></cDefine16>
+			<dReceive version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></dReceive>
+			<cWLDZFlag version="U861" ctype="varchar" minlength="0" maxlength="1" required="0"></cWLDZFlag>
+			<dWLDZTime version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></dWLDZTime>
+			<bFlagOut version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bFlagOut>
+			<iBG_OverFlag version="U861" ctype="int" minlength="0" maxlength="4" required="0"></iBG_OverFlag>
+			<cBG_Auditor version="U861" ctype="varchar" minlength="0" maxlength="40" required="0"></cBG_Auditor>
+			<dBG_AuditTime version="U861" ctype="datetime" minlength="0" maxlength="8" required="0"></dBG_AuditTime>
+			<cBG_AuditOpinion version="U861" ctype="varchar" minlength="0" maxlength="50" required="0"></cBG_AuditOpinion>
+			<bWH_BgFlag version="U861" ctype="bit" minlength="0" maxlength="1" required="0"></bWH_BgFlag>
+			<ssxznum version="U861" ctype="int" minlength="0" maxlength="4" required="0"></ssxznum>
+  		</record>
+  	</accvouch>
+  </in>
+  <out></out>
+  <return>
+	<result></result>
+	<message></message>
+  </return>
+</tib>

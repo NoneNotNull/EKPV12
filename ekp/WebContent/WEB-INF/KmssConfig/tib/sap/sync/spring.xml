@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="tibSapSyncCategoryTreeService" class="com.landray.kmss.tib.sap.sync.service.bean.TibSapSyncCategoryTreeServiceImp">
+	  <property
+			name="tibSapSyncCategoryService">
+			<ref
+				local="tibSapSyncCategoryService" />
+		</property>
+	</bean>
+	
+	
+		<bean
+		id="tibSapSyncCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sap.sync.dao.hibernate.TibSapSyncCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sap.sync.model.TibSapSyncCategory" />
+	</bean>
+	<bean
+		id="tibSapSyncCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sap.sync.service.spring.TibSapSyncCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSapSyncCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSapSyncCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSapSyncCategoryTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibSapSyncTempFuncDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sap.sync.dao.hibernate.TibSapSyncTempFuncDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sap.sync.model.TibSapSyncTempFunc" />
+	</bean>
+	<bean
+		id="tibSapSyncTempFuncTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sap.sync.service.spring.TibSapSyncTempFuncServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSapSyncTempFuncDao" />
+		</property>
+		<property name="compDbcpService">
+		  <ref bean="compDbcpService"/>
+		</property>
+	</bean>
+	<bean
+		id="tibSapSyncTempFuncService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSapSyncTempFuncTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSapSyncJobDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sap.sync.dao.hibernate.TibSapSyncJobDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sap.sync.model.TibSapSyncJob" />
+	</bean>
+		<bean
+		id="tibSapSyncJobTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sap.sync.service.spring.TibSapSyncJobServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSapSyncJobDao" />
+		</property>
+		<property name="sysQuartzJobService">
+		    <ref bean="sysQuartzJobTarget"/>
+	</property>
+	</bean>
+	<bean
+		id="tibSapSyncJobService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSapSyncJobTarget" />
+		</property>
+	</bean>
+	
+		<bean id="tibSapSyncInterceptor"
+		class="com.landray.kmss.tib.sap.sync.service.spring.TibSapSyncInterceptor">
+		<property name="tibSapSyncJobService">
+			<ref local="tibSapSyncJobService" />
+		</property>
+	</bean>
+	
+		<!-- 解决同步的临时拦截器 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sysQuartzJobService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>tibSapSyncInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 定时任务执行函数,非单例模式 -->
+	<bean id="tibSapSyncUniteQuartzService" class="com.landray.kmss.tib.sap.sync.service.spring.TibSapSyncUniteQuartzService">
+	</bean>
+	
+	<!--获取table信息 bean Service -->
+	<bean id="tibSapSyncLoadDBTableService" class="com.landray.kmss.tib.sap.sync.service.bean.TibSapSyncLoadDBTableService"></bean>
+	
+</beans>

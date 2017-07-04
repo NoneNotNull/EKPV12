@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="ws_yesno" default-value="true" >
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	
+	<type name="erp_soapuiSetting_yesno" default-value="false" >
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	
+		<type name="ws_serviceSetting_yesno" default-value="false" >
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	
+	<type name="webservice_address">
+		<value-label>
+			<value>1</value>
+			<label-key>tibSysSoapSetting.address.one</label-key>
+			<bundle>tib-sys-soap-connector</bundle>
+			<label>url1</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>tibSysSoapSetting.address.two</label-key>
+			<bundle>tib-sys-soap-connector</bundle>
+			<label>url2</label>
+		</value-label>
+	</type>
+	
+		<type name="soapui_soapversion" default-value="SOAP 1.1">
+		<value-label>
+			<value>SOAP 1.1</value>
+			<label-key>soapversion.soapui.soap11</label-key>
+			<bundle>tib-sys-soap-connector</bundle>
+		    <label></label>
+		</value-label>
+		<value-label>
+			<value>SOAP 1.2</value>
+			<label-key>soapversion.soapui.soap12</label-key>
+			<bundle>tib-sys-soap-connector</bundle>
+			<label></label>
+		</value-label>
+	</type>
+	
+</column-enums>

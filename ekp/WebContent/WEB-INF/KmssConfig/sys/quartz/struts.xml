@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysQuartzJobForm"
+			type="com.landray.kmss.sys.quartz.forms.SysQuartzJobForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/quartz/sys_quartz_job/sysQuartzJob"
+			type="com.landray.kmss.sys.quartz.actions.SysQuartzJobAction"
+			name="sysQuartzJobForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/quartz/sys_quartz_job/sysQuartzJob_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/quartz/sys_quartz_job/sysQuartzJob_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/quartz/sys_quartz_job/sysQuartzJob_list.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.quartz.ApplicationResources"
+		key="sys-quartz" />
+</struts-config>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	<!-- 常用资料 -->
+	<portlet id="km.comminfo.content" name="{km-comminfo:kmComminfo.tree.model}" module="{km-comminfo:kmComminfo.tree.model}">
+		<source  format="sys.ui.classic" type="AjaxXml" >
+			<code>
+			<![CDATA[
+				{
+				"url":"/sys/common/dataxml.jsp?s_bean=kmComminfoPortletService&rowsize=!{rowsize}&fdCategoryId=!{cateid}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{km-comminfo:kmComminfo.tree.infoNum}" key="rowsize" kind="rowsize" />
+		    <var name="{km-comminfo:kmComminfo.tree.type}" key="cateid" kind="dialogJs" >
+		    	{"jsp":"/km/comminfo/km_comminfo_main/selectcomminfocategory.jsp","help":"{km-comminfo:kmComminfo.tree.selectCate}"}
+		    </var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="/km/comminfo/km_comminfo_main/kmComminfoMain.do?method=add&amp;categoryId=${cateid}" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/comminfo" />
+		</operations>
+	</portlet>
+</root>

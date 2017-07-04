@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/plugin-config"
+	xmlns:tns="http://www.example.org/plugin-config"
+	elementFormDefault="qualified">
+	<element name="plugin">
+		<complexType>
+			<sequence>
+				<element name="extension-point" maxOccurs="unbounded" minOccurs="0">
+					<annotation>
+						<documentation xml:lang="zh">扩展点配置</documentation>
+					</annotation>
+					<complexType>
+						<sequence>
+							<element name="item" maxOccurs="unbounded" minOccurs="1">
+								<annotation>
+									<documentation xml:lang="zh">扩展点扩展项配置</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="param" maxOccurs="unbounded" minOccurs="0">
+											<annotation>
+												<documentation xml:lang="zh">扩展点扩展项参数配置</documentation>
+											</annotation>
+											<complexType>
+												<sequence>
+													<element name="description" type="tns:descriptionTemplate">
+														<annotation>
+															<documentation xml:lang="zh">详细描述和样例，此项不能为空</documentation>
+														</annotation>
+													</element>
+												</sequence>
+												<attribute name="name" type="tns:descriptionTemplate" use="required">
+													<annotation>
+														<documentation xml:lang="zh">参数名</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="required" type="boolean">
+													<annotation>
+														<documentation xml:lang="zh">是否必填，默认值：false。</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="kind">
+													<annotation>
+														<documentation xml:lang="zh">
+															参数类型，默认值 ：string，备选项：string, int, boolean, java, spring（注册在spring中的Java类）,
+																 java|spring, filepath（文件路径）, unid（唯一标识）
+														</documentation>
+													</annotation>
+													<simpleType>
+														<restriction base="string">
+															<enumeration value="string" />
+															<enumeration value="int" />
+															<enumeration value="boolean" />
+															<enumeration value="java" />
+															<enumeration value="spring" />
+															<enumeration value="java|spring" />
+															<enumeration value="filepath" />
+															<enumeration value="unid" />
+														</restriction>
+													</simpleType>
+												</attribute>
+												<attribute name="from" type="tns:descriptionTemplate">
+													<annotation>
+														<documentation xml:lang="zh">
+															数据来源，多值则以分号分隔，规则是 扩展点ID:扩展名(item的name属性):参数名(param的name属性) 
+																	        或者 扩展点ID:扩展名(item的name属性):扩展id(具体扩展的item的id属性):参数名(param的name属性)。
+															例如：com.landray.kmss.sys.workflow.support.oa.robot.support:robot:category，
+															             结果：基于扩展点id为com.landray.kmss.sys.workflow.support.oa.robot.support的item为robot的所有扩展的参数category的值，以分号分隔。
+														</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="basedOn" type="tns:descriptionTemplate">
+													<annotation>
+														<documentation xml:lang="zh">需实现的类或接口的完全限定名。kind为java或spring时，此项才有效。kind为java时，此项为java类的全限定名；kind为spring时，此项为需实现的接口的全限定名。</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="pattern" type="string">
+													<annotation>
+														<documentation xml:lang="zh">校验字符串的正则表达式。kind为string或filepath时，此项才有效。</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="restriction" type="string">
+													<annotation>
+														<documentation xml:lang="zh">参数值的备选项，可多值，以分号分隔。若此项有值，则要求扩展值必须来自此备选项。备选项若是大括号包含，则认为是语言bundle。例如：{km-review:kmReviewMain.docSubject};{sys-workflow:sysWfRobotNode.category.subProcess}</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="default" type="string">
+													<annotation>
+														<documentation xml:lang="zh">参数的缺省值，可多值，以分号分隔。required为true时，此项无效。</documentation>
+													</annotation>
+												</attribute>
+											</complexType>
+										</element>
+										<element name="description" type="tns:descriptionTemplate">
+											<annotation>
+												<documentation xml:lang="zh">详细描述和样例</documentation>
+											</annotation>
+										</element>
+									</sequence>
+									<attribute name="name" type="tns:descriptionTemplate" use="required">
+										<annotation>
+											<documentation xml:lang="zh">扩展点扩展项名</documentation>
+										</annotation>
+									</attribute>
+									<attribute name="singleton" type="boolean">
+										<annotation>
+											<documentation xml:lang="zh">扩展是否单例，默认为false。基于此扩展点的扩展在相同的使用范围时，若此值为false则工厂会自动合并，若为true则工厂只会使用一个，其他丢弃。</documentation>
+										</annotation>
+									</attribute>
+								</complexType>
+							</element>
+							<element name="system" maxOccurs="1" minOccurs="0">
+								<annotation>
+									<documentation xml:lang="zh">提供给插件工厂调用的配置</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="validate" maxOccurs="1" minOccurs="0">
+											<annotation>
+												<documentation xml:lang="zh">扩展校验配置</documentation>
+											</annotation>
+											<complexType>
+												<attribute name="class" type="tns:descriptionTemplate" use="required">
+													<annotation>
+														<documentation xml:lang="zh">扩展校验类的全限定名，此类需实现接口IExtensionValidator。</documentation>
+													</annotation>
+												</attribute>
+											</complexType>
+										</element>
+										<element name="event" maxOccurs="unbounded" minOccurs="0">
+											<annotation>
+												<documentation xml:lang="zh">插件工厂提供的事件扩展配置</documentation>
+											</annotation>
+											<complexType>
+												<attribute name="name" use="required">
+													<annotation>
+														<documentation xml:lang="zh">事件名，备选项：load（加载事件，加载扩展点时触发）</documentation>
+													</annotation>
+													<simpleType>
+														<restriction base="string">
+															<enumeration value="load" />
+														</restriction>
+													</simpleType>
+												</attribute>
+												<attribute name="class" type="tns:descriptionTemplate" use="required">
+													<annotation>
+														<documentation xml:lang="zh">
+															实现相应事件提供的接口的实现类。load-->ILoadPointInterceptor。
+														</documentation>
+													</annotation>
+												</attribute>
+											</complexType>
+										</element>
+									</sequence>
+								</complexType>
+							</element>
+							<element name="description" type="tns:descriptionTemplate">
+								<annotation>
+									<documentation xml:lang="zh">详细描述和样例</documentation>
+								</annotation>
+							</element>
+						</sequence>
+						<attribute name="id" type="tns:descriptionTemplate" use="required">
+							<annotation>
+								<documentation xml:lang="zh">扩展点id，建议：bean的完全限定名</documentation>
+							</annotation>
+						</attribute>
+						<attribute name="type">
+							<annotation>
+								<documentation xml:lang="zh">
+									扩展点类型，默认值 ：common，备选项：common（普通），service（机制），framework（框架）。
+									此项决定加载的优先级：framework > service > common。
+								</documentation>
+							</annotation>
+							<simpleType>
+								<restriction base="string">
+									<enumeration value="common" />
+									<enumeration value="service" />
+									<enumeration value="framework" />
+								</restriction>
+							</simpleType>
+						</attribute>
+					</complexType>
+				</element>
+				<element name="extension" maxOccurs="unbounded" minOccurs="0">
+					<complexType>
+						<sequence>
+							<element name="item" maxOccurs="unbounded" minOccurs="1">
+								<annotation>
+									<documentation xml:lang="zh">扩展项配置</documentation>
+								</annotation>
+								<complexType>
+									<sequence>
+										<element name="param" maxOccurs="unbounded" minOccurs="0">
+											<annotation>
+												<documentation xml:lang="zh">扩展点扩展项参数配置</documentation>
+											</annotation>
+											<complexType>
+												<attribute name="name" type="tns:descriptionTemplate" use="required">
+													<annotation>
+														<documentation xml:lang="zh">扩展项参数名</documentation>
+													</annotation>
+												</attribute>
+												<attribute name="value" type="string" use="required">
+													<annotation>
+														<documentation xml:lang="zh">扩展项参数值，可多值，以分号分隔。值若是大括号包含，则认为是语言bundle。例如：{km-review:kmReviewMain.docSubject};{sys-workflow:sysWfRobotNode.category.subProcess}。值若是${}包含，则认为是kmss-config资源文件的key。例如：${hibernate.connection.driverClass}。</documentation>
+													</annotation>
+												</attribute>
+											</complexType>
+										</element>
+									</sequence>
+									<attribute name="name" type="tns:descriptionTemplate" use="required">
+										<annotation>
+											<documentation xml:lang="zh">扩展项名</documentation>
+										</annotation>
+									</attribute>
+									<attribute name="id" type="tns:descriptionTemplate">
+										<annotation>
+											<documentation xml:lang="zh">扩展项id，此项可以在当前扩展点实例中其他扩展项引用。</documentation>
+										</annotation>
+									</attribute>
+									<attribute name="enable" type="string">
+										<annotation>
+											<documentation xml:lang="zh">是否有效，布尔型，默认为true。若为false，则此扩展不加载。可使用${}来获取kmss-config资源文件的配置，例如：${hibernate.connection.driverClass}。</documentation>
+										</annotation>
+									</attribute>
+									<attribute name="replace" type="boolean">
+										<annotation>
+											<documentation xml:lang="zh">是否替换类型kind为unid的所有参数值相等的扩展，布尔型，默认为false。若当前扩展的扩展点参数中存在类型（kind）为unid的参数时，才能有效。</documentation>
+										</annotation>
+									</attribute>
+								</complexType>
+							</element>
+							
+						</sequence>
+						<attribute name="point" type="tns:descriptionTemplate" use="required">
+							<annotation>
+								<documentation xml:lang="zh">需扩展的扩展点id，必填。</documentation>
+							</annotation>
+						</attribute>
+						<attribute name="model" type="string">
+							<annotation>
+								<documentation xml:lang="zh">扩展使用范围，此处请使用mode的全限定名，若整个系统使用则为*；也可多值，以分号分隔。默认值为*。</documentation>
+							</annotation>
+						</attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	<simpleType name="descriptionTemplate">
+		<restriction base="string">
+			<minLength value="1" />
+		</restriction>
+	</simpleType>
+</schema>

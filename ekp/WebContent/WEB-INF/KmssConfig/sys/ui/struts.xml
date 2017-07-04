@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="sysUiLogoForm"
+			type="com.landray.kmss.sys.ui.forms.SysUiLogoForm" />
+		<form-bean name="sysUiExtendForm"
+			type="com.landray.kmss.sys.ui.forms.SysUiExtendForm" />
+	</form-beans>
+	
+	<global-forwards>
+		<forward name="lui-source" path="/sys/ui/jsp/json.jsp" />
+		<forward name="lui-text" path="/sys/ui/jsp/text.jsp" />
+		<forward name="lui-failure" path="/sys/ui/jsp/failure.jsp" />
+		<forward name="lui-chart" path="/sys/ui/jsp/chart.jsp" />
+	</global-forwards>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action path="/sys/ui/sys_ui_logo/sysUiLogo" 
+			type="com.landray.kmss.sys.ui.actions.SysUiLogoAction"
+			name="sysUiLogoForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="upload" path="/sys/ui/jsp/logo.jsp" />
+		</action>
+		<action path="/sys/ui/sys_ui_extend/sysUiExtend" 
+			type="com.landray.kmss.sys.ui.actions.SysUiExtendAction"
+			name="sysUiExtendForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="upload" path="/sys/ui/help/lui-ext/upload.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

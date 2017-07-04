@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.process">
+		<item
+			name="jspExt">
+			<param
+				name="jsp"
+				required="true"
+				kind="string">
+				<description>
+					流程审批全局引入JSP地址
+				</description>
+			</param>
+			<description>
+				流程审批全局引入JSP
+			</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmProcessJspExtLoader" />
+		</system>
+		<description>流程审批扩展点</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteOperation">
+			<param
+				name="jsp"
+				required="true"
+				kind="string">
+				<description>必需，流程审批过程中，引入扩展审批意见操作的JSP片段</description>
+			</param>
+			<param
+				name="provideFor"
+				kind="string"
+				default="*"
+				restriction="pda;pc;mobile;*">
+				<description>
+					可选，默认*，提供给pda或者pc端扩展
+						 pda：仅移动端扩展
+						 pc：仅PC端扩展
+						 *：移动端和PC端
+				</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="0">
+				<description>可选，排序号，默认值为0。根据此排序的升序顺序加载。</description>
+			</param>
+			<description>
+				流程审批意见操作扩展
+			</description>
+		</item>
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				kind="filepath">
+				<description>必需，审批意见列表中，显示审批意见内容的JSP片段</description>
+			</param>
+			<param
+				name="provideFor"
+				kind="string"
+				default="*"
+				restriction="pda;pc;mobile;*">
+				<description>
+					可选，默认*，提供给pda或者pc端扩展
+						 pda：仅移动端扩展
+						 pc：仅PC端扩展
+						 *：移动端和PC端
+				</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="0">
+				<description>可选，排序号，默认值为0。根据此排序的升序顺序加载。</description>
+			</param>
+			<description>
+				流程审批意见展现扩展
+			</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.sys.lbpmservice.support.service.spring.LbpmAuditNoteExtsManager" />
+		</system>
+		<description>流程审批意见扩展点</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.handlerAssert">
+		<!-- 过滤授权代理人的审批权限 -->
+		<item
+			name="handlerAssert">
+			<param
+				name="asserter"
+				value="lbpmAuthorizeHolderService" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 通过操作或起草提交操作时返回驳回点，设置历史路由记录类型 -->
+		<!-- 工作项结束且是执行驳回操作时记录未审批的人员中 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="recordUnreviewedIfRefuse" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="endedWorkitemEvent;drafterSubmitEvent;handlerPassOperationEvent" />
+			<param
+				name="listener"
+				value="lbpmManualRefuseHolder" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmAuditNoteRtNodeListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="lbpmAuditNoteRtNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmAuditNoteAddBranchNoteListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent;endedNodeEvent;abandonNodeEvent" />
+			<param
+				name="listener"
+				value="lbpmAuditNoteAddBranchNoteListener" />
+			<param
+				name="enforce"
+				value="true" /> 
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmAuditNoteReaderListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="lbpmAuditNoteService" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 每次操作后，清空当前处理人暂存意见 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="clearWorkingStorageAddition" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="handlerOperationExecutionEvent" />
+			<param
+				name="listener"
+				value="lbpmClearWorkingStorageAdditionListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

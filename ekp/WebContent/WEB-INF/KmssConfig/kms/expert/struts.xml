@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="kmsExpertInfoForm"
+			type="com.landray.kmss.kms.expert.forms.KmsExpertInfoForm">
+		</form-bean>
+		<form-bean name="kmsExpertTypeForm"
+			type="com.landray.kmss.kms.expert.forms.KmsExpertTypeForm">
+		</form-bean>
+		<form-bean name="kmsIntroExpertForm"
+			type="com.landray.kmss.kms.expert.forms.KmsIntroExpertForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action path="/kms/expert/kms_expert_info/kmsExpertInfo"
+			type="com.landray.kmss.kms.expert.actions.KmsExpertInfoAction" name="kmsExpertInfoForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view.4pda" path="/kms/expert/pda/view/view.jsp">
+			</forward>
+			<forward name="view"
+				path="/kms/expert/kms_expert_info_ui/kmsExpertInfo_view.jsp">
+			</forward>
+			<forward name="edit"
+				path="/kms/expert/kms_expert_info_ui/kmsExpertInfo_edit.jsp">
+			</forward>
+			<forward name="add"
+				path="/kms/expert/kms_expert_info_ui/kmsExpertInfo_edit.jsp">
+			</forward>
+			<forward name="info"
+				path="/kms/expert/kms_expert_info_ui/kmsExpertInfo_info.jsp">
+			</forward>
+			<forward name="set"
+				path="/kms/expert/kms_person_info/kmsPersonInfo_set.jsp">
+			</forward>
+			<forward name="list"
+				path="/kms/expert/kms_expert_info/kmsExpertInfo_list.jsp">
+			</forward>
+		</action>
+
+
+		<action path="/kms/expert/kms_expert_type/kmsExpertType"
+			type="com.landray.kmss.kms.expert.actions.KmsExpertTypeAction" name="kmsExpertTypeForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/kms/expert/kms_expert_type/kmsExpertType_view.jsp">
+			</forward>
+			<forward name="edit"
+				path="/kms/expert/kms_expert_type/kmsExpertType_edit.jsp">
+			</forward>
+			<forward name="list"
+				path="/kms/expert/kms_expert_type/kmsExpertType_list.jsp">
+			</forward>
+			<forward name="notifyView"
+				path="/km/answer/kms_ask_notify/kmAnswerNotify_view.jsp">
+			</forward>
+			<forward name="notifyEdit"
+				path="/km/answer/kms_ask_notify/kmAnswerNotify_edit.jsp">
+			</forward>
+		</action>
+
+		<!-- 推荐专家 -->
+		<action path="/kms/expert/kms_intro_expert/kmsIntroExpert"
+			type="com.landray.kmss.kms.expert.actions.KmsIntroExpertAction" name="kmsIntroExpertForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/kms/expert/kms_intro_expert/kmsIntroExpert_view.jsp" />
+			<forward name="edit"
+				path="/kms/expert/kms_intro_expert/kmsIntroExpert_edit.jsp" />
+			<forward name="list"
+				path="/kms/expert/kms_intro_expert/kmsIntroExpert_list.jsp" />
+		</action>
+
+		<!-- 专家前端数据获取 -->
+		<action path="/kms/expert/kms_expert_index/kmsExpertIndex"
+			type="com.landray.kmss.kms.expert.actions.KmsExpertIndexAction" name="kmsExpertInfoForm"
+			parameter="method" unknown="false" validate="true" scope="request">
+			<forward name="index"
+				path="/kms/expert/kms_expert_info_ui/kmsExpertInfo_list.jsp">
+			</forward>
+		</action>
+		<!-- 门户 -->
+		<action path="/kms/expert/kms_expert_portlet/kmsExpertPortlet"
+			type="com.landray.kmss.kms.expert.actions.KmsExpertPortletAction"
+			parameter="method" unknown="false" validate="true" scope="request">
+		</action>
+		<action path="/kms/expert/kms_expert_portlet/kmsExpertTypePortlet"
+			type="com.landray.kmss.kms.expert.actions.KmsExpertTypePortletAction"
+			parameter="method" unknown="false" validate="true" scope="request">
+		</action>
+	</action-mappings>
+
+	<message-resources parameter="com.landray.kmss.kms.expert.ApplicationResources"
+		key="kms-expert" />
+</struts-config>

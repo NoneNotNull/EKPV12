@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	messageKey="tib-sys-sap-connector:table.tibSysSapRfcSetting"
+	serviceBean="tibSysSapRfcSettingService"
+	table="tib_sys_sap_rfc_setting"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdUse"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdUse"
+	type="Boolean"
+	column="fd_use"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdVersion"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdVersion"
+	type="String"
+	column="fd_version"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="docCreateTime"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docCreateTime"
+	type="DateTime"
+	column="doc_create_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="docStatus"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docStatus"
+	type="String"
+	column="doc_status"
+	notNull="false"
+	length="2"
+/>
+<simpleProperty
+	name="fdFunctionName"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdFunctionName"
+	type="String"
+	column="fd_function_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdFunction"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdFunction"
+	type="String"
+	column="fd_function"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdCommit"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdCommit"
+	type="Boolean"
+	column="fd_commit"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdWeb"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdWeb"
+	type="Boolean"
+	column="fd_web"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdDescribe"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdDescribe"
+	type="String"
+	column="fd_describe"
+	notNull="false"
+	length="200"
+/>
+<modelProperty
+	name="docCategory"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docCategory"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory"
+	column="doc_category"
+	notNull="false"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+	column="doc_creator"
+	notNull="false"
+/>
+<modelProperty
+	name="fdPool"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.fdPool"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapJcoSetting"
+	column="fd_pool"
+	notNull="false"
+/>
+<listProperty
+	name="tibSysSapRfcExport"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.tibSysSapRfcExport"
+	column="fd_function_id"
+	orderBy="fd_id"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcExport"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+<listProperty
+	name="tibSysSapRfcImport"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.tibSysSapRfcImport"
+	column="fd_function_id"
+	orderBy="fd_id"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcImport"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+<listProperty
+	name="tibSysSapRfcTable"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.tibSysSapRfcTable"
+	column="fd_function_id"
+	orderBy="fd_id"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcTable"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+<listProperty
+	name="rfcSearch"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.rfcSearch"
+	column="fd_rfc_id"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSearchInfo"
+	cascade="all-delete-orphan"
+/>
+<simpleProperty
+	name="docIsNewVersion"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docIsNewVersion"
+	type="Boolean"
+	column="doc_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+	name="docIsLocked"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docIsLocked"
+	type="Boolean"
+	column="doc_is_locked"
+	notNull="false"
+/>
+<simpleProperty
+	name="docMainVersion"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docMainVersion"
+	type="Long"
+	column="doc_main_version"
+	notNull="false"
+	length="1"
+/>
+<simpleProperty
+	name="docAuxiVersion"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docAuxiVersion"
+	type="Long"
+	column="doc_auxi_version"
+	notNull="false"
+	length="1"
+/>
+<listProperty
+	name="docHistoryEditions"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docHistoryEditions"
+	column="doc_origin_docid"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	inverse="true"
+/>
+<modelProperty
+	name="docOriginDoc"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSetting.docOriginDoc"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	column="doc_origin_docid"
+	notNull="false"
+/>
+</model></models>

@@ -1,0 +1,401 @@
+<?xml version="1.0"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsKmapsCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory" />
+	</bean>
+	<bean
+		id="kmsKmapsCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmapsCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmapsCategoryTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+	</bean>
+	<bean
+		id="kmsKmapsMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmapsMainDao" />
+		</property>
+		<property name="kmsKmapsUtilService">
+			<ref bean="kmsKmapsUtilService" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmapsMainTarget" />
+		</property>
+	</bean>
+	
+	<!-- 类别树 -->
+	<bean
+		id="kmsKmapsCategoryTreeService"
+		
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryTreeService">
+		<property
+			name="kmsKmapsCategoryService">
+			<ref
+				local="kmsKmapsCategoryService" />
+		</property>
+	</bean>
+	
+	
+	<!-- 类别下拉列表
+	<bean
+		id="kmsKmapCategoryDropListService"
+		class="com.landray.kmss.kms.kmap.service.spring.KmsKmapCategoryDropListService">
+		<property
+			name="kmsKmapsCategoryService">
+			<ref
+				local="kmsKmapsCategoryService" />
+		</property>
+	</bean>     -->
+	
+	<!-- 分类概览-->
+	<bean
+		id="kmsKmapsPreviewTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsPreviewServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmapsPreviewDao" />
+		</property>
+		<property name="kmsKmapsCategoryService">
+			<ref local="kmsKmapsCategoryService"/>
+		</property>
+		<property name="kmsKmapsMainService">
+			<ref local="kmsKmapsMainService"/>
+		</property>
+	</bean>
+	 
+	<bean
+		id="kmsKmapsPreviewService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmapsPreviewTarget" />
+		</property>
+	</bean>
+	
+	<bean id ="kmsKmapsPreviewDao" parent="KmssAuthBaseDao" class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsPreviewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsPreview" />
+	</bean>  
+	<!-- 分类概览 //-->
+	 
+	<!-- 按分类Portlet-->
+	<bean
+		id="kmsKmapsMainPortletService"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainPortletService">
+		<property
+			name="kmsKmapsMainService">
+			<ref
+				local="kmsKmapsMainService" />
+		</property>
+	</bean>
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>kmsKmapsMainDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+				<value>luceneDeleteAdvisor</value>
+			</list>
+		</property>
+	</bean>	
+	
+	 
+	 
+	<!-- 主页爱问Portlet改为地图Portlet-->
+	<bean id="kmsKmapsPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsPortlet">
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+	</bean> 
+	
+	<!--  知识地图概览portlet -->
+	<bean id="kmsKmapsPreviewPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsPreviewPortlet">
+		<property name="kmsKmapsPreviewService">
+			<ref bean="kmsKmapsPreviewService"/>
+		</property>
+	</bean>
+	
+	<!--  kms分类选择框-->
+	<bean id="kmsKmapsCategoryList" class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryList">
+		<property name="kmsKmapsCategoryService">
+			<ref bean="kmsKmapsCategoryService"/>
+		</property>
+	</bean>
+	
+	<!-- 当前路径portlet-->
+	<bean id="kmsKmapsPathPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsPathPortlet">
+		<property name="kmsKmapsCategoryService">
+			<ref bean="kmsKmapsCategoryService"/>
+		</property>
+	</bean>
+	
+	<!-- 当前路径portlet -->
+	<bean id="kmsKmapsListPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsListPortlet">
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+	</bean>
+	
+	<!-- 当前路径portlet-->
+	<bean id="kmsKmapsCountPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsCountPortlet">
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsKmapsPersonalPortlet" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsPersonalPortlet">
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsKmapsTemplateDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsTemplate" />
+	</bean>
+	<bean
+		id="kmsKmapsTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmapsTemplateDao" />
+		</property>
+		<property name="kmsKmapsUtilService">
+			<ref bean="kmsKmapsUtilService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmapsTemplateTarget" />
+		</property>
+	</bean>
+	
+	<!--  kms分类选择框-->
+	<bean id="kmsKmapsTemplateList" class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsTemplateList">
+		<property name="kmsKmapsTemplateService">
+			<ref bean="kmsKmapsTemplateService"/>
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="kmsKmapsDataImportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsDataImportServiceImp">
+		<property name="kmsKmapsTemplateService">
+			<ref local="kmsKmapsTemplateService" />
+		</property>
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService" />
+		</property>
+		<property name="kmsKmapsCategoryService">
+			<ref local="kmsKmapsCategoryService" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService" />
+		</property>
+		<property name="kmsKmapsUtilService">
+			<ref bean="kmsKmapsUtilService" />
+		</property>
+		<property name="kmsKmapsTemplCategoryService">
+			<ref bean="kmsKmapsTemplCategoryService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsDataImportService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref local="kmsKmapsDataImportTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsKmapsDataImportXMLDataBean" class="com.landray.kmss.kms.kmaps.service.portlet.KmsKmapsDataImportXMLDataBean">
+		<property name="kmsKmapsDataImportService">
+			<ref bean="kmsKmapsDataImportService"/>
+		</property>
+	</bean> 
+	
+	<bean id="kmsKmapsUtilService" class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsUtilService">
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService"/>
+		</property>
+	</bean> 
+	
+	
+	<bean
+		id="kmsKmapsTemplCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsTemplCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory" />
+	</bean>
+	<bean
+		id="kmsKmapsTemplCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsTemplCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsKmapsTemplCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsKmapsTemplCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsKmapsTemplCategoryTarget" />
+		</property>
+	</bean>
+	
+	<!-- 类别树 -->
+	<bean
+		id="kmsKmapsTemplCategoryTreeService"
+		
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsTemplCategoryTreeService">
+		<property
+			name="kmsKmapsTemplCategoryService">
+			<ref
+				local="kmsKmapsTemplCategoryService" />
+		</property>
+	</bean>
+	
+	<bean   
+		id="kmsKmapsCategoryTreeAuthCheckService"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryTreeAuthCheckService">
+		<property
+			name="kmsKmapsCategoryService">
+			<ref
+				local="kmsKmapsCategoryService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsKmapsMainXMLService"
+		class="com.landray.kmss.kms.kmaps.service.KmsKmapsMainXMLService">
+		<property name="kmsKmapsMainService">
+			<ref local="kmsKmapsMainService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref
+				bean="sysTagMainRelationService" />
+		</property>
+		<property name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+		 
+	</bean>
+	
+	<!-- 思维导图分类概览 -->
+	<bean id="kmsKmapsCategoryPreManagerService"
+		  class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryPreManagerServiceImp">
+		<property name="mainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsKmapsCategoryService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsKmapsCategoryPreService"/>
+		</property>
+	</bean>	
+	<bean
+		id="kmsKmapsCategoryPreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.kmaps.dao.hibernate.KmsKmapsCategoryPreDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategoryPre" />
+	</bean>
+	<bean id="kmsKmapsCategoryPreTarget"
+		class="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryPreServiceImp"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsKmapsCategoryPreDao" />
+		</property>
+		<property name="kmsKmapsMainService">
+			<ref bean="kmsKmapsMainService"/>
+		</property>
+		<property name="kmsKmapsCategoryService">
+			<ref bean="kmsKmapsCategoryService"/>
+		</property>
+	</bean>  
+	<bean
+		id="kmsKmapsCategoryPreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKmapsCategoryPreTarget" />
+		</property>
+	</bean>
+	<!-- 思维导图分类概览 结束-->
+	
+</beans>

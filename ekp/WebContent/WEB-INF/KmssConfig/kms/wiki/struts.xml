@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAttMainForm"
+			type="com.landray.kmss.sys.attachment.forms.SysAttMainForm">
+		</form-bean>
+		<form-bean
+			name="sysEvaluationMainForm"
+			type="com.landray.kmss.sys.evaluation.forms.SysEvaluationMainForm" />
+		<form-bean
+			name="kmsWikiCategoryForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiCategoryForm">
+		</form-bean>
+		<form-bean
+			name="kmsWikiMainForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiMainForm">
+		</form-bean>
+		<form-bean
+			name="sysIntroduceMainForm"
+			type="com.landray.kmss.sys.introduce.forms.SysIntroduceMainForm" >
+		</form-bean>
+		<form-bean
+			name="kmsWikiTemplateForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiTemplateForm" />
+		<form-bean
+			name="kmsWikiCatelogTemplateForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiCatelogTemplateForm" />
+		<form-bean
+			name="kmsWikiCatelogForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiCatelogForm" />
+		<form-bean
+			name="kmsWikiEvaluationForm"
+			type="com.landray.kmss.kms.wiki.forms.KmsWikiEvaluationForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/wiki/kms_wiki_category/kmsWikiCatalog"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiCategoryAction"
+			name="kmsKnowledgeCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCatalog_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCatalog_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCatalog_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/kms/wiki/kms_wiki_category/kmsWikiCategory"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiCategoryAction"
+			name="kmsKnowledgeCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCategory_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCategory_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCategory_list.jsp">
+			</forward>
+			<forward
+				name="tree"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCategory_tree.jsp">
+			</forward>
+			<forward
+				name="move"
+				path="/kms/wiki/kms_wiki_category/kmsWikiCategory_move.jsp">
+			</forward>
+			<forward
+				name="listTemplate"
+				path="/kms/wiki/pda/module_tempdata.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/wiki/kms_wiki_main/kmsWikiMain"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiMainAction"
+			name="kmsWikiMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<!-- 旧页面，测试用 -->
+			<forward
+				name="viewo"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_view.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_view.jsp">
+			</forward>
+			<forward
+				name="view.4pda"
+				path="/kms/wiki/pda/view/view.jsp">
+			</forward>
+			<forward
+				name="viewOfLearn"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_view_learn.jsp">
+			</forward>
+			<!-- 旧新建编辑页面，测试用 -->
+			<forward
+				name="edito"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_edit.jsp">
+			</forward>
+			<forward
+				name="add"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_add.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_edit.jsp">			
+			</forward>
+			<forward
+				name="addDocSubject"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_add_docSubject.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_list.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_list.jsp">
+			</forward>
+			<forward
+				name="listHistory"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_listHistory.jsp">
+			</forward>
+			<forward
+				name="stylepage"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_infor_view.jsp">
+			</forward>
+			<forward
+				name="editCategory"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_category_edit.jsp">
+			</forward>
+			<forward
+				name="editBaseInfo"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_edit_baseInfo.jsp">
+			</forward>
+			<!-- 旧页面 测试用 -->
+			<forward
+				name="openCatelogDialogo"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_edit_catelog.jsp">
+			</forward>
+			<forward
+				name="openCatelogDialog"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_edit_catelog.jsp">
+			</forward>
+			<forward
+				name="listAllVersion"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_list_allVersion.jsp">
+			</forward>
+			<forward
+				name="compareResult"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_compareResult.jsp">
+			</forward>
+			<forward
+				name="openCategoryDialog"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_edit_category.jsp">
+			</forward>
+			<forward
+				name="displayVersion"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_displayVersion.jsp">
+			</forward>
+			<forward
+				name="editProperty"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_info_property.jsp">
+			</forward>
+			<!-- 旧调整属性页面，测试用 -->
+			<forward
+				name="editPropertyo"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_info_property.jsp">
+			</forward>
+			<forward
+				name="searchResult"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_list.jsp">
+			</forward>
+			<forward
+				name="toUnlock"
+				path="/kms/wiki/kms_wiki_main/kmsWikiMain_toUnlock.jsp">
+			</forward>
+			<forward 
+				name="listVersion" 
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_listVersion.jsp">
+			</forward>
+			<forward
+				name="view.4m"
+				path="/kms/wiki/mobile/view.jsp">
+			</forward>
+			<forward
+				name="viewOfLearnOnMobile"
+				path="/kms/wiki/mobile/viewOfKmsLearn.jsp">
+			</forward> 
+			<forward
+				name="viewOfLearnOnMobile.4m"
+				path="/kms/wiki/mobile/viewOfKmsLearn.jsp">
+			</forward> 
+			<forward
+				name="viewOfLearnOnMobile.4pda"
+				path="/kms/wiki/mobile/viewOfKmsLearn.jsp">
+			</forward> 
+		</action>
+		<action
+			path="/kms/wiki/kms_wiki_main_index/kmsWikiMianIndex"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiMainIndexAction"
+			name="kmsWikiMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_main_ui/kmsWikiMain_list.jsp">
+			</forward>
+			<forward
+				name="wikiList"
+				path="/kms/common/kms_common_push/kms_common_push_wiki.jsp?dataShow=true">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/wiki/kms_wiki_template/kmsWikiTemplate"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiTemplateAction"
+			name="kmsWikiTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_template/kmsWikiTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_template/kmsWikiTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_template/kmsWikiTemplate_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/wiki/kms_wiki_catelog_template/kmsWikiCatelogTemplate"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiCatelogTemplateAction"
+			name="kmsWikiCatelogTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_catelog_template/kmsWikiCatelogTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_catelog_template/kmsWikiCatelogTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_catelog_template/kmsWikiCatelogTemplate_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/wiki/kms_wiki_catelog/kmsWikiCatelog"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiCatelogAction"
+			name="kmsWikiCatelogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_catelog/kmsWikiCatelog_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_catelog/kmsWikiCatelog_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_catelog/kmsWikiCatelog_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiEvaluationAction"
+			name="kmsWikiEvaluationForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation_list.jsp" />
+			<forward
+				name="viewAll"
+				path="/kms/wiki/kms_wiki_evaluation/kmsWikiEvaluation_viewAll.jsp">
+			</forward>
+			<forward
+				name="listView"
+				path="/kms/wiki/kms_wiki_evaluation_ui/kmsWikiEvaluation_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/wiki/kms_outer_search/kmsWikiOuterSearch"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiOuterSearchAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request"/>
+		<!-- 门户 -->
+		<action
+			path="/kms/wiki/kms_wiki_portlet/kmsWikiPortlet"
+			type="com.landray.kmss.kms.wiki.actions.KmsWikiPortletAction"
+			name="kmsWikiMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+	</action-mappings>
+
+
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.kms.wiki.ApplicationResources"
+		key="kms-wiki" />
+</struts-config>

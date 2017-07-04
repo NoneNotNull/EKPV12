@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysWfApprovalTypeForm"
+			type="com.landray.kmss.sys.workflow.base.forms.SysWfApprovalTypeForm">
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action
+			path="/sys/workflow/sys_wf_common_template/sysWfCommonTemplate"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmTemplateAction"
+			name="lbpmTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_list.jsp" />
+			<forward
+				name="updateAuditor"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_auditor.jsp" />
+			<forward
+				name="viewHistory"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_viewHistory.jsp" />
+		</action>
+		<action
+			path="/sys/workflow/sys_wf_approval_type/sysWfApprovalType"
+			type="com.landray.kmss.sys.workflow.base.actions.SysWfApprovalTypeAction"
+			name="sysWfApprovalTypeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/workflow/sys_wf_approval_type/sysWfApprovalType_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/workflow/sys_wf_approval_type/sysWfApprovalType_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/workflow/sys_wf_approval_type/sysWfApprovalType_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/workflow/sys_wf_authorize/sysWfAuthorize"
+			type="com.landray.kmss.sys.lbpmext.authorize.actions.LbpmAuthorizeAction"
+			name="lbpmAuthorizeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_list.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.workflow.ApplicationResources"
+		key="sys-workflow" />
+</struts-config>

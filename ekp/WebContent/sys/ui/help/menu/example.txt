@@ -1,0 +1,15 @@
+﻿<ui:menu>
+  <ui:menu-item text="营销门户" href="http://www.landray.com.cn" 
+  		target="_blank" icon="lui_icon_m_xs" title="适用于销售人员">
+	<ui:menu-item href="http://www.landray.con.cn" 
+		text="分工公司">
+	</ui:menu-item>
+  </ui:menu-item>
+  <ui:menu-source href="asd.jsp?id=!{value}&text=!{text}" icon="lui_icon_s_add" target="_blank">
+	<ui:source ref="id">
+	</ui:source>
+  </ui:menu-source>
+  <ui:menu-popup text="弹出" href="#" icon="lui_icon_s_add" target="_blank">
+  		弹出内容
+  </ui:menu-popup>
+</ui:menu>

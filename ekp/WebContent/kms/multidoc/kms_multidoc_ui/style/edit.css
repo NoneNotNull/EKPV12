@@ -1,0 +1,59 @@
+@CHARSET "UTF-8";
+
+.tb_property {
+	
+}
+
+.tb_property tr td {
+	/**border-bottom: 1px dotted gainsboro;**/ 
+	padding: 6px 10px;
+}
+
+.tb_property tr td label{
+	margin: 4px 20px 4px 0;
+	line-height: 30px;
+}
+.lui_multidoc_cont{
+	vertical-align: top!important;
+	padding-right: 20px;
+	text-align: right;
+}
+.lui_multidoc_docTitle{
+	text-align:center;
+	margin: 12px 0px;
+}
+.lui_multidoc_docTitle span {
+	color: #2393c5;
+	font-size: 18px;
+}
+.lui_multidoc_catelog {
+	line-height: 30px;
+	height: 30px;
+	border-bottom: 1px #d9d9d9 solid;
+}
+.lui_multidoc_title {
+	float: left;
+	color: #2393c5;
+	width: 60%;
+	font-size: 16px;
+	padding-left: 8px;
+}
+.tb_simple1 th {
+	padding: 10px;
+	text-align: right;
+	font-weight: normal;
+}
+.lui_multidoc_content {
+	padding: 12px 6px;
+}
+.lui_multidoc_hideLi {
+	display:none;
+}
+.lui_multidoc_showLi {
+	display:block;
+}
+.tb_simple .inputAdd {
+	height: 25px;
+	border: 0px;
+	border: 1px solid #dfdfdf;
+}

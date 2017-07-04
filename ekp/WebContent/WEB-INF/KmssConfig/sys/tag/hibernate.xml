@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagTags.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagComment.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagApplicationLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagMainRelation.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagSearchRecord.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagDayLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagWeekLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagMonthLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagYearLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagTopLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagSeasonLog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/tag/model/SysTagCloudSelected.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

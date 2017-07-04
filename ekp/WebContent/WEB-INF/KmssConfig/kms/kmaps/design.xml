@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- 权限控制 -->
+	<module
+		messageKey="kms-kmaps:module.kms.kmaps"
+		defaultValidator="roleValidator(role=ROLE_KMSKMAPS_DEFAULT)"
+		urlPrefix="/kms/kmaps/">
+		<roles>
+			<!-- 默认权限 -->		
+			ROLE_KMSKMAPS_DEFAULT; 
+			<!-- 分类查看、新建、编辑、删除-->
+			ROLE_KMSKMAPS_CATEGORY_MAINTAINER;
+			<!--知识地图查看、新建、编辑、删除 -->	
+			ROLE_KMSKMAPS_READER; 
+			ROLE_KMSKMAPS_CREATE;	 
+			ROLE_KMSKMAPS_EDITOR; 
+			ROLE_KMSKMAPS_DELETE;
+			<!--推荐权限 -->
+			ROLE_KMSKMAPS_INTRODUCE; 
+			<!--传阅权限 -->
+			ROLE_KMSKMAPS_CIRCULATION_CREATE;
+			ROLE_KMSKMAPS_CIRCULATION_DELETE;
+			<!--点评权限 -->
+			ROLE_KMSKMAPS_EVALUATION_CREATE; 
+			ROLE_KMSKMAPS_EVALUATION_DELETE;
+			<!-- 标签 -->
+			ROLE_KMSKMAPS_TAG_MAINTAINER;
+			<!-- 分类扩充权限 -->
+			ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION;
+			<!-- 地图转移分类权限 -->
+			ROLE_KMSKMAPS_CHANGECATE;
+			<!-- 属性维护权限 -->
+			ROLE_KMSKMAPS_PROPERTY_MAINTAINER;
+			<!-- 流程模版权限 -->
+			ROLE_KMSKMAPS_COMMONWORKFLOW;
+			<!-- 取消推荐地图权限 -->
+			ROLE_KMSKMAPS_INTRODUCE_CANCEL;
+			<!-- 批量修改权限 -->
+			ROLE_KMSKMAPS_CHANGERIGHT;
+			<!-- 地图模版查看、新建、编辑、删除 -->
+			ROLE_KMSKMAPS_TEMP_DELETE;
+			ROLE_KMSKMAPS_TEMP_CREATE;
+			ROLE_KMSKMAPS_TEMP_READER;
+			ROLE_KMSKMAPS_TEMP_EDITOR;
+			<!-- 模版分类查看、新建、编辑、删除-->
+			ROLE_KMSKMAPS_TEMP_CATEGORY_MAINTAINER;
+			<!-- 模版转移分类权限 -->
+			ROLE_KMSKMAPS_TEMP_CHANGECATE;
+			<!-- 导入机制权限 -->
+			ROLE_KMSKMAPS_TRANSPORT_IMPORT;
+			
+			ROLE_KMSKMAPS_BACKSTAGE_MANAGER;
+		</roles>
+	<!-- 类别权限 -->
+		<request
+			path="kms_kmaps_category/kmsKmapsCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory,adminRoleName=ROLE_KMSKMAPS_CATEGORY_MAINTAINER">
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<query
+				queryString="method=edit|update"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER)" />
+		</request>
+		<!-- 主文档权限 -->
+		<request
+			path="kms_kmaps_main/kmsKmapsMain.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory">
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSKMAPS_CREATE)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 编辑、更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_KMSKMAPS_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMSKMAPS_DELETE)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除所有草稿 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMSKMAPS_DEFAULT)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 编辑标签 -->
+			<query
+				queryString="method=editTag"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_TAG_MAINTAINER)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 页面内的转移分类权限 -->
+			<query
+				queryString="method=templateChange"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CHANGECATE)&amp;[authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)|authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)]" />
+			<!-- 编辑属性 -->
+			<query
+				queryString="method=editProperty|updateProperty"
+				validator="authFieldValidator(type=creator)|authFieldValidator(type=author)|authFieldValidator(type=SYS_EDITOR)|[areaRoleValidator(role=ROLE_KMSKMAPS_PROPERTY_MAINTAINER)|areaRoleValidator(role=ROLE_KMSKMAPS_EDITOR)]&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />	
+			<!-- 批量编辑属性 -->
+			<query
+				queryString="method=editPropertys|editProperty|updateProperty&amp;templateId=*"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_PROPERTY_MAINTAINER)&amp;authSimpleCategoryEditorValidator(cateId=templateId,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />	
+				
+		</request>
+		<!-- 地图模版类别权限 -->
+		<request
+			path="kms_kmaps_templ_category/kmsKmapsTemplCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory,adminRoleName=ROLE_KMSKMAPS_TEMP_CATEGORY_MAINTAINER">
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSKMAPS_TEMP_CATEGORY_MAINTAINER)" />
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<query
+				queryString="method=edit|update"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMSKMAPS_TEMP_CATEGORY_MAINTAINER)" />
+		</request>
+		
+		<!-- 地图模版权限 -->
+		<request
+			path="kms_kmaps_template/kmsKmapsTemplate.*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplate,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory">
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSKMAPS_TEMP_CREATE)"/>
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_TEMP_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMSKMAPS_TEMP_DELETE)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 页面内的转移分类权限 -->
+			<query
+				queryString="method=templateChange"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_TEMP_CHANGECATE)&amp;[authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)|authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)]" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 编辑、更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|areaRoleValidator(role=ROLE_KMSKMAPS_TEMP_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+		<!--类别数据过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />	
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+			
+		</filters>
+		<!-- 主文档数据权限过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="author"
+				expression="authFieldFilter(field=docAuthor.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_EDITOR)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		<!--模版类别数据过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />	
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_TEMP_CATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+			
+		</filters>
+		<!-- 地图模版数据权限过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsTemplate">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="author"
+				expression="authFieldFilter(field=docAuthor.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_TEMP_READER)" />
+			<!--<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMAPS_TEMP_EDITOR)" />
+			--><filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+	</module>
+	<!-- 导入机制权限 -->
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query validator="roleValidator(role=ROLE_KMSKMAPS_TRANSPORT_IMPORT)"
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory" />
+		</request>
+	</module>
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"
+				validator="roleValidator(role=ROLE_KMSKMAPS_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	
+	<!-- 传阅权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/circulation/">
+		<request 
+				path="sys_circulation_main/sysCirculationMain*">
+			<query
+				queryString="method=add|save|saveadd&amp;fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CIRCULATION_CREATE,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CIRCULATION_DELETE,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain)&amp;[areaRoleValidator(role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain)|authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+				validator="roleValidator(role=ROLE_KMSKMAPS_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 创建新版本 -->
+	<module urlPrefix="/sys/edition/">
+		<request path="sys_edition_main/sysEditionMain*">
+			<query
+				queryString="method=newVersion&amp;fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+				validator="authFieldValidator(type=creator,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain)|authFieldValidator(type=SYS_EDITOR,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain)|areaRoleValidator(role=ROLE_KMSKMAPS_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION,recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory)"/>
+		</request>
+	</module>
+	
+	<!-- 点评机制配置 -->
+	<module
+		urlPrefix="/sys/evaluation/">
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_EVALUATION_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=delete"            
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_EVALUATION_DELETE)&amp;authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,property=docCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+				validator="roleValidator(role=ROLE_KMSKMAPS_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 推荐机制配置 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/introduce/">
+		<request path="sys_introduce_main/sysIntroduceMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=viewAll"
+				validator="roleValidator(role=ROLE_KMSKMAPS_DEFAULT)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_INTRODUCE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.kmaps.model.KmsKmapsMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;method=cancelIntro"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_INTRODUCE_CANCEL)" />
+		</request>
+	</module>
+	
+	<!-- 地图转移分类权限  -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CHANGECATE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 地图模版转移分类权限  -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_TEMP_CHANGECATE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 阅读页面内和文档列表批量修改权限 zhangwh-->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*"> <!-- method=docRightEdit|docRightUpdate&amp; -->
+			<query  
+				queryString="modelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CHANGERIGHT)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="modelName=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplate"
+				validator="areaRoleValidator(role=ROLE_KMSKMAPS_CHANGERIGHT)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory,role=ROLE_KMSKMAPS_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 分类概览定时任务（思维导图） -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsKmapsCategoryPreManagerService"
+		messageKey="kms-kmaps:kmsKmaps.quartz.preview"
+		jobMethod="____previeQuartz" />	
+	<!-- 知识数定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsKmapsCountPortlet" 
+		messageKey="kms-kmaps:kmsKmaps.quartz.count"
+		jobMethod="updateKmapsCount" />
+	<!-- 清除无效地图定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsKmapsMainService" 
+		messageKey="kms-kmaps:kmsKmaps.quartz.delete"
+		jobMethod="delDiscardMap" />
+		
+	<!-- 高级搜索配置 -->
+	<search
+		modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+		messageKey="kms-kmaps:kmsKmaps.dict.search.common"
+		resultProperties="docSubject;docCreator;docCreateTime;" /> 
+	<!-- 高级搜索配置 //-->
+	<!-- 全文检索配置 -->
+	<ftSearch
+		modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<!-- 更新时间 -->
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="text" />  <!-- 检索标题,只需要修改property，不需改name --><!--
+		<luceneField
+			name="content"
+			property="docContent"
+			type="text" />			
+		--><luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />  <!-- 检索创建人,只需要修改property，不需改name -->
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />  <!-- 检索创建时间,只需要修改property，不需改name -->
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+		<luceneField
+			name="category"
+			property="docCategory.fdHierarchyId"
+			type="keyword" />
+	</ftSearch>
+	<!-- 全文检索配置 //-->
+	<!-- 关联机制 -->
+	<relation
+		modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+		messageKey="kms-kmaps:table.kmsKmapsMain"/>
+	<!-- 知识地图配置 -->
+	<treeNodes type="config">
+		<treeNode messageKey="kms-kmaps:kmsKmaps.tree.title">
+			<treeNode
+				messageKey="kms-kmaps:menu.kmsKmaps.categoryconfig"
+				url="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory.do?method=list" />
+		</treeNode>
+	</treeNodes>
+	
+	<!-- kms后台管理 -->
+	<treeNodes type="kms">
+		<treeNode
+			messageKey="kms-kmaps:table.kmsKmapsMain">
+			<treeNode
+				messageKey="kms-kmaps:menu.kmsKmaps.categoryconfig"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory&amp;actionUrl=/kms/kmaps/kms_kmaps_category/kmsKmapsCategory.do&amp;formName=kmsKmapsCategoryForm&amp;mainModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain&amp;docFkName=docCategory">
+			</treeNode>
+			<!-- 
+			<treeNode
+				messageKey="kms-kmaps:menu.kmsKmaps.categoryconfig"
+				url="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory.do?method=list">
+			</treeNode> -->
+			<treeNode
+				messageKey="kms-kmaps:kmsKmapsMain.list"
+				url="/kms/kmaps/kms_kmaps_main/kmsKmapsMain.do?method=adminlist">
+			</treeNode>
+			<treeNode
+				messageKey="kms-kmaps:menu.kmsKmapsTemplate.categoryconfig"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplCategory&amp;actionUrl=/kms/kmaps/kms_kmaps_templ_category/kmsKmapsTemplCategory.do&amp;formName=kmsKmapsTemplCategoryForm&amp;mainModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsTemplcate&amp;docFkName=docCategory">
+			</treeNode>
+			<treeNode
+				messageKey="kms-kmaps:table.kmsKmapsTemplate.list"
+				url="/kms/kmaps/kms_kmaps_template/kmsKmapsTemplate.do?method=list">
+			</treeNode>
+			<treeNode
+				messageKey="kms-kmaps:menu.kmsKmaps.config.category.import"
+				url="/sys/transport/sys_transport_import/SysTransportImport.do?method=list&amp;fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsCategory">
+			</treeNode>
+			<treeNode
+				messageKey="kms-kmaps:kmsKmapsMain.dataImport"
+				url="/kms/kmaps/kms_kmaps_import/kmsKmapsDataImport.jsp">
+			</treeNode>
+			<treeNode
+				messageKey="kms-kmaps:kmsKmaps.tree.search.common"
+				url="/sys/search/search.do?method=condition&amp;fdModelName=com.landray.kmss.kms.kmaps.model.KmsKmapsMain">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	
+	<!-- 知识地图主页配置 -->
+	<homePage
+		urlPrefix="kms/kmaps"
+		url="/kms/kmaps/index.jsp"  
+		messageKey="kms-kmaps:kmsKmapsTree.module"
+		config="/moduleindex_notopic.jsp?nav=/kms/kmaps/tree.jsp"/>
+	<!-- 知识地图流程配置 -->
+	<flowDef
+		modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+		templateModelName="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"
+		key="mainMap"
+		templatePropertyName="docCategory"
+		moduleMessageKey="kms-kmaps:kmsKmapsTree.module"
+		type="oa" />
+</configs>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>WebService2</module-name>
+		<module-path>sys/webservice2</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>3b4e789f94856322f80a58acf47d1688</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

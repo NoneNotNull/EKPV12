@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.agenda.model.SysAgendaMain"
+		messageKey="sys-agenda:table.sysAgendaMain"
+		displayProperty="fdId"
+		serviceBean="sysAgendaMainService"
+		table="sys_agenda_main"
+		url="/sys/agenda/sys_agenda_main/sysAgendaMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-agenda:sysAgendaMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-agenda:sysAgendaMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-agenda:sysAgendaMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="50"
+			validate="false" />
+			
+		<simpleProperty
+			name="formulaJson"
+			messageKey="sys-agenda:sysAgendaMain.formulaJson"
+			type="RTF"
+			length="1000000"
+			column="formula_json"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sys_org_person_sex" default-value="M">
+		<value-label>
+			<value>M</value>
+			<label-key>sysOrgPerson.fdSex.M</label-key>
+			<bundle>sys-organization</bundle>
+		</value-label>
+		<value-label>
+			<value>F</value>
+			<label-key>sysOrgPerson.fdSex.F</label-key>
+			<bundle>sys-organization</bundle>
+		</value-label>
+	</type>
+</column-enums>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类导航由于查询分类数目大于1000导致报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件简单分类扩展实现,业务模块实现此扩展移动端可实现功能区分类功能</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 场所变更功能，可以修改分类及其文档的所属场所</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-08-02</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类维护者不能跨级继承的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 集团分级数据隔离接口参数的调整</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-05-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 判断业务模块是否处于集团分级管理模式的接口调用</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-08</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 在权限验证类型为类别维护者时，可以选择到上级场所分类的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现简单分类的分级管理功能</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-10-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>sys/right</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 取消推荐报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-10-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 对在新建和分类维护时，对没有权限的节点隐藏的功能进行了性能方面的优化</description>
+			<author>叶中奇</author>
+			<revision-time>2012-09-17</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档批量分类转移是通过url传参，参数过长被截断而报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-08-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 在新建时选择分类对话框中没有权限的节点不展现</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-04-19</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>简单分类、全局分类树节点权限优化</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>简单分类，使用新建时过滤没有使用权限的节点</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正weblogic环境按钮出现乱码问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>测试编号:20110915009 在新闻编辑时选择父类别报错,WAS环境才会有错</description>
+			<author>李勇</author>
+			<revision-time>2011-09-26</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>SQL 性能优化，需要搭配create index news_hierarchy_id on sys_news_template(fd_hierarchy_id)</description>
+			<author>李勇</author>
+			<revision-time>2011-09-06</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

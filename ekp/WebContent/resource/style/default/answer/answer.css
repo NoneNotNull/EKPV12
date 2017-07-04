@@ -1,0 +1,17 @@
+.sysfont{font-size: 12px;}
+.t3{padding-left:10px;height:24px;line-height:24px;border-width:1px 1px 0px 1px;border-style:solid;font-size:14px;font-weight:bold;}
+.b3{padding:5px 5px 5px 8px;border-width:0px 1px 1px;border-style:solid;}
+.bcy{border-color:#09a4cf}
+.bgy{background-color:#09a4cf;}
+.mb12{margin-bottom:12px;}
+.b4g{padding:5px 10px 8px 10px;border:1px solid #09a4cf;}
+.wr {table-layout:fixed; word-wrap:break-word;}
+.bai{width:100%;}
+.lil{float:left}#qlist li{font-size:11px}
+.m{padding:3px 0px;border:0px}
+#qlist{line-height:20px;font-size:11px}
+
+.main{width: 786px; min-width: 766px; max-width: 789px; line-height: 18px; text-align: left; margin-top: 10px}
+.right{float: right; width: 180px; line-height: 18px; text-align: left;margin-right: 40px;}
+.center{line-height: 18px; text-align: left; margin-left: 80px; margin-right: 300px; }
+ul{list-style-type: none; width: 100%; margin: 0; padding: 0}

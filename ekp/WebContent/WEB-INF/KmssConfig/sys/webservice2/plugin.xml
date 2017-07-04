@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				required="true"
+				kind="unid">
+				<description>
+					Web服务的名称，如：启动审批流程、投票调查等，用于标识一个Web服务，此项必填且唯一
+				</description>
+			</param>		
+			<param
+				name="serviceClass"
+				required="true"
+				kind="unid" 
+				pattern="^\w+(\.\w+)*$">
+				<description>
+					Web服务的接口类名，包含类路径，如：com.landray.kmss.sys.news.service.ISysNewsMainService，此项必填且唯一
+				</description>
+			</param>
+			<param
+				name="serviceBean"
+				required="true"
+				kind="spring" 
+				basedOn="com.landray.kmss.sys.webservice2.interfaces.ISysWebservice">
+				<description>
+					Web服务实现类在spring中的注册ID，此类必须实现com.landray.kmss.sys.webservice2.interfaces.ISysWebservice接口，必填项
+				</description>
+			</param>	
+			<param
+				name="serviceDoc"
+				required="true"
+				kind="filepath"
+				pattern="^.*?\.(html|htm|jsp)$">
+				<description>
+					帮助文档的根路径，内容包括如何调用Web服务以及各项参数说明等，文件类型为HTML或者JSP格式，
+					比如：/ekp/sys/news/help/WsReadme.html，必填项
+				</description>
+			</param>
+			<description>
+			  配置Web服务的基础信息，可以在系统中导入这些注册信息
+			</description>
+		</item>
+		<description>Web服务的扩展点定义。系统中的WebService都要实现此扩展点</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.sys.cluster">
+		<item
+			name="messageReceiver">
+			<param
+				name="type"
+				value="com.landray.kmss.sys.webservice2.service.spring.SysWebserviceClusterMessage" />
+			<param
+				name="service"
+				value="sysWebserviceMainService" />
+		</item>
+	</extension>
+
+</plugin>

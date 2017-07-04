@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" 
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+<!--工作案例-->
+<portlet
+		id="work.cases"
+		name="{work-cases:portlet.workCases}"
+		module="{work-cases:module.work.cases}"
+		description="{portlet.list.desc1}">
+		<source
+			format="sys.ui.classic"
+			type="AjaxXml">
+			<code>
+				<![CDATA[
+				{"url":"/sys/common/dataxml.jsp?s_bean=workCasesMainPortletService&fdCategoryId=&rowsize=6&scope=no&showIntroduced=true"}
+				]]>
+			</code>
+		</source>
+		<operations>
+	    	<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['work/cases/work_cases_main/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();"
+			    target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/work/cases/?categoryId=!{cateid}" />
+	    </operations>
+</portlet>
+</root>
+

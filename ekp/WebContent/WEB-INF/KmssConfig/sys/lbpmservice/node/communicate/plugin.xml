@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<!-- 沟通任务 -->
+		<item
+			name="taskType"
+			id="137f5be6a61e2457fa1207f402580064">
+			<param
+				name="type"
+				value="communicateTask" />
+			<param
+				name="reviewJs"
+				value="" />
+			<param
+				name="taskDesc"
+				value="communicateTaskDesc" />
+			<param
+				name="taskDataAccess"
+				value="communicateDataAccess" />
+			<param
+				name="taskBehaviour"
+				value="communicateTaskBehaviour" />
+			<param
+				name="taskProvider"
+				value="communicateTaskProvider" />
+		</item>
+		<!-- 沟通工作项 -->
+		<item
+			name="taskType"
+			id="137f5beg661e2457586507f402580064">
+			<param
+				name="type"
+				value="communicateWorkitem" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/workitem/workitem_communicateworkitem.jsp" />
+			<param
+				name="taskDesc"
+				value="communicateWorkitemDesc" />
+			<param
+				name="taskBehaviour"
+				value="communicateWorkitemBehaviour" />
+			<param
+				name="taskDataAccess"
+				value="communicateDataAccess" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!-- 沟通操作 -->
+		<item
+			name="operation"
+			id="137f5c0708ddfcbb00030384d7ba99f1">
+			<param
+				name="type"
+				value="handler_communicate" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.communicate" />
+			<param
+				name="behaviour"
+				value="lbpmHandlerCommunicateBehaviour" />
+			<param
+				name="accessor"
+				value="lbpmHandlerCommunicateAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/handler/operation_handler_communicate.jsp" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="binder"
+				value="handlerCommunicateBinder" />
+		</item>
+		<!-- 回复沟通操作 -->
+		<item
+			name="operation"
+			id="137f5c0708ddfcbb30030984d7ba99f1">
+			<param
+				name="type"
+				value="handler_returnCommunicate" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.rtncommunicate" />
+			<param
+				name="behaviour"
+				value="lbpmHandlerReturnCommunicateBehaviour" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/handler/operation_handler_communicate.jsp" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="binder"
+				value="handlerReturnCommunicateBinder" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 取消沟通操作 -->
+		<item
+			name="operation"
+			id="137f5c0708ddfcbb79160e74d7ba99f1">
+			<param
+				name="type"
+				value="handler_cancelCommunicate" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.celcommunicate" />
+			<param
+				name="behaviour"
+				value="lbpmHandlerCancelCommunicateBehaviour" />
+			<param
+				name="accessor"
+				value="lbpmHandlerCommunicateAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/handler/operation_handler_communicate.jsp" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="binder"
+				value="handlerCancelCommunicateBinder" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+	<!-- 事件 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 沟通操作事件   -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmHandlerCommunicateEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.communicate.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCommunicateEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!-- 回复沟通操作事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmHandlerReturnCommunicateEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.rtncommunicate.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerReturnCommunicateEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 取消沟通事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmHandlerCancelCommunicateEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-communicate:lbpmOperations.fdOperType.processor.celcommunicate.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.communicate.LbpmHandlerCancelCommunicateEvent" />
+		</item>
+		<!-- 沟通操作监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmHandlerCommunicateListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.listenerType.handlerPassListener" />
+			<param
+				name="eventTypes"
+				value="lbpmHandlerCommunicateEvent" />
+			<param
+				name="listener"
+				value="lbpmHandlerCommunicateListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 提供给沟通任务的监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="doForCommunicateTaskListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmHandlerReturnCommunicateEvent" />
+			<param
+				name="listener"
+				value="doForCommunicateTaskListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 隐藏审批意见监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="communicateWorkitemEnterListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent" />
+			<param
+				name="listener"
+				value="communicateWorkitemEnterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

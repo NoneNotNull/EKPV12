@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.soap.sync.model.TibSoapSyncJob"
+		messageKey="tib-soap-sync:table.tibSoapSyncJob"
+		displayProperty="fdId"
+		serviceBean="tibSoapSyncJobService"
+		table="tib_soap_sync_job"
+		url="/tib/soap/sync/tib_soap_sync_job/tibSoapSyncJob.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJobService"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdJobService"
+			type="String"
+			column="fd_job_service"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJobMethod"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdJobMethod"
+			type="String"
+			column="fd_job_method"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdLink"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdLink"
+			type="String"
+			column="fd_link"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParameter"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdParameter"
+			type="String"
+			column="fd_parameter"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCronExpression"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdCronExpression"
+			type="String"
+			column="fd_cron_expression"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEnabled"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdEnabled"
+			type="Boolean"
+			column="fd_enabled"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsSysJob"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdIsSysJob"
+			type="Boolean"
+			column="fd_is_sys_job"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRunType"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdRunType"
+			type="Integer"
+			column="fd_run_type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRunTime"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdRunTime"
+			type="DateTime"
+			column="fd_run_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRequired"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdRequired"
+			type="Boolean"
+			column="fd_required"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTriggered"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdTriggered"
+			type="Boolean"
+			column="fd_triggered"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdQuartzEkp"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdQuartzEkp"
+			type="String"
+			column="fd_quartz_ekp"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUseExplain"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdUseExplain"
+			type="String"
+			column="fd_use_explain"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParentId"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdParentId"
+			type="String"
+			column="fd_parent_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="tib-soap-sync:tibSoapSyncJob.docCategory"
+			type="com.landray.kmss.tib.soap.sync.model.TibSoapSyncCategory"
+			column="doc_category_id"
+			notNull="false"
+			validate="false" />
+
+		<listProperty
+			name="fdSoapInfo"
+			messageKey="tib-soap-sync:tibSoapSyncJob.fdSoapInfo"
+			type="com.landray.kmss.tib.soap.sync.model.TibSoapSyncTempFunc"
+			column="fd_quartz_id"
+			cascade="all-delete-orphan" />
+
+	</model>
+</models>

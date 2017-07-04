@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="reviewNodeBehaviourService"
+		parent="defaultManualNodeBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.support.DefaultManualNodeBehaviour" />
+	<bean
+		id="reviewNodeDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.reviewnode.ReviewNodeDesc" />
+
+	<bean
+		id="reviewNodeWorkitemBehaviourService"
+		parent="abstractManualWorkitemBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.reviewnode.ReviewNodeWorkitemBehaviour" />
+	<bean
+		id="reviewNodeWorkitemDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.reviewnode.ReviewNodeWorkitemDesc" />
+	<bean
+		id="reviewWorkitemDataAccess"
+		class="com.landray.kmss.sys.lbpmservice.node.reviewnode.ReviewWorkitemDataAccess" />
+</beans>

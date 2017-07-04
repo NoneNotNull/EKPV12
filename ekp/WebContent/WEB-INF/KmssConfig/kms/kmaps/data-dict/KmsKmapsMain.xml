@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"
+		messageKey="kms-kmaps:table.kmsKmapsMain"
+		serviceBean="kmsKmapsMainService"
+		displayProperty="docSubject"
+		table="kms_kmaps_main"
+		url="/kms/kmaps/kms_kmaps_main/kmsKmapsMain.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-kmaps:kmsKmapsMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			canSearch="true" />
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="sys-doc:sysDocBaseInfo.docAlterTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			canDisplay="false" />
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-kmaps:kmsKmapsMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			length="2"
+			canDisplay="true"
+			enumType="common_status"
+			readOnly="true" />
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-kmaps:kmsKmapsMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-kmaps:kmsKmapsMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			canSearch="true" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-kmaps:kmsKmapsMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<modelProperty
+			name="docCategory"
+			messageKey="kms-kmaps:kmsKmapsMain.docCategoryId"
+			type="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"
+			column="doc_category_id"
+			notNull="false"
+			canSearch="true"
+			dialogJS="Dialog_Tree(!{mulSelect}, '!{idField}', '!{nameField}', null, 'kmsKmapsCategoryTreeService&amp;docCategoryId=!{value}', '!{message(kms-kmaps:dialog.kmsKmapsCategory.winTitle)}', null, null, null, null, true,'!{message(kms-kmaps:dialog.kmsKmapsCategory.winTitle)}' );" />
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-kmaps:kmsKmapsMain.Author"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false" 
+			canSearch="true"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-kmaps:kmsKmapsMain.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			canSearch="true"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+			
+		<modelProperty
+			name="docAuthor"
+			messageKey="sys-doc:sysDocBaseInfo.docAuthor"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_author_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />
+			
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="kms-kmaps:kmsKmapsMain.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="1" />
+		<listProperty
+			name="authReaders"
+			messageKey="kms-kmaps:kmsKmapsMain.authReaderIds"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_kmaps_main_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="kms-kmaps:kmsKmapsMain.authEditorIds"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_kmaps_main_editer"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="kms-kmaps:kmsKmapsMain.authOtherReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="kms_kmaps_main_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-kmaps:kmsKmapsMain.authOtherEditors"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="kms_kmaps_main_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-kmaps:kmsKmapsMain.authAllReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="kms_kmaps_main_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-kmaps:kmsKmapsMain.authAllEditors"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="kms_kmaps_main_aeditor"
+			inverse="false"
+			canDisplay="false" />
+	</model>
+</models>

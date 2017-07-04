@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysRelationMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.relation.dao.hibernate.SysRelationMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.relation.model.SysRelationMain" />
+	</bean>
+	<bean
+		id="sysRelationMainTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.relation.service.spring.SysRelationMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysRelationMainDao" />
+		</property>
+		<property name="sysRelationOverViewService">
+			<ref bean="sysRelationOverViewService" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationMainService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysRelationMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationMainCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.relation.service.spring.SysRelationMainCoreServiceImp">
+				<property
+					name="sysRelationMainService">
+					<ref
+						local="sysRelationMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysRelationForeignModuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.relation.dao.hibernate.SysRelationForeignModuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.relation.model.SysRelationForeignModule" />
+	</bean>
+	<bean
+		id="sysRelationForeignModuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.relation.service.spring.SysRelationForeignModuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysRelationForeignModuleDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationForeignModuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysRelationForeignModuleTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationForeignParamDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.relation.dao.hibernate.SysRelationForeignParamDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.relation.model.SysRelationForeignParam" />
+	</bean>
+	<bean
+		id="sysRelationForeignParamTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.relation.service.spring.SysRelationForeignParamServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysRelationForeignParamDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationForeignParamService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysRelationForeignParamTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationForeignModuleImportService"
+		class="com.landray.kmss.sys.relation.service.spring.SysRelationForeignModuleImportService" />
+		
+	<bean
+		id="sysRelationOverViewDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.relation.dao.hibernate.SysRelationOverViewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.relation.model.SysRelationStaticNew" />
+	</bean>
+	<bean
+		id="sysRelationOverViewTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.relation.service.spring.SysRelationOverViewServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysRelationOverViewDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysRelationOverViewService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysRelationOverViewTarget" />
+		</property>
+	</bean>
+</beans>

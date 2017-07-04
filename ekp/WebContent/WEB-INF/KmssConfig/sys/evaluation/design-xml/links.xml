@@ -1,0 +1,19 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+	   <link url="/sys/evaluation/personal/sysEvaluationMain_person.jsp" 
+	   		msgKey="sys-evaluation:sysEvaluationMain.zone.my" icon="lui_icon_l_icon_36" id="sys_eval_home_nav_my"/>
+	</links>
+	
+	<links type="zone-nav" order="10">
+		<link 
+			id="sys_eval_home_nav_ta"
+			url="/sys/evaluation/personal/sysEvaluationMain_zone.jsp" 
+			msgKey="sys-evaluation:sysEvaluationMain.zone.ta" />
+	</links>
+	
+</root>

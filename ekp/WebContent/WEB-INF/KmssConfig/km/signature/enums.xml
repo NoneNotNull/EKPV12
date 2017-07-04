@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="menu.kmSignatureMain.docInForce" default-value="2">
+		<value-label>
+			<value>1</value>
+			<label-key>signature.docInForce.yes</label-key>
+			<bundle>km-signature</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>signature.docInForce.no</label-key>
+			<bundle>km-signature</bundle>
+		</value-label>	
+	</type>
+	<type name="menu.kmSignatureMain.fdDocType" default-value="2">
+		<value-label>
+			<value>1</value>
+			<label-key>signature.fdDocType.handWrite</label-key>
+			<bundle>km-signature</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>signature.fdDocType.companySignature</label-key>
+			<bundle>km-signature</bundle>
+		</value-label>	
+	</type>
+</column-enums>

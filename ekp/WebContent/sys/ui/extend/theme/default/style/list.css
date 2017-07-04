@@ -1,0 +1,88 @@
+﻿.lui_list_body {background-color: #f7f6f6; }
+
+.lui_list_left_sidebar_frame {min-height: 500px; width:175px;}
+.lui_list_left_sidebar_frame .lui_portlet_operation { color:#dd772c;}
+.lui_list_left_sidebar_frame .lui_portlet_operation:hover{ color:#1c84d5;}
+.lui_list_body_frame{}
+
+/*二级页面快速新建*/
+.lui_list_create_frame { background-color: #83c2eb;}
+.lui_list_create_header_l {}
+.lui_list_create_header_r {}
+.lui_list_create_header_c {height:5px; position:relative;}
+.lui_list_create_header_trig {width: 0;height: 0;line-height: 0;border-top: 5px solid #f2f2f2;border-right: 5px dashed transparent;border-left: 5px dashed transparent;position: absolute;top: 0;left: 50%;margin-left: -5px;}
+.lui_list_create_wrapper {color: #fff;text-align: center;}
+.lui_list_create_wrapper h1 {font-size: 14px;font-weight: bold;}
+.lui_list_create_wrapper_foot {padding: 2px 5px;}
+.lui_list_create_wrapper .lui_dataview_picmenu,.lui_list_create_wrapper .lui_dataview_picmenu_on {width: 80px;}
+
+/*二级页面左侧导航*/
+.lui_list_nav_frame { border: #47b6e4 1px solid;}
+.lui_list_nav_curPath_frame{padding-left: 4px;padding-top: 5px;padding-bottom: 5px;line-height: 25px;height: 25px;background-color: #F7F7F7; vertical-align: middle;color:#494949;}
+.lui_list_nav_curPath_frame > div{float:left;line-height: 25px;height: 25px;margin-left: 10px;}
+.lui_list_nav_curPath_frame .lui_list_nav_curPath{font-size: 14px;max-width:120px;font-weight: bolder;overflow: hidden;display: block;white-space: nowrap;text-overflow: ellipsis;}
+.lui_list_nav_list {color: #6e6e6e;list-style: none;}
+.lui_list_nav_list li {padding-left: 4px;padding-top: 2px;padding-bottom: 2px;}
+.lui_list_nav_list li a { text-decoration: none;line-height: 20px; width:95%; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis;}
+.lui_list_nav_list .lui_list_nav_selected a { font-weight:bold; color:#1c85d6;}
+
+/* 列表中间内容样式 */
+
+.lui_list_nav_dl{ padding:0px 8px 8px 4px;zoom: 1;}
+.lui_list_nav_dl:after{display: block;content: 'clear';clear: both;line-height: 0;visibility: hidden;}
+.lui_list_nav_dl dt{ height:22px; line-height:22px; cursor:pointer;}
+.lui_list_nav_dl dt a{  color:#F19703; font-size:12px; width:90%; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis; }
+.lui_list_nav_dl dd{ height:22px; line-height:22px; float:left; width:100%; cursor:pointer; padding-left:10px;}
+.lui_list_nav_dl dd a{ width:95%;margin-top:5px; overflow: hidden;display: block;white-space: nowrap;text-overflow: ellipsis; font-size:12px;}
+.lui_list_nav_dl .lui_list_nav_dt_selected a,.lui_list_nav_dl .lui_list_nav_selected a{ font-weight:bold;}
+.lui_list_viewtype{background: #e8e8e8;}
+
+/*二级页面列表操作条*/
+.lui_list_operation{background-color:#e3f4fe;border-top: 1px #b9d4e7 solid;border-bottom: 1px #b9d4e7 solid;padding:0px 10px; height:40px; line-height:40px;}
+.lui_list_nav_text{color:#f19703}
+.lui_sort{width: 65px;}
+
+
+/*二级页面右侧切换iframe样式*/
+.lui_list_mainContent{background-color: #fff;}
+.lui_list_mainContent .lui_list_mainContent_close{background: url("../images/back.gif") no-repeat center;height: 23px;width: 23px;cursor: pointer;float: right;}
+
+/*@所有分类*/
+.lui_list_cate_all{
+	cursor: pointer;
+}
+
+.lui_list_cate_all .lui_list_cate_all_content{
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	background: #47B6E4;
+	margin-bottom: 8px;
+}
+
+.lui_list_cate_all .lui_list_cate_all_content .lui_list_cate_all_txt{
+	padding-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+	float: left;
+}
+
+.lui_list_cate_all.lui_list_cate_toggle_up .lui_list_cate_toggle{
+	float: right;
+	cursor: pointer;
+	background: url(../images/dataview/toggle1.gif);
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	width: 30px;
+	height: 30px;
+} 
+.lui_list_cate_all .lui_list_cate_toggle {
+	float: right;
+	cursor: pointer;
+	background: url(../images/dataview/toggle2.gif);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+}

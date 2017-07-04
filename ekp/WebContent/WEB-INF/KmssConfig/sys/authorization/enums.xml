@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="sys_authorization_fd_type">
+		<value-label>
+			<value>0</value>
+			<label-key>sysAuthRole.fdType.common</label-key>
+			<bundle>sys-authorization</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysAuthRole.fdType.area</label-key>
+			<bundle>sys-authorization</bundle>
+		</value-label>	
+	</type>	
+	<type
+		name="sys_authorization_transfer_area_type">
+		<value-label>
+			<value>false</value>
+			<label-key>sysAuthAreaTransfer.creator.area</label-key>
+			<bundle>sys-authorization</bundle>
+		</value-label>
+		<value-label>
+			<value>true</value>
+			<label-key>sysAuthAreaTransfer.same.area</label-key>
+			<bundle>sys-authorization</bundle>
+		</value-label>	
+	</type>	
+		
+</column-enums>

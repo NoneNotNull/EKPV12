@@ -1,0 +1,38 @@
+.search-box {
+	border: 1px solid #c9c9c9;
+	background-color: transparent;
+	position: relative;
+}
+
+.search-box-text {
+	border: 0;
+	outline: none;
+	/*width: 120px;*/
+	height: 22px;
+	color: #797874;
+	line-height: 22px;
+	padding: 0 26px 0 10px;
+	background-color: transparent;
+}
+
+.search-box-btn {
+	border: 0;
+	cursor: pointer;
+	width: 20px; 
+	height: 22px;
+	background: transparent url(./search_btn.png) no-repeat center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.search-box-cancel {
+	border: 0;
+	cursor: pointer;
+	width: 20px;
+	height: 22px;
+	background: transparent url(./search_cancel.png) no-repeat center;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}

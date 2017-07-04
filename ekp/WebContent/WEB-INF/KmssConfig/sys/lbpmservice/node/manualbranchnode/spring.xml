@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="manualBranchNodeBehaviourService"
+		class="com.landray.kmss.sys.lbpmservice.node.manualbranchnode.ManualBranchNodeBehavior" />
+	<bean
+		id="manualBranchNodeDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.manualbranchnode.ManualBranchNodeDesc" />
+	<bean
+		id="skipApprovalForManualbranchListener"
+		class="com.landray.kmss.sys.lbpmservice.node.manualbranchnode.SkipApprovalForManualbranchListener" />
+	
+	<!-- 人工决策数据访问服务，用于返回当前人工决策的下一个流程节点编号 -->
+	<bean
+		id="manualBranchNodeDataAccess"
+		class="com.landray.kmss.sys.lbpmservice.node.manualbranchnode.ManualBranchNodeDataAccess" />
+</beans>

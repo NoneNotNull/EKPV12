@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettingExt"
+	messageKey="tib-sys-soap-connector:table.tibSysSoapSettingExt"
+	serviceBean="tibSysSoapSettingExtService"
+	table="tib_sys_soap_setting_ext"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdWsExtName"
+	messageKey="tib-sys-soap-connector:tibSysSoapSettingExt.fdWsExtName"
+	type="String"
+	column="fd_ws_ext_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdWsExtValue"
+	messageKey="tib-sys-soap-connector:tibSysSoapSettingExt.fdWsExtValue"
+	type="String"
+	column="fd_ws_ext_value"
+	notNull="false"
+	length="36"
+/>
+<modelProperty
+	name="fdServer"
+	messageKey="tib-sys-soap-connector:tibSysSoapSettingExt.fdServer"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSetting"
+	column="fd_server_setting"
+	notNull="true"
+/>
+</model></models>

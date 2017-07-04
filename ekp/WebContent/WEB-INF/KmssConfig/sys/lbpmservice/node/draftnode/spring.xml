@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="draftNodeBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftNodeBehaviour">
+		<property name="refuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+	</bean>
+	<bean
+		id="draftNodeDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftNodeDesc" />
+
+	<bean
+		id="draftWorkitemBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftWorkitemBehaviour">
+		<property name="lbpmExpecterLogService">
+			<ref bean="lbpmExpecterLogService" />
+		</property>
+	</bean>
+	<bean
+		id="draftWorkitemDesc"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftWorkitemDesc" />
+	<bean
+		id="drafterSubmitBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.DrafterSubmitBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="drafterSubmitBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.DrafterSubmitBinder" />
+	<bean
+		id="drafterSubmitAccessor"
+		parent="abstractPassOperationAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.DrafterSubmitAccessor">
+	</bean>
+	<bean
+		id="lbpmDrafterRefuseAbandonBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterRefuseAbandonBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+		<property name="mainModelPerstenceService">
+			<ref bean="lbpmMainModelPerstenceService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDrafterAbandonBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterAbandonBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDrafterPressBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterPressBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDrafterReturnBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.drafter.LbpmDrafterReturnBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="draftNodeDataAccess"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.DraftNodeDataAccess">
+		<property name="refuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+	</bean>
+	<bean
+		id="compatibleEventListener"
+		class="com.landray.kmss.sys.lbpmservice.node.draftnode.CompatibleEventListener" />
+</beans>

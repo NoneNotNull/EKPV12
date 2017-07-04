@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module urlPrefix="km/collaborate">
+		<!-- messageKey必填
+			 type：doc,list,pic -->
+		<config messageKey="km-collaborate:kmCollaborateMain.tab.communicate.label" 
+			type="doc"
+			dataUrl="/km/collaborate/pda/index.jsp"/>
+	</module>
+</pdaConfig>

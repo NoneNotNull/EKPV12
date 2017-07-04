@@ -1,0 +1,324 @@
+﻿.muiCateLists {
+	margin: 0;
+	padding: 0;
+	list-style:none;
+	background-color: white;
+	overflow: hidden; 
+}
+.muiCateLists > .muiCateLoading{
+	text-align: center;
+	color: #a4a4a4;
+}
+.muiCateItem{
+	list-style:none;
+	overflow: hidden;
+	display: block;
+}
+.muiCateInfoItem,.muiGroupItem,.muiCateNavInfo{
+	margin: 0rem 0rem;
+	display: block;
+}
+.muiCateInfoItem{
+	padding: 0.8rem 0.5rem 0.8rem 1rem;
+	border-bottom: 1px solid #dfdfdf;
+}
+.muiGroupItem,.muiCateNavInfo{
+	background-color: #eaeaea;
+}
+.muiCateNavInfo{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+.muiCateContainer{
+	clear:both;
+	width:100%;
+	overflow: hidden;
+	display:table;
+	border: none;
+}
+.muiCateContainer > div{
+	vertical-align: middle;
+	height:100%;
+	border: none;
+	display: table-cell;
+}
+.muiCateSelArea{
+    padding-right:0.5rem;
+	width:2rem;
+}
+.muiCateSelArea .muiCateSel{
+	width:1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	border: 0.1rem solid #dfe1e0;
+	text-align: center; 
+}
+.muiCateSelArea .muiCateSeled{
+	background-color: #1fbaf3; border:0px;
+}
+.muiCateSel .muiCateSelected{
+	font-size: 1.4rem;
+	color: white;
+	line-height: 1.6rem;
+	position: relative;
+	top:-1px;
+}
+.muiCateIcon{
+	width: 3.2rem;
+	text-align: center;
+ }
+.muiCateIcon i,.muiCateIcon img{
+	width: 3.2rem;
+	height: 3.2rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+.muiCateIcon i{
+	width: 3rem;
+	height: 3rem !important;
+	line-height: 3rem;
+}
+
+.muiCateInfo{
+}
+.muiCateTitle{
+	color: #7f7f7f; padding: 0.2rem 1rem; font-size:1.3rem;
+}
+.muiCateInfo .muiCateName{
+	padding-left: 0.5rem;
+}
+
+.muiCateMore{
+	width: 5rem;
+	text-align: center;
+	vertical-align: middle;
+}
+.muiCateMore i{
+	font-size: 2rem; color:#A09E9E;
+	padding: 0.3rem 0rem 0rem 0rem;
+}
+/**头部**/
+.muiCateHeader{
+	width:100%;
+	overflow: hidden;
+}
+.muiCateHeaderContent{
+	width:100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+ 	color:#fff;	
+ 	table-layout:fixed;  
+ 	position: relative;
+}
+.muiCateHeaderContent > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.muiCateHeaderCancel{
+	padding-right: 1rem;
+	text-align: center;
+	color: #fff;
+	/*float: right;*/
+	cursor: pointer;
+	text-align: right;
+}
+.muiCateHeaderReturn{
+	padding-left:1rem;
+	text-align: left;
+	cursor: pointer;
+}
+.muiCateHeaderReturn i{
+	color: #fff;
+	font-size:1.6rem;
+	line-height: 1.6rem;
+}
+.muiCateHeaderReturn i.mui-back:before{
+	font-size:2.2rem;
+}
+
+
+.muiCateHeaderTitle{
+	width: 44%;
+	margin: 0 28%;
+	text-align: center;
+	font-size:1.8rem;
+ 	font-weight:bold;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	position: absolute;
+	left: 0;
+}
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiCateHeaderTitle{
+		width: 54%;
+		margin: 0 23%;
+	}
+}
+
+
+
+
+/**导航**/
+.muiCateNav{
+	position: absolute;
+	top: -100rem;
+	height: 1rem;
+	right: 0.3rem;
+	width: 2rem;
+	font-size: 1.2rem;
+	z-index: 2;
+}
+.muiCateNavItem{
+	cursor:pointer;
+	display: block;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+/**多选选择区**/
+.muiCateSec{
+	display: block;
+	width: 100%;
+	height: 5rem;
+	background-color:#f9f9f9;
+	border-top:0.1rem solid #Babbbd;
+	overflow: hidden;
+}
+.muiCateSec .muiCateSecContainer{
+	position:relative;
+	width: 100%;
+	height: 100%;
+	display: inline-table;
+}
+.muiCateSecContainer > div{
+	display: table-cell;
+	height: 100%;
+	overflow: hidden;
+}
+.muiCateSecLeft{
+	
+}
+.muiCateSecRight{
+	width: 7rem;
+}
+.muiCateSecBtn{
+	position:absolute;
+	top:1rem;
+	margin:0rem;
+	border: 1px solid transparent;
+	background-color: #1fbaf3;
+	width: 6.5rem;
+	height: 3rem;
+	text-align:center;
+	line-height:3rem;
+	color: white;
+	cursor:pointer;
+	border-radius: 3px;
+	display: block;
+	transition:background-color .3s;
+}
+.muiCateSecBtnDis{
+	color: #b5b5b5;
+	border: #b5b5b5 1px solid;
+	background-color: transparent;
+}
+.muiCateSecItems{
+	overflow: hidden;
+}
+.muiCateSecItem{
+	width: 6rem;
+	height: 6rem;
+	padding:0rem 0.2rem;
+	display: inline-block;
+}
+.muiCateSecItemIcon{
+	margin-top:0.4rem;
+	width:100%;
+}
+.muiCateSecItemIcon > div{
+	margin: 0rem auto;
+}
+.muiCateSecItemLabel{
+	width:100%;
+	font-size: 1.0rem;
+	text-align:center;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow: hidden;
+}
+/*地址本dialog*/
+.muiCateDiaglog{
+	position: absolute;
+	top:0rem;
+	left:0rem;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	z-index: 99999;
+	background-color: white;
+	-webkit-transition: -webkit-transform 400ms linear;
+	-webkit-transform: translate3d(100%, 0, 0);
+}
+
+/**地址本**/
+.muiAddressDept,
+.muiAddressPost,
+.mui-organization{
+	text-align:center;
+	color: white;
+	background-color: #F86E54;
+	font-size: 2.2rem;
+}
+.muiAddressPost{
+	background-color: #61AEF2;
+}
+.mui-organization{
+	background-color: #63adf4;
+}
+.muiCateIcon .mui-file-text{
+	color: #fff;
+	font-size: 2.2rem;
+	background-color: #61AEF2;
+}
+.muiCateFiledShow{
+    text-align:left;
+}
+.muiCateFiledShow > div {
+	margin:0.1rem 0.3rem;
+    padding:0.2rem;
+	display: inline-block;
+    border-radius:3px;
+}
+.muiCateFiledShow .muiAddressOrg{
+	margin:0rem;
+    padding:0rem;
+    font-size:1.4rem;
+	position: relative;
+}
+.muiCateFiledShow > div i{
+	position: absolute;
+	right: 0.3rem;
+	top:-0.15rem;
+	height:1.6rem;
+	font-size: 1.2rem;
+	color: #333;
+}
+.muiCateFiledShow .muiAddressOrgEdit{
+    font-size:1.4rem;
+    margin:0.1rem 0.3rem;
+    padding:0.2rem;
+	position: relative;
+	color: #fff;
+    background-color:#18b4ed;
+	padding-right: 16px;
+ }
+ .muiCateFiledShow .muiCatePlaceHold{
+ 	color: #A9A9A9; 
+ }

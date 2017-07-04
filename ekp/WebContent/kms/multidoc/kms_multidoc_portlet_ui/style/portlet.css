@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+.lui_multidoc_preview_box2 {
+	border: 1px solid #d5e3e8;
+	border-top: none;
+	padding: 10px;
+	zoom: 1;
+}
+
+.lui_multidoc_preview_dl_a dt {
+	border-bottom: 1px solid #dadada;
+	padding: 3px 0 5px 5px;
+	margin-bottom: 5px;
+}
+
+.lui_multidoc_preview_dl_a dt a {
+	color: #000;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 24px;
+}
+
+.lui_multidoc_preview_dl_a dt span {
+	color: #06c;
+	font-size: 12px;
+	font-weight: normal;
+	margin-left: 5px;
+}
+
+.lui_multidoc_preview_dl_a dd {
+	border-bottom: 1px solid #dadada;
+	padding: 0 0 10px 5px;
+	line-height: 24px;
+}
+
+.lui_multidoc_preview_dl_a dd a {
+	/**margin-right: 5px;**/
+	color: #666;
+	line-height: 24px
+}
+
+.lui_multidoc_preview_dl_a dd span {
+	color: #f30;
+	/**margin-left: 3px**/
+	margin-right: 8px;
+}

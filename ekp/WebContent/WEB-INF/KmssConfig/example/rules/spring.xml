@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean
+		id="exampleRulesCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.example.rules.dao.hibernate.ExampleRulesCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.example.rules.model.ExampleRulesCategory" />
+	</bean>
+
+	<bean
+		id="exampleRulesCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.example.rules.service.spring.ExampleRulesCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="exampleRulesCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="exampleRulesCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="exampleRulesCategoryTarget" />
+		</property>
+	</bean>
+
+	
+	<bean
+		id="exampleRulesMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.example.rules.dao.hibernate.ExampleRulesMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.example.rules.model.ExampleRulesMain" />
+	</bean>
+
+	<bean
+		id="exampleRulesMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.example.rules.service.spring.ExampleRulesMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="exampleRulesMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="exampleRulesMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="exampleRulesMainTarget" />
+		</property>
+	</bean>
+
+</beans>

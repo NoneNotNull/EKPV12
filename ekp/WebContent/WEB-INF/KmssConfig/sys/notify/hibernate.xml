@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifySetting.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyTodo.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyTodoDoneInfo.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyShortMessageSend.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyShortMessageReceive.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyRemindCategory.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyRemindMain.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyRemindCommon.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/notify/model/SysNotifyCategory.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

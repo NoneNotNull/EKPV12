@@ -1,0 +1,79 @@
+.muiNavbar {
+	/*box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.15);*/
+	/*border-bottom: 0.1rem solid #c0c0c0;*/
+	position: relative;
+    z-index:10;
+    width: 100%;
+    overflow: hidden;
+}
+
+.muiNavbarContainer {
+	table-layout: fixed;
+	white-space: nowrap;
+	width: auto;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	min-width: 100%;
+	text-align: center;
+}
+
+.muiNavitem {
+	white-space: nowrap;
+	display: inline-block;
+	padding: 0 0.6rem;
+	position: relative;
+	z-index: 1;
+}
+
+.muiNavitem span {
+	padding: 0 0.1rem;
+	display: block;
+	max-width: 9rem;
+	margin: 0 auto;
+	color: #000;
+}
+
+.muiNavitem.muiNavitemSelected span {
+	color: #2c79c7;
+	font-weight: bold;
+}
+
+.muiNavbarSelected {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #295fbf;
+	-webkit-transition: 300ms linear;
+	height:2px;
+	max-width: 9rem;
+}
+
+
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+  	.muiNavitem span {
+	padding: 0 0.1rem;
+	display: block;
+	max-width: 9rem;
+	margin: 0 auto;
+	color: #000;
+	font-size:1.7rem;
+	}
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+  	.muiNavitem span {
+	padding: 0 0.1rem;
+	display: block;
+	max-width: 9rem;
+	margin: 0 auto;
+	color: #000;
+	font-size:1.6rem;
+	}
+}

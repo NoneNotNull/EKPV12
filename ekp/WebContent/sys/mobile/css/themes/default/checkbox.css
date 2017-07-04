@@ -1,0 +1,43 @@
+﻿.muiFormCheckBox {
+	height: 1.6rem;
+	width: 1.6rem;
+	background: #fff;
+	position: relative;
+	vertical-align: middle;
+	line-height: 1.5rem;
+	display: inline-block;
+	border: #bfbfbf 1px solid;
+	border-radius: 3px;
+}
+
+.muiFormCheckBoxChecked .muiFormCheckBox {
+	background: #3fa9f5;
+	border-color: #3fa9f5;
+}
+.muiFormCheckBoxChecked .muiFormCheckBox .muiFormCheckBoxOverlay{ color: #fff;}
+.muiFormCheckBox .muiFormCheckBoxOverlay {
+	color: #fff;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	font-size: 1.5rem;
+	line-height: 100%;
+	display: inline-block;
+	font-size: 2.5rem;
+}
+.muiFieldItem.view .muiFormCheckBoxChecked .muiFormCheckBox,
+.muiFieldItem.readOnly .muiFormCheckBoxChecked .muiFormCheckBox{
+	background: #898989;
+	border-color: #898989;
+}
+
+.muiFormCheckBox input {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}

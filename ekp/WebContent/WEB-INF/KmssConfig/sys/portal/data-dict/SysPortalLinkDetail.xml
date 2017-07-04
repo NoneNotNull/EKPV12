@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalLinkDetail"
+		messageKey="sys-portal:table.sysPortalLinkDetail"
+		displayProperty="fdName"
+		serviceBean="sysPortalLinkDetailService"
+		table="sys_portal_link_detail">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey=""
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey=""
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="900" />
+		<simpleProperty
+			name="fdTarget"
+			messageKey="sys-portal:sysPortalLinkDetail.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdIcon"
+			messageKey="sys-portal:sysPortalLinkDetail.fdIcon"
+			type="String"
+			column="fd_icon"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-portal:sysPortalLinkDetail.fdOrder"
+			type="String"
+			column="fd_order"
+			notNull="false" />
+		<modelProperty
+			name="sysPortalLink"
+			messageKey=""
+			type="com.landray.kmss.sys.portal.model.SysPortalLink"
+			column="fd_link_id"
+			notNull="false" />
+	</model>
+</models>

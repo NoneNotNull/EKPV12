@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="sys_follow_person_config_status">
+		<value-label>
+			<value>1</value> 
+			<label-key>sysFollowPersonConifg.fdStatus.able</label-key>
+			<bundle>sys-follow</bundle>
+			<label>启用</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysFollowPersonConifg.fdStatus.disabled</label-key>
+			<bundle>sys-follow</bundle>
+			<label>禁用</label>
+		</value-label>
+	</type>
+	<type
+		name="sys_follow_related_doc_status">
+		<value-label>
+			<value>1</value> 
+			<label-key>sysFollowRelatedDoc.fdStatus.yes</label-key>
+			<label>已阅</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysFollowRelatedDoc.fdStatus.no</label-key>
+			<label>未阅</label>
+		</value-label>
+	</type>
+</column-enums>

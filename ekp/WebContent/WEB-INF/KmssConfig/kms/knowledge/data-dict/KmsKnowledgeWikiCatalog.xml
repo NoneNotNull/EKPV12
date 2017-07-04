@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeWikiCatalog"
+		messageKey="kms-knowledge:table.kmsKnowledgeWikiCatalog"
+		displayProperty="fdName"
+		serviceBean="kmsKnowledgeWikiCatalogService"
+		table="kms_knowledge_wiki_catalog"
+		url="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<modelProperty
+			name="fdTemplate"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.fdTemplate"
+			type="com.landray.kmss.kms.knowledge.model.KmsKnowledgeWikiTemplate"
+			column="fd_template_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="authTmpEditors"
+			messageKey="kms-knowledge:kmsKnowledgeWikiCatalog.authTmpEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_wiki_catelog_template_teditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+	</model>
+</models>

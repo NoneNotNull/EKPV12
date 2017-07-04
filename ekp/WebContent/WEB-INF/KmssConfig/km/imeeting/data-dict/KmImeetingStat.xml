@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model 
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingStat"
+		messageKey="km-imeeting:table.kmImeetingStat"
+		displayProperty="fdId"
+		serviceBean="kmImeetingStatService"
+		table="km_imeeting_stat"
+		url="/km/imeeting/km_imeeting_stat/kmImeetingStat.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imeeting:kmImeetingStat.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="km-imeeting:kmImeetingStat.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imeeting:kmImeetingStat.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+			
+		<simpleProperty
+			name="queryCondIds"
+			messageKey="km-imeeting:kmImeetingStat.queryCondIds"
+			type="String"
+			column="query_cond_ids"
+			notNull="true"
+			length="500"
+			validate="true" />
+		
+		<simpleProperty
+			name="queryCondNames"
+			messageKey="km-imeeting:kmImeetingStat.queryCondNames"
+			type="String"
+			column="query_cond_names"
+			notNull="true"
+			length="500"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdTemplateId"
+			messageKey="km-imeeting:kmImeetingStat.fdTemplateId"
+			type="String"
+			column="fd_template_id"
+			notNull="false"
+			length="1500"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdTemplateName"
+			messageKey="km-imeeting:kmImeetingStat.fdTemplateName"
+			type="String"
+			column="fd_template_name"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdContiditionJson"
+			messageKey="km-imeeting:kmImeetingStat.fdContiditionJson"
+			type="RTF"
+			column="fd_contidition_json"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDateType"
+			messageKey="km-imeeting:kmImeetingStat.fdDateType"
+			type="String"
+			column="fd_date_type"
+			notNull="false"
+			length="36"
+			enumType="km_imeeting_stat_fd_date_type"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStartDate"
+			messageKey="km-imeeting:kmImeetingStat.fdStartDate"
+			type="String"
+			column="fd_start_date"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEndDate"
+			messageKey="km-imeeting:kmImeetingStat.fdEndDate"
+			type="String"
+			column="fd_end_date"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imeeting:kmImeetingStat.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+			
+		<listProperty
+			name="authReaders"
+			messageKey="km-imeeting:kmImeetingTemplate.authReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_imeeting_stat_reader"
+			inverse="false"
+			canDisplay="false" />	
+			
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-imeeting:kmImeetingTemplate.authAllReaders"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_imeeting_stat_areader"
+			inverse="false"
+			canDisplay="false" />
+
+	</model>
+</models>

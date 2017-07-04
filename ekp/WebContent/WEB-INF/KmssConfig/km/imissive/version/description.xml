@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>公文管理（政务版）</module-name>
+		<module-path>km/imissive</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>008421ff11fa3fd38680d2639edc91d2</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

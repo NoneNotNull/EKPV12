@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagSearchRecord"
+		messageKey=""
+		serviceBean="sysTagSearchRecordService"
+		table="sys_tag_search_record">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdSearchTime"
+			messageKey=""
+			type="DateTime"
+			column="fd_search_time"
+			notNull="false" />
+		<modelProperty
+			name="fdSysTagTags"
+			messageKey=""
+			type="com.landray.kmss.sys.tag.model.SysTagTags"
+			column="fd_tag_id"
+			notNull="false" />
+		<modelProperty
+			name="fdSearcher"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_searcher_id"
+			notNull="false" />
+	</model>
+</models>

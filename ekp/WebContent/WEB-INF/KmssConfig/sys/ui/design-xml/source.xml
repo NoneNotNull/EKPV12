@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 简单列表 -->
+	<source format="sys.ui.classic" id="sys.ui.demo.source" name="样例数据" type="AjaxJson">
+		<code>		
+			{"url":"/sys/ui/extend/dataview/format/classic-example.jsp"}
+		</code>		
+	</source>
+</root>

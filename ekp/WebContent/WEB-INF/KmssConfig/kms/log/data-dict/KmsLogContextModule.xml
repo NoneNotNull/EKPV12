@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogContextModule"
+		messageKey="kms-log:table.kmsLogContextModule"
+		displayProperty="fdName"
+		serviceBean="kmsLogContextModuleService"
+		table="kms_log_context_module"
+		url="/kms/log/kms_log_context_module/kmsLogContextModule.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-log:kmsLogContextModule.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-log:kmsLogContextModule.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="modelName"
+			messageKey="kms-log:kmsLogContextModule.modelName"
+			type="String"
+			column="model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="kms-log:kmsLogContextModule.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

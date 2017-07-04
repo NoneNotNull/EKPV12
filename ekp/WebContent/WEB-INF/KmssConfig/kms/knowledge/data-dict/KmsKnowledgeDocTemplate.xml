@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeDocTemplate"
+		messageKey="kms-knowledge:table.kmsKnowledgeDocTemplate"
+		displayProperty="docName"
+		serviceBean="kmsKnowledgeDocTemplateService"
+		table="kms_knowledge_doc_template"
+		url="/kms/knowledge/kms_knowledge_doc_template/kmsKnowledgeDocTemplate.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-knowledge:kmsKnowledgeDocTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-knowledge:kmsKnowledgeDocTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-knowledge:kmsKnowledgeDocTemplate.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-knowledge:kmsKnowledgeDocTemplate.docCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

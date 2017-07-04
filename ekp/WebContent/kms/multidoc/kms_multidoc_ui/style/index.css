@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+/*@排行榜*/
+.lui_doc_cko_rank {
+	width: 160px;
+	margin: 8px auto;
+	font-size: 14px;
+}
+
+.lui_doc_cko_rank thead th {
+	text-align: center;
+	vertical-align: middle;
+	padding: 8px 0;
+	border: 1px solid #95acd5;
+	background-color: #dfe8ee;
+}
+
+.lui_doc_cko_rank tbody tr td {
+	text-align: center;
+	vertical-align: middle;
+	padding: 4px 0;
+}
+
+.lui_doc_cko_rank tbody tr td.color_1 {
+	color: #5282a6;
+	text-align: center;
+}
+
+.lui_doc_cko_rank tbody tr td img {
+	margin: 0 5px;
+}
+
+/*@查询方式*/
+.lui_doc_search_type_content_centre ul {
+	padding: 10px 4px 10px 10px;
+}
+
+.lui_doc_search_type_content_centre ul li {
+	padding: 4px 0;
+	font-size: 13px;
+}
+
+.lui_doc_search_type_content_centre ul li a {
+	font-size: 13px;
+	color: #585858;
+}

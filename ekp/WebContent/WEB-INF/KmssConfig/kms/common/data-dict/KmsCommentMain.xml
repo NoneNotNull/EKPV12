@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.common.model.KmsCommentMain"
+		messageKey="kms-comment:table.kmsCommentMain"
+		serviceBean="kmsCommentMainService"
+		table="kms_comment_main">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-comment:kmsCommentMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-comment:kmsCommentMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-comment:kmsCommentMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCommentContent"
+			messageKey="kms-comment:kmsCommentMain.fdCommentContent"
+			type="RTF"
+			column="fdCommentContent"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<modelProperty
+			name="docCommentator"
+			messageKey="kms-comment:kmsCommentMain.docCommentator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_commentator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docParentReplyer"
+			messageKey="kms-comment:kmsCommentMain.docParentReplyer"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_parent_replyer_id"
+			notNull="false"
+			validate="false" />
+	</model>
+</models>

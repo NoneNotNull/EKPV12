@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 微信接收待办页面变动</description>
+			<author>邱建华</author>
+			<revision-time>2015-01-12</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 微信企业号接收待办问题</description>
+			<author>邱建华</author>
+			<revision-time>2015-01-07</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 微信对接模块找不到随机码，则只验证license</description>
+			<author>邱建华</author>
+			<revision-time>2014-12-25</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制</description>
+			<author>李显鹏</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 引用附件机制接口的编译错误</description>
+			<author>邱建华</author>
+			<revision-time>2014-11-03</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 微信打开实现同步待办的系统的待办找不到路径</description>
+			<author>邱建华</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 微信安卓手机打不开附件问题</description>
+			<author>邱建华</author>
+			<revision-time>2014-08-30</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+	</modifies>
+</version>

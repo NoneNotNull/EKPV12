@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaHomeCustomPortlet"
+		messageKey="third-pda:table.pdaHomeCustomPortlet"
+		displayProperty="fdName"
+		serviceBean="pdaHomeCustomPortletService"
+		table="pda_home_custom_portlet"
+		url="/third/pda/pda_home_custom_portlet/pdaHomeCustomPortlet.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdIconUrl"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdIconUrl"
+			type="String"
+			column="fd_icon_url"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdModuleId"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdModuleId"
+			type="String"
+			column="fd_module_id"
+			notNull="false"
+			length="36"
+			validate="true" 
+			canDisplay="false"/>
+
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="false"
+			length="200"
+			validate="true" 
+			canDisplay="false"/>
+			
+		<simpleProperty
+			name="fdDataUrl"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdDataUrl"
+			type="String"
+			column="fd_data_url"
+			notNull="false"
+			length="1500"
+			validate="true"
+			canDisplay="false" />
+			
+		<simpleProperty
+			name="fdTemplateClass"
+			messageKey="third-pda:pdaHomeCustomPortlet.fdTemplateClass"
+			type="String"
+			column="fd_tmp_class"
+			notNull="false"
+			length="1000"
+			validate="true"
+			canDisplay="false" />
+
+	</model>
+</models>

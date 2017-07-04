@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension-point id="com.landray.kmss.sys.property.setting">
+		<item name="setting">
+			<param name="messageText" kind="string">
+				<description>知识仓库部署对应的模块名/Model名称（默认会取数据字典配置）</description>
+			</param>
+			<description>
+				知识仓库部署时需要声明的扩展项
+			</description>
+		</item>
+		<description>
+			当需要部署知识仓库（属性扩展机制）时，增加
+		</description>
+	</extension-point>
+
+	<!-- 属性类型扩展点 -->
+	<extension-point id="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" required="true" kind="string">
+				<description>必需，类型。</description>
+			</param>
+			<param name="typeText" required="true" kind="string">
+				<description>必需，类型名称。</description>
+			</param>
+			<param name="displayType" required="true" kind="string">
+				<description>必需，显示模式。</description>
+			</param>
+			<param name="displayTypeText" required="true" kind="string">
+				<description>必需，显示模式名称。</description>
+			</param>
+			<param name="previewImage" kind="string">
+				<description>可选，图例路径。</description>
+			</param>
+			<param name="configFile" kind="string">
+				<description>可选，自定义页面。</description>
+			</param>
+			<param name="order" kind="int">
+				<description>可选，排序。</description>
+			</param>
+			<param name="tagBuilder" kind="spring"
+				basedOn="com.landray.kmss.sys.property.builder.jsp.ITagBuilder">
+				<description>可选，标签生成器。如果没有设置，根据displayType获取默认的生成器。</description>
+			</param>
+			<param name="dictPropBuilder" kind="spring"
+				basedOn="com.landray.kmss.sys.property.builder.dict.IDictPropBuilder">
+				<description>可选，属性数据字典生成器。</description>
+			</param>
+			<description>知识仓库属性类型声明的扩展</description>
+		</item>
+		<description>当需要增加知识仓库类型时扩展</description>
+	</extension-point>
+
+	<extension-point id="com.landray.kmss.sys.property.builder.setting">
+		<item name="jspBuilder">
+			<param name="bean" required="true" kind="spring"
+				basedOn="com.landray.kmss.sys.property.builder.jsp.IJspBuilder">
+				<description>
+					必选，JSP生成器。需要指定modelName。
+				</description>
+			</param>
+			<param name="ext" kind="boolean">
+				<description>可选（默认为false），为true则定义另外一套jsp</description>
+			</param>
+			<description>JSP生成类配置</description>
+		</item>
+		<item name="dictBuilder">
+			<param name="bean" required="true" kind="spring"
+				basedOn="com.landray.kmss.sys.property.builder.dict.IDictBuilder">
+				<description>
+					必选，数据字典生成器。需要指定modelName（一个域模型只能指定一个数据字典生成器）。
+					说明：没有扩展该项，系统会使用默认的数据字典生成器。
+				</description>
+			</param>
+			<description>数据字典生成类配置</description>
+		</item>
+		<description>
+			知识仓库扩展页面
+		</description>
+	</extension-point>
+
+	<!-- 筛选项扩展点 -->
+	<extension-point id="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" required="true" kind="string"
+				basedOn="com.landray.kmss.sys.property.filter.ISysPropertyFilter">
+				<description>必需，唯一标识，筛选项</description>
+			</param>
+			<param name="text" required="true" kind="string">
+				<description>必需，显示名称</description>
+			</param>
+			<param name="dataType" required="true" kind="string">
+				<description>必需，数据字典的类型名称。</description>
+			</param>
+			<param name="configFile" kind="string">
+				<description>可选，自定义页面。</description>
+			</param>
+			<description>知识仓库部署时需要声明的筛选扩展</description>
+		</item>
+		<description>针对属性的筛选扩展</description>
+	</extension-point>
+
+
+	<extension-point id="com.landray.kmss.sys.property.ext">
+		<item name="search" singleton="true">
+			<param name="serviceBean" kind="spring"
+				basedOn="com.landray.kmss.spi.service.QueryService">
+				<description>扩展搜索的ServiceBean，该Service必须实现接口com.landray.kmss.spi.service.QueryService</description>
+			</param>
+			<description>扩展属性的数据搜索</description>
+		</item>
+		<item name="storage">
+			<param name="serviceBean" kind="spring"
+				basedOn="com.landray.kmss.sys.property.ext.IPropertyExtendStorage">
+				<description>扩展存储的ServiceBean，该Service必须实现接口com.landray.kmss.sys.property.ext.IPropertyExtendStorage</description>
+			</param>
+			<description>扩展属性的数据扩展存储</description>
+		</item>
+		<item name="property">
+			<param name="serviceBean" kind="spring"
+				basedOn="com.landray.kmss.sys.property.ext.IPropertyExtendManager">
+				<description>扩展属性维护的ServiceBean，该Service必须实现接口com.landray.kmss.sys.property.ext.IPropertyExtendManager</description>
+			</param>
+			<description>扩展属性的属性定义维护</description>
+		</item>
+		<description>属性扩展</description>
+	</extension-point>
+
+	<!-- 启动重新生成hbm文件 -->
+	<extension point="com.landray.kmss.sys.config.loader">
+		<item name="framework">
+			<param name="name" value="sysPropertyDbInitFormLoader" />
+			<param name="loader"
+				value="com.landray.kmss.sys.property.service.spring.SysPropertyDbInitFormLoader" />
+			<param name="order" value="6" />
+		</item>
+	</extension>
+
+	<!-- 字符串 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="text" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.text}" />
+			<param name="previewImage" value="/sys/property/define/images/text.jpg" />
+			<param name="configFile" value="/sys/property/define/text.jsp" />
+			<param name="order" value="1" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="textarea" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.textarea}" />
+			<param name="previewImage" value="/sys/property/define/images/textarea.jpg" />
+			<param name="configFile" value="/sys/property/define/textarea.jsp" />
+			<param name="order" value="2" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="radio" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.radio}" />
+			<param name="previewImage" value="/sys/property/define/images/radio.jpg" />
+			<param name="configFile" value="/sys/property/define/enum.jsp" />
+			<param name="order" value="3" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="checkbox" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.checkbox}" />
+			<param name="previewImage" value="/sys/property/define/images/checkbox.jpg" />
+			<param name="configFile" value="/sys/property/define/enum.jsp" />
+			<param name="order" value="4" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="select" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.select}" />
+			<param name="previewImage" value="/sys/property/define/images/select.jpg" />
+			<param name="configFile" value="/sys/property/define/enum.jsp" />
+			<param name="order" value="5" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="String" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.string}" />
+			<param name="displayType" value="other" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.other}" />
+			<param name="previewImage" value="/sys/property/define/images/other.jpg" />
+			<param name="configFile" value="/sys/property/define/text.jsp" />
+			<param name="order" value="6" />
+		</item>
+	</extension>
+	<!-- 字符串 end -->
+
+	<!-- 整数 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Long" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.long}" />
+			<param name="displayType" value="text" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.text}" />
+			<param name="previewImage" value="/sys/property/define/images/text.jpg" />
+			<param name="configFile" value="/sys/property/define/long_text.jsp" />
+			<param name="order" value="7" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Long" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.long}" />
+			<param name="displayType" value="radio" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.radio}" />
+			<param name="previewImage" value="/sys/property/define/images/radio.jpg" />
+			<param name="configFile" value="/sys/property/define/long_enum.jsp" />
+			<param name="order" value="8" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Long" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.long}" />
+			<param name="displayType" value="select" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.select}" />
+			<param name="previewImage" value="/sys/property/define/images/select.jpg" />
+			<param name="configFile" value="/sys/property/define/long_enum.jsp" />
+			<param name="order" value="9" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Long" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.long}" />
+			<param name="displayType" value="other" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.other}" />
+			<param name="previewImage" value="/sys/property/define/images/other.jpg" />
+			<param name="configFile" value="/sys/property/define/long_text.jsp" />
+			<param name="order" value="10" />
+		</item>
+	</extension>
+	<!-- 整数 end -->
+
+	<!-- 浮点数 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Double" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.float}" />
+			<param name="displayType" value="text" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.text}" />
+			<param name="previewImage" value="/sys/property/define/images/text.jpg" />
+			<param name="configFile" value="/sys/property/define/double_text.jsp" />
+			<param name="order" value="11" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="Double" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.float}" />
+			<param name="displayType" value="other" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.other}" />
+			<param name="previewImage" value="/sys/property/define/images/other.jpg" />
+			<param name="configFile" value="/sys/property/define/double_text.jsp" />
+			<param name="order" value="12" />
+		</item>
+	</extension>
+	<!-- 浮点数 end -->
+
+	<!-- 日期 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type" value="DateTime" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.date}" />
+			<param name="displayType" value="calendar" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.calendar}" />
+			<param name="previewImage" value="/sys/property/define/images/calendar.jpg" />
+			<param name="configFile" value="/sys/property/define/calendar.jsp" />
+			<param name="order" value="13" />
+		</item>
+	</extension>
+	<!--
+		<extension point="com.landray.kmss.sys.property.define.setting"> <item
+		name="define"> <param name="type" value="DateTime" /> <param
+		name="typeText" value="{sys-property:sysPropertyDefine.type.date}" />
+		<param name="displayType" value="other" /> <param
+		name="displayTypeText"
+		value="{sys-property:sysPropertyDefine.display.type.other}" /> <param
+		name="previewImage" value="/sys/property/define/images/other.jpg" />
+		<param name="configFile"
+		value="/sys/property/define/datetime_other.jsp" /> <param name="order"
+		value="14" /> </item> </extension>
+	-->
+	<!-- 日期 end -->
+
+	<!-- 组织架构 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type"
+				value="com.landray.kmss.sys.organization.model.SysOrgElement" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.org}" />
+			<param name="displayType" value="address" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.address}" />
+			<param name="previewImage" value="/sys/property/define/images/address.jpg" />
+			<param name="configFile" value="/sys/property/define/address.jsp" />
+			<param name="order" value="15" />
+		</item>
+	</extension>
+	<!--
+		<extension point="com.landray.kmss.sys.property.define.setting"> <item
+		name="define"> <param name="type"
+		value="com.landray.kmss.sys.organization.model.SysOrgElement" />
+		<param name="typeText"
+		value="{sys-property:sysPropertyDefine.type.org}" /> <param
+		name="displayType" value="other" /> <param name="displayTypeText"
+		value="{sys-property:sysPropertyDefine.display.type.other}" /> <param
+		name="previewImage" value="/sys/property/define/images/other.jpg" />
+		<param name="configFile" value="/sys/property/define/org_other.jsp" />
+		<param name="order" value="16" /> </item> </extension>
+	-->
+	<!-- 组织架构 end -->
+	<!-- 自定义树 start -->
+	<extension point="com.landray.kmss.sys.property.define.setting">
+		<item name="define">
+			<param name="type"
+				value="com.landray.kmss.sys.property.model.SysPropertyTree" />
+			<param name="typeText" value="{sys-property:sysPropertyDefine.type.tree}" />
+			<param name="displayType" value="tree" />
+			<param name="displayTypeText"
+				value="{sys-property:sysPropertyDefine.display.type.tree}" />
+			<param name="previewImage" value="/sys/property/define/images/tree.jpg" />
+			<param name="configFile" value="/sys/property/define/tree.jsp" />
+			<param name="param"
+				value="Dialog_Tree(!{mulSelect},'!{idField}','!{nameField}',null,'sysPropertyTreeListService&amp;parentId=!{value}&amp;treeRootId=!{treeRootId}', '!{message(sys-property:sysPropertyDefine.type.tree)}');" />
+			<param name="order" value="17" />
+		</item>
+	</extension>
+	<!-- 自定义树 end -->
+	<!--
+		<extension point="com.landray.kmss.sys.property.define.setting"> <item
+		name="define"> <param name="type"
+		value="com.landray.kmss.sys.property.model.SysPropertyTree" /> <param
+		name="typeText" value="{sys-property:sysPropertyDefine.type.tree}" />
+		<param name="displayType" value="linkage" /> <param
+		name="displayTypeText"
+		value="{sys-property:sysPropertyDefine.display.type.multiselect}" />
+		<param name="previewImage"
+		value="/sys/property/define/images/linkage.jpg" /> <param
+		name="configFile" value="/sys/property/define/linkage.jsp" /> <param
+		name="order" value="18" /> <param name="tagBuilder"
+		value="xformLinkageTagBuilder" /> <param name="dictPropBuilder"
+		value="dictLinkagePropBuilder" /> </item> </extension>
+	-->
+
+	<!--
+		其它 start <extension
+		point="com.landray.kmss.sys.property.define.setting"> <item
+		name="define"> <param name="type" value="Other" /> <param
+		name="typeText" value="{sys-property:sysPropertyDefine.type.other}" />
+		<param name="displayType" value="other" /> <param
+		name="displayTypeText"
+		value="{sys-property:sysPropertyDefine.display.type.other}" /> <param
+		name="previewImage" value="/sys/property/define/images/other.jpg" />
+		<param name="order" value="19" /> </item> </extension>
+	-->
+	<!-- 其它 end -->
+
+	<!-- 字符串枚举筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyStringEnumFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.stringEnumFilter}" />
+			<param name="dataType" value="String" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyStringTextFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.stringTextFilter}" />
+			<param name="dataType" value="String" />
+		</item>
+	</extension>
+	<!--整型枚举筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyLongEnumFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.longEnumFilter}" />
+			<param name="dataType" value="Long" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyLongTextFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.longTextFilter}" />
+			<param name="dataType" value="Long" />
+		</item>
+	</extension>
+	<!-- 日期型举筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyYearFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.dateTimeEnumFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+	
+	<!-- 年度筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyYearEnumFilter" />
+			<param name="text" value="{sys-property:sysPropertyFilterSetting.dateTimeYearFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+
+	<!-- 月份筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyMonthEnumFilter" />
+			<param name="text" value="{sys-property:sysPropertyFilterSetting.dateTimeMonthFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+	
+	<!-- 浮点型举筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyDoubleTextFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.doubleFilter}" />
+			<param name="dataType" value="Double" />
+		</item>
+	</extension>
+	<!-- 树型筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyTreeFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.treeFilter}" />
+			<param name="dataType"
+				value="com.landray.kmss.sys.property.model.SysPropertyTree" />
+		</item>
+	</extension>
+
+	<!-- 组织架构筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting">
+		<item name="filter">
+			<param name="filterBean" value="sysPropertyDeptFilter" />
+			<param name="text"
+				value="{sys-property:sysPropertyFilterSetting.deptFilter}" />
+			<param name="dataType"
+				value="com.landray.kmss.sys.organization.model.SysOrgElement" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="messageReceiver">
+			<param name="type"
+				value="com.landray.kmss.sys.property.service.spring.message.SysPropertyHbmUpdateMessage" />
+			<param name="service" value="sysPropertyDbMessageReceiver" />
+		</item>
+
+		<item name="messageReceiver">
+			<param name="type"
+				value="com.landray.kmss.sys.property.service.spring.message.SysPropertyCacheMessage" />
+			<param name="service" value="sysPropertyCacheMessageReceiver" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.sys.property.transfer.transferversion.SysPropertyMobileVersionTransferTask" />
+			<param name="name" value="{sys-property:sysProperty.transfer.title}" />
+			<param name="path" value="/sys/mobile/" />
+			<param name="check"
+				value="com.landray.kmss.sys.property.transfer.transferversion.SysPropertyPdaVersionTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.sys.property.transfer.transferversion.SysPropertyPdaVersionTransferTask" />
+			<param name="description"
+				value="{sys-property:sysProperty.transfer.desc}" />
+		</item>
+	</extension>
+</plugin>

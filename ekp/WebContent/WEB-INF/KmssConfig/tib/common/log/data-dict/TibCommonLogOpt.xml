@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.log.model.TibCommonLogOpt"
+	messageKey="tib-common-log:table.tibCommonLogOpt"
+	serviceBean="tibCommonLogOptService"
+	table="tibCommon_opt_log"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdPerson"
+	messageKey="tib-common-log:tibCommonLogOpt.fdPerson"
+	type="String"
+	column="fd_person"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdAlertTime"
+	messageKey="tib-common-log:tibCommonLogOpt.fdAlertTime"
+	type="DateTime"
+	column="fd_alert_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdUrl"
+	messageKey="tib-common-log:tibCommonLogOpt.fdUrl"
+	type="String"
+	column="fd_url"
+	notNull="false"
+	length="500"
+/>
+<simpleProperty
+	name="fdContent"
+	messageKey="tib-common-log:tibCommonLogOpt.fdContent"
+	type="RTF"
+	column="fd_content"
+	notNull="false"
+	length="1000000"
+/>
+</model></models>

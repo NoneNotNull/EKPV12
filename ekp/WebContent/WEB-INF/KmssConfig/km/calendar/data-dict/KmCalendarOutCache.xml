@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarOutCache"
+		messageKey="km-calendar:table.kmCalendarOutCache"
+		displayProperty="fdId"
+		serviceBean="kmCalendarOutCacheService"
+		table="km_calendar_out_cache"
+		url="/km/calendar/km_calendar_out_cache/kmCalendarOutCache.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCalendarId"
+			messageKey="km-calendar:kmCalendarOutCache.fdCalendarId"
+			type="String"
+			column="fd_calendar_id"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdAppKey"
+			messageKey="km-calendar:kmCalendarOutCache.fdAppKey"
+			type="String"
+			column="fd_app_key"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAppUuid"
+			messageKey="km-calendar:kmCalendarOutCache.fdAppUuid"
+			type="String"
+			column="fd_app_uuid"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOperationType"
+			messageKey="km-calendar:kmCalendarOutCache.fdOperationType"
+			type="String"
+			column="fd_operation_type"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOperationDate"
+			messageKey="km-calendar:kmCalendarOutCache.fdOperationDate"
+			type="DateTime"
+			column="fd_operation_date"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdOwner"
+			messageKey="km-calendar:kmCalendarOutCache.fdOwner"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_owner_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

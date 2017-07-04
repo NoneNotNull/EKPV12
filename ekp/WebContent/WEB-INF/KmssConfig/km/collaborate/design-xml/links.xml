@@ -1,0 +1,29 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+		<link 
+			id="km_collaborate_home_nav"
+			url="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_person.jsp" 
+			msgKey="km-collaborate:kmCollaborateMain.Collaborate.my" />
+	</links>
+	
+	<links type="zone-nav" order="10">
+		<link 
+			id="km_collaborate_zone_nav"
+			url="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_zone.jsp" 
+			msgKey="km-collaborate:kmCollaborateMain.Collaborate.ta" />
+	</links>
+	
+	 <links type="shortcut" order="10">
+	    <link 
+	        id="km_collaborate_shortcut_add"
+	        url="/km/collaborate/km_collaborate_main/kmCollaborateMain.do?method=add" 
+	        msgKey="km-collaborate:kmcollaborateMain.createCollaborate"
+	        icon="lui_icon_l_icon_36"/>
+	</links>
+	
+</root>

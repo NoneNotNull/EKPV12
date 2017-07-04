@@ -1,0 +1,44 @@
+.muiAuditLog {
+	width: 100%;
+}
+
+.muiAuditList {
+	margin: 0;
+	padding: 0;
+}
+
+.muiAuditLogItem {
+	list-style: none;
+	padding: 8px 0;
+	line-height: 2rem;
+	vertical-align: middle;
+	border-bottom: 1px solid #e2e2e2;
+}
+/*.muiAuditLogItem:last-child {
+	border-bottom: 0;
+}*/
+.muiAuditLogItem .muiAuditLogItemInfo {
+	position: relative;
+}
+
+.muiAuditLogItem .muiAuditLogItemPlay {
+	margin-right: 4px;
+	color: #3fa9f5;
+	line-height: 1;
+}
+
+.muiAuditLogItem .muiAuditLogItemName {
+	max-width: 80%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	display: inline-block;
+}
+
+.muiAuditLogItem .muiAuditLogItemMore {
+	color: #999;
+	font-size: 1.8rem;
+	line-height: 2rem;
+	position: absolute;
+	right: 0;
+}

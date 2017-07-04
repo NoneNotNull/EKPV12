@@ -1,0 +1,221 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/**
+**代码制作人：马泽棉
+**制作时间：2013-5-7
+**文件内容描述：论坛,
+**修改日期：2013-5-7
+**修改内容：无
+**/
+/******** 论坛 ********/
+ol,ul{ list-style:none;}
+em{font-style: normal;}
+.color_1{ color:#29aa19;}/*绿色*/
+.color_2{ color:#269a1f;}/*绿色2 深一些颜色*/
+.color_3{ color:#3e9ece;}/*蓝色*/
+.color_3 a{ color:#3e9ece!important; font-size:12px!important; padding:0px!important; display:inline!important;}/*蓝色*/
+.color_4{ color:#e79005;}/*橙色*/
+.color_5{ color:#9e9e9e;}/*浅灰色 用于文字*/
+.mini_h270{ min-height:270px;}/*最小高度 用于第一个带拉展的盒子*/
+.min_h290{ min-height:290px;}/*最小高度 用于第一个带拉展的盒子*/
+.mb30{ margin-bottom:30px;}
+.mr15{ margin-right:15px;}
+.mr25{ margin-right:25px;}
+.clrfix:after{display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}/* 清除浮动 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,iieldset,input,textarea,p,blockquote,th,td{ margin:0; padding:0;}
+.lui_common_list_main_body{ background-color:#fff;}
+
+.lui_forum_box{ width:100%; margin-bottom:12px; background:#e9e9e9 url(../../images/forum_left_bg.gif) 0 0 repeat-y; font-size:14px; color:#6e6e6e; overflow:hidden; zoom:1;}
+.lui_forum_boxL{ width:150px; float:left;}
+.lui_forum_boxL h1{ color:#fff; font-size:16px; text-align:center; background:url(../images/forum_arrow.png) right center no-repeat;}
+.lui_forum_boxL h1.title_1{ height:66px; line-height:66px; background-color:#3a8fc9;}
+.lui_forum_boxL h1.title_2{ height:46px; line-height:46px; background-color:#35a9dc;}
+.lui_forum_boxL ul{ padding:10px 0 0 12px; font-size:14px;}
+.lui_forum_boxL ul li{ padding:3px 0; color:#868686;}
+.lui_forum_boxL a{ display:block; margin:10px auto; width:76px; height:35px; padding-left:42px; font-size:14px; color:#fff; line-height:35px;}
+.lui_forum_boxL a.btn_1{ background:#71a817 url(../images/forum_icon_1.png) 10px center no-repeat;}
+.lui_forum_boxL a.btn_1:hover{ background-color:#4e850d;}
+.lui_forum_boxL a.btn_2{ background:#efb83a url(../images/forum_icon_2.png) 10px center no-repeat;}
+.lui_forum_boxL a.btn_2:hover{ background-color:#e89b23;}
+
+.lui_forum_boxR{ width:789px; padding:20px; border:1px solid #d5d5d5; border-left:none; background-color:#fff; float:left;}
+.forum_favour_wrapper{ padding:0 0 15px; margin-bottom:30px; border-bottom:1px solid #d5d5d5; position:relative;}
+.forum_favour_wrapper .slider_box{ width:224px; height:18px; background:url(../images/forum_slider_bg.gif) 0 0 no-repeat; text-align:center; line-height:18px; position:absolute; left:283px; bottom:-17px; z-index:5; cursor:pointer;}
+.forum_favour_wrapper h2{ margin-bottom:15px; font-size:14px;}
+.forum_favour_wrapper .forum_f_word_box{/* display:none;*/}
+.lui_forum_dl_1{ width:382px; font-size:14px; float:left;}
+.lui_forum_dl_1 dt{ margin-bottom:10px;}
+.lui_forum_dl_1 dt a{ color:#57a3d7; font-size:14px;}
+.lui_forum_dl_1 dt a:hover{ text-decoration:underline;}
+.lui_forum_dl_1 dt span{ margin-left:15px; color:#5b5b5b;}
+.lui_forum_dl_1 dt span em a{ color:#3e9ece;}
+.lui_forum_dl_1 dt span em a:hover{ text-decoration:underline;}
+
+.lui_forum_dl_1 dd .word-wrapper{ padding:2px 0; width:56%; float:left;}
+.lui_forum_dl_1 dd .word-wrapper a{ color:#868686;}
+.lui_forum_dl_1 dd .word-wrapper a:hover{ text-decoration:underline;}
+
+.lui_forum_dl_1 dd .name-wrapper{ padding:2px 0; width:14%; float:left; color:#9e9e9e; margin-left:20px;}
+.lui_forum_dl_1 dd .date-wrapper{ padding:2px 0; width:18%; float:left; color:#9e9e9e; margin-left:20px;}
+
+.lui_forum_dl_2{font-size:14px; overflow:hidden; zoom:1;}
+.lui_forum_dl_2 dt{ margin-bottom:10px; font-size:14px; color:#57a3d7;}
+.lui_forum_dl_2 dd{ margin-right:14px; font-size:14px; padding:4px 0; float:left; white-space:nowrap;}
+.lui_forum_dl_2 dd a{ font-size:14px; color:#868686;}
+.lui_forum_dl_2 dd a:hover{ text-decoration:underline;}
+.lui_forum_dl_2 dd em a{ color:#F19703;}
+
+/******** 论坛首页 *********/
+.lui_forum_header{ background:#afe4f6; height:370px; padding:18px 0px;}
+.lui_forum_headerC{ width:940px; margin:0px auto; zoom:1;}
+.lui_forum_headerC:after{ clear:both; line-height:0px; visibility:hidden; content:'clear'; display:block;}
+
+/*** 快捷论坛导航 ***/
+.lui_forum_Qicknav{ width:656px; float:left;word-break:break-all}
+.lui_forum_Qicknav ul li{ float:left; width:156px; height:118px; margin-right:8px; margin-bottom:8px; color:#fff; filter:alpha(opacity=90);-moz-opacity:0.9; -khtml-opacity: 0.9;  opacity: 0.9;  }
+.lui_forum_Qicknav ul li:hover{ filter:alpha(opacity=100);-moz-opacity:1.0; -khtml-opacity: 1.0;  opacity: 1.0;}
+.lui_forum_Qicknav ul li a{ color:#fff;}
+.lui_forum_Qicknav ul li.item_color1{ background:#3a88f4;cursor: pointer;}
+.lui_forum_Qicknav ul li.item_color2{ background:#ed3f36;cursor: pointer;}
+.lui_forum_Qicknav ul li.item_color3{ background:#00b688;cursor: pointer;}
+.lui_forum_Qicknav ul li.item_color4{ background:#7854ae;cursor: pointer;}
+.lui_forum_Qicknav ul li p{ padding-left:20px; padding-right:10px;}
+.lui_forum_Qicknav ul li .title{ padding-top:16px; display:table-cell; vertical-align:middle; height:65px;}
+.lui_forum_Qicknav ul li .comment{ text-align:right;}
+.lui_forum_Qicknav ul li .comment a{ background:url(../images/icon_comment_head.png) no-repeat left center; padding-left:17px;}
+.lui_forum_Qicknav ul li.heart{ width:320px; background:#fff;cursor: pointer;}
+.lui_forum_Qicknav ul li.heart .title{ height:50px; vertical-align:top;}
+.lui_forum_Qicknav ul li.heart .title a{ color:#414141; font-size:14px; line-height:18px;}
+.lui_forum_Qicknav ul li.heart .summary a{ color:#a9a9a9;}
+.lui_common_list_4_header_left{background-color: #82d0f4}
+
+/*图标显示*/
+.lui_common_list_box{ margin-bottom:20px;}
+.lui_common_list_box .list_up_icon{ width:11px; height:5px; margin:15px 8px 0 0; float:right; cursor:pointer; background:url(../images/list_arrow1.png) center center no-repeat;}
+.lui_common_list_box .list_down_icon{ width:11px; height:5px; margin:15px 8px 0 0; float:right; cursor:pointer; background:url(../images/list_arrow2.png) center center no-repeat;}
+.lui_common_list_box .list_more{ padding:0 10px 10px 0; text-align:right;}
+.lui_common_list_box .list_more a{ font-size:12px; color:#6e6e6e; text-decoration:underline;}
+.lui_common_list_box .list_more a:hover{ color:#e79005;}
+
+/*** 用户信息 ***/
+.lui_forum_userinfo{ width:266px; float:right;}
+.lui_forum_userinfo .post_numSummary{ padding:10px 14px; background:#fff; margin-bottom:8px;}
+.lui_forum_userinfo .post_numSummary p{ line-height:30px; font-size:14px; color:#5c5c5c;}
+.lui_forum_userinfo .post_numSummary .p1 span{ display:inline-block; width:80px; padding-left:27px; background:url(../images/icon_post_num.png) no-repeat left center;}
+.lui_forum_userinfo .post_numSummary .p2 span{ background:url(../images/icon_post_sum.png) no-repeat left center; padding-left:27px;}
+
+.lui_forum_userinfo .post_userinfo{ background:#fff;}
+.lui_forum_userinfo .basic_info{ background:#f5f3f1; height:62px; padding:16px 12px 10px; padding-left:88px; position:relative;}
+.lui_forum_userinfo .post_userinfo .user_img{ position:absolute; left:8px; top:8px; z-index:1; width:67px; height:67px; background:url(../images/header_user_img_bg.png) no-repeat left top; }
+.lui_forum_userinfo .post_userinfo img{ position:absolute; left:10px; top:9px; width:65px; height:65px;}
+.lui_forum_userinfo .post_userinfo .basic_info strong{ line-height:24px; font-size:14px; color:#333; font-weight:bold;}
+.lui_forum_userinfo .post_userinfo .basic_info .sign{ line-height:22px; padding-top:8px; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis; }
+.lui_forum_userinfo .summary_info{ padding:24px 10px 0px; }
+.lui_forum_userinfo .summary_info ul{ zoom:1; border-bottom:1px dotted #ddd;}
+.lui_forum_userinfo .summary_info ul:after{ clear:both; line-height:0px; content:'clear'; display:block; visibility:hidden;}
+.lui_forum_userinfo .summary_info ul li{ float:left; width:78px; text-align:center; color:#333;}
+.lui_forum_userinfo .summary_info ul li em{ display:block; color:#c8743e; line-height:20px; font-size:13px;}
+.lui_forum_userinfo .summary_info ul li span{ line-height:24px; display:block; padding-bottom:5px;}
+.lui_forum_userinfo .summary_info ul li.split{ width:0px; border-left:1px solid #e8e8e8; height:28px; margin-top:10px;}
+
+/** 快速发帖 **/
+.lui_forum_userinfo .qucik_alink{ padding:22px 34px;}
+.lui_forum_userinfo .qucik_alink .p1 { padding-bottom:18px;}
+.lui_forum_userinfo .qucik_alink .p1 a{ display:inline-block; width:78px; color:#2d64b3; font-size:14px; padding-left:18px; background:url(../images/icon_catalog.png) no-repeat left center;}
+.lui_forum_userinfo .qucik_alink .p1 a:hover{ color:#5078b0;}
+.lui_forum_userinfo .btn_quickPost{ display:inline-block; color:#fff; width:144px; padding-left:56px; background:#2396fd url(../images/btn_quickPost.png) no-repeat 5px 5px; letter-spacing:6px;  font-size:18px; height:40px; line-height:40px; cursor:pointer;}
+.lui_forum_userinfo .btn_quickPost:hover{ background-color:#218bea;}
+
+/*** 论坛板块 列表 ***/
+/*.forum_home_content{ padding:22px 0px;}
+.forum_home_content .lui_common_list_box{ margin-bottom:22px;}*/
+.forum_list_w{ padding:10px 22px;}
+.forum_list_w table{ width:100%;}
+.forum_list_w table tr td{ padding:10px 0px; border-bottom:1px dashed #dcdcdc;vertical-align:middle; position:relative;}
+.forum_list_w table tr:last-child td{ border-bottom:0px;}
+.forum_list_w .module_logo{ width:58px; height:54px;float:left; margin-right:14px;cursor: pointer;}
+.forum_list_w .module_logo img{padding-top: 3px}
+.forum_list_w .module_basicInfo{ float:left;width: 320px}
+.forum_list_w .module_basicInfo h2{ line-height:24px; margin-bottom:4px;}
+.forum_list_w .module_basicInfo h2 a{ font-size:14px;font-weight:bold;}
+.forum_list_w .module_basicInfo h2 .count{display: inline;background: #869fb3;border-radius: 3px;color: #fff;font-size: 12px;margin: -3px 0 0 .5em;padding: 2px 5px;vertical-align: middle;}
+.forum_list_w .module_basicInfo .abstract{ color:#aeaeae; padding-bottom:8px; line-height:20px;}
+.forum_list_w .module_basicInfo .moderator{ color:#333;}
+.forum_list_w .module_basicInfo .moderator em{ color:#4e7aa7;}
+.forum_list_w .subject_reply_num{ font-family: Constantia; font-size: 24px; color:#828282;text-align: center}
+
+/*** 最后回复人 ***/
+.forum_list_w .last_reply { position:relative; padding-left:76px; margin-top:-10px;}
+.forum_list_w .author_img{ float:left; margin-right:10px; position:absolute; left:0px; top:-7px; width:62px; height:62px; z-index:1; background:url(../images/user_img_bg.png) no-repeat center;}
+.forum_list_w .last_reply img{ width:52px; height:52px; position:absolute; left:6px; top:-3px;}
+.forum_list_w .last_reply .p1{ padding-top:4px; line-height:20px;}
+.forum_list_w .last_reply .p1 a{ color:#333; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis; }
+.forum_list_w .last_reply .p1 a:hover,.forum_list_w .last_reply .p2 a:hover{ color:#228ded;}
+.forum_list_w .last_reply .p2{ line-height:18px;}
+.forum_list_w .last_reply .p2 a{ color:#333;}
+
+.forum_list_w table tr td.th1{}
+.forum_list_w table tr td.th2{width: 150px }
+.forum_list_w table tr td.th3{width: 350px }
+
+/** 引用 **/
+.forum_list_w .quote_w{ line-height:32px; font-size:14px; color:#606060; margin-bottom:8px; margin-top:4px;}
+.forum_list_w .quote_w .quoteL{ display:inline-block; width:25px; height:20px; background:url(../images/icon_quoteL.png) no-repeat left center; margin-right:5px;}
+.forum_list_w .quote_w .quoteR{ display:inline-block; width:25px; height:20px; background:url(../images/icon_quoteR.png) no-repeat left center; margin-left:5px;}
+
+.forum_list_w table tr.header td{ color:#333; padding:5px 0px 9px;}
+.forum_list_w table tr.header td em{ margin:0px 5px;}
+.forum_list_w table tr.header td .a_author{ color:#4e7aa7;}
+.forum_list_w table tr.header td.modlue_author{ text-align:right;}
+
+/*** 帖子列表 ***/
+.lui_forum_table_box{ width:100%;}
+.lui_forum_table_box tr th{ height:32px; line-height:32px; background:#f8f8f8; text-align:center; border-bottom:1px dotted #ccc;}
+.lui_forum_table_box tr td{ height:36px; line-height:36px; text-align:center; border-bottom:1px dotted #ccc;}
+.lui_forum_table_box tr td.subject{ text-align:left;}
+.lui_forum_table_box tr td.subject a{ color:#3e9ece; float:left;}
+.lui_forum_table_box tr td.subject span{ display:inline-block; width:20px; height:36px; float:left; margin-right:5px;}
+.lui_forum_table_box tr td.subject .ico_top{ background:url(../images/ico_top.png) no-repeat left center;}
+.lui_forum_table_box tr td.subject .ico_hot{ background:url(../images/ico_hot.png) no-repeat left center;}
+.lui_forum_table_box tr td.subject .ico_perfect{ background:url(../images/ico_perfect.png) no-repeat left center;}
+.lui_forum_table_box tr td.subject .ico_postbg{ background:url(../images/ico_postbg.png) no-repeat left center;}
+.lui_forum_table_box tr td.subject .ico_lock{ background:url(../images/ico_lock.png) no-repeat left center;}
+.lui_forum_table_box tr th.th1{ width:35px;}
+.lui_forum_table_box tr th.th2{ width:30px;}
+.lui_forum_table_box tr th.th3{ }
+.lui_forum_table_box tr th.th4{ width:115px;}
+.lui_forum_table_box tr th.th5{ width:77px;}
+.lui_forum_table_box tr th.th6{ width:51px;}
+.lui_forum_table_box tr th.th7{ width:65px;}
+.lui_forum_table_box tr th.th8{ width:55px;}
+.lui_forum_table_box tr th.th9{ width:119px;}
+
+/* 快速发帖 */
+.forum_quickPost{ background:#fff; padding:22px; margin-top:10px; margin-bottom:20px;}
+.forum_quickPost .tips{ margin-left:10px;}
+.forum_quickPost .btn_posted{ float:left;}
+.forum_quickPost .qucikPost_w{ margin-left:15px; display:inline-block; height:37px; line-height:37px;}
+.forum_quickPost .qucikPost_w .item{ margin-right:12px;}
+.forum_quickPost .qucikPost_w .item input{ margin-right:5px;}
+
+/* 显示展开/折叠的样式 */
+.lui_common_list_4_header_left{ padding-left:0; cursor:pointer;}
+.lui_common_list_4_header_right{ padding-right:0;}
+.lui_common_list_4_header_centre{ background-color:#51b6ec;}
+.lui_common_list_4_header_centre:hover{ background-color:#4aa9dc;}
+.lui_common_list_4_header_centre h4{ height:35px; padding-left:10px;  line-height:35px; font-weight:bold; color:#fff; float:left;}
+.lui_common_list_4_header_centre h4 a{color:#fff;font-size:15px;}
+.lui_common_list_4_content_left{ padding-left:0; }
+.lui_common_list_4_content_right{ padding-right:0; }
+.lui_common_list_4_content_centre{}
+.lui_common_list_4_foot_left{ padding-left:0;}
+.lui_common_list_4_foot_right{ padding-right:0;}
+.lui_common_list_4_foot_centre{}
+.lui_common_list_4_header_centre .list_down_icon{ margin:0px; margin-right:10px; width:20px; height:35px; background:url(../images/icon_spread.png) no-repeat center;}
+.lui_common_list_4_header_centre .list_up_icon{ margin:0px; margin-right:10px; width:20px; height:35px; background:url(../images/icon_retract.png) no-repeat center;}
+/* 加载更多数据 */
+.lui_common_loadModulesM{ width:100%; height:25px; line-height:25px; vertical-align:middle; color:#fff; text-align:center;background-color:#9f9f9f; margin-bottom:14px; cursor:pointer;}
+.lui_common_loadPic{ background:url(../images/load_more.png) no-repeat center center; margin-left:7px; display:inline-block; width:11px; height:11px; border:none; }
+
+

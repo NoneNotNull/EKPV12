@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysFtsearchConfigForm"
+			type="com.landray.kmss.sys.ftsearch.db.forms.SysFtsearchConfigForm">
+		</form-bean>
+		<form-bean
+			name="sysFtearchBuilderForm"
+			type="com.landray.kmss.sys.ftsearch.db.forms.SysFtearchBuilderForm">
+		</form-bean>
+
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/ftsearch/searchBuilder"
+			type="com.landray.kmss.sys.ftsearch.db.actions.SearchBuilderAction"
+			parameter="method"
+			name="sysFtearchBuilderForm"
+			scope="request">
+			<forward
+				name="searchPage"
+				path="/sys/ftsearch/search_ui.jsp">
+			</forward>
+			<forward
+				name="advancedSearchPage"
+				path="/sys/ftsearch/advanced_search.jsp">
+			</forward>
+			<forward
+				name="result"
+				path="/sys/ftsearch/result.jsp">
+			</forward>
+			<forward
+				name="result_LUI"
+				path="/sys/ftsearch/result_ui.jsp">
+			</forward>
+			<forward
+				name="result_LUI.4pda"
+				path="/sys/ftsearch/result_ui_list.jsp">
+			</forward>
+			<forward
+				name="mobileList"
+				path="/sys/ftsearch/mobile/list.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/ftsearch/searchHomePage"
+			type="com.landray.kmss.sys.ftsearch.db.actions.SearchHomePageAction"
+			parameter="method"
+			name="sysFtearchBuilderForm"
+			scope="request">
+			<forward
+				name="searchPage"
+				path="/sys/ftsearch/search_ui.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/ftsearch/sys_ftsearch_config/sysFtsearchConfig"
+			type="com.landray.kmss.sys.ftsearch.db.actions.SysFtsearchConfigAction"
+			parameter="method"
+			name="sysFtsearchConfigForm"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/ftsearch/sys_ftsearch_config/sysFtsearchConfig_edit.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/ftsearch/sys_ftsearch_result/sysFtsearchAdvanced"
+			type="com.landray.kmss.sys.ftsearch.db.actions.SysFtsearchAdvancedAction"
+			parameter="method"
+			scope="request">
+			<forward
+				name="sysFtsearchAdvanced"
+				path="/sys/ftsearch/sys_ftsearch_result/sysFtsearchAdvanced.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.ftsearch.db.ApplicationResources"
+		key="sys-ftsearch-db" />
+
+</struts-config>

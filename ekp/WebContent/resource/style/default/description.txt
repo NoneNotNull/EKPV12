@@ -1,0 +1,2 @@
+styleName=EKP9_雅黑
+layout=两列式3:1|portal_template;两列式3:2|portal_template_2;两列式1:4|portal_template_8;三列式1:3:1|portal_template_3;三列式2:2:1|portal_template_3_2;混合式1|portal_template_4;混合式2|portal_template_5;混合式3|portal_template_6;单列式|portal_template_7

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+    <!-- 分类/模板 -->
+	<extension
+		point="com.landray.kmss.sys.handover">
+		<item
+			name="config">
+			<param
+				name="module"
+				value="com.landray.kmss.sys.property.model.SysPropertyCategory" />
+			<param 
+				name="messageKey" 
+				value="sys-property:table.sysPropertyCategoryHandover"/>
+			<param 
+				name="provider" 
+				value="com.landray.kmss.sys.property.handover.SysPropertyCateTempProvider"/>
+			<param 
+				name="order" 
+				value="4"/>
+		</item>
+	</extension>
+</plugin>

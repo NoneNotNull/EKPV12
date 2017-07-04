@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.evaluation.model.SysEvaluationMain"
+	messageKey="sys-evaluation:table.sysEvaluationMain"
+	serviceBean="sysEvaluationMainService"
+	table="sys_evaluation_main"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdEvaluationTime"
+	messageKey="sys-evaluation:sysEvaluationMain.fdEvaluationTime"
+	type="DateTime"
+	column="fd_evaluation_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdEvaluationScore"
+	messageKey="sys-evaluation:sysEvaluationMain.fdEvaluationScore"
+	type="Long"
+	column="fd_evaluation_score"
+	notNull="false"
+	length="1"
+/>
+<simpleProperty
+	name="fdEvaluationContent"
+	messageKey="sys-evaluation:sysEvaluationMain.fdEvaluationContent"
+	type="String"
+	column="fd_evaluation_content"
+	notNull="false"
+	length="1500"
+/>
+<simpleProperty
+	name="fdIsNewVersion"
+	messageKey="sys-evaluation:sysEvaluationMain.fdIsNewVersion"
+	type="Boolean"
+	column="fd_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-evaluation:sysEvaluationMain.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-evaluation:sysEvaluationMain.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-evaluation:sysEvaluationMain.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdReplyCount"
+	messageKey="sys-evaluation:sysEvaluationMain.fdReplyCount"
+	type="Integer"
+	column="fd_reply_count"
+	notNull="false"
+	length="10"
+/>
+<modelProperty
+	name="fdEvaluator"
+	messageKey="sys-evaluation:sysEvaluationMain.fdEvaluator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_evaluator_id"
+	notNull="false"
+/>
+</model></models>

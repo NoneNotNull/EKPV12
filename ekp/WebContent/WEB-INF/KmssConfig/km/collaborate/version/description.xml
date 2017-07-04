@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>工作沟通</module-name>
+		<module-path>km/collaborate</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>0d3e6727f27dcad5a677dfc94497158f</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

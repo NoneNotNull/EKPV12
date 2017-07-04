@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean
+			name="sysTransportImportForm"
+			type="com.landray.kmss.sys.transport.form.ConfigForm" />
+		<form-bean
+			name="sysTransportExportForm"
+			type="com.landray.kmss.sys.transport.form.ConfigForm" />
+		<form-bean
+			name="sysTransportImportUploadForm"
+			type="org.apache.struts.action.DynaActionForm">
+			<form-property
+				name="fdId"
+				type="java.lang.String" />
+			<form-property
+				name="file"
+				type="org.apache.struts.upload.FormFile" />
+		</form-bean>
+	</form-beans>
+	<action-mappings>
+		<action
+			path="/sys/transport/sys_transport_import/SysTransportImport"
+			type="com.landray.kmss.sys.transport.actions.SysTransportImportAction"
+			name="sysTransportImportForm"
+			parameter="method"
+			input="edit"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/transport/sys_transport_import/SysTransportImport_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/transport/sys_transport_import/SysTransportImport_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/transport/sys_transport_import/SysTransportImport_list.jsp" />
+			<forward
+				name="upload"
+				path="/sys/transport/sys_transport_import/SysTransportImport_upload.jsp" />
+		</action>
+		<action
+			path="/sys/transport/sys_transport_import/SysTransportImportUpload"
+			type="com.landray.kmss.sys.transport.actions.SysTransportImportAction"
+			name="sysTransportImportUploadForm"
+			parameter="method"
+			input="edit"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/transport/sys_transport_import/SysTransportImport_upload.jsp" />
+		</action>
+		<action
+			path="/sys/transport/sys_transport_export/SysTransportExport"
+			type="com.landray.kmss.sys.transport.actions.SysTransportExportAction"
+			name="sysTransportExportForm"
+			parameter="method"
+			input="edit"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/transport/sys_transport_export/SysTransportExport_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/transport/sys_transport_export/SysTransportExport_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/transport/sys_transport_export/SysTransportExport_list.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="com.landray.kmss.sys.transport.ApplicationResources"
+		key="sys-transport" />
+</struts-config>

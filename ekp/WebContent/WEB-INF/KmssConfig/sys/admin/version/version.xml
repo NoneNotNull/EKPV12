@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 新增请求监控的功能</description>
+			<author>叶中奇</author>
+			<revision-time>2014-08-21</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 表名过长时，页面显示不友好问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-02</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 结果页面选择上级无法全选下级的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-01-08</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>关联 管理员工具箱前端展现问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-12-11</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE10开始检测按钮不居中的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 国际化时语言选择为英文，部分展现内容为中文问题</description>
+			<author>李斌斌</author>
+			<revision-time>2013-06-13</revision-time>
+			<relation>
+				<relation-module>sys/log</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>移除 系统健康检查功能</description>
+			<author>易荣烽</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>关联 添加在线用户数预警信息</description>
+			<author>易荣烽</author>
+			<revision-time>2013-03-04</revision-time>
+			<relation>
+				<relation-module>sys/log</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 检测结果页面点击建议出错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-01-23</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免英文翻译中缩写单引号引起js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 升级向导兼容性检查链接参数错误的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-12-17</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 将数据迁移工具改名为兼容性检测，增加通知类型任务</description>
+			<author>易荣烽</author>
+			<revision-time>2012-11-23</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 常用工具集修改为扩展点方式，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-05-16</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 使用JNDI数据源连接方式产生的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-05-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 sql server 2000下执行数据库检测错误的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-04-06</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修正唯一约束检测</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-23</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>增加升级向导</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>常用工具集添加重新加载数据字典、权限等配置信息功能</description>
+			<author>易荣烽</author>
+			<revision-time>2012-02-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>数据迁移工具</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>检测过程增加提示信息</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-28</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>加上遗漏的messageKey</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正唯一约束修复不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-14</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>增加数据库检测功能</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>系统健康检查工具加确认执行页面</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-12</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>添加常用工具集</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-23</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>将模块名更改为管理员工具箱，将系统监控修改为系统健康检查，整合流程、组织架构等数据信息</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>去除在tomcat6没有的参数</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-15</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决infos与 cpuList不等时引起的数组越界问题 。</description>
+			<author>周超</author>
+			<revision-time>2010-05-04</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

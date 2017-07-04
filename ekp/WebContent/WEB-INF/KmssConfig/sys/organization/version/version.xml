@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 组织架构搜索时搜索范围由当前部门扩大到子部门</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 个人设置地址本设置中设置成员项改为必填</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 新增获取所有用户数量的接口</description>
+			<author>叶中奇</author>
+			<revision-time>2015-03-10</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 部门、机构、岗位列表页面</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-31</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 组织架构置为无效时若有子部门、岗位、员工就列出这些子集列表，并可点击进去编辑或置为无效。</description>
+			<author>李斌斌</author>
+			<revision-time>2014-12-10</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人修改密码和管理员修改个人密码记录日志</description>
+			<author>易荣烽</author>
+			<revision-time>2014-12-09</revision-time>
+			<relation>
+				<relation-module>sys/log</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 关键字搜索</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典messagekey与资源文件不匹配</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 密码修改成功提示的错别字</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-07</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于MS SQLServer数据库where参数限制，导致抄送人员超过2000发送邮件及短信失败问题</description>
+			<author>李斌斌</author>
+			<revision-time>2014-05-20</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 改为新的校验框架</description>
+			<author>朱湖強</author>
+			<revision-time>2014-04-29</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 排除地址本中无效人员</description>
+			<author>易荣烽</author>
+			<revision-time>2014-02-08</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 admin帐号登录时密码进行强制校验</description>
+			<author>易荣烽</author>
+			<revision-time>2013-12-03</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构导入上传文件后显示无权限的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-11-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 组织展开成个人的性能</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-10-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，保存按钮无响应</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 角色线计算器的输出结果分行显示</description>
+			<author>易荣烽</author>
+			<revision-time>2013-08-27</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 地址本中加返回上级部门的按钮</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 RTX帐号填写提示必须为整数的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人设置中，修改个人通讯方式和语言时会将邮箱置空的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 选择群组时列出无效群组的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-06-24</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 个人设置中，修改个人通讯方式和语言时去除邮箱修改</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-18</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建页面不出现是否有效属性</description>
+			<author>易荣烽</author>
+			<revision-time>2013-03-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 将“新建岗位”的权限授予普通帐号后，创建岗位报错的问题</description>
+			<author>张乐志</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 在配置角色线的时候，增加了角色线中的定位方式的选项，以满足区域出纳之类的角色关系需求。</description>
+			<author>叶中奇</author>
+			<revision-time>2013-01-30</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免英文翻译中缩写单引号引起js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人地址本提交无权限的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-01-17</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 普通用户无法查看个人地址本及机构管理员权限无效的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复群组嵌套的情况下，嵌套群组下的人员偶尔发生的权限计算错误问题</description>
+			<author>叶中奇</author>
+			<revision-time>2013-01-09</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 将修改密码权限更改为分级权限，配合部门/机构管理员使用</description>
+			<author>易荣烽</author>
+			<revision-time>2012-12-27</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>移除 部门和机构的门户名称和门户连接两个属性以及相关联功能</description>
+			<author>易荣烽</author>
+			<revision-time>2012-12-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 修改密码的错误提醒内容实现多语言</description>
+			<author>李勇</author>
+			<revision-time>2012-12-03</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 修改密码时，密码在提交前加密传输</description>
+			<author>李勇</author>
+			<revision-time>2012-11-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 去除本系统身份验证的复选框和该参数的判断</description>
+			<author>易荣烽</author>
+			<revision-time>2012-11-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统初始数据移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-31</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 组织架构管理员权限</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 机构与部门添加管理员</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 机构编辑界面的上级机构可以选择部门的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 邮件通知按照个人的默认语言来发送邮件，如果个人默认语言没有设置则取官方语言</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-09-05</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 点击地址本左侧组织架构树，在待选列表中可根据已勾选的类型过滤数据</description>
+			<author>易荣烽</author>
+			<revision-time>2012-09-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 密码强度不够时修改密码的文字改为红色显眼，长度不够时提醒必须是多长</description>
+			<author>李勇</author>
+			<revision-time>2012-08-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 修改密码时的提醒信息</description>
+			<author>李勇</author>
+			<revision-time>2012-08-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 在地址本常用群组中可以选择到群组成员（结果会根据当前地址本可选择的类型进行过滤）</description>
+			<author>易荣烽</author>
+			<revision-time>2012-08-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 用户密码安全级别设置，当登录时判断用户密码安全级别不够就跳转到密码修改界面去</description>
+			<author>李勇</author>
+			<revision-time>2012-08-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 当部门/机构下有有效的人员/岗位存在时，不允许置为无效</description>
+			<author>易荣烽</author>
+			<revision-time>2012-08-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构迁移同步的过程中，有些人员的层级id没置为0，导致部门解析时解析出了无效人员问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-07-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 由于组织架构没有'删除'功能，现移出该'删除'功能的权限</description>
+			<author>易荣烽</author>
+			<revision-time>2012-07-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 组织架构列表页面快速排序功能（仅限层级架构节点）</description>
+			<author>易荣烽</author>
+			<revision-time>2012-07-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 角色线增加复制功能</description>
+			<author>易荣烽</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 地址本关键字搜索新增对角色的搜索 关联 地址本关键字搜索新增搜索过滤选项</description>
+			<author>易荣烽</author>
+			<revision-time>2012-05-24</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 去除地址本中下方描述信息中的用户账号信息，避免查看他人帐号</description>
+			<author>易荣烽</author>
+			<revision-time>2012-05-24</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 组织架构提供接入接出的webserice接口</description>
+			<author>李衡</author>
+			<revision-time>2012-05-03</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构名称修改后无法根据拼音搜索的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-04-26</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页面显示“登录名”</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-17</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 公式定义器中解析角色线报延时加载的错误</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-28</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>移动办公地址本界面改造</description>
+			<author>李衡</author>
+			<revision-time>2012-02-23</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>增加获取everyone用户</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>角色线增加“是否包括提交人自己”的配置</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-01-09</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>在sys下进行员工搜索设置，显示项和搜索项中增加“办公电话”</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-28</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修复解释群组时出现java.math.BigDecimal类型转化错误</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-12-14</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>组织架构数据升级（将fd_name转换为拼音储存到fd_name_pinyin中）添加管理员权限控制</description>
+			<author>易荣烽</author>
+			<revision-time>2011-12-08</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>通用岗位模拟器，当发现领导循环嵌套时打印具体嵌套的信息。</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-05</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>ldap导入，字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改角色线、通用岗位列表页面，记录为无效的则复选框为不可选</description>
+			<author>易荣烽</author>
+			<revision-time>2011-11-22</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>1、角色线置为无效的时候，提示信息更正为“您确定要将所选的记录设置为无效吗？” 2、角色线在无效状态时，打开角色线配置页面，隐藏“置为无效”按钮 3、角色线在无效状态时，展开角色线成员，过滤掉无效的角色线 4、通用岗位列表页面的删除修改为置为无效功能</description>
+			<author>易荣烽</author>
+			<revision-time>2011-11-22</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>当禁用本系统数据库的身份验证时，修改密码将会给出提示</description>
+			<author>庄为亮</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>移动组件APP中查看地址本字体增大</description>
+			<author>李衡</author>
+			<revision-time>2011-10-17</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>去除通用岗位初始化</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-23</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>调用新的系统初始化接口，返回初始化任务名称</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-19</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改pda组织架构查看检验</description>
+			<author>李衡</author>
+			<revision-time>2011-09-16</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>添加关闭数据库连接和关闭流动作</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-06</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>OMS同步优化</description>
+			<author>李勇</author>
+			<revision-time>2011-08-05</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>pda中组织架构中机构显示及层级问题的处理</description>
+			<author>李衡</author>
+			<revision-time>2011-06-29</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>去掉无效的架构view页面的“置为无效“按钮</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-23</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>PDA地址本部分代码移至组织架构模块</description>
+			<author>李衡</author>
+			<revision-time>2011-06-15</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加地址本通过拼音搜索功能，此升级须更新sys_org_element表结构；提供了旧数据升级工具，性能测试结果为10万条数据35分钟左右</description>
+			<author>李明辉</author>
+			<revision-time>2011-06-10</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加将机构/部门/岗位/个人/群组展开成个人ID方法</description>
+			<author>庄为亮</author>
+			<revision-time>2011-05-20</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修复组织架构置为无效时,提示事务处理错误问题</description>
+			<author>李衡</author>
+			<revision-time>2011-05-12</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加地址本中“我的部门”、“常用地址本”、“组织架构”目录树默认展开几级节点配置</description>
+			<author>庄为亮</author>
+			<revision-time>2011-05-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>地址本默认展开我的部门，跟domino一致</description>
+			<author>庄为亮</author>
+			<revision-time>2011-05-04</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改满足“添加”组织架构节点到门户导航的功能</description>
+			<author>杨建宏</author>
+			<revision-time>2011-04-08</revision-time>
+			<baseline>EKP9.0.0.B2.2011041101</baseline>
+		</modify>
+		<modify>
+			<description>把角色线的删除按钮改成置为无效按钮</description>
+			<author>张文添</author>
+			<revision-time>2011-04-06</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>优化了用户登录查询语句硬编码问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-02-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>群组成员中剔除本群组</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-01-11</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>1、个人通信信息修改权限，增加普通用户也能修改自己的个人信息。2、个人信息修改页面增加办公电话修改。</description>
+			<author>庄为亮</author>
+			<revision-time>2010-12-16</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>去掉list页面和view页面删除按钮，增加置为无效和批量置为无效功能</description>
+			<author>庄为亮</author>
+			<revision-time>2010-12-09</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

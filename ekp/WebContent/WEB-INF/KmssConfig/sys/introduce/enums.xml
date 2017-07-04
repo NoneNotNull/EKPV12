@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	
+	<!-- 推荐机制 推荐级别 -->	
+	<type name="sysIntroduce_Grade">
+		<value-label>
+			<value>0</value>
+			<label-key>sysIntroduceMain.fdIntroduceGrade.ForceRecommendation</label-key>
+			<bundle>sys-introduce</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysIntroduceMain.fdIntroduceGrade.KeyRecommendation</label-key>
+			<bundle>sys-introduce</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysIntroduceMain.fdIntroduceGrade.WorthLooking</label-key>
+			<bundle>sys-introduce</bundle>
+		</value-label>
+	</type>
+	<type name="sysIntroduce_Module">
+		<value-label>
+			<value>0</value>
+			<label-key>sysIntroduceMain.introduce.type.essence</label-key>
+			<bundle>sys-introduce</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysIntroduceMain.introduce.type.person</label-key>
+			<bundle>sys-introduce</bundle>
+		</value-label>
+	</type>
+	
+</column-enums>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.circulation.model.SysCirculationMain"
+		messageKey="sys-circulation:table.sysCirculationMain"
+		serviceBean="sysCirculationMainService"
+		table="sys_circulation_main">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCirculationTime"
+			messageKey="sys-circulation:sysCirculationMain.fdCirculationTime"
+			type="DateTime"
+			column="fd_circulation_time"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdContent"
+			messageKey="sys-circulation:sysCirculationMain.fdContent"
+			type="String"
+			column="fd_content"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-circulation:sysCirculationMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdRemark"
+			messageKey="sys-circulation:sysCirculationMain.fdRemark"
+			type="String"
+			column="fd_remark"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-circulation:sysCirculationMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-circulation:sysCirculationMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-circulation:sysCirculationMain.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdIsNewVersion"
+			messageKey="sys-circulation:sysCirculationMain.fdIsNewVersion"
+			type="Boolean"
+			column="fd_is_new_version"
+			notNull="false" />
+		<modelProperty
+			name="fdCirculator"
+			messageKey="sys-circulation:sysCirculationMain.fdCirculator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_circulator_id"
+			notNull="false" />
+		<listProperty
+			name="receivedCirCulators"
+			messageKey="sys-circulation:sysCirculationMain.receivedCirCulators"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_circulor_id"
+			table="sys_circulation_circulors" />
+	</model>
+</models>

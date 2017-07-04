@@ -1,0 +1,10 @@
+.popup_close {
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-image: url("../swf/close.gif");
+}
+.popup_mini {
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	background-image: url("../swf/min.gif");
+}

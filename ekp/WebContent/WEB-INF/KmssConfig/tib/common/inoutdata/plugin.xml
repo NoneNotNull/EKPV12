@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd">
+	
+	<!-- 导入导出 -->
+	<extension-point
+		id="com.landray.kmss.tib.common.inoutdata.service">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				required="true"
+				kind="unid">
+				<description>
+					配置Key,全局唯一,必填
+				</description>
+			</param>
+			<param
+				name="moduleType"
+				required="true"
+				kind="string">
+				<description>
+					组件类型SAP或者SOAP
+				</description>
+			</param>
+			<param
+				name="messageKey"
+				required="true"
+				kind="string">
+				<description>
+					资源文件的key，显示组件模块名称
+				</description>
+			</param>
+			<param
+				name="springName"
+				required="true"
+				kind="string">
+				<description>
+					模块的SpringBean
+				</description>
+			</param>
+			<param
+				name="showName"
+				required="true"
+				kind="string">
+				<description>
+					显示在页面上的名称
+				</description>
+			</param>	
+			<param
+				name="parentRelation"
+				required="false"
+				kind="string">
+				<description>
+					父类相关联的字段名称（通常在hbm.xml文件中确定）
+				</description>
+			</param>	
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				required="false"
+				kind="string">
+				<description>
+					页面上显示的父类名称
+				</description>
+			</param>	
+			<description>
+			  配置导入导出组件信息
+			</description>
+		</item>
+		<description> 配置导入导出组件信息扩展点</description>
+	</extension-point>
+	
+</plugin>

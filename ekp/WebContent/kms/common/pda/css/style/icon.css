@@ -1,0 +1,517 @@
+.lui-icon-s {
+	height: 30px;
+	width: 30px;
+	display: block;
+	margin: 0 auto;
+	background-size: 26px !important;
+}
+
+.lui-column-icon {
+	background: url("../images/icon/l/column.png") no-repeat center;
+}
+
+.lui-column-icon.lui-column-icon-on {
+	background: url("../images/icon/l_on/column.png") no-repeat center;
+}
+
+.lui-rowtable-icon {
+	background: url("../images/icon/l/rowtable.png") no-repeat center;
+}
+
+.lui-rowtable-icon.lui-rowtable-icon-on {
+	background: url("../images/icon/l_on/rowtable.png") no-repeat center;
+}
+
+.lui-grid-icon {
+	background: url("../images/icon/l/grid.png") no-repeat center;
+}
+
+.lui-grid-icon.lui-grid-icon-on {
+	background: url("../images/icon/l_on/grid.png") no-repeat center;
+}
+
+.lui-person-icon {
+	background: url("../images/icon/l/person.png") no-repeat center;
+}
+
+.lui-other-icon {
+	background: url("../images/icon/l/other.png") no-repeat center;
+}
+
+.lui-other-icon.lui-other-icon-on {
+	background: url("../images/icon/l_on/other.png") no-repeat center;
+}
+
+.lui-filter-icon.lui-filter-icon-on {
+	background: url("../images/icon/l_on/filter.png") no-repeat center;
+	display: block!important;
+}
+
+
+.lui-ok-icon.lui-ok-icon-on{
+	background: url("../images/icon/l_on/ok.png") no-repeat center;
+}
+
+.lui-img-icon.lui-img-icon-on{
+	background: url("../images/icon/l_on/upload_img.png") no-repeat center;
+}
+
+.lui-camera-icon.lui-camera-icon-on{
+	background: url("../images/icon/l_on/camera.png") no-repeat center;
+}
+
+.lui-add-icon.lui-add-icon-on {
+	background: url("../images/icon/l_on/add.png") no-repeat center;
+}
+
+.lui-property-icon.lui-property-icon-on {
+	background: url("../images/icon/l_on/property.png") no-repeat center;
+}
+
+.lui-back-icon {
+	background: url("../images/icon/l/back.png") no-repeat center;
+}
+
+.lui-doc-icon {
+	background: url("../images/icon/l/doc.png") no-repeat center;
+}
+
+.lui-filter-icon {
+	background: url("../images/icon/l/filter.png") no-repeat center;
+}
+
+.lui-intro-icon {
+	padding-left: 15px;
+	position: relative;
+}
+
+.lui-intro-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 0;
+	left: 0;
+	background: url("../images/icon/s/intro.png") no-repeat center;
+}
+
+.lui-eval-icon {
+	padding-left: 15px;
+	position: relative;
+}
+
+.lui-eval-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 0;
+	left: 0;
+	background: url("../images/icon/s/eval.png") no-repeat center;
+}
+
+.lui-read-icon {
+	padding-left: 15px;
+	position: relative;
+}
+
+.lui-read-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 0;
+	left: 0;
+	background: url("../images/icon/s/read.png") no-repeat center;
+}
+
+.lui-mail-icon-on:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s_on/mail.png") no-repeat center;
+}
+
+.lui-mail-icon:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s/mail.png") no-repeat center;
+}
+
+.lui-phone-icon:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s/phone.png") no-repeat center;
+}
+
+.lui-phone-icon-on:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s_on/phone.png") no-repeat center;
+}
+
+.lui-kk-icon:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s/kk.png") no-repeat center;
+}
+
+.lui-kk-icon-on:after {
+	content: '';
+	height: 30px;
+	display: block;
+	width: 30px;
+	background: url("../images/icon/s_on/kk.png") no-repeat center;
+}
+
+.lui-intro-icon-on {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-intro-icon-on:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s_on/intro.png") no-repeat center;
+}
+
+.lui-eval-icon-on {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-eval-icon-on:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s_on/eval.png") no-repeat center;
+}
+
+.lui-bookmark-icon {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-bookmark-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s/bookmark.png") no-repeat center;
+}
+
+.lui-knowledge-icon {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-knowledge-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s/knowledge.png") no-repeat center;
+}
+
+.lui-follow-icon {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-follow-icon:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s/follow.png") no-repeat center;
+}
+
+.lui-read-icon-on {
+	padding-left: 15px;
+	position: relative;
+	color: #fff;
+}
+
+.lui-read-icon-on:after {
+	content: '';
+	position: absolute;
+	height: 15px;
+	display: block;
+	width: 15px;
+	top: 1px;
+	left: 0;
+	background: url("../images/icon/s_on/read.png") no-repeat center;
+}
+
+.lui-intr-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-intr-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/intro.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-flow-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-flow-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/flow.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-property-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-property-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/property.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-relation-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-relation-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/relation.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-bookmark-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-bookmark-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/bookmark.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-eval-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-eval-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/eval.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-ask-icon-view {
+	position: relative;
+	padding-top: 35px;
+	display: block;
+	text-align: center;
+}
+
+.lui-ask-icon-view:after {
+	content: '';
+	margin-left: -15px;
+	height: 30px;
+	display: block;
+	background: url("../images/icon/l_on/ask.png") no-repeat center;
+	position: absolute;
+	top: 3px;
+	left: 50%;
+	width: 30px;
+}
+
+.lui-info-icon-view {
+	position: relative;
+	padding: 10px;
+	padding-left: 45px;
+	display: block;
+}
+
+.lui-info-icon-view:after {
+	content: '';
+	position: absolute;
+	height: 30px;
+	display: block;
+	width: 30px;
+	top: 3px;
+	left: 10px;
+	background: url("../images/icon/l/info.png") no-repeat center;
+}
+
+.lui-info-icon-view-on {
+	color: #fff;
+	background-color: #2F80CB;
+}
+
+.lui-info-icon-view-on:after {
+	background: url("../images/icon/l_on/info.png") no-repeat center;
+}
+
+.lui-article-icon-view {
+	position: relative;
+	padding: 10px;
+	padding-left: 45px;
+	display: block;
+}
+
+.lui-article-icon-view:after {
+	content: '';
+	position: absolute;
+	height: 30px;
+	display: block;
+	width: 30px;
+	top: 3px;
+	left: 10px;
+	background: url("../images/icon/l/article.png") no-repeat center;
+}
+
+.lui-article-icon-view-on {
+	color: #fff;
+	background-color: #2F80CB;
+}
+
+.lui-article-icon-view-on:after {
+	background: url("../images/icon/l_on/article.png") no-repeat center;
+}
+
+.lui-star-icon {
+	background: url("../images/icon/s/star.png") no-repeat center;
+	background-size: 20px 20px;
+	width: 20px;
+	height: 20px;
+}
+
+.lui-star-icon-on {
+	background: url("../images/icon/s_on/star.png") no-repeat center;
+	background-size: 20px 20px;
+	width: 20px;
+	height: 20px;
+}
+
+.lui-star-icon-view {
+	background: url("../images/icon/s/star.png") no-repeat center;
+	background-size: 1em 1em;
+	width: 1em;
+	height: 1em;
+}
+
+.lui-star-icon-on-view {
+	background: url("../images/icon/s_on/star.png") no-repeat center;
+	background-size: 1em 1em;
+	width: 1em;
+	height: 1em;
+}
+
+.lui-icon-s-s {
+	width: 1.1em;
+	height: 1.1em;
+	padding-left: 1.4em !important;
+	line-height: 1.1em;
+	font-size: 0.75em;
+}
+
+.lui-icon-s-s.lui-read-icon:after,.lui-icon-s-s.lui-eval-icon:after,.lui-icon-s-s.lui-intro-icon:after,.lui-icon-s-s.lui-follow-icon:after,.lui-icon-s-s.lui-knowledge-icon:after,.lui-icon-s-s.lui-bookmark-icon:after
+	{
+	background-size: 15px 15px;
+}
+
+.lui-icon-s-s.lui-read-icon-on:after,.lui-icon-s-s.lui-eval-icon-on:after,.lui-icon-s-s.lui-intro-icon-on:after
+	{
+	background-size: 15px 15px;
+}
+
+.lui-icon-s.lui-mail-icon-on:after,.lui-icon-s.lui-phone-icon-on:after,.lui-icon-s.lui-kk-icon-on:after,.lui-icon-s.lui-mail-icon:after,.lui-icon-s.lui-phone-icon:after,.lui-icon-s.lui-kk-icon:after
+	{
+	background-size: 20px;
+}

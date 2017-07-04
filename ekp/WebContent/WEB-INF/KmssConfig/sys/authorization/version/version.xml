@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 后台权限管理列表显示权限类型列</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 场所数据迁移执行后无返回结果问题</description>
+			<author>王书强</author>
+			<revision-time>2014-11-25</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典messagekey与资源文件不匹配</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限分配时，如果用户名中带有逗号则会保存为空的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-06-03</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 管理员工具箱导出设置页面多语言化</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 场所变更功能，可以修改分类及其文档的所属场所</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-07-04</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 国际化时语言选择为英文，部分展现内容为中文问题</description>
+			<author>李斌斌</author>
+			<revision-time>2013-06-13</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现集团分级按功能和业务场景进行数据隔离</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-05-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>km/review</relation-module>
+				<relation-module>sys/category</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 分级管理模式下普通权限维护者在无角色权限时，编辑角色报错的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-24</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 Portal门户场所漫游接口</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-24</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-23</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 招商局全文检索权限接口</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限关联关系问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-17</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/category</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+				<relation-module>sys/right</relation-module>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>dbcenter/cko</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 license不支持集团分级导致admin.do的js问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-09</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 集团分级授权数据迁移，提高易用性</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-08</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 判断指定的业务数据类型是否处于集团分级管理模式的接口</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 场所过滤时判断权限校验是否开启的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限分配中权限没有排序的问题，改为按拼音排序</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 场所接口参数和用户未设置默认场所时登录场所的设定</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 集团分级数据迁移工具</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-11-16</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现集团分级权限管理机制</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-10-18</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整了admin.do的显示位置</description>
+			<author>叶中奇</author>
+			<revision-time>2012-11-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修改员工授权查询展现界面</description>
+			<author>李衡</author>
+			<revision-time>2011-10-18</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>角色名称、角色分类名称增加唯一校验</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-09</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>角色加分类，系统权限按名称排序等</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-09-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>调用新的系统初始化接口，返回初始化任务名称</description>
+			<author>易荣烽</author>
+			<revision-time>2011-09-19</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改角色配置展现,增加角色可维护者设置</description>
+			<author>李衡</author>
+			<revision-time>2011-09-15</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>优化了用户登录查询语句硬编码问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-02-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

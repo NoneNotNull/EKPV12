@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 单独删除扩展数据的接口及实现</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-04</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 精确数据类型BigDecimal支持，解决数字不准确问题</description>
+			<author>傅游翔</author>
+			<revision-time>2012-10-16</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 明细表最后一行无法删除问题</description>
+			<author>傅游翔</author>
+			<revision-time>2012-09-26</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 输入框初始值为空时计算报错</description>
+			<author>曹映辉</author>
+			<revision-time>2012-09-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 增强容错性，防止求总和公式出错</description>
+			<author>曹映辉</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>增加修改数据类型后，老版本映射时容错</description>
+			<author>傅游翔</author>
+			<revision-time>2011-11-10</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>明细表被权限隐藏后提交报空指针错误问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-06-23</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

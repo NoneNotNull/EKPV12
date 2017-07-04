@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.kms.wiki.model.KmsWikiLock"
+	messageKey="kms-wiki:table.kmsWikiLock"
+	serviceBean="kmsWikiLockService"
+	table="kms_wiki_lock"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdUserId"
+	messageKey=""
+	type="String"
+	column="fd_user_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="docSubject"
+	messageKey=""
+	type="String"
+	column="doc_subject"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdLockTime"
+	messageKey=""
+	type="DateTime"
+	column="fd_lock_time"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdMethodType"
+	messageKey=""
+	type="String"
+	column="fd_method_type"
+	notNull="false"
+	length="10"
+/>
+</model></models>

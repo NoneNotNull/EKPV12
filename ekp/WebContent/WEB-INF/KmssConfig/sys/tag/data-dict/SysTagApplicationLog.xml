@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagApplicationLog"
+		messageKey="sys-tag:table.sysTagApplicationLog"
+		displayProperty="fdTagName"
+		serviceBean="sysTagApplicationLogService"
+		table="sys_tag_application_log">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-tag:sysTagApplicationLog.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-tag:sysTagApplicationLog.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdTagName"
+			messageKey="sys-tag:sysTagApplicationLog.fdTagName"
+			type="String"
+			column="fd_tag_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdValue"
+			messageKey="sys-tag:sysTagApplicationLog.fdValue"
+			type="String"
+			column="fd_value"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdAccount"
+			messageKey="sys-tag:sysTagApplicationLog.fdAccount"
+			type="Integer"
+			column="fd_account"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-tag:sysTagApplicationLog.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="docStatus"
+			messageKey="sys-tag:sysTagApplicationLog.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="false"
+			length="2" />
+		<modelProperty
+			name="docCreator"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+	</model>
+</models>

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!--  前后调转 -->
+		<item
+			name="operation"
+			id="137f8132c618c602c1620e64582a5224">
+			<param
+				name="type"
+				value="admin_jump" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.jump" />
+			<param
+				name="behaviour"
+				value="lbpmAdminJumpBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="accessor"
+				value="lbpmAdminJumpAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_jump.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="order"
+				value="302" />
+		</item>
+		<!--  终审通过 -->
+		<item
+			name="operation"
+			id="137f0132c618c302ce727864782a5224">
+			<param
+				name="type"
+				value="admin_pass" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.finishpass" />
+			<param
+				name="behaviour"
+				value="lbpmAdminPassBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_pass.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="order"
+				value="301" />
+		</item>
+		<!--  修改处理人  -->
+		<item
+			name="operation"
+			id="137f0132c618c302c2920e64782a5224">
+			<param
+				name="type"
+				value="admin_changeCurHandler" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.modifyhandler" />
+			<param
+				name="behaviour"
+				value="lbpmAdminChangeCurHandlerBehaviour" />
+			<param
+				name="binder"
+				value="adminChangeCurHandlerOperationBinder" />
+			<param
+				name="accessor"
+				value="lbpmAdminChangeCurHandlerAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_changecurhandler.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="order"
+				value="304" />
+		</item>
+		<!--  直接废弃 -->
+		<item
+			name="operation"
+			id="13874d46533d5503d6f6f9a408fb91da">
+			<param
+				name="type"
+				value="admin_abandon" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.dirctabandon" />
+			<param
+				name="behaviour"
+				value="adminAbandonOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminOperationBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_abandon.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="303" />
+		</item>
+		<!-- 修改流程  -->
+		<item
+			name="operation"
+			id="13874d46533da803d6f6f9a098fb91da">
+			<param
+				name="type"
+				value="admin_modifyProcess" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.modifyflow" />
+			<param
+				name="behaviour"
+				value="lbpmAdminModifyProcessBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_modifyprocess.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="305" />
+		</item>
+		<!-- 结束并发分支  -->
+		<item
+			name="operation">
+			<param
+				name="type"
+				value="admin_endconcurrentbranch" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.endconcurrentbranch" />
+			<param
+				name="behaviour"
+				value="adminEndConcurrentBranchBehaviour" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_endconcurrentbranch.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="306" />
+		</item>
+		<!-- 节点暂停 -->
+		<item
+			name="operation"
+			id="138b272a817b19edd7615f74efca3c96">
+			<param
+				name="type"
+				value="admin_nodeSuspend" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.nodeSuspend" />
+			<param
+				name="behaviour"
+				value="adminNodeSuspendOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminSuspendResumeOperationBinder" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="display"
+				value="true" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="311" />
+		</item>
+		<!-- 节点唤醒 -->
+		<item
+			name="operation"
+			id="138b2738a6c03de014e620e430998d2c">
+			<param
+				name="type"
+				value="admin_nodeResume" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.nodeResume" />
+			<param
+				name="behaviour"
+				value="adminNodeResumeOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminSuspendResumeOperationBinder" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="display"
+				value="true" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="312" />
+		</item>
+		<!-- 流程暂停  -->
+		<item
+			name="operation"
+			id="1389dc5cd89131c17a5e1fd46d190496">
+			<param
+				name="type"
+				value="admin_processSuspend" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.admin_processSuspend" />
+			<param
+				name="behaviour"
+				value="processSuspendOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminOperationBinder" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="313" />
+		</item>
+		<!-- 流程唤醒  -->
+		<item
+			name="operation"
+			id="1389de31947196cfb2f36be4ebdb78e8">
+			<param
+				name="type"
+				value="admin_processResume" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.admin_processResume" />
+			<param
+				name="behaviour"
+				value="processResumeOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminOperationBinder" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="order"
+				value="314" />
+		</item>
+		<!-- 流程重新执行 -->
+		<item
+			name="operation"
+			id="1389de31947196cfb2f36be4ebdb7999">
+			<param
+				name="type"
+				value="admin_retry" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.retryErrorQueue" />
+			<param
+				name="behaviour"
+				value="adminRetryQueueOperationBehaviour" />
+			<param
+				name="binder"
+				value="adminOperationBinder" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_retry.jsp" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="true" />
+			<param
+				name="order"
+				value="315" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!--  前后跳转事件   -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmAdminJumpEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.jump.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.CommonNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminJumpEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!--  终审通过事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmAdminPassEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.finishpass.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ReviewNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminPassEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!--  修改处理人事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmAdminChangeCurHandlerEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.modifyhandler.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.manager.event.ReviewNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminChangeCurHandlerEvent" />
+			<param
+				name="display"
+				value="true" />
+		</item>
+		<!-- 直接废弃事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminAbandonOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.dirctabandon.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.AdminAbandonOperationEvent" />
+		</item>
+		<!-- 修改流程事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminModifyProcessEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.modifyflow.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminModifyProcessEvent" />
+		</item>
+		<!-- 结束并发分支事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminEndConcurrentBranchEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-admin:lbpmOperations.fdOperType.processor.endconcurrentbranch.event" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.AdminEndConcurrentBranchEvent" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 特权人节点暂停事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminNodeSuspendOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.eventType.adminNodeSuspendOperationEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.AdminNodeSuspendOperationEvent" />
+		</item>
+		<!-- 特权人节点唤醒事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="adminNodeResumeOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.eventType.adminNodeResumeOperationEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.AdminNodeResumeOperationEvent" />
+		</item>
+		<!-- 流程暂停事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="processSuspendOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.eventType.processSuspendOperationEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.ProcessSuspendOperationEvent" />
+		</item>
+		<!-- 流程唤醒事件  -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="processResumeOperationEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.eventType.processResumeOperationEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.operation.OperationEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.operation.admin.ProcessResumeOperationEvent" />
+		</item>
+		<!-- 流程结束追加特权人到历史预计处理人 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="adminHistoryExpecterLogListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmProcessFinishedEvent;lbpmProcessAbandonedEvent" />
+			<param
+				name="listener"
+				value="adminHistoryExpecterLogListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

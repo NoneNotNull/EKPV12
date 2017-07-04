@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-kmtopic:module.kms.kmtopic"
+		urlPrefix="/kms/kmtopic/"
+		defaultValidator="roleValidator(role=ROLE_KMSKMTOPIC_DEFAULT)">
+		<roles>
+			ROLE_KMSKMTOPIC_DEFAULT;
+			<!--知识专辑查看、新建、编辑、删除 -->	
+			ROLE_KMSKMTOPIC_READER;
+			ROLE_KMSKMTOPIC_CREATE;	
+			ROLE_KMSKMTOPIC_EDITOR; 
+			ROLE_KMSKMTOPIC_DELETE;
+			<!--推荐权限 -->
+			ROLE_KMSKMTOPIC_INTRODUCE; 
+			<!-- 取消推荐权限 -->
+			ROLE_KMSKMTOPIC_INTRODUCE_CANCEL;
+			<!--点评权限 -->
+			ROLE_KMSKMTOPIC_EVALUATION_CREATE; 
+			ROLE_KMSKMTOPIC_EVALUATION_DELETE;
+			<!-- 标签 -->
+			ROLE_KMSKMTOPIC_TAG_MAINTAINER;
+			<!-- 分类扩充权限 -->
+			ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION;
+			<!-- 知识专辑转移分类权限 -->
+			ROLE_KMSKMTOPIC_CHANGECATE;
+			<!-- 属性维护权限 -->
+			ROLE_KMSKMTOPIC_PROPERTY_MAINTAINER;
+			<!-- 流程模版权限 -->
+			ROLE_KMSKMTOPIC_COMMONWORKFLOW;
+			<!-- 批量修改权限 -->
+			ROLE_KMSKMTOPIC_CHANGERIGHT;
+			<!-- 关联权限 -->
+			ROLE_KMSKMTOPIC_RELACHANGE;
+			
+			ROLE_KMSKMTOPIC_BACKSTAGE_MANAGER;
+			<!-- 类别维护权限 -->
+			ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER;
+		</roles>
+
+		<request
+			path="kms_kmtopic_category/kmsKmtopicCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory,adminRoleName=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER">
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<query
+				queryString="method=edit|update"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER)" />
+		</request>
+	
+		<!-- 主文档权限 -->
+		<request
+			path="kms_kmtopic_main/kmsKmtopicMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,cateModel=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory">
+			
+			<!-- 新增 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_CREATE)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)" />
+			<!-- 编辑、更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_KMSKMTOPIC_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMSKMTOPIC_DELETE)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 编辑标签 -->
+			<query
+				queryString="method=editTag"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_TAG_MAINTAINER)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 页面内的转移分类权限 -->
+			<query
+				queryString="method=templateChange"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_CHANGECATE)&amp;[authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)|authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)]" />
+			<!-- 编辑属性 -->
+			<query
+				queryString="method=editProperty|updateProperty"
+				validator="authFieldValidator(type=creator)|authFieldValidator(type=author)|authFieldValidator(type=SYS_EDITOR)|[areaRoleValidator(role=ROLE_KMSKMTOPIC_PROPERTY_MAINTAINER)|areaRoleValidator(role=ROLE_KMSKMTOPIC_EDITOR)]&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />	
+			<!-- 批量编辑属性 -->
+			<query
+				queryString="method=editPropertys|editProperty|updateProperty&amp;templateId=*"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_PROPERTY_MAINTAINER)&amp;authSimpleCategoryEditorValidator(cateId=templateId,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />	
+				
+			
+		</request>
+		
+		<request
+			path="kms_kmtopic_catelog/kmsKmtopicCatelog*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelog">
+		</request>
+
+		<request
+			path="kms_kmtopic_catelog_content/kmsKmtopicCatelogContent*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelogContent">
+		</request>
+		
+		
+		<!-- 主文档数据权限过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="author"
+				expression="authFieldFilter(field=docAuthor.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMTOPIC_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMTOPIC_EDITOR)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		
+		<!--类别数据过滤 -->
+		<filters
+			modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />	
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+				
+		</filters>
+	</module>
+	
+	
+	<!-- 推荐机制配置（使用系统推荐机制）-->
+	<module
+		messageKey=""
+		urlPrefix="/sys/introduce/">
+		<request path="sys_introduce_main/sysIntroduceMain*">
+		<query
+				queryString="fdCateModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory&amp;method=changeReason|introcheck"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_INTRODUCE)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;method=viewAll"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_DEFAULT)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_INTRODUCE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;method=cancelIntro"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_INTRODUCE_CANCEL)" />
+		</request>
+	</module>
+	<!-- 点评机制配置 -->
+	<module
+		urlPrefix="/sys/evaluation/">
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_EVALUATION_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;method=delete"            
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_EVALUATION_DELETE)&amp;authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	
+	<!-- 阅读页面内和文档列表批量修改权限 zhangwh-->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit|docRightUpdate&amp;modelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_CHANGERIGHT)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 创建新版本 -->
+	<module urlPrefix="/sys/edition/">
+		<request path="sys_edition_main/sysEditionMain*">
+			<query
+				queryString="method=newVersion&amp;fdModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+				validator="authFieldValidator(type=creator,recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain)|authFieldValidator(type=SYS_EDITOR,recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain)|areaRoleValidator(role=ROLE_KMSKMTOPIC_EDITOR)&amp;authSimpleCategoryEditorValidator(property=docCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION,recid=fdModelId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,cateModel=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory)"/>
+		</request>
+	</module>
+	
+	<!-- 知识专辑转移分类权限  -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"
+				validator="areaRoleValidator(role=ROLE_KMSKMTOPIC_CHANGECATE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory,role=ROLE_KMSKMTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 关联权限 -->
+	<module urlPrefix="/sys/relation/">
+		<request
+			path="sys_relation_main/sysRelationMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain,cateModel=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory">
+			<query
+				queryString="method=changeRela&amp;modelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+				validator="roleValidator(role=ROLE_KMSKMTOPIC_RELACHANGE)" />
+		</request>
+	</module>
+	
+	<!-- 定时计算知识专辑分类预览 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsKmtopicCategoryPreManagerService"
+		messageKey="kms-kmtopic:kmsKmtopic.quartz.preview"
+		jobMethod="____previeQuartz" />
+		
+	<!-- 定时更新专辑内文档信息 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsKmtopicUpdateFilesInfoService"
+		messageKey="kms-kmtopic:kmsKmtopic.quartz.updateFilesInfo"
+		jobMethod="____updateFilesInfoQuartz" />
+	
+	<!-- 高级搜索配置 -->
+	<search
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		messageKey="kms-kmtopic:kmsKmtopic.dict.search.common"
+		resultProperties="docSubject;docCreator;docCreateTime;" /> 
+	<!-- 高级搜索配置 //-->
+	<!-- 全文检索配置 -->
+	<ftSearch
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<!-- 更新时间 -->
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="text" />  <!-- 检索标题,只需要修改property，不需改name -->
+		<luceneField
+			name="category"
+			property="docCategory.fdHierarchyId"
+			type="keyword" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />  <!-- 检索创建人,只需要修改property，不需改name -->
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />  <!-- 检索创建时间,只需要修改property，不需改name -->
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+	</ftSearch>
+	<!-- 关联机制 -->
+	<relation
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		messageKey="kms-kmtopic:module.kms.kmtopic"/>
+		
+	<!-- 全文检索配置 //-->
+	<!-- 知识专辑配置 -->
+	<treeNodes type="config">
+		<treeNode messageKey="kms-kmtopic:module.kms.kmtopic">
+			<treeNode
+				messageKey="kms-kmtopic:menu.kmtopic.categoryconfig"
+				url="/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory.do?method=list" />
+		</treeNode>
+	</treeNodes>
+	
+	<!-- kms后台管理 -->
+	<treeNodes type="kms">
+		<treeNode
+			messageKey="kms-kmtopic:module.kms.kmtopic">
+			<treeNode
+				messageKey="kms-kmtopic:menu.kmtopic.categoryconfig"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory&amp;actionUrl=/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory.do&amp;formName=kmsKmtopicCategoryForm&amp;mainModelName=com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain&amp;docFkName=docCategory">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	
+	<!-- 知识专辑主页配置 -->
+	<homePage
+		urlPrefix="kms/kmtopic"
+		url="/kms/kmtopic/index.jsp"  
+		messageKey="kms-kmtopic:module.kms.kmtopic"
+		config="/moduleindex_notopic.jsp?nav=/kms/kmtopic/tree.jsp"/>
+		
+	<!-- 知识专辑流程配置 -->
+	<flowDef
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		templateModelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"
+		key="kmtopic"
+		templatePropertyName="docCategory"
+		moduleMessageKey="kms-kmtopic:module.kms.kmtopic"
+		type="oa" />
+	<flowDef
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		templateModelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"
+		key="introDoc"
+		templatePropertyName="docCategory"
+		moduleMessageKey="kms-kmtopic:module.kms.kmtopic"
+		type="oa" />
+
+</configs>

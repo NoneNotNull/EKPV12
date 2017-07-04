@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogApp"
+		messageKey="sys-log:table.sysLogApp"
+		serviceBean="sysLogAppService"
+		table="sys_log_app">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogApp.fdCreateTime"
+			type="DateTime"
+			column="fd_created"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogApp.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			unique="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogApp.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogApp.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogApp.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			unique="false"
+			length="2083" />
+		<simpleProperty
+			name="fdParaMethod"
+			messageKey="sys-log:sysLogApp.fdParaMethod"
+			type="String"
+			column="fd_para_method"
+			notNull="false"
+			unique="false"
+			length="50" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogApp.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			unique="false"
+			length="10" />
+		<simpleProperty
+			name="fdTargetId"
+			messageKey="sys-log:sysLogApp.fdTargetId"
+			type="String"
+			column="fd_target_id"
+			notNull="false"
+			unique="false" />
+	</model>
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogAppBak"
+		messageKey="sys-log:table.sysLogAppBak"
+		serviceBean="sysLogAppBakService"
+		table="sys_log_app_bak">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogApp.fdCreateTime"
+			type="DateTime"
+			column="fd_created"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogApp.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			unique="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogApp.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogApp.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogApp.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			unique="false"
+			length="2083" />
+		<simpleProperty
+			name="fdParaMethod"
+			messageKey="sys-log:sysLogApp.fdParaMethod"
+			type="String"
+			column="fd_para_method"
+			notNull="false"
+			unique="false"
+			length="50" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogApp.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			unique="false"
+			length="10" />
+		<simpleProperty
+			name="fdTargetId"
+			messageKey="sys-log:sysLogApp.fdTargetId"
+			type="String"
+			column="fd_target_id"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

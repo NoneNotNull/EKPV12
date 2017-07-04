@@ -1,0 +1,52 @@
+.div_main {
+	width: 80%;
+	text-align: center;
+	border: 2px #C0C0C0 solid;
+	margin-top: 5px;
+	padding: 10px;
+	background-image: url(bg.gif);
+	display: block;
+}
+.rd_title {
+	font-size: 13px;
+	color: #ffffff;
+	font-weight: bold;
+	padding-left: 15px;
+}
+.btn_submit,.btn_submit:hover {
+	display: block;
+	background: url(but_on.png) no-repeat;
+	width: 117px;
+	height: 37px;
+	color: #fff !important;
+	font-size: 16px !important;
+	font-weight: bold;
+	line-height: 37px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn_submit_txt{
+	color: #fff !important;
+	font-size: 16px !important;
+	font-weight: bold;
+	line-height: 37px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+.btn_submit_txt:hover{
+	color: #fff !important;
+	font-size: 16px !important;
+	font-weight: bold;
+	line-height: 37px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+.btn_submit:hover {
+	background: url(but_nor.png) no-repeat;
+	color: #fff;
+	text-decoration: none;
+}

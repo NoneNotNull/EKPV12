@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 地图配置单个静态链接时，直接跳转到该静态链接</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-27</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识地图模版无法转移类别的问题</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识地图缩略图不显示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-03-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识地图中图片加载所设置的http协议问题</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-23</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识地图类别和模版类别新建编辑时对类别名称的校验</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识地图分类概览信息IE8下显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识地图分类概览和思维导图数据存取</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文搜索到知识地图内容时乱码问题</description>
+			<author>郭昌平</author>
+			<revision-time>2014-11-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 去除spring文件中多余扩展代码</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识地图后台配置权限</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 绿色主题下排序按钮显示错行的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 oracle数据库下新建地图不弹模版选择框的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-30</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 幻灯片风格porlet</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-16</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建地图时关联无效</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms日志拦截部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE浏览器下，新建地图时点击“完成”没反应</description>
+			<author>张文辉</author>
+			<revision-time>2014-05-04</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识地图增强版模块</description>
+			<author>陈良</author>
+			<revision-time>2014-02-13</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+	</modifies>
+</version>

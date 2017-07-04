@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension point="com.landray.kmss.sys.authentication">
+		<item name="authenticationProcessingFilter">
+			<param name="bean" value="sysAdminThreadMonitorFilter" />
+			<param name="order" value="-1" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.admin.threadmonitor.model.SysAdminUrlBlock" />
+			<param name="service" value="sysAdminUrlBlockCacheManager" />
+		</item>
+	</extension>
+
+</plugin>

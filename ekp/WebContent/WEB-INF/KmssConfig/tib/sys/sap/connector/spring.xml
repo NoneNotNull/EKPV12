@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibSysSapServerSettingDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapServerSettingDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting" />
+	</bean>
+	<bean
+		id="tibSysSapServerSettingTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapServerSettingServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapServerSettingDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapServerSettingService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapServerSettingTarget" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapServerSettingExtDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapServerSettingExtDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSettingExt" />
+	</bean>
+	<bean
+		id="tibSysSapServerSettingExtTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapServerSettingExtServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapServerSettingExtDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapServerSettingExtService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapServerSettingExtTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSysSapRfcCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory" />
+	</bean>
+	<bean
+		id="tibSysSapRfcCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapRfcCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSysSapJcoSettingDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapJcoSettingDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapJcoSetting" />
+	</bean>
+	<bean
+		id="tibSysSapJcoSettingTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapJcoSettingServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapJcoSettingDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapJcoSettingService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapJcoSettingTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSysSapRfcSettingDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcSettingDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting" />
+	</bean>
+	<bean
+		id="tibSysSapRfcSettingTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcSettingServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcSettingDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcSettingService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapRfcSettingTarget" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcExportDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcExportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcExport" />
+	</bean>
+	<bean
+		id="tibSysSapRfcExportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcExportServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcExportDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcExportService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapRfcExportTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibSysSapRfcImportDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcImportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcImport" />
+	</bean>
+	<bean
+		id="tibSysSapRfcImportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcImportServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcImportDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcImportService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapRfcImportTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibSysSapRfcCategoryTreeService"
+		class="com.landray.kmss.tib.sys.sap.connector.service.bean.TibSysSapRfcCategoryTreeServiceImp">
+		<property name="tibSysSapRfcCategoryService">
+			<ref bean="tibSysSapRfcCategoryService" />
+		</property>
+	</bean>
+		<bean
+		id="tibSysSapRfcTableDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcTableDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcTable" />
+	</bean>
+	<bean
+		id="tibSysSapRfcTableTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcTableServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcTableDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcTableService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSapRfcTableTarget" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcSettingFunctionXmlService"
+		class="com.landray.kmss.tib.sys.sap.connector.service.bean.TibSysSapRfcSettingFunctionXmlService">
+		<property name="tibSysSapJcoFunctionUtil">
+			<ref bean="tibSysSapJcoFunctionUtil" />
+		</property>
+	</bean>
+	<!-- 获取不到httpURL 暂时不用
+	<bean id="tibSysSapOptsLogInterceptor"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapOptsLogInterceptor"></bean>
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sapServerSettingTarget</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>sapOptsLogInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	 -->
+	
+	<bean
+		id="tibSysSapJcoFunctionUtil"
+		class="com.landray.kmss.tib.sys.sap.connector.impl.TibSysSapJcoFunctionUtil">
+	</bean>
+	<!-- rfc 查询 -->
+	<bean
+		id="tibSysSapRfcSearchInfoDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.sap.connector.dao.hibernate.TibSysSapRfcSearchInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSearchInfo" />
+	</bean>
+	<bean
+		id="TibSysSapRfcSearchInfoTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.sap.connector.service.spring.TibSysSapRfcSearchInfoServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSapRfcSearchInfoDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysSapRfcSearchInfoService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="TibSysSapRfcSearchInfoTarget" />
+		</property>
+	</bean>
+	<bean id="tibSysSapExcelUtil" class="com.landray.kmss.tib.sys.sap.connector.util.TibSysSapExcelUtil">
+	</bean>
+	
+	
+	
+	<!-- provider 相关 -->
+	<bean
+		class="com.landray.kmss.tib.sys.sap.provider.interfaces.impl.TibSysSapInfo"
+		id="tibSysSapInfo">
+		<property name="tibSysSapRfcCategoryService">
+			<ref bean="tibSysSapRfcCategoryService" />
+		</property>
+		<property name="tibSysSapRfcSettingService">
+			<ref bean="tibSysSapRfcSettingService" />
+		</property>
+	</bean>
+		
+	<bean
+		class="com.landray.kmss.tib.sys.sap.provider.interfaces.impl.TibSysSapJcoProvider"
+		id="tibSysSapJcoProvider">
+		 <property name="tibSysSapJcoFunctionUtil">
+		   <ref bean="tibSysSapJcoFunctionUtil"/>
+		 </property>
+	</bean>
+	
+	<!-- 数据初始化 -->
+	<bean id="tibSysSapInitExecute" class="com.landray.kmss.tib.sys.sap.connector.interfaces.initimpl.TibSysSapInitExecute">
+	</bean>
+	
+	<bean id="tibSysSapRfcSettingFunctionHistoryDataRecordService"
+	      class="com.landray.kmss.tib.sys.sap.connector.service.bean.TibSysSapRfcSettingFunctionHistoryDataRecordService">
+	  <property name="tibSysSapRfcSearchInfoService" ref="tibSysSapRfcSearchInfoService"/>
+	</bean>
+	
+</beans>

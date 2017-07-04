@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralTeamRank"
+		messageKey="kms-integral:table.kmsIntegralTeamRank"
+		displayProperty="fdTeam"
+		serviceBean="kmsIntegralTeamRankService"
+		table="kms_integral_team_rank"
+		url="/kms/integral/kms_integral_team_rank/kmsIntegralTeamRank.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdLastTime"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdLastTime"
+			type="DateTime"
+			column="fd_last_time"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="fdWeek"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdWeek"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail"
+			column="fd_week"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdMonth"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdMonth"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail"
+			column="fd_month"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdYear"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdYear"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail"
+			column="fd_year"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdTotal"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdTotal"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail"
+			column="fd_total"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdTeam"
+			messageKey="kms-integral:kmsIntegralTeamRank.fdTeam"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralTeam"
+			column="fd_team"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

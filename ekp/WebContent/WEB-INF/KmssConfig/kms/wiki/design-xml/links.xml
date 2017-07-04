@@ -1,0 +1,18 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+	   <link url="/kms/wiki/kms_wiki_personal/kmsWikiMain_person.jsp" 
+	   		msgKey="kms-wiki:kmsWikiMain.person.my" icon="lui_icon_l_icon_36" id="kms_wiki_home_nav_my"/>
+	</links>
+	
+	<links type="zone-nav" order="10">
+		<link 
+			id="kms_wiki_home_nav_ta" 
+			url="/kms/wiki/kms_wiki_personal/kmsWikiMain_zone.jsp" 
+			msgKey="kms-wiki:kmsWikiMain.zone.ta" />
+	</links>
+</root>

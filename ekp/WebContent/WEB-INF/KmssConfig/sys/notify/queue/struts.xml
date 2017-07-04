@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	
+	<!-- 表单 Bean -->
+	
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action
+			path="/sys/notify/queue/sysNotifyQueueError"
+			type="com.landray.kmss.sys.notify.queue.actions.SysNotifyQueueErrorAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/sys/notify/queue/sysNotifyQueueError_list.jsp" />
+			<forward
+				name="view"
+				path="/sys/notify/queue/sysNotifyQueueError_view.jsp" />
+		</action>
+				
+	</action-mappings>
+
+</struts-config>

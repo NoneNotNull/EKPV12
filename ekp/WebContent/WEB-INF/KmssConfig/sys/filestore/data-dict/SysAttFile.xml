@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.filestore.model.SysAttFile"
+		messageKey="sys-filestore:table.sysAttFile"
+		table="sys_att_file">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdMd5"
+			messageKey="sys-filestore:sysAttFile.fdMd5"
+			type="String"
+			length="50"
+			column="fd_md5"
+			unique="true" />
+		<simpleProperty
+			name="fdFileSize"
+			messageKey="sys-filestore:sysAttFile.fdFileSize"
+			type="String"
+			length="8"
+			column="fd_file_size"
+			unique="true" />
+		<simpleProperty
+			name="fdFilePath"
+			messageKey="sys-filestore:sysAttFile.fdFilePath"
+			type="String"
+			length="350"
+			column="fd_file_path" />
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-filestore:sysAttFile.fdStatus"
+			type="String"
+			length="4"
+			column="fd_status" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-filestore:sysAttFile.docCreateTime"
+			type="Date"
+			column="doc_create_time"
+			unique="true" />
+		<modelProperty
+			name="fdCata"
+			messageKey="sys-filestore:sysAttFile.fdCata"
+			type="com.landray.kmss.sys.filestore.model.SysAttCatalog"
+			column="fd_cata_id"
+			notNull="false" />
+	</model>
+</models>

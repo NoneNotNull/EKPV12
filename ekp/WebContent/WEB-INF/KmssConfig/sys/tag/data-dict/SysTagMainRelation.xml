@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagMainRelation"
+		messageKey="sys-tag:table.sysTagMainRelation"
+		displayProperty="fdTagName"
+		serviceBean="sysTagMainRelationService"
+		table="sys_tag_main_relation">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdTagName"
+			messageKey="sys-tag:sysTagMainRelation.fdTagName"
+			type="String"
+			column="fd_tag_name"
+			notNull="false"
+			length="200" />
+		<modelProperty
+			name="fdMainTag"
+			messageKey=""
+			type="com.landray.kmss.sys.tag.model.SysTagMain"
+			column="fd_main_id"
+			notNull="false" />
+	</model>
+</models>

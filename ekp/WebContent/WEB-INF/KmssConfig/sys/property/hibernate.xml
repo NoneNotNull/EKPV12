@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+	PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyReference.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyDefine.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyDbTable.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyDbColumn.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyFilterSetting.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyTree.hbm.xml" />
+		<mapping
+			file="dir:/sys/property/xform/" />
+		<!--无模版筛选 -->
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyFilterRef.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyFilterMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/property/model/SysPropertyVal.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

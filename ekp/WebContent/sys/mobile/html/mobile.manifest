@@ -1,0 +1,14 @@
+CACHE MANIFEST   
+# VERSION 2014-08-13.1
+CACHE:
+../js/dojo/dojo.js
+../js/dojox/mobile.js
+../css/themes/default/ios7.css
+../css/icon/font-mui.css
+../css/font/fontmui.woff
+
+NETWORK:  
+/
+
+# 替代方案 
+#FALLBACK:  

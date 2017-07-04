@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.organization.address">
+		<item
+			name="orgTree"
+			singleton="true">
+			<param
+				name="beanName"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean"
+				required="true">
+				<description>标准树的数据读取的写法，您可以从request中获取parent（父部门ID）和orgType（组织架构类型）两个参数</description>
+			</param>
+			<description>获取组织架构树信息，所有的组织架构树都是调用该方法（包括地址本），可参阅：OrganizationTree的代码</description>
+		</item>
+		<item
+			name="userDept"
+			singleton="true">
+			<param
+				name="beanName"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean"
+				required="true">
+				<description>标准树的数据读取的写法，返回的第一个值是您的直接部门，第二个值是您部门的上级部门，以此类推</description>
+			</param>
+			<description>获取当前用户的所有父部门信息，目前仅在地址本中调用，可参阅：OrganizationUserDept的代码</description>
+		</item>
+		<item
+			name="groupList"
+			singleton="true">
+			<param
+				name="beanName"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean"
+				required="true">
+				<description>标准对话框列表的数据读取的写法，您可以从request中获取groupCate（群组类别ID）参数</description>
+			</param>
+			<description>获取常用群组列表信息，目前仅在地址本中调用，可参阅：OrgDialogGroupList的代码</description>
+		</item>
+		<item
+			name="orgList"
+			singleton="true">
+			<param
+				name="beanName"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean"
+				required="true">
+				<description>标准对话框列表的数据读取的写法，您可以从request中获取parent（父部门ID）和orgType（组织架构类型）两个参数</description>
+			</param>
+			<description>获取机构/部门/岗位/人员列表信息，目前仅在地址本中调用，可参阅：OrgDialogList的代码</description>
+		</item>
+		<item
+			name="search"
+			singleton="true">
+			<param
+				name="beanName"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IXMLDataBean"
+				required="true">
+				<description>标准对话框列表的数据读取的写法，若request带id参数则为查询描述信息的功能，否则，您可以从request中获取orgType（组织架构类型）、key（关键字）、accurate（是否精确搜索）三个参数，需注意：精确搜索返回的值除了id、name、info外，还需要加上key（也就是搜索关键字）</description>
+			</param>
+			<description>该点应该实现两个功能：根据ID获取组织架构元素的描述信息，或者根据关键字搜索组织架构（含精确搜索与模糊搜索），可参考：OrgDialogSearch的代码</description>
+		</item>
+		<description>地址本/组织架构树的数据获取扩展点</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.sys.organization.extend.property">
+		<item
+			name="persistence"
+			singleton="true">
+			<param
+				name="extendService"
+				kind="spring"
+				basedOn="com.landray.kmss.common.service.IBaseService">
+				<description>
+					扩展的业务模块Service接口实现bean。请继承com.landray.kmss.common.service.BaseServiceImp，此类有些默认方法可提供。
+				</description>
+			</param>
+			<param
+				name="extendForm"
+				kind="java"
+				basedOn="com.landray.kmss.common.forms.IExtendForm">
+				<description>
+					扩展的FORM
+				</description>
+			</param>
+			<param
+				name="view"
+				kind="string">
+				<description>
+					扩展的数据展现页面URL。
+					注意：此页面不能包含Form标签和Body标签。
+				</description>
+			</param>
+			<param
+				name="edit"
+				kind="string">
+				<description>
+					扩展的数据编辑页面URL。
+					注意：此页面不能包含Form标签和Body标签。
+				</description>
+			</param>
+			<param
+				name="importType"
+				kind="string"
+				default="inner">
+				<description>
+					<![CDATA[
+					接入类型：
+					inner：在人员页面的最下端，引入扩展的页面。
+					                  备注：在此类型的时候，扩展页面（view页面和edit页面）中的字段都需要加上前缀pluginForm ，规则是 pluginForm. + 扩展字段名
+					                                例如：在扩展页面有个扩展字段为fdQQNumber，那么在扩展页面中就应该是<xform:text property="pluginForm.fdQQNumber" />
+					
+					outer：人员的主页面被扩展的页面替换，但操作按钮这些不能被替换。
+					                  备注：此类型的时候，主要是提供重新排版人员页面。特别强调：是重新排版，不是删除人员页面的字段信息。
+					                                 若是人员页面的默认字段，请保持name属性不要更改；
+					                                 若需要追加一些自定义的字段，字段的name属性请遵循规则： pluginForm. + 扩展字段名。
+					]]>
+				</description>
+			</param>
+			<description>
+				业务模块数据持久化扩展通用配置。
+				由于此扩展点肯定是影响全局的，所以基于此扩展点的扩展的使用范围（即model参数）为全局（值为*或不设置此参数）。
+			</description>
+		</item>
+		<description>业务模块数据持久化扩展通用配置，请实现此扩展点。</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/organization/config.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="60" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="组织架构接出" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.sys.organization.webservice.out.ISysSynchroGetOrgWebService" />
+			<param
+				name="serviceBean"
+				value="sysSynchroGetOrgWebService" />				
+			<param
+				name="serviceDoc"
+				value="/sys/organization/webservice/sysOrgWebService_out_help.jsp" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="组织架构接入" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.sys.organization.webservice.in.ISysSynchroSetOrgWebService" />
+			<param
+				name="serviceBean"
+				value="sysSynchroSetOrgWebService" />				
+			<param
+				name="serviceDoc"
+				value="/sys/organization/webservice/sysOrgWebService_in_help.jsp" />
+		</item>
+	</extension>
+	
+</plugin>

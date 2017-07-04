@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="setting" order="10">
+		<link 
+			id="sys_person_favorite_category"
+			url="/sys/person/sys_person_favorite_category/sysPersonFavoriteCategory.do?method=edit" 
+			msgKey="sys-person:favorite.setting" />
+	</links>
+	
+	<links type="setting-home">
+		<link 
+			id="sys_person_mynav"
+			url="/sys/person/sys_person_mynav_category/sysPersonMyNavCategory.do?method=list" 
+			msgKey="sys-person:home.mynav" />
+		<link 
+			id="sys_person_mytab"
+			url="/sys/person/sys_person_mytab_category/sysPersonMyTabCategory.do?method=all" 
+			msgKey="sys-person:home.taball" />
+	</links>
+	
+</root>

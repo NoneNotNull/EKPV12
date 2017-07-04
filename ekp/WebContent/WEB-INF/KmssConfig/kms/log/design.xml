@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-log:module.kms.log"
+		urlPrefix="/kms/log/"
+		defaultValidator="roleValidator(role=ROLE_KMSLOG_DEFAULT)">
+		<roles>
+			ROLE_KMSLOG_DEFAULT,ROLE_KMSLOG_ADMIN,ROLE_KMSLOG_VIEW
+		</roles>
+
+		<request
+			path="kms_log_config/kmsLogConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogConfig">
+			<query validator="roleValidator(role=ROLE_KMSLOG_ADMIN)"/>
+		</request>
+		
+		<request
+			path="kms_log_app_histroy/kmsLogAppHistroy*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogAppHistroy">
+			<query validator="roleValidator(role=ROLE_KMSLOG_VIEW)"/>
+		</request>
+
+		<request
+			path="kms_log_app/kmsLogApp*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogApp">
+			<query validator="roleValidator(role=ROLE_KMSLOG_VIEW)"/>
+		</request>
+
+		<request
+			path="kms_log_search_doc/kmsLogSearchDoc*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogSearchDoc">
+			<query validator="roleValidator(role=ROLE_KMSLOG_VIEW)"/>
+		</request>
+
+		<request
+			path="kms_log_search_history/kmsLogSearchHistory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogSearchHistory">
+			<query validator="roleValidator(role=ROLE_KMSLOG_VIEW)"/>
+		</request>
+
+		<request
+			path="kms_log_search/kmsLogSearch*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.log.model.KmsLogSearch">
+			<query validator="roleValidator(role=ROLE_KMSLOG_VIEW)"/>
+		</request>
+
+	</module>
+	
+		
+	<!-- 日志定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsLogSynchronizeService" 
+		messageKey="kms-log:kmsLog.quartz.docLog"
+		jobMethod="updateLog" /> 
+		
+	<homePage
+		urlPrefix="kms/log"
+		type="app"
+		config="/moduleindex_notopic.jsp?nav=/kms/log/tree.jsp"
+		messageKey="kms-log:module.kms.log" />
+	
+</configs>

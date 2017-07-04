@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.cluster">
+		<item
+			name="dispatcher">
+			<param
+				name="id"
+				required="true"
+				kind="unid">
+				<description>调度器ID</description>
+			</param>
+			<param
+				name="service"
+				kind="spring"
+				required="true"
+				basedOn="com.landray.kmss.sys.cluster.interfaces.dispatcher.IDispatcher">
+				<description>调度器的实现类</description>
+			</param>
+			<param
+				name="multi"
+				kind="boolean">
+				<description>允许多服务器调度</description>
+			</param>
+			<description>群集调度器扩展点</description>
+		</item>
+		<item
+			name="groupFunc">
+			<param
+				name="id"
+				required="true"
+				kind="unid">
+				<description>子系统功能ID</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>子系统功能名称</description>
+			</param>
+			<description>子系统功能注册</description>
+		</item>
+		<item
+			name="messageReceiver">
+			<param
+				name="type"
+				kind="string"
+				required="true">
+				<description>接收的消息类型</description>
+			</param>
+			<param
+				name="service"
+				kind="spring"
+				required="true"
+				basedOn="com.landray.kmss.sys.cluster.interfaces.message.IMessageReceiver">
+				<description>群集消息接收器的实现类</description>
+			</param>
+			<description>群集消息接收器扩展点</description>
+		</item>
+		<description>群集服务扩展点</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/cluster/clusterConfig.jsp" />
+			<param
+				name="type"
+				value="enterprise" />
+			<param
+				name="order"
+				value="20" />
+			<param name="properties" value="/WEB-INF/KmssConfig/sys/cluster/default.properties" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid" value="sysClusterConfig" />
+			<param name="path" value="/sys/cluster/" />
+			<param name="name" value="群集配置变更通知" />
+			<param name="type" value="notify" />
+			<param name="description" value="新版的群集，必需为每个群集成员节点指定节点名，同时需要为后台服务指定运行的节点。详情请查阅admin.do以及“参数配置-系统参数-群集信息”的配置" />
+			<param name="check" value="com.landray.kmss.sys.cluster.transfer.SysClusterConfigNotifyChecker" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-quartz:module.sys.quartzJob"
+		urlPrefix="/sys/quartz/"
+		defaultValidator="roleValidator(role=ROLE_SYSQUARTZJOB_ADMIN)">
+		<roles>ROLE_SYSQUARTZJOB_ADMIN</roles>
+	</module>
+	<homePage
+		urlPrefix="sys/quartz"
+		config="/moduleindex_notopic.jsp?nav=/sys/quartz/tree.jsp"
+		messageKey="sys-quartz:table.sysQuartzJob"
+		type="sys" />
+</configs>

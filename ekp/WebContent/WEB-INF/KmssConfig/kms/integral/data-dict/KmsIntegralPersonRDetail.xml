@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail"
+		messageKey="kms-integral:table.kmsIntegralPersonRDetail"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralPersonRDetailService"
+		table="kms_integral_person_r_detail"
+		url="/kms/integral/kms_integral_person_r_detail/kmsIntegralPersonRDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdScoreValue"
+			messageKey="kms-integral:kmsIntegralPersonRDetail.fdScoreValue"
+			type="String"
+			column="fd_score_value"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRichesValue"
+			messageKey="kms-integral:kmsIntegralPersonRDetail.fdRichesValue"
+			type="String"
+			column="fd_riches_value"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdBalanceValue"
+			messageKey="kms-integral:kmsIntegralPersonRDetail.fdBalanceValue"
+			type="String"
+			column="fd_balance_value"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

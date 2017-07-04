@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model 
+		modelName="com.landray.kmss.sys.person.model.SysPersonFavoriteCategory"
+		messageKey="sys-person:favorite" 
+		serviceBean="sysPersonFavoriteCategoryService" 
+		table="sys_person_favorite_category">
+		
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<modelProperty 
+			name="docCreator" 
+			messageKey="sys-person:sysPersonFavoriteCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson" 
+			column="doc_creator_id"
+			notNull="false" />
+			
+		<simpleProperty 
+			name="docCreateTime" 
+			messageKey="sys-person:sysPersonFavoriteCategory.docCreateTime"
+			type="DateTime" 
+			column="doc_create_time" 
+			notNull="true" />
+			
+		<simpleProperty 
+			name="fdCategoryModel" 
+			messageKey="sys-person:sysPersonFavoriteCategory.fdCategoryModel"
+			type="String" 
+			column="fd_category_model" 
+			notNull="false" 
+			length="100" />
+			
+		<simpleProperty 
+			name="fdCategoryIds" 
+			messageKey="sys-person:sysPersonFavoriteCategory.fdCategoryIds"
+			type="String" 
+			column="fd_category_ids" 
+			notNull="false" 
+			length="4000" />
+			
+		<simpleProperty 
+			name="fdCategoryNames" 
+			messageKey="sys-person:sysPersonFavoriteCategory.fdCategoryNames"
+			type="String" 
+			column="fd_category_names" 
+			notNull="false" 
+			length="4000" />
+			
+		<simpleProperty 
+			name="fdOrder" 
+			messageKey="sys-person:sysPersonFavoriteCategory.fdOrder" 
+			type="Integer"
+			column="fd_order" 
+			notNull="false" 
+			length="10" />
+	</model>
+</models>

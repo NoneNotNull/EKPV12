@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.filestore.model.SysFileConvertQueue"
+		messageKey="sys-filestore:table.sysFileConvertQueue"
+		serviceBean="sysFileConvertQueueService"
+		table="sys_file_convert_queue">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+			
+		<simpleProperty
+			name="fdFileId"
+			messageKey="sys-filestore:sysFileConvertQueue.fdFileId"
+			type="String"
+			column="fd_file_id"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdConverterKey"
+			messageKey="sys-filestore:sysFileConvertQueue.fdConverterKey"
+			type="String"
+			column="fd_converter_key"
+			notNull="true"
+			length="36"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdFileExtName"
+			messageKey="sys-filestore:sysFileConvertQueue.fdFileExtName"
+			type="String"
+			column="fd_file_extname"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdConvertNumber"
+			messageKey="sys-filestore:sysFileConvertQueue.fdConvertNumber"
+			type="Integer"
+			column="fd_convert_number"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsFinish"
+			messageKey="sys-filestore:sysFileConvertQueue.fdIsFinish"
+			type="String"
+			column="fd_is_finish"
+			notNull="true"
+			length="36"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdConvertStatus"
+			messageKey="sys-filestore:sysFileConvertQueue.fdConvertStatus"
+			type="Integer"
+			column="fd_convert_status"
+			notNull="true"
+			length="36"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdStatusTime"
+			messageKey="sys-filestore:sysFileConvertQueue.fdStatusTime"
+			type="DateTime"
+			column="fd_status_time"
+			notNull="false" />
+			
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-filestore:sysFileConvertQueue.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false" />
+	</model>
+</models>

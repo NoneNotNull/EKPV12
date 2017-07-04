@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- 获取日志信息 -->
+	<bean
+		id="sysAdminLogInfoService"
+		class="com.landray.kmss.sys.admin.checkhealth.service.SysAdminLogInfoService">
+	</bean>
+
+</beans>

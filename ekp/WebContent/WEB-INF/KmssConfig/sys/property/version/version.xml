@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 自定义属性文本框居顶对齐显示</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-21</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联机制配置中自定义属性显示根据模块和分类联动</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-11</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 通过模版、属性项设置属性值方法</description>
+			<author>郭昌平</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建模版时默认不添加所有的固定筛选项</description>
+			<author>郭昌平</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 添加多语言资源文件</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-28</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性定义列表排序问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-03-18</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性库数据字典加载出错问题</description>
+			<author>李斌斌</author>
+			<revision-time>2014-02-24</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 所属分类及分类权限控制</description>
+			<author>郭昌平</author>
+			<revision-time>2014-01-23</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性库与kms主页解耦</description>
+			<author>魏本源</author>
+			<revision-time>2013-10-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性缓存变更后通知其它集群节点时，来回发消息问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性模板导入名称</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-14</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 树形属性主数据导入功能</description>
+			<author>徐广敏</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 组织架构、时间的属性导入以及属性模板的导入</description>
+			<author>徐广敏</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 KMS后台管理-属性库-属性导入，选择模版数据导入后点击【上传】不成功</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-26</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 扩展属性选择框中上下移按钮不对齐的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-06-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 linux文件系统下生成hbm文件时目录找不到</description>
+			<author>郭昌平</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性缓存多线程安全问题，导致的页面查询报错</description>
+			<author>郭昌平</author>
+			<revision-time>2013-06-19</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 日期时间类型属性范围区间、年度、月份筛选</description>
+			<author>郭昌平</author>
+			<revision-time>2013-06-06</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 不同类型的属性之间级联时，事件类型错误</description>
+			<author>郭昌平</author>
+			<revision-time>2013-05-30</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 子父属性关联在模版保存时自动识别，去除手动设置</description>
+			<author>郭昌平</author>
+			<revision-time>2013-05-02</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类筛选时标题显示的不是属性模版定义的标题缺陷</description>
+			<author>郭昌平</author>
+			<revision-time>2013-04-27</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 将移动端属性展现转移到属性库中，解除移动组件对属性库的依赖</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-02</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持子属性功能</description>
+			<author>郭昌平</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据字典缓存不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-27</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 起草文档流程节点无法过滤问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-27</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 同一属性在不同分类分别设置值功能</description>
+			<author>郭昌平</author>
+			<revision-time>2013-02-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 属性模板移动jsp片段数据迁移</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持pda中自定义属性的显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 防止出现类型强转报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 显示模式字段不允许为空报错问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-23</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免英文翻译中缩写单引号引起js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性模版JSP生成机制</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-10</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 属性定义加入允许插入单位</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-10</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 权限定义名称，使更容易理解</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 把枚举类从内部类分离出来，供其地方使用</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-29</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 筛选时过滤非查询模块模板，提高搜索性能</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性模板无法导出数据的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 树结构数据无法多值筛选问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 导入及高级数据权限问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 重新分配属性管理权限</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性工具类 ，增加 define的 fdtype,paramMap字段</description>
+			<author>徐武飞</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 集团分级授权</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-04</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/right</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 kms创建维基库属性模板，选择筛选项时会出现重复的筛选项</description>
+			<author>龚一涛</author>
+			<revision-time>2012-11-28</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 长整型范围筛选类型错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性库固定属性无法筛选的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一筛选树形筛选类型从PREFIX更改为EQ</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性定义时字段名的显示</description>
+			<author>徐武飞</author>
+			<revision-time>2012-10-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 单个属性可以在多个分类中设置的功能</description>
+			<author>徐武飞</author>
+			<revision-time>2012-10-23</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 按模块名查找属性模板的方法</description>
+			<author>徐武飞</author>
+			<revision-time>2012-09-28</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 属性模板改为前端生产jsp</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延时加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 指定SQL的资源信息</description>
+			<author>徐武飞</author>
+			<revision-time>2012-08-22</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 属性定义时按指定的SQL进行查询和设置</description>
+			<author>徐武飞</author>
+			<revision-time>2012-08-20</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 属性库的扩展属性存储的扩展点，当数据保存时可以将数据存储到另外的存储。</description>
+			<author>李勇</author>
+			<revision-time>2012-07-19</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>kms/multidoc</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性定义编辑不能更改类型；新增 删除属性定义同步删除对应筛选</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 树筛选截取错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性建立同步建立筛选项不更新属性缓存问题，固有属性筛选按模块分离，单行文本筛选错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-07</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 属性库缓存集群更新</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-05</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 无模版筛选；优化 树类型级联筛选</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-24</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性导入时默认值没有的问题</description>
+			<author>徐武飞</author>
+			<revision-time>2012-05-16</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>增加 导入属性的功能</description>
+			<author>徐武飞</author>
+			<revision-time>2012-05-09</revision-time>
+			<relation>
+				<relation-module>sys/transport</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化属性库缓存。达到提高查询搜索的效率</description>
+			<author>徐武飞</author>
+			<revision-time>2012-05-03</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>jndi数据源相应修改</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-05-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>群集接口变化相应改动</description>
+			<author>叶中奇</author>
+			<revision-time>2012-04-06</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化，无需重启hibernate session</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-21</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>属性编辑加入页面上同名校验JS</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-18</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>筛选优化，多库搜索优化</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-14</revision-time>
+			<relation>
+				<relation-module>kms/multidoc</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正国际化问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>启动时，属性库重新生成hbm映射文件</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>李衡</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>将原来的单一默认权限，修改为默认查看和添加设置权限</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>编辑属性模板，选择筛选项时，左侧树默认全部展开</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正数据源自动提交问题，避免事务提交后，自动提交强置为true</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-13</revision-time>
+			<relation>
+				<relation-module>component/dbop</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

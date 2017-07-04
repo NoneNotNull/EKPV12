@@ -1,0 +1,84 @@
+.lui-content-section .docContent {
+	width: 99%;
+	height: 99%;
+	border: none;
+	border: 1px solid #b4b4b4;
+}
+
+textarea {
+	padding: 2px;
+}
+
+.lui-content-section .fdDescription {
+	width: 99%;
+	height: 150px;
+	margin-top: 10px;
+	border: 1px solid #b4b4b4;
+}
+
+.lui-step-btn {
+	padding: 10px;
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+
+.lui-step-btn a {
+	background: #8ccbf7;
+	color: #fff;
+	padding: 5px 15px;
+	border-radius: 2px;
+}
+
+.step {
+	position: absolute;
+	background-color: #fff;;
+	left: 1px;
+	right: 1px;
+	top: 1px;
+	bottom: 1px;
+	border: 1px solid #b4b4b4;
+	overflow: hidden;
+}
+
+form {
+	-webkit-transition: all 0.7s ease-in-out;
+	-webkit-transform-style: preserve-3d;
+}
+
+.global {
+	-webkit-transform-style: preserve-3d;
+}
+
+.lui-step-panel {
+	position: relative;
+	-webkit-perspective: 266.5px;
+}
+
+.lui-step-content {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	top: 102px;
+	bottom: 10px;
+	background-color: #fff;
+}
+
+.lui-step-title {
+	overflow: hidden;
+	padding: 5px 30px;
+	float: left;
+	background: #8ccbf7;
+	position: absolute;
+	top: 5px;
+}
+
+.lui-step-title h2 {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+}

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.handover.model.SysHandoverConfigLog"
+		messageKey="sys-handover:table.sysHandoverConfigLog"
+		displayProperty="fdmodule"
+		serviceBean="sysHandoverConfigLogService"
+		table="Sys_Handover_Config_Log"
+		url="/sys/handover/sys_handover_config_log/sysHandoverConfigLog.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModule"
+			messageKey="sys-handover:sysHandoverConfigLog.fdModule"
+			type="String"
+			column="fd_module"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="sys-handover:sysHandoverConfigLog.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdItem"
+			messageKey="sys-handover:sysHandoverConfigLog.fdItem"
+			type="String"
+			column="fd_item"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdItemName"
+			messageKey="sys-handover:sysHandoverConfigLog.fdItemName"
+			type="String"
+			column="fd_item_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-handover:sysHandoverConfigLog.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="true"
+			length="2"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCount"
+			messageKey="sys-handover:sysHandoverConfigLog.fdCount"
+			type="Long"
+			column="fd_count"
+			notNull="true"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsSucc"
+			messageKey="sys-handover:sysHandoverConfigLog.fdIsSucc"
+			type="Boolean"
+			column="fd_is_succ"
+			notNull="true"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-handover:sysHandoverConfigLog.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEndedTime"
+			messageKey="sys-handover:sysHandoverConfigLog.fdEndedTime"
+			type="DateTime"
+			column="fd_ended_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdMain"
+			messageKey="sys-handover:sysHandoverConfigLog.fdMain"
+			type="com.landray.kmss.sys.handover.sys.handover.model.SysHandoverConfigMain"
+			column="fd_main"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

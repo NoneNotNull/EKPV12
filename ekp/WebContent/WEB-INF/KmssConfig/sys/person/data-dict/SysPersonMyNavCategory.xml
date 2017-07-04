@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonMyNavCategory"
+		messageKey="sys-person:sysPersonMyNavCategory"
+		displayProperty="fdName"
+		serviceBean="sysPersonMyNavCategoryService"
+		table="sys_person_mynav_category">
+		<idProperty>
+			<generator type="assigned"/>
+		</idProperty>
+		
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-person:sysPersonMyNavCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"/>
+			
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-person:sysPersonMyNavCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"/>
+			
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonMyNavCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500" 
+			validate="true"/>
+			
+		<simpleProperty
+			name="fdSysCategoryId"
+			messageKey="sys-person:sysPersonMyNavCategory.fdSysCategoryId"
+			type="String"
+			column="fd_sys_cate_id"
+			notNull="false"
+			length="36"/>
+			
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-person:sysPersonMyNavCategory.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="true"
+			length="10"
+			validate="true"/>
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonMyNavCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"/>
+			
+		<listProperty
+			name="fdLinks"
+			messageKey="sys-person:sysPersonMyNavCategory.fdLinks"
+			column="fd_cate_id"
+			orderBy="fd_order"
+			type="com.landray.kmss.sys.person.model.SysPersonMyNavLink"
+			cascade="all-delete-orphan"
+			inverse="false"/>
+	</model>
+</models>

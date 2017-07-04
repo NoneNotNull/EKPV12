@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<!-- 签字节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="signNode">
+			<param
+				name="type"
+				value="signNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.signNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.signnode.SignNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/signnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="signNodeDesc" />
+			<param
+				name="taskDataAccess"
+				value="defaultManualNodeDataAccess" />
+			<param
+				name="subTaskType"
+				value="signWorkitem" />
+			<param
+				name="taskBehaviour"
+				value="signNodeBehaviourService" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="signNodeDesc">
+			<param
+				name="type"
+				value="signNodeDesc" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/signnode/node_review.jsp" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/signnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/signnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="signNodeDesc" />
+		</item>
+		<item
+			name="taskType"
+			id="signWorkitem">
+			<param
+				name="type"
+				value="signWorkitem" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/signnode/workitem_signworkitem.jsp" />
+			<param
+				name="taskDesc"
+				value="signNodeWorkitemDesc" />
+			<param
+				name="taskBehaviour"
+				value="signNodeWorkitemBehaviourService" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsIntegralConfigForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralConfigForm" />
+		<form-bean
+			name="kmsIntegralRuleForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralRuleForm" />
+		<form-bean
+			name="kmsIntegralRulesForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralRulesForm" />
+		<form-bean
+			name="kmsIntegralPersonRDetailForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralPersonRDetailForm" />
+		<form-bean
+			name="kmsIntegralTeamRankForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralTeamRankForm" />
+		<form-bean
+			name="kmsIntegralPersonRoleForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralPersonRoleForm" />
+		<form-bean
+			name="kmsIntegralAlterForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralAlterForm" />
+		<form-bean
+			name="kmsIntegralTeamForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralTeamForm" />
+		<form-bean 
+			name="kmsIntegralServerForm" 
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralServerForm"/>
+		<form-bean
+			name="kmsIntegralGradeConfigForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralGradeConfigForm"/>
+		<form-bean
+			name="kmsIntegralPersonTotalForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralPersonTotalForm" />
+		<form-bean
+			name="kmsIntegralPersonFilterForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralPersonFilterForm" />
+		<form-bean
+			name="kmsIntegralPersonFilterForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralPersonFilterForm" />
+		<form-bean
+			name="kmsIntegralDeptFilterForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralDeptFilterForm" />
+		
+		<form-bean
+			name="kmsIntegralRuleTotalForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralRuleTotalForm" />
+		<form-bean
+			name="kmsIntegralModuleTotalForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralModuleTotalForm" />
+		<form-bean
+			name="kmsIntegralTypesForm"
+			type="com.landray.kmss.kms.integral.forms.KmsIntegralTypesForm" />
+
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/integral/kms_integral_rule/kmsIntegralConifg"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralConfigAction"
+			name="kmsIntegralConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_rule/kmsIntegralRule_config.jsp" />
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_rule/kmsIntegralRule"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralRuleAction"
+			name="kmsIntegralRulesForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_rule/kmsIntegralRule_edit.jsp" />
+			<forward
+				name="import"
+				path="/kms/integral/kms_integral_rule/kmsIntegralRule_import.jsp" />
+			<forward
+				name="reset"
+				path="/kms/integral/kms_integral_rule/kmsIntegralRule_reset.jsp" />
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_person_r_detail/kmsIntegralPersonRDetail"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPersonRDetailAction"
+			name="kmsIntegralPersonRDetailForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_person_r_detail/kmsIntegralPersonRDetail_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_person_r_detail/kmsIntegralPersonRDetail_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_person_r_detail/kmsIntegralPersonRDetail_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_team_rank/kmsIntegralTeamRank"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralTeamRankAction"
+			name="kmsIntegralTeamRankForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_team_rank/kmsIntegralTeamRank_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_team_rank/kmsIntegralTeamRank_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_team_rank/kmsIntegralTeamRank_list.jsp" />
+			<forward 
+				name="data" path="/kms/integral/kms_integral_portlet_ui/kmsIntegrapScoreSum_team_list.jsp"></forward>
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_person_total/kmsIntegralPersonTotal"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPersonTotalAction"
+			name="kmsIntegralPersonTotalForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_person_total/kmsIntegralPersonTotal_list.jsp" />
+			<forward 
+				name="scoreDetail" 
+				path="/kms/integral/kms_integral_person_total/kmsIntegralTotal_list_personal.jsp"></forward>
+			<forward 
+				name="data" path="/kms/integral/kms_integral_portlet_ui/kmsIntegrapScoreSum_list.jsp"></forward>
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_person_role/kmsIntegralPersonRole"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPersonRoleAction"
+			name="kmsIntegralPersonRoleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_person_role/kmsIntegralPersonRole_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_person_role/kmsIntegralPersonRole_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_person_role/kmsIntegralPersonRole_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_alter/kmsIntegralAlter"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralAlterAction"
+			name="kmsIntegralAlterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_alter/kmsIntegralAlter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_alter/kmsIntegralAlter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_alter/kmsIntegralAlter_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_team/kmsIntegralTeam"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralTeamAction"
+			name="kmsIntegralTeamForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_team/kmsIntegralTeam_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_team/kmsIntegralTeam_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_team/kmsIntegralTeam_list.jsp" />
+		</action>
+
+
+		<action
+			path="/kms/integral/kms_integral_server/kmsIntegralServer"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralServerAction"
+			name="kmsIntegralServerForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_server/kmsIntegralServer_list.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_server/kmsIntegralServer_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_server/kmsIntegralServer_view.jsp">
+			</forward>
+			<forward
+				name="deploy"
+				path="/kms/integral/kms_integral_module/kmsIntegralModule_deploy.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_module/kmsIntegralModule"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralModuleAction"
+			name="kmsIntegralModuleForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_config/kmsIntegralGradeConfig"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralGradeConfigAction"
+			name="kmsIntegralGradeConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_config/kmsIntegralGradeConfig.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_person_filter/kmsIntegralPersonFilter"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPersonFilterAction"
+			name="kmsIntegralPersonFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_person_filter/kmsIntegralPersonFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_person_filter/kmsIntegralPersonFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_person_filter/kmsIntegralPersonFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_dept_filter/kmsIntegralDeptFilter"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralDeptFilterAction"
+			name="kmsIntegralDeptFilterForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_dept_filter/kmsIntegralDeptFilter_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_dept_filter/kmsIntegralDeptFilter_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_dept_filter/kmsIntegralDeptFilter_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_portlet/kmsIntegralPortlet"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPortletAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward name="data" path="/kms/integral/kms_integral_portlet_ui/kms_integral_portlet_view_dep.jsp"></forward>
+			<forward 
+				name="teamData" path="/kms/integral/kms_integral_portlet_ui/kms_integral_portlet_view_team.jsp"></forward>
+		</action>
+		
+		<!-- 月积分排行 -->
+		<action
+			path="/kms/integral/kms_integral_portlet_month/kmsIntegralPortletMonth"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralPortletMonthAction"
+			name="kmsCommunityckoPersonalIntegralForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+		<action
+			path="/kms/integral/kms_integral_rule_total/kmsIntegralRuleTotal"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralRuleTotalAction"
+			name="kmsIntegralRuleTotalForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_rule_total/kmsIntegralRuleTotal_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_rule_total/kmsIntegralRuleTotal_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_rule_total/kmsIntegralRuleTotal_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/integral/kms_integral_module_total/kmsIntegralModuleTotal"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralModuleTotalAction"
+			name="kmsIntegralModuleTotalForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_module_total/kmsIntegralModuleTotal_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_module_total/kmsIntegralModuleTotal_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_module_total/kmsIntegralModuleTotal_list.jsp" />
+		</action>
+
+
+		<action
+			path="/kms/integral/kms_integral_type/kmsIntegralType"
+			type="com.landray.kmss.kms.integral.actions.KmsIntegralTypeAction"
+			name="kmsIntegralTypesForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/integral/kms_integral_type/kmsIntegralType_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/integral/kms_integral_type/kmsIntegralType_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/integral/kms_integral_type/kmsIntegralType_list.jsp" />
+		</action>
+		
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.kms.integral.ApplicationResources"
+		key="kms-integral" />
+</struts-config>

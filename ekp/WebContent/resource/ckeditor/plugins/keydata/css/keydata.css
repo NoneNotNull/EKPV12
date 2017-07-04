@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+/*---------------------------------------- CSS重置 ----------------------------------------*/
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, legend, button,
+        form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+        caption, th { text-align: left; }
+        input, img, select { vertical-align: middle; }
+        input, button, textarea, select, optgroup, option { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+        address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+        q:before, q:after { content: ""; }
+        input[type="submit"] { cursor: pointer; }
+        button { cursor: pointer; }
+        input::-moz-focus-inner { border: 0; padding: 0; }
+        h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+        ol, ul { list-style: none; }
+        table { border-collapse: collapse; border-spacing: 0; }
+        fieldset, img, abbr, acronym { border: 0; }
+        abbr, acronym { font-variant: normal; }
+        legend { }
+        del, ins, a { text-decoration: none; transition: all 0.3s ease; }
+        a:link { }
+        a:visited { }
+        a:hover, a:active, a:focus { }
+        sup { vertical-align: text-top; }
+        sub { vertical-align: text-bottom; }
+        /*-----------------------------------------------------------------------------------------*/
+
+
+        /*---------------------------------------- 主要样式 ----------------------------------------*/
+        html { height: 100%; }
+        body { height: 100%; font-family: 'Microsoft YaHei',SimSun,Arial; font-size: 62.5%; color: #333; background-color: #fff; }
+
+        .custom_popupBox { background-color:#fff;}
+        .custom_popupBox .custom_selectBar { margin:8px 0; padding:0 8px;}
+        .custom_popupBox .custom_searchBar { margin: 8px 0; padding: 0 8px; padding-right: 58px; }
+        .custom_selectBar { }
+        .custom_selectBar select { height:27px; line-height:27px; width: 100%; text-align:center; border: 1px solid #cfcfcf; }
+        .custom_selectBar select option { text-align: center; }
+        .custom_searchBar { position:relative;}
+        .custom_searchBar .input_txt { padding: 0 1%; width: 98%; height: 27px; line-height: 27px; color: #aeaeae; font-size:12px; border: 1px solid #cfcfcf; }
+        .custom_searchBar .btnSearchL { padding-left: 5px; background: url(images/custom_btnSearchL.png) no-repeat 0 0; display: block; position: absolute; right: 8px; top: 0; transition:none;}
+        .custom_searchBar .btnSearchR { padding-right: 5px; background: url(images/custom_btnSearchR.png) no-repeat 100% 0; display: block; }
+        .custom_searchBar .btnSearchC { padding:0 4px; line-height:29px; color: #fff; font-size: 12px; background-color: #7b7b7b; display: block; }
+        .custom_searchBar .btnSearchL:hover { background-image: url(images/custom_btnSearchL_hover.png); }
+        .custom_searchBar .btnSearchL:hover .btnSearchR { background-image: url(images/custom_btnSearchR_hover.png); }
+        .custom_searchBar .btnSearchL:hover .btnSearchC { background-color: #9f9f9f; }
+        .custom_popupList {  overflow-y:auto; border-top: 1px solid #cfcfcf;}
+        .custom_popupList li{ margin:1px 0; padding:0 12px; line-height:30px; color:#000;  cursor:pointer;}
+        .custom_popupList li.on,
+        .custom_popupList li:hover { background-color: #f0f0f0;}
+
+        .custom_popupTabHead { height: 34px; border-bottom: 1px solid #cfcfcf; background-color: #f6f6f6; overflow:hidden; zoom: 1; }
+        .custom_popupTabHead:after {  display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+        .custom_popupTabHead li { margin-bottom: -1px; padding: 0 10px; min-width: 60px; height: 34px; line-height: 34px; text-align: center; color: #1b1b1b; font-size:13px; border-right:1px solid #cfcfcf; float: left; cursor:pointer;}
+            .custom_popupTabHead li:hover { background-color: #e6e7e6; }
+        .custom_popupTabHead li.selected { background-color:#fff; }
+
+
+
+
+
+
+
+        /*------------------------------------------------------------------------------------------*/

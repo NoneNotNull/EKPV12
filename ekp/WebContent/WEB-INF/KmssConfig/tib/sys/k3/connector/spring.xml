@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- k3数据初始化 -->
+	<bean id="tibSysK3InitExecute" 
+		  class="com.landray.kmss.tib.sys.k3.connector.interfaces.impl.TibSysK3InitExecute">
+		<property name="tibCommonInoutdataService">
+			<ref bean="tibCommonInoutdataService" />
+		</property>
+	</bean>
+
+	
+</beans>
+	

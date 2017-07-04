@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 对被AT的人发待阅时，点击待阅无法跳转到对应文档</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 在IE8浏览器下分享功能样式问题以及分享二维码动态延迟生成</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-16</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 分享功能中分享理由框复制粘帖表情后表情丢失</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端选择分类数据不显示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 没有部署知识服务模块情况下，知识问答推送到维基库报错的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>移除 KMS公共组件中点赞代码，代码已迁移至点赞机制中</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索点击搜索结果会报错的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-14</revision-time>
+			<relation>
+				<relation-module>third/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识编号前缀字段没有必填校验*号</description>
+			<author>龚一涛</author>
+			<revision-time>2014-07-23</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 门户推荐知识显示顺序问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-07-10</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类权限和样式等问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端支持新建功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-27</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索热门搜索和按模块搜索失效的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 日志拦截接口</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 “回收站”公共功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 纠错公共代码</description>
+			<author>龚一涛</author>
+			<revision-time>2014-03-10</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 时间控件点击取消选择时增加一行时间选择框.</description>
+			<author>龚一涛</author>
+			<revision-time>2013-12-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心列表go按钮不支持ie8的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-11-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表组件页码以及每页条数输入框的校验功能</description>
+			<author>徐广敏</author>
+			<revision-time>2013-10-28</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 通过webservice查询无法过滤权限的问题,将查询由webservice改为http方式</description>
+			<author>陈良</author>
+			<revision-time>2013-10-22</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 web服务权限校验以及对组织架构相关字段的处理</description>
+			<author>陈良</author>
+			<revision-time>2013-10-10</revision-time>
+			<relation>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 扩展皮肤搜索链接到统一搜索页面</description>
+			<author>郭昌平</author>
+			<revision-time>2013-10-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索分面搜索</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 在线感知代码段</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 营销社区主题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-17</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索列表显示多个问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索分类搜索问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 属性筛选器下拉功能失效的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索提供搜索范围切换</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 多余的的权限配置</description>
+			<author>郭昌平</author>
+			<revision-time>2013-09-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 主页portlet我的订阅</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-29</revision-time>
+			<relation>
+				<relation-module>sys/follow</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索与ftsearch模块集成</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心列表页码问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 订阅标签无效问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-15</revision-time>
+			<relation>
+				<relation-module>sys/follow</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 订阅配置链接</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-14</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 营销门户部分显示问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心收藏夹新建错误</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 积分部门内部排行以及积分周排行</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 KMS营销社区门户portlet问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心我的订阅管理</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-05</revision-time>
+			<relation>
+				<relation-module>sys/follow</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 KMS营销社区门户主题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 树形属性主数据导入功能</description>
+			<author>徐广敏</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索配置</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心中查看待阅时不能批量取消待阅。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-12</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 提供kms模块中公有的一些支持web服务的代码</description>
+			<author>陈良</author>
+			<revision-time>2013-07-10</revision-time>
+			<relation>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人后台导航新增所有标签</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 KMS蓝小清新皮肤主页的第三列窗口偏移到页面下方</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-09</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 KMS蓝小清新皮肤主页的第三列窗口偏移到页面下方</description>
+			<author>龚一涛</author>
+			<revision-time>2013-07-09</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 新皮肤</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-07-03</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 点击推荐给个人按钮表格样式出现错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 KMS模版涉及到【版本】页签的列名有移位的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-06-26</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 主页分类名称超过一定字数，标题显示分行出现问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-06-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 日期时间类型属性范围区间</description>
+			<author>郭昌平</author>
+			<revision-time>2013-06-06</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 点评推荐内容英文串太长导致样式混乱的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-05-30</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 多媒体列表页面显示样式</description>
+			<author>郭昌平</author>
+			<revision-time>2013-04-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心在线感知报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-10</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持子属性功能</description>
+			<author>郭昌平</author>
+			<revision-time>2013-04-01</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心中向专家提问与部署kk在线感知功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-20</revision-time>
+			<relation>
+				<relation-module>kms/expert</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 维基库子章节资源文件</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 截取字符串为空报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现新建选择分类时，允许过滤掉部分分类</description>
+			<author>郭昌平</author>
+			<revision-time>2013-03-11</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 flash加载完毕判断，支持多浏览器--chrome&amp;firefox</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 蓝色清新皮肤标签云随机颜色</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于重复定义变量导致页面报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 蓝色清新皮肤样式显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类弹出框样式重复引入的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 维基库样式显示问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人主页待办信息安全过滤</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持分类选择框锁屏接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-16</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 分类设置中，修改属性模版会导致流程公式引用扩展属性错误，加入提示</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 分页跳转在无数据时候默认每页15条的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档为外部作者主页显示过长的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 无权限删除提示信息</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 多选取值问题和选择不限，清空文本框值</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 点评在加载过程中更新主表操作，导致页面显示卡顿现象</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于多余的斜杠导致部分环境下域名丢失的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 蓝色魅影皮肤自定义logo无效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文字描述改成引用资源文件</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 更换主页标签云加载方式，解决安全过滤导致新建主页报错的和 后台管理权限不生效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 推荐点评无权限时，隐藏编辑区域，不显示无权限</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 在ekp后台中配置导航树时出现多个公共组件的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 主页场所信息和增加'漫游'按钮</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 分类筛选多选时，点击复选框选择生效</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-05</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie杂项模式下获取高度错误的问题，用于各头像按比例压缩</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-12-04</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心无法编辑性别的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 范围筛选部分内容为空导致统一搜索报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 集团分级授权功能</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-27</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/right</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 蓝小清新皮肤主页知识地图概览样式调整</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 kms维基库选择页面风格为蓝色魅影时，点击词条进入查看页面没有显示完善词条按钮</description>
+			<author>龚一涛</author>
+			<revision-time>2012-11-20</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 模块信息列表显示各主页路径错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多媒体库积分无效关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-14</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie6下主页推荐知识布局紊乱的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多选筛选时候传递筛选类型错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 链接失效缺陷</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 筛选组件自身维护相关ui,外部使用无需加多余代码</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 版本创建时间在页面过宽时不对齐缺陷</description>
+			<author>郭昌平</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 机制代码,提取模块功能组件中</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于引入低版本jquery导致方法未定义的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 portlet页面公用头部统一引入公共资源</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 创建分类文档权限问题，在无父目录权限情况下，有子目录权限，允许创建文档</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-17</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 列表树形筛选报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 图片平铺列表页面多套主题样式</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 更改标签名称兼容EKP标签</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 筛选项报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 模板基础信息引用页面对文档库的耦合，增加主文档样式</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 文件及内容重命名</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-25</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 多媒体库页面布局样式</description>
+			<author>郭昌平</author>
+			<revision-time>2012-09-25</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于定时刷新导致编辑文档内容丢失的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 社区积分列表页面点击个人中心报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人主页删除数据之后不刷新跳转问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-07</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 日期筛选项报js错误，相关xss漏洞修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人主页点击各导航后再次点击个人主页按钮时报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 重命名绑定函数，防止列表绑定按钮重名冲突</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 新增参数用于判断附件是否在当前页面打开</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-29</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 初始化皮肤包时过滤.svn文件</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 在个人主页中点击个人报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 jsp文件的引用路径</description>
+			<author>徐武飞</author>
+			<revision-time>2012-08-13</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 js组件动态样式引入，筛选项js组件抽取，维基库编辑词条名片样式等</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-13</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 加入了属性库使用其它搜索框架时使用的权限过滤器</description>
+			<author>李勇</author>
+			<revision-time>2012-07-25</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于推荐知识内容为空导致门户主页报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-07-20</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 手风琴分类概览；修复 门户头部横幅配置和出现多个门户等缺陷</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-07-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户新增头部横幅配置；修复 在linux下初始化门户报错</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-07-03</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 树筛选js错误问题，主页公告区路径错误问题等</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-06-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms主题皮肤，优化 部分代码迁移</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 个人中心列表的导出按钮</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-16</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家阅读和编辑页面排版问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-15</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于笔误导致个人主页修改信息报js语法错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 蓝色皮肤百科样式 新增 蓝色皮肤百科样式</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 kms后台管理树中公共树节点的展现形式</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 KM主页，15分钟定时刷新一次</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 KMS模块导入导出接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 后台管理中，设置主页推荐知识时，填写完推荐名称后，自动让推荐标题与名称一致</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>解决标签选择框不支持高版本ie问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-02-28</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>解决iframe下操作分类选择框出错</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-01-16</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改public，以适应长文档名在筛选项里的显示</description>
+			<author>徐武飞</author>
+			<revision-time>2011-11-18</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>添加freemarker处理函数stringCurOf，用于截取超过指定长度的字符串</description>
+			<author>杨帆</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>实现spring的InitializingBean将kms数据字典的初始化动放在spring容器初始化中, 杨帆, 15:45:42 (20 分钟之前)</description>
+			<author>杨帆</author>
+			<revision-time>2011-11-14</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>解决浏览器缩放个人主页结构变形，修改按钮样式</description>
+			<author>洪泽铨</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修复在IE6下，artDialog对话框的边框背景图片找不到，报404错误的问题</description>
+			<author>杨帆</author>
+			<revision-time>2011-11-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>去掉主页帮助文档链接</description>
+			<author>杨帆</author>
+			<revision-time>2011-11-02</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>初始化KMS公共组件模块，加入部分公共资源（jsp,js,css,image)</description>
+			<author>杨帆</author>
+			<revision-time>2011-09-01</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

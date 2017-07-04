@@ -1,0 +1,38 @@
+.lui-collopsible {
+	border-radius: 8px;
+	background-color: #E5E5E5;
+	margin: 6px 0;
+}
+
+.lui-collopsible-head {
+	border-radius: 8px 8px 0 0;
+	font-size: 1.2em;
+	padding: 6px 15px;
+	display: block;
+	color: #2F80CB;
+	text-decoration: none;
+	margin-bottom: 6px;
+}
+
+.lui-collopsible-expand .lui-collopsible-head {
+	background: #fff url(../images/arrow_02.png) no-repeat 98% 50%;
+	background-size: 1em 1em;
+}
+
+.lui-collopsible-unexpand .lui-collopsible-head {
+	background: #fff url(../images/arrow_01.png) no-repeat 98% 50%;
+	background-size: 1em 1em;
+}
+
+.lui-collopsible-content {
+	overflow-y: scroll;
+	position: absolute;
+	top: 0;
+	bottom: 0px;
+	left: 0;
+	right: 0;
+}
+
+.lui-cllopsible-component {
+	overflow: hidden;
+}

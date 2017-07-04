@@ -1,0 +1,46 @@
+var sv = render.parent.selectedValues.get();
+{$
+	 <li class="lui_category_frame_item" data-lui-mark="select.block.content" data-lui-block-index="{% render.parent.index %}">
+	 	<ul data-lui-mark="select-item" class="lui_category_content">
+$}
+		if(data.length>0){
+			var d = data[0];
+		 	for(var i=0;i<d.length;i++){
+		 		var selected = false;
+		 		for(var j = 0;j<sv.length;j++){
+		 			if(sv[j]['value']==d[i].value){
+		 				selected = true;
+		 				break;
+		 			}
+		 		}
+			{$
+				<li data-lui-item-id="{%d[i].value%}" data-lui-item-padmin="{% d[i].pAdmin %}" class="clearfloat $}if(selected){{$ lui_category_itemLink_checked $}}{$" data-lui-mark="select.item.li">
+					<a class="lui_category_itemLink" href="javascript:;" data-lui-mark="selected.item.pointer" >
+					$}
+						if (!d[i].nodeType || d[i].nodeType=='template') {
+						{$	
+							<input type="checkbox" data-lui-mark="select.item.checkbox" $}if(selected){{$checked="checked"$}}{$ />
+						$}
+						} else if(d[i].nodeType && d[i].nodeType=='category') {
+						{$
+							<span class="lui_category_item_category">​</span>
+						$}
+						} else {
+						{$
+							<span class="lui_category_select_space"></span>
+						$}							
+						}
+					{$
+						<label class="textEllipsis" title="{%d[i].text%}">{%d[i].text%}</label>
+						<i class="ct_c_trig"></i>
+					</a>
+					<a class="lui_category_itemBtn" href="javascript:;" data-lui-mark="select.item.remove">​</a>
+				</li>
+			$}
+			}
+		}
+{$
+	 	</ul>
+	</li>
+$}
+

@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmCollaborateMainReplyForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaborateMainReplyForm" />
+		<form-bean
+			name="kmCollaboratePartnerInfoForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaboratePartnerInfoForm" />
+		<form-bean
+			name="kmCollaborateConfigForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaborateConfigForm" />
+		<form-bean
+			name="kmCollaborateCategoryForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaborateCategoryForm" />
+		<form-bean
+			name="kmCollaborateLogsForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaborateLogsForm" />
+		<form-bean
+			name="kmCollaborateMainForm"
+			type="com.landray.kmss.km.collaborate.forms.KmCollaborateMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/collaborate/km_collaborate_main_reply/kmCollaborateMainReply"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateMainReplyAction"
+			name="kmCollaborateMainReplyForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/collaborate/km_collaborate_main_reply/kmCollaborateMainReply_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_main_reply/kmCollaborateMainReply_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_main_reply/kmCollaborateMainReply_list.jsp" />
+			<forward
+				name="replylist"
+				path="/km/collaborate/km_collaborate_main_reply_ui/kmCollaborateMainReply_replylist.jsp" />
+			<forward
+				name="replylist.4pda"
+				path="/km/collaborate/pda/kmCollaborateMainReply_pda_replylist.jsp" />
+		</action>
+   
+   <!-- UED专用Action -->
+		<action
+			path="/km/collaborate/km_collaborate_partner_info/kmCollaboratePartnerInfoIndex"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaboratePartnerInfoIndexAction"
+			parameter="method"
+			name="kmCollaborateMainForm"
+			input="edit">
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_partner_info_ui/kmCollaboratePartnerInfo_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/km/collaborate/km_collaborate_partner_info/kmCollaboratePartnerInfo"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaboratePartnerInfoAction"
+			name="kmCollaboratePartnerInfoForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/collaborate/km_collaborate_partner_info/kmCollaboratePartnerInfo_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_partner_info/kmCollaboratePartnerInfo_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_partner_info_ui/kmCollaboratePartnerInfo_list.jsp" />
+			<forward
+				name="condition"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMainCondition.jsp" />
+		</action>
+
+		<action
+			path="/km/collaborate/km_collaborate_config/kmCollaborateConfig"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateConfigAction"
+			name="kmCollaborateConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_config/kmCollaborateConfig_edit.jsp" />
+		</action>
+
+		<action
+			path="/km/collaborate/km_collaborate_category/kmCollaborateCategory"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateCategoryAction"
+			name="kmCollaborateCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/collaborate/km_collaborate_category/kmCollaborateCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_category/kmCollaborateCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_category/kmCollaborateCategory_list.jsp" />
+		   <forward
+				name="selectForPortlet"
+				path="/km/collaborate/km_collaborate_category/kmCollaborateCategory_listForPortlet.jsp" />
+		</action>
+
+		<action
+			path="/km/collaborate/km_collaborate_logs/kmCollaborateLogs"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateLogsAction"
+			name="kmCollaborateLogsForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/collaborate/km_collaborate_logs/kmCollaborateLogs_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_logs/kmCollaborateLogs_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_logs/kmCollaborateLogs_list.jsp" />
+		</action>
+      <!-- UED专用Action -->
+		<action
+			path="/km/collaborate/km_collaborate_main/kmCollaborateMainIndex"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateMainIndexAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_list.jsp">
+			</forward>
+				<forward
+				name="listChildren"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/km/collaborate/km_collaborate_main/kmCollaborateMain"
+			type="com.landray.kmss.km.collaborate.actions.KmCollaborateMainAction"
+			name="kmCollaborateMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_view.jsp" />
+			<!-- 移动端 -->
+			<forward
+				name="view.4pda"
+				path="/km/collaborate/pda/kmCollaborateMain_pda_view.jsp" />
+			<forward
+				name="defaultview"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_defaultview.jsp" />
+			<forward
+				name="edit"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_edit.jsp" />
+			<forward
+				name="edit.4pda"
+				path="/km/collaborate/pda/kmCollaborateMain_pda_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/collaborate/km_collaborate_main/kmCollaborateMain_list.jsp" />
+			<forward
+				name="listInclude"
+				path="/km/collaborate/include/kmCollaborateMain_list.jsp" />
+			<forward
+				name="listUi"
+				path="/km/collaborate/import/kmCollaborateMain_listdata.jsp" />
+			<forward
+				name="editContent"
+				path="/km/collaborate/km_collaborate_main_ui/kmCollaborateMain_edit.jsp" />
+			<forward
+				name="condition"
+				path="/km/collaborate/km_collaborate_main/kmCollaborateMainCondition.jsp" />
+			<forward 
+				name="draftList" 
+				path="/km/collaborate/km_collaborate_main/kmCollaborateMain_draft_list.jsp"/>
+			<forward
+				name="searchResult" 
+				path="/km/collaborate/km_collaborate_main/kmCollaborateMain_searchlist.jsp" /> 
+		</action>
+	</action-mappings>
+</struts-config>

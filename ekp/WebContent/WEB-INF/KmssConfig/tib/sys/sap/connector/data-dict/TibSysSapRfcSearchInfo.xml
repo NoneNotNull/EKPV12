@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSearchInfo"
+	messageKey="tib-sys-sap-connector:table.tibSysSapRfcSearchInfo"
+	serviceBean="tibSysSapRfcSearchInfoService"
+	table="tib_sys_sap_rfc_search_info"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="docSubject"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSearchInfo.docSubject"
+	type="String"
+	column="doc_subject"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdData"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSearchInfo.fdData"
+	type="RTF"
+	column="fd_data"
+	notNull="false"
+	length="100000"
+/>
+<modelProperty
+	name="fdRfc"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcSearchInfo.fdRfc"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	column="fd_rfc_id"
+	notNull="false"
+/>
+</model></models>

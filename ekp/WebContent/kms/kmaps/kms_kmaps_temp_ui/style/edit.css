@@ -1,0 +1,10 @@
+body{
+	margin-top:0px!important;
+	margin-bottom:0px!important;
+}
+.kms_kanvas{
+	position:fixed;
+	width:100%;
+	height:100%;
+	overflow: hidden;
+}

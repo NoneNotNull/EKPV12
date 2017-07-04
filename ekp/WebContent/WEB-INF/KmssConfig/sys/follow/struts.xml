@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysFollowDocForm"
+			type="com.landray.kmss.sys.follow.forms.SysFollowDocForm" />
+		<form-bean
+			name="sysFollowPersonConfigForm"
+			type="com.landray.kmss.sys.follow.forms.SysFollowPersonConfigForm" />
+		<form-bean
+			name="sysFollowLogForm"
+			type="com.landray.kmss.sys.follow.forms.SysFollowLogForm" />
+		<form-bean
+			name="sysFollowPersonDocRelatedForm"
+			type="com.landray.kmss.sys.follow.forms.SysFollowPersonDocRelatedForm" />
+		<form-bean
+			name="sysFollowConfigForm"
+			type="com.landray.kmss.sys.follow.forms.SysFollowConfigForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/follow/sys_follow_doc/sysFollowDoc"
+			type="com.landray.kmss.sys.follow.actions.SysFollowDocAction"
+			name="sysFollowDocForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/follow/sys_follow_doc/sysFollowDoc_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/follow/sys_follow_doc/sysFollowDoc_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/follow/sys_follow_doc/sysFollowDoc_list.jsp" />
+			<forward
+				name="failure"
+				path="/sys/follow/sys_follow_doc/message.jsp" />
+		</action>
+
+		<action
+			path="/sys/follow/sys_follow_person_config/sysFollowPersonConfig"
+			type="com.landray.kmss.sys.follow.actions.SysFollowPersonConfigAction"
+			name="sysFollowPersonConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/follow/sys_follow_person_config/sysFollowPersonConfig_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/follow/sys_follow_person_config/sysFollowPersonConfig_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/follow/sys_follow_person_config/sysFollowPersonConfig_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated"
+			type="com.landray.kmss.sys.follow.actions.SysFollowPersonDocRelatedAction"
+			name="sysFollowPersonDocRelatedForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated_list.jsp" />
+			<forward 
+				name="portlet" 
+			    path="/sys/follow/sys_follow_person_doc_related/sysFollowPersonDocRelated_portlet_list.jsp"/>
+		</action>
+
+		<action
+			path="/sys/follow/sys_follow_log/sysFollowLog"
+			type="com.landray.kmss.sys.follow.actions.SysFollowLogAction"
+			name="sysFollowLogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/follow/sys_follow_log/sysFollowLog_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/follow/sys_follow_log/sysFollowLog_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/follow/sys_follow_log/sysFollowLog_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/follow/sys_follow_config/sysFollowConfig"
+			type="com.landray.kmss.sys.follow.actions.SysFollowConfigAction"
+			name="sysFollowConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/follow/sys_follow_config/sysFollowConfig_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/follow/sys_follow_config/sysFollowConfig_edit.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

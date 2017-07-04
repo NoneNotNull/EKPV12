@@ -1,0 +1,6 @@
+<div id="ptext" style="display: inline-block;">文字<span id="arrow">&#9660;</span></div>
+<ui:popup style="background:white;" triggerObject="#arrow" triggerEvent="click" align="top-right" borderWidth="5" borderColor="red" positionObject="#ptext">
+
+	<div style="width: 150px; height: 150px;" class="aaa_popup">abc</div>
+
+</ui:popup>

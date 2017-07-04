@@ -1,0 +1,74 @@
+.lui-personal {
+	border-left: solid 1.6px #e5e5e5;
+	height: 100%;
+}
+
+.lui-personal .lui-header {
+	position: fixed;
+	z-index: 99;
+}
+
+.lui-personal .lui-header .lui-docSubject h2 {
+	color: #3284d0;
+	font-weight: normal;
+}
+
+.lui-personal .lui-content {
+	padding: 10px;
+	text-align: center;
+}
+
+.lui-personal .info img {
+	border-radius: 50%;
+}
+
+.lui-personal .lui-content.info {
+	font-size: 12px;
+}
+
+.lui-personal .lui-content.info a {
+	color: #000;
+}
+
+.lui-personal .info .userName {
+	font-size: 20px;
+}
+
+.lui-personal .info .strong {
+	font-weight: bolder;
+}
+
+.lui-personal .content {
+	position: absolute;
+	top: 50px;
+	bottom: 0;
+	width: 100%;
+}
+
+.lui-personal .myfilter {
+	position: absolute;
+	bottom: 10px;
+	top: 165px;
+	left: 30px;
+	right: 30px;
+}
+
+.lui-personal .myfilter ul li {
+	padding: 5px 5px 5px 20px;
+	border-bottom: solid 1px #e5e5e5;
+}
+
+.lui-personal .myfilter ul li.current{
+	background: url("../images/current.png") no-repeat;
+}
+
+.lui-personal .myfilter ul li span {
+	display: block;
+	height: 12px;
+	width: 12px;
+	background: url("../images/arrow_01.png") no-repeat;
+	float: right;
+	background-size: 12px 12px;
+	position: relative;
+	top: 5px;
+}

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding= "UTF-8"?>
+<plugin
+       xmlns="http://www.example.org/plugin-config"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+     
+       <extension-point id="com.landray.kmss.sys.zone.photomap" >
+             <item name="source" >
+                   <param name="service" kind="spring"
+                               basedOn="com.landray.kmss.sys.zone.service.plugin.ISysZonePhotoSourceService" >
+                         <description> 数据源bean</description >
+                   </param>
+                   <param name="id" kind="string">
+                         <description> 数据源id</description >
+                   </param>
+                   <param name="name" kind="string">
+                         <description> 数据源name</description >
+                   </param>
+                   <param name="imageBeanName" kind="string">
+                         <description> 个人头像提供的beanName </description>
+                   </param>
+                   <description>
+                        照片墙数据源
+                   </description>
+             </item>
+             <description>
+                  照片墙扩展点
+             </description>
+       </extension-point>
+     
+     
+       <extension-point id="com.landray.kmss.sys.zone.otherinfo" >
+             <item name="zone_info" >
+                   <param required="true" name="source_url" kind="string" >
+                         <description> 数据源，json或jsonp</description >
+                   </param>
+                   <param required="false" name="render_url_pc" kind="string" >
+                         <description> PC端展现</description >
+                   </param>
+                   <param required="false" name="render_url_mobile" kind="string" >
+                         <description> 移动端展现</description >
+                   </param>
+                   <param name="infoId" kind="unid">
+                         <description> 扩展的id值，唯一 </description>
+                   </param>
+                   <param name="renderType" kind="string">
+                         <description> 提供的渲染类型： Javascript或者Template</description >
+                   </param>
+                   <description>
+                   </description>
+             </item>
+             <description>
+             </description>
+       </extension-point>
+     
+       <extension-point id="com.landray.kmss.sys.zone.layout" >
+             <item name="pagelayout" >
+                   <param name="forwardPath" kind="filepath" required="true" >
+                         <description> forward的path，相应的jsp的路径</description >
+                   </param>
+                   <param name="showType" kind="string" default="pc" required="true" >
+                         <description> 展现的设备类型， pc、mobile 分别表示pc端、移动端 </description>
+                   </param>
+                   <param name="iconPath" kind="filepath" required="true" >
+                         <description> 缩略图标的路径 </description>
+                   </param>
+                   <description>
+                        员工黄页页面布局配置
+                   </description>
+             </item>
+             <description>
+                  员工黄页页面布局配置
+             </description>
+       </extension-point>
+     
+     
+       <extension-point id="com.landray.kmss.sys.zone.communicate" >
+             <item name="communicate" >
+                   <param name="unid" kind="unid" >
+                         <description> 唯一值</description >
+                   </param>
+                   <param name="order" kind="int" >
+                         <description> 排序号</description >
+                   </param>
+                   <param name="icon" kind="string">
+                         <description> img路径 </description>
+                   </param>
+                   <param name="js_class" kind="string" >
+                         <description> js类名 </description>
+                   </param>
+                   <param name="js_src" kind="string" >
+                         <description> js路径 </description>
+                   </param>
+                   <description>
+                        PC端即时通讯
+                   </description>
+             </item>
+           
+              <item name="communicate_mobile" >
+                   <param name="unid" kind="unid" >
+                         <description> 唯一值</description >
+                   </param>
+                   <param name="order" kind="int" >
+                         <description> 排序号</description >
+                   </param>
+                   <param name="icon" kind="string">
+                         <description> 字符类名 </description >
+                   </param>
+                   <param name="href" kind="string" >
+                         <description> 链接 </description >
+                   </param>
+                    <param name="text" kind="string" >
+                         <description> 显示名 </description >
+                   </param>
+                   <description>
+                        移动端即时通讯
+                   </description>
+             </item>
+             <description>
+                  即时通讯（KK，问答，email等）
+             </description>
+       </extension-point>
+     
+       <extension point="com.landray.kmss.sys.person" >
+             <item name="infoBean" >
+                   <param name="service" value="sysZonePersonInfoBean" />
+                   <param name="message" value="EKP个人空间" />
+             </item>
+             <item name="imageBean" >
+                   <param name="service" value="sysZonePersonImageBean" />
+                   <param name="message" value="EKP个人头像" />
+             </item>
+       </extension>
+     
+       <extension point="com.landray.kmss.sys.zone.photomap" >
+             <item name="source" >
+                   <param name="service" value="sysZonePhotoNewPersonSource" />
+                   <param name="id" value="newperson" />
+                   <param name="name" value="最新员工" />
+                   <param name="imageBeanName" value="sysZonePersonImageBean" />
+             </item>
+       </extension>
+     
+       <extension point="com.landray.kmss.sys.zone.layout" >
+             <item name="pagelayout" >
+                   <param name="forwardPath" value="/sys/zone/sys_zone_personInfo/template_view/default/sysZonePersonInfo_view.jsp" />
+                   <param name="showType" value="pc" />
+                   <param name="iconPath" value="/sys/zone/sys_zone_personInfo/template_view/resource/default_view.png" />
+             </item>
+       </extension>
+     
+       <extension point="com.landray.kmss.sys.zone.layout" >
+             <item name="pagelayout" >
+                   <param name="forwardPath" value="/sys/zone/mobile/template_view/default/view.jsp" />
+                   <param name="showType" value="mobile" />
+                   <param name="iconPath" value="/sys/zone/mobile/template_view/resource/mobile_defaultview.jpg" />
+             </item>
+       </extension>       
+     
+     
+       <extension point="com.landray.kmss.sys.zone.communicate" >
+             <item name="communicate" >
+                   <param name="unid" value="email" />
+                   <param name="order" value="3"/>
+                   <param name="icon" value="/sys/zone/resource/images/Ypage_icon_mail.png" />
+             <param name="js_class" value="ImEmail" />
+                   <param name="js_src" value="/sys/zone/resource/plugin/ImEmail.js" />
+             </item>
+       </extension>
+     
+     
+     
+       <extension point="com.landray.kmss.sys.admin.transfer" >
+             <item name="config" >
+                   <param name="unid"
+                         value="com.landray.kmss.sys.zone.transfer.SysZoneTransferTask" />
+                   <param name="name" value="员工黄页数据迁移" />
+                   <param name="path" value="/sys/zone/" />
+                   <param name="check"
+                         value="com.landray.kmss.sys.zone.transfer.SysZoneTransferChecker" />
+                   <param name="upgrade"
+                         value="com.landray.kmss.sys.zone.transfer.SysZoneTransferTask" />
+                   <param name="description"
+                         value="将员工黄页表中已存在的数据的粉丝数和关注数进行初始化" />
+             </item>
+       </extension>
+     
+       <extension point="com.landray.kmss.sys.cluster" >
+             <item name="messageReceiver" >
+                   <param name="type" value="com.landray.kmss.sys.zone.service.spring.SysZonePluginService" />
+                   <param name="service" value="sysZonePluginService" />
+             </item>
+       </extension>
+       
+       <extension point="com.landray.kmss.sys.ftsearch.personNameSearch">
+			<item name="personSearchs">
+				<param name="module" value="com.landray.kmss.sys.zone.model.SysZonePersonInfo" />
+				<param name="path" value="/sys/person/sys_person_zone/sysPersonZone.do?method=img"/>
+				<param name="addFieldName1" value="{sys-zone:sysZonePerson.organization}" />
+				<param name="addFieldName2" value="{sys-zone:sysZonePerson.workPhone}" />
+				<param name="addFieldName3" value="{sys-zone:sysZonePerson.dept}" />
+				<param name="addFieldName4" value="{sys-zone:sysZonePerson.mobilePhone}" />
+				<param name="addFieldName5" value="{sys-zone:sysZonePerson.post}" />
+				<param name="addFieldName6" value="{sys-zone:sysZonePerson.email}" />
+				<param name="addFieldName7" value="{sys-zone:sysZonePersonInfo.fdPersonData}" />
+			</item>
+		</extension>
+		
+		
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui-zone.js" />
+			<param name="targetFile" value="/sys/zone/mobile/js/mui-topic.js" />
+			<param name="srcFold" value="/sys/zone/mobile/js" />
+		</item>
+		<item name="css-file">
+			<param name="name" value="mui-zone-list.css" />
+			<param name="targetFile" value="/sys/zone/mobile/resource/list.css" />
+		</item>
+		<item name="css-file">
+			<param name="name" value="mui-zone-view.css" />
+			<param name="targetFile" value="/sys/zone/mobile/resource/view.css" />
+		</item>
+	</extension>
+</plugin>

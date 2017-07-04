@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAdminDbcheckerForm"
+			type="com.landray.kmss.sys.admin.dbchecker.form.SysAdminDbcheckerForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/admin/sys_admin_dbchecker/sysAdminDbchecker"
+			type="com.landray.kmss.sys.admin.dbchecker.action.SysAdminDbcheckerAction"
+			name="sysAdminDbcheckerForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="select"
+				path="/sys/admin/sys_admin_dbchecker/sysAdminDbchecker_select.jsp">
+			</forward>
+			<forward
+				name="result"
+				path="/sys/admin/sys_admin_dbchecker/sysAdminDbchecker_result.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+</struts-config>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibCommonInitDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.init.dao.hibernate.TibCommonInitDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.init.model.TibCommonInit" />
+	</bean>
+	<bean
+		id="tibCommonInitTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.init.service.spring.TibCommonInitServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonInitDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonInitService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibCommonInitTarget" />
+		</property>
+	</bean>
+		
+</beans>

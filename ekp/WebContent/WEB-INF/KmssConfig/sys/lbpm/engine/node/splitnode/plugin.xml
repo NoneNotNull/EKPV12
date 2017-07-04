@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+	<!-- 分支节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="138bd7606b3fbf05fd3c137452e89d88">
+			<param
+				name="type"
+				value="splitNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.nodeType.splitNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpm.engine.node.splitnode.SplitNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpm/engine/node/splitnode/node_attribute.jsp" />
+			<param
+				name="taskBehaviour"
+				value="splitNodeBehaviour" />
+			<param
+				name="nodeDescType"
+				value="splitNodeDesc" />
+		</item>
+		<item
+			name="nodeDescType">
+			<param
+				name="type"
+				value="splitNodeDesc" />
+			<param
+				name="chartJs"
+				value="/sys/lbpm/engine/node/splitnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpm/engine/node/splitnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="splitNodeDesc" />
+		</item>
+	</extension>
+</plugin>

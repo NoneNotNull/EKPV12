@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://www.landray.com.cn/schema/person"
+	targetNamespace="http://www.landray.com.cn/schema/person" 
+	elementFormDefault="qualified" >
+	
+	<xsd:complexType name="linkType">
+		<xsd:attribute name="id" type="xsd:string" />
+		<xsd:attribute name="icon" type="xsd:string" />
+		<xsd:attribute name="msgKey" type="xsd:string" use="required" />
+		<xsd:attribute name="url" type="xsd:string" use="required" />
+		<xsd:attribute name="authUrl" type="xsd:string" />
+		<xsd:attribute name="target">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="_top">
+						<xsd:annotation>
+							<xsd:documentation>当前窗口</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="_blank">
+						<xsd:annotation>
+							<xsd:documentation>弹出窗口</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+					<xsd:enumeration value="iframe">
+						<xsd:annotation>
+							<xsd:documentation>
+								iframe中打开
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:enumeration>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="showType" type="xsd:string"></xsd:attribute>
+	</xsd:complexType>
+
+
+	<xsd:element name="links">
+		<xsd:complexType>
+			<xsd:sequence maxOccurs="unbounded" minOccurs="1">
+				<xsd:element name="link" type="linkType">
+					
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="type" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="setting">
+							<xsd:annotation>
+								<xsd:documentation>个人其他设置</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="setting-info">
+							<xsd:annotation>
+								<xsd:documentation>个人资料设置</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="setting-home">
+							<xsd:annotation>
+								<xsd:documentation>个人门户设置</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="shortcut">
+							<xsd:annotation>
+								<xsd:documentation>个人快捷操作</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="hotlink">
+							<xsd:annotation>
+								<xsd:documentation>个人常用链接设置</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="home-nav">
+							<xsd:annotation>
+								<xsd:documentation>个人门户导航</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+						<xsd:enumeration value="zone-nav">
+							<xsd:annotation>
+								<xsd:documentation>个人空间导航</xsd:documentation>
+							</xsd:annotation>
+						</xsd:enumeration>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="order" type="xsd:int" default="100" />
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="category">
+		<xsd:complexType>
+			<xsd:attribute name="id" type="xsd:string" />
+			<xsd:attribute name="msgKey" type="xsd:string" use="required" />
+			<xsd:attribute name="modelName" type="xsd:string" use="required" />
+			<xsd:attribute name="dialogJS" type="xsd:string" />
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="root">
+    	<xsd:complexType>
+    		<xsd:choice maxOccurs="unbounded" minOccurs="0">
+            	<xsd:element ref="links" />
+            	<xsd:element ref="category" />
+            </xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

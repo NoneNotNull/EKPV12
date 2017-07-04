@@ -1,0 +1,14 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="zone-nav" order="10">
+		<link 
+			showType="mobile"
+			id="kms_ask_home_nav_ta_mobile"
+			url="/kms/ask/kms_ask_personal/mobile/kmsAsk_zone_cri.jsp" 
+			msgKey="kms-ask:kmsAsk.zone.ta" />
+	</links>
+</root>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaboratePartnerInfo"
+		messageKey="km-collaborate:table.kmCollaboratePartnerInfo"
+		displayProperty="fdId"
+		serviceBean="kmCollaboratePartnerInfoService"
+		table="km_collaborate_partner_info"
+		url="/km/collaborate/km_collaborate_partner_info/kmCollaboratePartnerInfo.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="km-collaborate:kmCollaborateMainReply.docCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsRead"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdIsRead"
+			type="Boolean"
+			column="fd_is_read"
+			notNull="false"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdIsReply"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdIsReply"
+			type="Boolean"
+			column="fd_is_read"
+			notNull="false"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdReadTime"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdReadTime"
+			type="DateTime"
+			column="fd_read_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsFollow"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdIsFollow"
+			type="Boolean"
+			column="fd_is_follow"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFollowTime"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdFollowTime"
+			type="DateTime"
+			column="fd_follow_time"
+			notNull="false"
+			validate="false" />
+
+		<!-- <simpleProperty
+			name="fdOperatorId"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			length="36"
+			validate="false" /> -->
+
+		<simpleProperty
+			name="fdOperateType"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdOperateType"
+			type="String"
+			column="fd_operate_type"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<modelProperty
+			name="fdCommunicationMain"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdCommunicationMain"
+			type="com.landray.kmss.km.collaborate.model.KmCollaborateMain"
+			column="fd_communication_main_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_person_id"
+			notNull="false"
+			validate="false" />
+			
+		<modelProperty
+			name="fdOperator"
+			messageKey="km-collaborate:kmCollaboratePartnerInfo.fdOperator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_operator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

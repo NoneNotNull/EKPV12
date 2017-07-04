@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 实现关键数据使用情况扩展</description>
+			<author>黄伟强</author>
+			<revision-time>2015-03-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 二级页面按钮操作栏翻页功能</description>
+			<author>王腾飞</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 app中点击子任务没反应问题</description>
+			<author>朱湖强</author>
+			<revision-time>2015-01-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 结项任务不显示更新进度按钮</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 从待办页面进去反馈后自动刷新待办</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务结项后出现不必要的待办</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-25</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 借项任务在任务统计中不正确问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-25</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 进行中的任务重新编辑后变成未启动</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 任务查看页面和任务反馈页面进度改成进度条形式（与列表页面保持一致）</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 如果任务没有子任务，反馈时不显示" 自动根据子任务更新进度"</description>
+			<author>朱湖强</author>
+			<revision-time>2014-12-05</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 执行反馈时，任务进度字段进行数字有效性校验</description>
+			<author>朱湖强</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 驳回任务后，第一反馈人的待办置为已办，其他人的删除</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 驳回任务后，第一反馈人的待办置为已办，其他人的删除</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端三级页面显示附件</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-12</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>移除后台参数设置中关于工作沟通模块的配置</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-11</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端任务反馈查询页面增加所属任务字段</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 驳回页面添加驳回操作按钮</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表视图中过期任务完成时间显示"超期X天"</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端驳回文档打开空白问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 任务表单优化</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端界面和功能优化</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-08</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 反馈任务待办接收人不正确问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-08</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务结项的功能</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 查询条件“任务类型”、“任务评价”</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 任务日历中时间展示</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-18</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建页面国际化</description>
+			<author>周梓凡</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 英文环境下快速选择完成时间BUG</description>
+			<author>周梓凡</author>
+			<revision-time>2014-08-20</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务按人分解时收到两条待办问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-20</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端置为“未完成”后，pc端进度显示为null的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-30</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端置为“未完成”后，pc端进度显示为null的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-30</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 分解子任务页面同步机制标签</description>
+			<author>周梓凡</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 任务进度以进度条展示</description>
+			<author>魏本源</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务管理日历权限问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-27</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务管理模块执行反馈时通知人把接收人放在勾选项中</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-08</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务评价提交时校验评价信息是否为空</description>
+			<author>周梓凡</author>
+			<revision-time>2014-04-11</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务模块部署日程机制</description>
+			<author>周梓凡</author>
+			<revision-time>2014-02-25</revision-time>
+			<relation>
+				<relation-module>sys/agenda</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 删除有关联驳回记录和任务评价的任务时报错</description>
+			<author>魏本源</author>
+			<revision-time>2014-02-18</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 任务查看页面子任务显示按创建时间排序</description>
+			<author>魏本源</author>
+			<revision-time>2013-10-28</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据超过1000时，“ 按指派部门”查询报错</description>
+			<author>朱湖强</author>
+			<revision-time>2013-10-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现“我关注的任务”portlet</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-16</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 列表页面按接收人排序功能</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动办公任务管理模块，执行反馈显示数字中不包括子任务，而进入链接列表中包括子任务</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-22</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 执行反馈时，通知方式不是取默认问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务管理与bam2集成</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-19</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 import标签没设置编码，导致linux下有可能出现乱码问题；优化 移动端页面样式调整</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务管理与旧版工作沟通强关联的问题</description>
+			<author>魏本源</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端的一些显示调整以及谷歌和火狐下任务反馈进度条异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-16</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 需我完成的任务portlet只显示未启动和进行中的任务</description>
+			<author>魏本源</author>
+			<revision-time>2013-07-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务评价的权限</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-05</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 在DB2下更新层级ID出现空格的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-04</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌和火狐下调用表单的reset方法时，隐藏域的值没有清除，导致必填项不填还可以提交问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌和火狐浏览器下，任务进度条不能更新问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务有多个任务接收人时其中一人反馈时，其他人将收到该反馈的待阅提示</description>
+			<author>张乐志</author>
+			<revision-time>2013-05-02</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端新增任务管理模块（包括新建、执行反馈、任务评价和分解子任务等）</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-02</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务接收人由单选改成多选</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-13</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务分析中，统计出来的任务数和点击查看明细不一致问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-02-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 任务变更后向新接收人发待办并取消旧接收人的待办</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-31</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 oracle数据库中in查询超过1000报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-24</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 去除了跟沟通机制的模块关联，优化了读取任务来源的接口，以减少模块间的依赖。</description>
+			<author>叶中奇</author>
+			<revision-time>2012-12-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 任务管理模块对于BAM2的支持</description>
+			<author>李衡</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 创建任务的时候任务同步到日程</description>
+			<author>朱湖强</author>
+			<revision-time>2012-09-27</revision-time>
+			<relation>
+				<relation-module>sys/calendar</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 验证要求完成时间大于当前系统时间</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-17</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延时加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-05</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 分解子任务后，任务接收人无权限访问以及任务树中的人员无法查看整棵任务树文档</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-19</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置，新增窗口时，带出所选择模块或类别的路径而不是默认带出该模块的路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决在WAS、Tomcat下任务树偶发的显示异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-04</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修正子任务创建时的时间校验</description>
+			<author>朱湖强</author>
+			<revision-time>2012-03-22</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>解决was下任务树显示异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-03-12</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>增加“是否包括子部门”和“是否包括子任务”字段对统计结果进行控制。</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-13</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改为：对同一条任务的评价可以有多条</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-08</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>增加校验：子任务的完成时间应该早于父任务完成时间</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-07</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改为：任务进度更新没有完成时，待审信息不消失</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-07</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>增加portlet</description>
+			<author>赵义洪</author>
+			<revision-time>2011-10-10</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>搜索导出结果报错处理</description>
+			<author>李衡</author>
+			<revision-time>2011-09-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>加入到模块配置列表里面</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修正任务执行反馈权限，给予“任务管理_执行反馈”角色可以对所有任务执行反馈</description>
+			<author>yangjh</author>
+			<revision-time>2011-05-24</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加驳回功能，指派人可以驳回接收人反馈完成，但实际没有完成的任务</description>
+			<author>zhuangwl</author>
+			<revision-time>2011-04-27</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

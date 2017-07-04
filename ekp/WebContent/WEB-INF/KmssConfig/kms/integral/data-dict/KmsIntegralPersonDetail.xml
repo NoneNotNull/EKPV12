@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralPersonDetail"
+		messageKey="kms-integral:table.kmsIntegralPersonDetail"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralPersonDetailService"
+		table="kms_integral_person_detail"
+		url="/kms/integral/kms_integral_person_detail/kmsIntegralPersonDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-integral:kmsIntegralPersonDetail.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdValue"
+			messageKey="kms-integral:kmsIntegralPersonDetail.fdValue"
+			type="Integer"
+			column="fd_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSource"
+			messageKey="kms-integral:kmsIntegralPersonDetail.fdSource"
+			type="String"
+			column="fd_source"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRule"
+			messageKey="kms-integral:kmsIntegralPersonDetail.fdRule"
+			type="String"
+			column="fd_rule"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="modelname"
+			messageKey="kms-integral:kmsIntegralPersonDetail.modelname"
+			type="String"
+			column="modelName"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="type"
+			messageKey="kms-integral:kmsIntegralPersonDetail.type"
+			type="String"
+			column="type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-integral:kmsIntegralPersonDetail.fdPerson"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_person"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

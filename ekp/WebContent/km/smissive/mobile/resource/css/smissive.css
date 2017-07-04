@@ -1,0 +1,113 @@
+﻿@charset "utf-8";  
+
+/**
+** 代码制作人: xiex
+** 制作时间：2014-12-05
+** 文件内容描述：待办相关
+** 修改日期：无
+** 修改内容：无
+**********************************************/
+
+/*---------------------------------------- 待审列表 ----------------------------------------*/
+.muiListNoDataArea{ background:#f0eff5;}
+
+/*** 背景图 ***/
+.muiViewBanner{ 
+	background:#915946 url(../images/view_bg.jpg) no-repeat left top; 
+	background-size:cover;
+	min-height: 10rem;
+	padding-right: 0.4rem;
+	padding-bottom: 2rem;
+}
+
+.muiViewBanner .muiSummaryImg {
+	width: 7rem;
+	height: 10rem;
+	border-radius:0;
+}
+
+.muiViewBanner .rightInfo{
+	margin-left: 9.3rem;
+}
+
+.muiViewBanner .rightInfo .title{
+	font-size:2rem;
+	font-weight: 700;
+	line-height: 2.4rem; 
+	min-height:6.2rem;
+	font-weight: normal;
+}
+.muiViewBanner ul{
+	margin-top:0.5rem;
+}
+
+.muiViewBanner ul li{
+	display:block;
+}
+
+.basicInfoHeader{
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+	color: #fff;
+	table-layout: fixed;
+}
+.basicInfoHeader > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.basicInfoHeaderBack{
+	padding-left: 1rem;
+	color: #fff;
+	/* float: right; */
+	cursor: pointer;
+}
+.basicInfoHeaderTitle{
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.muiAccordionPanelContent {
+	color: #2f2f2f;
+	font-size: 1.8rem;
+	-webkit-transition: all 200ms linear;
+	border-top: none;
+	display: block;
+	padding: 0rem 0 0 1rem;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.textAlign{text-align: center;}
+.muiReadAll{font-weight:bold; display:inline-block; width:90%;  font-size:2rem; margin:2.3rem 0rem 1.5rem; height:40px; line-height:40px; color:#fff; background:#5bc91f;}
+
+.muiReadAllItem { border-bottom:1px solid #e2e2e2;}
+.muiReadAllItem .muiAttachmentItemC{ padding-left:0px;}
+
+
+/*** 公文状态 ***/
+.muiSmissiveStatus{  
+    font-size:1rem; 
+    position:absolute; right:0px; bottom:12px; padding:0px 5px;
+    color:#fff;
+    text-align: center;
+}
+.muiSmissiveDiscard{
+	background: rgba(255,156,0,0.8);
+}
+.muiSmissiveDraft{
+	background: rgba(170,170,170,0.8);
+}
+.muiSmissiveExamine{
+	background: rgba(24,180,237,0.8);
+	}
+.muiSmissiveRefuse{
+	background: rgba(255,0,0,0.8);
+}
+.muiSmissivePublish{
+	background: rgba(76,190,69,0.8);
+}

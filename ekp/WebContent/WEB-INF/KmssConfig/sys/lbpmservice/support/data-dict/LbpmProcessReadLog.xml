@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmProcessReadLog"
+		messageKey="sys-lbpmservice-support:table.lbpmProcessReadLog"
+		displayProperty="fdDeptName"
+		serviceBean="lbpmProcessReadLogService"
+		table="lbpm_process_read_log">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdReadTime"
+			messageKey="sys-lbpmservice-support:lbpmProcessReadLog.fdReadTime"
+			type="DateTime"
+			column="fd_read_time"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdReaderClientIP"
+			messageKey="sys-lbpmservice-support:lbpmProcessReadLog.fdReaderClientIP"
+			type="String"
+			column="fd_reader_client_ip"
+			notNull="false"
+			length="30" />
+
+		<simpleProperty
+			name="fdDeptName"
+			messageKey="sys-lbpmservice-support:lbpmProcessReadLog.fdDeptName"
+			type="String"
+			column="fd_dept_name"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpmservice-support:lbpmProcessReadLog.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+
+		<modelProperty
+			name="fdReader"
+			messageKey="sys-lbpmservice-support:lbpmProcessReadLog.fdReader"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_reader_id"
+			notNull="false" />
+
+	</model>
+</models>

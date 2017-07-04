@@ -1,0 +1,10 @@
+var bgclass = (param!=null && param.bgcolor!=null)?('_'+param.bgcolor):'_bgcolor';
+
+{$
+	<div class="lui_nonepanel_frame">
+		<div class="lui_nonepanel{%bgclass%}">
+			<div class="lui_nonepanel_content" data-lui-mark="panel.contents">
+			</div>
+		</div>
+	</div>
+$}

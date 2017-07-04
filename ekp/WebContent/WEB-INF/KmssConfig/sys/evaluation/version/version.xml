@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 admin.do中消息机制默认通知方式设置未生效</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 点评回复中查看对话的回复框在IE8下表情框显示错位</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 点评输入框剩余字数检验以及点评框针对表情输入问题的优化</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 没有一条点评信息时，点评总览视图会报错</description>
+			<author>张文辉</author>
+			<revision-time>2014-10-27</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 点评回复框英文字母自动换行</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 段落点评圈起的内容在was环境乱码的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动新UED支持</description>
+			<author>李衡</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 点评回复框在点击回复时才加载</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 点评回复功能以及段落点评功能</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<relation>
+				<relation-module>sys/praise</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 点评时间取客户端时间的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-01-27</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 点评内容显示调整</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 点评新增删除不更新标签上显示数目的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-06-05</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 前端点评内容把两个英文字符当一个汉字计算；新增 PC端前端页面点评内容字数提示</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-17</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 资源文件导致的英文环境脚本错误</description>
+			<author>魏本源</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免英文翻译中缩写单引号引起js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 没有点评权限时不出现点评框</description>
+			<author>朱湖强</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多行文本框编辑时输入换行，显示的时候没换行的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-27</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 “无数据时”，提示信息不统一的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>移动组件中增加点评功能</description>
+			<author>李衡</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>解决sqlserver下,点评时间相同,按点评时间排序的分页问题</description>
+			<author>李衡</author>
+			<revision-time>2011-12-28</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>90UI文档查看界面点评操作界面调整</description>
+			<author>李衡</author>
+			<revision-time>2011-12-22</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>更换文档发布页面点评处提交按钮背景图片</description>
+			<author>庄为亮</author>
+			<revision-time>2011-12-05</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>没人点评的时候，页面显示点评数为0</description>
+			<author>卢海军</author>
+			<revision-time>2011-10-28</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>ekp90UI改造</description>
+			<author>庄为亮</author>
+			<revision-time>2011-10-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

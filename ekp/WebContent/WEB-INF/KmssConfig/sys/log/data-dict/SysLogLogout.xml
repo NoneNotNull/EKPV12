@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogLogout"
+		messageKey="sys-log:table.sysLogLogout"
+		serviceBean="sysLogLogoutService"
+		table="sys_log_logout">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogLogout.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogLogout.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogLogout.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogLogout.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogLogout.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogLogout.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogLogout.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			length="10" />
+	</model>
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogLogoutBak"
+		messageKey="sys-log:table.sysLogLogoutBak"
+		serviceBean="sysLogLogoutBakService"
+		table="sys_log_logout_bak">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogLogoutBak.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogLogoutBak.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogLogoutBak.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogLogoutBak.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogLogoutBak.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogLogoutBak.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogLogoutBak.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			length="10" />
+	</model>
+</models>

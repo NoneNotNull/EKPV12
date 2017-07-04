@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Pragma" content="No-Cache">
+<style>
+.DisableText {
+	font-style: italic;
+}
+</style>
+<script type="text/javascript">
+var Com_Parameter = {
+	ContextPath:dialogArguments.Window.Com_Parameter.ContextPath,
+	ResPath:dialogArguments.Window.Com_Parameter.ResPath,
+	Style:dialogArguments.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogArguments.Window.Com_Parameter.StylePath
+};
+</script>
+<script type="text/javascript" src="../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/"+Com_Parameter.Style+"/doc/");
+Com_IncludeFile("data.js|dialog.js");
+fdModelName = dialogArguments.config.modelName;
+fdKey = dialogArguments.config.key;
+Com_AddEventListener(window, 'load', function() {
+	Form_DB_Init(dialogArguments.lang, dialogArguments.controls, dialogArguments.config);
+});
+</script>
+<script type="text/javascript" src="form_db_def.js"></script>
+<title>表单数据存储设置</title>
+</head>
+<body>
+<center>
+<br style="30px;"/>
+<table id="titleTable" width="95%" class="tb_normal">
+	<tr>
+		<td width="20%" class="td_normal_title">存储表</td>
+		<td width="80%">
+			<input id="tableIdField" type="hidden" >
+			<input id="tableNameField" type="text" class="inputsgl" style="width:80%;">
+			<a href="javascript:void(0);" onclick="Form_DB_SelectTable();">选择</a>
+		</td>
+	</tr>
+</table>
+<br style="10px;"/>
+<table id="editTable" width="95%" class="tb_normal">
+	<tr class="tr_normal_title">
+		<td width="20px;"> </td>
+		<td width="30%">名称</td>
+		<td width="30%">类型</td>
+		<td width="30%">映射字段</td>
+	</tr>
+</table>
+
+<button class="btnopt" style="margin: 15px 5px;">确定</button>
+<button class="btnopt" style="margin: 15px 5px;" onclick="Com_CloseWindow();">取消</button>
+</center>
+</body>
+</html>

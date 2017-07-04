@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.number.model.SysNumberMain"
+		messageKey="sys-number:table.sysNumberMain"
+		displayProperty="fdName"
+		serviceBean="sysNumberMainService"
+		table="sys_number_main"
+		url="/sys/number/sys_number_main/sysNumberMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-number:sysNumberMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-number:sysNumberMain.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdContent"
+			messageKey="sys-number:sysNumberMain.fdContent"
+			type="String"
+			column="fd_content"
+			notNull="false"
+			length="10000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-number:sysNumberMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="300"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-number:sysNumberMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-number:sysNumberMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDefaultFlag"
+			messageKey="sys-number:sysNumberMain.fdDefaultFlag"
+			type="Integer"
+			column="fd_default_flag"
+			notNull="false"
+			length="4"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTemplateFlag"
+			messageKey="sys-number:sysNumberMain.fdTemplateFlag"
+			type="Integer"
+			column="fd_template_flag"
+			notNull="false"
+			length="4"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-number:sysNumberMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-number:sysNumberMain.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="sys-number:sysNumberMain.authReaders"
+			column="fd_number_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="sys_number_main_reader"
+			inverse="false" />
+		<simpleProperty
+			name="fdFlowContent"
+			messageKey="sys-number:sysNumberMain.fdFlowContent"
+			type="String"
+			column="fd_flow_content"
+			notNull="false"
+			length="1000"
+			validate="false" />
+	</model>
+</models>

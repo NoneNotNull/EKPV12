@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension-point id="com.landray.kmss.sys.person">
+		<item name="imageBean">
+			<param name="service" kind="spring" 
+				basedOn="com.landray.kmss.sys.person.interfaces.PersonImageService"
+				required="true">
+				<description>详见PersonImageService接口说明</description>
+			</param>
+			<param name="message" kind="string">
+				<description>admin.do中显示名称，非必填，没有就显示配置的service值</description>
+			</param>
+			<description>通过此service可以获取到头像地址</description>
+		</item>
+		<item name="infoBean">
+			<param name="service" kind="spring" 
+				basedOn="com.landray.kmss.sys.person.interfaces.PersonInfoService"
+				required="true">
+				<description>详见PersonInfoService接口说明</description>
+			</param>
+			<param name="message" kind="string">
+				<description>admin.do中显示名称，非必填，没有就显示配置的service值</description>
+			</param>
+			<description>人员信息服务，通过此service可以获取到个人信息展现页面和头像地址</description>
+		</item>
+		<item name="categoryDialog">
+			<param name="service" kind="spring" 
+				basedOn="com.landray.kmss.sys.person.interfaces.FavoriteCategoryDialogHandler"
+				required="true">
+				<description>详见FavoriteCategoryDialogHandler接口说明</description>
+			</param>
+			<description>常用分类对话框扩展，通过此扩展项目</description>
+		</item>
+		<description>
+			个人信息相关扩展项
+		</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.person.dynamic">
+		<item name="toPersonSender">
+			<param name="service" kind="spring" 
+				basedOn="com.landray.kmss.sys.person.interfaces.SendDynamicInfoPushToPersonService"
+				required="true">
+				<description>详见SendDynamicInfoPushToPersonService接口说明</description>
+			</param>
+			<description>个人动态推送服务</description>
+		</item>
+		<description>
+			动态推送扩展
+		</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.config.design">
+		<item name="xml">
+			<param name="namespace" value="http://www.landray.com.cn/schema/person" />
+			<param name="handler" value="com.landray.kmss.sys.person.xml.PersonNamespaceHandler" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.person">
+		<item name="categoryDialog">
+			<param name="service" value="globalCategoryFavoriteCategoryDialogHandler" />
+		</item>
+		<item name="categoryDialog">
+			<param name="service" value="simpleCategoryFavoriteCategoryDialogHandler" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/sys/person/admin_config.jsp" />
+			<param name="type" value="other" />
+			<param name="order" value="40" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.person.xml.PersonNamespaceHandler" />
+			<param name="service" value="personNamespaceHandler" />
+		</item>
+	</extension>
+	
+</plugin>

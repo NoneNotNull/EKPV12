@@ -1,0 +1,153 @@
+/** 简要CSS **/
+.personContainer strong{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: inline-block;
+	color: #898989;
+	font-size: 1.4rem;
+	padding-top: 1.5rem;
+	padding-left: 0.8rem;
+	padding-right: 1.5rem;
+}
+.personContainer .personList{}
+
+.personContainer .staffCell {
+	display: inline-block;
+	float: left;
+	margin-right: 1.4rem;
+	text-align: center;
+}
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.personContainer .staffCell {
+		margin-right: 1.4rem;
+	}
+}
+
+.personContainer .staffCell img {
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+	margin-bottom: 0.3rem;
+}
+
+.personContainer .staffCell .name {
+	display: block;
+	font-size: 1.2rem;
+	width: 3.8rem;
+	word-break: break-all;
+}
+
+.personContainer .staffCell .more {
+	display: inline-block;
+	width: 3.7rem;
+	height: 3.7rem;
+	line-height: 3.7rem;
+	border-radius: 50%;
+	background: #6fc13a;
+	color: #fff;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+.personTotal{
+	margin-top:5px;
+	text-align: center;
+}
+
+/** 详情CSS **/
+.personHeader {
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed!important;
+	color: #fff;
+	table-layout: fixed;
+}
+
+.personHeader > div {
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.personHeaderReturn {
+	padding-left: 1rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+.personHeaderTitle {
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.muiPerson .muiPersonIcon{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+	width: 3.2rem;
+	text-align: center;
+}
+
+.muiPerson .muiPersonIcon img{
+	width: 3rem;
+	height: 3rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+
+.muiPerson .muiPersonInfo{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+}
+
+.muiPerson .muiPersonName{
+	padding-left: 0.5rem;
+}
+
+.muiPerson .personHeader{
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+	color: #fff;
+	table-layout: fixed;
+}
+
+.personHeader > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.personHeaderTitle{
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.personHeaderReturn{
+	padding-left: 1rem;
+	color: #fff;
+	/* float: right; */
+	cursor: pointer;
+}
+
+.mblEdgeToEdgeList .muiListItem.muiPerson{
+	margin: 0;
+	padding: 0.8rem 0.5rem 0.8rem 1rem;
+}

@@ -1,0 +1,38 @@
+<ul>
+	<li>
+		<div data-dojo-type="mui/form/Address" 
+				data-dojo-props="isMul:true,type: ORG_TYPE_ALL,idField:'fdIntroduceGoalIds',placeholder:'请选择推荐对象',nameField:'fdIntroduceGoalNames'">
+		</div>
+	</li>
+	
+	<li style="display: none;">
+		<input type="hidden" name="fdIntroduceGoalNames" value=""/>
+		<input type="hidden" name="fdIntroduceGoalIds" value=""/>
+		<input type="hidden" name="fdIntroduceGrade" value="0">
+	</li>
+	
+	<li class="muiIntrReason">
+		<textarea name="fdIntroduceReason" placeholder="我来说两句..." class="muiIntrMaskText"></textarea>
+	</li>
+	<li style="display: none;">
+		<label>
+			<input type="checkbox" name="fdIntroduceToEssence" value="0"/>精华
+		</label>
+		<label>
+			<input type="checkbox" name="fdIntroduceToPerson" value="1" checked="checked"/>个人
+		</label>
+	</li>
+	<li class="muiIntrGradeBar" >
+		<div class="muiIntrGradeLeft">
+			<span>推荐级别：</span>
+			<span id="intr_praise_opt" 
+				data-dojo-type="!{starklass}" 
+				data-dojo-props="value:3,editable:true,numStars:3,icon:'mui mui-2 mui-praise'">
+			</span>
+		</div>
+		<div class="muiIntrGradeRight">
+			<div class="muiIntrSubmit">发表</div>
+		</div>
+	</li>
+	<li class="muiIntrHideMask"><div class="mui-down-n mui"></div></li>
+</ul>

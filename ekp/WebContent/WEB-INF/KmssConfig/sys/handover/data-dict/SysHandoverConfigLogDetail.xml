@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.handover.model.SysHandoverConfigLogDetail"
+		messageKey="sys-handover:table.sysHandoverConfigLogDetail"
+		displayProperty="fdModelId"
+		serviceBean="sysHandoverConfigLogDetailService"
+		table="Sys_Handover_Config_Log_Detail"
+		url="/sys/handover/sys_handover_config_log_detail/sysHandoverConfigLogDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-handover:sysHandoverConfigLogDetail.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-handover:sysHandoverConfigLogDetail.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-handover:sysHandoverConfigLogDetail.fdDescription"
+			type="RTF"
+			column="fd_description"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-handover:sysHandoverConfigLogDetail.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="1500"
+			validate="true" />	
+
+		<modelProperty
+			name="fdLog"
+			messageKey="sys-handover:sysHandoverConfigLogDetail.fdLog"
+			type="com.landray.kmss.sys.handover.sys.handover.model.SysHandoverConfigLog"
+			column="fd_log"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

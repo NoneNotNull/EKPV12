@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+	<!-- 开始节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="138bde78c720b9d73b47775454daeb56">
+			<param
+				name="type"
+				value="startNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.nodeType.startNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpm.engine.node.startnode.StartNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpm/engine/node/startnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="startNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="startNodeBehaviourService" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="138bdee6236df3c76d81dd844e2b980a">
+			<param
+				name="type"
+				value="startNodeDesc" />
+			<param
+				name="chartJs"
+				value="/sys/lbpm/engine/node/startnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpm/engine/node/startnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="startNodeDesc" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmProcessStaredtEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine-node-startnode:lbpm.eventType.lbpmProcessStaredtEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.node.startnode.StartNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.node.startnode.LbpmProcessStaredtEvent" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="lbpmAuthorize_authorizeType"
+		default-value="0">
+		<value-label>
+			<value>0</value>
+			<label-key>lbpmAuthorize.fdAuthorize.process</label-key>
+			<bundle>sys-lbpmext-authorize</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>lbpmAuthorize.fdAuthorize.reading</label-key>
+			<bundle>sys-lbpmext-authorize</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>lbpmAuthorize.fdAuthorize.proxy</label-key>
+			<bundle>sys-lbpmext-authorize</bundle>
+		</value-label>
+	</type>
+
+</column-enums>

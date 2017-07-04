@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.review.model.KmReviewTemplate"
+		messageKey="km-review:table.kmReviewTemplate"
+		displayProperty="fdName"
+		serviceBean="kmReviewTemplateService"
+		table="km_review_template"
+		url="/km/review/km_review_template/kmReviewTemplate.do?method=edit&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="syncDataToCalendarTime"
+			messageKey="km-review:kmReviewTemplate.syncDataToCalendarTime"
+			type="String"
+			column="sync_data_to_calendar_time"
+			notNull="false"
+			unique="false"
+			length="500"
+			canSearch="true"
+			canRelation="true"
+			validate="false" />
+		<simpleProperty
+			name="fdName"
+			messageKey="km-review:kmReviewTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdLableVisiable"
+			messageKey="km-review:kmReviewTemplate.fdLableVisiable"
+			type="Boolean"
+			column="fd_lable_visiable"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdFeedbackModify"
+			messageKey="km-review:kmReviewTemplate.fdFeedbackModify"
+			type="Boolean"
+			column="fd_feedback_modify"
+			notNull="true"
+			length="1" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-review:kmReviewTemplate.fdOrder"
+			type="Long"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdNumberPrefix"
+			messageKey="km-review:kmReviewTemplate.fdNumberPrefix"
+			type="String"
+			column="fd_number_prefix"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="docContent"
+			messageKey="km-review:kmReviewTemplate.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-review:kmReviewTemplate.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true" />
+		<modelProperty
+			name="docCategory"
+			messageKey="km-review:kmReviewTemplate.usedCategory"
+			type="com.landray.kmss.sys.category.model.SysCategoryMain"
+			column="fd_category_id"
+			notNull="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-review:kmReviewTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="km-review:kmReviewTemplate.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNodownload"
+			messageKey="km-review:kmReviewTemplate.authTmpAttNodownload"
+			type="Boolean"
+			column="auth_tmp_att_nodownload"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNocopy"
+			messageKey="km-review:kmReviewTemplate.authTmpAttNocopy"
+			type="Boolean"
+			column="auth_tmp_att_nocopy"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNoprint"
+			messageKey="km-review:kmReviewTemplate.authTmpAttNoprint"
+			type="Boolean"
+			column="auth_tmp_att_noprint"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsExternal"
+			messageKey="km-review:kmReviewMain.fdIsExternal"
+			type="Boolean"
+			column="fd_is_external"
+			notNull="false"
+			unique="false"
+			length="1" />	
+	    <simpleProperty
+			name="fdExternalUrl"
+			messageKey="km-review:kmReviewMain.fdExternalUrl"
+			type="String"
+			column="fd_external_url"
+			notNull="false"
+			unique="false"
+			length="1000" />		
+		<simpleProperty
+			name="titleRegulation"
+			messageKey="km-review:kmReviewTemplate.titleRegulation"
+			type="String"
+			column="fd_title_regulation"
+			notNull="false"
+			length="3000" />
+		<simpleProperty
+			name="titleRegulationName"
+			messageKey="km-review:kmReviewTemplate.titleRegulation"
+			type="String"
+			column="fd_title_regulation_name"
+			notNull="false"
+			length="3000" />	
+		<!--  
+		<simpleProperty
+			name="fdExtFilePath"
+			messageKey="km-review:kmReviewTemplate.fdExtFilePath"
+			type="String"
+			column="fd_ext_file_path"
+			notNull="false"
+			length="200" />
+		-->
+		<listProperty
+			name="authTmpReaders"
+			messageKey="km-review:kmReviewTemplate.authTmpReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_review_tmp_main_reader" />
+		<listProperty
+			name="authReaders"
+			messageKey="km-review:kmReviewTemplate.authReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_review_template_reader" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-review:kmReviewTemplate.authEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_review_template_editor" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-review:kmReviewTemplate.authOtherEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_review_template_oeditor" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-review:kmReviewTemplate.authOtherReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_review_template_oreader" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-review:kmReviewTemplate.authAllReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_review_template_areader" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-review:kmReviewTemplate.authAllEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="km_review_template_aeditor" />
+		<listProperty
+			name="authTmpAttDownloads"
+			messageKey="km-review:kmReviewTemplate.authTmpAttDownloads"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_review_tmp_main_attdl" />
+		<listProperty
+			name="authTmpAttCopys"
+			messageKey="km-review:kmReviewTemplate.authTmpAttCopys"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_review_tmp_main_attcopy" />
+		<listProperty
+			name="authTmpAttPrints"
+			messageKey="km-review:kmReviewTemplate.authTmpAttPrints"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_review_tmp_main_attprint" />
+		<listProperty
+			name="fdLabelReaders"
+			messageKey="km-review:kmReviewTemplate.fdLabelReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_lable_reader_id"
+			table="km_review_temp_lable_reader" />
+		<listProperty
+			name="docProperties"
+			messageKey="km-review:kmReviewTemplate.docProperties"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.category.model.SysCategoryProperty"
+			elementColumn="fd_property_id"
+			table="km_review_template_property" />
+		<listProperty
+			name="fdPosts"
+			messageKey="km-review:kmReviewTemplate.fdPosts"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_post_id"
+			table="km_review_template_post" />
+		<listProperty
+			name="fdFeedback"
+			messageKey="km-review:kmReviewTemplate.fdFeedback"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_feedback_id"
+			table="km_review_template_feedback" />
+		<listProperty
+			name="docKeyword"
+			messageKey="km-review:kmReviewTemplate.docKeyword"
+			column="fd_object_id"
+			type="com.landray.kmss.km.review.model.KmReviewTemplateKeyword"
+			cascade="all-delete-orphan"
+			inverse="true" />
+		<attachmentProperty
+			name="autoHashMap"
+			messageKey="km-review:kmReviewMain.attachment"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdUseForm"
+			messageKey="km-review:kmReviewTemplate.fdUseForm"
+			type="Boolean"
+			column="fd_use_form"
+			notNull="false"
+			length="1" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-review:kmReviewTemplate.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-review:kmReviewTemplate.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<simpleProperty
+			name="authChangeReaderFlag"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_reader_flag"
+			canDisplay="true"
+			readOnly="false" />
+		<simpleProperty
+			name="authRBPFlag"
+			messageKey="sys-right:right.effect.time"
+			type="Boolean"
+			column="fd_rbp_flag"
+			canDisplay="true"
+			readOnly="false"/>	
+		<simpleProperty
+			name="authChangeAtt"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_att"
+			canDisplay="true"
+			readOnly="false" />
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+	</model>
+</models>

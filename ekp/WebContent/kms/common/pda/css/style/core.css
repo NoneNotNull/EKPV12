@@ -1,0 +1,14 @@
+.lui-core-header {
+	position: fixed;
+	z-index: 99;
+}
+
+.lui-core-header .lui-docSubject {
+	right: 105px;
+	left: 105px;
+}
+
+.lui-core-header .lui-docSubject h2 {
+	color: #3284d0;
+	font-weight: normal;
+}

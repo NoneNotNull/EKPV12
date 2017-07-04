@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<form
+			name="changeRightForm">
+			<field
+				property="repElementId"
+				depends="required">
+				<arg
+					key="right.change.repElement"
+					bundle="sys-right"
+					position="0" />
+			</field>
+		</form>
+
+		<form
+			name="changeTmpRightForm">
+			<field
+				property="repElementId"
+				depends="required">
+				<arg
+					key="right.change.repElement"
+					bundle="sys-right"
+					position="0" />
+			</field>
+		</form>
+
+		<form
+			name="batchChangeRightForm">
+			<field
+				property="elementIds" />
+			<field
+				property="fdOperationType" />
+		</form>
+
+		<form
+			name="tmpBatchChangeRightForm">
+			<field
+				property="fdOperationType" />
+		</form>
+		<form
+			name="cChangeDocRightForm">
+			<field
+				property="fdOperationType" />
+		</form>
+		<form
+			name="cChangeCateRightForm">
+			<field
+				property="fdOperationType" />
+		</form>
+		<form
+			name="cChangeTmpRightForm">
+			<field
+				property="fdOperationType" />
+		</form>
+	</formset>
+</form-validation>

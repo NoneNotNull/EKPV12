@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 区域组设置阅读页面相关描述</description>
+			<author>谭又豪</author>
+			<revision-time>2014-05-04</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 工时计算中补班和上班无重叠时间时，出现的计算问题</description>
+			<author>李衡</author>
+			<revision-time>2014-04-28</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 计算工时当假期和工作日重叠时，未剔除假期的情况</description>
+			<author>李衡</author>
+			<revision-time>2013-03-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 计算工时时，跨天出错问题</description>
+			<author>李衡</author>
+			<revision-time>2013-03-08</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复计算工时有误的缺陷</description>
+			<author>龚健</author>
+			<revision-time>2013-01-09</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 计算指定时间后多少个工作日的日期，同时改造了工作日历计算工时的计算逻辑，提供了可扩展的工时计算接口</description>
+			<author>龚健</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限配置错误的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,173 @@
+@charset "utf-8";
+
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+ol, ul {
+	list-style: none;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.ImeetingFixedItem{
+	z-index: 99;
+}
+
+/**头部基本信息 **/
+.muiSummaryInfoBanner{
+	min-height: 6rem;
+	background:#6e98dd url(../images/summary_view_bg.jpg) no-repeat left top;
+	background-size:cover;
+	overflow: hidden;
+	position: relative;
+	padding-top:1.8rem;
+	padding-bottom:1.2rem;
+}
+
+.muiSummaryInfoBanner .leftInfo{
+  position:absolute; left:1rem; top:2rem;
+}
+
+.muiSummaryInfoBanner .leftInfo .figure{ display:inline-block; width:5rem; height:5rem; border-radius: 50%; border:2px solid rgba(255,255,255,1); }
+
+.muiSummaryInfoBanner .muiSummaryImg {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%;
+}
+
+.muiSummaryInfoBanner .rightInfo{
+	position: relative;
+	margin-left: 7.2rem;
+}
+
+.muiSummaryInfoBanner .rightInfo .title{
+	padding-right: 1rem;
+	text-align: left;
+	color: #fff;
+	font-size:1.8rem;
+	font-weight: 700;
+	word-break:break-all;
+	line-height:2rem;
+ 	min-height:5rem;	
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+}
+
+.muiSummaryInfoBanner ul{
+	position: relative;
+	
+}
+
+.muiSummaryInfoBanner ul li{
+	font-size: 1.2rem;
+	margin-top: 2px;
+	line-height: 1.4rem;
+	display:inline-block;
+	margin-right: 1rem;
+	color: #fff;
+}
+
+.muiSummaryInfoBanner .mui {
+	font-size: 1.6rem;
+	line-height: 1;
+}
+
+.muiSummaryInfoBanner .mui.mui-person{ position:relative; top:-1px;}
+.muiSummaryPanelContent{
+	margin: 1.5rem 0 0;
+	background-color: white;
+	display: block!important;
+}
+
+.muiAccordionPanel .txtContent {
+	line-height: 1.2;
+	color: #000;
+	font-size: 1.4rem;
+	padding: 8px 5px;
+	min-height: 3rem;
+}
+
+.muiReadButton{
+	font-weight: bold;
+	width: 95%;
+	font-size: 1.6rem;
+	margin: 2.3rem auto;
+	height: 40px;
+	line-height: 40px;
+	color: #2c79c7; border:1px solid #2c79c7;
+	text-align: center; border-radius:5px;
+}
+
+/**会议人员信息 **/
+.muiMeetingList li {
+	border-bottom: 1px dashed #e0e0e0;
+	line-height:1;
+	zoom:1;
+	padding:8px 0px; 
+	padding-left:5rem; 
+	position:relative; 
+}
+
+.muiMeetingList li:last-child {
+	border-bottom: 0px;
+}
+.muiMeetingList li:after{ clear:both; visibility:hidden; line-height:0px; content:"clear"; display:block;}
+.muiMeetingList strong {
+	position:absolute; 
+	left:0px; top:0px;
+	display: inline-block;
+	color: #898989;
+	font-size: 1.4rem;
+	padding-top:1.5rem;
+	padding-left: 0.8rem;
+	padding-right: 1.5rem;
+}
+.muiMeetingList strong>div{ text-align:center; color:#f00; font-size:1.2rem; padding-top:0.4rem;}
+
+.muiMeetingList .staffList{ 
+	padding:0.5rem 0; 
+	font-size:1.4rem; 
+	line-height:1.5;
+}
+
+.personTotal{
+	margin-top:5px;
+	text-align: center;
+}
+
+/** 会议决议 **/
+.muiAccordionPanelTitle>div:last-child{
+	left: 0;
+	right: 0;
+}
+
+.muiAccordionPanel{
+	margin: 1.5rem 0 0;
+}
+
+.muiImeetingPanelContent{
+	padding:0rem 0 0 1rem!important;
+}
+
+.muiAccordionPanel .muiAccordionPanelContent{
+	padding: 0px 0px;
+	min-height: 3rem;
+}
+
+.muiAccordionPanelContent .muiAttachments{
+	margin-right: 0;
+}
+
+.muiAccordionPanel .muiAccordionPanelContent.proceePanelContent{
+	padding: 0.8rem 1rem;
+}
+.muiAccordionPanel .muiAccordionPanelContent.proceePanelContent .muiFieldRtf{ padding-right: 0;}

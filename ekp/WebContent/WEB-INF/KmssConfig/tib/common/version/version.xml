@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 日志的定时任务丢失问题</description>
+			<author>邱建华</author>
+			<revision-time>2014-07-30</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 TIB表单控件</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 Tib新版SAP功能与旧版Third_SAP功能冲突</description>
+			<author>张添</author>
+			<revision-time>2013-04-03</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动SQL控件错误目录</description>
+			<author>邱建华</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据字典中遗忘SAP表单控件的代码，以及数据导出中导出数据遗留的问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 错误目录资源文件</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 代码中的国际化问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决TIB中SQL注入安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据导入导出解耦的问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+	</modifies>
+</version>

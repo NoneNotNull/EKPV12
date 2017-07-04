@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd">
+	<combin id="menu.path.tib.category" name="TIB组件全局分类路径导航【二\三级页面】" file="/tib/common/ui/path_tib_category.jsp"></combin>
+	<combin id="menu.path.tib.simplecategory" name="TIB组件简单分类路径导航【二\三级页面】" file="/tib/common/ui/path_tib_simple_category.jsp"></combin>
+	<combin id="menu.nav.tib.simplecategory.default" name="TIB组件简单分类默认分类左边树导航【二级页面】" file="/tib/common/ui/nav_tib_simple_category_flat.jsp"></combin>
+	<combin id="menu.nav.tib.customcategory.default" name="TIB组件自定义分类默认分类左边树导航【二级页面】" file="/tib/common/ui/nav_tib_custom_category_flat.jsp"></combin>
+</root>

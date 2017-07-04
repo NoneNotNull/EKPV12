@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.xform.base.model.SysFormTemplateHistory"
+		messageKey="sys-xform:model.sysFormTemplateHistory"
+		displayProperty="fdFormFileName"
+		serviceBean="sysFormTemplateHistoryService"
+		table="sys_xform_template_history">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdDesignerHtml"
+			messageKey=""
+			type="RTF"
+			column="fd_designer_html"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdMetadataXml"
+			messageKey=""
+			type="RTF"
+			column="fd_metadata_xml"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdDisplayJsp"
+			messageKey=""
+			type="RTF"
+			column="fd_display_jsp"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="fdTemplateEdition"
+			messageKey=""
+			type="String"
+			column="fd_template_edition"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdMode"
+			messageKey=""
+			type="Integer"
+			column="fd_mode"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdDisplayType"
+			messageKey=""
+			type="Integer"
+			column="fd_display_type"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdFormFileName"
+			messageKey=""
+			type="String"
+			column="fd_form_file_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey=""
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false" />
+		<modelProperty
+			name="fdCommonTemplate"
+			messageKey=""
+			type="com.landray.kmss.sys.xform.base.model.SysFormCommonTemplate"
+			column="fd_common_id"
+			notNull="false" />
+		<modelProperty
+			name="fdTemplate"
+			messageKey=""
+			type="com.landray.kmss.sys.xform.base.model.SysFormTemplate"
+			column="fd_template_id"
+			notNull="false" />
+		<simpleProperty
+			name="fdKey"
+			messageKey=""
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey=""
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey=""
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+	</model>
+</models>

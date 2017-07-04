@@ -1,0 +1,476 @@
+﻿#content .muiEvalTitle {
+	margin: 1rem 1rem 0 1rem;
+	background-color: #fff;
+	border-left: 1px solid #e4e4e4;
+	border-right: 1px solid #e4e4e4;
+	padding-top: 0.5rem;
+}
+
+#eval_scollView {
+	background-color: #f0f0f0; 
+}
+
+#eval_star_opt.muiRating{
+	width: 12.5rem!important;
+}
+
+.muiEvalTitle div {
+	color: #555e67;
+	font-size: 1.5rem;
+	line-height: 2.8rem;
+	display: inline-block;
+	padding-left: 0.5rem;
+	font-weight: bold;
+}
+
+.muiEvaluationContent {
+	padding-left:4.6rem;
+}
+
+.muiEvaluationItem {
+	padding: 0.8rem 0 0.8rem 0;
+	min-height: 2rem;
+	border-bottom: 1px dotted #d1d1d1;
+	list-style: none;
+	margin: 0 0.8rem;
+}
+
+.muiEvaluationItem:last-child {
+	border-bottom: 0;
+}
+
+.muiEvaluationIcon {
+	width: 3.7rem;
+	height: 3.7rem;
+	border: 1px solid #eee;
+	border-radius: 50%;
+	overflow: hidden;
+	display: block;
+	float: left;
+	vertical-align:middle;
+}
+
+.muiEvaluationImg {
+	width: 100%;
+	border: none;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.muiEvaluationInfo {
+	margin-top:0.2rem;
+	margin-bottom: 0;
+	padding:0;
+	width: 100%;
+	height: 2.2rem;
+	line-height: 2.2rem;
+	vertical-align: middle;
+	display: table;
+}
+
+.muiEvaluationLabel {
+	font-size: 1.4rem;
+	display: table-cell;
+	font-weight:normal;
+}
+
+.muiEvaluationScore {
+	text-align: right;
+	vertical-align:top;
+	display: table-cell;
+}
+
+.muiEvaluationSummary {
+	margin: 0;
+	margin-top:0.5rem;
+	font-size: 1.4rem;
+	text-align: justify;
+	line-height:1.3;
+	color: #000;
+	word-break: break-all;
+	overflow: hidden;
+}
+
+.muiEvaluationCreated {
+	width: 100%;
+	margin:-0.4rem 0 0;
+	padding:0 0 0 0.1rem;
+	color: #828282;
+	font-size:1.1rem;
+	text-align: left;
+}
+.muiEvaluationCreated>i.mui{
+	margin-right: 2px;
+	font-size: 1.2rem;
+	line-height: 1;
+	position: relative;
+	top:-1px;
+}
+.muiEvaluationScore .muiRating {
+	width: 6rem !important;
+}
+
+
+#eval_tabbar li {
+	list-style: none;
+	display: inline-block;
+	width: 85%;
+	height: 100%;
+	text-align: left;
+}
+
+#eval_tabbar li:first-child {
+	width: 10% !important;
+}
+
+#eval_tabbar .muiEvalSubContainer {
+	width: 10% !important;
+	display: none;
+}
+
+.muiEvalGradeLeft {
+color:#7e7e7e;	text-align: left;
+	vertical-align: middle;
+	font-size: 1.4rem;
+	display: table-cell;
+}
+
+.muiEvalGradeLeft>span:first-child {
+	position: relative;
+	top: 0.3rem;
+}
+
+.muiEvalGradeRight {
+	vertical-align: middle;
+	text-align: right;
+	font-size: 1.4rem;
+	display: table-cell;
+}
+
+.muiEvalGradeLeft .muiRatingArea i,.muiEvalGradeLeft .muiRatingValue i {
+	font-size: 2rem;
+	width: 2.5rem;
+}
+
+.muiEvalGradeGood,.muiEvalGradeBad {
+	color: #ffb535 !important;
+	font-size: 1.5rem;
+}
+
+.muiEvalGradeBar {
+	display: table;
+	width: 100%;
+}
+
+.muiEvalGradeBad {
+	color: #bfbfbf !important;
+}
+
+.muiEvalText,
+.muiEvalMaskText {
+	width: 90%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1.4rem;
+	background-color: #fff;
+	display: block;
+	border: 1px solid #d7d7d7;
+	/*去除默认样式*/
+	-webkit-appearance: none;
+	-webkit-border-radius: 4px;
+}
+
+.muiEvalMaskText {
+	width: 100%;
+	height: 4rem;
+	line-height: normal;
+    font-size:1.6rem;
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.muiEvalStoreList {
+	margin: 0 1rem;
+	border-top: none;
+	border-left: 1px solid #e4e4e4;
+	border-right: 1px solid #e4e4e4;
+}
+
+.muiEvalMask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+	overflow: hidden;
+	-webkit-transition: opacity 0.2s linear;
+	opacity: 0;
+}
+
+.muiEvalMask ul {
+	-webkit-transform: translate3d(0px, 400%, 0px);
+	-webkit-transition: all 0.5s ease-out;
+	padding: 0;
+	margin: 0;
+	background-color: #f4f4f4;
+	padding: 0.7rem 1.5rem;
+}
+
+.muiEvalMask>ul>li:first-child {
+	padding-top: 0;
+	border: 1px solid #d7d7d7;
+}
+
+.muiEvalMask>ul>li {
+	list-style: none;
+	padding-top: 0.5rem;
+}
+
+.muiEvalOpt {
+	width: auto !important;
+	position: relative;
+	top: 0.4rem;
+}
+
+.muiEvalSubmit {
+	text-align: right;
+	border: #b5b5b5 1px solid;
+	color: #b5b5b5;
+	display: inline-block;
+	padding: 0.2rem 0.7rem;
+	border-radius: 3px;
+	font-size: 1.4rem;
+}
+
+.muiEvalHideMask {
+	border-radius: 50%;
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	bottom: -2rem;
+	background-color: #f4f4f4;
+	left: 1.5rem;
+	z-index: -1;
+	text-align: center;
+	line-height: 4.3rem;
+}
+
+.muiEvalHideMask>div {
+	vertical-align: bottom;
+	font-size: 2rem;
+	color: #b5b5b5;
+}
+
+.muiEvalSubmit.muiEvalSubmitEnable {
+	background-color: #2a61be;
+	color: #fff;
+	border-color: #2a61be;
+}
+
+.muiEvalTitle>span {
+	background-color: #f55e4d;
+ margin-left:-0.4rem;	width: 0.4rem;
+	height: 2rem;
+	display: inline-block;
+		vertical-align: middle;
+}
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.muiEvaluationIcon {
+		width: 3.7rem;
+		height: 3.7rem;
+		border: 1px solid #eee;
+		border-radius: 50%;
+		overflow: hidden;
+		display: block;
+	}
+	.muiEvaluationCreated {
+		width: 100%;
+		margin:-0.4rem 0 0;
+		padding:0 0 0 0.2rem;
+		color: #828282;
+		font-size: 1.2rem;
+		text-align: left;
+		vertical-align: middle;
+	}
+	.muiEvalOpt {
+		width: auto !important;
+		position: relative;
+		top: 0.4rem;
+	}
+	.muiEvalTitle div {
+		color: #555e67;
+		font-size: 1.5rem;
+		line-height: 2.8rem;
+		display: inline-block;
+		padding-left: 0.5rem;
+		font-weight: bold;
+	}
+	.muiEvalText {
+		height: 2.8rem;
+		line-height: 2.8rem;
+		font-size: 1.6rem
+	}
+	.muiEvalMaskText {
+		width: 100%;
+		height: 6rem;
+		line-height: 1.6rem;
+		border: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiEvaluationIcon {
+		width: 3.7rem;
+		height: 3.7rem;
+		border: 1px solid #eee;
+		border-radius: 50%;
+		overflow: hidden;
+		display: block;
+	}
+	.muiEvaluationCreated {
+		width: 100%;
+		margin:-0.4rem 0 0;
+		padding:0 0 0 0.2rem;
+		color: #828282;
+		font-size: 1rem;
+		text-align: left;
+		vertical-align: middle;
+	}
+	.muiEvalOpt {
+		width: auto !important;
+		position: relative;
+		top: 0.6rem;
+	}
+	.muiEvalTitle div {
+		color: #555e67;
+		font-size: 1.5rem;
+		line-height: 2.8rem;
+		position: relative;
+		display: inline-block;
+		padding-left: 0.5rem;
+		font-weight: bold;
+	}
+	.muiEvalText {
+		height: 2.8rem;
+		line-height: 2.8rem;
+		font-size: 1.6rem
+	}
+	.muiEvalMaskText {
+		width: 100%;
+		height: 6rem;
+		line-height: 1.6rem;
+        font-size:1.6rem;
+		border: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+ul.muiEvaluationHistogramContainer{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-left: 1px solid #e2e2e2;
+	padding-left: 1rem;
+}
+
+.muiEvaluationHeaderContainer {
+	margin: 0.3rem 1rem 0;
+	background-color: #fff;
+	min-height: 9rem;
+	border: 1px solid #e4e4e4;
+}
+.muiEvaluationHistogramContainer li {
+	margin: 0.1rem 0;
+}
+.muiEvaluationHeaderContent {
+	padding: 1rem;
+}
+.muiEvaluationHeaderContent .muiEvaluationHeaderLeft {
+	float: left;
+	width: 10rem;
+	padding-top: 0.2rem;
+}
+.muiEvaluationHeaderContent .muiEvaluationHeadeRight {
+	padding-left: 10rem;
+	height: 100%;
+}
+.muiEvaluationHeaderScore {
+	color:#ffb535;
+	font-size: 4.2rem;
+	text-align: center;
+}
+.muiEvaluationScoreUnit {
+	font-weight: normal;
+	font-size: 1.6rem;
+}
+.muiEvaluationHistogramContent {
+	position: relative;
+	display: inline-block;
+	height: 1.1rem;
+	margin-left: 0.2em;
+	background-color: #E6E5E1;
+	top: 1px;
+}
+
+.muiEvaluationHistogramBody {
+	display: inline-block;
+	background-color: #ffb535; 
+	height: 1.1rem;
+	position: absolute;
+} 
+
+.muiEvaluationHistogramTitle {
+	width: 2rem;
+	text-align: left;
+	font-size: 1.2rem;
+	display: inline-block;
+}
+.muiEvaluationHistogramNum {
+	color:#828282;
+	font-size: 1.2rem;
+	padding-left: 0.3rem;
+}
+
+.muiEvaluationHeaderLeft .mui-star-on,
+.muiEvaluationHeaderLeft .mui-star-off {
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	margin: 0 0.2rem;
+}
+
+.mulRatingHarfContainer {
+	position: relative;
+}
+.mulRatingHarf {
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+.muiEvaluationHeaderLeft .muiRating {
+	width: 100%!important;
+}
+.muiEvaluationHeaderLeft .muiRatingArea {
+	text-align: center;
+}
+.muiEvaluationHeaderNone {
+	text-align: center;
+	padding: 0.8rem 0;
+	color: #ffb535;
+}
+
+.muiEvaluationHeadeCount {
+	color:#828282;
+	font-size: 1.2rem;
+	text-align: center;
+	margin-top: 1rem;
+}

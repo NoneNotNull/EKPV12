@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+
+	<type name="ftsearch_export_status">
+		<value-label>
+			<value>1</value>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label-key>fdExportState</label-key>
+			<label>已导出</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label-key>fdExportState</label-key>
+			<label>未导出</label>
+		</value-label>
+	</type>
+	
+
+	<type name="ftsearch_synch_status">
+		<value-label>
+			<value>1</value>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label-key>fdSynchState</label-key>
+			<label>已同步</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label-key>fdSynchState</label-key>
+			<label>未同步</label>
+		</value-label>
+	</type>
+
+
+	<type name="km_type_user">
+		<value-label>
+			<value>用户</value>
+			<label-key>tattEkpSys.user</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>用户</label>
+		</value-label>
+		<value-label>
+			<value>岗位</value>
+			<label-key>tattEkpSys.Post</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>岗位</label>
+		</value-label>
+		<value-label>
+			<value>部门</value>
+			<label-key>tattEkpSys.Department</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>部门</label>
+		</value-label>
+		<value-label>
+			<value>公司</value>
+			<label-key>tattEkpSys.Company</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>公司</label>
+		</value-label>
+		<value-label>
+			<value>群组</value>
+			<label-key>tattEkpSys.Group</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>群组</label>
+		</value-label>
+		<value-label>
+			<value>角色</value>
+			<label-key>tattEkpSys.Role</label-key>
+			<bundle>sys-ftsearch-expand</bundle>
+			<label>角色</label>
+		</value-label>
+	</type>
+
+
+
+
+
+
+</column-enums>

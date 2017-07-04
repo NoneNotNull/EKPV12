@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.collaborate.model.KmCollaborateCategory"
+		messageKey="km-collaborate:table.kmCollaborateCategory"
+		displayProperty="fdName"
+		serviceBean="kmCollaborateCategoryService"
+		table="km_collaborate_category"
+		url="/km/collaborate/km_collaborate_category/kmCollaborateCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-collaborate:kmCollaborateCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-collaborate:kmCollaborateCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDeleted"
+			messageKey="km-collaborate:kmCollaborateCategory.fdDeleted"
+			type="Integer"
+			column="fd_deleted"
+			notNull="true"
+			length="4"
+			validate="false" />
+
+	</model>
+</models>

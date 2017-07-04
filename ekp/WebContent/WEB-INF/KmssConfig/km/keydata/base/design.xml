@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-keydata-base:module.km.keydata.base"
+		urlPrefix="/km/keydata/base/">
+		<roles>
+			ROLE_KMKEYDATA_MAINTAINER;
+			<!--ROLE_MAINTAINER_READER; 
+			ROLE_MAINTAINER_EDITOR; -->
+		</roles>
+
+		<request
+			path="kmKeydataPluginShow*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.base.model.KmKeydataPluginShow,adminRoleName=ROLE_KMKEYDATA_MAINTAINER">
+			<query
+				queryString="method=add|save|list|view|saveadd|importPluginShowData|showall|disshowall"
+				validator="roleValidator(role=ROLE_KMKEYDATA_MAINTAINER)" />
+		</request>
+		
+	</module>
+
+	<homePage
+		urlPrefix="km/keydata"
+		url="/moduleindex.jsp?nav=/km/keydata/tree.jsp"
+		messageKey="km-keydata-base:module.km.keydata.base" />
+		
+	<quartz	messageKey="km-keydata-base:KDSSynchroTitle" 
+		jobService="keydataSynchroService"
+		cronExpression="0 0 3 * * ?"
+		jobMethod="synchroAll" enable="false"/>
+
+</configs>

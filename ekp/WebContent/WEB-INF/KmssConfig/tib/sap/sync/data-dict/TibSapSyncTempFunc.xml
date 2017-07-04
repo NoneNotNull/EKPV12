@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sap.sync.model.TibSapSyncTempFunc"
+	messageKey="tib-sap-sync:table.tibSapSyncTempFunc"
+	serviceBean="tibSapSyncTempFuncService"
+	table="tib_sap_sync_temp_func"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdInvokeType"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdInvokeType"
+	type="Integer"
+	column="fd_invoke_type"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdFuncMark"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdFuncMark"
+	type="String"
+	column="fd_func_mark"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdRfcXml"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdRfcXml"
+	type="RTF"
+	column="fd__rfc_Xml"
+	notNull="false"
+	length="100000"
+/>
+<simpleProperty
+	name="fdUse"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdUse"
+	type="Boolean"
+	column="fd_use"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdSendType"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdSendType"
+	type="String"
+	column="fd_send_type"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdEditorTime"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdEditorTime"
+	type="DateTime"
+	column="fd_editor_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdQuartzTime"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdQuartzTime"
+	type="DateTime"
+	column="fd_quartz_time"
+	notNull="false"
+/>
+<modelProperty
+	name="fdRfcSetting"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdRfcSetting"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	column="fd_rfc_setting_id"
+	notNull="true"
+/>
+<modelProperty
+	name="fdQuartz"
+	messageKey="tib-sap-sync:tibSapSyncTempFunc.fdQuartz"
+	type="com.landray.kmss.tib.sap.sync.model.TibSapSyncJob"
+	column="fd_quartz_id"
+	notNull="false"
+/>
+</model></models>

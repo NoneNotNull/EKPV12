@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treeElements>
+	<first>
+		<richText>
+			<style id='mind'>
+				<border pixelHinting='true' color='#85B8CB' alpha='1' thikness='1' />
+				<fill color='#E2FEFF,#B6F6FF' angle='90' alpha='1,1'/>
+			</style>
+			<label>
+				<format font='微软雅黑' size='12' color='#3F699B'/>
+			</label>
+		</richText>
+		<hotSopt width='20' height='20' ellipseWidth='20'  type='hot'>
+			<style effects='mind'>
+				<fill color='#F23005' alpha='1' />
+			</style>
+			<label>
+				<format font='微软雅黑' size='8' color='#FFFF99'/>
+			</label>
+		</hotSopt>
+		<line>
+			<style>
+				<border thikness='1'/>
+				<fill color='${color}{adjustColor:1.8},${color}{adjustColor:1.4}'
+					angle='90' alpha='1,1' />
+			</style>
+		</line>
+	</first>
+	<second>
+		<richText width='35' height='30'>
+			<style id='mind'>
+				<border pixelHinting='true' color='#85B8CB' alpha='1' thikness='1' />
+				<fill color='#E2FEFF,#B6F6FF' angle='90' alpha='1,1'/>
+			</style>
+			<label>
+				<format font='微软雅黑' size='10' color='#3F699B'/>
+			</label>
+			
+		</richText>
+		<hotSopt width='20' height='20' ellipseWidth='20' type='hot'>
+			<style effects='mind'>
+				<fill color='#F23005' alpha='1' />
+			</style>
+			<label>
+				<format font='微软雅黑' size='8' color='#FFFF99'/>
+			</label>
+		</hotSopt>
+		<line>
+			<style>
+				<border thikness='0.5'>
+				</border>
+				<fill color='${color}{adjustColor:1.8},${color}{adjustColor:1.4}' angle='90' alpha='1,1' />
+			</style>
+		</line>
+	</second>
+	<thrid>
+		<richText width='20' height='20'>
+			<label>
+				<format font='微软雅黑' size='6' color='#333333'/>
+			</label>
+		</richText>
+		<hotSopt width='15' height='15' ellipseWidth='15' type='hot'>
+			<style effects='mind'>
+				<fill color='#F23005' alpha='1' />
+			</style>
+			<label>
+				<format font='微软雅黑' size='6' color='#FFFF99'/>
+			</label>
+		</hotSopt>
+		<line>
+			<style>
+				<border thikness='0.5'>
+				</border>
+				<fill color='${color}{adjustColor:1.8},${color}{adjustColor:1.4}'
+					angle='90' alpha='1,1' />
+			</style>
+		</line>
+	</thrid>
+</treeElements>

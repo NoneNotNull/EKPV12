@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysMobileModuleCategoryConfigForm"
+			type="com.landray.kmss.sys.mobile.forms.SysMobileModuleCategoryConfigForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action
+			path="/sys/mobile/sys_mobile_module_category_config/sysMobileModuleCategoryConfig"
+			type="com.landray.kmss.sys.mobile.actions.SysMobileModuleCategoryConfigAction"
+			name="sysMobileModuleCategoryConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/mobile/sys_mobile_module_category_config/sysMobileModuleCategoryConfig_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/mobile/sys_mobile_module_category_config/sysMobileModuleCategoryConfig_edit.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/mobile/sys_mobile_compress/sysMobileCompress"
+			type="com.landray.kmss.sys.mobile.actions.SysMobileCompressAction"
+			parameter="method">
+			<forward
+				name="list"
+				path="/sys/mobile/sys_mobile_compress/sysMobileCompress_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.mobile.ApplicationResources"
+		key="sys-mobile" />
+
+
+</struts-config>

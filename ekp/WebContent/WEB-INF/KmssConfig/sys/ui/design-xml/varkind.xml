@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<var-kind id="string" name="字符串" file="/sys/ui/extend/varkind/string.jsp"
+		help="/sys/ui/extend/varkind/help/string.jsp" />
+	<var-kind id="int" name="整型" file="/sys/ui/extend/varkind/int.jsp"
+		help="/sys/ui/extend/varkind/help/int.jsp" />
+	<var-kind id="enumType" name="枚举类型"
+		file="/sys/ui/extend/varkind/enumType.jsp" help="/sys/ui/extend/varkind/help/enumType.jsp" />
+	<var-kind id="enumValue" name="自定义枚举类型"
+		file="/sys/ui/extend/varkind/enumValue.jsp" help="/sys/ui/extend/varkind/help/enumValue.jsp" />
+	<var-kind id="sys.tree" name="sys.tree"
+		file="/sys/ui/extend/varkind/sys.tree.jsp" help="/sys/ui/extend/varkind/help/sys.tree.jsp" />
+	<var-kind id="rowsize" name="行数"
+		file="/sys/ui/extend/varkind/rowsize.jsp" help="/sys/ui/extend/varkind/help/rowsize.jsp" />
+	<var-kind id="dialogJs" name="对话框"
+		file="/sys/ui/extend/varkind/dialogJs.jsp" help="/sys/ui/extend/varkind/help/dialogJs.jsp" />
+	<var-kind id="custom" name="自定义类型" file="/sys/ui/extend/varkind/custom.jsp"
+		help="/sys/ui/extend/varkind/help/custom.jsp" />
+</root>

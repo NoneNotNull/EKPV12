@@ -1,0 +1,94 @@
+body {
+	font: 12px/ 1.6em Verdana, Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color: #595959;
+	margin: 0px;
+	background-color: #fff
+}
+
+a {
+	color: #333333;
+	text-decoration: none
+}
+
+a:hover {
+	color: #0099CC;
+	text-decoration: none
+}
+
+.font_orange {
+	color: #FF6600;
+	font-weight: bold
+}
+
+.font_black {
+	color: #333333;
+	font-weight: bold
+}
+
+.font_black_normal {
+	color: #000000;
+	font-weight: normal
+}
+
+.font_blue {
+	color: #0099CC;
+	font-weight: bold
+}
+
+.header {
+	float: left;
+	width: 100%;
+	height: 20px
+}
+
+.container {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.forumTitle {
+	float: left;
+	height: 23px;
+	width: 100%;
+	background-color: #EBF2F8;
+	border-top: solid 1px #ccc
+}
+
+.forumTitle td {
+	text-align: center
+}
+
+.forumSubject {
+	float: left;
+	height: 35px;
+	width: 100%;
+	border-top: solid 3px #DBE5F5;
+	border-bottom: #DBE5F5 1px dotted
+}
+
+.forumSubject span {
+	float: left;
+	margin-top: 10px;
+	margin-left: 5px;
+	font-size: 13px;
+	color: #333333;
+	font-weight: bold
+}
+
+.forumList {
+	widows: 100%;
+	border-top: #DBE5F5 1px dotted
+}
+
+.forumPic {
+	text-align: center;
+	font-weight: bold
+}
+
+.footer {
+	float: left;
+	width: 100%;
+	height: 20px
+}

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimeArea.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimeWork.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimeWorkTime.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimePatchwork.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimePatchworkTime.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/time/model/SysTimeVacation.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

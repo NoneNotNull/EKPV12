@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-integral:module.kms.integral"
+		urlPrefix="/kms/integral/"
+		defaultValidator="roleValidator(role=ROLE_KMSINTEGRAL_DEFAULT)">
+		<roles>
+			ROLE_KMSINTEGRAL_DEFAULT,ROLE_KMSINTEGRAL_ADMIN,ROLE_KMSINTEGRAL_RANK_VIEW
+		</roles>
+		<request
+			path="kms_integral_server/kmsIntegralServer*">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_rule/kmsIntegralRule*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralRule">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_rule/kmsIntegralConifg*">
+			<query queryString="method=add|saveadd|save|edit|update|deleteall|delete"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+			<query queryString="method=reset"
+				validator="areaRoleValidator(role=SYSROLE_ADMINN)" />
+		</request>
+		
+		<request
+			path="kms_integral_team/kmsIntegralTeam*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralTeam">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_person_role/kmsIntegralPersonRole*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralPersonRole">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_alter/kmsIntegralAlter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralAlter">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_config/kmsIntegralGradeConfig*">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_integral_team_rank/kmsIntegralTeamRank*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralTeamRank">
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_RANK_VIEW)" />
+		</request>
+		
+		<request
+			path="kms_integral_person_total/kmsIntegralPersonTotal*"
+			validatorParameter="*">
+			<query queryString="method=gotoResultView"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_RANK_VIEW)|areaRoleValidator(role=ROLE_KMSINTEGRAL_VIEW)|areaRoleValidator(role=ROLE_KMSINTEGRAL_ADD)" />
+			<query queryString="method=*"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_RANK_VIEW)" />
+		</request>
+		
+		<request
+			path="kms_integral_person_filter/kmsIntegralPersonFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralPersonFilter">
+			<query queryString="method=add|saveadd|save|edit|update|deleteall|delete"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_ADD)" />
+			<query queryString="method=view|download"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_VIEW)|areaRoleValidator(role=ROLE_KMSINTEGRAL_ADD)" />
+		</request>
+	
+		<request
+			path="kms_integral_dept_filter/kmsIntegralDeptFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.integral.model.KmsIntegralDeptFilter">
+			<query queryString="method=add|saveadd|save|edit|update|deleteall|delete"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_ADD)" />
+			<query queryString="method=view|download"
+				validator="areaRoleValidator(role=ROLE_KMSINTEGRAL_ADMIN)|areaRoleValidator(role=ROLE_KMSINTEGRAL_VIEW)|areaRoleValidator(role=ROLE_KMSINTEGRAL_ADD)" />
+		</request>
+	</module>
+
+	<!-- 日志定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsIntegralCalculateQuartz" 
+		messageKey="kms-integral:kmsIntegral.quartz.calculate"
+		jobMethod="execute" /> 
+		
+	<homePage
+		urlPrefix="kms/integral"
+		type="app"
+		config="/moduleindex_notopic.jsp?nav=/kms/integral/tree.jsp"
+		messageKey="kms-integral:module.kms.integral" />
+		
+		
+
+</configs>

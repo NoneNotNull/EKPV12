@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	
+	<!-- 表单事件扩展 需要 在添加表单事件的配置模块添加 jsp 片段 -->
+	<extension point="com.landray.kmss.sys.xform.jsp.generator" model="*">
+		<item name="generator">
+			<param name="bean" value="tibSoapFormEventJspGenerator" />
+			<param name="order" value="53"/>
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.robot.support"
+		model="*">
+			<item
+			name="robot">
+			<param
+				name="unid"
+				value="RunSoapuiBapi" />
+			<param
+				name="category"
+				value="{tib-common-mapping:tib.form.flow.mapping}" />
+			<param
+				name="type"
+				value="{tib-soap:tibCommonSoapui.runBAPI}" />
+			<param
+				name="bean"
+				value="tibSoapWfRobotNodeRunWebServiceService" />
+			<param
+				name="url"
+				value="/tib/soap/mapping/attribute_robotnode_runSoapuiBapi.html" />
+		</item>
+	</extension>
+	
+	<!-- Soapui服务注册模块 -->
+	<extension
+		point="com.landray.kmss.tib.common.mapping.plugins.integration"
+		model="*">
+		<item
+			name="tibCommonMappingIntegration">
+			<param
+				name="integrationKey"
+				value="SOAP" />
+			<param
+				name="displayName"
+				value="SOAP集成" />
+				<!-- 中间件类型为 1 -->
+			<param
+				name="fdIntegrationType"
+				value="3" />
+			<param 
+				name="fdMapperConfigJsp"
+				value="tib/soap/mapping/tib_soap_mapping_func/tibSoapMappingFunc_edit.jsp" />
+			<param
+				name="ekpIntegrationBean"
+				value="tibSoapMappingIntegration" />	
+			<param
+				name="formEventJS"
+				value="/tib/soap/mapping/soapEkpFormEvent.js" />
+			<!-- 生成jsp片段路径 -->			
+			<param
+				name="formEventPath"
+				value="tib/soap/mapping/formEventJsp/" />
+			<!-- 表单事件js主体方法名称  用来生成jsp使用-->	
+			<param
+				name="formEventFuncName"
+				value="doSOAP" />
+			
+			<param
+				name="order"
+				value="53" />		
+			<!-- 表单控件  -->
+			<param
+				name="infoClass"
+				value="tibSoapControlTreeInfo" />
+			<param
+				name="formControlJS"
+				value="tib/soap/mapping/soapFormControl.js" />
+		</item>
+	</extension>
+	
+	<!-- 公式定义器接口 -->
+	<extension
+		point="com.landray.kmss.sys.formula"
+		model="*">
+		<item
+			name="function">
+			<param
+				name="className"
+				value="com.landray.kmss.tib.soap.mapping.service.spring.TibSoapMappingFormulaDefinition" />
+		</item>
+	</extension>
+	
+	<!-- 流程事件扩展点（驳回事件） -->
+	<extension point="com.landray.kmss.lbpm.engine.event">
+		<item name="listener">
+			<param
+				name="unid"
+				value="soapResumeListener" />
+			<param
+				name="messageKey"
+				value="tib-soap:tibSoapMapping.flowRefuseListener" />
+			<param
+				name="eventTypes"
+				value="lbpmHandlerRefuseEvent" />
+			<param
+				name="listener"
+				value="tibSoapMappingFlowRefuseListener" />
+			<param
+				name="conditionJsp"
+				value="/tib/soap/mapping/attribute_flowRefuse_listenerSoap.jsp" />
+		</item>
+	</extension>
+	
+	<!-- TIB表单控件扩展 -->
+	<extension point="com.landray.kmss.sys.xform.relation.params">
+		<item name="config">
+			<param name="sourceName" value="SOAP"></param>
+			<param name="sourceUUID" value="SOAP"></param>
+			<param name="sourceBean" value="tibCommonMappingControlRelation"></param>
+			
+			<param name="paramsURL" value="tib/common/resource/jsp/dialog/dialog.jsp?springBean=tibCommonMappingControlTreeBean&amp;infoBean=tibSoapControlTreeInfo&amp;url=tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain.do"></param>
+			<param name="order" value="0"></param>
+			
+		</item>
+	</extension>
+	
+</plugin>

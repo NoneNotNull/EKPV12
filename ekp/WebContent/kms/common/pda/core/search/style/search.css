@@ -1,0 +1,85 @@
+.lui-search-content {
+	position: absolute;
+	top: 10px;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+	padding: 0 10px;
+}
+
+.lui-search-content .lui-search-article {
+	margin-bottom: 1.6em;
+}
+
+.lui-search-content .lui-search-article h4 {
+	color: #b0b0b0;
+	font-size: 1.4em;
+	line-height: 1.4em;
+	font-weight: normal;
+	padding: 0;
+	margin: 0;
+}
+
+.lui-search-content .lui-search-article ul {
+	zoom: 1;
+	padding-top: 15px;
+}
+
+.lui-search-content ul:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.lui-search-content .lui-search-article ul li {
+	color: #484747;
+	font-size: 2em;
+	float: left;
+	margin-right: 0.7em;
+	border: 1px solid #b0b0b0;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding: 4px;
+	margin: 4px;
+}
+
+.lui-search-bar {
+	height: 1.8em;
+	padding-right: 50px;
+	position: relative;
+	padding-bottom: 0px;
+}
+
+.lui-search-bar .lui-search.lui-search-right{
+	right: 10px;
+	left: 40px;
+}
+
+.lui-search-bar li.btn {
+	float: right;
+	padding: 0 4px;
+}
+
+.lui-search-bar input {
+	height: 1.8em;
+	line-height: 1.8em;
+	color: #cfcfcf;
+	font-size: 1em;
+	border: 0;
+	width: 95%;
+	padding-left: 5%;
+}
+
+.lui-search-bar .lui-search-submit {
+	width: 30px;
+	height: 30px;
+	border: 0;
+	background: url(../images/search.png) no-repeat 50% 50%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+}

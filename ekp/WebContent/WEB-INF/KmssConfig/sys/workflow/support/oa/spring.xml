@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysWfProcessCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.workflow.support.oa.SysWfProcessCoreServiceImp">
+				<property name="processExecuteService">
+					<ref bean="lbpmProcessExecuteService" />
+				</property>
+				<property name="lbpmProcessCoreService">
+					<ref bean="lbpmProcessCoreService" />
+				</property>
+				<property name="accessManager">
+					<ref bean="accessManager" />
+				</property>
+				<property name="processServiceManager">
+					<ref bean="lbpmProcessServiceManager" />
+				</property>
+				<property name="lbpmExpecterLogService">
+					<ref bean="lbpmExpecterLogService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		name="@replace(lbpmRobotNodeServiceAdapter)"
+		class="com.landray.kmss.sys.workflow.support.oa.robot.support.RobotNodeServiceAdapterImp">
+	</bean>
+</beans>

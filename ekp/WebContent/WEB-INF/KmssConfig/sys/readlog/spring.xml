@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysReadLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.readlog.dao.hibernate.SysReadLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.readlog.model.SysReadLog" />
+	</bean>
+	<bean
+		id="sysReadLogTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.readlog.service.spring.SysReadLogServiceImp">
+		<property name="baseDao">
+			<ref local="sysReadLogDao" />
+		</property>
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService" />
+		</property>
+	</bean>
+	<bean
+		id="sysReadLogService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="sysReadLogTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysReadLogCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.readlog.service.spring.SysReadLogCoreServiceImp">
+				<property name="sysReadLogService">
+					<ref local="sysReadLogService" />
+				</property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="convertModelToForm*">
+					PROPAGATION_REQUIRES_NEW
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

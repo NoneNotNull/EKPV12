@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>移除 在线许可预警信息和许可通知配置页面</description>
+			<author>易荣烽</author>
+			<revision-time>2015-03-11</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表页面添加在线时间</description>
+			<author>易荣烽</author>
+			<revision-time>2015-02-11</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>关联 个人修改密码和管理员修改个人密码记录日志</description>
+			<author>易荣烽</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 admin.do中“是否启用操作日志”和“是否启用登录(登出)日志”修改不生效问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 在线时间由1小时修改为30分钟</description>
+			<author>易荣烽</author>
+			<revision-time>2014-05-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>优化 修改fd_url最大长度限制为2083，避免日志本分内容过长时报错问题</description>
+			<author>魏本源</author>
+			<revision-time>2014-01-17</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 离线统计加上部门过滤时统计结果不正确的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-09-16</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 国际化时语言选择为英文，部分展现内容为中文问题</description>
+			<author>李斌斌</author>
+			<revision-time>2013-06-13</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 在线用户数预警信息</description>
+			<author>易荣烽</author>
+			<revision-time>2013-03-04</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/admin</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 日志创建时间增加索引</description>
+			<author>易荣烽</author>
+			<revision-time>2012-12-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延时加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 在线人数新增按部门查询功能</description>
+			<author>易荣烽</author>
+			<revision-time>2012-06-08</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免日志多发起一条查找Person对象的Sql语句的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-05-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一使用Spring事务</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-04-10</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>将admin.do中日志相关配置移入模块内进行解耦</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>在线统计admin.do增加开关，默认关闭</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-03-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>增加统计在线人数功能、日志优化解耦</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-01-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改缺陷：查看后台操作日志，点击操作者排序报错</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-12</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改组织架构日志排序问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-10</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加退出登录日志表，记录用户退出系统的相关信息</description>
+			<author>赵义洪</author>
+			<revision-time>2011-06-15</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>解决在大数据量的情况下由于按照时间排序引发的性能问题</description>
+			<author>叶中奇</author>
+			<revision-time>2011-06-09</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改fd_url字段长度，保证sys_log_error_bak与sys_log_error设置一致，解决日志备份内容过长时报错问题</description>
+			<author>周超</author>
+			<revision-time>2011-05-03</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

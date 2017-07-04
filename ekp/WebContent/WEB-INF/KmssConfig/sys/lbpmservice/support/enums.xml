@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="lbpmTemplate_fdType" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>lbpmTemplate.fdType.default</label-key>
+			<bundle>sys-lbpmservice-support</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>lbpmTemplate.fdType.other</label-key>
+			<bundle>sys-lbpmservice-support</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>lbpmTemplate.fdType.define</label-key>
+			<bundle>sys-lbpmservice-support</bundle>
+		</value-label>
+	</type>
+</column-enums>

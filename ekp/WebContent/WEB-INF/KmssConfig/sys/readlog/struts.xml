@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysReadLogForm"
+			type="com.landray.kmss.sys.readlog.forms.SysReadLogForm" />
+	</form-beans>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/readlog/sys_read_log/sysReadLog"
+			type="com.landray.kmss.sys.readlog.actions.SysReadLogAction"
+			name="sysReadLogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/readlog/sys_read_log/sysReadLog_view.jsp">
+			</forward>
+			<forward
+				name="viewReadLog"
+				path="/sys/readlog/sys_read_log/sysReadLog_viewReadLog.jsp">
+			</forward>
+			<forward
+				name="listdata"
+				path="/sys/readlog/sys_read_log/sysReadLog_listdata.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.readlog.ApplicationResources"
+		key="sys-readlog" />
+</struts-config>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<!--导入导出的扩展点-->
+	<extension-point id="com.landray.kmss.sys.datainit">
+	   <item name="datainit">
+		  <param name="bean" kind="string" required="true" basedOn="com.landray.kmss.sys.datainit.service.ISysDatainitSurroundInterceptor">
+			 <description>
+				扩展点的接口，包括导入导出扩展所需实现的方法。
+				注：若已有扩展点无法满足需求，需自行再编写扩展点，需注释已有的扩展点配置，否则处理同model同字段可能出现数据初始化失败。
+			 </description>
+		  </param>
+		   <param name="order" kind="int">
+			 <description>
+				可选，导入操作时扩展点的执行顺序，先处理优先级高的指定扩展项里的model和对应字段。不填表示优先级最低。
+				值越小越优先执行。
+			 </description>
+		  </param>
+			<description>导入导出扩展点</description>
+	   </item>
+	   <description>可对原有导入导出功能做扩展，例如对在流程模块增加对组织架构处理</description>
+	</extension-point>
+</plugin>

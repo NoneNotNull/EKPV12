@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.landray.com.cn/schema/design" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.landray.com.cn/schema/design">
+
+    <element name="root">
+    	<complexType>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+    			<any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"></any>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

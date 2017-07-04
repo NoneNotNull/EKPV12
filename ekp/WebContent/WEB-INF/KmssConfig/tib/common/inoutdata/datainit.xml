@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-init>
+	<!-- 权限角色导出导入 -->
+	<model
+		name="com.landray.kmss.sys.authorization.model.SysAuthRole">
+		<relation>
+			<!-- 声明导出的属性名称及其导入的条件（属性名称可以多个，条件只能一个） -->
+			<property>fdAlias</property>
+			<where>
+				<![CDATA[
+					sysAuthRole.fdAlias = :fdAlias
+				]]>
+			</where>
+		</relation>
+		<!-- 需实现 com.landray.kmss.tib.common.inoutdata.service.ITibCommonInoutdataInterceptor 接口 -->
+		<interceptor class="com.landray.kmss.tib.common.inoutdata.interceptor.TibCommonInoutdataAuthRoleInterceptor" />
+	</model>
+
+	<!-- 主页导出导入 -->
+	<model
+		name="com.landray.kmss.sys.home.model.SysHomeStyle">
+		<relation>
+			<!-- 声明导出的属性名称及其导入的条件（属性名称可以多个，条件只能一个） -->
+			<property>fdPath</property>
+			<where>
+				<![CDATA[
+					sysHomeStyle.fdPath = :fdPath
+				]]>
+			</where>
+		</relation>
+	</model>
+
+
+</data-init>

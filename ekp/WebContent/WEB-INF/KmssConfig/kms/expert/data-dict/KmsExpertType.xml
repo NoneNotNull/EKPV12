@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.expert.model.KmsExpertType"
+		messageKey="kms-expert:table.kmsExpertType"
+		displayProperty="fdName"
+		serviceBean="kmsExpertTypeService"
+		table="kms_expert_type"
+		url="/kms/expert/kms_expert_type/kmsExpertType.do?method=edit&amp;fdModelName=com.landray.kmss.kms.expert.model.KmsExpertType&amp;fdId=${fdId}" >
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-expert:kmsExpertType.fdName"
+			type="String"
+			column="fd_area_name"
+			notNull="true"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-expert:kmsExpertType.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdDesciption"
+			messageKey="kms-expert:kmsExpertType.fdDesciption"
+			type="String"
+			column="fd_desciption"
+			notNull="false"
+			unique="false"
+			length="1500" />
+		<simpleProperty
+			name="fdAllowExpertAnswer"
+			messageKey="kms-expert:kmsExpertType.fdAllowExpertAnswer"
+			type="Boolean"
+			column="fd_allow_expert_answer"
+			notNull="false"
+			unique="false"
+			canDisplay="false" 
+			length="1" />
+		<modelProperty
+			name="sysPropertyTemplate"
+			messageKey="kms-expert:kmsExpertType.fdsysPropertyName"
+			type="com.landray.kmss.sys.property.model.SysPropertyTemplate"
+			cascade="save-update"
+			column="fd_prop_template_id"
+			notNull="false"
+			canSearch="true"
+			validate="true"/>
+		<!-- <listProperty
+			name="hbmKmsExpertTypesList"
+			messageKey="kms-expert:kmsExpertType.hbmKmsExpertTypesList"
+			column="fd_expert_type_id"
+			type="com.landray.kmss.kms.expert.model.KmsExpertInfo"
+			table="kms_expert_type_info"
+			inverse="false"
+			cascade="none"
+			canDisplay="false"
+			elementColumn="fd_expert_info_id" /> -->
+		<listProperty
+			name="hbmChildren"
+			messageKey="kms-expert:kmsExpertType.hbmChildren"
+			column="fd_parent_id"
+			type="com.landray.kmss.kms.expert.model.KmsExpertType"
+			cascade="none"
+			inverse="true"
+			canDisplay="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="kms-expert:table.kmsExpertTypeParent"
+			type="com.landray.kmss.kms.expert.model.KmsExpertType"
+			column="fd_parent_id"
+			notNull="false"
+			treeModel="true"
+			unique="false" />
+			
+		<listProperty
+			name="authEditors"
+			messageKey="kms-expert:kmsExpertType.authAllReaders"
+			column="fd_type_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_expert_type_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-expert:kmsExpertType.authAllReaders"
+			column="fd_type_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="kms_expert_type_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-expert:kmsExpertType.authAllEditors"
+			column="fd_type_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="kms_expert_type_aeditor"
+			inverse="false"
+			canDisplay="false" />
+	</model>
+</models>

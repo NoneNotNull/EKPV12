@@ -1,0 +1,19 @@
+.over_view_words {
+	margin-left: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	margin-right: 5px;
+}
+.over_view_table td:first-child {
+	padding: 10px 10px 0px;
+}
+.inputsgl{
+	width:78%;
+}
+.com_subject{
+	color: #333!important;
+}	

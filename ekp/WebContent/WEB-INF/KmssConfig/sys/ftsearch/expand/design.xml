@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- 
+	<module
+		messageKey="sys-ftsearch-expand:module.sys.ftsearch.expand"
+		urlPrefix="/sys/ftsearch/expand/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYSFTSEARCHEXPAND_MAINTAINER
+		</roles>
+		<request
+			path="*"
+			defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_MAINTAINER)" />
+	</module>
+	
+	<module
+		messageKey="sys-ftsearch-expand:module.sys.ftsearch.expand"
+		urlPrefix="/sys/ftsearch/expand/"
+		defaultValidator="roleValidator(role=ROLE_SYSFTSEARCHEXPAND_DEFAULT)">
+		<roles>
+			ROLE_SYSFTSEARCHEXPAND_DEFAULT
+		</roles>
+
+		<request
+			path="sys_ftsearch_chinese_legend/sysFtsearchChineseLegend*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchChineseLegend">
+		</request>
+
+		
+		<request
+			path="sys_ftsearch_synonym/sysFtsearchSynonym*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchSynonym">
+		</request>
+
+		<request
+			path="sys_ftsearch_participle_category/sysFtsearchParticipleCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticipleCategory">
+		</request>
+
+		<request
+			path="sys_ftsearch_participle/sysFtsearchParticiple*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticiple">
+		</request>
+
+		<request
+			path="sys_ftsearch_analysis/sysFtsearchAnalysis*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchAnalysis">
+		</request>
+		
+		<request
+			path="sys_ftsearch_read_log/sysFtsearchReadLog*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchReadLog">
+		</request>
+
+		<request
+			path="sys_ftsearch_hotword/sysFtsearchHotword*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchHotword">
+		</request>
+
+		<request
+			path="sys_ftsearch_word/sysFtsearchWord*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchWord">
+		</request>
+		
+		<request
+			path="sys_ftsearch_multisystem/sysFtsearchMultisystem*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchMultisystem">
+		</request>
+		
+		<request
+			path="sys_ftsearch_modelgroup/sysFtsearchModelgroup*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchModelgroup">
+		</request>
+		
+		<request
+			path="t_att_ekp_sys/tattEkpSys*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.TattEkpSys">
+		</request>
+		
+		<request
+			path="sys_ftsearch_facet/sysFtsearchFacet*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchFacet">
+		</request>
+		
+	</module>
+	 -->
+
+	
+	<!-- 同义词高级搜索 -->
+	<search
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchSynonym"
+		messageKey="sys-ftsearch-expand:sysFtsearch.ftsearche.title"
+		resultProperties="fdOriginal;fdSynonym;docCreatorName;docCreateTime" />
+
+
+	<!-- 分词高级搜索 -->
+	<search
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticiple"
+		messageKey="sys-ftsearch-expand:sysFtsearch.ftsearche.title"
+		resultProperties="fdParticiple;docCategory;docCreatorName;fdCreateTime;" />
+		
+
+	<!-- 导出机制 -->
+		 
+	<module urlPrefix="/sys/ftsearch/expand/">
+		<request path="sys_ftsearch_participle/sysFtsearchParticiple*">
+			<query
+				validator="roleValidator(role=ROLE_EXAMPLEMECHSNISM_AUTHENTICATION_TRANSPORT_EXPORT)"
+				queryString="fdModelName = com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticiple" />
+		</request>
+	</module>
+	
+	<!-- 
+	<quartz messageKey="sys-ftsearch-expand:module.sys.ftsearch.expand.quartz"  
+			jobService="sysFtsearchJobService"    
+			cronExpression="0 0 1 * * ?" 
+			jobMethod="add" />
+	-->	
+	
+	<quartz
+		messageKey="sys-ftsearch-expand:search.hotword.job"
+		jobService="sysFtsearchHotwordService"
+		jobMethod="saveHotWord"
+		cronExpression="0 0/10 * * * ?"
+		runType="SINGLENODE"/>
+		
+	<quartz
+		messageKey="sys-ftsearch-expand:search.associate.job"
+		jobService="sysFtsearchChineseLegendService"
+		jobMethod="saveAssociateWord"
+		cronExpression="0 0/10 * * * ?"
+		runType="SINGLENODE"/>		
+	<!-- 全局配置 -->
+	<homePage
+		urlPrefix="sys/ftsearch/expand"
+		messageKey="sys-ftsearch-expand:module.sys.ftsearch.expand"
+		config="/moduleindex_notopic.jsp?nav=/sys/ftsearch/expand/tree.jsp" 
+		type="global"/>
+
+</configs>

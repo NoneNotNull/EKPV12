@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="LOADFILE"></param>
+			<param name="name" value="加载服务器文件"></param>
+			<param name="function" value="sysAttJGLoadFileFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="LOADTEMPLATE"></param>
+			<param name="name" value="加载模板"></param>
+			<param name="function" value="sysAttJGLoadTemplateFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="SAVEFILE"></param>
+			<param name="name" value="保存文件"></param>
+			<param name="function" value="sysAttJGSaveFileFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="SAVEASHTML"></param>
+			<param name="name" value="保存文件为HTML"></param>
+			<param name="function" value="sysAttJGSaveAsHtmlFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="SAVEIMAGE"></param>
+			<param name="name" value="保存文件为图片"></param>
+			<param name="function" value="sysAttJGSaveAsImageFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="SAVEPDF"></param>
+			<param name="name" value="保存为PDF"></param>
+			<param name="function" value="sysAttJGSaveAsPdfFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="PUTFILE"></param>
+			<param name="name" value="上传文件"></param>
+			<param name="function" value="sysAttJGPutFileFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="GETFILE"></param>
+			<param name="name" value="下载文件"></param>
+			<param name="function" value="sysAttJGGetFileFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="INSERTIMAGE"></param>
+			<param name="name" value="插入图片"></param>
+			<param name="function" value="sysAttJGInsertImageFunction"></param>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.attachment.jg.function">
+		<item name="function">
+			<param name="key" value="INSERTFILE"></param>
+			<param name="name" value="套红头"></param>
+			<param name="function" value="sysAttJGInsertFileFunction"></param>
+		</item>
+	</extension>
+	
+	
+	<extension point="com.landray.kmss.sys.attachment.jg.function.addition">
+		<item name="function">
+			<param name="key" value="isFirst"></param>
+			<param name="name" value="在线编辑用户判断"></param>
+			<param name="function" value="sysAttJGAddtionIsFirstFunction"></param>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.attachment.jg.function.addition">
+		<item name="function">
+			<param name="key" value="updateTime"></param>
+			<param name="name" value="在线编辑时间更新"></param>
+			<param name="function" value="sysAttJGAddtionUpdateTimeFunction"></param>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.attachment.jg.function.addition">
+		<item name="function">
+			<param name="key" value="clearEdit"></param>
+			<param name="name" value="在线编辑信息清理"></param>
+			<param name="function" value="sysAttJGAddtionClearEditFunction"></param>
+		</item>
+	</extension>
+
+
+</plugin>

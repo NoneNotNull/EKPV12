@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskAgree"
+		messageKey="kms-ask:table.kmsAskAgree"
+		displayProperty="docSubject"
+		serviceBean="kmsAskAgreeService"
+		table="kms_ask_agree"
+		url="/kms/ask/kms_ask_agree/kmsAskAgree.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdAgreeTime"
+			messageKey="kms-ask:kmsAskAgree.fdAgreeTime"
+			type="DateTime"
+			column="fd_agree_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdPoster"
+			messageKey="kms-ask:kmsAskAgree.fdPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_poster_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdKmsAskPost"
+			messageKey="kms-ask:kmsAskAgree.fdKmsAskPost"
+			type="com.landray.kmss.kms.ask.model.KmsAskPost"
+			column="fd_post_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

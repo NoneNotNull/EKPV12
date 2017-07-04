@@ -1,0 +1,54 @@
+@CHARSET "utf-8";
+
+.staron {
+	display: inline-block;
+	background: url(../img/star_on_23.png) no-repeat;
+	background-position: center center;
+	width: 23px;
+	height: 23px;
+}
+.staroff {
+	display: inline-block;
+	background: url(../img/star_off_23.png) no-repeat;
+	background-position: center center;
+	width: 23px;
+	height: 23px;
+}
+.starhalf {
+	display: inline-block;
+	background: url(../img/star_half_23.png) no-repeat;
+	background-position: center center;
+	width: 23px;
+	height: 23px;
+}
+/*@ 文本内容收起展开样式*/
+.cnt {
+	display: block;
+	padding: 7px 0 2px 0;
+}
+.cnt strong {
+	margin-right: 5px;
+}
+.cnt a {
+	padding-right: 10px;
+	color: blue;
+}
+.cnt .cnt_exp {
+	background: url(../img/ic_cocl.gif) no-repeat;
+	background-position: right center;
+}
+.cnt .cnt_pack {
+	background: url(../img/ic_coop.gif) no-repeat;
+	background-position: right center;
+}
+.content_view { /*background-color: #f8f8f8;*/
+	
+}
+.p_con p {
+	margin: 10px 0;
+}
+
+.PropertyListView th {
+	font-size: 12px;
+	font-weight: normal;
+}

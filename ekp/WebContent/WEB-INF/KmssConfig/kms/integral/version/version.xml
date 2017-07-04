@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 日志数据库与主数据库分离部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 积分代码</description>
+			<author>郭昌平</author>
+			<revision-time>2014-09-02</revision-time>
+			<relation>
+				<relation-module>kms/log</relation-module>
+				<relation-module>kms/knowledge</relation-module>
+				<relation-module>kms/multidoc</relation-module>
+				<relation-module>kms/wiki</relation-module>
+				<relation-module>kms/kmaps</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogOnline"
+		messageKey="sys-log:table.sysLogOnline"
+		displayProperty="fdPersonId"
+		serviceBean="sysLogOnlineService"
+		table="sys_log_online"
+		url="/sys/log/sys_log_online/sysLogOnline.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOnlineTime"
+			messageKey="sys-log:sysLogOnline.fdOnlineTime"
+			type="DateTime"
+			column="fd_online_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLoginTime"
+			messageKey="sys-log:sysLogOnline.fdLoginTime"
+			type="DateTime"
+			column="fd_login_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLoginIp"
+			messageKey="sys-log:sysLogOnline.fdLoginIp"
+			type="String"
+			column="fd_login_ip"
+			notNull="false"
+			length="15"
+			validate="true" />
+
+		<simpleProperty
+			name="fdLastLoginTime"
+			messageKey="sys-log:sysLogOnline.fdLastLoginTime"
+			type="DateTime"
+			column="fd_last_login_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastLoginIp"
+			messageKey="sys-log:sysLogOnline.fdLastLoginIp"
+			type="String"
+			column="fd_last_login_ip"
+			notNull="false"
+			length="15"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-log:sysLogOnline.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLoginNum"
+			messageKey="sys-log:sysLogOnline.fdLoginNum"
+			type="Long"
+			column="fd_login_num"
+			notNull="false"
+			length="19"
+			validate="true" />
+			
+		<modelProperty
+			name="fdPerson"
+			messageKey="sys-log:sysLogOnline.fdPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_person_id"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

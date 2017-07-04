@@ -1,0 +1,39 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%
+String KMSS_Parameter_ContextPath = request.getContextPath()+"/";
+request.setAttribute("KMSS_Parameter_ContextPath", KMSS_Parameter_ContextPath);
+%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>系统绑定失败</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+div {
+	background-color: #99CCCC;
+	padding: 10px;
+}
+
+font {
+	background-color: #99CCFF;
+}
+
+body {
+	font-family: arial;
+}
+</style>
+
+</head>
+<body>
+<form action="" id="_insys">
+
+<center>
+<img style="width: 30%" src="${KMSS_Parameter_ContextPath}resource/style/common/login/loading_logo.jpg" /></center>
+<div style="text-align: center">系统绑定失败!</div>
+
+<div style="text-align: center">${info==null?"非常抱歉!系统绑定失败,请联系管理员":info}</div>
+
+</form>
+</body>
+</html>

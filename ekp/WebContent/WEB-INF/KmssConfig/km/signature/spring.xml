@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmSignatureDocumentHistoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.signature.dao.hibernate.KmSignatureDocumentHistoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.signature.model.KmSignatureDocumentHistory" />
+	</bean>
+	<bean
+		id="kmSignatureDocumentHistoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.KmSignatureDocumentHistoryServiceImp">
+		<property name="baseDao">
+			<ref local="kmSignatureDocumentHistoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSignatureDocumentHistoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSignatureDocumentHistoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSignatureDocumentMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.signature.dao.hibernate.KmSignatureDocumentMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.signature.model.KmSignatureDocumentMain" />
+	</bean>
+	<bean
+		id="kmSignatureDocumentMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.KmSignatureDocumentMainServiceImp">
+		<property name="baseDao">
+			<ref local="kmSignatureDocumentMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSignatureDocumentMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSignatureDocumentMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSignatureDocumentSignatureDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.signature.dao.hibernate.KmSignatureDocumentSignatureDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.signature.model.KmSignatureDocumentSignature" />
+	</bean>
+	<bean
+		id="kmSignatureDocumentSignatureTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.KmSignatureDocumentSignatureServiceImp">
+		<property name="baseDao">
+			<ref local="kmSignatureDocumentSignatureDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSignatureDocumentSignatureService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSignatureDocumentSignatureTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmSignatureMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.signature.dao.hibernate.KmSignatureMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.signature.model.KmSignatureMain" />
+	</bean>
+	<bean
+		id="kmSignatureMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.KmSignatureMainServiceImp">
+		<property name="baseDao">
+			<ref local="kmSignatureMainDao" />
+		</property>
+		<property name="sysAttMainCoreInnerService">
+			<ref bean="sysAttMainService" />
+		</property>
+	</bean>
+	<bean
+		id="kmSignatureMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSignatureMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="deleteSigDomService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="deleteSigTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="deleteSigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.DeleteSigDomServiceImp">
+		<property name="kmSignatureDocumentSignatureService">
+			<ref bean="kmSignatureDocumentSignatureService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmSignatureCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.signature.dao.hibernate.KmSignatureCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.signature.model.KmSignatureCategory" />
+	</bean>
+	<bean
+		id="kmSignatureCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.signature.service.spring.KmSignatureCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="kmSignatureCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmSignatureCategoryService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmSignatureCategoryTarget" />
+		</property>
+	</bean>
+	
+	<bean id="sysAttJGLoadMarkListFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.km.signature.service.spring.SysAttJGLoadMarkListFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="sysAttJGLoadMarkImageFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.km.signature.service.spring.SysAttJGLoadMarkImageFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 电子签名 added by weiby 2014-12-18 start -->
+	<bean
+		id="auditNoteDataByHandlerSignature"
+		class="com.landray.kmss.km.signature.service.spring.AuditNoteDataByHandlerSignature" scope="prototype"/>
+	<bean
+		id="auditNoteDataByNodeSignature"
+		class="com.landray.kmss.km.signature.service.spring.AuditNoteDataByNodeSignature" scope="prototype"/>
+	<!-- 默认样式（处理人电子签名） -->
+	<bean
+		id="auditNoteStyleDefaultSignature"
+		class="com.landray.kmss.km.signature.service.spring.AuditNoteStyleDefaultSignature" />
+	<!-- 默认样式（仅签名+日期） -->
+	<bean
+		id="auditNoteStyleDefaultSignatureDate"
+		class="com.landray.kmss.km.signature.service.spring.AuditNoteStyleDefaultSignatureDate" />
+	<!-- 默认样式（仅签名） -->
+	<bean
+		id="auditNoteStyleDefaultOnlySignature"
+		class="com.landray.kmss.km.signature.service.spring.AuditNoteStyleDefaultOnlySignature" />
+<!-- 电子签名 added by weiby 2014-12-18 end -->
+</beans>

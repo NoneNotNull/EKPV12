@@ -1,0 +1,14 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" order="10">
+		<link 
+			id="sys_notify_home_nav"
+			url="/sys/notify/sys_notify_todo/sysNotifyTodo_person.jsp"
+			msgKey="sys-notify:sysNotifyTodo.tree.all" />
+	</links>
+	
+</root>

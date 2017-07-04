@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmRtNodeHandlersDefine"
+		messageKey="sys-lbpm-engine:table.lbpmRtNodeHandlersDefine"
+		serviceBean="lbpmRtNodeHandlersDefineService"
+		table="lbpm_rt_nodehandler_define">
+		
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdAttribute"
+			messageKey="sys-lbpm-engine:lbpmRtNodeHandlersDefine.fdAttribute"
+			type="String"
+			column="fd_attribute"
+			notNull="false"
+			length="200" />
+			
+		<simpleProperty
+			name="fdFactId"
+			messageKey="sys-lbpm-engine:lbpmRtNodeHandlersDefine.fdFactId"
+			type="String"
+			column="fd_fact_id"
+			notNull="false"
+			length="10" />
+			
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpm-engine:lbpmRtNodeHandlersDefine.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="false" />
+			
+		<modelProperty
+			name="fdHandler"
+			messageKey="sys-lbpm-engine:lbpmRtNodeHandlersDefine.fdHandler"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_handler_id"
+			notNull="true" />
+			
+		<simpleProperty
+			name="fdIndex"
+			messageKey="sys-lbpm-engine:lbpmRtNodeHandlersDefine.fdIndex"
+			type="Integer"
+			column="fd_index"
+			notNull="false" />
+			
+	</model>
+</models>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-number:module.sys.number"
+		urlPrefix="/sys/number/">
+		<roles>
+			ROLE_SYSNUMBER_ADMIN
+		</roles>
+
+		<request
+			path="sys_number_main_flow/sysNumberMainFlow*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.number.model.SysNumberMainFlow">
+			<query 
+				validator="roleValidator(role=ROLE_SYSNUMBER_ADMIN)" />
+		</request>
+
+		<request
+			path="sys_number_main/sysNumberMain*">
+			<query
+				position="top"
+				validator="roleValidator(role=ROLE_SYSNUMBER_ADMIN)" 
+				queryString="method=list|add|edit|update|delete&amp;isSysnumberAdmin=yes"/>
+		</request>
+
+	</module>
+
+	<homePage
+		urlPrefix="sys/number"
+		url="/moduleindex.jsp?nav=/sys/number/tree.jsp"
+		messageKey="sys-number:module.sys.number" />
+
+</configs>

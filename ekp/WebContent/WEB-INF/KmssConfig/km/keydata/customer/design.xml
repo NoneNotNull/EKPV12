@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-keydata-customer:module.km.keydata.customer"
+		urlPrefix="/km/keydata/customer/"
+		defaultValidator="roleValidator(role=ROLE_KMCUSTOMER_DEFAULT)">
+		<roles>
+			ROLE_KMCUSTOMER_DEFAULT;
+			ROLE_KMCUSTOMER_CREATE; 
+			<!--ROLE_KMCUSTOMER_DELETE;-->
+			ROLE_KMCUSTOMER_MAINTAINER;
+			ROLE_KMCUSTOMER_CATEGORY_MAINTAINER;
+			<!--ROLE_MAINTAINER_READER; 
+			ROLE_MAINTAINER_EDITOR; -->
+		</roles>
+
+		<request
+			path="km_customer_main/kmCustomerMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.customer.model.KmCustomerMain,adminRoleName=ROLE_KMCUSTOMER_MAINTAINER">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_CREATE)|roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view|showUsed"
+				validator="authFieldValidator(type=SYS_READER)|roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+				
+			<query
+				queryString="method=disableAll|enableAll"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+			
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update|delete|updateAvailable"
+				validator="authFieldValidator(type=SYS_EDITOR)|roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)|authFieldValidator(type=creator)" />
+			</request>
+		
+		<request
+			path="km_customer_category/kmCustomerCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.customer.model.KmCustomerCategory,adminRoleName=ROLE_KMCUSTOMER_CATEGORY_MAINTAINER">
+			<query
+				queryString="method=add|view|edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+		
+		</request>
+		
+		<filters
+			modelName="com.landray.kmss.km.keydata.customer.model.KmCustomerMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />				
+		</filters>
+
+	</module>
+		
+	<module urlPrefix="/sys/simplecategory/">
+         <request path="sys_simple_category/sysCategoryMain_tree.jsp*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMCUSTOMER_CATEGORY_MAINTAINER)"
+         		queryString="modelName=com.landray.kmss.km.keydata.customer.model.KmCustomerCategory" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/transport/">
+         <request path="sys_transport_import/SysTransportImport*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)"
+         		queryString="fdModelName=com.landray.kmss.km.keydata.customer.model.KmCustomerMain" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/number/">
+         <request path="sys_number_main/sysNumberMain*">
+                   <!-- 编号规则设置 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)"
+         		queryString="method=list&amp;modelName=com.landray.kmss.km.keydata.customer.model.KmCustomerMain" />
+         </request>
+	</module>
+	
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.km.keydata.customer.model.KmCustomerCategory"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+		</request>
+	</module>
+	<!-- 文档视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.km.keydata.customer.model.KmCustomerMain"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+		</request>
+	</module>
+	
+
+	<homePage
+		urlPrefix="km/keydata/customer"
+		url="/moduleindex.jsp?nav=/km/keydata/customer/tree.jsp"
+		messageKey="km-keydata-customer:module.km.keydata.customer" />
+
+</configs>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledgePre"
+		table="kms_multidoc_knowledge_pre">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		
+		<property
+			name="fdCategoryId"
+			column="fd_cate_id"
+			length="36"
+			update="true"
+			insert="true"
+			not-null="false" />
+		
+		<property
+			name="docAlterTime"
+			column="doc_alter_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+		
+		<property
+			name="fdPreContent"
+			column="fd_pre_content"
+			update="true"
+			insert="true"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true"
+			length="1000000" />
+		<!-- 场所 -->
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_kmsMultidocPre_authAreaId" />
+		
+	</class>
+</hibernate-mapping>

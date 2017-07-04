@@ -1,0 +1,33 @@
+.over_view_select{
+	height: 25px;
+	border: 0px;
+	border: 1px solid #dfdfdf;width:100px
+}
+.over_view_words{
+	margin-left: 10px;
+	font-size: 13px;
+	font-weight: bold;
+	font-style: normal;
+	text-decoration: none;
+	color: #333333;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	margin-right: 5px;
+}
+.over_view_table td:first-child{
+	padding:10px 10px 0px;
+}
+.lui_eval_loading{
+	width: 16px;
+	height: 16px;
+	background: url(images/loading.gif) no-repeat 0 center;
+	display: inline-block;
+}
+.lui_listview_columntable_table tbody tr:hover .com_subject {
+	color: #333!important;
+}
+.lui_listview_columntable_table tbody tr .com_subject:hover {
+	color: #3eb2e6!important;
+}
+.com_subject, .com_author, .com_number{
+	color: #333;
+}

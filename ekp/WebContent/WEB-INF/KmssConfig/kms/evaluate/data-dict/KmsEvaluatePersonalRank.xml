@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalRank"
+		messageKey="kms-evaluate:table.kmsEvaluatePersonalRank"
+		displayProperty="docReadCount"
+		serviceBean="kmsEvaluatePersonalRankService"
+		table="kms_evaluate_personal_rank"
+		url="/kms/evaluate/kms_evaluate_personal_rank/kmsEvaluatePersonalRank.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docReadCount"
+			type="Long"
+			column="doc_read_count"
+			notNull="false"
+			length="20"
+			validate="false" />
+
+		<simpleProperty
+			name="docEvaluationCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docEvaluationCount"
+			type="Integer"
+			column="doc_evaluation_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docIntroduceCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docIntroduceCount"
+			type="Integer"
+			column="doc_introduce_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docAddCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docAddCount"
+			type="Integer"
+			column="doc_add_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docUpdateCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docUpdateCount"
+			type="Integer"
+			column="doc_update_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docDeleteCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docDeleteCount"
+			type="Integer"
+			column="doc_delete_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalRank.docCount"
+			type="Integer"
+			column="doc_count"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+	</model>
+</models>

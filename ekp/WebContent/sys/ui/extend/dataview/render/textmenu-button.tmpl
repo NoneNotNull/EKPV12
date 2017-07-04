@@ -1,0 +1,20 @@
+var target = render.vars.target?render.vars.target:'_blank';
+
+{$<div class="lui_dataview_textmenu_btn clearfloat">$}
+for(var i=0; i<data.length; i++){
+	var text = env.fn.formatText(data[i].text);
+	{$
+	<div
+		class="lui_dataview_textmenu_btn_item_l"
+		onmouseover="this.className='lui_dataview_textmenu_btn_item_l lui_dataview_textmenu_btn_item_hover';"
+		onmouseout="this.className='lui_dataview_textmenu_btn_item_l';"
+		onclick="window.open('{%env.fn.formatUrl(data[i].href)%}', '{% target %}');">
+		<div class="lui_dataview_textmenu_btn_item_r">
+			<div class="lui_dataview_textmenu_btn_item_c">
+				{% text %}
+			</div>
+		</div>
+	</div>	
+	$}
+}
+{$</div>$}

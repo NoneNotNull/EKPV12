@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.notify.model.SysNotifySetting"
+	messageKey="sys-notify:table.sysNotifySetting"
+	serviceBean="sysNotifySettingService"
+	table="sys_notify_setting"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-notify:sysNotifySetting.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	unique="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-notify:sysNotifySetting.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	unique="false"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-notify:sysNotifySetting.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	unique="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdNotifyType"
+	messageKey="sys-notify:sysNotifySetting.fdNotifyType"
+	type="String"
+	column="fd_notify_type"
+	notNull="false"
+	unique="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdSubject"
+	messageKey="sys-notify:sysNotifySetting.fdSubject"
+	type="String"
+	column="fd_subject"
+	notNull="false"
+	unique="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdContent"
+	messageKey="sys-notify:sysNotifySetting.fdContent"
+	type="RTF"
+	column="fd_content"
+	length="1000000"
+	notNull="false"
+	unique="false"
+/>
+
+<listProperty
+	name="hbmNotifyTargets"
+	messageKey="sys-notify:sysNotifySetting.hbmNotifyTargets"
+	column="fd_notifysettingid"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	elementColumn="fd_orgid"
+	table="sys_notify_settingtarget"
+	inverse="false"
+/>
+</model></models>

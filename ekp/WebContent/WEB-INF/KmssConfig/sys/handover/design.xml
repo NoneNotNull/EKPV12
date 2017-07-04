@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-handover:module.sys.handover"
+		urlPrefix="/sys/handover/"
+		defaultValidator="roleValidator(role=ROLE_SYSHANDOVER_DEFAULT)">
+		<roles>
+			ROLE_SYSHANDOVER_DEFAULT;
+			ROLE_SYSHANDOVER_READER;
+			ROLE_SYSHANDOVER_CREATE;
+			ROLE_SYSHANDOVER_MAINTAIN;
+		</roles>
+
+		<request
+			path="Sys_Handover_Config_Main/sysHandoverConfigMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.handover.model.SysHandoverConfigMain,adminRoleName=ROLE_SYSHANDOVER_MAINTAIN">
+			<!-- 新建交接 -->
+			<query
+				queryString="method=add|search|perform"
+				validator="roleValidator(role=ROLE_SYSHANDOVER_CREATE)" />
+			<query
+				queryString="method=delete|deleteAll"
+				validator="roleValidator(role=ROLE_SYSHANDOVER_CREATE)" />
+		</request>
+
+		<filters
+			modelName="com.landray.kmss.sys.handover.model.SysHandoverConfigMain">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSHANDOVER_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>
+	</module>
+
+	<homePage
+		urlPrefix="sys/handover"
+		config="/sys/handover/config.jsp"
+		messageKey="sys-handover:module.sys.handover"
+		type="global" />
+
+</configs>

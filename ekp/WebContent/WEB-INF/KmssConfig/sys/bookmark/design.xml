@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-bookmark:module.sys.bookmark"
+		urlPrefix="/sys/bookmark/">
+		<roles>ROLE_BOOKMARK_ADMIN;</roles>
+		<!-- 公共分类 -->
+		<request
+			path="sys_bookmark_public_category/sysBookmarkPublicCategory*">
+			<query
+				queryString="method=add|save|saveadd|view|edit|update|deleteall|delete|list"
+				validator="roleValidator(role=ROLE_BOOKMARK_ADMIN)" />
+		</request>
+		<!-- 个人分类 -->
+		<request
+			path="sys_bookmark_person_category/sysBookmarkPersonCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.bookmark.model.SysBookmarkPersonCategory">
+			<query
+				queryString="method=view|edit|update|delete"
+				validator="authFieldValidator(type=creator)" />
+		</request>
+		<!-- 主文档 -->
+		<request
+			path="sys_bookmark_main/sysBookmarkMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.bookmark.model.SysBookmarkMain">
+			<query
+				queryString="method=view|edit|update|delete"
+				validator="authFieldValidator(type=creator)" />
+		</request>
+		<request
+			path="tree.jsp*"
+			defaultValidator="roleValidator(role=ROLE_BOOKMARK_ADMIN)">
+		</request>
+		<filters
+			modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkPersonCategory">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		  <filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+		</filters>
+	</module>
+	<!-- 我的收藏 -->
+	<!-- <portlet
+		moduleKey="sys-bookmark:table.sysBookmarkMain"
+		messageKey="sys-bookmark:sysBookmarkMain.portlet.mine"
+		templateClass="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+		contentBean="sysBookmarkPortlet&amp;rowsize=!{rowsize}&amp;cateid=!{cateid}&amp;type=owner"
+		moreURL="/moduleindex.jsp?nav=/sys/bookmark/tree.jsp&amp;main=%2Fsys%2Fbookmark%2Fsys_bookmark_main%2FsysBookmarkMain.do%3Fmethod%3Dlist"
+		createURL="/sys/bookmark/sys_bookmark_main/sysBookmarkMain.do?method=add" /> -->
+	<!-- 我收藏的文档 -->
+	<!-- <portlet
+		moduleKey="sys-bookmark:table.sysBookmarkMain"
+		messageKey="sys-bookmark:sysBookmarkMain.portlet.doc"
+		templateClass="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+		contentBean="sysBookmarkPortlet&amp;rowsize=!{rowsize}&amp;cateid=!{cateid}&amp;type=doc"
+		moreURL="/moduleindex.jsp?nav=/sys/bookmark/tree.jsp&amp;main=%2Fsys%2Fbookmark%2Fsys_bookmark_main%2FsysBookmarkMain.do%3Fmethod%3Dlist%26type%3Ddoc"
+		createURL="/sys/bookmark/sys_bookmark_main/sysBookmarkMain.do?method=add" /> -->
+	<!-- 主文档高级搜索 -->
+	<search
+		modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkMain"
+		messageKey="sys-bookmark:SysBookmarkMain.search"
+		resultUrl="/sys/bookmark/sys_bookmark_main/sysBookmarkMain.do?method=result" />
+	<treeNodes
+		type="mysetting">
+		<treeNode
+			messageKey="sys-bookmark:table.sysBookmarkMain"
+			url="/sys/bookmark/tree.jsp"
+			target="2">
+		</treeNode>
+	</treeNodes>
+	<homePage
+		urlPrefix="sys/bookmark"
+		messageKey="sys-bookmark:table.sysBookmarkMain"
+		config="/moduleindex_notopic.jsp?nav=/sys/bookmark/tree.jsp"
+		type="global" />
+</configs>

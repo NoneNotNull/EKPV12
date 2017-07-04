@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 TIB表单控件</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+				<relation-module>tib/common</relation-module>
+				<relation-module>tib/sys/core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 表单控件的开发</description>
+			<author>邱建华</author>
+			<revision-time>2014-04-15</revision-time>
+			<relation>
+				<relation-module>tib/common</relation-module>
+				<relation-module>tib/sys/core</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 SOAP组件国际化问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 错误目录资源文件</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 Json转化为XML依赖Jar包问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 代码中的国际化问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+	</modifies>
+</version>

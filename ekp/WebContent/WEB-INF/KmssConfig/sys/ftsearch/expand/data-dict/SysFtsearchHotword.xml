@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchHotword"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchHotword"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchHotwordService"
+		table="sys_ftsearch_hotword"
+		url="/sys/ftsearch/expand/sys_ftsearch_hotword/sysFtsearchHotword.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdHotWord"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdHotWord"
+			type="String"
+			column="fd_hot_word"
+			notNull="true"
+			length="255"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSearchFrequency"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdSearchFrequency"
+			type="Integer"
+			column="fd_search_frequency"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdShieldFlag"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdShieldFlag"
+			type="Boolean"
+			column="fd_shield_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdWordOrder"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdWordOrder"
+			type="Integer"
+			column="fd_word_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserId"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdUserId"
+			type="String"
+			column="fd_user_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreatTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchHotword.fdCreatTime"
+			type="String"
+			column="fd_creat_time"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+	</model>
+</models>

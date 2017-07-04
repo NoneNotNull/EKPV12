@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>
+    	var Com_Parameter = parent.Com_Parameter;
+    	var S_PortalInfo = parent.S_PortalInfo;
+    	document.write('<link href="'+Com_Parameter.ContextPath+'sys/ui/extend/theme/default/style/common.css" rel="stylesheet" type="text/css" />');
+    	function winload(){
+        	if(S_PortalInfo.sysConfig!=null){
+        		document.getElementById('nav_sys').style.display = "";
+        	}
+        	var query = location.search;
+        	var index = query.indexOf("?type=");
+        	if(index==-1)
+            	return;
+            query = query.substring(index+6);
+            index = query.indexOf("&");
+            if(index>-1)
+            	query = query.substring(0, index);
+        	var item = document.getElementById('nav_'+query);
+        	if(item!=null)
+        		item.className = "admin_nav_item admin_nav_item_on";
+    	}
+    </script>
+    <style>
+ol,ul{ list-style:none;}
+
+/******** 头部顶端 ********/
+.lui_admin_header_wrapper{ height:50px; line-height:41px; padding:0 30px 0 25px; border-bottom:1px solid #47b5e6; background-color:#82d0f4;}
+.lui_admin_header_wrapper .logo{ width:300px; padding-left:16px; margin-top:15px; float:left;}
+.lui_admin_header_wrapper .user_info{ margin-top:20px; padding-right:10px; float:right;}
+.lui_admin_header_wrapper .user_info ul li{ height:12px; line-height:12px; color:#fff; float:left; margin-right:5px;}
+.lui_admin_header_wrapper .user_info ul li a{ color:#fff;}
+.lui_admin_header_wrapper .user_info ul li.split{ padding-right:8px; border-right:1px solid #fff;}
+.lui_admin_header_wrapper .user_info ul li.return_home{background:url(admin_home_icon.png) no-repeat left center; cursor:pointer; padding-left:16px;}
+.lui_admin_header_wrapper .user_info ul li .username{ font-weight:bold;}
+.lui_admin_header_wrapper a:hover{ text-decoration:underline;}
+
+
+/******** 头部导航 ********/
+.lui_admin_nav_wrapper{ height:37px; background:url(admin_nav_bg.gif) repeat-x 0 0;}
+.lui_admin_navBox{ padding-left:28px;}
+.lui_admin_navBox .admin_nav_item{ margin-right:2px; float:left; text-align: center;}
+.lui_admin_navBox .admin_nav_item_on,
+.lui_admin_navBox .admin_nav_item:hover{ background:url(admin_nav_link_bg.gif) repeat-x 0 0;}
+.lui_admin_navBox .admin_nav_item a{ min-width:56px; height:36px; padding:0 12px 0 30px; font-size:14px; color:#585858; line-height:36px; display:block;}
+.lui_admin_navBox .admin_nav_item_on a,
+.lui_admin_navBox .admin_nav_item a:hover{ color:#fff; border-bottom:1px solid #99d3f0;}
+
+.a_nav_item_link_1{ background:url(admin_icon_1.png) no-repeat 12px 12px;}
+.lui_admin_navBox .admin_nav_item_on .a_nav_item_link_1,
+.a_nav_item_link_1:hover{ background-position:12px -22px;}
+.a_nav_item_link_2{ background:url(admin_icon_2.png) no-repeat 12px 12px;}
+.lui_admin_navBox .admin_nav_item_on .a_nav_item_link_2,
+.a_nav_item_link_2:hover{ background-position:12px -22px;}
+.a_nav_item_link_3{ background:url(admin_icon_3.png) no-repeat 12px 12px;}
+.lui_admin_navBox .admin_nav_item_on .a_nav_item_link_3,
+.a_nav_item_link_3:hover{ background-position:12px -22px;}
+.a_nav_item_link_4{ background:url(admin_icon_4.png) no-repeat 12px 12px;}
+.lui_admin_navBox .admin_nav_item_on .a_nav_item_link_4,
+.a_nav_item_link_4:hover{ background-position:12px -22px;}
+   </style>
+</head>
+<body onload="winload();">
+	<div class="lui_admin_header_wrapper clrfix" style="min-width:980px;">
+		<div class="logo"><img src="../../../images/logo.png" /></div>
+		<div class="user_info">
+			<ul class="clrfix">
+				<li class="split"><script>document.write(S_PortalInfo.welcome);</script>&nbsp;&nbsp;<span class="username"><script>document.write(S_PortalInfo.UserName);</script></span></li>
+				<li><a href="#" onclick="parent.logout();"><script>document.write(S_PortalInfo.logout);</script></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="lui_admin_nav_wrapper">
+        <ul class="lui_admin_navBox clrfix">
+            <li class="admin_nav_item"><a class="a_nav_item_link_1" href="../../../../index.jsp" target="_parent">
+            	<script>document.write(S_PortalInfo.home);</script>
+            </a></li><li class="admin_nav_item" id="nav_app"><a class="a_nav_item_link_2" href="../../../../sys/index.jsp" target="_parent">
+				<script>document.write(S_PortalInfo.appConfig);</script>
+			</a></li><li class="admin_nav_item" id="nav_global"><a class="a_nav_item_link_3" href="../../../../sys/index.jsp?type=global" target="_parent">
+				<script>document.write(S_PortalInfo.globalConfig);</script>
+			</a></li><li class="admin_nav_item" id="nav_sys" style="display:none;"><a class="a_nav_item_link_4" href="../../../../sys/index.jsp?type=sys" target="_parent">
+				<script>document.write(S_PortalInfo.sysConfig);</script>
+			</a></li>
+        </ul>
+    </div>
+</body>
+</html>
+    

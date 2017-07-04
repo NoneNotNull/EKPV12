@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+	"http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.1</jsp-version>
+	<short-name>tib</short-name>
+	<uri>http://www.landray.com.cn/tags/tib/sys/core/provider</uri>
+	<!-- 构建简单tags标签 -->
+	<tag>
+		<name>simpleTags</name>
+		<tag-class>com.landray.kmss.tib.sys.core.provider.tld.TibSysCoreTagsTld</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<!-- 查询标签的表 -->
+			<name>propertyId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 查询标签的表 -->
+			<name>propertyName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 标签查询最多量 -->
+			<name>mostNumber</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 标签model 排序字段 -->
+			<name>orderBy</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<name>loadBarTag</name>
+		<tag-class>com.landray.kmss.tib.sys.core.provider.tld.TibSysCoreLoadBarTld</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<!-- 查询标签的表 -->
+			<name>tagModel</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 标签查询最多量 -->
+			<name>mostNumber</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<!-- 标签model 排序字段 -->
+			<name>orderBy</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	
+	
+</taglib>

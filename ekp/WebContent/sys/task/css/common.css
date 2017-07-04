@@ -1,0 +1,132 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+.fl{ float:left;}
+.fr{ float:right;}
+.noBorder{ border:none;}
+.clr,clrfix{ zoom:1;}/* 清除浮动 */
+.clr:after,clrfix::after{ display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}/* 清除浮动 */
+input{ -webkit-appearance: none; }
+
+
+
+ html, body{ height: 100%; margin: 0px;padding: 0px; }
+ .contain{height: 100%; position: relative;}
+ article{top:0px; bottom: 81px;position: relative; left: 0px; right: 0px;overflow-y:auto;background-color:#fff}
+ .article_none{ bottom:0px;}
+ .article_tabs_contain ul li{ height:74px; line-height:74px; background:url(../images/li_bg.png) repeat-x; padding:14px 18px; cursor:pointer}
+ 
+ .textEllipsis{ width:90%; overflow:hidden; display:block; white-space:nowrap; text-overflow:ellipsis; }
+
+
+.sort_header1{ padding-left:25px; height:30px; line-height:30px; font-family:Arial; font-weight:bold; color:#fff; text-shadow:0 2px 0 #949494; border-top:2px solid #a9b1cd; border-bottom:2px solid #a9b1cd; background:url(../images/sort_h_bg.png) repeat-x 0 0;}
+.sort_header2{ padding-left:25px; height:30px; line-height:30px; font-family:Arial; font-weight:bold; color:#fff; text-shadow:0 2px 0 #949494; border-top:2px solid #b4d5cc; border-bottom:2px solid #b4d5cc; background:url(../images/sort_h_bg.png) repeat-x 0 -62px;}
+.tab_wrapper{ font-family:SimHei; font-size:28px; background-color:#bbbec8;}
+.tab_iframe{ width:80%;min-height:600px; box-shadow:2px 0 6px #2e2e2e; background-color:#fff; float:left; position:relative; z-index:2;}
+.tab_body{}
+.tab_body ul{ background-color:#fff;}
+.tab_body ul li{ padding:10px 10px 10px 6px; border-bottom:2px solid #e0e0e0;cursor:pointer}
+.tab_body ul li.header,
+
+.tab_body ul li>div{ padding:0 30px 0 28px; font-family:SimHei; font-size:15px; color:#282828; position:relative;}
+.tab_body ul li>div .title{ margin-bottom:10px;margin-left: 5px;line-height:18px;font-size:14px;font-weight:bold}
+.tab_body ul li>div .time{ font-size:13px;margin-left: 5px;color:#979797;}
+.tab_body ul li>div .remark{ font-size:22px; color:#979797; background-color:#fcf8df; margin-top:5px;}
+.tab_body ul li>div i{ width:28px; height:27px; display:block; position:absolute; right:0; top:4px; cursor:pointer;}
+.tab_body ul li>div i.star1{ background:url(../images/icon_star_1.png) no-repeat;}
+.tab_body ul li>div i.star2{ background:url(../images/icon_star_2.png) no-repeat;}
+
+.tab_body ul li .round_1{ width:30px; height:25px;display:block; cursor:pointer; position:absolute; left:0; top:0;margin-top:25px}
+.tab_body ul li .round_2{ width:30px; height:25px; display:block; cursor:pointer; position:absolute; left:0; top:0;}
+
+
+.tab_header{ width:18%; padding-top:46px; float:left;}
+.tab_header li{ width:100%;  margin-bottom:18px; text-align:center; color:#2e2e2e; border-top-right-radius:8px; border-bottom-right-radius:8px; box-shadow:1px 0 8px #2e2e2e; background:#ced6e1; cursor:pointer;}
+.tab_header li p{ width:100%; padding:2px 0;height:50px;line-height:50px; font-size:14px; border-top-right-radius:8px; border-bottom-right-radius:8px; background:none; position:relative; z-index:1;}
+.tab_header li.on p{ background-color:#fff; z-index:3;}
+.tab_header li .num{ width:40px; height:40px; padding:2px 4px; line-height:38px; text-align:center; font-family:Arial; font-weight:bold; font-size:18px; color:#fff; display:block; overflow:hidden; text-shadow:none; background:url(../images/num_bg.png) no-repeat 0 0; position:absolute; right:-12px; top:-12px; z-index:10;}
+.tab_header li p .star{ width:37px; height:37px; margin:6px auto; background:url(../images/icon_star_3.png) no-repeat 50% 50%; display:block;}
+.p_cancel{ width:28px; height:28px; background:url(../images/icon_cancel.png) no-repeat 0 0; background-size:28px 28px; display:block; position:absolute; right:0; top:50%; cursor:pointer;}
+.tab_header li p .selected{ width:37px; height:37px; margin:6px auto; background:url(../images/icon_selected_2.png) no-repeat 50% 50%; display:block;}
+.tab_header li p .all{ width:37px; height:37px; margin:6px auto; background:url(../images/icon_selected_1.png) no-repeat 50% 50%; display:block;}
+.tab_header li p .send{ width:37px; height:37px; margin:6px auto; background:url(../images/icon_selected_4.png) no-repeat 50% 50%; display:block;}
+
+/*3级页面*/
+/*更多选项按钮*/
+.taskTable{border-collapse: collapse;}
+.taskTable tr{height: 50px;}
+.taskTable tr td{line-height:18px;font-size:16px;border-collapse: collapse;border-bottom: 2px solid #e0e0e0;border-left: none;border-right: none;}
+.taskTable tr td.title{font-weight:bold;}
+.taskTable tr td .cateItemData{font-weight:bolder;color:black;cursor:pointer;padding-top:13px;padding-bottom:13px;width: 95%;float: right;}
+.input2{ width:100%; padding:0 8px; font-family:SimHei; font-size:15px; color:#595959; border:2px solid #777778; border-radius:8px; background-color:#fff;}
+ .txt_c_date{float:left}
+ .txt_c_date li{}
+ .txt_c_date li span{margin-right:5px;line-height:35px; font-size:14px;cursor:pointer}
+.task_slideDown {padding-left: 18px;background: url(../images/icon_arrowd_blue.png) no-repeat 0 1px;cursor: pointer;}
+.task_slideUp {padding-left: 18px;background: url(../images/icon_arrowU_blue.png) no-repeat 0 1px;cursor: pointer;}
+
+.com_btnBox{ margin:12px 0; padding:0 20px;}
+ .button_one{ padding: 0px 10px;height:30px; line-height:30px; text-align:center; font-family:SimHei; color:#FFF; border:0px; border-radius:8px;background-color:#3592cd}
+ .button_one:hover,
+ .button_one:active{ background-position:0 -85px;}
+ .c_blue{ font-family:SimHei; line-height:108px; color:#4f74b6;}
+ 
+ .div_morepage {
+	color:#3390cb;
+	width: 100%;
+	padding-top:15px;
+	height: 40px;
+	font-weight:bolder;
+	border-bottom: 1px #DFDFDF solid;
+	background-color: #F7F7F7;
+	cursor:pointer;
+	display: none;
+	font-size: 15px;
+	text-align: center;
+}
+.btn_add{
+	display:inline-block;
+	position: relative;
+	z-index:999;
+	top: 10%;
+	left: 2%;
+	width: 45px;
+	height: 45px
+}
+
+.innerDiv{
+	height:35px;
+	margin: 25px 12px 8px 15px;
+}
+
+.titleSpan{
+	padding-left: 5px;float:left
+}
+.titleName{
+	text-align:left;color: #787878;float: left;margin-left: 5px;margin-top: 4px;
+}
+
+/*三级页面的图标*/
+.fontColor{
+	color:#62738f;
+}
+/*二级页面列表的图标*/
+.fontlistColor{ color:#8199b3}
+
+
+/*二级页面列表其他图标的颜色*/
+.fontOthersColor{color:#afafaf}
+
+
+/*星星选中的颜色*/
+.fontStarOnColor{
+	color:#ebac3a
+}
+/*创建按钮的颜色*/
+.fontBtnAddColor{
+	color:#3390cb
+}
+
+/*完成的颜色*/
+.fontFinishedColor{ color:#4fa041}
+

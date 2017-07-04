@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelogContent"
+		messageKey="kms-kmtopic:table.kmsKmtopicCatelogContent"
+		displayProperty="fdId"
+		serviceBean="kmsKmtopicCatelogContentService"
+		table="kms_kmtopic_catelog_content"
+		url="/kms/kmtopic/kms_kmtopic_catelog_content/kmsKmtopicCatelogContent.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKmCategory"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdKmCategory"
+			type="String"
+			column="fd_km_category"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKmAuthor"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdKmAuthor"
+			type="String"
+			column="fd_km_author"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKmLink"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdKmLink"
+			type="String"
+			column="fd_km_link"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKmId"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdKmId"
+			type="String"
+			column="fd_km_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdKmDescription"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdKmDescription"
+			type="String"
+			column="fd_km_description"
+			notNull="false"
+			length="1500"
+			validate="false" />
+
+		<simpleProperty
+			name="kmDocPublishTime"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.kmDocPublishTime"
+			type="DateTime"
+			column="km_doc_publish_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="kmDocSubject"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.kmDocSubject"
+			type="String"
+			column="km_doc_subject"
+			notNull="true"
+			length="200"
+			validate="false" />
+
+		<modelProperty
+			name="fdCatelog"
+			messageKey="kms-kmtopic:kmsKmtopicCatelogContent.fdCatelog"
+			type="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelog"
+			column="fd_catelog"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

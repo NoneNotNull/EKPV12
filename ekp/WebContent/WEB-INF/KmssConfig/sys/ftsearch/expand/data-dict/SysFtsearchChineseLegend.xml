@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchChineseLegend"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchChineseLegend"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchChineseLegendService"
+		table="sys_ftsearch_chinese_legend"
+		url="/sys/ftsearch/expand/sys_ftsearch_chinese_legend/sysFtsearchChineseLegend.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-ftsearch-expand:sysFtsearchChineseLegend.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="100"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSearchTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchChineseLegend.fdSearchTime"
+			type="String"
+			column="fd_search_time"
+			notNull="false"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSearchWord"
+			messageKey="sys-ftsearch-expand:sysFtsearchChineseLegend.fdSearchWord"
+			type="String"
+			column="fd_search_word"
+			notNull="false"
+			length="255"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSearchFrequency"
+			messageKey="sys-ftsearch-expand:sysFtsearchChineseLegend.fdSearchFrequency"
+			type="String"
+			column="fd_search_frequency"
+			notNull="false"
+			length="36"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdShieldFlag"
+			messageKey="sys-ftsearch-expand:sysFtsearchChineseLegend.fdShieldFlag"
+			type="Boolean"
+			column="fd_shield_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			validate="true" />
+
+	</model>
+</models>

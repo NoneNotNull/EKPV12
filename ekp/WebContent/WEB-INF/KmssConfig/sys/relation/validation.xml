@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<form
+			name="sysRelationForeignModuleForm">
+			<field
+				property="fdModuleKey"
+				depends="required,maxlength">
+				<arg
+					key="sysRelationForeignModule.fdModuleKey"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdModuleName"
+				depends="required,maxlength">
+				<arg
+					key="sysRelationForeignModule.fdModuleName"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysRelationForeignModule.fdOrder"
+					bundle="sys-relation"
+					position="0" />
+			</field>
+			<field
+				property="fdSearchEngineBean"
+				depends="maxlength">
+				<arg
+					key="sysRelationForeignModule.fdSearchEngineBean"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+		<form
+			name="sysRelationForeignParamForm">
+			<field
+				property="fdParam"
+				depends="maxlength">
+				<arg
+					key="sysRelationForeignParam.fdParam"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdParamName"
+				depends="maxlength">
+				<arg
+					key="sysRelationForeignParam.fdParamName"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdParamType"
+				depends="maxlength">
+				<arg
+					key="sysRelationForeignParam.fdParamType"
+					bundle="sys-relation"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

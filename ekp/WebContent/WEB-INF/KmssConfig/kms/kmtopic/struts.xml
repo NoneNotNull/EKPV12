@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsKmtopicCategoryForm"
+			type="com.landray.kmss.kms.kmtopic.forms.KmsKmtopicCategoryForm" />
+		<form-bean
+			name="kmsKmtopicMainForm"
+			type="com.landray.kmss.kms.kmtopic.forms.KmsKmtopicMainForm" />
+		<form-bean
+			name="kmsKmtopicCatelogForm"
+			type="com.landray.kmss.kms.kmtopic.forms.KmsKmtopicCatelogForm" />
+		<form-bean
+			name="kmsKmtopicCatelogContentForm"
+			type="com.landray.kmss.kms.kmtopic.forms.KmsKmtopicCatelogContentForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory"
+			type="com.landray.kmss.kms.kmtopic.actions.KmsKmtopicCategoryAction"
+			name="kmsKmtopicCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/kmtopic/kms_kmtopic_category/kmsKmtopicCategory_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain"
+			type="com.landray.kmss.kms.kmtopic.actions.KmsKmtopicMainAction"
+			name="kmsKmtopicMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_list.jsp" />
+			<forward
+				name="editProperty"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_info_property.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_ad_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_ad_list.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMainIndex"
+			type="com.landray.kmss.kms.kmtopic.actions.KmsKmtopicMainIndexAction"
+			name="kmsKmtopicMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="listChildren"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_list.jsp">
+			</forward>
+			<forward
+				name="listLog"
+				path="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain_cateLog_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/kms/kmtopic/kms_kmtopic_catelog/kmsKmtopicCatelog"
+			type="com.landray.kmss.kms.kmtopic.actions.KmsKmtopicCatelogAction"
+			name="kmsKmtopicCatelogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmtopic/kms_kmtopic_catelog/kmsKmtopicCatelog_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/kmtopic/kms_kmtopic_catelog/kmsKmtopicCatelog_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/kmtopic/kms_kmtopic_catelog/kmsKmtopicCatelog_list.jsp" />
+		</action>
+
+		<!-- 门户 -->
+		<action
+			path="/kms/kmtopic/kms_kmtopic_portlet/kmsKmtopicMainPortlet"
+			type="com.landray.kmss.kms.kmtopic.actions.KmsKmtopicMainPortletAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward name="data" path="/kms/kmtopic/kms_kmtopic_portlet/kms_kmtopic_portlet_data.jsp"></forward>
+		</action>
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.kms.kmtopic.ApplicationResources"
+		key="kms-kmtopic" />
+</struts-config>

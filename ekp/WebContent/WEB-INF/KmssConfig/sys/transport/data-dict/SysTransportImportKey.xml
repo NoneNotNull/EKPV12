@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.transport.model.SysTransportImportKey"
+	messageKey="sys-transport:table.sysTransportImportKey"
+	displayProperty="fdName"
+	serviceBean="sysTransportImportKeyService"
+	table="sys_transport_import_key"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="sys-transport:sysTransportImportKey.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="100"
+/>
+<modelProperty
+	name="property"
+	messageKey="sys-transport:sysTransportImportKey.property"
+	type="com.landray.kmss.sys.transport.model.SysTransportImportProperty"
+	column="fd_parent_id"
+	notNull="false"
+/>
+</model></models>

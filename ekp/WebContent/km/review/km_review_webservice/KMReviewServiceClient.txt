@@ -1,0 +1,83 @@
+/**
+ * 创建文档及流程数据
+ */
+KmReviewParamterForm createForm() throws Exception {
+	KmReviewParamterForm form = new KmReviewParamterForm();
+
+	// 文档模板id
+	form.setFdTemplateId("131eb0cfd7db55e6980e9ce4985a1387");
+
+	// 文档标题
+	form.setDocSubject("物料采购申请单");
+
+	// 流程发起人
+	form.setDocCreator("{\"PersonNo\": \"00012\"}");
+
+	// 文档关键字
+	form.setFdKeyword("[\"物料\", \"采购\"]");
+
+	// 流程表单
+	String formValues = "{\"fd_2eddbf023c8292\":\"张三\", \"fd_2edd2f83f68242\":\"咨询部\", \"fd_2edd2fa69f6fc6\":\"\", \"fd_2eddbf09f9bc96\":\"2011-10-26\", \"fd_2edd2fb18e7f90\":{\"fd_2edd2fb18e7f90.fd_2eddbef4da4688\":[\"555555\",\"777777\"], \"fd_2edd2fb18e7f90.fd_2edd2fc8001062\":[\"444444\",\"666666\"], \"fd_2edd2fb18e7f90.fdId\":[\"1332472122898ac618f3e22460cab595\",\"13324721228b50c184d82c44ceca5301\"]}}";
+	form.setFormValues(formValues);
+
+	// 流程参数
+	String flowParam = "{auditNode:\"请审核\", futureNodeId:\"N7\", changeNodeHandlers:[\"N7:1183b0b84ee4f581bba001c47a78b2d9;131d019fbac792eab0f0a684c8a8d0ec\"]}";
+	form.setFlowParam(flowParam);
+
+	List<AttachmentForm> attForms = createAllAtts();
+	form.getAttachmentForms().addAll(attForms);
+
+	return form;
+}
+
+/**
+ * 创建附件列表
+ */
+List<AttachmentForm> createAllAtts() throws Exception {
+
+	List<AttachmentForm> attForms = new ArrayList<AttachmentForm>();
+
+	String fileName = "采购订单说明书1.doc";
+	AttachmentForm attForm01 = createAtt(fileName);
+	fileName = "采购订单说明书2.doc";
+	AttachmentForm attForm02 = createAtt(fileName);
+
+	attForms.add(attForm01);
+	attForms.add(attForm02);
+
+	return attForms;
+}
+
+/**
+ * 创建附件对象
+ */
+AttachmentForm createAtt(String fileName) throws Exception {
+	AttachmentForm attForm = new AttachmentForm();
+	attForm.setFdFileName(fileName);
+	// 设置附件关键字，表单模式下为附件控件的id
+	attForm.setFdKey("fd_2eddbf161a3268");
+
+	byte[] data = file2bytes("C:\\" + fileName);
+	attForm.setFdAttachment(data);
+
+	return attForm;
+}
+
+/**
+ * 将文件转换为字节编码
+ */
+byte[] file2bytes(String fileName) throws Exception {
+	InputStream in = new FileInputStream(fileName);
+	byte[] data = new byte[in.available()];
+
+	try {
+		in.read(data);
+	} finally {
+		try {
+			in.close();
+		} catch (IOException ex) {
+		}
+	}
+
+	return data;
+}

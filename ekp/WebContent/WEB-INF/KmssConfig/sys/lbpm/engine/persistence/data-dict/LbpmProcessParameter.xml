@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcessParameter"
+		messageKey="sys-lbpm-engine:table.lbpmProcessParameter"
+		serviceBean="lbpmProcessParameterService"
+		table="lbpm_process_parameter">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-lbpm-engine:lbpmProcessParameter.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdValue"
+			messageKey="sys-lbpm-engine:lbpmProcessParameter.fdValue"
+			type="String"
+			column="fd_value"
+			notNull="false"
+			length="4000" />
+
+		<simpleProperty
+			name="fdTaskType"
+			messageKey="sys-lbpm-engine:lbpmProcessParameter.fdTaskType"
+			type="String"
+			column="fd_task_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmProcessParameter.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpm-engine:lbpmProcessParameter.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="false" />
+
+	</model>
+</models>

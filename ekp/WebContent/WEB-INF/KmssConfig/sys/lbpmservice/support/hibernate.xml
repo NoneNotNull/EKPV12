@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmTemplateChangeHistory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmAuditNote.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmAuditNoteRtNode.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmAuditNoteRtReader.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmAuditNoteReader.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmUsage.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmOperations.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmOperMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmWorkingproxy.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/lbpmservice/support/model/LbpmProcessReadLog.hbm.xml" />
+
+	</session-factory>
+</hibernate-configuration> 

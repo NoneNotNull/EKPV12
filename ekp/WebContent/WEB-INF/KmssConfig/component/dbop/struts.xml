@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="compDbcpForm"
+			type="com.landray.kmss.component.dbop.forms.CompDbcpForm">
+		</form-bean>
+		
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action
+			path="/component/dbop/compDbcp"
+			type="com.landray.kmss.component.dbop.actions.CompDbcpAction"
+			name="compDbcpForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/component/dbop/cp/compDbcp_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/component/dbop/cp/compDbcp_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/component/dbop/cp/compDbcp_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.component.dbop.ApplicationResources"
+		key="component-dbop" />
+</struts-config>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibCommonLogMainBackupForm"
+			type="com.landray.kmss.tib.common.log.forms.TibCommonLogMainBackupForm" />
+		<form-bean
+			name="tibCommonLogOptForm"
+			type="com.landray.kmss.tib.common.log.forms.TibCommonLogOptForm" />
+		<form-bean
+			name="tibCommonLogMainForm"
+			type="com.landray.kmss.tib.common.log.forms.TibCommonLogMainForm" />
+		<form-bean
+			name="tibCommonLogManageForm"
+			type="com.landray.kmss.tib.common.log.forms.TibCommonLogManageForm" />
+	</form-beans>
+
+	<action-mappings>
+		
+		<!-- 日志 -->
+		<action
+			path="/tib/common/log/tib_common_log_main_backup/tibCommonLogMainBackup"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogMainBackupAction"
+			name="tibCommonLogMainBackupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/common/log/tib_common_log_main_backup/tibCommonLogMainBackup_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/common/log/tib_common_log_main_backup/tibCommonLogMainBackup_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_main_backup/tibCommonLogMainBackup_list.jsp" />
+		</action>
+		<!-- 新UED -->
+		<action
+			path="/tib/common/log/tib_common_log_opt/tibCommonLogOptIndex"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogOptIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_opt/tibCommonLogOpt_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/common/log/tib_common_log_opt/tibCommonLogOpt"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogOptAction"
+			name="tibCommonLogOptForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/common/log/tib_common_log_opt/tibCommonLogOpt_view.jsp" />
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_opt/tibCommonLogOpt_list.jsp" />
+		</action>
+		<!-- 日志文档新UED -->
+		<action
+			path="/tib/common/log/tib_common_log_main/tibCommonLogMainIndex"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogMainIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_ui_list.jsp" />
+			<forward
+				name="searchView"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_list.jsp" />		
+		</action>	
+				
+		<action
+			path="/tib/common/log/tib_common_log_main/tibCommonLogMain"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogMainAction"
+			name="tibCommonLogMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_inner_list.jsp" />
+			<forward
+				name="searchView"
+				path="/tib/common/log/tib_common_log_main/tibCommonLogMain_list.jsp" />		
+		</action>
+
+		<action
+			path="/tib/common/log/tib_common_log_manage/tibCommonLogManage"
+			type="com.landray.kmss.tib.common.log.actions.TibCommonLogManageAction"
+			name="tibCommonLogManageForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/common/log/tib_common_log_manage/tibCommonLogManage_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/common/log/tib_common_log_manage/tibCommonLogManage_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/common/log/tib_common_log_manage/tibCommonLogManage_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

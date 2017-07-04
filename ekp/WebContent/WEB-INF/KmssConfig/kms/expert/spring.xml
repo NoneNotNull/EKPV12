@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="kmsExpertInfoDao" parent="KmssExtendDataDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsExpertInfoDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+	</bean>
+	<bean id="kmsExpertInfoTarget" parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertInfoServiceImp">
+		<property name="baseDao">
+			<ref local="kmsExpertInfoDao" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="treeVisitDao">
+			<ref local="kmsExpertTreeVisitDao" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property name="kmsExpertAreaService">
+			<ref bean="kmsExpertAreaService"/>
+		</property>
+		<property name="kmsExpertTypeService">
+			<ref bean="kmsExpertTypeService"/>
+		</property>
+		<!--
+				<property name="kmsWikiCategoryService"> <ref
+				bean="kmsWikiCategoryService" /> </property> <property
+				name="kmsAskCategoryService"> <ref bean="kmsAskCategoryService" />
+				</property>
+			-->
+	</bean>
+	<bean id="kmsExpertInfoService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsExpertInfoTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertTypeDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsExpertTypeDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsExpertType" />
+	</bean>
+	<bean id="kmsExpertTypeTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeServiceImp">
+		<property name="baseDao">
+			<ref local="kmsExpertTypeDao" />
+		</property>
+	</bean>
+	<bean id="kmsExpertTypeService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsExpertTypeTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertTypeTreeService"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeTreeService">
+		<property name="kmsExpertTypeService">
+			<ref local="kmsExpertTypeService" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertTypeListService"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeListService">
+		<property name="kmsExpertTypeService">
+			<ref local="kmsExpertTypeService" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertTreeVisitDao" parent="KmssBaseTreeVisitDao">
+		<property name="findModel"
+			value="com.landray.kmss.kms.expert.model.KmsExpertInfo" />
+		<property name="findParent" value="kmsExpertTypeList" />
+		<property name="treeModel"
+			value="com.landray.kmss.kms.expert.model.KmsExpertType" />
+		<property name="treeParent" value="hbmParent" />
+	</bean>
+
+	<bean id="kmsExpertPortlet"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertPortlet">
+		<property name="kmsExpertTypeService">
+			<ref bean="kmsExpertTypeService" />
+		</property>
+	</bean>
+
+	<!-- 按专家领域查找专家列表 add by yangf 20110915 -->
+	<bean id="kmsExpertByTypeDatabean"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertByTypeDatabean">
+		<property name="kmsExpertInfoService">
+			<ref bean="kmsExpertInfoService" />
+		</property>
+	</bean>
+	<!-- 按专家领域查找专家列表 add by yangf 20110915 //-->
+
+	<!-- 分类概览 -->
+	<bean id="kmsExpertPreviewTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertPreviewServiceImp">
+		<property name="baseDao">
+			<ref local="kmsExpertPreviewDao" />
+		</property>
+		<property name="kmsExpertTypeService">
+			<ref local="kmsExpertTypeService" />
+		</property>
+		<property name="kmsExpertInfoService">
+			<ref local="kmsExpertInfoService" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertPreviewService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsExpertPreviewTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsExpertPreviewDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsExpertPreviewDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsExpertPreview" />
+	</bean>
+	<!-- 分类概览 //-->
+
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>kmsExpertInfoDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 专家页面 -->
+	<bean id="kmsHomeExpertService" class="com.landray.kmss.kms.expert.service.portlet.KmsHomeExpertService">
+		<property name="kmsExpertInfoService">
+			<ref bean="kmsExpertInfoService"/>
+		</property>
+		<property name="kmsExpertTypeService">
+			<ref bean="kmsExpertTypeService"/>
+		</property>
+		<property name="kmsExpertPreviewService">
+			<ref bean="kmsExpertPreviewService"/>
+		</property>
+		<property name="kmsIntroExpertService">
+			<ref bean="kmsIntroExpertService"/>
+		</property>
+	</bean>
+	
+	<!-- 社区专家、之星推荐 -->
+	<bean id="kmsIntroExpertDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsIntroExpertDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsIntroExpert" />
+	</bean>
+	<bean id="kmsIntroExpertTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsIntroExpertServiceImp">
+		<property name="baseDao">
+			<ref local="kmsIntroExpertDao" />
+		</property>
+	</bean>
+	<bean id="kmsIntroExpertService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsIntroExpertTarget" />
+		</property>
+	</bean>
+	<!-- 社区专家、之星推荐 //-->
+	
+	<!--推荐专家-->
+	<bean id="kmsIntroExpertPortlet"
+		class="com.landray.kmss.kms.expert.service.portlet.KmsIntroExpertPortlet">
+		<property name="kmsIntroExpertService">
+			<ref bean="kmsIntroExpertService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsIntroExpertLightBluePortlet"
+		class="com.landray.kmss.kms.expert.service.portlet.KmsIntroExpertLightBluePortlet">
+		<property name="kmsIntroExpertService">
+			<ref bean="kmsIntroExpertService" />
+		</property>
+	</bean>
+	
+	<!-- 专家精通领域-->
+	<bean
+		id="kmsExpertAreaDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsExpertAreaDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsExpertArea" />
+	</bean>
+	<bean
+		id="kmsExpertAreaTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertAreaServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsExpertAreaDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsExpertAreaService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsExpertAreaTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsExpertProfilePortlet" class="com.landray.kmss.kms.expert.service.portlet.KmsExpertProfilePortlet">
+		<property name="kmsExpertInfoService">
+			<ref local="kmsExpertInfoService"/>
+		</property>
+	</bean>
+	
+	<!-- 
+		<bean
+			class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+			<property name="beanNames">
+				<value>sysOrgPersonService</value>
+			</property>
+			<property name="interceptorNames">
+				<list>
+					<value>kmsPersonInfoInterceptor</value>
+				</list>
+			</property>
+		</bean>
+		 -->
+	<bean id="kmsExpertTypeCheckService" class="com.landray.kmss.kms.expert.service.spring.KmsExpertTypeCheckService">
+		<property name="kmsExpertTypeService">
+			<ref local="kmsExpertTypeService"/>
+		</property>
+	</bean>	
+	
+	<!--专家网络webservice服务定义 -->
+	<bean id="kmsExpertWebservice" class="com.landray.kmss.kms.expert.webservice.service.KmsExpertWebservice">
+		<property name="kmsIntroExpertService">
+			<ref local="kmsIntroExpertService"/>
+		</property>
+		<property name="kmsExpertInfoService">
+			<ref local="kmsExpertInfoService"/>
+		</property>
+	</bean>	
+	
+	<!-- 专家分类概览 -->
+	<bean id="kmsExpertCategoryPreManagerService"
+		  class="com.landray.kmss.kms.expert.service.spring.KmsExpertCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsExpertInfoService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsExpertTypeService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsExpertCategoryPreviewService"/>
+		</property>
+	</bean>	
+	<bean
+		id="kmsExpertCategoryPreviewDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.expert.dao.hibernate.KmsExpertCategoryPreviewDao">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.expert.model.KmsExpertCategoryPreview" />
+	</bean>
+	<bean id="kmsExpertCategoryPreTarget"
+		class="com.landray.kmss.kms.expert.service.spring.KmsExpertCategoryPreviewServiceImp"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsExpertCategoryPreviewDao" />
+		</property>
+		<property name="kmsExpertTypeService">
+			<ref bean="kmsExpertTypeService"/>
+		</property>
+		<property name="kmsExpertInfoService">
+			<ref bean="kmsExpertInfoService" />
+		</property>
+	</bean>  
+	<bean
+		id="kmsExpertCategoryPreviewService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsExpertCategoryPreTarget" />
+		</property>
+	</bean> 
+	
+	<bean
+		id="kmsExpertLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsExpertInfoService</value>
+				<value>kmsExpertTypeService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>	
+</beans>

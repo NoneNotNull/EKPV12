@@ -1,0 +1,56 @@
+/*
+ * 压缩类型：无
+ */
+*
+{
+    margin: 0;
+    padding: 0;
+}
+#Nav_TBObj
+{
+    background: #ededed;
+    border: 0px solid #eaeaea;
+    border-top: 0px solid #cee8fc;
+    border-bottom: 1px solid #dddddd;
+}
+.navbar_label
+{
+    height: 31px;
+    cursor: pointer;
+}
+/*
+.navbar_page{ border:1px solid #6e6a61; border-collapse:collapse; background:url(tree_bg.gif) repeat-y; width:198px;} */
+.td_title
+{
+    color: #2b9bd5;
+    font-family: "微软雅黑" ,Verdana,Arial, "宋体";
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+.navbar_page{ background-color:#f9f9f9}
+.nav_title
+{
+    background: url(../icons/nav_title.png) repeat-x ;
+    height: 29px;
+    color: #fff;
+    font-family: "微软雅黑" ,Verdana,Arial, "宋体";
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 31px;
+    margin-top: 0px;
+    cursor: pointer;
+    border-bottom:1px solid #dfdfdf;
+}
+.nav_title span
+{
+    display: block;
+    background: url(../icons/bg_01.png) no-repeat left center;
+    height: 29px;
+    padding-left: 29px;
+    white-space: nowrap;
+    color:#2f2f2f
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 待办发起人及模块来源问题处理</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-20</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 标签数据更新改为异步方式</description>
+			<author>黄伟强</author>
+			<revision-time>2015-02-26</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 去除对附件机制ISysAttUploadService接口的引用</description>
+			<author>黄伟强</author>
+			<revision-time>2014-11-25</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 时间管理提醒定时任务报错</description>
+			<author>周梓凡</author>
+			<revision-time>2014-11-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 日历portlet</description>
+			<author>周梓凡</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端新建页面</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 将今天的图标换成文字</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 将今天的图标换成文字</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 portlet日历节气出错</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动群组日程人名显示为undefined问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 日程为按月重复每周，在日历页面上拖动后，此日程会往后移动一个月的问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 exchange与时间管理同步问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 时间管理模块，导出的没有详情的信息</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 在绑定另一个账号后，每次同步数据都会重复的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2014-08-14</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 首页拖拽日程偶尔无效</description>
+			<author>周梓凡</author>
+			<revision-time>2014-07-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端群组日历</description>
+			<author>周梓凡</author>
+			<revision-time>2014-07-01</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 exchange集成接口</description>
+			<author>黄伟强</author>
+			<revision-time>2014-06-03</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建日程时，选择开始时间为将来时，结束时间也同步更新</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-12</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 日历portlet刷新无效问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 共享日程页面(分页加载)</description>
+			<author>周梓凡</author>
+			<revision-time>2014-04-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 发起多人日程功能</description>
+			<author>周梓凡</author>
+			<revision-time>2014-04-29</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端日程新建页面</description>
+			<author>周梓凡</author>
+			<revision-time>2014-04-29</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 时间管理模块</description>
+			<author>孟磊</author>
+			<revision-time>2013-10-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+	</modifies>
+</version>

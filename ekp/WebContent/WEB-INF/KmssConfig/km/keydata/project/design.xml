@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	
+	<module
+		messageKey="km-keydata-project:module.km.keydata.project"
+		urlPrefix="/km/keydata/project/"
+		defaultValidator="roleValidator(role=ROLE_KMPROJECT_DEFAULT)">
+		<roles>
+			ROLE_KMPROJECT_DEFAULT;
+			ROLE_KMPROJECT_CREATE; 
+			<!--ROLE_KMPROJECT_DELETE;-->
+			ROLE_KMPROJECT_MAINTAINER;
+			ROLE_KMPROJECT_CATEGORY_MAINTAINER;
+			<!--ROLE_MAINTAINER_READER; 
+			ROLE_MAINTAINER_EDITOR; -->
+		</roles>
+
+		<request
+			path="km_project_main/kmProjectMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.project.model.KmProjectMain,adminRoleName=ROLE_KMPROJECT_MAINTAINER">
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMPROJECT_CREATE)|roleValidator(role=ROLE_KMPROJECT_MAINTAINER)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view|showUsed"
+				validator="authFieldValidator(type=SYS_READER)|roleValidator(role=ROLE_KMPROJECT_MAINTAINER)" />
+				
+			<query
+				queryString="method=disableAll|enableAll"
+				validator="roleValidator(role=ROLE_KMCUSTOMER_MAINTAINER)" />
+				
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update|delete|updateAvailable"
+				validator="authFieldValidator(type=SYS_EDITOR)|roleValidator(role=ROLE_KMPROJECT_MAINTAINER)|authFieldValidator(type=creator)" />
+			</request>
+		
+		<request
+			path="km_project_category/kmProjectCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.keydata.project.model.KmProjectCategory,adminRoleName=ROLE_KMPROJECT_CATEGORY_MAINTAINER">
+			<query
+				queryString="method=add|view|edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+		
+		</request>
+		
+		<filters
+			modelName="com.landray.kmss.km.keydata.project.model.KmProjectMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />				
+		</filters>
+
+	</module>
+		
+	<module urlPrefix="/sys/simplecategory/">
+         <request path="sys_simple_category/sysCategoryMain_tree.jsp*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMPROJECT_CATEGORY_MAINTAINER)"
+         		queryString="modelName=com.landray.kmss.km.keydata.project.model.KmProjectCategory" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/transport/">
+         <request path="sys_transport_import/SysTransportImport*">
+                   <!-- 导入机制权限 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMPROJECT_MAINTAINER)"
+         		queryString="fdModelName=com.landray.kmss.km.keydata.project.model.KmProjectMain" />
+         </request>
+	</module>
+	
+	<module urlPrefix="/sys/number/">
+         <request path="sys_number_main/sysNumberMain*">
+                   <!-- 编号规则设置 -->
+
+         	<query   validator="roleValidator(role=ROLE_KMPROJECT_MAINTAINER)"
+         		queryString="method=list&amp;modelName=com.landray.kmss.km.keydata.project.model.KmProjectMain" />
+         </request>
+	</module>
+	
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.km.keydata.project.model.KmProjectCategory"
+				validator="roleValidator(role=ROLE_KMPROJECT_MAINTAINER)" />
+		</request>
+	</module>
+	<!-- 文档视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.km.keydata.project.model.KmProjectMain"
+				validator="roleValidator(role=ROLE_KMPROJECT_MAINTAINER)" />
+		</request>
+	</module>
+
+	
+
+	<homePage
+		urlPrefix="km/keydata/project"
+		url="/moduleindex.jsp?nav=/km/keydata/project/tree.jsp"
+		messageKey="km-keydata-project:module.km.keydata.project" />
+
+</configs>

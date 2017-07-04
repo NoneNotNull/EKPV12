@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/authentication/ssoclient"
+			type="com.landray.kmss.sys.authentication.ssoclient.EKPSSOClientAction"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/authentication/ssoclient_edit.jsp" />
+			<forward
+				name="editall"
+				path="/sys/authentication/ssoclient_editall.jsp" />
+			<forward
+				name="failure"
+				path="/sys/config/resource/error.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysLogBaseService"
+		parent="KmssBaseService">
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="add*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop
+					key="update*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop
+					key="save*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop
+					key="backup*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="init*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="sysLogAppDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogAppDaoImp">
+		<property
+			name="backupBeforeDay"
+			value="${kmss.logAppBackupBefore}" />
+		<property
+			name="deleteBackBeforeDay"
+			value="${kmss.logAppDeleteBackBefore}" />
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogApp" />
+	</bean>
+	<bean
+		id="sysLogAppBakDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogAppBakDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogAppBak" />
+	</bean>
+	<bean
+		id="sysLogAppTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogAppServiceImp">
+		<property
+			name="enableThread"
+			value="true" />
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogAppDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogAppService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogAppTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="add*">PROPAGATION_SUPPORTS</prop>
+				<prop
+					key="update*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop
+					key="save*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop
+					key="backup*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="init*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="sysLogAppBakTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogAppServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogAppBakDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogAppBakService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogAppBakTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysLogErrorDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogErrorDaoImp">
+		<property
+			name="backupBeforeDay"
+			value="${kmss.logErrorBackupBefore}" />
+		<property
+			name="deleteBackBeforeDay"
+			value="${kmss.logErrorDeleteBackBefore}" />
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogError" />
+	</bean>
+	<bean
+		id="sysLogErrorBakDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogErrorBakDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogErrorBak" />
+	</bean>
+	<bean
+		id="sysLogErrorTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogErrorServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogErrorDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogErrorService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogErrorTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogErrorBakTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogErrorServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogErrorBakDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogErrorBakService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogErrorBakTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysLogLoginDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogLoginDaoImp">
+		<property
+			name="backupBeforeDay"
+			value="${kmss.logLoginBackupBefore}" />
+		<property
+			name="deleteBackBeforeDay"
+			value="${kmss.logLoginDeleteBackBefore}" />
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogLogin" />
+	</bean>
+	<bean
+		id="sysLogLoginBakDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogLoginBakDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogLoginBak" />
+	</bean>
+	<bean
+		id="sysLogLoginTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogLoginServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogLoginDao" />
+		</property>
+		<property
+			name="sysLogOnlineService">
+			<ref
+				local="sysLogOnlineService" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLoginService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogLoginTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLoginBakTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogLoginServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogLoginBakDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLoginBakService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogLoginBakTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLogoutDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogLogoutDaoImp">
+		<property
+			name="backupBeforeDay"
+			value="${kmss.logLoginBackupBefore}" />
+		<property
+			name="deleteBackBeforeDay"
+			value="${kmss.logLoginDeleteBackBefore}" />
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogLogout" />
+	</bean>
+	<bean
+		id="sysLogLogoutBakDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogLogoutBakDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogLogoutBak" />
+	</bean>
+	<bean
+		id="sysLogLogoutTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogLogoutServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogLogoutDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLogoutService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogLogoutTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLogoutBakTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogLogoutServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogLogoutBakDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogLogoutBakService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogLogoutBakTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogJobDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogJobDaoImp">
+		<property
+			name="backupBeforeDay"
+			value="${kmss.logJobBackupBefore}" />
+		<property
+			name="deleteBackBeforeDay"
+			value="${kmss.logJobDeleteBackBefore}" />
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogJob" />
+	</bean>
+	<bean
+		id="sysLogJobBakDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogJobBakDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogJobBak" />
+	</bean>
+	<bean
+		id="sysLogJobTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogJobServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogJobDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogJobService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogJobTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogJobBakTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogJobServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogJobBakDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogJobBakService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogJobBakTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmssJobLoggerFactory"
+		class="com.landray.kmss.sys.log.service.spring.KmssJobLoggerFactoryBean">
+		<property
+			name="sysLogJobService">
+			<ref
+				local="sysLogJobService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysLogOrganizationDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogOrganizationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogOrganization" />
+	</bean>
+	<bean
+		id="sysLogOrganizationTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogOrganizationServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogOrganizationDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogOrganizationService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogOrganizationTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysLogListener"
+		class="com.landray.kmss.sys.log.service.spring.SysLogListener">
+		<property
+			name="noLogUrl">
+			<value>
+				/resource/**;/sys/log/**;
+			</value>
+		</property>
+		<property
+			name="sysLogAppService">
+			<ref
+				local="sysLogAppService" />
+		</property>
+		<property
+			name="sysLogLoginService">
+			<ref
+				local="sysLogLoginService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysLogOnlineDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.log.dao.hibernate.SysLogOnlineDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.log.model.SysLogOnline" />
+	</bean>
+	<bean
+		id="sysLogOnlineTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.log.service.spring.SysLogOnlineServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLogOnlineDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLogOnlineService"
+		parent="sysLogBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLogOnlineTarget" />
+		</property>
+	</bean>
+</beans>

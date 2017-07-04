@@ -1,0 +1,37 @@
+ 
+{$
+	<div class='lui_panel_tabs_{%param.styles%}'>
+		<div class='lui_panel_tabs_titleL_{%param.styles%}'>
+			<div class='lui_panel_tabs_titleR_{%param.styles%}'>
+				<div class="lui_panel_tabs_titleM_{%param.styles%}">
+					 <ul>
+$}
+					for(var i=0;i<layout.tabpanel.contents.length;i++){
+						{$
+							<li data-lui-mark="panel.nav.frame" data-lui-switch-class="current">
+								<div>
+									<div data-lui-mark="panel.nav.title"></div>
+								</div>
+							</li>
+						$}
+					}
+{$			
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="lui_panel_tabs_contentL_{%param.styles%}">
+            <div class="lui_panel_tabs_contentR_{%param.styles%}">
+                <div class="lui_panel_tabs_contentM_{%param.styles%}">
+				    <div data-lui-mark="panel.contents"></div>
+				</div>
+            </div>
+        </div>
+        <div class="lui_panel_tabs_bottomL_{%param.styles%}">
+            <div class="lui_panel_tabs_bottomR_{%param.styles%}">
+                <div class="lui_panel_tabs_bottomM_{%param.styles%}">
+                </div>
+            </div>
+        </div>
+	</div>
+$}

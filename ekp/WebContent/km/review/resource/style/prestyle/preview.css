@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+A{
+	font-size:13px;
+	text-decoration: none;
+	color:#333333;
+	cursor: pointer;
+}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: none;}
+A:hover{
+	color:#0052C2;
+	text-decoration: none;
+}
+.limit_content_icon{
+	color:#ED9533;
+	font-weight:bold;
+}
+#TB_Content{
+	padding:5px 0px 5px 0px;
+	border:0px dashed;
+	border-collapse:collapse;
+	padding:0px;
+	vertical-align:top;
+}
+#title {
+	position:absolute;
+	top:26px;
+	left:32%;
+	height:31px;
+	text-align:center;
+	z-index:1;
+	border-color:#0099FF;
+	font-size:26px;color:#5a5a5a;font-weight:bold;
+}
+#content {
+	position:absolute;
+	left:1%;
+	width:75%;
+	z-index:2;
+	border:1px solid;
+	border-color:#d2d2d2;
+	font-size:13px;
+}
+#search {
+	position:absolute;
+	left:77%;
+	top:37px;
+	width:21%;
+	height:45px;
+	z-index:3;
+	border:1px solid;
+	border-color:#d2d2d2;
+	padding-top:10px;
+}
+#latestDoc {
+	position:absolute;
+	left:77%;
+	top:113px;
+	width:21%;
+	height:200px;
+	z-index:4;
+	border:1px solid;
+	border-color:#d2d2d2;
+	font-size:13px;
+	overflow: visible;
+}
+#hotDoc {
+	position:absolute;
+	left:77%;
+	top:343px;
+	width:21%;
+	height:184px;
+	z-index:5;
+	border:1px solid;
+	border-color:#d2d2d2;
+	font-size:13px;
+}
+#contentTitle {
+	position:absolute;
+	left:1%;
+	width:75%;
+	height:26px;
+	line-height:26px;
+	z-index:6;
+	border:1px solid;
+	border-color:#d2d2d2;
+	background-color:#ebebeb;
+	vertical-align: middle;
+}
+#searchTitle{
+	position:absolute;
+	left:77%;
+	top:16px;
+	width:21%;
+	height:26px;
+	line-height:26px;
+	z-index:7;
+	border:1px solid;
+	border-color:#d2d2d2;
+	background-color:#ebebeb;
+	vertical-align: middle;
+}
+#latestDocTitle {
+	position:absolute;
+	left:77%;
+	top:98px;
+	width:21%;
+	height:26px;
+	line-height:26px;
+	z-index:8;
+	border:1px solid;
+	border-color:#d2d2d2;
+	background-color:#ebebeb;
+	vertical-align: middle;
+}
+#hotDocTitle {
+	position:absolute;
+	left:77%;
+	top:329px;
+	width:21%;
+	height:26px;
+	line-height:26px;
+	z-index:9;
+	border:1px solid;
+	border-color:#d2d2d2;
+	background-color:#ebebeb;
+	vertical-align: middle;
+}

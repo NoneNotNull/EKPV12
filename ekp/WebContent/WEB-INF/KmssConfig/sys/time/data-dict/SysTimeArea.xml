@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.time.model.SysTimeArea"
+		messageKey="sys-time:table.sysTimeArea"
+		displayProperty="fdName"
+		serviceBean="sysTimeAreaService"
+		table="sys_time_area"
+		url="/sys/time/sys_time_area/sysTimeArea.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-time:sysTimeArea.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-time:sysTimeArea.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-time:sysTimeArea.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<listProperty
+			name="areaMembers"
+			messageKey="sys-time:sysTimeArea.areaMembers"
+			column="fd_area_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="sys_time_area_scope" />
+		<listProperty
+			name="areaAdmins"
+			messageKey="sys-time:sysTimeArea.areaAdmins"
+			column="fd_area_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="sys_time_area_admin" />
+		<listProperty
+			name="sysTimeWorkList"
+			messageKey="sys-time:sysTimeArea.sysTimeWorkList"
+			column="fd_area_id"
+			type="com.landray.kmss.sys.time.model.SysTimeWork"
+			cascade="all-delete-orphan" />
+		<listProperty
+			name="sysTimeVacationList"
+			messageKey="sys-time:sysTimeArea.sysTimeVacationList"
+			column="fd_area_id"
+			type="com.landray.kmss.sys.time.model.SysTimeVacation"
+			cascade="all-delete-orphan" />
+		<listProperty
+			name="sysTimePatchworkList"
+			messageKey="sys-time:sysTimeArea.sysTimePatchworkList"
+			column="fd_area_id"
+			type="com.landray.kmss.sys.time.model.SysTimePatchwork"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

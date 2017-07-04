@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module urlPrefix="kms/multidoc">
+		<!--业务模块对PDA暴露的列表链接  messageKey必须 , type：doc,list-->
+		<config messageKey="sys-simplecategory-pda:pda.simple.cate.title" 
+			type="list"
+			dataUrl="/sys/simplecategory/pda/sysSimpleCategory.do?method=pdaSimpleCategory&amp;templateClass=com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory&amp;ext.fdTemplateType=1;3" />
+	</module>
+</pdaConfig>

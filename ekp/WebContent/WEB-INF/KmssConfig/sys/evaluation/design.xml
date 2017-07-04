@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-evaluation:sysEvaluation.moduleName"
+		urlPrefix="/sys/evaluation/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYSEVALUATION_MANAGER;
+		</roles>
+		<request
+			path="sys_evaluation_main/sysEvaluationMain*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+			<query
+				queryString="method=view"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=listOverView"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=getEvalDocNames"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=listModelNames"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=getEvalDocUrl"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+		<request
+			path="import/sysEvaluationMain_over_view.jsp"
+			defaultValidator="roleValidator(role=ROLE_SYSEVALUATION_MANAGER)">
+		</request>
+		<request
+			path="sys_evaluation_notes/sysEvaluationNotesConfig*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+			<query
+				queryString="method=isOpenEvaluateSub|edit|update"
+				validator="roleValidator(role=ROLE_SYSEVALUATION_MANAGER)" />
+		</request>
+		<request
+			path="tree.jsp"
+			defaultValidator="roleValidator(role=ROLE_SYSEVALUATION_MANAGER)">
+		</request>
+	</module>
+	
+	<!-- 点评总览主页配置 -->
+	<homePage
+		urlPrefix="sys/evaluation"
+		url=""  
+		messageKey="sys-evaluation:sysEvaluationMain.manager"
+		config="/moduleindex_notopic.jsp?nav=/sys/evaluation/tree.jsp" type="global"/>
+</configs>

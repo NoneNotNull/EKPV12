@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.number.config"
+		type="service">
+		<item
+			name="extend">
+			<param
+				name="modelName"
+				required="true"
+				kind="string">
+				<description>model名称 如：com.landray.kmss.km.smissive.model.KmSmissiveMain</description>
+			</param>
+			<param
+				name="templatePropertyName"
+				kind="string">
+				<description>模板属性名称。</description>
+			</param>
+			<param
+				name="moduleName"
+				kind="string"
+				required="true">
+				<description>模块名称</description>						
+			</param>
+			<param
+				name="isReform"
+				kind="string"
+				required="false">
+				<description>是否改造，老模块改造时需将该属性设置为true,新模块应用编号机制时设置为false,默认为false</description>						
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="10">
+				<description>
+					可选，排序号，默认值为10
+				</description>
+			</param>
+			
+			<description>编号机制的扩展点。</description>
+		</item>
+		<description>编号机制扩展点。</description>
+	</extension-point>
+	
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/number/numberConfig.jsp" />
+			<param
+				name="type"
+				value="application" />
+		</item>
+	</extension>
+	
+</plugin>

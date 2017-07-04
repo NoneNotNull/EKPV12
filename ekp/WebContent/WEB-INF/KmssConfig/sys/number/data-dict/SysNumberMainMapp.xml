@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.number.model.SysNumberMainMapp"
+		messageKey="sys-number:table.sysNumberMainMapp"
+		displayProperty="fdModelName"
+		serviceBean="sysNumberMainMappService"
+		table="sys_number_main_mapp"
+		url="/sys/number/sys_number_main_mapp/sysNumberMainMapp.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-number:sysNumberMainMapp.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="32"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-number:sysNumberMainMapp.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="32"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdMainModelName"
+			messageKey="sys-number:sysNumberMainMapp.fdModelName"
+			type="String"
+			column="fd_main_model_name"
+			notNull="false"
+			length="100"
+			validate="false" />
+		<!-- 	-->
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-number:sysNumberMainMapp.tab.inType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="2"
+			validate="false" />
+		
+			
+		<modelProperty
+			name="fdNumber"
+			messageKey="sys-number:sysNumberMainMapp.fdNumber"
+			type="com.landray.kmss.sys.number.model.SysNumberMain"
+			column="fd_number_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

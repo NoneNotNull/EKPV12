@@ -1,0 +1,209 @@
+<config>
+
+	<!-- 以下是样式库，给样式模板提供共享使用的样式素材 -->
+
+	<template>
+		<format id='Text' font='微软雅黑' size='${size}' color='${color}'/>
+		<fill id='Simple' color='${color}{adjustColor:1.1},${color}{adjustColor:1}' alpha='0.8,0.8' angle='90' type='radial'/>
+		<border id='Simple' color='${color}' alpha='0.8' thickness='${thickness}' caps='round' pixelHinting='true'/>
+	</template>
+	
+	<!-- 一下是全局样式模板, 决定整体风格 , 每种元件还会有自己的自定义样式模板 -->
+	<!-- 样式模板决定的是整体风格，快捷工具条进能改变颜色，不能决定风格 -->
+	<themes>
+		<Simple>
+			<shape styleID='Fill'>
+				<style fill='Simple'>
+				</style>
+			</shape>
+			<shape styleID='Border' thickness='6'>
+				<style border='Simple'>
+					<fill alpha='0'/>
+				</style>
+			</shape>
+			
+			<text styleID='Title' size='50'>
+				<label format='Text' font='黑体'/>
+			</text>
+			
+			<hotspot styleID='Hot' color='#66FFFF' thickness='6'>
+				<style border='Simple' fill='Simple'>
+					<border color='#666666'/>
+				</style>
+			</hotspot>
+			
+			<text styleID='SubTitle' size='40'>
+				<label format='Text'>
+					<format font='方正楷书'/>
+				</label>
+			</text>
+			
+			<text styleID='Body' size='30'>
+				<label format='Text'>
+					<format font='仿宋'/>
+				</label>
+			</text>
+			
+			<line styleID='Border' thickness='6'>
+				<style border='Simple'/>
+			</line>
+			
+			<!-- 文本模板 -->
+			<template styleID='text'>
+				<text styleID='Title' text='标题' colorIndex='0'/>
+				<text styleID='SubTitle' text='子标题' colorIndex='1'/>
+				<text styleID='Body' text='段落' colorIndex='2'/>
+			</template>
+			
+			<colors styleID='shape'>
+				<color>#0082B4</color>
+				<color>#9BD124</color>
+	            <color>#728F1C</color>
+	            <color>#C451C8</color>
+	            <color>#4AC0C0</color>
+				<color>#AB8718</color>
+	            <color>#EF306A</color>
+	            <color>#4E555F</color>
+	            <color>#634BA7</color>
+	            <color>#2F8A93</color>
+	            <color>#FE5B3B</color>
+	            <color>#6DCFF6</color>
+			</colors>
+			<colors styleID='line'>
+				<color>#0082B4</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+			</colors>
+			<colors styleID='text'>
+				<color>#0082B4</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+	            <color>#000000</color>
+	            <color>#FFFFFF</color>
+	            <color>#097DDA</color>
+	            <color>#728F1C</color>
+	            <color>#C451C8</color>
+	            <color>#4AC0C0</color>
+				<color>#AB8718</color>
+	            <color>#EF306A</color>
+	            <color>#4E555F</color>
+	            <color>#634BA7</color>
+	            <color>#2F8A93</color>
+	            <color>#FE5B3B</color>
+	            <color>#6DCFF6</color>
+	            <color>#9BD124</color>
+			</colors>
+			<colors styleID='bg'>
+				<color>#FFFFFF</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+			</colors>
+		</Simple>
+		<Classic>
+			<shape styleID='Fill'>
+				<style fill='Simple'/>
+			</shape>
+			<shape styleID='Border' thickness='6'>
+				<style border='Simple'>
+					<fill alpha='0'/>
+				</style>
+			</shape>
+			
+			<text styleID='Title' size='50'>
+				<label format='Text' font='黑体'/>
+			</text>
+			
+			<hotspot styleID='Hot' color='#66FFFF' thickness='6'>
+				<style border='Simple' fill='Simple'>
+					<border color='#666666'/>
+				</style>
+			</hotspot>
+			
+			<text styleID='SubTitle' size='40'>
+				<label format='Text'>
+					<format font='方正楷书'/>
+				</label>
+			</text>
+			
+			<text styleID='Body' size='30'>
+				<label format='Text'>
+					<format font='仿宋'/>
+				</label>
+			</text>
+			
+			<line styleID='Border' thickness='6'>
+				<style border='Simple'/>
+			</line>
+			
+			<!-- 文本模板 -->
+			<template styleID='text'>
+				<text styleID='Title' text='标题' colorIndex='0'/>
+				<text styleID='SubTitle' text='子标题' colorIndex='1'/>
+				<text styleID='Body' text='段落' colorIndex='2'/>
+			</template>
+			
+			<colors styleID='shape'>
+				<color>#9BD124</color>
+				<color>#0082B4</color>
+	            <color>#728F1C</color>
+	            <color>#C451C8</color>
+	            <color>#4AC0C0</color>
+				<color>#AB8718</color>
+	            <color>#EF306A</color>
+	            <color>#4E555F</color>
+	            <color>#634BA7</color>
+	            <color>#2F8A93</color>
+	            <color>#FE5B3B</color>
+	            <color>#6DCFF6</color>
+			</colors>
+			<colors styleID='line'>
+				<color>#0082B4</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+			</colors>
+			<colors styleID='text'>
+				<color>#0082B4</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+	            <color>#000000</color>
+	            <color>#FFFFFF</color>
+	            <color>#097DDA</color>
+	            <color>#728F1C</color>
+	            <color>#C451C8</color>
+	            <color>#4AC0C0</color>
+				<color>#AB8718</color>
+	            <color>#EF306A</color>
+	            <color>#4E555F</color>
+	            <color>#634BA7</color>
+	            <color>#2F8A93</color>
+	            <color>#FE5B3B</color>
+	            <color>#6DCFF6</color>
+	            <color>#9BD124</color>
+			</colors>
+			<colors styleID='bg'>
+				<color>#555555</color>
+	            <color>#017E01</color>
+	            <color>#A6403E</color>
+	            <color>#634BA7</color>
+	            <color>#9B7A15</color>
+	            <color>#4E555F</color>
+			</colors>
+		</Classic>
+	</themes>
+	
+</config>

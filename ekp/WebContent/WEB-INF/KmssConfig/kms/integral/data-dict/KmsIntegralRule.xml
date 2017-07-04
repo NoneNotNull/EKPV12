@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralRule"
+		messageKey="kms-integral:table.kmsIntegralRule"
+		displayProperty="fdName"
+		serviceBean="kmsIntegralRuleService"
+		table="kms_integral_rule"
+		url="/kms/integral/kms_integral_rule/kmsIntegralRule.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-integral:kmsIntegralRule.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="kms-integral:kmsIntegralRule.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="fdUpdateTime"
+			messageKey="kms-integral:kmsIntegralRule.fdUpdateTime"
+			type="DateTime"
+			column="fd_update_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="fdExpValue"
+			messageKey="kms-integral:kmsIntegralRule.fdExpValue"
+			type="Integer"
+			column="fd_exp_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRichesValue"
+			messageKey="kms-integral:kmsIntegralRule.fdRichesValue"
+			type="Integer"
+			column="fd_riches_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdObjectExpValue"
+			messageKey="kms-integral:kmsIntegralRule.fdObjectExpValue"
+			type="Integer"
+			column="fd_object_exp_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdObjectRichesValue"
+			messageKey="kms-integral:kmsIntegralRule.fdObjectRichesValue"
+			type="Integer"
+			column="fd_object_riches_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-integral:kmsIntegralRule.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOperateName"
+			messageKey="kms-integral:kmsIntegralRule.fdOperateName"
+			type="String"
+			column="fd_operate_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCategory"
+			messageKey="kms-integral:kmsIntegralRule.fdCategory"
+			type="String"
+			column="fd_category"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

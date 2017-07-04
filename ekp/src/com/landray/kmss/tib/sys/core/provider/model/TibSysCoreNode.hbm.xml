@@ -1,0 +1,99 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreNode"
+		table="tib_sys_core_node">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdNodeLevel"
+			column="fd_node_level"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdNodeName"
+			column="fd_node_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdNodePath"
+			column="fd_node_path"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<property
+			name="fdDataType"
+			column="fd_data_type"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+
+		<property
+			name="fdNodeEnable"
+			column="fd_node_enable"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="true" />
+
+		<property
+			name="fdDefName"
+			column="fd_def_name"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdNodeContent"
+			column="fd_node_content"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdAttrJson"
+			column="fd_attr_json"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<property
+			name="fdDefPath"
+			column="fd_def_path"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+
+		<many-to-one
+			name="fdIface"
+			column="fd_iface_id"
+			insert="true"
+			update="true"
+			not-null="false" 
+			/>
+
+	</class>
+</hibernate-mapping>

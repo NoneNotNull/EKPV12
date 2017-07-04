@@ -1,0 +1,121 @@
+<html>
+<head>
+<link href="portal.css" rel="stylesheet" type="text/css" />
+<title>主页原型</title>
+<style>
+.tools_btn{
+	color: #000000; 
+	background-color: #F0F0F0; 
+	border: 1px #999999 solid; 
+	font-weight: normal; 
+	padding: 3px;
+	height: 22px;
+	clip:  rect();
+}
+</style>
+</head>
+<body>
+<br>
+<center>
+<table border=0 cellspacing=10px width=800px>
+	<tr valign=top>
+		<td width="75%">
+			<div style="height:200px;">
+<!-- extend单标签窗口开始 -->
+<div class="grid">
+	<div class="grid-inner">
+    	<div class="grid-header">
+        	<div class="grid-title">窗口标题</div>
+            <div class="grid-title2">新建按钮</div>
+        </div>
+        <div class="grid-content">
+        	<div class="p10">
+            窗口内容
+            </div>
+        </div>
+     </div>
+</div>
+<!-- extend单标签窗口结束 -->
+			</div>
+		</td>
+		<td width="25%">
+			<div style="height:200px">
+<!-- limit单标签窗口开始 -->
+<div class="grid">
+	<div class="grid-inner">
+    	<div class="grid-header">
+        	<div class="grid-title">窗口标题</div>
+            <div class="grid-title2">新建按钮</div>
+        </div>
+        <div class="grid-content">
+        	<div class="p10">
+            窗口内容
+            </div>
+        </div>
+     </div>
+</div>
+<!-- limit单标签窗口结束 -->
+			</div>
+		</td>
+	</tr>
+	<tr valign=top>
+		<td>
+			<div style="height:200px">
+<!-- extend多标签窗口开始 -->
+<div class="grid2">
+	<div class="grid-inner2">
+    	<div class="grid-header2">
+	<!-- 多标签脚本开始 -->
+        	<ul>
+		<!-- 多标签第一个TAB开始 -->
+            <li><span class="cur2">窗口标题</span></li>
+		<!-- 多标签第一个TAB结束 -->
+		<!-- 多标签第二个TAB开始 -->
+            <li><span class="cur">窗口标题</span></li>
+		<!-- 多标签第二个TAB结束 -->
+	<!-- 多标签脚本结束 -->
+            </ul>
+        </div>
+        <div class="grid-content2">
+        	<div class="p10">
+            窗口内容            </div>
+        </div>
+     </div>
+</div>
+<!-- extend多标签窗口结束 -->
+			</div>
+		</td>
+		<td>
+			<div style="height:200px">
+<!-- limit多标签窗口开始 -->
+<div class="grid2">
+	<div class="grid-inner2">
+    	<div class="grid-header2">
+	<!-- 多标签脚本开始 -->
+        	<ul>
+		<!-- 多标签第一个TAB开始 -->
+            <li><span class="cur2">窗口标题</span></li>
+		<!-- 多标签第一个TAB结束 -->
+		<!-- 多标签第二个TAB开始 -->
+            <li><span class="cur">窗口标题</span></li>
+		<!-- 多标签第二个TAB结束 -->
+	<!-- 多标签脚本结束 -->
+            </ul>
+        </div>
+        <div class="grid-content2">
+        	<div class="p10">
+            窗口内容
+            </div>
+        </div>
+     </div>
+</div>
+<!-- limit多标签窗口结束 -->
+			</div>
+		</td>
+	</tr>
+</table>
+<br>
+<input type="button" class="tools_btn" value="切换到工具首页" onClick="window.open('../../index.html','tools_index');">
+</center>
+</body>
+</html>

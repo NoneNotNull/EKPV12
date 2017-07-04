@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalCount"
+		messageKey="kms-evaluate:table.kmsEvaluatePersonalCount"
+		displayProperty="fdCountStartTime"
+		serviceBean="kmsEvaluatePersonalCountService"
+		table="kms_evaluate_personal_count"
+		url="/kms/evaluate/kms_evaluate_personal_count/kmsEvaluatePersonalCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docReadCount"
+			type="Long"
+			column="doc_read_count"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="docIntroduceCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docIntroduceCount"
+			type="Integer"
+			column="doc_introduce_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docEvaluationCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docEvaluationCount"
+			type="Integer"
+			column="doc_evaluation_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docAddCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docAddCount"
+			type="Integer"
+			column="doc_add_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docUpdateCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docUpdateCount"
+			type="Integer"
+			column="doc_update_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docDeleteCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.docDeleteCount"
+			type="Integer"
+			column="doc_delete_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdDept"
+			messageKey="kms-evaluate:kmsEvaluatePersonalCount.fdDept"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_dept"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 组织架构同步文字说明</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构同步时默认会同步编号和关键字的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2014-12-01</revision-time>
+			<relation>
+				<relation-module>third/ldap</relation-module>
+				<relation-module>third/ekp/java</relation-module>
+				<relation-module>third/idm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 接入描述数据时报错的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2014-10-08</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 同步组织架构备注成为乱码的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-08-18</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 新增密码同步不进行转换的参数</description>
+			<author>易荣烽</author>
+			<revision-time>2014-02-26</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 ldap同步时当不同类型的组织架构的唯一标识存在重复的问题时对于接口的修改</description>
+			<author>李衡</author>
+			<revision-time>2012-11-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 LDAP同步时不能同步RTX账号和动态密码卡的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-11-24</revision-time>
+			<relation>
+				<relation-module>third/ldap</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 ldap同步时当不同类型的组织架构的唯一标识存在重复的情况时，同步出错的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-10-23</revision-time>
+			<relation>
+				<relation-module>third/ldap</relation-module>
+				<relation-module>sys/organization</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 oms数据导入时没写数据到oms_cache中，导致新导入的数据无法导出到coremail中的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 组织架构接入接口中,支持直接从外部同步信息做为EKP的唯一标识,支持外部系统唯一标识作为组织架构间的关联关系信息</description>
+			<author>李衡</author>
+			<revision-time>2012-05-03</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>将admin.do中组织架构同步相关配置移入模块内进行解耦</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>RTX和UC组织架构oms接出接口变动</description>
+			<author>李衡</author>
+			<revision-time>2011-11-03</revision-time>
+			<relation>
+				<relation-module>third/im/rtx</relation-module>
+				<relation-module>third/im/ucstar</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>添加关闭数据库连接和关闭流动作</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-06</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>OMS同步优化</description>
+			<author>李勇</author>
+			<revision-time>2011-08-05</revision-time>
+			<relation>
+				<relation-module>sys/organization</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+	</modifies>
+</version>

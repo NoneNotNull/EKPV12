@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.sys.news.model.SysNewsPublishCategory"
+		table="sys_news_publish_category">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+		<property
+			name="fdKey"
+			column="fd_key"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="100" />
+		<property
+			name="fdModelName"
+			column="fd_model_name"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="100"
+			index="idx_sysNewsPublishCategory_fdModelName" />
+		<property
+			name="fdModelId"
+			column="fd_model_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36"
+			index="idx_sysNewsPublishCategory_fdModelId" />
+		<property
+			name="fdImportance"
+			column="fd_importance"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="4" />
+		<property
+			name="fdCategoryId"
+			column="fd_cayegory_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />
+		<property
+			name="fdCategoryName"
+			column="fd_cayegory_name"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+		<property
+			name="fdIsAutoPublish"
+			column="fd_is_auto_publish"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdIsFlow"
+			column="fd_is_flow"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdIsModifyCate"
+			column="fd_is_modify_cate"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdIsModifyImpor"
+			column="fd_is_modify_impor"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<!-- 场所 -->
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_sysNewsPublicCategory_authAreaId" />
+	</class>
+</hibernate-mapping>

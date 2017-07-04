@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonSysNavCategory"
+		messageKey="sys-person:sysPersonSysNavCategory"
+		displayProperty="fdName"
+		serviceBean="sysPersonSysNavCategoryService"
+		table="sys_person_sysnav_category">
+		<idProperty>
+			<generator type="assigned"/>
+		</idProperty>
+		
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-person:sysPersonSysNavCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"/>
+			
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-person:sysPersonSysNavCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"/>
+			
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-person:sysPersonSysNavCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"/>
+			
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-person:sysPersonSysNavCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"/>
+			
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonSysNavCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500"
+			validate="true"/>
+			
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-person:sysPersonSysNavCategory.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="false"
+			length="10"
+			validate="true"/>
+			
+		<simpleProperty
+			name="fdPushType"
+			messageKey="sys-person:sysPersonSysNavCategory.fdPushType"
+			type="String"
+			column="fd_push_type"
+			notNull="true"
+			length="10"/>
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonSysNavCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"/>
+			
+		<listProperty
+			name="fdLinks"
+			messageKey="sys-person:sysPersonSysNavCategory.fdLinks"
+			column="fd_cate_id"
+			orderBy="fd_order"
+			type="com.landray.kmss.sys.person.model.SysPersonSysNavLink"
+			cascade="all-delete-orphan"
+			inverse="false"/>
+			
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-person:sysPersonSysNavCategory.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_person_sysnav_cate_aeditor"/>
+			
+		<listProperty
+			name="authEditors"
+			messageKey="sys-person:sysPersonSysNavCategory.authEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_person_sysnav_cate_editor"/>
+			
+		<listProperty
+			name="fdPushElements"
+			messageKey="sys-person:sysPersonSysNavCategory.fdPushElements"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_push_id"
+			table="sys_person_sysnav_cate_pusher"/>
+	</model>
+</models>

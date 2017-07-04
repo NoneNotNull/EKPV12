@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 支持异构系统组织架构参数解析</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 定时任务支持工时计算、精确到分钟</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/time</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修改 实现待办优化导致待办扩展接口变化的问题</description>
+			<author>吴兵</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 事件显示名称</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错通知人在流程没有出错的情况下不能查看文档</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 授权时间支持分钟</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接查询接口</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-23</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程授权界面</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-31</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 授权开始时间显示不正确</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-27</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 授权解析结果事件</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办文本没有被替换问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程授权不能为他人授权问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-07</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持流程、节点暂停待办挂起（排除发起沟通的待办）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-11</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 LBPM扩展服务组件</description>
+			<author>傅游翔</author>
+			<revision-time>2013-01-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/time</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

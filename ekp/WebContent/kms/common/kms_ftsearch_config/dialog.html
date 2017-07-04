@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+var Com_Parameter = {
+	ContextPath:dialogArguments.Window.Com_Parameter.ContextPath,
+	ResPath:dialogArguments.Window.Com_Parameter.ResPath,
+	Style:dialogArguments.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogArguments.Window.Com_Parameter.StylePath
+};
+//XML数据获取采用主页面缓存
+Data_XMLCatche = dialogArguments.Window.Data_XMLCatche;
+dialogObject = dialogArguments;
+Lang = dialogArguments.Lang;
+exceptValue = dialogArguments.exceptValue;
+beanData = dialogArguments.beanData;
+</script>
+<script type="text/javascript" src="../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("dialog.js", "style/"+Com_Parameter.Style+"/dialog/");
+function writeMsg(txt) {
+	document.write(txt);
+}
+</script>
+</head>
+<body>
+<br>
+<center><font style="font-weight: bold;font-size: 18px;"><script>if(Lang.title)writeMsg(Lang.title)</script></font></center>
+<br>
+<center>
+<table border=1 cellspacing=2 bordercolor=#003048 width="95%">
+	<tr height=25>
+		<td><center><script>writeMsg(Lang.optList)</script></center></td>
+		<td style="width:90px">&nbsp;</td>
+		<td><center><script>writeMsg(Lang.selList)</script></center></td>
+	</tr>
+	<tr>
+		<td>
+			<select name="tmp_Opt" multiple="true" size="22" style="width:200px"
+				ondblclick="Select_AddOptions('tmp_Opt', 'tmp_Sel');">
+				<option value="">loading...</option>
+			</select>
+		</td>
+		<td>
+		<center>
+			<button class="btndialog" style="width:70px"
+				onclick="Select_AddOptions('tmp_Opt', 'tmp_Sel');"><script>writeMsg(Lang.add)</script></button>
+			<br><br>
+			<button class="btndialog" style="width:70px"
+				onclick="Select_DelOptions('tmp_Sel');"><script>writeMsg(Lang.del)</script></button>
+			<br><br>
+			<button class="btndialog" style="width:70px"
+				onclick="Select_AddOptions('tmp_Opt', 'tmp_Sel', true);"><script>writeMsg(Lang.addAll)</script></button>
+			<br><br>
+			<button class="btndialog" style="width:70px"
+				onclick="Select_DelOptions('tmp_Sel', true);"><script>writeMsg(Lang.delAll)</script></button>
+			<br><br>
+			<button class="btndialog" style="width:33px"
+				onclick="Select_MoveOptions('tmp_Sel', -1);"><script>writeMsg(Lang.moveUp)</script></button>
+			<button class="btndialog" style="width:33px"
+				onclick="Select_MoveOptions('tmp_Sel', 1);"><script>writeMsg(Lang.moveDown)</script></button>
+		</center>
+		</td>
+		<td>
+			<select name="tmp_Sel" multiple="true" size="22" style="width:200px"
+				ondblclick="Select_DelOptions('tmp_Sel');">
+			</select>
+		</td>
+	</tr>
+	<tr valign=middle height=35>
+		<td colspan="3">
+			<center>
+			<button class="btndialog" onclick="Ok();" style="width:50px"><script>writeMsg(Lang.ok)</script></button>&nbsp;&nbsp;
+			<button class="btndialog" onclick="window.close();" style="width:50px"><script>writeMsg(Lang.cancel)</script></button>
+			</center>
+		</td>
+	</tr>
+</table>
+</center>
+</body>
+<script>
+Com_IncludeFile("docutil.js|doclist.js|select.js|data.js");
+</script>
+<script>
+var arr = [];
+function GetOptSelect() {
+	return document.getElementsByName('tmp_Opt')[0];
+}
+function GetSelSelect() {
+	return document.getElementsByName('tmp_Sel')[0];
+}
+function filterExist(value) {
+	if(exceptValue) {
+		if(typeof(exceptValue) == "string") {
+			exceptValue = exceptValue.split(";");
+		}
+		for (var i = 0; i < exceptValue.length; i ++) {
+			if (value == exceptValue[i]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
+function Loading() {
+	var data = new KMSSData();
+	data.AddBeanData(beanData);
+	var values = data.GetHashMapArray();
+	arr = values;
+	var select = GetOptSelect();
+	var selected = GetSelSelect();
+	select.options.length = 0;
+	for (var i = 0; i < values.length; i ++) {
+		var row = values[i];
+		var opt = new Option(row.text, row.value);
+		select.options.add(opt);
+		//已选择
+		if (!filterExist(row.value)) {
+			var opted = new Option(row.text, row.value);
+			selected.options.add(opted);
+		}
+	}
+}
+function Ok() {
+	var select = GetSelSelect();
+	var opts = select.options;
+	var vals = [];
+	for (var i = 0; i < opts.length; i ++) {
+		var opt = opts[i];
+		for (var j = 0; j < arr.length; j ++) {
+			if (arr[j].value == opt.value) {
+				vals.push(arr[j]);
+				break;
+			}
+		}
+	}
+	dialogObject.rtnData = vals;
+	dialogObject.AfterShow();
+	window.close();
+}
+Com_AddEventListener(window, 'load', Loading);
+</script>
+</html>

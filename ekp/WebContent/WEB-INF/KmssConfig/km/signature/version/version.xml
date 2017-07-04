@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 重置密码功能</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批流程电子签名页面调整</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-20</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 项目协作无法新建分类</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-12</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建签章增加签章分类必填提示</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批流程时新建保存签章后自动刷新签章信息</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑签章选择授权人点击无效</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE8下流程审批点击手写签名报错</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程中签章未填写密码提交错误修改</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程入口新建签章问题修改</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批流程新建签章报错</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 电子签名为空则显示处理人姓名</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见和签章功能梳理</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 oracle环境新建签章报错</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建签章默认类型调整</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建个人、公司签章权限调整</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 限制上传图片大小为50KB</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见展示控件支持多签章显示</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 签章时签章图片一致，不提示"是否确认替换签章图片？"</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 按处理人展示（地址本）无法显示签章</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 签章编辑、查看页面展示信息</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑页面签章类型按照当前值展现</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限问题</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 签章功能修改</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 应用配置增加模块显示</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 签章时校验签章信息是否为空</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 签章初始化</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/xform</relation-module>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+	</modifies>
+</version>

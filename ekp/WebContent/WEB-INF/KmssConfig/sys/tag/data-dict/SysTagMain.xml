@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagMain"
+		messageKey="sys-tag:table.sysTagMain"
+		displayProperty="docSubject"
+		serviceBean="sysTagMainService"
+		table="sys_tag_main">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-tag:sysTagMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-tag:sysTagMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="docSubject"
+			messageKey="sys-tag:sysTagMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-tag:sysTagMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-tag:sysTagMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-tag:sysTagMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<simpleProperty
+			name="docStatus"
+			messageKey="sys-tag:sysTagMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="false"
+			length="2" />
+		<modelProperty
+			name="docCreator"
+			messageKey=""
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<listProperty
+			name="sysTagMainRelationList"
+			messageKey=""
+			column="fd_main_id"
+			type="com.landray.kmss.sys.tag.model.SysTagMainRelation"
+			table="sys_tag_main_relation"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

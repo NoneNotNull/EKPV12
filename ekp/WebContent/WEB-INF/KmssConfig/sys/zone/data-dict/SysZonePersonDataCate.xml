@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.zone.model.SysZonePersonDataCate"
+		messageKey="sys-zone:table.sysZonePersonDataCate"
+		displayProperty="fdName"
+		serviceBean="sysZonePersonDataCateService"
+		table="sys_zone_person_data_cate"
+		url="/sys/zone/sys_zone_person_data_cate/sysZonePersonDataCate.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-zone:sysZonePersonDataCate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="sys-zone:sysZonePersonDataCate.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<listProperty
+			name="fdDataCateTempls"
+			messageKey="sys-zone:sysZonePersonDataCate.fdDataCateTempls"
+			type="com.landray.kmss.sys.zone.model.SysZonePerDataTempl"
+			column="fd_person_cate_id"
+			cascade="all-delete-orphan" />
+
+ 
+
+ 
+	</model>
+</models>

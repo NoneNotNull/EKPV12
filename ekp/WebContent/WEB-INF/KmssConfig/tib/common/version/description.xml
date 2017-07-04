@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>集成中间件_公用应用组件</module-name>
+		<module-path>tib/common</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>70abd95cddfceb7f0d982eac6991389c</source-md5>
+		<is-custom>是</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

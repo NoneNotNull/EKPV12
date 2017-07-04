@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<!-- 数据迁移 -->
+	<extension-point
+		id="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>
+					唯一标识，此标识在所有的兼容性任务检测扩展中是唯一的，建议使用java bean的全限定名。
+					注：修改uuid会重新安排新的任务，原任务没有处理将会被删除。
+				</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>
+					必选，显示任务名称
+				</description>
+			</param>
+			<param
+				name="path"
+				required="true"
+				kind="string">
+				<description>
+					 必选，design.xml module配置的urlPrefix（声明任务所属模块）
+				</description>
+			</param>
+			<param
+				name="type"
+				kind="string"
+				default="transfer"
+				restriction="transfer;notify">
+				<description>
+					 可选，任务类型，无该参数则默认为需执行数据迁移的任务
+					 transfer：需要执行数据迁移的
+					 notify：通知类的任务
+				</description>
+			</param>
+			<param
+				name="check"
+				kind="string"
+				basedOn="com.landray.kmss.sys.admin.transfer.service.ISysAdminTransferChecker">
+				<description>
+					可选，兼容行任务检测实现接口，无该参数则默认是自动决策
+					系统启动后会执行这个检测，进行安排迁移任务。注:‘已执行’ or ‘已查阅’的任务不再执行检测。
+					检测结果：
+					SysAdminTransferCheckResult.TASK_STATUS_RUNED: 已执行
+					SysAdminTransferCheckResult.TASK_STATUS_NOT_RUNED: 待执行
+					SysAdminTransferCheckResult.TASK_STATUS_READ: 已查阅
+					SysAdminTransferCheckResult.TASK_STATUS_NOT_READ: 待查阅				
+					SysAdminTransferCheckResult.TASK_STATUS_DELETED: 已删除
+					SysAdminTransferCheckResult.TASK_AUTO: 自动决策
+					检测结果‘自动决策’说明：如果任务已经存在则忽略；任务不存在，新增模块返回‘已执行’ or ‘已查阅’，删除模块返回‘已删除’，更新模块返回‘待执行’ or ‘待查阅’。
+				</description>
+			</param>
+			<param
+				name="upgrade"
+				kind="string"
+				basedOn="com.landray.kmss.sys.admin.transfer.service.ISysAdminTransferTask">
+				<description>
+					可选，数据迁移（任务类型为transfer）的任务必须实现该接口。注意：需要考虑该程序被多次执行的情况。
+				</description>
+			</param>
+			<param
+				name="description"
+				kind="string">
+				<description>
+					可选，任务说明
+				</description>
+			</param>
+			<description>兼容性检查扩展配置</description>
+		</item>
+		<description>兼容性检查扩展，需做兼容性数据迁移或存在兼容性通知（如要更改什么配置）的任务，请实现此扩展点。</description>
+	</extension-point>
+
+</plugin>

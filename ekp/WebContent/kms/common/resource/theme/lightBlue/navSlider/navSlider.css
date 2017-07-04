@@ -1,0 +1,16 @@
+.silderNav {
+	position: relative;
+}
+.silderNav li.sliderBox {
+	background: #D2D2D2;
+	height: 48px;
+	z-index: 8;
+	position: absolute;
+	display:block;
+	border-radius: 3px;
+}
+
+.silderNav li a {
+	position: relative;
+	z-index: 10;
+}

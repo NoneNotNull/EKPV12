@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.time.model.SysTimePatchworkTime"
+		messageKey="sys-time:table.sysTimePatchworkTime"
+		serviceBean="sysTimePatchworkTimeService"
+		table="sys_time_patchwork_time">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="hbmWorkStartTime"
+			messageKey="sys-time:sysTimePatchworkTime.hbmWorkStartTime"
+			type="Long"
+			column="fd_work_start_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="hbmWorkEndTime"
+			messageKey="sys-time:sysTimePatchworkTime.hbmWorkEndTime"
+			type="Long"
+			column="fd_work_end_time"
+			notNull="false"
+			length="19" />
+		<modelProperty
+			name="sysTimePatchwork"
+			messageKey="sys-time:sysTimePatchworkTime.sysTimePatchwork"
+			type="com.landray.kmss.sys.time.model.SysTimePatchwork"
+			column="fd_work_id"
+			notNull="false" />
+	</model>
+</models>

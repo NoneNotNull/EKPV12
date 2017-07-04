@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!--统计拓展点 -->
+	<extension-point
+		id="com.landray.kmss.km.imeeting.stat">
+		<item 
+			name="stat">
+			<param 
+				name="type" 
+				required="true"
+				kind="unid">
+				<description>查询类型，要求唯一</description>
+			</param>
+			<param 
+				name="executor" 
+				kind="spring"
+				required="true"
+				basedOn="com.landray.kmss.km.imeeting.service.stat.KmImeetingStatExecutor">
+				<description>统计查询执行器，提供此种场景下报表数据的统计查询</description>
+			</param>
+			<param 
+				name="chartType" 
+				kind="string">
+				<description>解析器展现图表类型</description>
+			</param>
+			<param 
+				name="conditionJsp" 
+				kind="string">
+				<description>条件JSP</description>
+			</param>
+			<param 
+				name="extJs" 
+				kind="string">
+				<description>拓展JS</description>
+			</param>
+			
+			<description>报表统计查询定义</description>
+		</item>
+		<description>报表统计查询定义</description>
+	</extension-point>
+	
+	<!--部门会议吞吐量 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="dept.stat" />
+			<param 
+				name="executor" 
+				value="kmImeetingDeptStatExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/dept_stat/dept_stat_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/dept_stat/dept_stat_ext.js" />
+		</item>
+	</extension>
+	
+	<!--部门会议吞吐量环比 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="dept.statMon" />
+			<param 
+				name="executor" 
+				value="kmImeetingDeptStatMonExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/dept_stat/dept_statMon_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/dept_stat/dept_statMon_ext.js" />
+		</item>
+	</extension>
+	
+	<!--人员会议吞吐量 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="person.stat" />
+			<param 
+				name="executor" 
+				value="kmImeetingPersonStatExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/person_stat/person_stat_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/person_stat/person_stat_ext.js" />
+		</item>
+	</extension>
+	
+	<!--人员会议吞吐量环比 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="person.statMon" />
+			<param 
+				name="executor" 
+				value="kmImeetingPersonStatMonExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/person_stat/person_statMon_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/person_stat/person_statMon_ext.js" />
+		</item>
+	</extension>
+	
+	<!--会议室使用率 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="resource.stat" />
+			<param 
+				name="executor" 
+				value="kmImeetingResourceStatExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/resource_stat/resource_stat_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/resource_stat/resource_stat_ext.js" />
+		</item>
+	</extension>
+	
+	<!--会议室使用率环比 -->
+	<extension
+		point="com.landray.kmss.km.imeeting.stat">
+		<item name="stat">
+			<param
+				name="type"
+				value="resource.statMon" />
+			<param 
+				name="executor" 
+				value="kmImeetingResourceStatMonExecutor"/>
+			<param
+				name="chartType"
+				value="barLine" />
+			<param
+				name="conditionJsp"
+				value="/km/imeeting/km_imeeting_stat/resource_stat/resource_statMon_condition.jsp" />
+			<param
+				name="extJs"
+				value="/km/imeeting/km_imeeting_stat/resource_stat/resource_statMon_ext.js" />
+		</item>
+	</extension>
+	
+	
+	<!-- 编号机制 -->
+	 <extension point="com.landray.kmss.sys.number.config" model="*">
+		<item name="extend">
+	       <param name="modelName" value="com.landray.kmss.km.imeeting.model.KmImeetingMain"/>
+	       <param name="templatePropertyName" value="fdTemplate"/>
+	       <param name="moduleName" value="{km-imeeting:module.km.imeeting}"/>
+	       <param name="isReform" value="false"/>
+	       <param name="order" value="10"/>
+         </item>
+     </extension>
+     
+     <!-- 日程机制 -->
+     <extension  point="com.landray.kmss.sys.agenda.label" model="*">		
+		<item name="label">
+			<param name="labelName" value="{km-imeeting:module.km.imeeting}" />
+			<param name="labelColor"  value="rgb(165, 191, 218)" />
+			<param name="modelName"  value="com.landray.kmss.km.imeeting.model.KmImeetingMain"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{km-imeeting:module.km.imeeting}" />
+			<param name="modelName" value="com.landray.kmss.km.imeeting.model.KmImeetingMain" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui-imeeting.js" />
+			<param name="targetFile" value="/km/imeeting/mobile/resource/js/mui-imeeting.js" />
+			<param name="srcFold" value="/km/imeeting/mobile/resource/js" />
+		</item>
+	</extension>
+	
+</plugin>

@@ -1,0 +1,848 @@
+﻿@font-face {
+	font-family: 'FontMui';
+	src: url('../font/fontmui.ttf');
+	src: url('../font/fontmui.ttf') format('truetype') !important, 
+		 url('../font/fontmui.eot?#iefix') format('embedded-opentype'), 
+	     url('../font/fontmui.woff') format('woff'), 
+		 url('../font/fontmui.svg?#fontmuiregular') format('svg');
+}
+/*
+	基本样式
+*/
+.mui {
+	display: inline-block;
+	font-family: FontMui;
+	text-align:center;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 2.5rem;
+	font-size: 2.5rem;
+	vertical-align:middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.mui-2x {
+  	font-size: 5rem;
+}
+.mui-3x {
+  	font-size: 7.5rem;
+}
+.mui-4x {
+  	font-size: 10rem;
+}
+.mui-5x {
+  	font-size: 12.5rem;
+}
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+  	.mui {
+	display: inline-block;
+	font-family: FontMui;
+	text-align:center;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 2.9rem;
+	font-size: 2.9rem;
+	vertical-align:middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	}
+	.mui-2x {font-size: 5rem;}
+	.mui-3x {font-size: 7.5rem;}
+	.mui-4x {font-size: 10rem;}
+	.mui-5x {font-size: 12.5rem;}
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+  	.mui {
+	display: inline-block;
+	font-family: FontMui;
+	text-align:center;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 2.5rem;
+	font-size: 2.5rem;
+	vertical-align:middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	}
+	.mui-2x {font-size: 5rem;}
+	.mui-3x {font-size: 7.5rem;}
+	.mui-4x {font-size: 10rem;}
+	.mui-5x {font-size: 12.5rem;}
+}
+
+/*
+	旋转40度
+*/
+.mui-rotate-45 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*
+	旋转90度
+*/
+.mui-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/*
+	旋转180度
+*/
+.mui-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+/*
+	旋转270度
+*/
+.mui-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+/*
+	自旋转
+*/
+.mui-spin {
+  -webkit-animation: spin 2s infinite linear;
+  -moz-animation: spin 2s infinite linear;
+  -o-animation: spin 2s infinite linear;
+  animation: spin 2s infinite linear;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/*
+	逐渐还原
+*/
+@-webkit-keyframes scale{
+	0%{-webkit-transform:scale(0.5);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.mui-scale{
+	-webkit-animation-name: scale;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+}
+/*
+	放大后还原
+*/
+@-webkit-keyframes scaleX{
+	0%{-webkit-transform:scale(1);}
+	50%{-webkit-transform:scale(1.2);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.mui-scaleX{
+	-webkit-animation-name: scaleX;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-fill-mode: both;
+}
+/*
+	返回
+*/
+.mui-back:before {
+	content: "\AA01";
+}
+/* 流程按钮 取消 */
+.mui-cancel:before {
+	content: "\B128";
+}
+/* 流程按钮 确定 */
+.mui-confirm:before {
+	content: "\B129";
+}
+/* 流程按钮 审批 */
+.mui-approval:before {
+	content: "\B130";
+}
+/* 流程按钮 清除 */
+.mui-clear:before {
+	content: "\B127";
+}
+/* 流程按钮 上一步 */
+.mui-preStep:before {
+	content: "\B132";
+}
+/* 流程按钮 下一步 */
+.mui-nextStep:before {
+	content: "\B133";
+}
+/* 更多 */
+.mui-more:before {
+	content: "\AB73";
+}
+/*
+	推荐
+*/
+.mui-intr:before {
+	content: "\AA03";
+}
+/*
+	点赞
+*/
+.mui-praise:before {
+	content: "\AA04";
+}
+/*
+	创建
+*/
+.mui-create:before {
+	content: "\AA05";
+}
+/*
+	星星
+*/
+.mui-star-off:before {
+	content: "\AA06";
+}
+/*
+	点评
+*/
+.mui-eval:before {
+	content: "\AA07";
+}
+/*
+	搜索
+*/
+.mui-search:before {
+	content: "\AA08";
+}
+/*
+	星星
+*/
+.mui-star-on:before {
+	content: "\AA09";
+}
+/*
+	压缩包文件类型
+*/
+.mui-file-rar:before {
+	content: "\AA10";
+}
+/*
+	图片文件类型
+*/
+.mui-file-img:before {
+	content: "\A112";
+}
+/*
+	点赞后
+*/
+.mui-praise-on:before {
+	content: "\AA12";
+}
+/*
+	主页
+*/
+.mui-home:before {
+	content: "\AA14";
+}
+/*
+	word文件类型
+*/
+.mui-file-word:before {
+	content: "\A114";
+}
+/*
+	ppt文件类型
+*/
+.mui-file-ppt:before {
+	content: "\A113";
+}
+/*
+	excel文件类型
+*/
+.mui-file-excel:before {
+	content: "\A115";
+}
+/*
+	pdf文件类型
+*/
+.mui-file-pdf:before {
+	content: "\A107";
+}
+/*
+	ppt文件类型
+*/
+.mui-file-ppt:before {
+	content: "\A113";
+}
+/*
+	visio文件类型
+*/
+.mui-file-visio:before {
+	content: "\A116";
+}
+/*
+	html文件类型
+*/
+.mui-file-html:before {
+	content: "\A108";
+}
+/*
+	project文件类型
+*/
+.mui-file-project:before {
+	content: "\AA16";
+}
+/*
+	txt文件类型
+*/
+.mui-file-txt:before {
+	content: "\A109";
+}
+/*
+	默认文件类型
+*/
+.mui-file-normal:before {
+	content: "\A111";
+}
+/*
+	zip文件类型
+*/
+.mui-file-zip:before {
+	content: "\A110";
+}
+/*
+	失败
+*/
+.mui-fail:before {
+	content: "\AA18";
+}
+/* 异常或错误 */
+.mui-wrong:before {
+	content: "\B131";
+}
+
+/*
+	成功
+*/
+.mui-success:before {
+	content: "\AA19";
+}
+/*
+	标签
+*/
+.mui-label:before {
+	content: "\AA20";
+}
+/*
+	点
+*/
+.mui-point:before {
+	content: "\AA21";
+}
+/*
+	列表
+*/
+.mui-ul:before {
+	content: "\AA22";
+}
+/*
+	图文
+*/
+.mui-picview:before {
+	content: "\AA23";
+}
+/* 常用查询 */
+.mui-commonSearch:before {
+	content: "\AB98";
+}
+
+
+
+/*
+	无信息
+*/
+.mui-message:before {
+	content: "\AA24";
+}
+/*
+	暂无信息
+*/
+.mui-noData:before {
+	content: "\AA25";
+}
+/*
+	向上更新
+*/
+.mui-top:before {
+	content: "\AA26";
+}
+/*
+	前进
+*/
+.mui-forward:before {
+	content: "\AA27";
+}
+/*
+	附件标识
+*/
+.mui-attach:before {
+	content: "\AA28";
+}
+/*
+	阅读
+*/
+.mui-eyes:before {
+	content: "\AA29";
+}
+/*
+	关联
+*/
+.mui-rela:before {
+	content: "\AA30";
+}
+.mui-relaType:before{content: "\AA34";
+}/*
+	字体
+*/
+.mui-font:before {
+	content: "\AA31";
+}
+/*
+	加载中
+*/
+.mui-loading:before {
+	content: "\AA32";
+}
+/*
+	向下更新
+*/
+.mui-down:before {
+	content: "\AA33";
+}
+/*
+	文件
+*/
+.mui-file:before {
+	content: "\A111";
+}
+/*
+	文件
+*/
+.mui-file-pdf:before {
+	content: "\A107";
+}
+/*
+	文件
+*/
+.mui-file-text:before {
+	content: "\A109";
+}
+
+/*
+	向下
+*/
+.mui-down-n:before{
+	content: "\AA39";
+}
+
+/*
+	向上
+*/
+.mui-up-n:before{
+	content: "\AA40";
+}
+
+/*
+	警告,感叹号
+*/
+.mui-warn:before{
+	content: "\AA41";
+}
+
+/*
+	加载2
+*/
+.mui-loading2:before{
+	content: "\AA56";
+}
+
+
+/*
+	时间
+*/
+.mui-time:before{
+	content: "\AB01";
+}
+
+/*
+	小圆点
+*/
+.mui-dot:before{
+	content: "\AB02";
+}
+
+/*
+	加号
+*/
+.mui-plus:before{
+	content: "\AB05";
+}
+/**
+选中
+*/
+.mui-checked:before{
+	content: "\AB08";
+}
+/* 组织 */
+.mui-org:before{ content: "\AB11";}
+.mui-organization:before{ content: "\AB66";}
+
+/* 附件 */
+.mui-attachment:before{ content: "\AB16";}
+
+/*流程列表*/
+.mui-flowlist:before{ content:"\AB17";}
+
+/*地址本岗位*/
+.mui-post:before{ content:"\AB18";}
+
+/*地址本群组*/
+.mui-group:before{ content:"\AB19";}
+
+/*地址本小勾*/
+.mui-checked:before{ content:"\AB20";}
+
+/*关闭*/
+.mui-close:before{ content:"\AB04";}
+
+/*单选框选中*/
+.mui-radio-checked:before{ content:"\AA63";}
+
+/*单选框未选中*/
+.mui-radio-unchecked:before{ content:"\AA62";}
+
+/*输入框*/
+.mui-insert:before{ content:"\A102";}
+
+
+/*流程驳回*/
+.mui-handler_refuse:before,
+.mui-handler_superRefuse:before{ content:"\AB06";}
+
+/*流程沟通*/
+.mui-handler_communicate:before{ content:"\AB10";}
+
+/*流程通过*/
+.mui-handler_pass:before{ content:"\AB20";}
+
+/*流程暂停*/
+.mui-handler_nodeSuspend:before{ content:"\AB77";}
+
+/*流程唤醒*/
+.mui-handler_nodeResume:before{ content:"\AB76";}
+
+/*流程转办*/
+.mui-handler_commission:before{ content:"\AB80";}
+
+/*流程签字*/
+.mui-handler_sign:before{ content:"\AB78";}
+
+/*流程废弃*/
+.mui-handler_abandon:before,
+.mui-drafter_refuse_abandon:before{ content:"\AB09";}
+
+/*流程取消*/
+.mui-handler_cancelCommunicate:before{ content:"\AA18";}
+
+/*流程回复*/
+.mui-handler_returnCommunicate:before{ content:"\AA24";}
+
+/*流程提交文档*/
+.mui-drafter_submit:before{ content:"\AB90";}
+
+/*手写*/
+.mui-write:before{ content:"\AB79";}
+
+/*签章*/
+.mui-sign:before{ content:"\AB11";}
+
+/*计算图标*/
+.mui-calc:before{ content:"\AB87";}
+
+/*大小写图标*/
+.mui-uper:before{ content:"\AB86";}
+
+/*上传附件*/
+.mui-upload:before{content:"\AB15";}
+
+/*选择人员*/
+.mui-address:before{content:"\AB28";}
+
+/*电话*/
+.mui-tel:before{content:"\AB36";}
+
+/*语音*/
+.mui-voice:before{content:"\AB13";}
+
+/*播放*/
+.mui-play:before{content:"\AB55";}
+
+/*人物*/
+.mui-person:before{content:"\AB28";}
+
+/*部门*/
+.mui-depart:before{content:"\AB88";}
+
+/*日历*/
+.mui-calendar:before{content:"\AB40";}
+
+/*标签*/
+.mui-label:before{content:"\AB38";}
+
+/*备份列表*/
+.mui-backupList:before{content:"\AB74";}
+
+/* 提问 */
+.mui-quiz:before{content:"\AB24";}
+
+/* 信息 */
+.mui-msg:before{content:"\AA99";}
+
+/* 邮件 */
+.mui-mail:before{content:"\AB45";}
+
+/* 筛选 */
+.mui-filter:before{content:"\AB64";}
+
+/* 同步 */
+.mui-syn:before{content:"\AB48";}
+
+/* 更多（3个点）*/
+.mui-more3:before{content:"\AB73";}
+
+/* 规范制度 */
+.mui-bookLogo:before{content:"\AB81";}
+
+/* 公文 */
+.mui-bookOpenLogo:before{content:"\AB82";}
+/* 查看详细信息 */
+.mui-bookViewDetail:before{content:"\AB54";}
+/*待办 锁*/
+.mui-todo_lock:before{content:"\AB50";}
+/*待办 人员头像*/
+.mui-todo_person:before{content:"\AB28";}
+/*待办 模块*/
+.mui-todo_module:before{content:"\AB60";}
+/*待办 日期*/
+.mui-todo_date:before{content:"\AB59";}
+/*待办 模板*/
+.mui-todo_template:before{content:"\AB61";}
+
+
+/*会议 地址*/
+.mui-meeting_path:before{content:"\AB39";}
+
+/*会议 时间*/
+.mui-meeting_date:before{content:"\AA76";}
+
+/*会议 未回执*/
+.mui-meeting_noOpt:before{content:"\AB24";}
+
+/*会议 参加*/
+.mui-meeting_attend:before{content:"\AB51";}
+
+/*会议 代理*/
+.mui-meeting_proxy:before{content:"\AB25";}
+
+/*会议 不参加*/
+.mui-meeting_unAttend:before{content:"\AB23";}
+
+/*会议 更多*/
+.mui-meeting_more:before{content:"\AB73";}
+
+/*会议列表视图*/
+.mui-listView:before{content:"\AB29";}
+
+.mui-flowchart:before{content:"\AB12";}
+
+
+/*打钩*/
+.mui-right:before {content:"\AB83";}
+/*互相关注, 双向箭头*/
+.mui-addTwo:before {content:"\AB84";}
+/*人员带双向箭头*/
+.mui-each_person:before{ content:"\AB89";}
+/*人员带加号*/
+.mui-add_person:before {content: "\AB44";}
+/*人员带勾*/
+.mui-right_person:before {content: "\AB51";}
+/*信息，一个I*/
+.mui-infomation:before{content:"\AB46";}
+
+
+/*悬赏货币*/
+.mui-score:before{content:"\AB75";}
+
+.mui-asklist-close:before {content:"\AB67";}
+
+.mui-home-opposite:before{content:"\AB30";}
+
+.mui-addition:before{content:"\AA86";}
+
+.mui-evaluation:before{content:"\AA98";}
+
+.mui-askclose:before{content:"\AA92";}
+
+.mui-editor-image:before{content:"\AA11";}
+
+.mui-editor-face:before{content:"\AB26";}
+/*回复*/
+.mui-msg:before{content:"\AA99";}
+
+/*关注*/
+.mui-focus-on:before{content:"\AB34";}
+.mui-focus-off:before{content:"\AB35";}
+
+.mui-task-icon:before{content:"\AB53";}
+.mui-taskClose:before{}
+.mui-taskComplete:before{content:"\AB83";}
+
+/* 论坛引号 */ 
+.mui-quoteL:before{content:"\B103";}
+.mui-quoteR:before{content:"\B104";}
+
+/*** 常用查询 ***/
+.mui-query:before{content:"\AB98";}
+
+/*** 论坛帖子 热帖 ***/
+.mui-hotPost:before{content:"\B106";}
+
+
+/*两个人*/
+.mui-two-person:before {content:"\AB32";}
+/*两张纸*/
+.mui-two-paper:before{content:"\AA46";}
+/*分享*/
+.mui-share:before{content:"\AB33";}
+/*转发反向*/
+.mui-repost-reverse:before{content:"\AA74";}
+
+/*表情*/
+.mui-emotion:before{content:"\AB26";}
+/*附件*/
+.mui-attachEdit:before{content:"\AB27";}
+
+
+/* 章节 */
+.mui-chapter:before{content:"\AB54";}
+.mui-date:before{content:"\AA76";}
+.mui-bookOpenLogo:before{content:"\AB82";}
+
+/* 地址*/
+.mui-location:before{content:"\AB39";}
+
+/* 目录 */
+.mui-catalog:before {content: "\AA20";}
+/* 皇冠*/
+.mui-crown:before{content:"\AB91";}
+/* 话题 */
+.mui-topic:before{content:"\AB95";}
+/* 视频 */
+.mui-video:before{content:"\AB63";}
+/* 视频 */
+.mui-file-video:before{content:"\AB93";}
+/* 收藏 */
+.mui-collect:before{content:"\AA06";}
+/* 分享 */
+.mui-share:before{content:"\AB33";}
+/* 评论 */
+.mui-comment:before{content:"\AB10";}
+
+
+/* 下载 */
+.mui-download:before{content:"\AB97";}
+/* doc文件类型 */
+.mui-file-doc:before {content: "\AB96";}
+/* 回复 */
+.mui-reply:before{content:"\AB92";}
+/* 用户 */
+.mui-personIco:before{content:"\AB94";}
+/* 添加课程 */
+.mui-addIco:before{content:"\AA86";}
+/* 爱心 */
+.mui-heart:before{ content:"\AB35";}
+
+
+/*锁*/
+.mui-lock:before{content:"\AB56";}
+
+/*** 常用查询 ***/
+.mui-query:before{content:"\B109";}
+/*** 常用搜索 ***/
+.mui-Csearch:before{content:"\B108";}
+/*** 常用分类 ***/
+.mui-Csort:before{content:"\B107";}
+
+/*** 带圈的箭头 ***/
+.mui-Cforward:before{content:"\B110";}
+
+
+/* 登录界面 账号*/
+.mui-loginAccount:before{ content:"\B112";}
+/* 登录界面 密码*/
+.mui-loginKey:before{ content:"\B113";}
+/* 登录界面 验证码*/
+.mui-loginIDCode:before{ content:"\B114";}	
+/* 登录界面 手机登录*/
+.mui-loginMobile:before{ content:"\B115";}	
+/* 登录界面 电脑登录*/
+.mui-loginPC:before{ content:"\B116";}	
+
+/*** 灯泡 ***/
+.mui-Bulb:before{content:"\B111";}
+
+/*** 问答模块图标 ***/
+.mui-addInfo:before{content:"\B120";}/*** 补充 ***/
+.mui-questTitle:before{content:"\B119";}/*** 补充提问 ***/
+.mui-answerTitle:before{content:"\B118";}/*** 补充回答 ***/
+
+/*** 加入 ***/
+.mui-addGroup:before{content:"\B121";}
+.mui-addGrouped:before{content:"\B124";}
+/**截屏**/
+.mui-capture:before{content:"\B134";}
+
+/*** 闹钟***/
+.mui-alarm:before{content:"\AB37";}
+/*** 日程编辑***/
+.mui-calendarEdit:before{content:"\AA55";}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.follow.model.SysFollowPersonConfig"
+		messageKey="sys-follow:table.sysFollowPersonConfig"
+		displayProperty="fdSubject"
+		serviceBean="sysFollowPersonConfigService"
+		table="sys_follow_person_config"
+		url="/sys/follow/sys_follow_person_config/sysFollowPersonConfig.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="sys-follow:sysFollowPersonConfig.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-follow:sysFollowPersonConfig.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-follow:sysFollowPersonConfig.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="sys-follow:sysFollowPersonConfig.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-follow:sysFollowPersonConfig.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-follow:sysFollowPersonConfig.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFollowName"
+			messageKey="sys-follow:sysFollowPersonConfig.fdFollowName"
+			type="String"
+			column="fd_follow_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFollowId"
+			messageKey="sys-follow:sysFollowPersonConfig.fdFollowId"
+			type="String"
+			column="fd_follow_id"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<modelProperty
+			name="follower"
+			messageKey="sys-follow:sysFollowPersonConfig.follower"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="follower_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

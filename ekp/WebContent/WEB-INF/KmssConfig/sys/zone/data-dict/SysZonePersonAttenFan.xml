@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.zone.model.SysZonePersonAttenFan"
+		messageKey="sys-zone:table.sysZonePersonAttenFan"
+		displayProperty="fdId"
+		serviceBean="sysZonePersonAttenFanService"
+		table="sys_zone_person_atten_fan"
+		url="/sys/zone/sys_zone_person_atten_fan/sysZonePersonAttenFan.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-zone:sysZonePersonAttenFan.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdFromElement"
+			messageKey="sys-zone:sysZonePersonAttenFan.fdFromElement"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_from_element_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdToElement"
+			messageKey="sys-zone:sysZonePersonAttenFan.fdToElement"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_to_element_id"
+			notNull="false"
+			validate="true" />
+
+ 
+
+ 
+	</model>
+</models>

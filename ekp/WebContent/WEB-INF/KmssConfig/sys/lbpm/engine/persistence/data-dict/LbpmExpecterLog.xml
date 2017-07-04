@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmExpecterLog"
+		messageKey="sys-lbpm-engine:table.lbpmExpecterLog"
+		serviceBean="lbpmExpecterLogService"
+		table="lbpm_expecter_log">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdHandlerType"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdHandlerType"
+			type="String"
+			column="fd_handler_type"
+			notNull="false"
+			length="10" />
+
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdTaskType"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdTaskType"
+			type="String"
+			column="fd_task_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdFactId"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdFactId"
+			type="String"
+			column="fd_fact_id"
+			notNull="false"
+			length="10" />
+
+		<simpleProperty
+			name="fdIndex"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdIndex"
+			type="Integer"
+			column="fd_index"
+			notNull="false"
+			length="4" />
+
+		<simpleProperty
+			name="fdIsActive"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdIsActive"
+			type="Boolean"
+			column="fd_is_active"
+			notNull="false"
+			length="2" />
+
+		<modelProperty
+			name="fdHandler"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdHandler"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_handler_id"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdAuthId"
+			messageKey="sys-lbpm-engine:lbpmExpecterLog.fdAuthId"
+			type="String"
+			column="fd_auth_id"
+			notNull="false"
+			length="36" />
+
+	</model>
+</models>

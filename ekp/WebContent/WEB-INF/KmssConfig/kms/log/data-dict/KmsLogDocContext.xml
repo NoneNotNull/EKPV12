@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogDocContext"
+		messageKey="kms-log:table.kmsLogDocContext"
+		displayProperty="docSubject"
+		serviceBean="kmsLogDocContextService"
+		table="kms_log_doc_context"
+		url="/kms/log/kms_log_doc_context/kmsLogDocContext.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docMainId"
+			messageKey="kms-log:kmsLogDocContext.docMainId"
+			type="String"
+			column="doc_main_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-log:kmsLogDocContext.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-log:kmsLogDocContext.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-log:kmsLogDocContext.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="kms-log:kmsLogDocContext.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="fdCategory"
+			messageKey="kms-log:kmsLogDocContext.fdCategory"
+			type="com.landray.kmss.kms.log.model.KmsLogContextCategory"
+			column="fd_category"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdAuthor"
+			messageKey="kms-log:kmsLogDocContext.fdAuthor"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_author"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdDepart"
+			messageKey="kms-log:kmsLogDocContext.fdDepart"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_depart"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-log:kmsLogDocContext.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="moduleKey"
+			messageKey="kms-log:kmsLogApp.modelName"
+			type="String"
+			column="model_key"
+			notNull="false"
+			length="200"
+			validate="true" />
+	</model>
+</models>

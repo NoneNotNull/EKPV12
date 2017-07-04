@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsKnowledgeBaseDocForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsKnowledgeBaseDocForm" />
+		<form-bean
+			name="kmsKnowledgeCategoryForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsKnowledgeCategoryForm" />
+		<form-bean
+			name="kmsKnowledgeWikiTemplateForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsKnowledgeWikiTemplateForm" />
+		<form-bean
+			name="kmsKnowledgeWikiCatalogForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsKnowledgeWikiCatalogForm" />
+		<form-bean
+			name="kmsKnowledgeDocTemplateForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsKnowledgeDocTemplateForm" />
+		<!-- 多附件上传form-->
+		<form-bean
+			name="kmsMultipleUploadMainForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsMultipleUploadMainForm" />
+		<form-bean
+			name="kmsMultipleUploadEditDocForm"
+			type="com.landray.kmss.kms.knowledge.forms.KmsMultipleUploadEditDocForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeBaseDocAction"
+			name="kmsKnowledgeBaseDocForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/knowledge/kms_knowledge_ui/kmsKnowledge_add.jsp" />
+			<forward
+				name="list"
+				path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc_list.jsp" />
+			<forward
+				name="editProperty"
+				path="/kms/knowledge/kms_knowledge_ui/kmsKnowledge_info_property.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDoc_list.jsp" >
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_base_doc/kmsKnowledgeBaseDocIndex"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeIndexAction"
+			name="kmsKnowledgeBaseDocForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="listChildren"
+				path="/kms/knowledge/kms_knowledge_ui/kmsKnowledge_list.jsp">
+			</forward>
+			<forward
+				name="listChildren.4pda"
+				path="/kms/knowledge/kms_knowledge_ui/kmsKnowledge_list.jsp">
+			</forward>
+			<forward
+				name="listChildren.4m"
+				path="/kms/knowledge/mobile/list.jsp">
+			</forward>
+			<forward
+				name="attList"
+				path="/kms/knowledge/kms_knowledge_ui/kmsKnowledge_att_list.jsp">
+			</forward>
+			
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeCategoryAction"
+			name="kmsKnowledgeCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_wiki_template/kmsKnowledgeWikiTemplate"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeWikiTemplateAction"
+			name="kmsKnowledgeWikiTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/knowledge/kms_knowledge_wiki_template/kmsKnowledgeWikiTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/knowledge/kms_knowledge_wiki_template/kmsKnowledgeWikiTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/knowledge/kms_knowledge_wiki_template/kmsKnowledgeWikiTemplate_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_doc_template/kmsKnowledgeDocTemplate"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeDocTemplateAction"
+			name="kmsKnowledgeDocTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/knowledge/kms_knowledge_doc_template/kmsKnowledgeDocTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/knowledge/kms_knowledge_doc_template/kmsKnowledgeDocTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/knowledge/kms_knowledge_doc_template/kmsKnowledgeDocTemplate_list.jsp" />
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_portlet/kmsKnowledgePortlet"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgePortletAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/kms/knowledge/kms_knowledge_portlet/kmsKnowledgeCategoryPortlet"
+			type="com.landray.kmss.kms.knowledge.actions.KmsKnowledgeCategoryPortletAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/kms/knowledge/kms_knowledge_multiple_upload/kmsMultipleUploadMain"
+			type="com.landray.kmss.kms.knowledge.actions.KmsMultipleUploadMainAction"
+			name="kmsMultipleUploadMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">	
+			<forward name="att_edit" path="/kms/knowledge/kms_knowledge_multiple_upload/kms_multiple_upload_main.jsp"></forward>
+			<forward name="upload_edit" path="/kms/knowledge/kms_knowledge_multiple_upload/kms_multiple_kmtopic_main.jsp"></forward>
+			<forward name="kmsLearn_upload" path="/kms/knowledge/kms_knowledge_multiple_upload/kms_multiple_learn_main.jsp"></forward>
+		</action>
+		
+		<action
+			path="/kms/knowledge/kms_knowledge_multiple_upload/kmsMultipleUploadEditDoc"
+			type="com.landray.kmss.kms.knowledge.actions.KmsMultipleUploadEditDocAction"
+			name="kmsMultipleUploadEditDocForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">	
+			<forward name="doc_edit" path="/kms/knowledge/kms_knowledge_multiple_upload/kms_multiple_upload_doc_edit.jsp"></forward>
+		</action>
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.kms.knowledge.ApplicationResources"
+		key="kms-knowledge" />
+</struts-config>

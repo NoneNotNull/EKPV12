@@ -1,0 +1,29 @@
+.bookmarkDiv {
+	float: left;
+	margin-left: 10px;
+}
+
+.bookmarkDiv span {
+	display: inline-block;
+	float: left;
+	height: 26px;
+	line-height: 26px;
+}
+
+.bml {
+	background: url('img/bml.png') no-repeat;
+	width: 23px;
+}
+
+.bml0 {
+	background: url('img/bml0.png') no-repeat;
+	width: 23px;
+}
+
+.bmc {
+	font-size: 12px;
+}
+
+.bmr {
+	width: 11px;
+}

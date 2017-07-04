@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.cluster.model.SysClusterMessage"
+		messageKey=""
+		serviceBean="sysClusterMessageService"
+		table="sys_cluster_message">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdServerKey"
+			messageKey=""
+			type="String"
+			column="fd_server_key"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdMessageType"
+			messageKey=""
+			type="String"
+			column="fd_message_type"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdMessageBody"
+			messageKey=""
+			type="Blob"
+			column="fd_message_body"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey=""
+			type="DateTime"
+			column="doc_Create_Time"
+			notNull="false" />
+	</model>
+</models>

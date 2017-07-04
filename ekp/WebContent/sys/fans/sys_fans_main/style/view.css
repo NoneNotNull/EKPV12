@@ -1,0 +1,235 @@
+.card_item{
+	height: 35px;
+	border-right: 1px solid #ececec;
+	display: inline-block;
+	text-align: center;
+	width: 30%;
+	color: #5e5e5e;
+}
+
+.card_item em {
+	color: #ff7800;
+	font-size: 18px;
+	line-height: 18px;
+	margin-bottom: 5px;
+}
+em {
+	font-style: normal;
+}
+.card_item.last {
+	border-right: 0px;
+}
+.lui_fans_btn_follow_l{
+	padding-left: 5px;
+	background: url(img/Ypage_btn_whiteL.png) no-repeat 0 50%;
+	transition: none;
+	display: block;
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+}
+.sys_fans_btn{
+	min-width: 56px;
+	min-height: 24px;
+	width:54px;
+	cursor:pointer;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.lui_fans_btn_follow_r{
+	padding-right: 5px;
+	background: url(img/Ypage_btn_whiteR.png) no-repeat 100% 50%;
+	display: block;
+}
+.lui_fans_btn_follow_c{
+	padding: 0 4px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #ff8400;
+	font-size: 12px;
+	background: url(img/Ypage_btn_whiteC.png) repeat-x 0 50%;
+	display: block;
+}
+.lui_fans_btn_follow_l:hover {
+	background-image: url(img/Ypage_btn_orangeL.png);
+}
+.lui_fans_btn_follow_l:hover .lui_fans_btn_follow_r {
+	background-image: url(img/Ypage_btn_orangeR.png);
+}
+.lui_fans_btn_follow_l:hover .lui_fans_btn_follow_c {
+	background-image: url(img/Ypage_btn_orangeC.png);
+}
+.lui_fans_btn_follow_c:hover {
+	color: #fff;
+}
+.lui_fans_btn_followc_l {
+	display: block;
+	background: url(img/Ypage_btn_editL.png) no-repeat 0 50%;
+}
+.lui_fans_btn_followc_r {
+	display: block;
+	background: url(img/Ypage_btn_editR.png) no-repeat 100% 50%;
+}
+.lui_fans_btn_followc_c {
+	height: 24px;
+	line-height: 24px;
+	display: block;
+	padding: 0px 4px;
+	background-color: #eaeaea;
+}
+.lui_fans_btn_followc_c em {
+	width: 10px;
+	height: 10px;
+	background: url(img/fico2.gif) no-repeat;
+	display: inline-block;
+}
+.lui_fans_followed{
+	/**width:92px;**/
+	height:24px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.lui_fans_btn_focused {
+	padding: 0 6px;
+	height: 24px;
+	line-height: 24px;
+	color: #686868;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #f0f0f0;
+	display: block;
+}
+.lui_fans_btn_focused:hover{
+    background-color:#e1e1e1;
+}
+.lui_fans_listfollow_btn {
+	position: absolute;
+	display: block;
+	right: 0;
+	top: 5px;
+}
+.lui_fans_btn_focus {
+	padding: 0 10px;
+	height: 24px;
+	line-height: 24px;
+	color: #fff;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: #60c230;
+	cursor: pointer;
+	display: block;
+}
+.lui_fans_btn_focus:hover{
+    background-color:#29a629;
+}
+.lui_fans_follow_list {
+	padding: 0;
+}
+.lui_fans_follow_list li .tip span {
+	margin-right: 20px;
+}
+.lui_fans_msex_M {
+	background: url(img/boy.png) no-repeat;
+	width: 16px;
+	height: 16px;
+}
+.lui_fans_msex_F {
+	background: url(img/girl.png) no-repeat;
+	width:16px;
+	height:16px;
+}
+.lui_listview_gridtable_summary_box .lui_listview_gridtable_table tr td {
+	border: 0;
+	padding: 0;
+}
+.lui_fans_follow_list li {
+	padding: 10px 8px 10px 100px;
+	min-height: 90px;
+	color: #5e5e5e;
+	position: relative;
+}
+.lui_fans_follow_list li .imgbox {
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	position: absolute;
+	left: 18px;
+	top: 10px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+}
+.lui_fans_follow_list li .imgbox img {
+	width: 100%;
+	height: 100%;
+}
+.lui_fans_follow_list li .title {
+	margin-bottom: 6px;
+	padding-right: 80px;
+	font-size: 12px;
+	position: relative;
+	zoom: 1;
+}
+.lui_fans_follow_list li .title .name {
+	margin-right: 10px;
+	padding-right: 0px;
+	font-size: 18px;
+	color: #ff8400;
+	float: left;
+}
+.lui_fans_follow_list li .title .dep {
+	margin-right: 5px;
+	padding-top: 6px;
+	padding-right: 15px;
+	color: #333;
+	float: left;
+}
+.lui_fans_follow_list li .title:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+.lui_fans_follow_list li .tip {
+	margin-bottom: 8px;
+}
+.lui_fans_follow_list li .tip span {
+	margin-right: 20px;
+}
+.lui_fans_follow_list li .tip span em {
+	color: #ff8a00;
+	font-style: normal;
+	font-weight: normal;
+}
+.lui_fans_follow_list li .txt {
+	color: #008fe9;
+}
+.lui_fans_follow_div {
+	margin-top: 20px;
+	white-space: nowrap;
+	text-align: left;
+	font-size: 14px;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+	margin-bottom: 20px;
+}
+.lui_fans_follow_div .btn_unclick {
+	margin-left: 15px;
+	padding: 0 10px;
+	display: inline-block;
+	line-height: 28px;
+	cursor: pointer;
+	color: #333;
+	background-color: #E2E2E2;
+}
+.lui_fans_follow_div .btn_clicked {
+	margin-left: 15px;
+	padding: 0 10px;
+	display: inline-block;
+	line-height: 28px;
+	cursor: pointer;
+	color: #fff;
+	background-color: rgb(71, 181, 230);
+}

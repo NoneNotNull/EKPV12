@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-evaluate:module.kms.evaluate"
+		urlPrefix="/kms/evaluate/"
+		defaultValidator="roleValidator(role=ROLE_KMSEVALUATE_DEFAULT)">
+		<roles>
+			ROLE_KMSEVALUATE_DEFAULT,ROLE_KMSEVALUATE_ADMIN,ROLE_KMSEVALUATE_ADD
+		</roles>
+
+		<request
+			path="kms_evaluate_doc_detail/kmsEvaluateDocDetail*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail">
+		</request>
+
+		<request
+			path="kms_evaluate_personal_detail/kmsEvaluatePersonalDetail*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalDetail">
+		</request>
+		
+		<request
+			path="kms_evaluate_personal_filter/kmsEvaluatePersonalFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+
+		<request
+			path="kms_evaluate_dept_filter/kmsEvaluateDeptFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+
+		<request
+			path="kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateModuleCateFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_evaluate_doc_filter/kmsEvaluateDocFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateDocFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+
+		<request
+			path="kms_evaluate_doc_search_filter/kmsEvaluateDocSearchFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateDocSearchFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+		
+		<request
+			path="kms_evaluate_ask_dept_filter/kmsEvaluateAskDeptFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateAskDeptFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+
+		<request
+			path="kms_evaluate_ask_c_filter/kmsEvaluateAskCFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.evaluate.model.KmsEvaluateAskCFilter">
+			<query queryString="method=add|saveadd|save|download"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+			<query queryString="method=edit|update|deleteall|delete|saveadd|save"
+				validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)" />
+		</request>
+	</module>
+	<module urlPrefix="/kms/log/">
+		<request
+			path="kms_log_app/kmsLogApp*">
+			<query queryString="method=gotoResultView"
+				 validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)|areaRoleValidator(role=ROLE_KMSEVALUATE_DEFAULT)"/>
+		</request>
+	</module>
+	<module urlPrefix="/kms/log/">
+		<request
+			path="kms_log_search/kmsLogSearch*">
+			<query queryString="method=gotoResultView"
+				 validator="areaRoleValidator(role=ROLE_KMSEVALUATE_ADD)|areaRoleValidator(role=ROLE_KMSEVALUATE_ADMIN)|areaRoleValidator(role=ROLE_KMSEVALUATE_DEFAULT)"/>
+		</request>
+	</module>
+	<module urlPrefix="/sys/common/">
+		<request path="treexml.jsp*">
+			<query queryString="s_bean=kmsLogContextCategoryTree" 
+				validator="roleValidator(role=ROLE_KMSEVALUATE_DEFAULT)"/>
+		</request>
+	</module>
+	
+	<!-- 知识评测定时任务 -->
+	<quartz
+		cronExpression="0 0 5 * * ?"
+		jobService="kmsEvaluateAnalyzeService" 
+		messageKey="kms-evaluate:kmsEvaluate.quartz.doAnalyze"
+		jobMethod="doAnalyze" /> 
+
+	<search
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocDetail"
+		messageKey="kms-evaluate:kmsEvaluateDoc.search"
+		resultUrl="/kms/evaluate/kms_evaluate_doc_detail/kmsEvaluateDocDetail.do?method=result" />
+
+	<search
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalDetail"
+		messageKey="kms-evaluate:kmsEvaluateDoc.search"
+		resultUrl="/kms/evaluate/kms_evaluate_personal_detail/kmsEvaluatePersonalDetail.do?method=result" />
+		
+	<homePage
+		urlPrefix="kms/evaluate"
+		url="/kms/evaluate/tree.jsp"  
+		messageKey="kms-evaluate:module.kms.evaluate"
+		config="/moduleindex_notopic.jsp?nav=/kms/evaluate/tree.jsp"/>
+</configs>

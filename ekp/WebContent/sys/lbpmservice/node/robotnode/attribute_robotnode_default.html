@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script>
+var dialogObject=parent.dialogArguments?parent.dialogArguments:parent.opener.Com_Parameter.Dialog;
+var Com_Parameter = {
+	ContextPath:dialogObject.Window.Com_Parameter.ContextPath,
+	ResPath:dialogObject.Window.Com_Parameter.ResPath,
+	Style:dialogObject.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogObject.Window.Com_Parameter.StylePath,
+	Cache:dialogObject.Window.Com_Parameter.Cache
+};
+// 多语言对象
+LangObject = parent.FlowChartObject.Lang;
+// 当前节点多语言对象
+LangNodeObject = LangObject.Node;
+// 数据类型对象
+DataTypeLangObject = LangObject.DataType;
+</script>
+<script type="text/javascript" src="../../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/" + Com_Parameter.Style + "/doc/");
+Com_IncludeFile("docutil.js|doclist.js|dialog.js|data.js|formula.js");
+</script>
+<script>
+// 必须实现的方法，供父窗口(attribute_robotnode.html)调用。
+function returnValue() {
+	return "";
+};
+</script>
+<body>
+
+</body>
+</html>

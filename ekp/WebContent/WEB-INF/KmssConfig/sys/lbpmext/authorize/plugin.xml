@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="authorizeResultsEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmext-authorize:lbpm.eventType.authorizeResultsEvent" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmext.authorize.service.spring.AuthorizeResultsEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+	</extension>
+</plugin>

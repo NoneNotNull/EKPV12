@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<!-- ========== 角色线 ========== -->
+		<form name="sysOrgRoleLineForm">
+			<field
+				property="fdName"
+				depends="maxlength">
+				<arg
+					key="sysOrgRoleLine.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgRoleLine.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+		</form>
+		<!-- ========== 角色线配置 ========== -->
+		<form name="sysOrgRoleConfForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgRoleConf.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgRoleConf.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+		</form>
+		<!-- ========== 自定义角色查找 ========== -->
+		<form name="sysOrgRoleForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgRole.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdPlugin"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgRole.fdPlugin"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgRole.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+				<arg
+					key="sysOrgOrg.fdOrder"
+					bundle="sys-organization"
+					position="1" />
+			</field>
+			<field
+				property="fdParameter"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgRole.fdParameter"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+		</form>
+		<!-- ========== 机构 ========== -->
+		<form name="sysOrgOrgForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgOrg.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgOrg.fdNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgOrg.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+			<field
+				property="fdKeyword"
+				depends="maxlength">
+				<arg
+					key="sysOrgOrg.fdKeyword"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>					
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgOrg.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+		</form>
+		<!-- ========== 部门 ========== -->
+		<form name="sysOrgDeptForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgDept.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgDept.fdNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgDept.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+			<field
+				property="fdKeyword"
+				depends="maxlength">
+				<arg
+					key="sysOrgDept.fdKeyword"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>			
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgDept.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+		</form>
+		<!-- ========== 岗位 ========== -->
+		<form name="sysOrgPostForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgPost.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPost.fdNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgPost.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+			<field
+				property="fdKeyword"
+				depends="maxlength">
+				<arg
+					key="sysOrgPost.fdKeyword"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPost.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+		</form>
+		<!-- ========== 个人 ========== -->
+		<form name="sysOrgPersonForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgPerson.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysOrgPerson.fdOrder"
+					bundle="sys-organization"
+					position="0" />
+			</field>
+			<field
+				property="fdKeyword"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdKeyword"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdMobileNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdMobileNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var>
+			</field>
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+			<field
+				property="fdEmail"
+				depends="maxlength,email">
+				<arg
+					key="sysOrgPerson.fdEmail"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdLoginName"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdLoginName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdRtxNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdRtxNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdCardNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdCardNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+		</form>
+		<form name="sysOrgPersonInfoForm">
+			<field
+				property="fdMobileNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdMobileNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var>
+			</field>
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgPerson.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+			<!-- 
+			<field
+				property="fdEmail"
+				depends="maxlength,email">
+				<arg
+					key="sysOrgPerson.fdEmail"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			-->
+		</form>
+		<!-- ========== 常用群组 ========== -->
+		<form name="sysOrgGroupForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgGroup.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdNo"
+				depends="maxlength">
+				<arg
+					key="sysOrgGroup.fdNo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdKeyword"
+				depends="maxlength">
+				<arg
+					key="sysOrgGroup.fdKeyword"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+			<field
+				property="fdMemo"
+				depends="maxlength">
+				<arg
+					key="sysOrgGroup.fdMemo"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+		</form>
+		<!-- ========== 群组类别 ========== -->
+		<form name="sysOrgGroupCateForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="sysOrgGroupCate.fdName"
+					bundle="sys-organization"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

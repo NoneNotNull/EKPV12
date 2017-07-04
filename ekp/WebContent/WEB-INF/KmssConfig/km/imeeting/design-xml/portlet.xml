@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	
+	<!-- 所有会议 (简单列表)-->
+	<portlet
+		id="km.imeeting.all.classic"
+		name="{km-imeeting:kmImeeting.tree.meeting.allMeeting}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_main/kmImeetingMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&scope=!{scope}&dataview=classic"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/imeeting/km_imeeting_main/kmImeetingMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/imeeting" />
+	    </operations>
+	</portlet>
+	
+	
+	<!-- 所有会议 (可配置题头)-->
+	<portlet
+		id="km.imeeting.all.listtable"
+		name="{km-imeeting:kmImeeting.tree.meeting.allMeeting}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc2}">
+		<source format="sys.ui.listtable" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_main/kmImeetingMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&scope=!{scope}&dataview=listtable"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/imeeting/km_imeeting_main/kmImeetingMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/imeeting" />
+	    </operations>
+	</portlet>
+	
+	<!-- 我的会议 (简单列表)-->
+	<portlet
+		id="km.imeeting.my.attend.classic"
+		name="{km-imeeting:kmImeeting.porlet.meetings.my}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_main/kmImeetingMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&type=!{type}&scope=!{scope}&datetype=!{datetype}&dataview=classic"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		   	<var name="{km-imeeting:kmImeeting.porlet.meetings.datetype}" key="datetype" kind="enumValue" default="today">
+			  {    "values":[ { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.today}", "value":"today" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.tomorrow}", "value":"tomorrow" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.afterDay}", "value":"afterDay" }],
+	               "showType":"radio",
+                }
+			</var>
+		    <var name="{km-imeeting:kmImeeting.porlet.meetings.my}" key="type" kind="enumValue" default="myAttend">
+			  {    "values":[ { "text":"{km-imeeting:kmImeeting.porlet.Attend.my}", "value":"myAttend" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Host.my}", "value":"myHost" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Emcc.my}", "value":"myEmcee" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Sum.my}", "value":"mySummary" }],
+	               "showType":"checkbox",
+                }
+			</var>
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/imeeting/km_imeeting_main/kmImeetingMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/imeeting" />
+	    </operations>
+	</portlet>
+	
+	<!-- 我的会议 (可配置题头)-->
+	<portlet
+		id="km.imeeting.my.attend"
+		name="{km-imeeting:kmImeeting.porlet.meetings.my}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc2}">
+		<source format="sys.ui.listtable" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_main/kmImeetingMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&type=!{type}&scope=!{scope}&datetype=!{datetype}&dataview=listtable"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		   	<var name="{km-imeeting:kmImeeting.porlet.meetings.datetype}" key="datetype" kind="enumValue" default="today">
+			  {    "values":[ { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.today}", "value":"today" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.tomorrow}", "value":"tomorrow" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.meetings.type.afterDay}", "value":"afterDay" }],
+	               "showType":"radio",
+                }
+			</var>
+		    <var name="{km-imeeting:kmImeeting.porlet.meetings.my}" key="type" kind="enumValue" default="myAttend">
+			  {    "values":[ { "text":"{km-imeeting:kmImeeting.porlet.Attend.my}", "value":"myAttend" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Host.my}", "value":"myHost" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Emcc.my}", "value":"myEmcee" },
+							  { "text":"{km-imeeting:kmImeeting.porlet.Sum.my}", "value":"mySummary" }],
+	               "showType":"checkbox",
+                }
+			</var>
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/imeeting/km_imeeting_main/kmImeetingMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/imeeting" />
+	    </operations>
+	</portlet>
+	
+	<!-- 会议纪要 (简单列表)-->
+	<portlet
+		id="km.imeeting.summary.classic"
+		name="{km-imeeting:table.kmImeetingSummary}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_summary/kmImeetingSummaryPortlet.do?method=listPortlet&scope=!{scope}&rowsize=!{rowsize}&type=!{type}&fdCategoryId=!{cateid}&dataview=classic"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+                   "showType":"radio"
+                  }
+	        </var>
+	        <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+	        <var name="{km-imeeting:kmImeetingSummary.summary.type}" key="type" kind="enumValue" default="all">
+			  {    "values":[ { "text":"{km-imeeting:kmImeetingSummary.summary.all}", "value":"all" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myCreate}", "value":"myCreate" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myApproval}", "value":"unExecuted" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myApproved}", "value":"executed" }],
+	               "showType":"radio",
+              }
+			</var>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.category">
+				{"model":"com.landray.kmss.km.imeeting.model.KmImeetingTemplate","name":"选择分类"}
+			</var>
+	  </vars>
+	  <operations>
+	    <operation
+			name="{operation.create}"
+			type="create"
+			href="/km/imeeting/km_imeeting_summary/kmImeetingSummary.do?method=add" />
+		<operation
+			name="{operation.more}"
+			type="more"
+			href="/km/imeeting/km_imeeting_summary/index.jsp" />
+    	</operations>
+	</portlet>
+	
+	<!-- 会议纪要 (可配置题头)-->
+	<portlet
+		id="km.imeeting.summary.listtable"
+		name="{km-imeeting:table.kmImeetingSummary}"
+		module="{km-imeeting:module.km.imeeting}"
+		description="{portlet.list.desc2}">
+		<source format="sys.ui.listtable" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/imeeting/km_imeeting_summary/kmImeetingSummaryPortlet.do?method=listPortlet&scope=!{scope}&rowsize=!{rowsize}&type=!{type}&fdCategoryId=!{cateid}&dataview=listtable"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-imeeting:kmImeeting.porlet.publishDate}" key="scope" kind="enumValue" default="no">
+                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+                   "showType":"radio"
+                  }
+	        </var>
+	        <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+	        <var name="{km-imeeting:kmImeetingSummary.summary.type}" key="type" kind="enumValue" default="all">
+			  {    "values":[ { "text":"{km-imeeting:kmImeetingSummary.summary.all}", "value":"all" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myCreate}", "value":"myCreate" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myApproval}", "value":"unExecuted" },
+							  { "text":"{km-imeeting:kmImeetingSummary.summary.myApproved}", "value":"executed" }],
+	               "showType":"radio",
+              }
+			</var>
+			<var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.category">
+				{"model":"com.landray.kmss.km.imeeting.model.KmImeetingTemplate","name":"选择分类"}
+			</var>
+	  </vars>
+	  <operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/imeeting/km_imeeting_summary/kmImeetingSummary.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/imeeting/km_imeeting_summary/index.jsp" />
+	    </operations>
+	</portlet>
+	
+</root>

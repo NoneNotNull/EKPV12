@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.oauth.model.OauthBindData"
+		messageKey="third-oauth:table.oauthBindData"
+		displayProperty="fdId"
+		serviceBean="oauthBindDataService"
+		table="oAuth_bind_data"
+		url="/third/oauth/oauth_bind_data/oauthBindData.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdAppKey"
+			messageKey="third-oauth:oauthBindData.fdAppKey"
+			type="String"
+			column="fd_app_key"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAppAccount"
+			messageKey="third-oauth:oauthBindData.fdAppAccount"
+			type="String"
+			column="fd_app_account"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdToken"
+			messageKey="third-oauth:oauthBindData.fdToken"
+			type="String"
+			column="fd_token"
+			notNull="true"
+			length="4000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTokenAvailable"
+			messageKey="third-oauth:oauthBindData.fdTokenAvailable"
+			type="Boolean"
+			column="fd_token_available"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsDisbind"
+			messageKey="third-oauth:oauthBindData.fdIsDisbind"
+			type="Boolean"
+			column="fd_is_disbind"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="third-oauth:oauthBindData.docCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_owner"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

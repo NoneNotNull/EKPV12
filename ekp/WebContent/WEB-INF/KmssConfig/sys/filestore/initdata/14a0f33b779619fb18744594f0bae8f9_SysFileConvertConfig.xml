@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.7.0_15" class="java.beans.XMLDecoder">
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>sysAttFile_extension</string>
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void method="put">
+   <string>fdModelName</string>
+   <string>*</string>
+  </void>
+  <void method="put">
+   <string>fdDispenser</string>
+   <string>remote</string>
+  </void>
+  <void method="put">
+   <string>sysAttRtfData_extension</string>
+   <object class="java.util.ArrayList"/>
+  </void>
+  <void method="put">
+   <string>fdId</string>
+   <string>14a0f33b779619fb18744594f0bae8f9</string>
+  </void>
+  <void method="put">
+   <string>class</string>
+   <string>com.landray.kmss.sys.filestore.model.SysFileConvertConfig</string>
+  </void>
+  <void method="put">
+   <string>fdConverterKey</string>
+   <string>aspose_office2html</string>
+  </void>
+  <void method="put">
+   <string>fdFileExtName</string>
+   <string>pdf</string>
+  </void>
+  <void method="put">
+   <string>sysAttMain_extension</string>
+   <object class="java.util.ArrayList"/>
+  </void>
+ </object>
+</java>

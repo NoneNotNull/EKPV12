@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapJcoSetting"
+	messageKey="tib-sys-sap-connector:table.tibSysSapJcoSetting"
+	serviceBean="tibSysSapJcoSettingService"
+	table="tib_sys_sap_jco_setting"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdPoolName"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolName"
+	type="String"
+	column="fd_pool_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdPoolAdmin"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolAdmin"
+	type="String"
+	column="fd_pool_admin"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdPoolSecret"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolSecret"
+	type="String"
+	column="fd_pool_secret"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdPoolStatus"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolStatus"
+	type="Boolean"
+	column="fd_pool_status"
+	notNull="true"
+/>
+<simpleProperty
+	name="fdConnectType"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdConnectType"
+	type="Integer"
+	column="fd_connect_type"
+	notNull="false"
+	length="2"
+/>
+<simpleProperty
+	name="fdPoolCapacity"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolCapacity"
+	type="Integer"
+	column="fd_pool_capacity"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdPoolNumber"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolNumber"
+	type="Integer"
+	column="fd_pool_number"
+	notNull="false"
+	length="10"
+/>
+<simpleProperty
+	name="fdPoolTime"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdPoolTime"
+	type="Integer"
+	column="fd_pool_time"
+	notNull="false"
+	length="10"
+/>
+<simpleProperty
+	name="fdDescribe"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdDescribe"
+	type="String"
+	column="fd_describe"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdUpdateTime"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdUpdateTime"
+	type="DateTime"
+	column="fd_update_time"
+	notNull="false"
+/>
+<modelProperty
+	name="fdTibSysSapCode"
+	messageKey="tib-sys-sap-connector:tibSysSapJcoSetting.fdTibSysSapCode"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting"
+	column="fd_tib_sys_sap_code"
+	notNull="true"
+/>
+</model></models>

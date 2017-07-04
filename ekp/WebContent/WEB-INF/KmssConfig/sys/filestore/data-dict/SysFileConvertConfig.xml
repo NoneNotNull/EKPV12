@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.filestore.model.SysFileConvertConfig"
+		messageKey="sys-filestore:table.sysFileConvertConfig"
+		serviceBean="sysFileConvertConfigService"
+		table="sys_file_convert_config">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdFileExtName"
+			messageKey="sys-filestore:sysFileConvertConfig.fdFileExtName"
+			type="String"
+			column="fd_file_extname"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-filestore:sysFileConvertConfig.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="true"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdConverterKey"
+			messageKey="sys-filestore:sysFileConvertConfig.fdConverterKey"
+			type="String"
+			column="fd_converter_key"
+			notNull="true"
+			length="100"
+			validate="false" />
+		<simpleProperty
+			name="fdDispenser"
+			messageKey="sys-filestore:sysFileConvertConfig.fdDispenser"
+			type="String"
+			column="fd_dispenser"
+			notNull="true"
+			length="36"
+			validate="false" />
+	</model>
+</models>

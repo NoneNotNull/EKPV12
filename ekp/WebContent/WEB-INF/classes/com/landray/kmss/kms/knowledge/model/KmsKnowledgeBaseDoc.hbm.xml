@@ -1,0 +1,345 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc"
+		table="kms_knowledge_base_doc"
+		discriminator-value="not null">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		<discriminator
+			column="fd_knowledge_type"
+			type="int" />
+		<!-- 文档类型 -->
+		<property
+			name="fdKnowledgeType"
+			column="fd_knowledge_type"
+			update="false"
+			insert="false"
+			not-null="true" />
+			
+		<property
+			name="docSubject"
+			column="doc_subject"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true"
+			index="DOC_SUBJECT"/>
+
+		<property
+			name="docStatus"
+			column="doc_status"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="true" />
+
+		<many-to-one
+			name="docCreator"
+			column="doc_creator_id"
+			insert="true"
+			update="true"
+			not-null="true" />
+
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="false"
+			index="DOC_CREATETIME" />
+			
+		<property
+			name="docPublishTime"
+			column="doc_publish_time"
+			update="true"
+			insert="true"
+			not-null="false" 
+			index="DOC_PUBLISHTIME"/>
+
+		<many-to-one
+			name="docAuthor"
+			column="doc_author_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+		
+		<property
+			name="outerAuthor"
+			column="outer_author"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+			
+		<property
+			name="fdDescription"
+			column="fd_description"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1500" />
+		<bag
+			name="docPosts"
+			table="kms_knowledge_main_post"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_post_id" />
+		</bag>
+
+		<many-to-one
+			name="docDept"
+			column="doc_dept_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+		
+		<property
+			name="docIsIntroduced"
+			column="doc_is_introduced"
+			update="true"
+			insert="true"
+			not-null="false" />
+			
+		<property
+			name="docIntrCount"
+			column="doc_Intr_count"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="docEvalCount"
+			column="doc_eval_count"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="docReadCount"
+			column="doc_read_count"
+			update="true"
+			insert="true"
+			length="19"
+			not-null="false" 
+			index="DOC_READCOUNT"/>
+
+		<property
+			name="docIsNewVersion"
+			column="doc_is_new_version"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<!-- 场所 -->
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_kmsKnowledge_authAreaId" />
+
+
+		<many-to-one
+			name="docCategory"
+			column="doc_category_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+		<bag
+			name="docSecondCategories"
+			table="kms_knowledge_secondcategory"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"
+				column="fd_second_category_id" />
+		</bag>
+		<many-to-one
+			name="docOriginDoc"
+			column="doc_origin_docid"
+			insert="true"
+			update="true"
+			not-null="false"
+			class="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+		<bag
+			name="docHistoryEditions"
+			inverse="true">
+			<key
+				column="doc_origin_docid"></key>
+			<one-to-many
+				class="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+		</bag>
+
+		<property
+			name="authReaderFlag"
+			column="auth_reader_flag"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authAttNodownload"
+			column="auth_att_nodownload"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authAttNocopy"
+			column="auth_att_nocopy"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authAttNoprint" 
+			column="auth_att_noprint"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdSetTopTime"
+			column="fd_set_top_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="docIsIndexTop"
+			column="doc_is_index_top"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="fdSetTopLevel"
+			column="fd_set_top_level"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="fdSetTopReason"
+			column="fd_set_top_reason"
+			update="true"
+			insert="true"
+			length="1000"
+			not-null="false" />
+		<property
+			name="fdTopCategoryId"
+			column="fd_top_category_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1000" />
+		<bag
+			name="authReaders"
+			table="kms_knowledge_auth_readers"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_org_id" />
+		</bag>
+
+		<bag
+			name="authEditors"
+			table="kms_knowledge_auth_editors"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_org_id" />
+		</bag>
+		<bag
+			name="authOtherReaders"
+			table="kms_knowledge_auth_oreader"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_reader_id" />
+		</bag>
+		<bag
+			name="authOtherEditors"
+			table="kms_knowledge_auth_oeditor"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_editor_id" />
+		</bag>
+
+		<bag
+			name="authAllReaders"
+			table="kms_knowledge_auth_areader"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_reader_id" />
+		</bag>
+		<bag
+			name="authAllEditors"
+			table="kms_knowledge_auth_aeditor"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_editor_id" />
+		</bag>
+		
+		<bag
+			name="authAttDownloads"
+			table="kms_knowledge_main_attdl"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_download_id" />
+		</bag>
+		<bag
+			name="authAttCopys"
+			table="kms_knowledge_main_attcopy"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_copy_id" />
+		</bag>
+		<bag
+			name="authAttPrints"
+			table="kms_knowledge_main_attprint"
+			lazy="true">
+			<key
+				column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_print_id" />
+		</bag>
+	</class>
+</hibernate-mapping>

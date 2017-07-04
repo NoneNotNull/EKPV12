@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 审批意见展示控件，展示模板扩展点 -->
+	<extension-point id="com.landray.kmss.sys.xform.jsp.auditnote.viewstyle">
+		<item name="config">
+			
+			<param name="viewName" required="true" kind="string">
+				<description>展示名称</description>
+			</param>
+			<param name="viewValue" required="true" kind="spring" basedOn="com.landray.kmss.sys.workflow.tablib.auditnote.AuditNoteStyle">
+				<description><![CDATA[
+				展示样式Bean
+				预定义处理字符串， 审批意见：${msg},处理时间：${time},部门：${dept},岗位：${post},处理人${person} 展示宽度:${width}
+				]]>
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>扩展实现排序</description>
+			</param>
+			<param name="previewPictureURL" kind="string">
+				<description><![CDATA[预览图片路径。图片规格建议（170*80）]]></description>
+			</param>
+			<description>展示模板配置</description>
+		</item>
+		<description>
+			审批意见展示扩展点
+		</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.xform.jsp.auditnote.viewstyle" model="*">
+		<item name="config">
+			<param name="viewName" value="审批意见+处理人+时间" />
+			<param name="viewValue" value="auditNoteStyleDefaultOnlyHandler" />	
+			<param name="order" value="0"/>
+			<param name="previewPictureURL" value="style/img/auditshow/auditShow.png"/>
+		</item>
+		<item name="config">
+			<param name="viewName" value="审批意见+岗位/处理人+时间" />
+			<param name="viewValue" value="auditNoteStyleDefaultPostHandler" />	
+			<param name="order" value="1"/>
+			<param name="previewPictureURL" value="style/img/auditshow/defaultPostHandler.png"/>
+		</item>
+		<item name="config">
+			<param name="viewName" value="审批意见+部门/岗位/处理人+时间" />
+			<param name="viewValue" value="auditNoteStyleDefaultDeptPostHandler" />	
+			<param name="order" value="2"/>
+			<param name="previewPictureURL" value="style/img/auditshow/defaultDeptPostHandler.png"/>
+		</item>
+		<!-- added by weiby 2014-12-19 -->
+		<item name="config">
+			<param name="viewName" value="审批意见+部门/处理人+时间" />
+			<param name="viewValue" value="auditNoteStyleDefaultDeptHandler" />	
+			<param name="order" value="3"/>
+			<param name="previewPictureURL" value="style/img/auditshow/defaultDeptHandler.png"/>
+		</item>
+		<item name="config">
+			<param name="viewName" value="仅处理人" />
+			<param name="viewValue" value="auditNoteStyleDefaultShowOnlyHandler" />	
+			<param name="order" value="5"/>
+			<param name="previewPictureURL" value="style/img/auditshow/defaultHandler.png"/>
+		</item>
+		<!-- added by weiby 2014-12-19 -->
+	</extension>
+	
+</plugin>

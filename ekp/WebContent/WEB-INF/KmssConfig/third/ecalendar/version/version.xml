@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 Exchange日历集成，与时间管理日程同步</description>
+			<author>黄伟强</author>
+			<revision-time>2014-05-30</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+	</modifies>
+</version>

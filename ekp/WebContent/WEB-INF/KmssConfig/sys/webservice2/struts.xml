@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysWebserviceMainForm"
+			type="com.landray.kmss.sys.webservice2.forms.SysWebserviceMainForm" />
+		<form-bean
+			name="sysWebserviceUserForm"
+			type="com.landray.kmss.sys.webservice2.forms.SysWebserviceUserForm" />
+		<form-bean
+			name="sysWebserviceLogForm"
+			type="com.landray.kmss.sys.webservice2.forms.SysWebserviceLogForm" />
+		<form-bean
+			name="sysWebserviceLogBackupForm"
+			type="com.landray.kmss.sys.webservice2.forms.SysWebserviceLogBackupForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/webservice2/sys_webservice_main/sysWebserviceMain"
+			type="com.landray.kmss.sys.webservice2.actions.SysWebserviceMainAction"
+			name="sysWebserviceMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/webservice2/sys_webservice_main/sysWebserviceMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/webservice2/sys_webservice_main/sysWebserviceMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/webservice2/sys_webservice_main/sysWebserviceMain_list.jsp" />			
+		</action>
+			
+		<action
+			path="/sys/webservice2/sys_webservice_init/sysWebserviceInit"
+			type="com.landray.kmss.sys.webservice2.actions.SysWebserviceInitAction"
+			name="sysWebserviceMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request" />
+
+		<action
+			path="/sys/webservice2/sys_webservice_user/sysWebserviceUser"
+			type="com.landray.kmss.sys.webservice2.actions.SysWebserviceUserAction"
+			name="sysWebserviceUserForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/webservice2/sys_webservice_user/sysWebserviceUser_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/webservice2/sys_webservice_user/sysWebserviceUser_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/webservice2/sys_webservice_user/sysWebserviceUser_list.jsp" />
+			<forward
+				name="editPassword"
+				path="/sys/webservice2/sys_webservice_user/editPassword.jsp">
+			</forward>	
+		</action>
+
+		<action
+			path="/sys/webservice2/sys_webservice_log/sysWebserviceLog"
+			type="com.landray.kmss.sys.webservice2.actions.SysWebserviceLogAction"
+			name="sysWebserviceLogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/webservice2/sys_webservice_log/sysWebserviceLog_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/webservice2/sys_webservice_log/sysWebserviceLog_list.jsp" />
+		</action>
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.webservice2.ApplicationResources"
+		key="sys-webservice2" />
+</struts-config>

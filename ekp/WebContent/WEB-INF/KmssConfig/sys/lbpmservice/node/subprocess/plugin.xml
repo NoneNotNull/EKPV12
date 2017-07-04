@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<!-- 子流程开始节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="startSubProcessNode">
+			<param
+				name="type"
+				value="startSubProcessNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.startSubProcessNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.subprocess.StartSubProcessNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/startsubprocessnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="startSubProcessNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="startSubProcessNodeBehaviour" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="1389e8ebb646bb277c0559b45cdb7356">
+			<param
+				name="type"
+				value="startSubProcessNodeDesc" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/startsubprocessnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/startsubprocessnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="startSubProcessNodeDesc" />
+		</item>
+	</extension>
+
+	<!-- 子流程开始节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="recoverSubProcessNode">
+			<param
+				name="type"
+				value="recoverSubProcessNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.recoverSubProcessNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.subprocess.RecoverSubProcessNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/recoversubprocessnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="recoverSubProcessNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="recoverSubProcessNodeBehaviour" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="recoverSubProcessNodeDesc">
+			<param
+				name="type"
+				value="recoverSubProcessNodeDesc" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/recoversubprocessnode/node_review.jsp" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/recoversubprocessnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/recoversubprocessnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="recoverSubProcessNodeDesc" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!--  特权人回收子流程操作 -->
+		<item
+			name="operation"
+			id="adminRecoveSubProcess">
+			<param
+				name="type"
+				value="admin_recoverSubProcess" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpmOperations.fdOperType.processor.recover" />
+			<param
+				name="behaviour"
+				value="adminRecoveSubProcessBehaviour" />
+			<param
+				name="accessor"
+				value="lbpmAdminRecoverSubProcessAccessor" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/admin/operation_admin_recoversubprocess.jsp" />
+			<param
+				name="handlerType"
+				value="admin" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="binder"
+				value="adminRecoveSubProcessBinder" />
+			<param
+				name="order"
+				value="321" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!--  回收子流程系统操作 -->
+		<item
+			name="operation"
+			id="systemRecoveSubProcess">
+			<param
+				name="type"
+				value="systemRecoveSubProcess" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.operation.systemRecoveSubProcess" />
+			<param
+				name="behaviour"
+				value="systemRecoveSubProcessBehaviour" />
+			<param
+				name="reviewJs"
+				value="" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="binder"
+				value="operationNodeBinder" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!--  子流程结束事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="subProcessRecoverListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="subProcessRecoverListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!--  流程废弃事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processAbandonRecoverListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="processAbandonRecoverListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!--  流程结束事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processFinishedAbandonRecoverListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="processFinishedAbandonRecoverListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!--  流程前后跳转事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processJumpAbandonRecoverListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmAdminJumpEvent" />
+			<param
+				name="listener"
+				value="processJumpAbandonRecoverListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!--  流程驳回事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="processRefusedAbandonRecoverListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmHandlerRefuseEvent" />
+			<param
+				name="listener"
+				value="processRefusedAbandonRecoverListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!-- 进入起草节点事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="sendNotifyToDrafterListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent" />
+			<param
+				name="listener"
+				value="sendNotifyToDrafterListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!-- 同步子流程权限监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="permissionTransferListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="endedNodeEvent" />
+			<param
+				name="listener"
+				value="permissionTransferListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!-- 主文档权限变更事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="permissionChangedListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="lbpmMainModelRightChangeEvent" />
+			<param
+				name="listener"
+				value="permissionChangedListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!-- 子流程开始事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="subprocessStartListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="subprocessStartListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+
+		<!-- 子流程自动提交事件监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="drafterSubmitAddNoteListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="drafterSubmitEvent" />
+			<param
+				name="listener"
+				value="drafterSubmitAddNoteListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+</plugin>

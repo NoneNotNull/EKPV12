@@ -1,0 +1,114 @@
+.share_peson_opt {
+	height: 25px;
+	line-height: 25px;
+	vertical-align: top;
+	display: inline-block;
+	margin-right:12px;
+}
+.share_bolder {
+	font-weight: bold;
+}
+.share_title_color {
+	color: #646464; 
+}
+.share_content {
+	height: 130px;
+	width: 100%;
+	border: 1px solid #DFDFDF;
+	overflow-y: auto;
+	vertical-align: bottom;
+}
+.share_button {
+	width: 76px;
+	height: 29px;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background: url(./img/subbtn.jpg) repeat-x;
+	color: #ffffff;
+	text-align: center;
+	border:0px;
+	float: right;
+	margin: 0px -2px;
+}
+.share_prompt {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	margin-right: 10px;
+	float:right;
+}
+.share_button_disable {
+	border: 1px solid gray;
+	background: url(./img/btn_bg1.jpg) repeat-x;
+	color: gray;
+	cursor: default;
+}
+.tb_simple>tbody>tr>td{
+	padding: 5px 0px 5px;
+}
+.txtstrong{
+	position:absolute;
+	padding-left: 4px;
+}
+.lui_toolbar_frame .lui_widget_btn{
+	padding: 0px 0px;
+	padding-right:10px;
+}
+input[type=checkbox], input[type=radio]{
+	vertical-align: middle;
+	margin-bottom: 2px;
+}
+.lui_share_notyfy{
+	float:left;
+	margin-bottom:15px;
+}
+.share_down_msg{
+	height:40px;
+	margin-top: 4px;
+}
+.share_icons {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	padding-left: 20px;
+	background: url(./img/icon_biaoqing.png) no-repeat 0 50%;
+	cursor: pointer;
+	float: left;
+	margin-left: 62px;
+}
+.share_biao_qing {
+	width: 648px;
+	position: absolute;
+	border-radius: 3px;
+	z-index: 999;
+	background: #fff;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	margin-top: 26px;
+}
+.share_bq_arrow {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	background: url(./img/layer_arrow.png) no-repeat;
+	width: 14px;
+	height: 9px;
+	top: -9px;
+	left: 70px;
+	background-position: 0 0;
+}
+.lui_share_biaoqing {
+	cursor: pointer;
+	text-align: center;
+}
+.share_bq_close {
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	cursor: pointer;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+	background: url(./img/close.png) no-repeat 0 50%;
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocMonthCount"
+		messageKey="kms-evaluate:table.kmsEvaluateDocMonthCount"
+		displayProperty="fdName"
+		serviceBean="kmsEvaluateDocMonthCountService"
+		table="kms_evaluate_doc_month_count"
+		url="/kms/evaluate/kms_evaluate_doc_month_count/kmsEvaluateDocMonthCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.fdCreateTime"
+			type="Long"
+			column="fd_create_time"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docDate"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docDate"
+			type="String"
+			column="doc_date"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docReadCount"
+			type="Long"
+			column="doc_read_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docEvaluationCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docEvaluationCount"
+			type="Integer"
+			column="doc_evaluation_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docIntroduceCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docIntroduceCount"
+			type="Integer"
+			column="doc_introduce_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docAddCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docAddCount"
+			type="Integer"
+			column="doc_add_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docUpdateCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docUpdateCount"
+			type="Integer"
+			column="doc_update_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="docDeleteCount"
+			messageKey="kms-evaluate:kmsEvaluateDocMonthCount.docDeleteCount"
+			type="Integer"
+			column="doc_delete_count"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+	</model>
+</models>

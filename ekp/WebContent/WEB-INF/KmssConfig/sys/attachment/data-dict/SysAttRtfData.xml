@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.attachment.model.SysAttRtfData"
+		messageKey="sys-attachment:table.sysAttRtfData"
+		serviceBean="sysAttRtfDataService"
+		table="sys_att_rtf_data">
+		<idProperty>
+			<generator
+				type="native" />
+		</idProperty>
+		<simpleProperty
+			name="fdData"
+			messageKey="sys-attachment:sysAttRtfData.fdData"
+			type="Blob"
+			column="fd_data"
+			unique="false" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-attachment:sysAttRtfData.fdModelId"
+			type="Long"
+			column="fd_model_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-attachment:sysAttRtfData.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			unique="false"
+			length="500" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-attachment:sysAttRtfData.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			unique="false"
+			length="500" />
+		<simpleProperty
+			name="fdFileName"
+			messageKey="sys-attachment:sysAttRtfData.fdFileName"
+			type="String"
+			column="fd_file_name"
+			notNull="false"
+			unique="false"
+			length="2000" />
+		<simpleProperty
+			name="fdContentType"
+			messageKey="sys-attachment:sysAttRtfData.fdContentType"
+			type="String"
+			column="fd_content_type"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdAttType"
+			messageKey="sys-attachment:sysAttRtfData.fdAttType"
+			type="String"
+			column="fd_att_type"
+			notNull="false"
+			unique="false"
+			length="20" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-attachment:sysAttRtfData.docCreateTimee"
+			type="DateTime"
+			column="doc_Create_Time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdFilePath"
+			messageKey="sys-attachment:sysAttRtfData.fdFilePath"
+			type="String"
+			column="fd_file_path"
+			notNull="false"
+			unique="false"
+			length="4000" />
+		<simpleProperty
+			name="fdSize"
+			messageKey="sys-attachment:sysAttRtfData.fdSize"
+			type="Double"
+			column="fd_size"
+			notNull="false"
+			unique="false"
+			length="32" />
+		<simpleProperty
+			name="fdAttLocation"
+			messageKey="sys-attachment:sysAttRtfData.fdAttLocation"
+			type="String"
+			column="fd_att_location"
+			notNull="false"
+			unique="false"
+			length="32" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-attachment:sysAttRtfData.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			length="4" />
+		<simpleProperty
+			name="fdFileId"
+			messageKey="sys-attachment:sysAttRtfData.fdFileId"
+			type="String"
+			column="fd_file_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+	</model>
+</models>

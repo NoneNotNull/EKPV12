@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.ecalendar.model.EcalendarBindData"
+		messageKey="third-ecalendar:table.ecalendarBindData"
+		displayProperty="fdId"
+		serviceBean="ecalendarBindDataService"
+		table="ecalendar_bind_data"
+		url="/third/ecalendar/ecalendar_bind_data/ecalendarBindData.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdAccount"
+			messageKey="third-ecalendar:ecalendarBindData.fdAccount"
+			type="String"
+			column="fd_account"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPassword"
+			messageKey="third-ecalendar:ecalendarBindData.fdPassword"
+			type="String"
+			column="fd_password"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEnableSynchro"
+			messageKey="third-ecalendar:ecalendarBindData.fdEnableSynchro"
+			type="Boolean"
+			column="fd_enable_synchro"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		
+
+	</model>
+</models>

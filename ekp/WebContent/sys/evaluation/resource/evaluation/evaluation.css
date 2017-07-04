@@ -1,0 +1,42 @@
+/*doc_edit page*/
+body{margin: 0px;padding: 0px;}
+.evEditMain{height:  auto!important;height: 160px;text-align:left;min-height: 160px;width: auto;background-color: #F9F9F9;margin: 0px;padding: 7px 10px;border: 1px solid #DFDFDF;}
+.evButton,.evButtonDf,.evButtonOn{width: 80px;height: 80px;border: 1px solid #307cc5;margin: 10px 0px;font-size: 16px;font-weight: bold;cursor: pointer;}
+.evButtonDf{ background: url("btn_bg.jpg") repeat-x; color:#fff;}
+.evButtonOn{ background: url("btn_on_bg.jpg") repeat-x; color:#fff;}
+
+h2{font-size: 16px;font-weight: bold;text-align: left;margin: 0px;}
+ul, li{list-style-type: none;} 
+.evScore,.evScoreGood,.evScoreBad{color: #FD7801;padding-left: 18px;height: 16px;}
+.evScoreGood{background: url("icon_good.png") no-repeat 0px 7px;}
+.evScoreBad{background: url("icon_bad.png") no-repeat 0px 7px;}
+
+.star_rating {height: 16px;width: 120px;margin: 5px;}
+.star_rating li{float: left;width: 16px;height: 16px;margin: 0px 3px;cursor: pointer;}
+.starBad{background: url("icon_star_bad.png") no-repeat;}
+.starGood{background: url("icon_star_good.png") no-repeat;}
+
+.clear {clear:both; height:0; line-height:0; font-size:0; overflow:hidden;}
+.hidden{display: none;}
+.more{color: #0C7CF0;text-decoration: none;}
+
+/*doc_list page*/
+ul.docList{text-align: left;margin: 0px;line-height: 20px;}
+ul.docList li{border-bottom: 1px solid #DFDFDF; padding: 8px 0px 16px 0px;}
+/*ul.docList li p{color: gray;font-family:Arial,Verdana;margin: 0px;vertical-align: middle; padding-bottom: 8px; line-height: 12px;}*/
+ul.docList li:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+ul.docList li span{color: gray;font-family:Arial,Verdana;margin: 0px;vertical-align: middle; padding: 0; line-height: 12px;float: left;}
+ul.docList li div{margin: 0px;padding: 0 0 8px 0;cursor: pointer;}
+ul.docList li span.evScoreList{padding-left: 30px; cursor: pointer;height: 15px;}
+.evScoreList ul,.evScoreList ul li{list-style-type: none;}
+.evScoreList ul li{border:0px;padding:0px; margin:0px 3px; list-style-type: none;float: left;width: 11px;background:url("icon_star_bad_small.png") bottom no-repeat;height: 11px;}
+.evScoreList ul li.selected{background: url("icon_star_good_small.png") bottom no-repeat;}
+.colorGray{color: gray;font-style: italic;}
+
+
+.pages {padding-top: 2px 0;height: 30px;}
+.pages a {height: 16px;padding: 3px 8px;float: left;margin: 0 2px;text-decoration: none;font-family:Arial,Verdana;font-weight: bold;}
+.pages a:hover {color: #09c;}
+.pages a b {height: 100%;float: left;cursor: pointer;font-size: 12px;font-weight: bold;}
+.pages strong {height: 16px;padding: 2px 6px;float: left;margin: 0 2px;text-decoration: none;font-family:Arial,Verdana;color: #FD7801;font-weight: bold;background-color:#FAFAFB;border: 1px solid #EDEDED;}
+

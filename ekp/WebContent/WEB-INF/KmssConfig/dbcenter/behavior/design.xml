@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey=""
+		urlPrefix="/dbcenter/behavior/">
+		<request
+			path="/dbcenter/behavior/config*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+		</request>
+	</module>
+
+	<quartz
+		messageKey="dbcenter-behavior:logFileDeleteJob"
+		jobService="dbBehaviorLogFileDeleteJob"
+		jobMethod="execute"
+		cronExpression="0 0 5 * * ?" />
+</configs>

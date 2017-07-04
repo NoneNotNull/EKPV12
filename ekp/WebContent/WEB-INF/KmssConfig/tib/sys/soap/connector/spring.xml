@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="tibSysSoapMainDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapMainDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain" />
+	</bean>
+	<bean id="tibSysSoapMainTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapMainServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysSoapMainDao" />
+		</property>
+	</bean>
+	<bean id="tibSysSoapMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysSoapMainTarget" />
+		</property>
+	</bean>
+
+	<bean id="tibSysSoapCategoryDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapCategoryDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapCategory" />
+	</bean>
+	<bean id="tibSysSoapCategoryTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysSoapCategoryDao" />
+		</property>
+	</bean>
+	<bean id="tibSysSoapCategoryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysSoapCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean id="tibSysSoapSettingDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapSettingDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSetting" />
+	</bean>
+	<bean id="tibSysSoapSettingTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapSettingServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysSoapSettingDao" />
+		</property>
+	</bean>
+	<bean id="tibSysSoapSettingService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysSoapSettingTarget" />
+		</property>
+	</bean>
+
+	<bean id="tibSysSoapSettingExtDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapSettingExtDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettingExt" />
+	</bean>
+	<bean id="tibSysSoapSettingExtTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapSettingExtServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysSoapSettingExtDao" />
+		</property>
+	</bean>
+	<bean id="tibSysSoapSettingExtService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysSoapSettingExtTarget" />
+		</property>
+	</bean>
+	<!-- 函数查询 -->
+	<bean id="tibSysSoapQueryDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapQueryDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapQuery" />
+	</bean>
+	<bean id="tibSysSoapQueryTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapQueryServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysSoapQueryDao" />
+		</property>
+	</bean>
+	<bean id="tibSysSoapQueryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysSoapQueryTarget" />
+		</property>
+	</bean>
+
+	<!-- 分类树service -->
+	<bean id="tibSysSoapCategoryTreeService"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapCategoryTreeServiceImp">
+		<property name="tibSysSoapCategoryService">
+			<ref bean="tibSysSoapCategoryService" />
+		</property>
+	</bean>
+
+	<!-- 通过WSDL地址获取服务 -->
+	<bean id="tibSysSoapWsdlImpl"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapWsdlImpl">
+	</bean>
+
+	<!-- 抽取函数 -->
+	<bean id="tibSysSoapBindFuncImpl"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapBindFuncImpl">
+		<property name="tibSysSoapSettingService">
+			<ref bean="tibSysSoapSettingService" />
+		</property>
+	</bean>
+
+
+	<!-- SOAPUI -->
+	<bean id="tibSysSoap"
+		class="com.landray.kmss.tib.sys.soap.connector.impl.TibSysSoapImpl">
+	</bean>
+
+	<!-- EKP方式登录 -->
+	<bean id="ekpHeaderType"
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.EkpHeaderTypeImpl">
+	</bean>
+	<!-- SOAPHeader方式登录 -->
+	<bean id="soapHeaderTypeImpl"
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.SoapHeaderTypeImpl">
+	</bean>
+
+	<!-- 加载方法列表bean -->
+	<bean id="tibSysSoapSelectOptionsBean"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapSelectOptionsBean"></bean>
+
+	<!-- Soap版本的bean -->
+	<bean id="tibSysSoapVersionBean"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapVersionBean">
+	</bean>
+
+	<!-- 清除缓存 -->
+	<bean id="tibSysSoapCleanCache"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapCleanCacheBean">
+	</bean>
+
+	<!-- 加载Soap头信息模版 -->
+	<bean id="tibSysSoapLoadHeaderTemplateBean"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapLoadHeaderTemplateBean">
+	</bean>
+
+
+	<bean id="tibSysSoapFindSettingService"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapFindSettingService">
+		<property name="tibSysSoapSettCategoryService">
+			<ref bean="tibSysSoapSettCategoryService" />
+		</property>
+	</bean>
+
+	<!-- 返回模版 -->
+	<bean id="tibSysSoapInputTemplateBean"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapInputTemplateBean">
+	</bean>
+	<!-- 请求后返回XML -->
+	<bean id="tibSysSoapBackXmlBean"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapBackXmlBean">
+	</bean>
+
+
+	<bean
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.TibSysSoapEasParamsParser"
+		id="tibSysSoapEasParamsParser"></bean>
+
+	<!-- eas登录方式 -->
+	<bean
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.TibSysSoapEasplugin"
+		id="tibSysSoapEasplugin"></bean>
+
+
+	<!-- provider 相关 -->
+	<bean
+		class="com.landray.kmss.tib.sys.soap.provider.interfaces.impl.TibSysSoapInfo"
+		id="tibSysSoapInfo">
+		<property name="tibSysSoapCategoryService">
+			<ref bean="tibSysSoapCategoryService" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+
+	<bean
+		class="com.landray.kmss.tib.sys.soap.provider.interfaces.impl.TibSysSoapProvider"
+		id="tibSysSoapProvider">
+		<property name="tibSysSoap">
+			<ref bean="tibSysSoap" />
+		</property>
+		<property name="tibSysSoapMainService">
+			<ref bean="tibSysSoapMainService" />
+		</property>
+	</bean>
+	
+
+  <!-- soap注册的目录 -->
+    <bean
+		id="tibSysSoapSettCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.soap.connector.dao.hibernate.TibSysSoapSettCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettCategory" />
+	</bean>
+	<bean
+		id="tibSysSoapSettCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.soap.connector.service.spring.TibSysSoapSettCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysSoapSettCategoryDao" />
+		</property>
+	</bean>
+	
+	
+	<!-- SOAP注册分类树service -->
+	<bean id="tibSysSoapSettCategoryTreeService"
+		class="com.landray.kmss.tib.sys.soap.connector.service.bean.TibSysSoapSettCategoryTreeServiceImp">
+		<property name="tibSysSoapSettCategoryService">
+			<ref bean="tibSysSoapSettCategoryService" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="tibSysSoapSettCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysSoapSettCategoryTarget" />
+		</property>
+	</bean>
+
+	<!-- k3登录方式 -->
+    <bean
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.TibSysSoapK3ParamsParser"
+		id="tibSysSoapK3ParamsParser"></bean>
+		
+	<bean
+		class="com.landray.kmss.tib.sys.soap.connector.util.header.TibSysSoapK3plugin"
+		id="tibSysSoapK3plugin"></bean>	
+
+</beans>
+	

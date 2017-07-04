@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info primitiveTypes="attribute">
+	<element name="list">
+		<element
+			name="many-to-many"
+			property="manyToMany" />
+		<element
+			name="one-to-many"
+			property="oneToMany" />
+		<addDefaults />
+	</element>
+</info>

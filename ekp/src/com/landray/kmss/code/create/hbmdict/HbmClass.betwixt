@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info primitiveTypes="attribute">
+	<element name="class">
+		<element
+			name="property"
+			property="properties" />
+		<element
+			name="one-to-one"
+			property="oneToOneProperties" />
+		<element
+			name="many-to-one"
+			property="manyToOneProperties" />
+		<element
+			name="bag"
+			property="bagProperties" />
+		<element
+			name="list"
+			property="listProperties" />
+		<element
+			name="subclass"
+			property="subclasses" />
+		<addDefaults />
+	</element>
+</info>

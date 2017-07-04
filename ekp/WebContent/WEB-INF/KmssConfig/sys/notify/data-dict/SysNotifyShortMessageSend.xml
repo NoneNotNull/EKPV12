@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.notify.model.SysNotifyShortMessageSend"
+		messageKey="sys-sms:sysSmsMain.mainSend"
+		serviceBean="sysSmsShortMessageService"
+		table="sys_notify_sm_send"
+		url="/sys/sms/sys_sms_main/sysSmsMain.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdSenderId"
+			messageKey="sys-sms:sysSmsMain.fdCreatorId"
+			type="String"
+			column="fd_sender_id"
+			notNull="true"
+			unique="false"
+			length="36"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdReceiverId"
+			messageKey="sys-sms:sysSmsMain.fdReceiver"
+			type="String"
+			column="fd_receiver_id"
+			notNull="true"
+			unique="false"
+			length="36"
+			canSearch="true"
+			canDisplay="false"
+			dialogJS="Dialog_Address(false, '!{idField}','!{nameField}', ';',ORG_TYPE_PERSON);"  />
+		<simpleProperty
+			name="fdSender"
+			messageKey="sys-sms:sysSmsMain.fdCreatorId"
+			type="String"
+			column="fd_sender"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdSenderNumber"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdSenderNumber"
+			type="String"
+			column="fd_sender_number"
+			notNull="false"
+			unique="false"
+			length="50"
+			canDisplay="false"/>
+		<simpleProperty
+			name="fdReceiver"
+			messageKey="sys-sms:sysSmsMain.fdReceiver"
+			type="String"
+			column="fd_sender_number"
+			notNull="false"
+			unique="false"
+			length="200"/>
+		<simpleProperty
+			name="fdReceiverNumber"
+			messageKey="sys-sms:sysSmsMain.fdReceiverNumber"
+			type="String"
+			column="fd_receiver_number"
+			notNull="true"
+			unique="false"
+			length="50"
+			canSearch="true"/>
+		<simpleProperty
+			name="fdContent"
+			messageKey="sys-sms:sysSmsMain.docContent"
+			type="String"
+			column="fd_content"
+			notNull="true"
+			unique="false"
+			length="300"
+			canSearch="true" />
+		<simpleProperty
+			name="fdSendType"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdSendType"
+			type="String"
+			column="fd_content"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdSendTime"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdSendTime"
+			type="DateTime"
+			column="fd_send_time"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdShortMessageSubCode"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdShortMessageSubCode"
+			type="String"
+			column="fd_sm_code"
+			notNull="true"
+			unique="false"
+			length="200"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdSentTimes"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdSentTimes"
+			type="DateTime"
+			column="fd_send_times"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdFailTimes"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdFailTimes"
+			type="DateTime"
+			column="fd_fail_times"
+			notNull="true"
+			unique="false"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdMemo"
+			messageKey="sys-notify:sysNotifyShortMessageSend.fdMemo"
+			type="String"
+			column="fd_memo"
+			notNull="true"
+			unique="false"
+			length="2000"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdFlag"
+			messageKey="sys-sms:sysSmsMain.docStatus"
+			type="Integer"
+			enumType="sysSmsMainDocStatus"
+			column="fd_flag"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-sms:sysSmsMain.docCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true"
+			unique="false"
+			canSearch="true" />
+	</model>
+</models>

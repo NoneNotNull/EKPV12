@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmSignatureCategoryForm"
+			type="com.landray.kmss.km.signature.forms.KmSignatureCategoryForm" />
+		<form-bean
+			name="kmSignatureDocumentHistoryForm"
+			type="com.landray.kmss.km.signature.forms.KmSignatureDocumentHistoryForm" />
+		<form-bean
+			name="kmSignatureDocumentMainForm"
+			type="com.landray.kmss.km.signature.forms.KmSignatureDocumentMainForm" />
+		<form-bean
+			name="kmSignatureDocumentSignatureForm"
+			type="com.landray.kmss.km.signature.forms.KmSignatureDocumentSignatureForm" />
+		<form-bean
+			name="kmSignatureMainForm"
+			type="com.landray.kmss.km.signature.forms.KmSignatureMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/signature/km_signature_document_history/kmSignatureDocumentHistory"
+			type="com.landray.kmss.km.signature.actions.KmSignatureDocumentHistoryAction"
+			name="kmSignatureDocumentHistoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/signature/km_signature_document_history/kmSignatureDocumentHistory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/signature/km_signature_document_history/kmSignatureDocumentHistory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/signature/km_signature_document_history/kmSignatureDocumentHistory_list.jsp" />
+		</action>
+
+		<action
+			path="/km/signature/km_signature_document_main/kmSignatureDocumentMain"
+			type="com.landray.kmss.km.signature.actions.KmSignatureDocumentMainAction"
+			name="kmSignatureDocumentMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/signature/km_signature_document_main/kmSignatureDocumentMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/signature/km_signature_document_main/kmSignatureDocumentMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/signature/km_signature_document_main/kmSignatureDocumentMain_list.jsp" />
+		</action>
+
+		<action
+			path="/km/signature/km_signature_document_signature/kmSignatureDocumentSignature"
+			type="com.landray.kmss.km.signature.actions.KmSignatureDocumentSignatureAction"
+			name="kmSignatureDocumentSignatureForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/signature/km_signature_document_signature/kmSignatureDocumentSignature_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/signature/km_signature_document_signature/kmSignatureDocumentSignature_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/signature/km_signature_document_signature/kmSignatureDocumentSignature_list.jsp" />
+		</action>
+
+		<action
+			path="/km/signature/km_signature_main/kmSignatureMain"
+			type="com.landray.kmss.km.signature.actions.KmSignatureMainAction"
+			name="kmSignatureMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="showSig"
+				path="/km/signature/km_signature_main/kmSignatureMain_showSig.jsp" />
+			<forward
+				name="view"
+				path="/km/signature/km_signature_main/kmSignatureMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/signature/km_signature_main/kmSignatureMain_edit.jsp" />
+			<forward
+				name="add"
+				path="/km/signature/km_signature_main/kmSignatureMain_add.jsp" />
+			<forward
+				name="list"
+				path="/km/signature/km_signature_main/kmSignatureMain_list.jsp" />
+			<forward
+				name="chgPwd"
+				path="/km/signature/km_signature_main/kmSignatureMain_chgPwd.jsp" />
+		</action>
+
+		<action
+			path="/km/signature/km_signature_main/showImg"
+			type="com.landray.kmss.km.signature.actions.ShowImgAction"
+			scope="request">
+		</action>
+		
+		<action
+			path="/km/signature/iwebSigAction"
+			type="com.landray.kmss.km.signature.actions.IwebSigAction"
+			scope="request">
+			<forward
+				name="viewIwebSig"
+				path="/km/signature/km_signature_document_main/iWebServer.jsp" />
+		</action>
+		
+		<action
+			path="/km/signature/km_signature_category/kmSignatureCategory"
+			type="com.landray.kmss.km.signature.actions.KmSignatureCategoryAction"
+			name="kmSignatureCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/signature/km_signature_category/kmSignatureCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/signature/km_signature_category/kmSignatureCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/signature/km_signature_category/kmSignatureCategory_list.jsp" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 流程已结束，文档状态还在待审，偶发现象</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-17</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 替换处理人为空时异常问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 已处理人支持多语言</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支撤回获取分支不正确</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 超级驳回报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回身份重复跳过不生效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 有操作后，清空暂存审批意见</description>
+			<author>傅游翔</author>
+			<revision-time>2015-01-08</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持异构系统组织架构参数解析</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 定时任务支持工时计算、精确到分钟</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/time</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修改 实现待办优化导致待办扩展接口变化的问题</description>
+			<author>吴兵</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 chrome不支持模态窗口问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错最后修改人变成匿名用户问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改处理人导致备选处理人丢失问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 sqlserver下删除执行路径容易死锁问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 通知方式读取不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-16</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错通知人在流程没有出错的情况下不能查看文档</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE8 json null字符问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程操作后，立刻返回可能出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 不能修改处理人为空问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-31</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程后台服务分布式功能，支持多个服务器同时处理流程事件队列</description>
+			<author>龚健</author>
+			<revision-time>2014-06-27</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支结束后流程图状态显示错误问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-06-13</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 组织架构名称修改流程定义没有相应更新问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-06-12</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 插件工厂没有加载完成就启动集群，导致流程出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-05-12</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接查询接口</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-23</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 项目扩展事件可能导致获取监听器出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-23</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程被沟通人附加选项不应该生效</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-09</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支公式启动不能正常结束问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-03</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 特权人支持通用岗位和角色线</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-03</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie10特权人修改流程图不显示按钮问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-26</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 模块不存在情况下，清除无效流程数据出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-25</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 节点暂停导致催办定时任务出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-21</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 匿名服务器重启后，流程定时任务不执行问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-18</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人放大画布报js错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-13</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批意见服务返回值</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-25</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 公式解析处理人获取不到流程id问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-17</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见并发分组展现</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载组织架构对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/workflow_lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办文本没有被替换问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 可能导致层级id被修改</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程图跨模板复制</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 并发分支审批意见分组功能</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 修改流程定义事件</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-01</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见权限问题（需数据迁移）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-31</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载历史的对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-19</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 获取流程定义流程结束后通知我参数</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-17</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 错误队列处理逻辑</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-05-03</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错情况下，特权人操作所有事件都不触发问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-23</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 去除无效参数</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-03</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现流程队列线程池的JMX支持</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-03-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持流程、节点暂停待办挂起（排除发起沟通的待办）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-11</revision-time>
+			<relation>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 LBPM核心引擎组件</description>
+			<author>傅游翔</author>
+			<revision-time>2013-01-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/time</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

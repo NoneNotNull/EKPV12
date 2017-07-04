@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysIntroduceMainForm"
+			type="com.landray.kmss.sys.introduce.forms.SysIntroduceMainForm" />
+
+	</form-beans>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/introduce/sys_introduce_main/sysIntroduceMain"
+			type="com.landray.kmss.sys.introduce.actions.SysIntroduceMainAction"
+			name="sysIntroduceMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/introduce/sys_introduce_main/sysIntroduceMain_edit.jsp">
+			</forward>
+			<forward
+				name="viewAll"
+				path="/sys/introduce/sys_introduce_main/sysIntroduceMain_viewAll.jsp">
+			</forward>
+			<forward
+				name="listUi"
+				path="/sys/introduce/import/sysIntroduceMain_list.jsp">
+			</forward>
+			<forward
+				name="viewAll.4pda"
+				path="/sys/introduce/sys_introduce_main/sysIntroduceMain_viewAll.4pda.jsp">
+			</forward>
+			<forward
+				name="introViewPage"
+				path="/sys/introduce/sys_introduce_main/sysIntroduceMain_introViewPage.jsp">
+			</forward>
+			<forward
+				name="mobileList"
+				path="/sys/introduce/mobile/list.jsp" >
+			</forward>
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.introduce.ApplicationResources"
+		key="sys-introduce" />
+</struts-config>

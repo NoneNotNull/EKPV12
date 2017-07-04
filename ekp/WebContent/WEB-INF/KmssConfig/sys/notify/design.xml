@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-notify:module.sys.notify"
+		urlPrefix="/sys/notify/">
+
+		<roles>ROLE_NOTIFYTODO_MNG;</roles>
+
+		<!-- 待办管理 -->
+		<request
+			path="sys_notify_todo/sysNotifyTodo.do*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+			<query
+				queryString="owner=false"
+				validator="roleValidator(role=ROLE_NOTIFYTODO_MNG)" />
+			<query
+				queryString="method=mngDelete"
+				validator="roleValidator(role=ROLE_NOTIFYTODO_MNG)" />
+		</request>
+	</module>
+
+	<!-- 
+		<portlet
+		moduleKey="sys-notify:table.sysNotifyTodo"
+		titleKey="sys-notify:table.sysNotifyTodo"
+		contentBean="sysNotifyTodoPortlet&amp;rowsize=!{rowsize}"
+		docLink="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=view&amp;fdId=!{id}" />
+	-->
+	<!-- 默认显示“待审”和“暂挂” 
+	<portlet
+		moduleKey="sys-notify:table.sysNotifyTodo"
+		messageKey="sys-notify:table.sysNotifyTodo"
+		contentURL="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;rowsize=10&amp;s_css=!{css}"
+		moreURL="/sys/notify.index" />
+    “待审”和“暂挂” 
+	<portlet
+		moduleKey="sys-notify:table.sysNotifyTodo"
+		messageKey="sys-notify:sysNotifyTodo.type.toDo"
+		contentURL="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;isShowBtLable=0&amp;rowsize=10&amp;s_css=!{css}"
+		moreURL="/sys/notify.index" />
+	  “待阅” 
+	<portlet
+		moduleKey="sys-notify:table.sysNotifyTodo"
+		messageKey="sys-notify:sysNotifyTodo.type.toView"
+		contentURL="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;isShowBtLable=0&amp;fdType=2&amp;rowsize=10&amp;s_css=!{css}"
+		moreURL="/sys/notify.index" />		 
+	 “已处理”  
+	<portlet
+		moduleKey="sys-notify:table.sysNotifyTodo"
+		messageKey="sys-notify:sysNotifyTodo.type.done"
+		contentURL="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;home=1&amp;isShowBtLable=0&amp;finish=1&amp;rowsize=10&amp;s_css=!{css}"
+		moreURL="/sys/notify.index" />
+	 -->
+
+	<quartz
+		messageKey="sys-notify:sysNotifyTodo.clear.job"
+		jobService="sysNotifyTodoJobService"
+		jobMethod="clearTodoDone"
+		cronExpression="0 0 1 * * ?" />
+
+	<treeNodes type="myjob">
+		<treeNode messageKey="sys-notify:sysNotify.type.todo">
+			<treeNode
+				messageKey="sys-notify:sysNotifyTodo.tree.unfinished"
+				url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=0">
+				<treeNode
+					messageKey="sys-notify:sysNotifyTodo.tree.cate.audit"
+					url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=0&amp;fdType=1">
+				</treeNode>
+				<treeNode
+					messageKey="sys-notify:sysNotifyTodo.tree.cate.copyto"
+					url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=0&amp;fdType=2">
+				</treeNode>
+			</treeNode>
+			<treeNode
+				messageKey="sys-notify:sysNotifyTodo.tree.finished"
+				url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=1">
+				<treeNode
+					messageKey="sys-notify:sysNotifyTodo.tree.cate.audit"
+					url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=1&amp;fdType=1">
+				</treeNode>
+				<treeNode
+					messageKey="sys-notify:sysNotifyTodo.tree.cate.copyto"
+					url="/sys/notify/sys_notify_todo/sysNotifyTodo.do?method=list&amp;finish=1&amp;fdType=2">
+				</treeNode>
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<homePage
+		urlPrefix="sys/notify"
+		url="/sys/notify/sys_notify_todo/sysNotifyTodo_person.jsp?dataType=todo%26s_path%3D!{message(sys-notify:sysNotify.todo)}"
+		messageKey="sys-notify:table.sysNotifyTodo"
+		config="/moduleindex_notopic.jsp?nav=/sys/notify/tree_config.jsp"
+		type="global"/>
+
+</configs>

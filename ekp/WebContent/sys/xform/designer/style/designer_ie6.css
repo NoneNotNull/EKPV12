@@ -1,0 +1,127 @@
+
+/*== begin==*/
+.panel_title_left {
+	background:none;
+	/*height:24px;
+	padding-left:15px;*/
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/top_03.png');
+}
+.panel_title_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/top_06.png');
+}
+.panel_title_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/top_04.png');
+}
+.panel_main {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_21.png');
+}
+.panel_main_box{
+	background:url(img/transparent.gif) repeat;
+	position: relative;
+}
+.panel_bottom {
+	background:url(img/transparent.gif) repeat;
+}
+.panel_bottom_main {
+	background:none;
+	height:25px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_21_1.png');
+}
+.panel_bottom_for_ie6 {
+	position: relative;
+}
+.panel_bottom_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bottom_30.png');
+}
+.panel_bottom_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bottom_34.png');
+}
+.panel_bottom_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bottom_31.png');
+}
+.panel_main_tree {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_21_1.png');
+}
+.toolbar_preview_top_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bg_07.png');
+}
+.toolbar_preview_top_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_08.png');
+}
+.toolbar_preview_top_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bg_10.png');
+}
+.toolbar_preview_main_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_14_1.png');
+}
+.toolbar_preview_main_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_14_c.png');
+}
+.toolbar_preview_main_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_14_2.png');
+}
+.toolbar_preview_bottom_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bg_15.png');
+}
+.toolbar_preview_bottom_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_16.png');
+}
+.toolbar_preview_bottom_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bg_18.png');
+}
+/*==  end ==*/
+
+/* ==== resize panel ==== */
+.resize_panel_top_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/top_03.png');
+}
+.resize_panel_top_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/top_06.png');
+}
+.resize_panel_top_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/top_04.png');
+}
+
+.resize_panel_main_left,
+.resize_panel_bottom_panel_left{
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_left.png');
+}
+.resize_panel_main_right,
+.resize_panel_bottom_panel_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bg_right.png');
+}
+
+.resize_panel_bottom_border_left {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bottom_30.png');
+}
+.resize_panel_bottom_border_right {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='crop',src='style/img/bottom_34.png');
+}
+.resize_panel_bottom_border_center {
+	background:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale',src='style/img/bottom_31.png');
+}
+/*==  end ==*/

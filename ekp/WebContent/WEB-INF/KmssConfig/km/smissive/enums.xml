@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="km_smissive_urgency"
+		default-value="1"
+		show-type="0">
+		<value-label>
+			<value>1</value>
+			<label-key>urgency.one</label-key>
+			<label>普通</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>urgency.two</label-key>
+			<label>紧急</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>urgency.three</label-key>
+			<label>加急</label>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>urgency.four</label-key>
+			<label>特急</label>
+		</value-label>
+	</type>
+	<type
+		name="km_smissive_secret"
+		default-value="1"
+		show-type="0">
+		<value-label>
+			<value>1</value>
+			<label-key>secret.one</label-key>
+			<label>普通</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>secret.two</label-key>
+			<label>秘密</label>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>secret.three</label-key>
+			<label>机密</label>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>secret.four</label-key>
+			<label>绝密</label>
+		</value-label>
+	</type>
+</column-enums>
+

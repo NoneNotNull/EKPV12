@@ -1,0 +1,60 @@
+@CHARSET "utf-8";
+
+DIV.popup_dialog_options{
+	position:absolute;
+	width:300px;
+	min-height:160px;
+	border:1px solid #ccc;
+	color:red;
+	z-index:1000;
+	filter: alpha(opacity=100);
+	display:none;
+	background:#FFFFFF;
+}
+_UL.popup_title {
+	height: 32px;
+	overflow:hidden;
+	border-bottom:#f6b712 solid 1px;
+}
+
+.popup_title LI {
+	height:22px;
+	text-align: center;
+	padding-top:12px;
+	font-size:12px;
+	float:left;
+	cursor: pointer;
+}
+UL.popup_title LI A {
+	padding-top:12px;
+	padding-bottom:5px;
+	padding-left:8px;
+	padding-right:8px;
+}
+
+UL.popup_title LI A.UnSelect {
+	color:#666666;
+}
+UL.popup_title LI A.Selected {
+	color:red;
+}
+
+UL.popup_content {
+	clear:both;
+	border-bottom:#f6b712 solid 1px;
+}
+UL.popup_content LI {
+	
+	height:18px;
+	text-align: center;
+	padding-top:10px;
+	font-size:12px;
+	float:left;
+	cursor: pointer;
+}
+UL.popup_content LI A {
+	padding-top:10px;
+	padding-bottom:5px;
+	padding-left:8px;
+	padding-right:8px;
+}

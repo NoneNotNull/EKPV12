@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="eCalendarProvider"
+		class="com.landray.kmss.third.ecalendar.EcalendarProvider">
+	</bean>
+	
+	
+	<bean
+		id="ecalendarBindDataDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.third.ecalendar.dao.hibernate.EcalendarBindDataDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.third.ecalendar.model.EcalendarBindData" />
+	</bean>
+	<bean
+		id="ecalendarBindDataTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.third.ecalendar.service.spring.EcalendarBindDataServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="ecalendarBindDataDao" />
+		</property>
+	</bean>
+	<bean
+		id="ecalendarBindDataService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="ecalendarBindDataTarget" />
+		</property>
+	</bean>
+
+</beans>

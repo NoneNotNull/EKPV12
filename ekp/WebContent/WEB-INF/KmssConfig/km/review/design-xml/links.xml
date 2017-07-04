@@ -1,0 +1,32 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" >
+	   <link 
+	       id="km_review_home_nav1"
+	       url="/km/review/km_review_ui/kmReviewMain_person.jsp" 
+	       msgKey="km-review:kmReviewMain.my"/>
+	</links>
+	<links type="zone-nav">
+		<link 
+			id="km_review_zone_nav"
+			url="/km/review/km_review_ui/kmReviewMain_zone.jsp?user=!{user}"
+			msgKey="km-review:kmReviewMain.ta" />
+		<link 
+			showType="mobile"
+			id="km_review_zone_nav_mobile"
+			url="/km/review/mobile/zone_cri.jsp"
+			msgKey="km-review:kmReviewMain.ta" />
+	</links>
+	
+	<links type="shortcut" order="10">
+	    <link 
+	        id="km_review__shortcut_add"
+	        url="/km/review/km_review_main/kmReviewMain.do?method=add" 
+	        msgKey="km-review:kmReviewMain.opt.create"
+	        icon="lui_icon_l_icon_4"/>
+	</links>
+</root>

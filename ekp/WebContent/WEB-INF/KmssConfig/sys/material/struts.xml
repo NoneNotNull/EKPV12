@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean
+			name="sysMaterialMainForm"
+			type="com.landray.kmss.sys.material.forms.SysMaterialMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/material/sys_material_main/sysMaterialMain"
+			type="com.landray.kmss.sys.material.actions.SysMaterialMainAction"
+			name="sysMaterialMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="upload"
+				path="/sys/material/sys_material_main/sysMaterialMain_upload.jsp" />
+			<forward
+				name="data"
+				path="/sys/material/sys_material_main/sysMaterialMain_data.jsp" />		
+			<forward
+				name="list"
+				path="/sys/material/sys_material_main/sysMaterialMain_list.jsp" />								
+		</action>
+	</action-mappings>
+</struts-config>

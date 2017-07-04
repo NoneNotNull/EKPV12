@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 流程进入定时任务事件侦听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmProcessEnterQuartzListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.listenerType.processStartQuartzListener" />
+			<param
+				name="eventTypes"
+				value="processStartEvent" />
+			<param
+				name="listener"
+				value="lbpmProcessEnterQuartzListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 节点进入定时任务事件侦听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmNodeEnterQuartzListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.listenerType.nodeEnterQuartzListener" />
+			<param
+				name="eventTypes"
+				value="enterNodeEvent" />
+			<param
+				name="listener"
+				value="lbpmNodeEnterQuartzListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 工作项进入定时任务事件侦听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmWorkitemEnterQuartzListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.listenerType.workitemEnterQuartzListener" />
+			<param
+				name="eventTypes"
+				value="enterWorkitemEvent" />
+			<param
+				name="listener"
+				value="lbpmWorkitemEnterQuartzListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmRejectNotifyDraftListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.rejectNotifyDraft" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmRejectNotifyDraftListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmDayOfNotifyListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.dayOfNotify" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmDayOfNotifyListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmDayOfNotifyDrafterListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.dayOfNotifyDrafter" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmDayOfNotifyDrafterListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmDayOfNotifyPrivilegerListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.dayOfNotifyPrivileger" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmDayOfNotifyPrivilegerListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmDayOfPassListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.dayOfPass" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmDayOfPassListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmTranNotifyDraftListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.tranNotifyDraft" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmTranNotifyDraftListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmTranNotifyPrivateListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.tranNotifyPrivate" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmTranNotifyPrivateListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmExpiredAbandonListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.quartz.expiredAbandon" />
+			<param
+				name="eventTypes"
+				value="quartzTriggerEvent" />
+			<param
+				name="listener"
+				value="lbpmExpiredAbandonListener" />
+			<param
+				name="enforce"
+				value="false" />
+		</item>
+
+		<!-- 清除定时任务 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="lbpmCleanQuartzListener" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="eventTypes"
+				value="processEndEvent;endedNodeEvent;abandonNodeEvent;endedWorkitemEvent;abandonWorkitemEvent" />
+			<param
+				name="listener"
+				value="lbpmCleanQuartzListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+
+</plugin>

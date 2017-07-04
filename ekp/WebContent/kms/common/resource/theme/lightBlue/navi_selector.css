@@ -1,0 +1,21 @@
+@import url(./public.css);
+.nav_wrapper { /*border:1px solid #ccc;*/ padding:10px 26px 10px 32px; width:500px;/*height:366px;*/ position:relative;}
+.nav_selector{ float:left; background:#fff; border:1px solid #ccf; width:136px; /*height:200px*/; margin:0 0 0 3px; display:inline; overflow-x:hidden;overflow-y:auto;}
+.nav_selector ul{}
+.nav_selector li{ height:27px;line-height:27px;}	
+.nav_selector li a{ display:block; background:#fff; padding:0 0 0 12px; color:#666; font-size:12px; line-height:27px; text-align:left;}
+.nav_selector li a:hover{ background:#f7f7f7; color:#666; text-decoration:none;}
+.nav_selector li.focus a{ background:#6cf; height:27px; color:#fff; line-height:27px;}
+.nav_selector li.focus a:hover{ color:#fff; text-decoration:none;}
+
+.arrow_right{ display:block; float:left; background:url(./img/mask.gif) no-repeat 0 -300px; width:10px; height:18px; margin:125px 0 0 3px; display:inline;}
+.scroll_left,.scroll_right{ display:block; background:url(./img/mask.gif) no-repeat 0 -350px; width:24px; height:44px; position:absolute; top:138px;}
+.scroll_left{ left:5px;}
+.scroll_left:hover{ background:url(./img/mask.gif) no-repeat 0 -450px;}
+.scroll_right{ background:url(./img/mask.gif) no-repeat 0 -400px; right:5px;}
+.scroll_right:hover{ background:url(./img/mask.gif) no-repeat 0 -500px;}
+
+.tips_classify{ background:#f0f0f0; height:26px; color:#06c; font-size:12px; line-height:26px; text-align:left; padding:0 0 0 12px; margin:10px 8px 0 3px;}
+.tips_classify strong{ color:#000; font-weight:bold;}
+.tips_classify a{ color:#06c; font-weight:normal; margin:0 5px;}
+.tips_classify a:hover{ color:#06c; text-decoration:underline;}

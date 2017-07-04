@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config><!--
+	 表单 Bean 
+	-->
+	<form-beans>
+		<form-bean name="tibSysSoapMainForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapMainForm" />
+		<form-bean name="tibSysSoapCategoryForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapCategoryForm" />
+		<form-bean name="tibSysSoapSettingForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapSettingForm" />
+		<form-bean name="tibSysSoapSettingExtForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapSettingExtForm" />
+		<form-bean name="tibSysSoapQueryForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapQueryForm" />
+			
+		<form-bean
+			name="tibSysSoapSettCategoryForm"
+			type="com.landray.kmss.tib.sys.soap.connector.forms.TibSysSoapSettCategoryForm" />
+	
+	</form-beans><!--
+
+	 操作映射 
+	-->
+	<action-mappings>
+		<!-- 函数管理新UED -->
+		<action path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMainIndex"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapMainIndexAction"
+			parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain_ui_list.jsp" />
+		</action>
+		<action path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapMainAction"
+			name="tibSysSoapMainForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain_view.jsp" />
+			<forward name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain_edit.jsp" />
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_main/tibSysSoapMain_list.jsp" />
+			<forward name="viewQuery"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tib_sys_soap_query_edit.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/soap/connector/tib_sys_soap_category/tibSysSoapCategory"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapCategoryAction"
+			name="tibSysSoapCategoryForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_category/tibSysSoapCategory_view.jsp" />
+			<forward name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_category/tibSysSoapCategory_edit.jsp" />
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_category/tibSysSoapCategory_list.jsp" />
+			<forward name="tree"
+				path="/tib/sys/soap/connector/tib_sys_soap_category/tibSysSoapCategory_tree.jsp" />
+		</action>
+		<!-- 注册管理新UED -->
+		<action path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSettingIndex"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapSettingIndexAction"
+			parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSetting_ui_list.jsp" />
+		</action>
+		<action path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSetting"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapSettingAction"
+			name="tibSysSoapSettingForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSetting_view.jsp" />
+			<forward name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSetting_edit.jsp" />
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting/tibSysSoapSetting_list.jsp" />
+		</action>
+
+		<action
+			path="/tib/sys/soap/connector/tib_sys_soap_setting_ext/tibSysSoapSettingExt"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapSettingExtAction"
+			name="tibSysSoapSettingExtForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting_ext/tibSysSoapSettingExt_view.jsp" />
+			<forward name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting_ext/tibSysSoapSettingExt_edit.jsp" />
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_setting_ext/tibSysSoapSettingExt_list.jsp" />
+		</action>
+
+		<action path="/tib/sys/soap/connector/tib_sys_soap_query/tibSysSoapQuery"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapQueryAction"
+			name="tibSysSoapQueryForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tibSysSoapQuery_view.jsp" />
+			<forward name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tibSysSoapQuery_edit.jsp" />
+			<forward name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tibSysSoapQuery_list.jsp" />
+			<forward name="viewResult"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tib_sys_soap_view_result.jsp" />
+			<forward name="reViewQuery"
+				path="/tib/sys/soap/connector/tib_sys_soap_query/tib_sys_soap_query_edit.jsp" />
+		</action>
+
+       <!-- soap注册目录 -->
+       <action
+			path="/tib/sys/soap/connector/tib_sys_soap_sett_category/tibSysSoapSettCategory"
+			type="com.landray.kmss.tib.sys.soap.connector.actions.TibSysSoapSettCategoryAction"
+			name="tibSysSoapSettCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sys/soap/connector/tib_sys_soap_sett_category/tibSysSoapSettCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sys/soap/connector/tib_sys_soap_sett_category/tibSysSoapSettCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sys/soap/connector/tib_sys_soap_sett_category/tibSysSoapSettCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/sys/soap/connector/tib_sys_soap_sett_category/tibSysSoapSettCategory_tree.jsp" />
+		</action>
+       
+	</action-mappings>
+</struts-config>

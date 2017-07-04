@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+	/*** 存储属性 ***/
+	public static final short STORE_NO = 0;
+	public static final short STORE_YES = 1;
+		
+	/*** 索引  ***/	
+	/** 不索引*/
+	public static final short INDEX_NO = 0;
+	/** 索引*/
+	public static final short INDEX_ANALYZED = 1;
+	/** 索引不分析*/
+	public static final short INDEX_NOT_ANALYZED = 2;
+	/** */
+	public static final short INDEX_NOT_ANALYZED_NO_NORMS = 3;	
+	/** */
+	public static final short INDEX_ANALYZED_NO_NORMS = 4;
+	
+	/*** TermVector ***/
+	public static final short TERM_VECTOR_NO = 0;
+	public static final short TERM_VECTOR_YES = 1;
+	public static final short TERM_VECTOR_WITH_POSITIONS = 2;
+	public static final short TERM_VECTOR_WITH_OFFSETS = 3;
+	public static final short TERM_VECTOR_WITH_POSITIONS_OFFSETS = 4;
+	
+-->
+
+<!-- 索引模式 -->
+<indexschemas>
+
+  <indexschema>
+	  <pk>
+	    <index>ekp</index>
+	    <type>doc</type>
+	  </pk>
+    <id>docId</id>
+    <!-- 
+              索引是否保存source
+    -->
+    <isSource>true</isSource>
+    <fields>
+    	<!-- 唯一标识 -->
+    	<field>
+    		<name>docKey</name>
+    		<alias>docKey</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 流水号 -->  	
+    	<field>
+    		<name>sn</name>
+    		<alias>sn</alias>
+    		<type>integer</type>
+    		<stored>1</stored>
+    		<indexed>0</indexed>	
+    	</field>
+    	<!-- 系统 -->
+    	<field>
+    		<name>systemName</name>
+    		<alias>systemName</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 模块 -->
+    	<field>
+    		<name>modelName</name>
+    		<alias>modelName</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--文档连接  -->
+    	<field>
+    		<name>linkStr</name>
+    		<alias>linkStr</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 宇通edoc路径名称 -->
+    	<field>
+    		<name>path</name>
+    		<alias>path</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    		
+    	</field>
+    	<!-- 宇通edoc路径Id -->
+    	<field>
+    		<name>pathId</name>
+    		<alias>pathId</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field> 
+    	<!--标题  -->
+    	<field>
+    		<name>title</name>
+    		<alias>title</alias>
+    		<type>string</type>
+    		<boost>9.0</boost>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>subject</name>
+    		<alias>subject</alias>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<boost>9.0</boost>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--正文  -->
+    	<field>
+    		<name>content</name>
+    		<alias>content</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>    	
+ 		<!-- 分类 -->
+ 		<field>
+    		<name>category</name>
+    		<alias>kmDocTemplate.fdHierarchyId</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--创建者  -->
+    	<field>
+    		<name>creator</name>
+    		<alias>creator</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--创建者  creatorAnalyze-->
+    	<field>
+    		<name>creatorAnalyze</name>
+    		<alias>creator</alias>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+     	<!--创建时间  -->
+    	<field>
+    		<name>createTime</name>
+    		<alias>createTime</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 修改人 -->
+    	<field>
+    		<name>modifier</name>
+    		<alias>modifier</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field>
+    	<!-- 修改时间 -->
+    	<field>
+    		<name>modifyTime</name>
+    		<alias>modifyTime</alias>
+    		<type>date</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field>
+    	<!-- 标签 -->
+    	<field>
+    		<name>keyword</name>
+    		<alias>keyword</alias>
+    		<boost>15.0</boost>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>  
+    	<!--附件名  -->
+    	<field>
+    		<name>fileName</name>
+    		<alias>fileName</alias>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 扩展名 -->
+    	<field>
+    		<name>ext</name>
+    		<alias>ext</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    
+    	</field>
+    	<!-- 文件大小 -->
+    	<field>
+    		<name>size</name>
+    		<alias>size</alias>
+    		<type>long</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field>    
+    	<!-- 目前版本 -->	
+    	<field>
+    		<name>lastVersionName</name>
+    		<alias>lastVersionName</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field>
+    	<!-- 物理路径 -->
+    	<field>
+    		<name>phyPath</name>
+    		<alias>phyPath</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>    	    		
+    	</field>    	 
+    	<!-- 附件 -->
+    	<field>
+    		<name>fullText</name>
+    		<alias>fullText</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 附件摘要 -->
+    	<field>
+    		<name>ekpDigest</name>
+    		<alias>ekpDigest</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!-- 文件类型  -->
+    	<field>
+    		<name>mimeType</name>
+    		<alias>mimeType</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--attachment  -->
+    	<field>
+    		<name>attachment</name>
+    		<alias>attachment</alias>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<!--权限  -->
+    	<field>
+    		<name>authPermissions</name>
+    		<alias>authAllReaders</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field> 
+    	<!-- 文档说明 -->
+    	<field>
+    		<name>remark</name>
+    		<alias>remark</alias>
+    		<type>string</type>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<stored>1</stored>
+    		<indexed>1</indexed>    	    		
+    	</field>
+    	<!--xmlcontent-->
+    	<field>
+    		<name>xmlcontent</name>
+    		<alias>xmlcontent</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	
+    	<field>
+    		<name>addField1</name>
+    		<alias>addField1</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField2</name>
+    		<alias>addField2</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField3</name>
+    		<alias>addField3</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField4</name>
+    		<alias>addField4</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField5</name>
+    		<alias>addField5</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField6</name>
+    		<alias>addField6</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	<field>
+    		<name>addField7</name>
+    		<alias>addField7</alias>
+    		<analyzer>default</analyzer>
+    		<queryAnalyzer>default</queryAnalyzer>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>1</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field>
+    	
+    	<!--kms自定义属性  -->
+    	<field>
+    		<name>propertyXml</name>
+    		<alias>propertyXml</alias>
+    		<type>string</type>
+    		<stored>1</stored>
+    		<indexed>2</indexed>
+    		<getter>defaultPropertyGetter</getter>		
+    	</field> 
+    </fields>
+  </indexschema> 
+</indexschemas>

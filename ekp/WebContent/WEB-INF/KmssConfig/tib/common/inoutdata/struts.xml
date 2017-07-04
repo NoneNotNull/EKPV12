@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<!-- 导入导出 -->
+		<form-bean
+			name="tibCommonInoutdataForm"
+			type="com.landray.kmss.tib.common.inoutdata.forms.TibCommonInoutdataForm" />
+	</form-beans>
+
+	<action-mappings>
+	
+		<!-- 导入导出 -->
+		<action
+			path="/tib/common/inoutdata/tibCommonInoutdata"
+			type="com.landray.kmss.tib.common.inoutdata.actions.TibCommonInoutdataAction"
+			name="tibCommonInoutdataForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			
+			<forward name="exportList"
+				path="/tib/common/inoutdata/tibCommonInoutdata_export.jsp" />
+			<forward name="import"
+				path="/tib/common/inoutdata/tibCommonInoutdata_import.jsp">
+			</forward>
+			<forward name="status"
+				path="/tib/common/inoutdata/tibCommonInoutdata_status.jsp">
+			</forward>
+			<!-- <forward name="base_import"
+				path="/tib/common/inoutdata/tibCommonInoutdata_import_base.jsp"> 
+			</forward>-->
+		</action>
+	</action-mappings>
+</struts-config>

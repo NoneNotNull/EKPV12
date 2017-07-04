@@ -1,0 +1,306 @@
+﻿#content .muiIntrTitle {
+	margin: 1rem 1rem 0 1rem;
+	padding-top: 0.5rem;
+}
+
+#intr_scollView {
+	background-color: #f0f0f0;
+}
+
+#intr_praise_opt.muiRating {
+	width: 7.5rem !important;
+}
+
+.muiIntrTitle div {
+	color: #555e67;
+	font-size: 1.5rem;
+	line-height: 2.8rem;
+	display: inline-block;
+	padding-left: 0.5rem;
+	font-weight: bold;
+}
+
+.muiIntroduceContent {
+	padding:0.5rem 1rem 0.3rem 1.8rem; 
+	background-color: white; margin-left:3rem; margin-top:0.5rem;
+}
+
+.muiIntroduceInfo {
+	border-bottom: 1px dotted #d1d1d1; position:relative; top:-0.5rem;
+}
+
+.muiIntroduceInfo:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiIntrStoreList .muiListNoData{
+	background-color: #fff;
+}
+
+.muiIntroduceScoreArea .muiRatingArea i, .muiIntroduceScoreArea .muiRatingValue i{
+	font-size: 1.4rem;
+	width: 1.4rem;
+}
+
+.muiIntroduceItem {
+	padding: 0.5rem 0 0.8rem 0;
+	min-height: 2rem;
+	list-style: none;
+	padding-top:0.8rem;
+	border-radius: 5px; zoom::1; margin-left:-0.5rem;
+}
+.muiIntroduceItem:after{ display:block; clear:both; line-height:0px; content:"clear"; visibility:hidden;}
+.muiIntroduceItem:last-child {
+	border-bottom: 0;
+}
+
+.muiIntroduceRound {
+	display: none;
+	width:2.4rem;
+	height:2.6rem;
+	border-bottom-right-radius:100%;
+	background: #f0f0f0;
+}
+
+.muiIntroduceIcon {
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+	overflow: hidden;
+	display: block; float:left;
+	border:0.5rem solid #f0f0f0; position:relative; z-index:10;
+}
+
+.muiIntroduceImg {
+	width: 100%;
+	border: none;
+	height: 100%;
+	border-radius: 50%; 
+}
+
+.muiIntroduceLabel {
+	font-size: 1.4rem; 
+	display:block; position:relative; top:0.1rem;
+}
+
+.muiIntroduceScore {
+	vertical-align: middle;
+	float: left;
+}
+
+.muiIntroduceSummary {
+	margin: 0;
+	margin-top:1.2rem;
+	font-size: 1.4rem;
+	text-align: justify;
+	line-height: 1.3;
+	word-break: break-all;
+	overflow: hidden;
+}
+.muiIntroduceTarget{ position:relative; top:-0.2rem; }
+.muiIntroduceTarget>div {
+	display: inline-block;
+	font-size: 1.2rem;
+}
+
+.muiIntroduceContent>div>span{
+	font-size: 1.4rem;
+}
+
+.muiIntroduceTargetTitle {
+	font-size: 1.2rem;
+	color: #989898;
+	padding: 0.5rem 0;
+}
+
+.muiIntroduceCreated {
+	color: #989898;
+	font-size: 1.2rem;
+	vertical-align: middle;
+	padding: 0.5rem 0;
+	float: right;
+}
+.muiIntroduceCreated>i.mui{
+	margin-right: 2px;
+	font-size: 1.2rem;
+	line-height: 1;
+	position: relative;
+	top:-1px;
+}
+#intr_tabbar li {
+	list-style: none;
+	display: inline-block;
+	width: 85%;
+	height: 100%;
+	text-align: left;
+}
+
+#intr_tabbar li:first-child {
+	width: 10% !important;
+}
+
+#intr_tabbar .muiIntrSubContainer {
+	width: 10% !important;
+	display: none;
+}
+
+.muiIntrGradeLeft {
+	text-align: left;
+	vertical-align: middle;
+	font-size: 1.4rem;
+	display: table-cell; color:#7e7e7e
+}
+
+.muiIntrGradeLeft>span:first-child {
+	position: relative;
+	top: 0.3rem;
+}
+
+.muiIntrGradeRight {
+	vertical-align: bottom;
+	text-align: right;
+	font-size: 1.4rem;
+	display: table-cell;
+}
+
+.muiIntrGradeLeft .muiRatingArea i, .muiIntrGradeLeft .muiRatingValue i
+	{
+	font-size: 2rem;
+	width: 2.5rem;
+}
+
+.muiIntrGradeGood, .muiIntrGradeBad {
+	color: #ffb535 !important;
+	font-size: 1.5rem;
+}
+
+.muiIntrGradeBar {
+	display: table;
+	width: 100%;
+    margin-top:0.5rem;
+}
+
+.muiIntrGradeBad {
+	color: #bfbfbf !important;
+}
+
+.muiIntrText, .muiIntrMaskText {
+	width: 90%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1.4rem;
+	background-color: #fff;
+	display: block;
+	border: 1px solid #d7d7d7;
+	/*去除默认样式*/
+	-webkit-appearance: none;
+	-webkit-border-radius: 4px;
+}
+
+.muiIntrReason{ border:1px solid #d7d7d7; margin-top:0.5rem; -webkit-appearance:none; -webkit-border-radius:4px}
+.muiIntrMaskText {
+	width: 100%;
+	height: 4rem;
+	line-height: 1.8rem;
+    font-size:1.6rem;
+	border: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.muiIntrStoreList {
+	margin: 0 1rem 0 1rem;
+	border-top: none;
+	background-color: #f0f0f0;
+}
+
+.muiIntrMask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+	overflow: hidden;
+	-webkit-transition: opacity 0.2s linear;
+	opacity: 0;
+}
+
+.muiIntrMask ul {
+	-webkit-transform: translate3d(0px, 400%, 0px);
+	-webkit-transition: all 0.5s ease-out;
+	padding: 0;
+	margin: 0;
+	background-color: #f4f4f4;
+	padding: 0.7rem 1.5rem;
+}
+
+.muiIntrMask>ul>li:first-child {
+	padding-top: 0;
+	border: 1px solid #d7d7d7; background-color:#fff; -webkit-appearance:none; -webkit-border-radius:4px
+}
+
+.muiIntrMask>ul>li {
+	list-style: none;
+	
+}
+.muiIntrMask>ul>li .muiFieldItem{ width: 100%;}
+.muiIntrMask>ul>li .muiFieldOpt i.mui-address{
+	margin-top: 0;
+	margin-right: 5px;
+	
+}
+.muiIntrOpt {
+	width: auto !important;
+	position: relative;
+	top: 0.4rem;
+}
+
+.muiIntrSubmit {
+	text-align: right;
+	border: #b5b5b5 1px solid;
+	color: #b5b5b5;
+	display: inline-block;
+	padding: 0.2rem 0.7rem;
+	border-radius: 3px;
+	font-size: 1.4rem;
+}
+
+.muiIntrHideMask {
+	border-radius: 50%;
+	width: 4rem;
+	height: 4rem;
+	position: absolute;
+	bottom: -2rem;
+	background-color: #f4f4f4;
+	left: 1.5rem;
+	z-index: -1;
+	text-align: center;
+	line-height: 4.3rem;
+}
+
+.muiIntrHideMask>div {
+	vertical-align: bottom;
+	font-size: 2rem;
+	color: #b5b5b5;
+}
+
+.muiIntrSubmit.muiIntrSubmitEnable {
+	background-color: #2a61be;
+	color: #fff;
+	border-color: #2a61be;
+}
+
+.muiIntrTitle>span {
+	background-color: #f55e4d;
+	width: 0.4rem;
+	height: 2rem;
+	display: inline-block;
+	margin-left: -0.4rem;
+	vertical-align: middle;
+}

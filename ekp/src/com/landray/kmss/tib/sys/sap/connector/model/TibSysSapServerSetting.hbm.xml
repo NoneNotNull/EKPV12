@@ -1,0 +1,92 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting"
+		table="tib_sys_sap_server_setting">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdServerCode"
+			column="fd_server_code"
+			update="true"
+			insert="true"
+			length="50"
+			not-null="true" />
+
+		<property
+			name="fdServerName"
+			column="fd_server_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdServerIp"
+			column="fd_server_ip"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+
+		<property
+			name="fdTibSysSapCode"
+			column="fd_tib_sys_sap_code"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+
+		<property
+			name="fdClientCode"
+			column="fd_client_code"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="true" />
+
+		<property
+			name="fdLanguage"
+			column="fd_language"
+			update="true"
+			insert="true"
+			length="32"
+			not-null="false" />
+		<bag
+			name="fdTibSysSapExtList"
+			inverse="true"
+			cascade="all-delete-orphan"
+			lazy="false"
+			order-by="fd_id">
+			<key column="fd_server_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSettingExt" />
+		</bag>
+
+		<property
+			name="fdUpdateTime"
+			column="fd_update_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdDescribe"
+			column="fd_describe"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

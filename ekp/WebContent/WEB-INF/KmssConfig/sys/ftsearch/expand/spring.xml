@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysFtsearchChineseLegendDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchChineseLegendDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchChineseLegend" />
+	</bean>
+	<bean
+		id="sysFtsearchChineseLegendTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchChineseLegendServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchChineseLegendDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchChineseLegendService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchChineseLegendTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="copy*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="init*">PROPAGATION_REQUIRED</prop>
+				<prop key="clone*">PROPAGATION_REQUIRED</prop>
+				<prop key="search*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+		
+	</bean>
+	<!-- 
+	<bean
+		id="sysFtsearchSynonymsSetDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchSynonymsSetDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchSynonymsSet" />
+	</bean>
+	<bean
+		id="sysFtsearchSynonymsSetTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchSynonymsSetServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchSynonymsSetDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchSynonymsSetService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchSynonymsSetTarget" />
+		</property>
+	</bean>
+	 -->
+	 
+	<bean
+		id="sysFtsearchSynonymDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchSynonymDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchSynonym" />
+	</bean>
+	
+	<!-- *******************同义词********************* -->
+	<bean
+		id="sysFtsearchSynonymTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchSynonymServiceImp">
+		<property name="baseDao">
+			<ref local="sysFtsearchSynonymDao" />
+		</property>
+		
+		<property name="sysFtsearchSynonymMakeResults">
+			<ref local="sysFtsearchSynonymMakeResults" />
+		</property>
+				
+	</bean>
+	
+	<!-- ***********************同义词生成结果**************************** -->
+	
+	
+	<bean id="sysFtsearchSynonymMakeResults" class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchSynonymMakeResultsImp">
+	</bean>	
+	
+	
+	
+	<bean
+		id="sysFtsearchSynonymService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchSynonymTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFtsearchParticipleCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchParticipleCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticipleCategory" />
+	</bean>
+	<bean
+		id="sysFtsearchParticipleCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchParticipleCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchParticipleCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchParticipleCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchParticipleCategoryTarget" />
+		</property>
+	</bean>
+
+	<!-- 注入类别树 -->
+	<bean
+		id="sysFtsearchParticipleCategoryTreeService"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchParticipleCategoryTreeService"
+		>
+		<property name="sysFtsearchParticipleCategoryService">
+			<ref local="sysFtsearchParticipleCategoryService" />
+		</property>
+	</bean>
+
+
+
+	<bean
+		id="sysFtsearchParticipleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchParticipleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticiple" />
+	</bean>
+	<bean
+		id="sysFtsearchParticipleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchParticipleServiceImp">
+		<property name="baseDao">
+			<ref local="sysFtsearchParticipleDao" />
+		</property>
+		<property name="sysFtsearchParticipleCategoryService">
+			<ref local="sysFtsearchParticipleCategoryService" />
+		</property>
+		
+		<property name="sysFtsearchExportTxtService">
+			<ref local="sysFtsearchExportTxtService" />
+		</property>
+
+	</bean>
+	<bean
+		id="sysFtsearchParticipleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchParticipleTarget" />
+		</property>
+		
+		
+	</bean>
+
+	<bean
+		id="sysFtsearchAnalysisDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchAnalysisDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchAnalysis" />
+	</bean>
+	<bean
+		id="sysFtsearchAnalysisTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchAnalysisServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchAnalysisDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchAnalysisService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchAnalysisTarget" />
+		</property>
+	</bean>
+	
+	<!-- 注入生成文件1 -->
+	
+	<bean id="sysFtsearchExportService" class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchExportServiceImp">
+		<property name="sysFtsearchParticipleService">
+			<ref local="sysFtsearchParticipleService"/>
+		</property>	
+	</bean>	
+	
+	
+	<bean id="sysFtsearchJobService" class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchExportServiceImp">
+		<property name="sysFtsearchParticipleService">
+			<ref local="sysFtsearchParticipleService"/>
+		</property>	
+	</bean>	
+
+	<!-- 注入生成文件2 -->
+	<bean id="sysFtsearchExportTxtService" class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchExportTxtServiceImp">
+	</bean>	
+	
+	<bean
+		id="sysFtsearchReadLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchReadLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchReadLog" />
+	</bean>
+	<bean
+		id="sysFtsearchReadLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchReadLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchReadLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchReadLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchReadLogTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFtsearchHotwordDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchHotwordDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchHotword" />
+	</bean>
+	<bean
+		id="sysFtsearchHotwordTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchHotwordServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchHotwordDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchHotwordService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchHotwordTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFtsearchWordDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchWordDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchWord" />
+	</bean>
+	<bean
+		id="sysFtsearchWordTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchWordServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchWordDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchWordService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchWordTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFtsearchMultisystemDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchMultisystemDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchMultisystem" />
+	</bean>
+	<bean
+		id="sysFtsearchMultisystemTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchMultisystemServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchMultisystemDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchMultisystemService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchMultisystemTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFtsearchModelgroupDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchModelgroupDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchModelgroup" />
+	</bean>
+	<bean
+		id="sysFtsearchModelgroupTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchModelgroupServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchModelgroupDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchModelgroupService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchModelgroupTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tattEkpSysDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.TattEkpSysDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.TattEkpSys" />
+	</bean>
+	<bean
+		id="tattEkpSysTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.TattEkpSysServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tattEkpSysDao" />
+		</property>
+	</bean>
+	<bean
+		id="tattEkpSysService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tattEkpSysTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFtsearchFacetDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchFacetDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchFacet" />
+	</bean>
+	<bean
+		id="sysFtsearchFacetTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchFacetServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchFacetDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchFacetService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchFacetTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFtsearchUserParticipleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchUserParticipleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchUserParticiple" />
+	</bean>
+	<bean
+		id="sysFtsearchUserParticipleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchUserParticipleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchUserParticipleDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchUserParticipleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchUserParticipleTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFtsearchAmbParticipleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchAmbParticipleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchAmbParticiple" />
+	</bean>
+	<bean
+		id="sysFtsearchAmbParticipleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchAmbParticipleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysFtsearchAmbParticipleDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchAmbParticipleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchAmbParticipleTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFtsearchCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchCategoryTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysFtsearchCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.expand.service.spring.SysFtsearchCategoryServiceImp">
+		<property
+		 	name="baseDao">
+		 	<ref local="sysFtsearchCategoryDao"/>
+		</property>
+	</bean>
+	<bean
+		id = "sysFtsearchCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.ftsearch.expand.dao.hibernate.SysFtsearchCategoryModelDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchCategoryModel" />
+	</bean>
+</beans>

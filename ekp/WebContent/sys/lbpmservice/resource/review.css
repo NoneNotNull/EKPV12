@@ -1,0 +1,199 @@
+/**审批css*/
+
+/******** 提交按钮 ********/
+.process_review_button {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #307cc5;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	background: url("images/btn_bg.jpg") repeat-x; 
+	color:#ffffff;
+}
+.lbpm_process_review_button{
+	width: 80px;
+	height: 80px;
+	border: 0 none !important;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.process_review_button:HOVER{
+	background: url("images/btn_on_bg.jpg") repeat-x; 
+}
+
+.process_review_button_disable{
+	border: 1px solid gray;
+	background: url("images/btn_bg1.jpg") repeat-x; 
+	cursor: default;
+}
+.process_review_button_disable:HOVER{
+	border: 1px solid gray;
+	background: url("images/btn_bg1.jpg") repeat-x; 
+	cursor: default;
+}
+.process_review_content {
+	height: 80px;
+	width: 100%;
+	border: 1px solid #DFDFDF; 
+	overflow-y:auto;
+	padding: 0;
+	margin: 0;
+}
+
+/******** 快速审批 ********/
+.com_approval_bar1 {
+	width: 44px;
+	height: 115px;
+	background: url(images/icon_sp1.png) no-repeat 0 0;
+	position: fixed;
+	right: 18px;
+	bottom: 130px;
+	z-index: 99999;
+	cursor: pointer;
+}
+
+.com_approval_bar2 {
+	width: 31px;
+	padding-top: 24px;
+	background: url(images/icon_sp2_top.png) no-repeat 0 0;
+	position: fixed;
+	/* left: 50%; */
+	top: 39px;
+	z-index: 99999;
+	/* margin-left: -540px; */
+	cursor: pointer;
+}
+
+.com_approval_bar2 .com_ap_bar2_bottom {
+	padding-bottom: 17px;
+	background: url(images/icon_sp2_bottom.png) no-repeat left bottom;
+}
+
+.com_approval_bar2 .com_ap_bar2_centre {
+	padding: 0 5px 2px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center; /*writing-mode:tb-rl;*/
+	background-color: #53b6ed;
+}
+
+.com_approval_bar2 .com_ap_bar2_centre span {
+	writing-mode: tb-rl;
+}
+
+.com_approval_bar3 {
+	width: 100px;
+	height: 43px;
+	background: url(images/icon_sp3.png) no-repeat 0 0;
+	position: fixed;
+	left: 50%;
+	top: 40px;
+	z-index: 99999;
+	margin-left: -610px;
+	cursor: pointer;
+}
+
+.com_approval_bar4 {
+	width: 44px;
+	height: 115px;
+	background: url(images/icon_sp4.png) no-repeat 0 0;
+	position: fixed;
+	left: 50%;
+	top: 87px;
+	z-index: 99999;
+	margin-left: -560px;
+	cursor: pointer;
+}
+
+/******** 人员相关 ********/
+.handlerNamesLabel {
+	color : #dd772c;
+}
+.nodeinfo_box {
+	z-index:999;
+	background-color:#FFFFEE;
+	border:1px solid #333333;
+	/*width:270px;*/
+	font-size:12px;
+	color:#333333;
+	line-height: 18px;
+	padding: 3px 5px;
+}
+
+/******** 错误提示 ********/
+.lbpm_error_info_div {
+	float:left;
+	background:#FBE3E4;
+	color:#8a1f11;
+	border:1px solid #FBC2C4;
+	padding:5px;
+	margin:5px;
+}
+
+/****** div select *****/
+
+.divselect {
+	width: 200px;
+	margin: 0 0 0 20px;
+	position: relative;
+	/* float: left; */
+	z-index: 1;
+	overflow: hidden;
+}
+
+.divselect .cite {
+	width: 164px;
+	height: 24px;
+	overflow: hidden;
+	line-height: 24px;
+	display: inline-block;
+	color: #666;
+	cursor: pointer;
+	font-style: normal;
+	padding-left: 4px;
+	padding-right: 30px;
+	border: 1px solid #e8e8e8;
+	background: url(images/xjt.png) no-repeat right center;
+}
+.divselect .cite a {
+	cursor: pointer;
+}
+.divselect .cite a:hover {
+	background-color: yellow;
+}
+
+.divselect ul {
+	width: 198px;
+	overflow: hidden;
+	border: 1px solid #333333;
+	background-color: #ffffff;
+	position: absolute;
+	top: 30;
+	left: 0;
+	z-index: 2;
+	margin-top: -1px;
+	display: none;
+	list-style: none;
+}
+
+.divselect ul li {
+	overflow: hidden;
+	list-style: none;
+	height: 24px;
+	line-height: 24px;
+}
+
+.divselect ul li a {
+	display: block;
+	height: 24px;
+	color: #333333;
+	text-decoration: none;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.divselect ul li a:hover {
+	background-color: #CCC;
+}

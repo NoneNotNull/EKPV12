@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysSearchMainForm"
+			type="com.landray.kmss.sys.search.forms.SysSearchMainForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/search/sys_search_main/sysSearchMain"
+			type="com.landray.kmss.sys.search.actions.SysSearchMainAction"
+			name="sysSearchMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/search/sys_search_main/sysSearchMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/search/sys_search_main/sysSearchMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/search/sys_search_main/sysSearchMain_list.jsp">
+			</forward>
+			<forward
+				name="editTemplate"
+				path="/sys/search/sys_search_main/sysSearchMain_template.jsp">
+			</forward>
+			<forward
+				name="editParam"
+				path="/sys/search/sys_search_main/sysSearchMain_param.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/search/search"
+			type="com.landray.kmss.sys.search.actions.SearchAction"
+			parameter="method"
+			scope="request">
+		</action>
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.search.ApplicationResources"
+		key="sys-search" />
+</struts-config>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!-- admin.do配置 -->
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/third/ecalendar/config.jsp" />
+			<param name="order" value="112"/>
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.km.calendar.cms">
+		<item
+			name="cms"
+			enable="${calendar.integrate.ecalendar.enabled}">
+			<param
+				name="key"
+				value="ecalendar" />
+			<param
+				name="name"
+				value="exchange日历" />
+			<param
+				name="cmsService"
+				value="eCalendarProvider" />
+			<param
+				name="bindPageUrl"
+				value="third/ecalendar/ecalendar_bind_data/ecalendarBindData.do?method=edit" />
+			<param
+				name="order"
+				value="61" />
+		</item>
+	</extension>
+	
+</plugin>

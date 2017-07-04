@@ -1,0 +1,32 @@
+.lui_star_img_a {
+	display: block;
+	float: left;
+	border: 1px solid #ccc;
+	padding: 2px;
+	width: 66px;
+	height: 66px;
+}
+
+.lui_star_ul{
+	list-style: none;
+}
+
+.lui_star_ul li{
+	padding-left: 78px;
+	margin: 6px 0px;
+}
+.lui_star_box {
+	margin: 5px 0px 10px 0px;
+}
+.lui_grade_bg {
+	background:url(./images/bg2.gif) no-repeat -1px -98px;
+	color: #0099FF;
+	display: inline-block;
+	height: 17px;
+	width: 47px;
+	text-align: center;
+}
+.lui_star_box img {
+	width: 66px;
+	height:66px;
+}

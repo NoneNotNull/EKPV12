@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean 
+			name="sysRssCategoryForm" 
+			type="com.landray.kmss.sys.rss.forms.SysRssCategoryForm">
+		</form-bean>
+		<form-bean 
+			name="sysRssMainForm" 
+			type="com.landray.kmss.sys.rss.forms.SysRssMainForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action path="/sys/rss/sys_rss_category/sysRssCategory" 
+				type="com.landray.kmss.sys.rss.actions.SysRssCategoryAction" 
+				name="sysRssCategoryForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request">
+			<forward name="view" path="/sys/rss/sys_rss_category/sysRssCategory_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/rss/sys_rss_category/sysRssCategory_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/rss/sys_rss_category/sysRssCategory_list.jsp">
+			</forward>
+		</action>
+		
+		<action path="/sys/rss/sys_rss_main/sysRssMain" 
+				type="com.landray.kmss.sys.rss.actions.SysRssMainAction" 
+				name="sysRssMainForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request">
+			<forward name="view" path="/sys/rss/sys_rss_main/sysRssMain_view.jsp">
+			</forward>
+			<forward name="edit" path="/sys/rss/sys_rss_main/sysRssMain_edit.jsp">
+			</forward>
+			<forward name="list" path="/sys/rss/sys_rss_main/sysRssMain_list.jsp">
+			</forward>
+			<forward name="read" path="/sys/rss/sys_rss_main/sysRssMain_read.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources 
+		parameter="com.landray.kmss.sys.rss.ApplicationResources" 
+		key="sys-rss"/>
+</struts-config>

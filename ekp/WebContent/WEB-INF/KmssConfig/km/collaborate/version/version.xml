@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 勾选回帖仅作者可见时,可以看见创建者回复自己的的回复</description>
+			<author>谭又豪</author>
+			<revision-time>2015-01-22</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 二级页面按钮操作栏翻页功能</description>
+			<author>王腾飞</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 更新业务模块主文档后工作沟通中参与人丢失查看文档权限问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-22</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 处理完工作沟通后待办不消失问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-04</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端多个附件显示对齐</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-13</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 未选择流程的已审批人，但已审批人可收到待办看到沟通件的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-07</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一移动端标记,关联到移动UI模块</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/mobile</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 大字体回复重叠的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-06</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 全文搜索部署与修改</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 未读沟通,已读沟通,逾期沟通进行进一步数据过滤</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端回复仅作者可见提示信息,优化移动新建输入框显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端无法阅读页面无法显示参与者的问题,pc端编辑页面无法显示参与者的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-28</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端回帖仅作者可见显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-20</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 全系统分类信息收集部署</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-15</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端“相关交流”中回复框的显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-16</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 相关交流回复/编辑为弹出框方式</description>
+			<author>谭又豪</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 性能优化</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 参与者很多并发量大的情况下性能问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-08-12</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读页面图片和表格显示为统一编辑器显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 默认回复语中含有换行符时，移动端回复异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端新建必填项校验问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读页面窄屏时不会出现滚动条的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-01</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 回复和编辑字段，和list列表的状态多语言问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-07</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 多语言下的标题大小写问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-02</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 回复记录按楼层排序</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 列表删除的返回页面不是产品标准的返回问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 在其他中发起工作沟通时，沟通的接收人无法查看办理依据文档</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 工作沟通人数较多的时候，打开加载慢问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 工作沟通的待办没按参数设置中设的发送</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 提交按钮隔5秒才能再次点击，避免产生相同的回复</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 沟通人数的后台校验由采用url传参改为post方式，避免参数截断</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 火狐和谷歌浏览器下，工作沟通的查看界面，最下方参与情况页签下，"增加人员"按钮无背景颜色问题</description>
+			<author>谭又豪</author>
+			<revision-time>2013-07-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 鼠标放正文图片时显示手型，单击可以放大缩小</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-17</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌浏览器下转移分类不成功问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>移除 去除内容搜索字段，避免大字段搜索报错</description>
+			<author>朱湖强</author>
+			<revision-time>2013-05-23</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读界面“参与情况”标签内容显示调整</description>
+			<author>朱湖强</author>
+			<revision-time>2013-05-16</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 参数配置中添加“发布后是否允许编辑”设置项；新建文档的时候可以设置附件编辑权限；页面增加来源信息显示</description>
+			<author>朱湖强</author>
+			<revision-time>2013-05-08</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 沟通与督办页签展开显示多浏览器兼容问题</description>
+			<author>李衡</author>
+			<revision-time>2013-04-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 在“督办和沟通”页签下，新建沟通文档时没有带出办理依据</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 新版工作沟通支持在其他模块部署</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-11</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 1、新建文档时头部显示为“工作沟通”2、去除编辑页面“主体内容”和“选项”的绿色背景</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-09</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 spring.xml命名规范问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-12-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击回复和回复所有人按钮，如果回复框值为空则带出默认回复语，否则保持原来的值</description>
+			<author>朱湖强</author>
+			<revision-time>2012-10-09</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

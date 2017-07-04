@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.category.model.SysCategoryMain"
+		messageKey="sys-category:table.sysCategoryMain"
+		serviceBean="sysCategoryMainService"
+		table="sys_category_main"
+		url="/sys/category/sys_category_main/sysCategoryMain.do?method=view&amp;fdId=${fdId}"
+		displayProperty="fdName">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-category:sysCategoryMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-category:sysCategoryMain.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			unique="false"
+			length="1000"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="model.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			unique="false"
+			length="2" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey=""
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			unique="false"
+			length="100"
+			canDisplay="false" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="model.fdCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="model.fdAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdIsinheritMaintainer"
+			messageKey="sys-category:sysCategory.fdIsinheritMaintainer"
+			type="Boolean"
+			column="fd_isinherit_maintainer"
+			notNull="false"
+			unique="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsinheritUser"
+			messageKey="sys-category:sysCategory.fdIsinheritUser"
+			type="Boolean"
+			column="fd_isinherit_user"
+			notNull="false"
+			unique="false"
+			length="1" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="sys-category:sysCategory.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="model.fdCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="model.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false"
+			unique="false" />
+<!-- 			
+		<modelProperty
+			name="fdOrgTree"
+			messageKey="sys-category:sysCategoryMain.fdOrgTreeName"
+			type="com.landray.kmss.sys.category.model.SysCategoryOrgTree"
+			column="fd_org_tree_id"
+			notNull="true"
+			unique="false" />
+ -->
+		<listProperty
+			name="authEditors"
+			messageKey="model.tempEditorName"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_category_main_editor"
+			inverse="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="model.tempReaderName"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="sys_category_main_reader"
+			inverse="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="sys-category:sysCategoryMain.authAllReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="sys_category_main_areaders"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-category:sysCategoryMain.authAllEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_category_main_aeditor"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="sys-category:sysCategoryMain.authOtherEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="sys_category_main_oeditor"
+			canDisplay="false"
+			inverse="false" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="sys-category:sysCategoryMain.authOtherReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="sys_category_main_oreader"
+			canDisplay="false"
+			inverse="false" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-category:sysCategoryMain.fdParentName"
+			type="com.landray.kmss.sys.category.model.SysCategoryMain"
+			column="fd_parent_id"
+			unique="false"
+			cascade="save-update" />
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

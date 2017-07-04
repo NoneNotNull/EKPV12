@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<!-- 基本属性布局扩展 -->
+	<extension point="com.landray.kmss.sys.xform.fieldlayout" model="com.landray.kmss.km.imissive.model.KmImissiveSignMain">
+			 <!-- 发文标题 -->
+	    <item name="config">
+			<param name="fieldIds" value="docSubject"></param>
+			<param name="required" value="true"></param>
+		    <param name="jspParams" value="km/imissive/fieldlayout/sign/docsubject/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/docsubject/docSubject"></param>
+		</item>
+			 <!-- 密级程度 -->
+		<item name="config">
+			<param name="fieldIds" value="fdSecretGrade"></param>
+			<param name="required" value="true"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdsecretgrade/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fdsecretgrade/fdSecretGrade"></param>
+		</item>
+			<!-- 缓急程度 -->
+		<item name="config">
+			<param name="fieldIds" value="fdEmergencyGrade"></param>
+			<param name="required" value="true"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdemergencygrade/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fdemergencygrade/fdEmergencyGrade"></param>
+		</item>
+			<!-- 文号 -->
+		<item name="config">
+			<param name="fieldIds" value="fdDocNum"></param>
+			<param name="required" value="true"></param>
+			<param name="jspParams" value="/sys/xform/designer/fieldlayout/default_layout/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fddocnum/fdDocNum"></param>
+		</item>
+		   <!-- 默认题头 -->
+		<item name="config">
+			<param name="fieldIds" value="fdTableHead"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdtablehead/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fdtablehead/fdTableHead"></param>
+			<param name="requiredParams" value="fdTableHead"></param>
+		</item>
+		     <!-- 核稿人 -->
+		<item name="config">
+			<param name="fieldIds" value="fdChecker"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdchecker/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fdchecker/fdChecker"></param>
+		    <param name="formIds" value="fdCheckerId:fdCheckerName"></param>
+		</item>
+		    <!-- 拟文部门 -->
+		<item name="config">
+			<param name="fieldIds" value="fdDraftDept"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fddraftdept/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fddraftdept/fdDraftDept"></param>
+		</item>
+		    <!-- 拟稿人 -->
+	    <item name="config">
+			<param name="fieldIds" value="fdDrafter"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fddrafter/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fddrafter/fdDrafter"></param>
+			<param name="formIds" value="fdDrafterId:fdDrafterName"></param>
+	    </item>
+		   <!-- 拟稿日期 -->
+		<item name="config">
+			<param name="fieldIds" value="fdDraftTime"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="/sys/xform/designer/fieldlayout/default_layout/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fddrafttime/fdDraftTime"></param>
+		</item>
+			<!-- 文种 -->
+		<item name="config">
+			<param name="fieldIds" value="fdDocType"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fddoctype/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fddoctype/fdDocType"></param>
+			<param name="requiredParams" value="fdMissiveTypesIds,fdMissiveTypesNames"></param>
+		</item>
+			<!-- 模板名 -->
+		<item name="config">
+			<param name="fieldIds" value="fdTemplate"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdtemplate/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/fdtemplate/fdTemplate"></param>
+	    </item>
+	    	<!-- 状态 -->
+		<item name="config">
+			<param name="fieldIds" value="docStatus"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="/sys/xform/designer/fieldlayout/default_layout/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/docstatus/docStatus"></param>
+	    </item>
+	    <item name="config">
+			<param name="fieldIds" value="fdSignature"></param>
+			<param name="required" value="false"></param>
+			<param name="jspParams" value="km/imissive/fieldlayout/sign/fdsignature/param.jsp"></param>
+			<param name="jspRunProfix" value="/km/imissive/fieldlayout/sign/fdsignature/fdSignature"></param>
+		</item>
+		   <!--  发布日期 -->
+		<item name="config">
+			<param name="fieldIds" value="docPublishTime"></param>
+			<param name="required" value="false"></param>
+		    <param name="jspParams" value="km/imissive/fieldlayout/sign/docpublishtime/param.jsp"></param>
+			<param name="jspRunProfix" value="km/imissive/fieldlayout/sign/docpublishtime/docPublishTime"></param>
+		</item>
+		
+		    <!-- 备注 -->
+		<item name="config">
+			<param name="fieldIds" value="fdPrintNum,fdPrintPageNum,fdContent"></param>
+		</item>
+	</extension>
+</plugin>

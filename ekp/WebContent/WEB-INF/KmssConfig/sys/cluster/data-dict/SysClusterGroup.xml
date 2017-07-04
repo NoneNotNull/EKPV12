@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.cluster.model.SysClusterGroup"
+		messageKey="sys-cluster:table.sysClusterGroup"
+		displayProperty="fdName"
+		serviceBean="sysClusterGroupService"
+		table="sys_cluster_group"
+		url="/sys/cluster/sys_cluster_group/sysClusterGroup.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-cluster:sysClusterGroup.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-cluster:sysClusterGroup.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-cluster:sysClusterGroup.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-cluster:sysClusterGroup.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdMaster"
+			messageKey="sys-cluster:sysClusterGroup.fdMaster"
+			type="Boolean"
+			column="fd_master"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysNewsMain_fdImportance" default-value="3">
+		<value-label>
+			<value>1</value>
+			<label-key>very.importance</label-key>
+			<bundle>sys-news</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>importance</label-key>
+			<bundle>sys-news</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>common</label-key>
+			<bundle>sys-news</bundle>
+		</value-label>
+	</type>
+	<type name="sysNewsMain_fdContentType" default-value="rtf">
+		<value-label>
+			<value>rtf</value>
+			<label-key>sysNewsMain.fdContentType.rtf</label-key>
+			<bundle>sys-news</bundle>
+		</value-label>
+		<value-label>
+			<value>word</value>
+			<label-key>sysNewsMain.fdContentType.word</label-key>
+			<bundle>sys-news</bundle>
+		</value-label>
+	</type>
+	
+	<!-- 文档状态 -->
+	<type name="news_status">
+		
+		<value-label>
+			<value>10</value>
+			<label-key>status.draft</label-key>
+			<bundle>sys-news</bundle>
+			<label>草稿</label>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>status.examine</label-key>
+			<bundle>sys-news</bundle>
+			<label>待审</label>
+		</value-label>
+		<value-label>
+			<value>11</value>
+			<label-key>status.refuse</label-key>
+			<bundle>sys-news</bundle>
+			<label>驳回</label>
+		</value-label>
+		<value-label>
+			<value>00</value>
+			<label-key>status.discard</label-key>
+			<bundle>sys-news</bundle>
+			<label>废弃</label>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>status.publish</label-key>
+			<bundle>sys-news</bundle>
+			<label>发布</label>
+		</value-label>
+		<value-label>
+			<value>40</value>
+			<label-key>status.cancle</label-key>
+			<bundle>sys-news</bundle>
+			<label>取消</label>
+		</value-label>
+	</type>
+</column-enums>
+

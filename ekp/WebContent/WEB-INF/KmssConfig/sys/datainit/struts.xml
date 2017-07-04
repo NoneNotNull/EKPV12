@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<form-beans>
+		<form-bean name="uploadInitForm"
+			type="com.landray.kmss.sys.datainit.forms.UploadInitForm">
+		</form-bean>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/sys/datainit/sys_datainit_main/sysDatainitMain"
+			type="com.landray.kmss.sys.datainit.actions.SysDatainitMainAction"
+			name="uploadInitForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="config"
+				path="/sys/datainit/sys_datainit_main/sysDatainit_config.jsp">
+			</forward>
+			<forward name="status"
+				path="/sys/datainit/sys_datainit_main/sysDatainit_status.jsp">
+			</forward>
+			<forward name="config_button"
+				path="/sys/datainit/sys_datainit_main/sysDatainit_export.jsp">
+			</forward>
+			<forward name="base_import"
+				path="/sys/datainit/sys_datainit_main/sysDatainit_import_base.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+</struts-config>

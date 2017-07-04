@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>门户管理</module-name>
+		<module-path>sys/portal</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>8aa5c8eb7a68956b6bd2b3e4adde3dd1</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>1</serial-num>
+	</module>
+</description>

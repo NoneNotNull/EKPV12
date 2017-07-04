@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoLevelTransferTask" />
+			<param
+				name="name"
+				value="待办优先级数据升级" />
+			<param
+				name="path"
+				value="/sys/notify/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoLevelTransferTask" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoLevelTransferTask" />
+			<param
+				name="description"
+				value="对于历史数据中待办优先级为空时，待办优先级升级为一般(值为3)。" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoTransferTask" />
+			<param
+				name="name"
+				value="待办创建者数据升级" />
+			<param
+				name="path"
+				value="/sys/notify/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoTransferTask" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.notify.transfer.SysNotifyTodoTransferTask" />
+			<param
+				name="description"
+				value="对于历史数据中待办创建者为空时，创建者为空时从模块文档中获取。" />
+		</item>
+	</extension>
+</plugin>

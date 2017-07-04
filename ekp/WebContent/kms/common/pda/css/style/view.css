@@ -1,0 +1,53 @@
+.lui-mesg {
+	text-align: center;
+}
+
+.lui-mesg ul {
+	width: 60%;
+	margin: 2px auto;
+}
+
+.lui-fdDescription {
+	text-indent: 2em;
+	font-size: 14px;
+	background-color: #F7F8F9;
+	padding: 6px 0;
+	line-height: 24px;
+}
+
+.lui-property {
+	position: absolute;
+	top: 50px;
+	bottom: 0;
+	width: 100%;
+}
+
+.lui-top {
+	z-index: 10;
+	position: absolute;
+	height: 40px;
+	width: 40px;
+	bottom: 40px;
+	right: 0px;
+	background-size: 40px 40px;
+	background: url(../images/top.png) no-repeat 50% 50%;
+}
+
+.loading {
+	margin: 0 -10px;
+	background-color: #efedee;
+	display: none;
+	height: 50px;
+	font-size: 16px;
+	line-height: 50px;
+	color: #303339;
+	border-bottom: 1px solid #CDCDCD;
+	text-align: center;
+	background-color: #efedee;
+}
+
+.loading>span {
+	padding-left: 25px;
+	background: url(../images/ajax_loader.gif) left center no-repeat;
+	background-size: 16px 16px;
+}

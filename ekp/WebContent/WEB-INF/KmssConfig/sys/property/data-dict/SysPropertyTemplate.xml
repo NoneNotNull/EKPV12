@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.property.model.SysPropertyTemplate"
+		messageKey="sys-property:table.sysPropertyTemplate"
+		displayProperty="fdName"
+		serviceBean="sysPropertyTemplateService"
+		table="sys_property_template"
+		url="/sys/property/sys_property_template/sysPropertyTemplate.do?method=edit&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-property:sysPropertyTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-property:sysPropertyTemplate.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdExtendFilePath"
+			messageKey="sys-property:sysPropertyTemplate.fdExtendFilePath"
+			type="String"
+			column="fd_extend_file_path"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdDisplayModel"
+			messageKey="sys-property:sysPropertyTemplate.fdJspStructure"
+			type="String"
+			column="fd_display_model"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdJspContent"
+			messageKey="sys-property:sysPropertyTemplate.fdJspContent"
+			type="RTF"
+			column="fd_jsp_content"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdMetadata"
+			messageKey="sys-property:sysPropertyTemplate.fdMetadata"
+			type="RTF"
+			column="fd_metadata"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsPublish"
+			messageKey="sys-property:sysPropertyTemplate.fdIsPublish"
+			type="Boolean"
+			column="fd_is_publish"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdLastModify"
+			messageKey="sys-property:sysPropertyTemplate.fdLastModify"
+			type="DateTime"
+			column="fd_last_modify"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-property:sysPropertyTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-property:sysPropertyTemplate.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+		<listProperty
+			name="fdReferences"
+			messageKey="sys-property:sysPropertyTemplate.fdReferences"
+			type="com.landray.kmss.sys.property.model.SysPropertyReference"
+			column="fd_template_id"
+			inverse="true"
+			canDisplay="false" 
+			cascade="all-delete-orphan"/>
+		<listProperty
+			name="fdFilters"
+			messageKey="sys-property:sysPropertyTemplate.fdFilters"
+			type="com.landray.kmss.sys.property.model.SysPropertyFilter"
+			column="fd_template_id"
+			inverse="true"
+			canDisplay="false" 
+			cascade="all-delete-orphan"/>
+	</model>
+</models>

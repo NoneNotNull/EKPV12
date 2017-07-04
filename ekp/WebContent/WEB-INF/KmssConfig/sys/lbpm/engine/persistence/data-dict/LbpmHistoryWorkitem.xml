@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmHistoryWorkitem"
+		messageKey="sys-lbpm-engine:table.lbpmHistoryWorkitem"
+		displayProperty="fdParameter"
+		serviceBean="lbpmHistoryWorkitemService"
+		table="lbpm_history_workitem">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdActivityType"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdActivityType"
+			type="String"
+			column="fd_activity_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdStartDate"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdStartDate"
+			type="DateTime"
+			column="fd_start_date"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdFinishDate"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdFinishDate"
+			type="DateTime"
+			column="fd_finish_date"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdNotifyOnFinish"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdNotifyOnFinish"
+			type="Boolean"
+			column="fd_notify_on_finish"
+			notNull="false"
+			length="1" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="2" />
+
+		<simpleProperty
+			name="fdIsDisInList"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdIsDisInList"
+			type="Boolean"
+			column="fd_is_disinlist"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdAccerType"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdAccerType"
+			type="String"
+			column="fd_accer_type"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdParameter"
+			type="String"
+			column="fd_parameter"
+			notNull="false"
+			length="200" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdParent"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmHistoryWorkitem"
+			column="fd_parent_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdNode"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdNode"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmHistoryNode"
+			column="fd_node_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdHandler"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdHandler"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_handler_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdAccer"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdAccer"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_accer_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdExpecter"
+			messageKey="sys-lbpm-engine:lbpmHistoryWorkitem.fdExpecter"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_expecter_id"
+			notNull="false" />
+
+	</model>
+</models>

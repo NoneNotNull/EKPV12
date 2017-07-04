@@ -1,0 +1,120 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.mapping.model.TibCommonMappingMain"
+		table="tib_common_mapping_main">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdTemplateId"
+			column="fd_template_id"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+		<property
+			name="fdMainModelName"
+			column="fd_main_model_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+		<property
+			name="fdTemplateName"
+			column="fd_template_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+<!-- 需要启动生成jsp片段，所以表单事件不做lazy处理 -->
+		<bag
+			name="fdFormEventFunctionList"
+			cascade="all-delete-orphan"
+			lazy="false"
+			order-by="fd_order"
+			where="fd_invoke_type=0">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+
+		<bag
+			name="fdFormAddFunctionList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=1">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		<bag
+			name="fdFormDelFunctionList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=2">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		<bag
+			name="fdRobotFunctionList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=3">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		<bag
+			name="fdFormSaveFunctionList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=4">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		<bag
+			name="fdFormControlFunctionList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=5">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		<bag
+			name="fdFlowRejectList"
+			cascade="all-delete-orphan"
+			lazy="true"
+			order-by="fd_order"
+			where="fd_invoke_type=6">
+			<key
+				column="fd_main_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc" />
+		</bag>
+		
+	</class>
+</hibernate-mapping>

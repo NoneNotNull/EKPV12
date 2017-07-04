@@ -1,0 +1,10 @@
+{$
+	<ul class="lui_category_cond_selected_box clearfloat">
+$}
+var data = layout.parent.data;
+	for(var i=0;i<data.length;i++){
+		{$<li class="clrfix"><span>{%data[i].text%}</span><a data-lui-mark-id="{%data[i].value%}" href="javascript:;"></a></li>$}
+	}
+{$	
+	</ul>
+$}

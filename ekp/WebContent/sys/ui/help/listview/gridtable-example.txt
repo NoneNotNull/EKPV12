@@ -1,0 +1,30 @@
+	<list:listview>
+		<list:gridTable name="gridtable" columnNum="4" gridHref="" layout="sys.ui.listview.gridtable">
+		// columnNum属性用于规定列数，name属性用于视图切换，layout不填默认为sys.ui.listview.gridtable
+			<ui:source type="AjaxJson">
+				{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+			</ui:source>
+			<list:row-template ref="sys.ui.listview.gridtable" >
+			// ref:1、为空则需要在标签体中编写html模板，如下：
+				{$
+					<div class="lui_expert_box_2">
+						<a class="lui_expert_img" target="_blank" href="${LUI_ContextPath }/kms/expert/kms_expert_info/kmsExpertInfo.do?method=view&fdExpertId={%grid['fdId']%}"> 
+							<img  src="{% grid['imgUrl']%}" onload="javascript:drawImage(this,this.parentNode)">
+						</a>
+						<ul>
+							<li><input type="checkbox" value="{% grid['fdId']%}" name="List_Selected">
+								<a target="_blank" href="${LUI_ContextPath }/kms/expert/kms_expert_info/kmsExpertInfo.do?method=view&fdExpertId={%grid['fdId']%}"> 
+									<span class="com_author">{%grid['fdName']%}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				$}
+			// 2、不为空则可以在标签体中填写除了标准模板外的数据源提供的属性用于展示，如下：
+				{
+					showOtherProps:"docReadCount;docCategoryName"
+				}
+			</list:row-template>
+		</list:gridTable>
+	</list:listview>
+	<list:paging></list:paging>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module 
+		messageKey="kms-common:module.kms.common" 
+		urlPrefix="/kms/common/" 
+		defaultValidator="roleValidator(role=ROLE_KMSCOMMON_DEFAULT)">
+		<roles>
+			ROLE_KMSCOMMON_DEFAULT;
+			ROLE_KMSCOMMON_PERSONINFO_EDIT;
+			ROLE_KMSCOMMON_FTSEARCH_ADMIN;
+			<!-- 从kms/home移来 
+			ROLE_KMSHOME_DEFAULT;
+			ROLE_KMSHOME_ADMIN;-->
+			ROLE_KMSHOME_INTRODUCEDOC;
+			ROLE_KMSHOME_VIEWMODULEINFO
+		</roles>
+		
+		<request path="kms_ftsearch_config/kmsFtsearchConfig*" 
+				 defaultValidator="roleValidator(role=ROLE_KMSCOMMON_DEFAULT)">
+			<query
+				queryString="method=edit|update|add|setDefault"
+				validator="roleValidator(role=ROLE_KMSCOMMON_FTSEARCH_ADMIN)" />
+		</request>
+		<!-- 推荐知识 view给默认权限 -->
+		<request
+			path="kms_home_knowledge_intro/kmsHomeKnowledgeIntro*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.common.model.KmsHomeKnowledgeIntro">
+			<query 
+				queryString="method=add|save|saveadd|edit|update|delete|list" 
+				validator="roleValidator(role=ROLE_KMSHOME_INTRODUCEDOC)" />
+		</request>
+		
+		<request
+			path="kms_common_at_users/kmsCommonAtUser*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.common.model.KmsCommonAtUser">
+		</request>
+		
+		<request
+			path="kms_home_knowledge_mapping/kmsHomeKnowledgeMapping*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.common.model.KmsHomeKnowledgeMapping"
+			defaultValidator="roleValidator(role=ROLE_KMSCOMMON_DEFAULT)">
+		</request>
+		
+		<!-- 回收站日志 --> 
+		<request
+			path="kms_common_recycle_log/kmsCommonRecycleLog*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.common.KmsCommonRecycleLog"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+		</request>
+	</module>
+	
+	<!-- 清理推送垃圾 -->
+	<quartz
+		cronExpression="0 0 3 ? * 1"
+		jobService="kmsCommonDataPushService"
+		messageKey="kms-common:kmsCommonDataPush.quartz.push"
+		jobMethod="quartzDeleteDataPush" />
+	
+	
+	<!-- 主页配置 -->
+	<homePage urlPrefix="kms/common"
+		url="/moduleindex.jsp?nav=/kms/common/tree.jsp&amp;main=%2Fkms%2Fcommon%2Fkms_common_main%2FkmsCommonMain.do%3Fmethod%3Dlist%26s_path%3D!{message(kms-common:manu.moduleInfo.config)}"
+		messageKey="kms-common:module.kms.common"
+		type="app"
+		config="/moduleindex_notopic.jsp?nav=/kms/common/tree.jsp" />
+
+</configs>

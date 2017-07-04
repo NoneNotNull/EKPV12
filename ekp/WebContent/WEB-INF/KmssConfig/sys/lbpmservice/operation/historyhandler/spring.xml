@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="lbpmHistoryHandlerBackBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.LbpmHistoryHandlerBackBehaviour">
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+		<property
+			name="orgTemporaryStore">
+			<ref
+				bean="orgTemporaryStore" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmHistoryHandlerBackBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.LbpmHistoryHandlerBackBinder">
+	</bean>
+
+	<bean
+		id="lbpmNodeBackHandlerSetterListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.NodeBackHandlerSetterListener">
+	</bean>
+
+	<bean
+		id="lbpmBackInfoNodeListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.BackInfoNodeListener">
+	</bean>
+
+	<bean
+		id="lbpmBackInfoWorkitemListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.BackInfoWorkitemListener">
+	</bean>
+	
+	<bean
+		id="lbpmBackAuditNoteWorkitemListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.BackAuditNoteWorkitemListener">
+	</bean>
+	
+	<bean
+		id="lbpmHistoryHandlerAddOpinionBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.LbpmHistoryHandlerAddOpinionBehaviour">
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmHistoryHandlerAddOpinionBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.LbpmHistoryHandlerAddOpinionBinder">
+	</bean>
+	<bean
+		id="lbpmSendNodeInfoListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.historyhandler.SendNodeInfoListener">
+	</bean>
+</beans>
+

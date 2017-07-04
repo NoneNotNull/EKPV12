@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-property:module.sys.property"
+		urlPrefix="/sys/property/"
+		defaultValidator="roleValidator(role=ROLE_SYSPROPERTY_DEFAULT)">
+		<roles>
+			ROLE_SYSPROPERTY_DEFAULT;
+		</roles>
+		<areaRoles>
+			ROLE_SYSPROPERTY_CATEGORY;
+			ROLE_SYSPROPERTY_DEFINE;
+			ROLE_SYSPROPERTY_FILTER_SETTING;
+			ROLE_SYSPROPERTY_FILTER_MAIN;
+			ROLE_SYSPROPERTY_FILTER_TEMPLATE
+		</areaRoles>
+
+		<request
+			path="sys_property_define/sysPropertyDefine*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyDefine">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_DEFINE)" />
+		</request>
+		
+		<request
+			path="sys_property_filter_setting/sysPropertyFilterSetting*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyFilterSetting">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_FILTER_SETTING)" />
+		</request>
+
+		<request
+			path="sys_property_template/sysPropertyTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyTemplate">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall|importExcel"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_FILTER_TEMPLATE)" />
+		</request>
+		
+		<request
+			path="sys_property_reference/sysPropertyReference*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyReference">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_FILTER_TEMPLATE)" />
+		</request>
+		
+		<request
+			path="sys_property_filter/sysPropertyFilter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyFilter">
+			<!-- 新增、编辑和删除 -->
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_FILTER_TEMPLATE)" />
+		</request>
+
+		<request
+			path="sys_property_tree/sysPropertyTree*">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_DEFINE)" />
+		</request>
+		
+		<request path="sys_property_filter_main/sysPropertyFilterMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyFilterMain">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_FILTER_MAIN)" />
+		</request>
+		
+		<request path="sys_property_category/sysPropertyCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.property.model.SysPropertyCategory">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_CATEGORY)" />
+		</request>
+		<filters modelName="com.landray.kmss.sys.property.model.SysPropertyCategory">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSPROPERTY_CATEGORY)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authEditors.fdId)" />
+		</filters>
+	</module>
+	<!-- 导入导出 -->
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_DEFINE)"
+				queryString="fdModelName=com.landray.kmss.sys.property.model.SysPropertyDefine|com.landray.kmss.sys.property.model.SysPropertyTree" />
+		</request>
+		<request path="sys_transport_import/SysTransportUpload*">
+			<query
+				validator="areaRoleValidator(role=ROLE_SYSPROPERTY_DEFINE)"
+				queryString="fdModelName=com.landray.kmss.sys.property.model.SysPropertyDefine|com.landray.kmss.sys.property.model.SysPropertyTree" />
+		</request>
+	</module>
+	
+
+	<homePage
+		urlPrefix="sys/property"
+		url="/moduleindex.jsp?nav=/sys/property/tree.jsp&amp;main=%2Fsys%2Fproperty%2Fsys_property_define%2FsysPropertyDefine.do%3Fmethod%3Dlist%26s_path%3D!{message(sys-property:table.sysPropertyDefine)}"
+		messageKey="sys-property:sysProperty.tree.center" 
+		config="/moduleindex_notopic.jsp?nav=/sys/property/tree.jsp" 
+		type="global"/>
+
+</configs>

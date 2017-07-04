@@ -1,0 +1,294 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate"
+		table="kms_multidoc_template">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+		<property
+			name="fdName"
+			column="fd_name"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="200" />
+		<property
+			name="fdOrder"
+			column="fd_order"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="10" />
+		<property
+			name="docContent"
+			column="doc_content"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true"
+			length="1000000"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="docExpire"
+			column="doc_expire"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="10" />
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="true" />
+		<property
+			name="authReaderFlag"
+			column="auth_reader_flag"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNodownload"
+			column="auth_tmp_att_nodownload"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNocopy"
+			column="auth_tmp_att_nocopy"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNoprint"
+			column="auth_tmp_att_noprint"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<many-to-one
+			name="docCreator"
+			column="doc_creator_id"
+			insert="true"
+			update="true"
+			not-null="true" />
+		<bag
+			name="docKeyword"
+			lazy="true"
+			inverse="false"
+			cascade="all-delete-orphan">
+			<key column="fd_template_id" />
+			<one-to-many class="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplateKeyword" />
+		</bag>
+		<bag
+			name="docPosts"
+			table="kms_multidoc_template_post"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_post_id" />
+		</bag>
+		<bag
+			name="authTmpReaders"
+			table="kms_multidoc_tmp_main_reader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+		<bag
+			name="authTmpEditors"
+			table="kms_multidoc_tmp_main_editor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_editor_id" />
+		</bag>
+		<bag
+			name="authReaders"
+			table="kms_multidoc_template_reader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+		<bag
+			name="authEditors"
+			table="kms_multidoc_template_editor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_editor_id" />
+		</bag>
+		<bag
+			name="docProperties"
+			table="kms_multidoc_template_property"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.category.model.SysCategoryProperty"
+				column="fd_property_id" />
+		</bag>
+		<bag
+			name="authTmpAttPrints"
+			table="kms_multidoc_tmp_main_attprint"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_print_id" />
+		</bag>
+		<bag
+			name="authTmpAttCopys"
+			table="kms_multidoc_tmp_main_attcopy"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_copy_id" />
+		</bag>
+		<bag
+			name="authTmpAttDownloads"
+			table="kms_multidoc_tmp_main_attdl"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_download_id" />
+		</bag>
+		<bag
+			name="authAllEditors"
+			table="kms_multidoc_template_aeditor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_editor_id" />
+		</bag>
+		<!-- 场所 -->
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_kmsMultidocTemplate_authAreaId" />
+		<bag
+			name="authAllReaders"
+			table="kms_multidoc_template_areader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+		<bag
+			name="authOtherReaders"
+			table="kms_multidoc_template_oreader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_reader_id" />
+		</bag>
+		<bag
+			name="authOtherEditors"
+			table="kms_multidoc_template_oeditor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_editor_id" />
+		</bag>
+
+		<property
+			name="authNotReaderFlag"
+			column="auth_not_reader_flag"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdHierarchyId"
+			column="fd_hierarchy_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1000" />
+		<many-to-one
+			name="docAlteror"
+			column="doc_alteror_id"
+			insert="true"
+			update="true"
+			not-null="false" />
+		<property
+			name="docAlterTime"
+			column="doc_alter_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="fdIsinheritMaintainer"
+			column="fd_isinherit_maintainer"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdIsinheritUser"
+			column="fd_isinherit_user"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<many-to-one
+			name="hbmParent"
+			class="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate"
+			cascade="save-update"
+			outer-join="auto"
+			update="true"
+			insert="true"
+			access="property"
+			column="fd_parent_id" />
+			
+		<many-to-one
+			name="sysPropertyTemplate"
+			column="sys_prop_template_id"
+			update="true"
+			insert="true"
+			not-null="false" />
+			
+		<property
+			name="fdNumberPrefix"
+			column="fd_number_prefix"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="200" />
+			
+		<property
+			name="fdExternalId"
+			column="fd_external_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />
+			
+		
+	</class>
+</hibernate-mapping>

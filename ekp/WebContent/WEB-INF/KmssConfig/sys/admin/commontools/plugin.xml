@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.admin.commontools">
+		<item
+			name="tools">
+			<param
+				name="name"
+				kind="string">
+				<description>
+					工具名称
+				</description>
+			</param>
+			<param
+				name="path"
+				kind="string"
+				required="true">
+				<description>
+					执行链接，可以为jsp的path，也可以为action的path
+					例：
+					1、/sys/common/editDbInfo.jsp
+					2、/sys/common/config.do?method=resetConfig
+				</description>
+			</param>
+			<param
+				name="description"
+				kind="string"
+				required="true">
+				<description>
+					工具描述
+				</description>
+			</param>
+			<description>
+				管理员工具箱常用工具集扩展			
+			</description>
+		</item>
+		<!-- 关闭扩展
+		<item
+			name="views">
+			<param
+				name="module" required="true"
+				kind="string">
+				<description>
+					模块名称
+				</description>
+			</param>
+			<param
+				name="tables" required="true"
+				kind="string">
+				<description>
+					表名称
+				</description>
+			</param>
+			<param
+				name="description"
+				kind="string"
+				required="true">
+				<description>
+					表描述
+				</description>
+			</param>
+			<description>
+				表转视图的扩展			
+			</description>
+		</item>
+		-->
+		<description>
+			管理员工具箱常用工具集扩展
+		</description>
+	</extension-point>
+	<!-- 关闭扩展
+	<extension point="com.landray.kmss.sys.admin.commontools">
+		<item name="tools">
+			<param name="name" value="视图生成" />
+			<param name="path" value="/sys/admin/commontools/sqlview.do" />
+			<param name="description" value="表生成视图" />
+		</item>
+	</extension>
+	-->
+</plugin>

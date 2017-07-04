@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 业务活动管理移动化</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-13</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端待办事宜新UED调整</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-30</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 微信等移动端数据扩展接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 三级页面返回的字段信息中添加字段名称</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-27</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典messagekey与资源文件不匹配</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌浏览器下模块配置添加不了明细问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-09</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动登陆页面可切换桌面版</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 三级页面模块名称显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 功能区查看页面删除权限问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端任务反馈打开空白问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-19</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 对移动ui的支持</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 主页屏幕自适应问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 参数设置每页显示行数初始值改为10</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-19</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 安卓下访问微信ekp首页显示样式异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-18</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 把移动组件配置移到全局配置中</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-14</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批来源中增加“来自微信”标识</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-13</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动主页样式调整</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 登陆问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动web主页的展现</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-31</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端vsd和mpp类型附件图标</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-25</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 iphone和ipad推送可能失败问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-03</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 模块配置中，分类选择弹出框异常问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端关联机制静态网页类型配本系统链接给加锁了问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-09</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端功能区上下移动修改数据丢失问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化使用ipad/iphone/android 手机浏览器访问时可以打开PC端的界面，而不是强制进入移动web页</description>
+			<author>朱湖强</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 nginx等代理服务器访问问题</description>
+			<author>李衡</author>
+			<revision-time>2014-04-29</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件图标</description>
+			<author>魏本源</author>
+			<revision-time>2014-03-31</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端web访问时，模块大图标显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-02-24</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件图标</description>
+			<author>魏本源</author>
+			<revision-time>2014-01-17</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 待办消息推送的性能</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-10-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 新版工作沟通移动支持</description>
+			<author>朱湖强</author>
+			<revision-time>2013-09-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件支持审批过程中对表单字段进行编辑</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<relation>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>sys/workflow_lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件配置模块图片在数据库中存储绝对路径问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-04</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件支持功能区配置分类列表</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-03</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 Linux+weblogic+oracle环境下，在移动端无法读取附件内容</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 Linux+weblogic+oracle环境下，在移动端点评/推荐出现乱码</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-28</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件中获取数据字典为空的问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-27</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 合同管理模块移动端支持</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-26</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 iphone客户端访问,登录banner拆分成 logo和 banner背景2个图片，以适应不同屏幕大小</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件配置类型为APP，在不同终端都可见，设置功能失效的问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动组件中获取URL前缀改为从admin.do中取服务器DNS</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动组件配置中的模块配置</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-14</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件配置，三级页面文档页签内容设置与读取展现不一致问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 功能区配置，参数配置</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于SQL语句不规范导致在DB2中出错的问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 更新移动组件ekp数据包,展示待办事宜总数的红色数字标识</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 Android客户端消息推送参数配置</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 模块配置中切换图标后无反应没有替换成新改的图标</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 EKP-J整合Android客户端消息推送</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-26</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动组件缺省值配置</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 在移动端使用safari浏览器访问，点击流程新建报“您访问的页面无法找到 返回 上一次操作”</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-12</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文转图片html图片展示和扩展名展示</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-11</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 APP端新增模块按分类逐级展开和模块内关键字搜索（全文搜索）</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 权配置默认打开是按照姓名字母排序的,鼠标滑上去时，红色标识不消失</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-08</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动信息推送定时任务中增加消息接收时段多语言注释内容</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-04</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端在预览图片时, 横屏竖屏切换在时候, 会重复请求服务器加载图片</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-04</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动组件模块跨服务器路径</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-03</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件授权维护，可根据姓名和部门进行授权人员排序界面展示效果</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-03</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文中部署了启用阅读加速模式，可以实现将word正文转换成图片在PC中阅读，移动端可支持看公文图片</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-02</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动信息推送定时任务中增加消息接收时段逻辑判断</description>
+			<author>孟磊</author>
+			<revision-time>2013-07-01</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 在移动组件配置中增加配置项：消息接收时段 0800-2200</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动组件增加web配置功能js校验代码</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加 APP端新增 模块按分类逐级展开和模块内关键字搜索（全文搜索），（移动组件增加web配置功能）</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-26</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文中部署了启用阅读加速模式，可以实现将word正文转换成图片在PC中阅读，移动端可支持看公文图片</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-19</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件授权维护，可根据姓名和部门进行授权人员排序</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-17</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动组件模块跨服务器路径</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-14</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms模块pda初始化数据包</description>
+			<author>杨建宏</author>
+			<revision-time>2013-06-06</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 ekp集成模块的配置支持</description>
+			<author>李衡</author>
+			<revision-time>2013-05-28</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动客户端配置数据缓存问题</description>
+			<author>李衡</author>
+			<revision-time>2013-04-19</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表配置可根据pda.xml提供默认配置，列表支持外部链接配置</description>
+			<author>李衡</author>
+			<revision-time>2013-04-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 将移动端属性展现转移到属性库中，解除移动组件对属性库的依赖</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-02</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端任务管理和日程管理模块支持</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端对于在线用户数控制的支持</description>
+			<author>李衡</author>
+			<revision-time>2013-03-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 附件缩略图预览功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-19</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 子流程查看支持</description>
+			<author>李衡</author>
+			<revision-time>2013-03-08</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 文档查看页面可折叠、点评等操作增加返回信息</description>
+			<author>李衡</author>
+			<revision-time>2013-03-08</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 当配置为调用第三方应用时，“应用标识符 ”和“应用下载地址 ”不能为空</description>
+			<author>朱湖强</author>
+			<revision-time>2013-03-07</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 pda自定义属性显示</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-06</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 补全数据字典信息，用于数据初始化导出</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 功能区配置屏蔽没有实现扩展点的模块</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 功能区配置项，用于tabview展现</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-31</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>移除 部分全局拦截等；优化 扩展点与接口命名</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-29</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入安全的问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 tabview类型，搜索，筛选，图片、分类列表等kms相关接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免英文翻译中缩写单引号引起js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 群集时移动组件授权调整时权限不同步问题</description>
+			<author>张乐志</author>
+			<revision-time>2012-12-03</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 旧场所代码</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-11-21</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整了admin.do的显示位置</description>
+			<author>叶中奇</author>
+			<revision-time>2012-11-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 三级页面完整阅读布局由多标签展示改为一页中用区块平铺展示</description>
+			<author>张乐志</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件新建功能及扩展点调整</description>
+			<author>李衡</author>
+			<revision-time>2012-10-25</revision-time>
+			<relation>
+				<relation-module>km/meeting</relation-module>
+				<relation-module>sys/communicate</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 WAS+Oracle环境下，在手机端进行工作沟通回复出现乱码问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-10-25</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 SSO情况下，做注销操作时，其他SSO服务器无法注销的问题</description>
+			<author>李衡</author>
+			<revision-time>2012-09-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 第三方接口信息根据客户端的不同和具体的配置一一对应</description>
+			<author>李衡</author>
+			<revision-time>2012-09-18</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 授权控制的iphone访问授权配置及相应的功能</description>
+			<author>李衡</author>
+			<revision-time>2012-09-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 异步方法回调函数加参数，支持当沟通人数超过系统设置值时给出提示</description>
+			<author>朱湖强</author>
+			<revision-time>2012-09-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延时加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 调用第三方应用的配置和接口支持</description>
+			<author>李衡</author>
+			<revision-time>2012-08-15</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动终端登录后直接跳转至目标页面</description>
+			<author>李衡</author>
+			<revision-time>2012-07-20</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 文档阅读界面标签支持特殊显示内容的支持</description>
+			<author>李衡</author>
+			<revision-time>2012-07-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作沟通移动组件版</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-27</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 手机端无法显示出文档内容的问题</description>
+			<author>庄为亮</author>
+			<revision-time>2012-05-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动终端附件下载时,不使用附件权限的配置开关</description>
+			<author>李衡</author>
+			<revision-time>2012-05-15</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 多行文本框编辑时输入换行，显示的时候没换行的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-27</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>视图分页操作方式更改</description>
+			<author>李衡</author>
+			<revision-time>2012-03-13</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>支持点评、推荐、关联机制,地址本通讯录改造,界面调整</description>
+			<author>李衡</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+				<relation-module>sys/evaluation</relation-module>
+				<relation-module>sys/introduce</relation-module>
+				<relation-module>sys/organization</relation-module>
+				<relation-module>km/expert</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>支持待办过滤</description>
+			<author>李衡</author>
+			<revision-time>2012-02-17</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>信息推送证书更新</description>
+			<author>李衡</author>
+			<revision-time>2012-01-06</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改主页窗口选择没翻译的问题</description>
+			<author>庄为亮</author>
+			<revision-time>2011-11-08</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>ipad窗口配置界面修改</description>
+			<author>李衡</author>
+			<revision-time>2011-10-18</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>地址本在APP应用打开时,字体的调整,新增模块图标</description>
+			<author>李衡</author>
+			<revision-time>2011-10-17</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>对于客户端拦截,做到WAS和tomcat的兼容</description>
+			<author>李衡</author>
+			<revision-time>2011-09-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>移动组件配置界面修改</description>
+			<author>李衡</author>
+			<revision-time>2011-09-26</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加对于iPAD应用的消息推送支持</description>
+			<author>李衡</author>
+			<revision-time>2011-09-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>客户端中通讯录显示不了地址操作问题的处理</description>
+			<author>李衡</author>
+			<revision-time>2011-09-23</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加对ipad客户端接口支持,增加ipad主页及窗口配置,授权配置界面、admin.do说明、参数配置界面调整,</description>
+			<author>李衡</author>
+			<revision-time>2011-09-23</revision-time>
+			<relation>
+				<relation-module>sys/news</relation-module>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>手机客户端支持EKPJ和EKPD的改造</description>
+			<author>李衡</author>
+			<revision-time>2011-09-01</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>消息推送对于一人登录多个ekpj服务器情况的处理</description>
+			<author>李衡</author>
+			<revision-time>2011-08-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加iPhone待办信息推送功能</description>
+			<author>李衡</author>
+			<revision-time>2011-08-04</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>iphone App端的接口完善，支持通讯录的展现</description>
+			<author>李衡</author>
+			<revision-time>2011-07-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加集成情况下,产生的外系统数据是否加锁的配置</description>
+			<author>李衡</author>
+			<revision-time>2011-07-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加对于集群服务器下,专属移动服务器的访问控制</description>
+			<author>李衡</author>
+			<revision-time>2011-07-19</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>处理数据字典不完整导致的初始数据导入问题</description>
+			<author>李衡</author>
+			<revision-time>2011-07-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改数据字典选择列表附件属性没有根据canDisplay属性过滤的bug</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-23</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改上下调整“展示页面配置信息”部分顺序，提交后报错的bug</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-21</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改model中没有docSubject、docCreator、docCreateTime字段时，反射取属性值抛异常的bug</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-20</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>pda地址本代码移至组织架构模块</description>
+			<author>李衡</author>
+			<revision-time>2011-06-15</revision-time>
+			<relation>
+				<relation-module>sys/organization</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>更改PDA模块配置中,可以支持文档连接以及模块的配置</description>
+			<author>李衡</author>
+			<revision-time>2011-06-01</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改附件显示,当附件不存在是不显示对应信息</description>
+			<author>李衡</author>
+			<revision-time>2011-05-27</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加扩展操作支持,增加对displayproperty支持</description>
+			<author>李衡</author>
+			<revision-time>2011-05-27</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>事件冒泡的多浏览器支持</description>
+			<author>李衡</author>
+			<revision-time>2011-05-25</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>PDA第二版界面改造</description>
+			<author>李衡</author>
+			<revision-time>2011-05-24</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>附件显示独立,支持xform附件显示</description>
+			<author>李衡</author>
+			<revision-time>2011-05-17</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加PDA地址本的支持,以提供流程修改处理人</description>
+			<author>李衡</author>
+			<revision-time>2011-05-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加License限制,以控制PDA访问</description>
+			<author>李衡</author>
+			<revision-time>2011-05-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>手机支持特定域访问,或pda路径访问,以及记住当前标签</description>
+			<author>李衡</author>
+			<revision-time>2011-04-29</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>文档阅读模式，正文和附件配置改为可以选择多个内容和可以选多附件</description>
+			<author>庄为亮</author>
+			<revision-time>2011-04-09</revision-time>
+			<baseline>EKP9.0.0.B2.2011041101</baseline>
+		</modify>
+		<modify>
+			<description>pda模块配置功能开发完成</description>
+			<author>庄为亮</author>
+			<revision-time>2011-03-12</revision-time>
+			<baseline>EKP9.0.0.B2.2011041101</baseline>
+		</modify>
+	</modifies>
+</version>

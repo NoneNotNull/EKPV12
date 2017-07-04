@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralTeamPerson"
+		messageKey="kms-integral:table.kmsIntegralTeamPerson"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralTeamPersonService"
+		table="kms_integral_team_person"
+		url="/kms/integral/kms_integral_team_person/kmsIntegralTeamPerson.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<modelProperty
+			name="fdOrg"
+			messageKey="kms-integral:kmsIntegralTeamPerson.fdOrg"
+			type="com.landray.kmss.kms.integral.model.KmsIntegralTeam"
+			column="fd_organization"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdPerson"
+			messageKey="kms-integral:kmsIntegralTeamPerson.fdPerson"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_person"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

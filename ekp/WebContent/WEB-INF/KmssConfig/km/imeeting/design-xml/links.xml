@@ -1,0 +1,40 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<!-- 个人门户 -->
+	<links type="home-nav" >
+	   <link 
+	       id="km_imeeting_home_nav"
+	       url="/km/imeeting/km_imeeting_main/kmImeetingMain_person.jsp" 
+	       msgKey="km-imeeting:kmImeeting.tree.meetings.my"/>
+	</links>
+	
+	<!-- 个人空间 -->
+	<links type="zone-nav">
+		<link 
+			id="km_imeeting_zone_nav"
+			url="/km/imeeting/km_imeeting_main/kmImeetingMain_zone.jsp"
+			msgKey="km-imeeting:kmImeeting.tree.meetings.ta" />
+	</links>
+	
+	<!-- 快速新建 -->
+	<links type="shortcut" order="10">
+	    <link 
+	        id="km_imeeting_shortcut_add"
+	        url="/km/imeeting/km_imeeting_main/kmImeetingMain.do?method=add" 
+	        msgKey="km-imeeting:table.kmImeetingMain"
+	        icon="lui_icon_l_icon_36"/>
+	</links>
+	
+	<links type="shortcut" order="10">
+	    <link 
+	        id="km_imeeting_summary_shortcut_add"
+	        url="/km/imeeting/km_imeeting_summary/kmImeetingSummary.do?method=add" 
+	        msgKey="km-imeeting:kmImeetingSummary.opt.create"
+	        icon="lui_icon_l_icon_24"/>
+	</links>
+	
+</root>

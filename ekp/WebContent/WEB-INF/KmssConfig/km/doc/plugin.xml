@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<!-- 时钟管理扩展 -->	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.subprocess"
+		model="*">		
+		<item
+			name="subprocess">
+			<param
+				name="modelName"
+				value="com.landray.kmss.km.doc.model.KmDocKnowledge" />
+			<param
+				name="createParam"
+				value="fdTemplateId=!{cateid}" />
+		</item>
+	</extension>
+	
+	<!-- BAM2支持 -->
+	<extension 
+		point="com.landray.kmss.km.bam2.extend.work" 
+		model="*">
+		<item 
+			name="extendModel">
+			<param 
+				name="modelName" 
+				value="com.landray.kmss.km.doc.model.KmDocKnowledge" />
+			<param 
+				name="templateName" 
+				value="com.landray.kmss.km.doc.model.KmDocTemplate" />
+			<param 
+				name="bamName" 
+				value="{km-doc:kmDoc.relatedDoc}" />
+			<param 
+				name="subjectField" 
+				value="docSubject" />
+			<param 
+				name="cateBean" 
+				value="sysSimpleCategoryTreeService" />
+			<param 
+				name="docTypeDesc" 
+				value="{km-doc:table.kmdoc}"/>
+			<param 
+				name="viewURL"
+				value="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=view" />
+			<param 
+				name="editURL"
+				value="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=edit" />
+			<param 
+				name="addURL"
+				value="/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=add&amp;fdTemplateId=!{cateid}" />
+			<param 
+				name="listURL"
+				value="/km/doc/km_doc_knowledge/kmDocKnowledge_list_content.jsp" />
+			<!-- bam2与产品集成新增参数 begin -->
+			<param name="statusField" value="docStatus" />
+			<param name="statusEnumsType" value="common_status"/>
+			<param name="workFinishField" value="fdWorkStatus" />
+			<!-- bam2与产品集成新增参数 end -->
+		</item>
+	</extension>
+	
+	<!-- 功能区分类实现 扩展点 -->
+	<extension point="com.landray.kmss.third.pda.extend" model="*">
+		<item name="extend">
+			<param name="modelName"
+				value="com.landray.kmss.km.doc.model.KmDocKnowledge" />
+			<param name="templateClass"
+				value="com.landray.kmss.km.doc.model.KmDocTemplate" />
+			<param name="filterURL"
+				value="/third/pda/pda_property_filter/pdaPropertyFilter.do?method=getPropertyFilter&amp;templateClass=KmDocTemplate" />
+		</item>
+	</extension>
+	
+		<!-- 知识文档订阅管理 -->
+	<extension
+		point="com.landray.kmss.sys.follow.setting"
+		model="com.landray.kmss.km.doc.model.KmDocKnowledge">
+		<item name="followSetting">
+			<param name="methodName" value="add" />
+			<param name="templateModel"  value="com.landray.kmss.km.doc.model.KmDocTemplate" />
+			<param name="templateField"  value="kmDocTemplate.fdHierarchyId" />
+		</item>
+	</extension>
+	
+	<extension	point="com.landray.kmss.km.keydata"	model="*" >
+		<item
+			name="showKeydataUsed"			>
+			<param
+				name="name"
+				value="知识文档" />
+			<param
+				name="actionUrl"
+				value="/km/doc/km_doc_ui/kmDocKnowledge_showKeydataUsed.jsp?keydataId=${keydataId}" />
+			<param
+				name="formName"
+				value="kmDocKnowledgeForm" />
+			
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{km-doc:module.km.doc}" />
+			<param name="modelName" value="com.landray.kmss.km.doc.model.KmDocKnowledge" />
+		</item>
+	</extension>
+	
+</plugin>

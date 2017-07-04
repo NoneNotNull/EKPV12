@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateModuleCateFilter"
+		messageKey="kms-evaluate:table.kmsEvaluateModuleCateFilter"
+		displayProperty="fdModules"
+		serviceBean="kmsEvaluateModuleCateFilterService"
+		table="kms_evaluate_module_cate_filter"
+		url="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModules"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.fdModules"
+			type="String"
+			column="fd_modules"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docAddCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docAddCount"
+			type="Boolean"
+			column="doc_add_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docDeleteCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docDeleteCount"
+			type="Boolean"
+			column="doc_delete_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docUpdateCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docUpdateCount"
+			type="Boolean"
+			column="doc_update_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docReadCount"
+			type="Boolean"
+			column="doc_read_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docIntroduceCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docIntroduceCount"
+			type="Boolean"
+			column="doc_introduce_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docEvaluationCount"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.docEvaluationCount"
+			type="Boolean"
+			column="doc_evaluation_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.fdAlterTime"
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluateModuleCateFilter.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

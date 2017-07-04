@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<!-- 人才信息枚举类型定义 -->
+	<type name="expertInfo_expertType_innerOuter">
+		<value-label>
+			<value>true</value>
+			<label-key>table.kmsExpertInfo.personType.inner</label-key>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>table.kmsExpertInfo.personType.outer</label-key>
+		</value-label>
+	</type>
+	<!-- 人才搜索枚举类型定义（人才/员工）-->
+	<type name="kmsExpert_search_expertPerson">
+		<value-label>
+			<value>true</value>
+			<label-key>kmsExpert.search.expert</label-key>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>kmsExpert.search.person</label-key>
+		</value-label>
+	</type>
+	<!-- 性别 -->
+	<type name="kmsExpert_personInfo_sex">
+		<value-label>
+			<value>1</value>
+			<label-key>kmsExpert.expertInfo.person.sex.man</label-key>
+			<bundle>kms-expert</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>kmsExpert.expertInfo.person.sex.woman</label-key>
+			<bundle>kms-expert</bundle>
+		</value-label>
+	</type>
+</column-enums>

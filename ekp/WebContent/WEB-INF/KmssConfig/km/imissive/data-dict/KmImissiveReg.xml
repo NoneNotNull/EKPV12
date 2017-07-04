@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveReg"
+		messageKey="km-imissive:table.kmImissiveReg"
+		displayProperty="fdId"
+		serviceBean="kmImissiveRegService"
+		table="km_imissive_reg"
+		url="/km/imissive/km_imissive_reg/kmImissiveReg.do?method=view&amp;fdId=${fdId}"> 	
+	    <idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveReg.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fdLink"
+			messageKey="km-imissive:kmImissiveReg.fdLink"
+			type="String"
+			column="fd_link"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fdDeliverType"
+			messageKey="km-imissive:kmImissiveReg.fdDeliverType"
+			type="String"
+			column="fd_deliver_type"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="fdNo"
+			messageKey="km-imissive:kmImissiveReg.fdNo"
+			type="String"
+			column="fd_no"
+			notNull="false"
+			length="36"
+			validate="false" 
+			canSearch="true"/>
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveReg.docCreateTime"
+			type="Date"
+			column="doc_create_time"
+			notNull="false" />	
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveReg.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_create_id"
+			notNull="false"
+			canSearch="true"
+			where="sysOrgElement.fdOrgType=8"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);"
+			canRelation="true" />
+		<listProperty
+			name="fdDetailList"
+			messageKey="km-imissive:kmImissiveReg.fdDetailList"
+			type="com.landray.kmss.km.imissive.model.KmImissiveRegDetailList"
+			column="fd_reg_id"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

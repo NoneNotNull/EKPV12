@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.notify.model.SysNotifyRemindMain"
+		messageKey="sys-notify:table.sysNotifyRemindMain"
+		displayProperty="fdId"
+		serviceBean="sysNotifyRemindMainService"
+		table="sys_notify_remind_main"
+		url="/sys/notify/sys_notify_remind_main/sysNotifyRemindMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-notify:sysNotifyRemindMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			unique="false" 
+			length="36" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-notify:sysNotifyRemindMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			unique="false"
+			length="100"  />
+			
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-notify:sysNotifyRemindMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			unique="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-notify:sysNotifyRemindMain.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdBeforeTime"
+			messageKey="sys-notify:sysNotifyRemindMain.fdBeforeTime"
+			type="String"
+			column="fd_before_time"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeUnit"
+			messageKey="sys-notify:sysNotifyRemindMain.fdTimeUnit"
+			type="String"
+			column="fd_time_unit"
+			notNull="true"
+			length="10"
+			validate="true" />
+
+	</model>
+</models>

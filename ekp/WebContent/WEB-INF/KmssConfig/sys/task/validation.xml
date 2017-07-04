@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<form name="sysTaskMainForm">
+			<field
+				property="docSubject"
+				depends="required">
+				<arg
+					key="sysTaskMain.docSubject"
+					bundle="sys-task"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdPerformId"
+				depends="required">
+				<arg
+					key="table.sysTaskMainPerform"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field
+				property="fdAppointId"
+				depends="required">
+				<arg
+					key="sysTaskMain.fdAppoint"
+					bundle="sys-task"
+					position="0" />
+			</field> 
+			<field property="fdPlanCompleteDate" depends="required">
+			    <arg
+					key="sysTaskMain.fdPlanCompleteDate"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field property="fdPlanCompleteTime" depends="required">
+			    <arg
+					key="sysTaskMain.fdPlanCompleteTime"
+					bundle="sys-task"
+					position="0" />
+			</field> 				 
+        </form>
+        <form name="sysTaskFeedbackForm">
+			<field
+				property="fdCompleteDate"
+				depends="required">
+				<arg
+					key="sysTaskFeedback.fdCompleteDate"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field
+				property="fdCompleteTime"
+				depends="required">
+				<arg
+					key="sysTaskFeedback.fdCompleteTime"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field
+				property="fdProgress"
+				depends="required">
+				<arg
+					key="sysTaskFeedback.fdProgress"
+					bundle="sys-task"
+					position="0" />
+				<arg
+					key="sysTaskFeedback.fdProgress"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTaskEvaluateForm">
+			<field
+				property="docContent"
+				depends="required">
+				<arg
+					key="sysTaskEvaluate.docContent"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTaskOverruleForm">
+			<field
+				property="fdReason"
+				depends="required">
+				<arg
+					key="sysTaskOverrule.fdReason"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTaskCategoryForm">
+			<field
+				property="fdName"
+				depends="required">
+				<arg
+					key="sysTaskCategory.fdName"
+					bundle="sys-task"
+					position="0" />				 
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysTaskCategory.fdOrder"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTaskApproveForm">
+			<field
+				property="fdApprove"
+				depends="required">
+				<arg
+					key="sysTaskApprove.fdApprove"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field
+				property="fdOrder"
+				depends="integer">
+				<arg
+					key="sysTaskApprove.fdOrder"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTaskAnalyzeForm">
+			<field
+				property="docSubject"
+				depends="required">
+				<arg
+					key="sysTaskAnalyze.docSubject"
+					bundle="sys-task"
+					position="0" />
+			</field>
+			<field
+				property="fdBoundIds"
+				depends="required">
+				<arg
+					key="sysTaskAnalyze.analyzeObj.bound"
+					bundle="sys-task"
+					position="0" />
+			</field>
+		</form>
+	</formset>
+</form-validation>

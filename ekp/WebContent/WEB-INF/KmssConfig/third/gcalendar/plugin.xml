@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<!-- admin.do配置 -->
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/third/gcalendar/config.jsp" />
+			<param name="order" value="111"/>
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.km.calendar.cms">
+		<item
+			name="cms"
+			enable="${calendar.integrate.gcalendar.enabled}">
+			<param
+				name="key"
+				value="gcalendar" />
+			<param
+				name="name"
+				value="{third-gcalendar:module.gcalendar.name}" />
+			<param
+				name="cmsService"
+				value="gCalendarProvider" />
+			<param
+				name="OAuthService"
+				value="gCalendarProvider" />
+			<param
+				name="order"
+				value="60" />
+		</item>
+	</extension>
+	
+</plugin>

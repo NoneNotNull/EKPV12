@@ -1,0 +1,5 @@
+[
+	{icon:"./data/dish1.gif", href:"http://www.sz1979.com", fdId: "1392", label: "项目协作室开放了！"},
+	{icon:"./data/dish2.gif", href:"http://www.sina.com", fdId: "Cera S", label: "关于新系统使用的说明"},
+	{icon:"./data/dish3.gif", href:"http://www.baidu.com", fdId: "92-a7", label: "就是要\"作\",带来的问题。"}
+]

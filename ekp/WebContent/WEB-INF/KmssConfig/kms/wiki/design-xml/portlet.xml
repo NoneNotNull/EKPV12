@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!--维基最热，最新 简单列表 -->
+	<portlet
+		id="kms.wiki.new"
+		name="{kms-wiki:kmsWikiMain.portlet.knowledge.list}"
+		module="{kms-wiki:moudle.name.kmsWiki}"
+		description="{portlet.list.desc1}">
+		<source format="sys.ui.classic" type="AjaxJson">
+			<code>
+				<![CDATA[
+					{"url":"/kms/wiki/kms_wiki_portlet/kmsWikiPortlet.do?method=getWikiMain&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=col"}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+		    <var name="{kms-knowledge:kmsKnowledge.portlet.type}" 
+		         key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.newest}", "value":"docPublishTime"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.hot}", "value":"docReadCount"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.essential}","value":"docIsIntroduced"}],
+		    		"showType":"radio"
+		    	}
+		    </var>
+		    <var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',mulSelect : true,canClose: true,___urlParam: {'fdTemplateType': '2,3'}})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+					name="{operation.create}"
+					type="create"
+					href="javascript:
+					      (function(){seajs.use(['kms/wiki/kms_wiki_main_ui/js/create'], function(create) {
+							create.addDoc(\'!{cateid}\');
+						  });})();"
+					target="_self"
+			/>
+			
+			<operation
+					name="{operation.more}"
+					type="more"
+					href="/kms/wiki/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	<!-- 图文展现方式 -->
+	<portlet
+		id="kms.wiki.new.pic"
+		name="{kms-wiki:kmsWikiMain.portlet.knowledge.list}"
+		module="{kms-wiki:moudle.name.kmsWiki}"
+		description="{portlet.list.desc3}">
+		<source format="sys.ui.image" type="AjaxJson">
+			<code>
+			<![CDATA[
+				{"url":"/kms/wiki/kms_wiki_portlet/kmsWikiPortlet.do?method=getWikiMain&rowsize=!{rowsize}&type=!{type}&categoryId=!{cateid}&dataType=pic"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" default="6"/>
+			<var name="{kms-knowledge:kmsKnowledge.portlet.type}" 
+			     key="type" kind="enumValue" default="docPublishTime">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.newest}", "value":"docPublishTime"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.hot}", "value":"docReadCount"},
+		    			{"text":"{kms-knowledge:kmsKnowledge.portlet.essential}","value":"docIsIntroduced"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',mulSelect : true,canClose: true,___urlParam: {'fdTemplateType': '2,3'}})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+					name="{operation.create}"
+					type="create"
+					href="javascript:(function(){seajs.use(['kms/wiki/kms_wiki_main_ui/js/create'], function(create) {
+							create.addDoc(\'!{cateid}\');
+						  });})();"
+					target="_self"
+			/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/wiki/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+	
+	 <!--维基知识库积分排行 -->
+	<portlet
+		id="kms.communtycko.wiki"
+		name="{kms-wiki:kmsWikiMain.portlet.points.ranking}"
+		module="{kms-wiki:moudle.name.kmsWiki}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{	
+						"url":"/kms/communitycko/kms_communitycko_portlet/kmsCommunityckoPortlet.do?method=getScorePortlet&showStar=!{showStar}&personId=!{personId}&type=!{type}&moudule=com.landray.kmss.kms.wiki&rowsize=!{rowsize}",
+						"formatKey":"html"
+					}
+					
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var key="showStar" kind="enumValue" 
+			     name="{kms-communitycko:kmsCommunitycko.portlet.star.show}" default="yes">
+				{"values":[{"text":"{kms-knowledge:kmsKnowledge.portlet.show}", "value":"yes"}],
+				  "showType":"checkbox"}
+			</var>
+			<var key="personId" kind="dialogJs" name="{kms-communitycko:kmsCommunitycko.portlet.star.select}" >
+				{
+					"js":
+					"Dialog_Address(false,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON)"
+				}
+			</var>
+		    <var key="type" kind="enumValue" name="{kms-communitycko:kmsCommunitycko.portlet.rank.type}" default="month">
+				{
+				 "values":[{"text":"{kms-communitycko:kmsCommunitycko.month}", "value":"month"},
+				           {"text":"{kms-communitycko:kmsCommunitycko.total}", "value":"all"}],
+				 "showType":"checkbox"
+				 }
+			</var>
+			<var name="{kms-communitycko:kmsCommunitycko.portlet.rank.show.num}" 
+			     key="rowsize" kind="rowsize" default="6"/>
+		</vars>
+		<operations>
+		<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/communitycko/index.jsp"/>
+		</operations>
+	</portlet>
+	
+	<portlet
+		id="kms.wiki.preview"
+		name="{kms-wiki:kmsWikiMain.portlet.category.overview}"
+		module="{kms-wiki:moudle.name.kmsWiki}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+			<![CDATA[
+				{	
+					"url":"/kms/wiki/kms_wiki_portlet_ui/kms_wiki_portlet_preview.jsp?currid=!{currid}",
+					"formatKey":"html"
+				}
+
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var key="currid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '2,3'}})})"
+				}
+			</var>
+		</vars>
+	</portlet>
+	
+	<!-- 热门词条排行展现方式 -->
+	<portlet
+		id="kms.wiki.hot.rank"
+		name="{kms-wiki:kmsWikiMain.portlet.knowledge.list}"
+		module="{kms-wiki:moudle.name.kmsWiki}"
+		description="{kms-wiki:kmsWikiMain.portlet.rank.show}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{
+					"url":"/kms/wiki/kms_wiki_portlet_ui/kmsWikiPortlet_hotRank.jsp?rowsize=!{rowsize}&cateid=!{cateid}&type=docReadCount",
+					"formatKey":"html"
+					}
+				]]>
+			</code>
+		</source>
+		<vars>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="int" default="10"/>
+		    
+		     <var key="cateid" kind="dialogJs" name="{portlet.cate}" >
+				{
+					"js":
+					"seajs.use('lui/dialog',function(dialog){dialog.simpleCategory({modelName: 'com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory',mulSelect : true,authType: 2,idField: '!{idField}',nameField: '!{nameField}',canClose: true,___urlParam: {'fdTemplateType': '2,3'}})})"
+				}
+			</var>
+		</vars>
+		<operations>
+			<operation
+					name="{operation.create}"
+					type="create"
+					href="javascript:(function(){seajs.use(['kms/wiki/kms_wiki_main_ui/js/create'], function(create) {
+							create.addDoc(\'!{cateid}\');
+						  });})();"
+					target="_self"
+			/>
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/wiki/?categoryId=!{cateid}"/>
+		</operations>
+	</portlet>
+</root>

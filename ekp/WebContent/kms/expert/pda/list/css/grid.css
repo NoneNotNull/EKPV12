@@ -1,0 +1,134 @@
+.lui-expert-grid {
+	height: 100%;
+	position: relative;
+	float: left;
+	-webkit-transform: translate3d(0, 0, -20px) scale(0.75);
+	-moz-transform: translate3d(0, 0, -20px) scale(0.75);
+	transform: translate3d(0, 0, -20px) scale(0.75);
+	background-color: #fff;
+	-webkit-transition: -webkit-transform 500ms ease;
+	-moz-transition: -moz-transform 500ms ease;
+	transition: transform 500ms ease;
+	margin: 0 -15px;
+}
+
+.lui-expert-grid .lui-content {
+	position: absolute;
+	top: 160px;
+	left: 0;
+	width: 100%;
+	bottom: 56px;
+	overflow: hidden;
+}
+
+.lui-expert-grid.current {
+	-webkit-transform: translate3d(0, 0, 20px) scale(0.95);
+	-moz-transform: translate3d(0, 0, 20px) scale(0.95);
+	transform: translate3d(0, 0, 20px) scale(0.95);
+}
+
+.lui-expert-grid header {
+	background: url("./img_bg.png");
+	height: 160px;
+	width: 100%;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.lui-expert-grid header>ul:first-child {
+	top: 30px;
+	position: absolute;
+	width: 100%;
+	right: 0;
+	left: 0;
+}
+
+.lui-expert-grid header>ul .img {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+	height: 60px;
+}
+
+.lui-expert-grid header>ul .img img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+.lui-expert-grid header>ul .info span {
+	display: block;
+}
+
+.lui-expert-grid header>ul .info>a {
+	display: block;	
+}
+
+.lui-expert-grid header>ul .info {
+	position: absolute;
+	right: 0;
+	left: 80px;
+}
+
+.lui-expert-grid header>ul span {
+	color: #fff;
+}
+
+.lui-expert-grid header>ul .info .name {
+	font-size: 1.2em;
+}
+
+.lui-expert-grid .lui-expert-connect {
+	width: 7em;
+}
+
+.lui-expert-grid .lui-expert-connect li {
+	float: left;
+	padding: 2px 15px 0 0;
+}
+
+.lui-expert-grid .count {
+	position: absolute;
+	bottom: 5px;
+	height: 2em;
+	width: 100%;
+}
+
+.lui-expert-grid .count li {
+	text-align: center;
+}
+
+.lui-expert-info li {
+	padding: 5px 5px;
+	position: relative;
+}
+
+.lui-expert-info li>span:first-child {
+	color: #828282;
+	padding-right: 15px;
+}
+
+.lui-expert-info li>span:last-child {
+	position: absolute;
+	left: 70px;
+	right: 20px;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	top: 5px;
+}
+
+.lui-expert-grid-container {
+	height: 100%;
+	background-color: #e5f3fe;
+}
+
+.lui-expert-grid-container>div {
+	height: 100%;
+	position: relative;
+	width: 2000px;
+	-webkit-transition: -webkit-transform 500ms ease;
+	-moz-transition: -moz-transform 500ms ease;
+	transition: transform 500ms ease;
+}

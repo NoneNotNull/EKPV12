@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralServer"
+		messageKey="kms-integral:table.kmsIntegralServer"
+		displayProperty="fdName"
+		serviceBean="kmsIntegralServer"
+		table="kms_integral_server">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+	</model>
+</models>

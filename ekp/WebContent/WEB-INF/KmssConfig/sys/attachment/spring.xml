@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="dbAttMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.attachment.dao.hibernate.SysAttMainCoreInnerDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.attachment.model.SysAttMain" />
+	</bean>
+	
+	<bean
+		id="sysAttMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.attachment.service.spring.SysAttMainCoreInnerServiceImp">
+		<property name="baseDao">
+			<ref local="dbAttMainDao" />
+		</property>
+		<property name="sysAttUploadService">
+			<ref bean="sysAttUploadService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="sysAttMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysAttMainTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysAttachmentService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.attachment.service.spring.SysAttachmentCoreOuterService">
+			</bean>
+		</property>
+	</bean>
+	 
+	<bean
+		id="sysAttachmentValidator"
+		class="com.landray.kmss.sys.attachment.service.spring.SysAttachmentValidator">
+		<property name="sysAttMainService">
+			<ref local="sysAttMainService" />
+		</property>
+	</bean>
+	  
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>sysAttachmentService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>  
+				<value>docKeyWriteAttAdvice</value> 
+				<value>luceneSaveAttAdvisor</value>
+				<value>luceneDeleteAttAdvisor</value>
+			</list>
+		</property>
+	</bean>
+	  
+	<bean
+		id="attachmentDataInit"
+		class="com.landray.kmss.sys.attachment.service.spring.AttachmentDataInit">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysAttRtfService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.attachment.service.spring.SysAttRtfCoreServiceImp">
+			</bean>
+		</property>
+	</bean>
+</beans>

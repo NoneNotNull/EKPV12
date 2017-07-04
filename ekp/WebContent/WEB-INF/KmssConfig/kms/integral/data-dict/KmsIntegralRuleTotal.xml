@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralRuleTotal"
+		messageKey="kms-integral:table.kmsIntegralRuleTotal"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralRuleTotalService"
+		table="kms_integral_rule_total"
+		url="/kms/integral/kms_integral_rule_total/kmsIntegralRuleTotal.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-integral:kmsIntegralRuleTotal.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="totalScore"
+			messageKey="kms-integral:kmsIntegralRuleTotal.totalScore"
+			type="Long"
+			column="total_score"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="totalRiches"
+			messageKey="kms-integral:kmsIntegralRuleTotal.totalRiches"
+			type="Long"
+			column="total_riches"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="ruleId"
+			messageKey="kms-integral:kmsIntegralRuleTotal.ruleId"
+			type="String"
+			column="rule_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<modelProperty
+			name="user"
+			messageKey="kms-integral:kmsIntegralRuleTotal.user"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="user_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="module"
+			messageKey="kms-integral:kmsIntegralRuleTotal.module"
+			type="com.landray.kmss.common.model.KmsIntegralModule"
+			column="module_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

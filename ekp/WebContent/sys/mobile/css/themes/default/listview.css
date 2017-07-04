@@ -1,0 +1,44 @@
+﻿
+
+.listPullItem, .listPushItem {
+	font-size: 1.2rem;
+	color: #a4a4a4;
+	height: 3.5rem;
+	line-height: 3.0rem;
+	width:100%;
+	padding:8px 0;
+	text-align:center;
+}
+.listPullItem span, .listPushItem span {
+	margin: 0 auto;
+	padding-left: 2rem;
+	position: relative;
+	display: inline-block; 
+}
+
+.listPullItem {
+	position: absolute;
+	top: -51px;
+}
+
+@-webkit-keyframes 'list-pull-circle-to-up'{
+	from {-webkit-transform:rotate(0deg);}
+	to {-webkit-transform:rotate(180deg);}
+}
+
+.listPullItem .mui-top{ 
+	-webkit-animation:list-pull-circle-to-up 0.3s ease-out;
+}
+
+.listPullItem i, .listPushItem i {
+	font-size: 2rem;
+	position: absolute;
+	top: 0.3rem;
+	left: 0;
+}
+
+.mblEdgeToEdgeList{
+	border-top: none;
+	border-bottom: none;
+ }
+ 

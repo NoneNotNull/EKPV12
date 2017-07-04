@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean
+			name="uploadForm"
+			type="com.landray.kmss.common.forms.FileUploadForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 全局异常 -->
+	<global-exceptions>
+		<exception
+			key="global.exception"
+			type="java.lang.Exception"
+			handler="com.landray.kmss.common.exception.ExceptionHandler" />
+	</global-exceptions>
+	<!-- 全局转发 -->
+	<global-forwards>
+		<forward
+			name="success"
+			path="/resource/jsp/success.jsp" />
+		<forward
+			name="failure"
+			path="/resource/jsp/error.jsp" />
+		<forward
+			name="e500"
+			path="/resource/jsp/jsperror.jsp" />
+		<forward
+			name="e403"
+			path="/resource/jsp/e403.jsp" />
+		<forward
+			name="e404"
+			path="/resource/jsp/e404.jsp" />
+		<forward
+			name="e503"
+			path="/resource/jsp/e503.jsp" />
+		<forward
+			name="searchCondition"
+			path="/sys/search/search_condition.jsp" />
+		<forward
+			name="searchResult"
+			path="/sys/search/search_result.jsp" />
+		<forward
+			name="relationSearch"
+			path="/sys/relation/sys_relation_main/sysRelationMain_search.jsp" />
+		<forward
+			name="bklinkView"
+			path="/component/bklink/compBklink_view.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action
+			path="/resource/error"
+			type="com.landray.kmss.web.servlet.ErrorPageAction"
+			scope="request">
+		</action>
+		<action
+			path="/sys/common/upload"
+			name="uploadForm"
+			type="com.landray.kmss.common.actions.FileUploadAction"
+			scope="request">
+		</action>
+		<action
+			path="/sys/common/config"
+			type="com.landray.kmss.sys.config.action.SysConfigAction"
+			scope="request"
+			parameter="method">
+			<forward
+				name="initPage"
+				path="/sys/config/SystemInit.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<controller
+		nocache="true"
+		inputForward="true"
+		maxFileSize="10000M"
+		processorClass="com.landray.kmss.sys.config.loader.KmssStrutsRequestProcessor" />
+	<plug-in
+		className="com.landray.kmss.sys.config.loader.KmssValidatorPlugIn" />
+</struts-config>

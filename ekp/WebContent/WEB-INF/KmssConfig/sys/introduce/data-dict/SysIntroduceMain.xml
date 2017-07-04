@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.introduce.model.SysIntroduceMain"
+	messageKey="sys-introduce:table.sysIntroduceMain"
+	serviceBean="sysIntroduceMainService"
+	displayProperty="fdIntrodocName"
+	table="sys_introduce_main"
+	url="/sys/introduce/sys_introduce_main/sysIntroduceMain.do?method=view&amp;fdId=${fdId}&amp;type=edition"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdIntroduceTime"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroduceTime"
+	type="DateTime"
+	column="fd_introduce_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdIntroduceReason"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroduceReason"
+	type="String"
+	column="fd_introduce_reason"
+	notNull="false"
+	length="1500"
+/>
+<simpleProperty
+	name="fdIntroduceGrade"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroduceGrade"
+	type="Long"
+	column="fd_introduce_grade"
+	notNull="false"
+	length="1"
+/>
+<simpleProperty
+	name="docSubject"
+	messageKey="sys-introduce:sysIntroduceMain.docSubject"
+	type="String"
+	column="doc_Subject"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdIntroduceToEssence"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroduceToEssence"
+	type="Boolean"
+	column="fd_introduce_to_essence"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdIntroduceToPerson"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroduceToPerson"
+	type="Boolean"
+	column="fd_introduce_to_person"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdIsNewVersion"
+	messageKey="sys-introduce:sysIntroduceMain.fdIsNewVersion"
+	type="Boolean"
+	column="fd_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+			name="fdLinkUrl"
+			messageKey="sys-introduce:sysIntroduceMain.fdLinkUrl"
+			type="String"
+			column="fd_link_url"
+			notNull="false"
+			unique="false"
+			length="200" />
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-introduce:sysIntroduceMain.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-introduce:sysIntroduceMain.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-introduce:sysIntroduceMain.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+			name="docStatus"
+			messageKey="sys-introduce:sysIntroduceMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="false"
+			unique="false"
+			length="2"
+			canDisplay="true"
+			enumType="common_status"
+			readOnly="true" />
+<modelProperty
+	name="fdIntroducer"
+	messageKey="sys-introduce:sysIntroduceMain.fdIntroducer"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_introducer_id"
+	notNull="false"
+/>
+<listProperty
+	name="hbmIntroduceGoalList"
+	messageKey="sys-introduce:sysIntroduceMain.hbmIntroduceGoalList"
+	column="sys_introduce_id"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	elementColumn="sys_introduce_goal_id"
+	table="sys_introduce_goal"
+/>
+</model></models>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	 <!--个人积分排行 -->
+	<portlet
+		id="kms.integral.rank"
+		name="{kms-integral:kmsIntegral.portlet.points.ranking}"
+		module="{kms-integral:moudle.name.kmsIntegral}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{	
+						"url":"/kms/integral/kms_integral_portlet/kmsIntegralPortlet.do?method=getScorePortlet&deptId=!{deptId}&personId=!{personId}&rowsize=!{rowsize}&orderby=!{orderby}&ranktype=!{ranktype}&defaultType=!{type}&showProp=!{showProp}&showStar=!{showStar}",
+						"formatKey":"html"
+					}
+					
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var name="排行榜类型"  required="true"
+			     key="ranktype" kind="enumValue" default="fdWeek">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdWeek}", "value":"fdWeek"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdMonth}", "value":"fdMonth"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdYear}","value":"fdYear"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotal}","value":"fdTotal"}
+		    		],
+		    		"showType":"checkbox"
+		    		
+		    	}
+			</var>
+			<var name="默认显示" 
+			     key="type" kind="enumValue" default="fdWeek">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdWeek}", "value":"fdWeek"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdMonth}", "value":"fdMonth"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdYear}","value":"fdYear"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotal}","value":"fdTotal"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var key="deptId" kind="dialogJs" name="{kms-integral:kmsIntegral.portlet.dept}" >
+				{
+					"js":
+					"Dialog_Address(false,'!{idField}','!{nameField}',';',ORG_TYPE_DEPT)"
+				}
+			</var>
+			<var name="显示字段"  required="true"
+			     key="showProp" kind="enumValue" default="fdTotalScore">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalScore}", "value":"fdTotalScore"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalRiches}", "value":"fdTotalRiches"}
+		    		],
+		    		"showType":"checkbox"
+		    	}
+			</var>
+			<var name="{kms-integral:kmsIntegral.portlet.orderby}" 
+			     key="orderby" kind="enumValue" default="fdTotalScore">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalScore}", "value":"fdTotalScore"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalRiches}", "value":"fdTotalRiches"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var name="{kms-integral:kmsIntegral.portlet.rank.show.num}" 
+			     key="rowsize" kind="rowsize" default="6"/>
+			<var key="showStar" kind="enumValue" name="推荐之星" default="yes">
+				{"values":[{"text":"显示", "value":"yes"}],"showType":"checkbox"}
+			</var>	
+			<var key="personId" kind="dialogJs" name="选择推荐之星" >
+				{
+					"js":
+					"Dialog_Address(false,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+				}
+			</var>
+		</vars>
+		<operations>
+		<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/integral/index.jsp"/>
+		</operations>
+	</portlet>
+	
+	
+	 <!--团队积分排行 -->
+	<portlet
+		id="kms.integral.rank.team"
+		name="{kms-integral:kmsIntegral.portlet.team.ranking}"
+		module="{kms-integral:moudle.name.kmsIntegral}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{	
+						"url":"/kms/integral/kms_integral_portlet/kmsIntegralPortlet.do?method=getScorePortletTeam&type=!{type}&rowsize=!{rowsize}&orderby=!{orderby}&showProp=!{showProp}",
+						"formatKey":"html"
+					}
+					
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{kms-integral:kmsIntegralCommon.isTime}" 
+			     key="type" kind="enumValue" default="fdWeek">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdWeek}", "value":"fdWeek"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdMonth}", "value":"fdMonth"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdYear}","value":"fdYear"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotal}","value":"fdTotal"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var name="显示字段" 
+			     key="showProp" kind="enumValue" default="fdTotalScore">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalScore}", "value":"fdTotalScore"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalRiches}", "value":"fdTotalRiches"}
+		    		],
+		    		"showType":"checkbox"
+		    	}
+			</var>
+			<var name="{kms-integral:kmsIntegral.portlet.orderby}" 
+			     key="orderby" kind="enumValue" default="fdTotalScore">
+		    	{
+		    		"values":[
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalScore}", "value":"fdTotalScore"},
+		    			{"text":"{kms-integral:kmsIntegralCommon.fdTotalRiches}", "value":"fdTotalRiches"}
+		    		],
+		    		"showType":"radio"
+		    	}
+			</var>
+			<var name="{kms-integral:kmsIntegral.portlet.rank.show.num}" 
+			     key="rowsize" kind="rowsize" default="6"/>
+		</vars>
+		<operations>
+		<operation
+				name="{operation.more}"
+				type="more"
+				href="/kms/integral/index_team.jsp"/>
+		</operations>
+	</portlet>
+</root>

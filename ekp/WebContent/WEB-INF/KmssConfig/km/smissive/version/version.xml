@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 可见他人草稿问题处理</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-07</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 点击辅分类筛选器报错</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-26</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 书签中缓急和密级是数字的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2015-02-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 简版公文使用html打开（如果文件未转换，则使用金格打开）</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 两个节点都设置“文件编号”附件选项，后一个节点无法提交问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 文号生成采用流程附加选项</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 全系统分类信息收集部署</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-15</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 默认不选中“发布”筛选项</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 主送单位人员无法阅读公文问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-18</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 完善文档维护目录相关功能以便维护者在此进行文档维护</description>
+			<author>易荣烽</author>
+			<revision-time>2014-08-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 当前环节和当前处理人</description>
+			<author>谭又豪</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 若没有启用多浏览器插件且在非ie浏览器时屏蔽【切换阅读模式】按钮</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-18</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 门户上新建按钮类别权限问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-15</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文门户部件设置未实现多语言问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 非ie下控件高度问题</description>
+			<author>朱湖強</author>
+			<revision-time>2014-05-19</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复非ie下，金格控件隐藏问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-04-30</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 管理员工具箱导出设置页面多语言化</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 查看版本信息页面</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-09</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 参数设置页面修改</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 细化参数设置中图片加速功能的提示信息</description>
+			<author>朱湖强</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 公文列表页面增加“批量修改权限”“分类转移”“收藏功能“</description>
+			<author>朱湖强</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件移到正文的下方</description>
+			<author>朱湖强</author>
+			<revision-time>2013-08-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 传阅功能改为产品标准的传阅机制</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 类别编辑页面左边不对齐问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-04</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建公文进入编辑页面，页面左边不对齐问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 打印时审批记录无法显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-06-18</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 海马轿车简版公文模块sql运行慢问题</description>
+			<author>孟磊</author>
+			<revision-time>2013-06-14</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 分类中设置自定义编号规则时，拥有新建类别权限即可自定义编号规则</description>
+			<author>张乐志</author>
+			<revision-time>2013-06-06</revision-time>
+			<relation>
+				<relation-module>sys/number</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 增强通用编号规则权限校验控制。</description>
+			<author>张乐志</author>
+			<revision-time>2013-05-22</revision-time>
+			<relation>
+				<relation-module>sys/number</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 增加默认阅读者权限生效时间点（文档审批通过后生效或文档提交后生效）</description>
+			<author>魏本源</author>
+			<revision-time>2013-04-22</revision-time>
+			<relation>
+				<relation-module>sys/right</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 SQL注入修过时产生的Bug</description>
+			<author>李勇</author>
+			<revision-time>2013-02-26</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整权限控制</description>
+			<author>张乐志</author>
+			<revision-time>2013-02-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复‘解决SQL注入的安全问题’引发的查询错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-25</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 跨年时自动更新公文文号中年份并重置编号</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-24</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>李勇</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加通用编号规则模板设置权限</description>
+			<author>张乐志</author>
+			<revision-time>2013-01-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 使用c:import替换jsp:include引入场所属性页面</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 兼容性检测通知</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-12-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 按类别下类别可维护者不能批量删除文档的错误</description>
+			<author>杨建宏</author>
+			<revision-time>2012-12-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加了集团分级授权</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-10-29</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 启用金格控件，增加阅读加速模式</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-10-22</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加编号机制，并和现有模块中的编号兼容</description>
+			<author>张乐志</author>
+			<revision-time>2012-10-18</revision-time>
+			<relation>
+				<relation-module>sys/number</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一附件命名为“文档附件”</description>
+			<author>朱湖强</author>
+			<revision-time>2012-08-03</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 公文打印功能</description>
+			<author>朱湖强</author>
+			<revision-time>2012-07-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 数据字典“发文单位”为非空</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-15</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击portlet的新建按钮时，默认新建该分类的文档而不需要用户选择分类</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 类别权限增加“起草人不可修改附件权限”、“起草人不可修改可阅读者 ”选项</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-17</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持子流程配置</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置实现窗口配置时自动生成的URL由模块路径改为所选择模块或类别的精确路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-05</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>配置全文搜索</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-03-15</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>调整为只对“通用流程模板”节点进行权限控制</description>
+			<author>朱湖强</author>
+			<revision-time>2012-03-07</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正module重复定义，导致有些权限不生效问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-10</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>主页的new图标显示，修改为以发布时间为准 缺陷单：20120116003</description>
+			<author>庄为亮</author>
+			<revision-time>2012-02-01</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正公文模版中设置流程密级为"保密 "，公文发布后流程审批人、特权人和管理员都看不到流程标签问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-01-06</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改传阅样式，去掉传阅信息的折叠</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-12-23</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>改为：在门户窗口中，公文默认按发布时间排序</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-19</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改为：点击查看简版公文，默认先进入正文页面</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-16</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>简版公文文档查看权限及传阅权限处理</description>
+			<author>李衡</author>
+			<revision-time>2011-12-14</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改缺陷：修改发布的公文时，拟稿人信息变化</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-13</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修复正文因增加金格控件而丢失旧数据问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改全文检索配置，解决修改文档后搜索结果为还是旧的问题，更新后需重新检索</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正新建分类，选择了父分类，复制附件报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-11</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>去掉正文多余的打印下载按钮</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>正文增加金格控件支持</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-19</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>将公文正文和模板的主送单位和抄送单位变成多选字段</description>
+			<author>赵义洪</author>
+			<revision-time>2011-08-05</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改数据字典，用于pda页面展现</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>将公文左边树中的"按部门"修改为"按拟稿部门"，以免引起误解</description>
+			<author>赵义洪</author>
+			<revision-time>2011-06-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>公文审批流程中增加附加选项，审批人可编辑正文</description>
+			<author>赵义洪</author>
+			<revision-time>2011-06-16</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>加入到模块配置列表里面</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改定义模板时,如果没有进入正文页签就不保存附件的问题</description>
+			<author>李衡</author>
+			<revision-time>2011-04-18</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改可阅读者为空时只有作者和相关人员能阅读</description>
+			<author>周超</author>
+			<revision-time>2010-03-29</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

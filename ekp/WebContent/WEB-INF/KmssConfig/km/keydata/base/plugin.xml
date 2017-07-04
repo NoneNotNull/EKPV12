@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension-point
+		id="com.landray.kmss.km.keydata">
+		<item
+			name="outer">
+			<param
+				name="key"
+				kind="unid"
+				required="true">
+				<description>扩展对应的key值，如：cusledger</description>
+			</param>
+			<param
+				name="name"
+				required="true">
+				<description>扩展名称，如：台账客户数据同步</description>
+			</param>
+			<param
+				name="kdsProvider"
+				kind="spring"
+				basedOn="com.landray.kmss.km.keydata.synchro.interfaces.IKeydataSyncProvider"
+				required="true">
+				<description>主数据同步扩展实现，详见IKeydataSyncProvider接口说明</description>
+			</param>
+			<param
+				name="order"
+				default="50"
+				kind="int">
+				<description>
+					排序号，序号小的优先被调用。
+				</description>
+			</param>
+			<description>
+				提供给业务模块的扩展点，主要功能是返回主数据的相关信息。
+			</description>
+		</item>
+		
+		
+		<item name="inner">
+			<param
+				name="fdType"
+				kind="unid"
+				required="true">
+				<description>对应的主数据类型，需跟在hibername配置文件中discriminator-value的值一致，如：project</description>
+			</param>
+			<param
+				name="name"
+				kind="unid"
+				required="true">
+				<description>数据类型名称，如：项目</description>
+			</param>
+			<param
+				name="syncService"
+				kind="spring"
+				basedOn="com.landray.kmss.km.keydata.synchro.interfaces.IKeydataSyncHandleService"
+				required="false">
+				<description>主数据同步扩展实现，详见IKeydataSyncHandleService接口说明</description>
+			</param>
+			<param
+				name="extendProvider"
+				kind="spring"
+				basedOn="com.landray.kmss.km.keydata.base.interfaces.IKmKeydataExtendProvider"
+				required="true">
+				<description>详见IKmKeydataExtendProvider接口说明</description>
+			</param>
+			<description>
+				关键数据功能模块的扩展点
+			</description>
+		</item>
+		
+		
+		<item name="showKeydataUsed">
+			<param
+				name="name"
+				kind="unid"
+				required="true">
+				<description>模块名称</description>
+			</param>
+			<param
+				name="actionUrl"
+				kind="string"
+				required="true">
+				<description>展示使用了某条主数据的列表页面，传入参数（keydataId:主数据的id），例如：
+				"/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=showKeydataUsed&amp;keydataId=${keydataId}"
+				</description>
+			</param>
+			<param
+				name="formName"
+				kind="string"
+				required="true">
+				<description>主文档编辑页面RTF域所在表单的名称，例如：kmDocKnowledgeForm
+				</description>
+			</param>
+			<param
+				name="order"
+				default="50"
+				kind="int">
+				<description>
+					排序号，序号小的优先被调用。
+				</description>
+			</param>
+			<description>
+				显示主数据被哪些记录使用
+			</description>
+		</item>
+		
+		
+		<description>主数据扩展</description>
+	</extension-point>
+	
+	
+	
+	
+	
+</plugin>

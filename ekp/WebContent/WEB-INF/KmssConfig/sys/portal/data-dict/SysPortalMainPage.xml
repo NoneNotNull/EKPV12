@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalMainPage"
+		messageKey=""
+		displayProperty="fdName"
+		serviceBean="sysPortalMainPageService"
+		table="sys_portal_main_page">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey=""
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey=""
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdEnabled"
+			messageKey=""
+			type="Boolean"
+			column="fd_enabled"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdIcon"
+			messageKey=""
+			type="String"
+			column="fd_icon"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdTarget"
+			messageKey=""
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="36" />
+		<modelProperty
+			name="sysPortalMain"
+			messageKey=""
+			type="com.landray.kmss.sys.portal.model.SysPortalMain"
+			column="fd_portal_id"
+			notNull="true" />
+		<modelProperty
+			name="sysPortalPage"
+			messageKey=""
+			type="com.landray.kmss.sys.portal.model.SysPortalPage"
+			column="fd_page_id"
+			notNull="true" />
+	</model>
+</models>

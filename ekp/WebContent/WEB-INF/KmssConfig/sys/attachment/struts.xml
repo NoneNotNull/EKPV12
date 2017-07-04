@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAttMainForm"
+			type="com.landray.kmss.sys.attachment.forms.SysAttMainForm">
+		</form-bean>
+		<form-bean name="sysAttCatalogForm" type="com.landray.kmss.sys.filestore.forms.SysAttCatalogForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/attachment/sys_att_main/sysAttMain"
+			type="com.landray.kmss.sys.attachment.actions.SysAttMainAction"
+			name="sysAttMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/attachment/sys_att_main/sysAttMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/attachment/sys_att_main/sysAttMain_edit.jsp">
+			</forward>
+			<forward
+				name="upload"
+				path="/sys/attachment/sys_att_main/sysAttMain_upload.jsp">
+			</forward>
+			<forward
+				name="upload_success"
+				path="/sys/attachment/sys_att_main/upload_success.jsp">
+			</forward>
+			<forward
+				name="editonline"
+				path="/sys/attachment/sys_att_main/sysAttMain_editonline.jsp">
+			</forward>	
+			<forward
+				name="editonline_jg"
+				path="/sys/attachment/sys_att_main/jg/sysAttMain_editonline.jsp">
+			</forward>
+			<forward
+				name="viewonline"
+				path="/sys/attachment/sys_att_main/sysAttMain_viewonline.jsp">
+			</forward>
+			<forward
+				name="viewonline_jg"
+				path="/sys/attachment/sys_att_main/jg/sysAttMain_viewonline.jsp">
+			</forward>	
+			<forward
+				name="viewonline_pdf"
+				path="/sys/attachment/sys_att_main/pdf/sysAttMain_viewonline.jsp">
+			</forward>					
+			<forward
+				name="upload_result"
+				path="/sys/attachment/sys_att_main/sysAttMain_result.jsp">
+			</forward>						
+		</action>
+		  
+		<action
+			path="/sys/attachment/sys_att_catalog/sysAttCatalog"
+			type="com.landray.kmss.sys.attachment.actions.SysAttCatalogAction"
+			name="sysAttCatalogForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/attachment/sys_att_catalog/sysAttCatalog_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/attachment/sys_att_catalog/sysAttCatalog_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/attachment/sys_att_catalog/sysAttCatalog_list.jsp" />
+			<forward
+				name="confirm"
+				path="/sys/attachment/sys_att_catalog/sysAttCatalog_confirm.jsp" />
+		</action>
+		 
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		key="sys-attachment"
+		parameter="com.landray.kmss.sys.attachment.ApplicationResources" />
+</struts-config>

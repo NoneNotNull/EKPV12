@@ -1,0 +1,23 @@
+/*
+ * 压缩类型：无
+ */
+*{ margin:0; padding:0;}
+body, td{
+	font-size: 12px;
+	color: #333333;
+	font-family:"微软雅黑",Verdana,Arial,"宋体";
+}
+a,a:hover{ color:#333; text-decoration:none;}
+#optBarDiv{
+	display:none;
+}
+.tb_optbar{
+	position:absolute;
+	top:0px;
+	z-index:999
+}
+.lockicon{
+	position:absolute;
+	top:0px;
+	left:10px;
+}

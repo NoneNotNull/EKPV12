@@ -1,0 +1,4300 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*文档内容信息*/
+.muiDocFrame {
+	margin: 0.8rem 1rem 0rem;
+}
+.muiDocFrame .muiDocContent .muiFieldRtf{ padding-right: 0;}
+/*标题*/
+.muiDocSubject {
+	margin: 1.5rem 0 1rem;
+	color: #2e2e2e;
+	font-size: 2rem;
+	overflow: hidden;
+	line-height: 2.4rem;
+	word-break: break-all;
+	font-weight: bold;
+}
+.muiDocSubject .muiEssence{ position:relative; top:-0.3rem;}
+/*简要信息*/
+.muiDocInfo {
+	color: #777676;
+	font-size: 1.2rem;
+ 	line-height: 1.5rem;
+	height: 2.5rem;
+	border-bottom: 1px solid #E0DDDD;
+}
+
+/*文档摘要区域*/
+.muiDocSummary {
+	margin: 1rem 0;
+	padding:0.5rem;
+	color: #868686;
+	text-align: justify;
+	background-color: #f5f5f5;
+	line-height: 20px;
+	font-size: 1.4rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+/*文档摘要*/
+.muiDocSummarySign {
+	text-indent: 0rem;
+	padding: 0.1rem 0.4rem;
+	color: #fff;
+	background-color: #2a61be;
+	display: inline-block;
+}
+
+/*文档正文*/
+.muiDocContent {
+	text-align: justify;
+	color: #1b1b1b;
+	word-break: break-all;
+	overflow-x: hidden;
+}
+/*区域正文*/
+.muiFormContent{
+}
+.muiFormContent>div{
+	min-width: 100%;
+}
+.muiFormContent .muiSimple>tbody>tr>td{/* padding-right: 1rem;*/}
+.muiFormContent .muiSimple>tbody>tr>td .muiAccordionPanelContent .mblListItem.detailTableForward{ padding-right: 1rem;}
+/*暂定：按钮*/
+.muiButton {
+	height: 3rem;
+	line-height:3rem;
+	vertical-align:middle;
+	text-align:center;
+	border-radius:0.4rem;
+	color: #468AD8;
+	display: inline-block;
+	padding: 0rem 0.8rem;
+	font-weight:bold;
+	border: 1px #e9e9e9 solid;
+	white-space:nowrap;
+}
+.muiBgcolorD{background-color:#47b5e6 !important;}
+.muiBgcolorN{background-color:#E7E7E7 !important;}
+.muiBgcolorL{background-color:#FFFFFF !important;}
+
+.muidocLink {
+	
+}
+
+.muiNormal{
+	width: 95%;
+	border: 1px #e9e9e9 solid;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+.muiSimple{
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+.muiFieldRtf{
+	padding-right: 1rem;
+	font-size: 1.4rem;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+}
+.muiFieldRtf img{
+	max-width: 100%!important;
+}
+.muiFieldRtf p{ margin:2px 0; font-size: 1.4rem; }
+.muiTitle{
+	color: #C0C0C0;
+}
+.muiTrTitle{
+	color:#555e67;
+	background-color: #EAEAEA;
+}
+.muiNormal > tbody > tr > td ,.muiSimple > tr > td{
+	border: 1px #e9e9e9 solid;
+	height: 4rem;
+	padding: 0rem 0.8rem;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.muiSimple > tbody > tr > td ,.muiSimple > tr > td{
+	border: 0px;
+	padding: 12px 0px;
+	vertical-align: top;
+	font-size: 1.4rem;
+	border-spacing: 0;
+	border-collapse: collapse;
+	border-bottom: 1px solid #e2e2e2;
+}
+.muiNormal > tbody > tr > td.muiTitle, .muiSimple > tr > td.muiTitle{ min-width: 70px;}
+.muiNormal td,
+.muiSimple td{ font-size: 1.4rem;}
+.muiNormal td .muiAttachments,
+.muiSimple td .muiAttachments{ margin-right: 0;}
+.muiNormal td .muiAttachmentItem .muiAttachmentItemR,
+.muiSimple td .muiAttachmentItem .muiAttachmentItemR{ text-align:right;}
+
+.muiSimple > tbody > tr:last-child > td ,.muiSimple > tr:last-child > td{
+	border-bottom: none;
+	}
+.muiSimple > tbody > tr > td:nth-child(even) ,.muiSimple > tr > td:nth-child(even){
+	padding: 10px 1rem 12px 0px;
+}
+.muiSimple > tbody > tr > td:nth-child(even) .muiAttachmentItem .muiAttachmentItemL,
+.muiSimple > tr > td:nth-child(even) .muiAttachmentItem .muiAttachmentItemL{
+	padding-left: 0;
+}
+
+.muiSimple > tbody > tr > td:nth-child(even) p,
+.muiSimple > tr > td:nth-child(even) p{
+	margin: 2px 0;
+	font-size: 1.4rem;
+}
+.muiNormal > tbody > tr > td .muiAttachments,
+.muiSimple > tr > td .muiAttachments{
+	margin-right: 0;
+}
+.muiNormal > tbody > tr > td .muiAttachmentItem .muiAttachmentItemR,
+.muiSimple > tr > td .muiAttachmentItem .muiAttachmentItemR{ text-align: right;}
+
+
+
+.muiSimple > tbody > tr:last-child > td .muiAttachments{ /*margin-right: 1rem;*/}
+.muiSimple .muiTitle{
+	width: 26%;
+	word-break: break-all;
+	vertical-align: top;
+	color: #898989;
+	font-size: 1.4rem;
+}
+.muiSimple .muiField{ text-align: left!important; padding: 0px!important;}
+.muiSimple .muiField .muiFormDatetimeText{ font-size: 1.4rem}
+
+.muiAccordionPanel{ background-color: #f0eff5}
+
+.muiAccordionPanel>div{ background-color: #fff}
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.muiDocInfo {
+		color: #777676;
+		font-size: 1.3rem;
+		line-height: 1.5rem;
+		height: 2.5rem;
+		border-bottom: 1px solid #f0f0f0;
+	}
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiDocInfo {
+		color: #777676;
+	 	font-size: 1.3rem;
+		line-height: 1.5rem;
+		height: 2.5rem;
+		border-bottom: 1px solid #f0f0f0;
+	}
+}
+.muiFormInputArea {
+	text-align: right;
+}
+
+.muiFormInputArea .muiFormInputContent {
+	position: relative;
+	display: inline-block;
+}
+
+.muiField{
+	padding: 0.5rem 0rem;
+	min-width: 120px;
+	width:100%; 
+	display: inline-block;
+}
+	
+.muiFieldItem{
+	width:96%;
+	vertical-align: middle;
+	display: inline-table;
+}
+.muiFieldLabel{
+	min-width:6rem;
+	width:6rem;
+	color: #C0C0C0;
+	word-break: break-all;
+	word-wrap: break-word;
+	height: 2rem;
+	line-height: 2rem;
+}
+.muiFieldOpt{
+	position:relative;
+	width: 1.2rem;
+	color: #3298E0;
+	text-align: right;
+}
+.muiFieldOpt i.mui-insert {
+	width: 20px;
+	height: 20px;
+	line-height: 1.2;
+	text-align: center;
+	font-size: 1.9rem;
+	border: 1px solid #3298E0;
+	border-radius: 50%;
+	color: #3298E0;
+}
+.muiFieldOpt i.mui-address,
+.muiFieldOpt i.mui-backupList{
+	width: 20px;
+	height: 20px;
+	line-height: 1.2!important;
+	text-align: center;
+	font-size: 1.6rem!important;
+	border: 1px solid #3298E0;
+	border-radius: 50%;
+	color: #3298E0;
+}
+.muiFieldOpt i.mui-backupList{ line-height: 1.3!important;}
+.muiFieldOpt i.mui-calc{ font-size: 2.2rem;}
+.muiFieldOpt i.mui-uper{ font-size: 1.8rem;}
+
+.muiFieldItem > div{
+	display: table-cell;
+	word-break: break-all;
+	font-size: 1.4rem;
+	color: #000;
+}
+.muiFieldItem > div.muiFieldOpt{
+	color: #3298E0;
+}
+.muiFieldItem > div.muiFieldOpt .mblIconAreaInner{
+	color: #3298E0;
+}
+
+.muiFormInputContnet {
+	width: 9.5rem;
+	height: 2rem;
+}
+
+.muiFormSelect > .muiFieldItem > .muiFieldOpt span {
+	width: 0;
+	height: 0;
+	border-right: 0.5rem solid #b4b4b4;
+	border-bottom: 0.5rem solid #b4b4b4;
+	border-top: 0.5rem solid transparent;
+	border-left: 0.5rem solid transparent;
+	right: 1rem;
+	position: absolute;
+	bottom: 0.2rem;
+}
+
+.muiFormSelectContnet {
+	position: relative;
+	display: inline-block;
+	padding: 0 0.2rem;
+	width: 95%;
+	height: 100%;
+}
+
+.muiFormOptionsField{ display: block;}
+.muiFieldOptions{
+	position: relative;
+}
+.muiFieldOptions .muiFormRadio{
+	position: absolute;
+	top:1px;
+}
+.muiFieldOptions .muiFormCheckBox{
+	position: absolute;
+	top:11px;
+}
+.muiFieldOptions .muiFormCheckBox .muiFormCheckBoxOverlay{
+	font-size: 1.4rem;
+	line-height: 2rem;
+}
+
+.muiFieldOptions > .muiFieldText{
+	margin-left: 2.2rem;
+	padding: 12px 0 12px 0.2rem;
+	font-size: 1.4rem;
+	vertical-align: middle;
+	border-bottom: 1px solid #e2e2e2;
+}
+.muiFormOptionsField:first-child .muiFieldOptions > .muiFieldText{ padding-top: 2px;}
+.muiFormOptionsField:first-child .muiFieldOptions .muiFormCheckBox{ top:1px;}
+.muiFormOptionsField:first-child .muiFieldOptions .muiFormRadio{ top:-8px;}
+.muiFormOptionsField:last-child .muiFieldOptions > .muiFieldText{ border-bottom:0; padding-bottom: 5px;}
+.muiFieldRequired{
+	color: #d02300 !important;
+	display: inline-block;
+	font-size: 1.6rem;
+	width: 0.5rem;
+}
+/**编辑时后退，提示框**/
+.muiBackDialogElement{ 
+	height: 3rem;
+}
+.muiBackDialogElement > div{
+	margin: auto 0rem;
+	height: 3rem;
+	font-weight:bold;
+	line-height: 3rem;
+	vertical-align: middle;
+}
+.muiBackDialogShow .muiDialogElementContainer{
+	min-height: 10rem !important;
+}
+/***校验***/
+.muiValidate{
+	position: relative;
+	/*height: 1px;*/
+	border-top: 1px solid #FF3B30;
+}
+.muiValidateContent{
+	width: 95%;
+	position: absolute;
+	left:3%;
+	top:0.1px;
+	z-index: 1;
+	text-align: center;
+}
+
+.muiValidateShape{
+	position: absolute;
+	width: 0px;
+    height: 0px;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid rgba(67,67,67,0.8);
+    display:inline-block;
+    right: 50%;
+    margin-right: -0.5rem;
+}
+.muiValidateInfo{
+	border-radius:3px;
+	min-height: 2rem;
+	background-color: rgba(67,67,67,0.8);
+	padding: 0.3rem 0.8rem;
+	margin-top: 0.5rem;
+}
+.muiValidateIcon{
+	display: inline-block;
+}
+.muiValidateMsg{
+	display: inline-block;
+	color: #fff;
+	font-size: 1.2rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiValidateTitle{
+	color: #fff;
+	font-weight: normal;
+}
+.ateMsg{
+	display: inline-block;
+}
+
+
+.detailTableView{
+	display:none;
+	background-color: #f8f8f8;
+}
+.detailTableView >div{
+	min-width:100%;
+}
+.detailTableView .mblHeading{
+	background-color: #18b4ed;
+	color: #fff;
+	line-height: 30px;
+	height: 38px;
+}
+.detailTableView .mblHeading .mblToolBarButton{
+	margin: 0;
+}
+.detailTableView .mblHeading .mui-back{ color: #fff; font-size: 2.2rem;}
+.detailTableView .mblHeading .mblToolBarButtonLabel{ color: #fff; font-weight: 300; vertical-align:middle;}
+.detailTableView .mblHeadingSpanTitle{ display: none;}
+.detailTableView .mblHeadingDivTitle{
+	font-size: 1.8rem;
+	font-weight: bold;
+	line-height: 38px;
+	display: block;
+}
+.muiDetailTableNo{
+}
+.muiDetailTableDel{
+	float: right;
+}
+.muiDetailTableDel i{
+	margin:0 1rem;
+	font-size: 1.2rem;
+	width: 20px;
+	height: 20px;
+	line-height: 2rem;
+	text-align: center;
+	color: #ff614c;
+	border:1px solid #ff614c;
+	border-radius: 50%;
+}
+
+.detailTableNormal{
+	width:100%;
+	padding:0; 
+	margin:0rem auto;
+	border-collapse: collapse;
+	border: 0px;
+}
+.detailTableNormal .detailTableNormalTitle{
+	padding: 0.6rem 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6rem;
+	background-color: #e5e5e5;
+}
+.detailTableNormal .detailTableNormalTd{ padding: 10px 5px 0;}
+.detailTableNormal .detailTableNormalTd>td{
+	padding: 0 0.8rem;
+	padding-top: 10px!important;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal{
+	border-top: 2px solid #399be8;
+	background-color: #fff;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detailTableIndex{
+	width: 20px;
+	text-align: center;
+	font-size: 1.4rem;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detail_statistic{ min-width: 120px;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td.detailTableIndex span{
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 14px;
+	background-color: #18b4ed;
+	border-radius: 50%;
+	text-align: center;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiFormRadio{ background: none;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiFormRadio .muiFormRadioOverlay{
+	font-size: 2.4rem;
+	text-align: center;
+}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td .muiField{ width: 94%;}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td{
+	min-width: 32px;
+	height: 3rem;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:first-child > td{/* min-width: 120px;*/ white-space: nowrap;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td div.muiDetailTableDel{ text-align: center;}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr > td:first-child{
+	padding: 6px 2px;
+	text-align: center;
+}
+
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:first-child > td{
+	border:0;
+	text-align: center;
+}
+.detailTableNormal .detailTableNormalTd .muiNormal > tbody > tr:nth-child(odd) > td{
+	background-color: #f7f7f7;
+}
+
+.detailTableSimple{
+	width:100%;
+	padding:0; 
+	margin:0rem auto;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 0px;
+}
+.detailTableSimple .detailTableSimpleTitle{
+	padding: 0.6rem 0;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.6rem;
+	background-color: #e5e5e5;
+}
+.detailTableSimple .detailTableSimpleTd{ }
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td{
+	padding-left: 1rem;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td .muiSimple{
+	margin-bottom: 10px;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_wrap_td .muiSimple>tbody>tr>td:first-child{ padding-left: 5px;}
+
+.detailTableSimple .detailTableSimpleTd .detail_statistic{
+	text-align: left;
+	padding: 5px 0 5px 1rem;
+	font-size: 1.4rem;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fff;
+}
+.detailTableSimple .detailTableSimpleTd .detail_statistic label{
+	width: 21%!important;
+	line-height: 30px;
+	color: #898989;
+	display: inline-block!important;
+}
+
+.detailTableSimple .muiDetailTableNo span{
+	padding-left: 10px;
+	border-left: 5px solid #399be8;
+}
+.detailTableSimple .muiFieldItem{ background-color: #fff;}
+.detailTableSimple .detail_statistic .muiFieldOpt{ padding-right: 1rem;}
+
+.lbpmView .splitLine td select{
+	max-width:150px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+/***PC样式**/
+/** tb_normal 一般4列表格表单的样式 有边框线表格 **/
+.tb_normal{background-color: #ffffff;border-collapse: collapse;border: 1px #d2d2d2 solid;padding: 8px !important;text-align: left; margin: 0 auto;}
+.tb_normal>tbody>.tr_normal_title{ background-color:#f6f6f6; text-align:center;}
+.tb_normal>tbody>tr{border-bottom: 1px solid #d2d2d2;border-top: 1px solid #d2d2d2;}
+.tb_normal>tbody>tr>td {padding: 8px;word-break:break-all;border-left: 1px #d2d2d2 solid; border-right: 1px #d2d2d2 solid; }
+.tb_normal>tbody>tr>.td_normal_title{ background-color:#f6f6f6;}
+
+/** tb_simple 一般2列表格表单的样式  无表框线表格 **/
+.tb_simple{border-collapse: collapse;background-color: #FFFFFF;margin: 0 auto; }
+.tb_simple>tbody>.tr_normal_title{ text-align:center;}
+.tb_simple>tbody>tr>td {padding: 5px; word-break:break-all;}
+.tb_simple>tbody>tr>.td_normal_title{ text-align:right}       /*字段名称*/
+
+/** tb_noborder 取消表格和单元格的边线 **/
+.tb_noborder{background-color: #FFFFFF;margin: 0 auto;border-collapse: collapse;padding: 0px;border: 0px;}
+.tb_noborder>tbody>tr>td {padding: 0px;border: 0px;}
+
+.muiFormInputContnet .muiFormSelectValue {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2rem;
+	outline: 0;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2;
+}
+
+.muiFormSelectBox {
+	height: 100%;
+	text-align: left;
+	display: inline-block;
+	width: 100%;
+	line-height: 100%;
+}
+
+.muiFormInputContnet.muiSelectInputContnet {
+	padding: 0 0.2rem;
+	text-align: right;
+	height: 100%;
+}
+
+.muiFormSelectContnet.muiSelectInputContnet .muiFormSelectText {
+	display: inline-block;
+	font-size: 1.4rem;
+}
+
+.muiFormSelectContnet.muiSelectInputContnet.edit .muiFormSelectText{
+	width: 100%;
+}
+.muiFormSelectElement .muiField {
+	padding: 0;
+}
+.muiDialogSelect .muiDialogElementContent{
+		height: 16.8rem!important;
+}
+.muiFormSelectElement .muiFormOptionsField{
+		margin-bottom: 0;
+}
+.muiFormSelectElement .muiFormOptionsField:first-child .muiFieldOptions .muiFormCheckBox{ top:10px;}
+.muiFormSelectElement .muiFormOptionsField:first-child .muiFieldOptions > .muiFieldText{ padding-top: 1rem;}
+.muiFormSelectElement .muiFormOptionsField .muiFieldOptions > .muiFieldText{
+	padding: 1rem 0.2rem;
+	min-height: 2rem;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiFormSelectElement .muiFormOptionsField .muiFieldOptions .muiFormCheckBox{
+	top:10px;
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiDialogSelect .muiDialogElementContent{
+		height: 19rem!important;
+	}
+	.muiFormSelectElement .muiFormOptionsField{
+		margin-bottom: 0;
+	}
+	.muiFormSelectElement .muiFormOptionsField .muiFieldOptions > .muiFieldText{
+		padding: 1rem 0.2rem;
+		min-height: 2.5rem;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-box-pack: center;
+		word-wrap: break-word;
+		word-break: break-all;
+	}
+	.muiFormSelectElement .muiFormOptionsField .muiFieldOptions .muiFormCheckBox{
+		top:12px;
+	}
+
+}
+
+.muiFormSelectElement .muiFieldOptions {
+	display: block;
+	text-align: left;
+}
+
+.muiFormSelectElement .sgl .muiFieldOptions .muiFormCheckBox {
+	display: none;
+}
+
+.muiFormSelectElement .muiFieldOptions.muiFormCheckBoxChecked .muiFormCheckBox{
+	display: block;
+	border-radius: 50%;
+}
+
+.muiFormSelectElement .sgl .muiFieldOptions.muiFormCheckBoxChecked .muiFormCheckBox .muiFormCheckBoxOverlay{
+	color: #fff;
+}
+
+.muiFormSelectElement .muiFormCheckBox {
+	float: right;
+}
+
+.muiFormSelectElement .muiFieldOptions>span {
+	float: left;
+}
+
+.muiFormSelectElement .muiFieldOptions:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiSelectInputContnet.muiFormInputContnet {
+	width: auto;
+}
+
+.muiSelectInputContnet .muiFormSelectInput {
+	display: none;
+}
+
+.muiFormSelectElement .muiFormCheckBoxChecked.muiFieldOptions>span {
+	color: blue;
+}
+.muiFormCheckBox {
+	height: 1.6rem;
+	width: 1.6rem;
+	background: #fff;
+	position: relative;
+	vertical-align: middle;
+	line-height: 1.5rem;
+	display: inline-block;
+	border: #bfbfbf 1px solid;
+	border-radius: 3px;
+}
+
+.muiFormCheckBoxChecked .muiFormCheckBox {
+	background: #3fa9f5;
+	border-color: #3fa9f5;
+}
+.muiFormCheckBoxChecked .muiFormCheckBox .muiFormCheckBoxOverlay{ color: #fff;}
+.muiFormCheckBox .muiFormCheckBoxOverlay {
+	color: #fff;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	font-size: 1.5rem;
+	line-height: 100%;
+	display: inline-block;
+	font-size: 2.5rem;
+}
+.muiFieldItem.view .muiFormCheckBoxChecked .muiFormCheckBox,
+.muiFieldItem.readOnly .muiFormCheckBoxChecked .muiFormCheckBox{
+	background: #898989;
+	border-color: #898989;
+}
+
+.muiFormCheckBox input {
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}.muiFormRadio {
+	height: 1.5rem;
+	width: 1.5rem;
+	/*background: #fff;*/
+	position: relative;
+	vertical-align: middle;
+	line-height: 1.5rem;
+	display: inline-block;
+}
+
+.muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay{ color: #fa8733;}
+
+.muiFormRadio .muiFormRadioOverlay {
+	color: #d8d8d8;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 7px;
+	left: 0;
+	font-size: 2.4rem;
+	line-height: 100%;
+	display: inline-block;
+}
+.muiFieldItem.view .muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay,
+.muiFieldItem.readOnly .muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay{ color: #898989;}
+
+.muiFormRadio input {
+	margin: 3px 0 0 1px;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}
+.muiFormInput {
+	padding: 0;
+	border: none;
+	text-align: left;
+	width: 100%;
+	font-size: 1.4rem;
+}
+
+.muiFormTextarea {
+	border: none;
+	overflow-y: hidden;
+	padding: 0;
+	vertical-align: top;
+	width: 100%;
+	font-size: 1.4rem;
+}
+.muiEditor {
+	background-color: #fff;
+	-webkit-transition: all 0.5s ease-out;
+	padding: 0;
+	margin: 0;
+}
+
+.muiEditor .muiEditorTextContainer {
+	margin: 0.8rem 0 0 1rem;
+	min-height: 2rem;
+	color: #bbbfc1;
+	font-size: 1.4rem;
+	position: relative;
+	background:#fff;
+}
+
+.muiField .muiFieldRequired{
+	margin:0 0.5rem 0 0;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea {
+	width: 100%;
+	border: 0;
+	outline: none;
+	color: #000;
+	font-size: 1.4rem;
+	height: 15rem;
+	resize: none;
+	overflow: auto;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea:empty:after {
+	content: attr(placeholder);
+	color: #A9A9A9;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea:focus:after {
+	content: '';
+}
+
+.muiEditorPlugin {
+	padding: 0 1rem;
+	height: 4rem;
+	line-height: 4rem;
+	background-color: #fafafa;
+	border-bottom: 1px #e0e0e0 solid;
+	position: relative;
+}
+
+.muiEditorMask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+	overflow: hidden;
+	-webkit-transition: opacity 0.2s linear;
+	opacity: 0;
+	display: block;
+}
+
+.muiEditor.popup {
+	background: #fff;
+	-webkit-transform: translate3d(0px, 400%, 0px);
+	position: absolute;
+	z-index: 11;
+	width: 100%;
+	top: 0;
+}
+
+.muiEditorSubmit {
+	display: inline-block;
+	font-size: 1.4rem;
+	color: #fff;
+	height: 2.4rem;
+	line-height: 2.4rem;
+	padding: 0px 0.8rem;
+	background: #86bd63;
+	float: right;
+	vertical-align: middle;
+	margin-top: 0.7rem;
+	border-radius: 3px;
+	border: 1px solid #86bd63;
+}
+
+.muiEditorSubmit.muiEditorSubmitDisable {
+	color: #e0e0e0;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+}
+
+.muiEditorPlugin>a {
+	width: 3.5rem;
+	height: 4rem;
+	line-height: 4rem;
+	color: #989898;
+	margin-right:5px;
+	font-size:.2.5rem;
+	position: relative;
+}
+.muiEditorPlugin>a:last-child{ margin-right: 0;}
+.muiEditorFace {
+	background-color: #fff;
+	display: none;
+	height: 0;
+}
+
+.muiEditorFace {
+	text-align: center;
+	-webkit-transition: all 200ms linear;
+	overflow: hidden;
+}
+
+.muiEditorFaceItemImg {
+	padding: 0.5rem;
+}
+
+.muiEditorFaceItem {
+	border: 1px solid #e8e8e8;
+	display: inline-block;
+}
+
+.muiEditorPluginSelected {
+	color: #3F9DE5 !important;
+}
+
+.muiEditorTextarea img.muiEditorFaceImg {
+	height: 1.4rem;
+	width: 1.4rem;
+}
+
+.muiEditorImageInput {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.muiEditorImageItem, .muiEditorImageUpload {
+	margin: 1rem 1rem;
+	vertical-align: top;
+	position: relative;
+	width: 7.7rem;
+	height: 7.7rem;
+}
+
+.muiEditorImageContainer {
+	white-space: nowrap;
+}
+
+.muiEditorImageContainer>div {
+	display: inline-block;
+}
+
+.muiEditor .muiEditorImage {
+	-webkit-transition: all 200ms linear;
+}
+
+.muiEditorImageDefault {
+	height: 100%;
+	width: 100%;
+	background-color: #dbb74e;
+}
+
+.muiEditorImageDefault i {
+	width: 100%;
+	height: 100%;
+	line-height: 7.9rem;
+	color: #fff;
+	font-size: 7rem;
+}
+
+.muiEditorImageThumb {
+	background-color: #EEEEEE;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	line-height: 7.7rem;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+	overflow: hidden;
+}
+
+.muiEditorImageStatus {
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+	z-index: 3;
+	text-align: center;
+	background-color: #EEEEEE;
+	line-height: 6rem;
+}
+
+.muiEditorImageClose {
+	display: none;
+	position: absolute;
+	top: -0.5rem;
+	right: -0.6rem;
+	width: 2rem;
+	height: 2rem;
+	line-height: 1.7rem;
+	vertical-align: middle;
+	z-index: 2;
+	border-radius: 50%;
+	text-align: center;
+	background-color: #FC573B;
+}
+
+.muiEditorImageClose i {
+	line-height: 1.7rem;
+	font-size: 1rem;
+	color: #FFFFFF;
+}
+
+.muiEditorImageThumb img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.muiEditorImageUpload {
+	border-radius: 5px;
+	border: 1px dashed #e2e2e2;
+}
+
+.muiEditorImageUpload>div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.muiEditorImageUpload>div.muiEditorImageUploadTip{
+	text-align: center;	
+	display: inline-block;
+	color: #898989;
+	font-size: 1.3rem;
+	height: auto;
+	line-height: 2rem;
+}
+
+.muiEditorImageUpload i {
+	width: 100%;
+	height: 100%;
+	line-height: 7.9rem;
+	color: #b7b7b7;
+	font-size: 7rem;
+}
+.muiEditorImageUpload {
+	background: #fff;
+}
+.muiEditor .muiEditorSplitLine{
+	border: none;
+	height:0.1rem;
+	margin:0.3rem 0rem;
+	border-top: 0.1rem solid #e5e5e5;
+}.muiNavBarButton.mblTabBar {
+	height: auto;
+	padding: 0rem;
+	color: #2c79c7;
+}
+
+.muiNavBarButton.mblTabBarTabBar .mblTabBarButton {
+	height:auto;
+	padding: 0 10px;
+	overflow: visible;
+}
+
+.muiNavBarButton.mblTabBarTabBar .mblTabBarButtonIconArea {
+	padding: 9px 0 7px;
+	position: relative;
+	
+}
+
+.muiNavBarButton .mblBadge {
+	color: #fff;
+	background-color: #2c79c7;
+	padding: 0.4rem;
+	border-radius: 10rem;
+}
+
+.muiNavBarButton .mblBadge div {
+	font-size: 1.2rem;
+}
+
+/**弹出框**/
+.muiNavBarGroup {
+	background-color: #f4f4f4;
+	border-radius: 0.3rem;
+	padding:0.3rem 0.6rem;
+	border-color: #cecece;
+	transition-property:top,opacity;
+	transition-duration:0.5s;
+	transition-timing-function: ease-out;
+}
+
+.muiNavBarGroup.mblTooltipHidden{
+	top:0rem !important;
+	opacity:0;
+	z-index: -100;
+}
+
+.muiNavBarGroup.mblTooltipVisible{
+	opacity:1;
+	z-index: 100;
+}
+
+.muiNavBarGroup .mblTooltipInnerArrow {
+	border-top-color: #f4f4f4;
+}
+
+.muiNavBarGroup .mblTabBarButtonLabel {
+	font-size: 1.8rem;	color: #333;
+}
+
+.muiNavBarGroup .mblTabBarButtonIconArea {
+	position: absolute;
+	left: 0;
+	float: left;
+}
+.muiNavBarGroup .mblTabBarButtonIconArea i.mui{ line-height: inherit;}
+.muiNavBarGroup .mblTabBarButtonHasIcon .mblTabBarButtonLabel {
+	margin:0rem 0.3rem 0rem 2.8rem;
+}
+
+.muiNavBarGroup .mblTabBarButton {
+	color: #2c79c7 !important;
+ border-bottom:#e0e0e0 1px solid;	float: none;
+	padding: 0.2rem 0rem;
+ height:3.8rem; line-height:3.8rem; width:10rem;}
+
+.muiNavBarGroup .muiNavBarGroupContainer {
+	padding: 0 0.3rem;
+}
+.muiNavBarGroup .muiNavBarGroupContainer .muiField{ min-width: 0;}
+.mblTabBarTabBar {
+	height: auto;
+	background-color: #f4f4f4;
+    box-shadow:0 0 2px rgba(0,0,0,0.45);
+}
+
+.muiNavBarGroup .mblTooltipArrow{
+	border: 10px solid transparent;
+	border-bottom-width: 0;
+	border-top-color: #adaaad;
+}
+
+.muiNavBarGroupContainer>div:last-child{
+	border-bottom:0px;
+}
+
+/**======== 按钮 ========== */
+.muiTabBarGrid,
+.muiTabBarGrid.muiNavBarButton.mblTabBar {
+	padding: 0;
+}
+
+.muiTabBarGrid .mblTabBarButton {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	margin:3px 5px;
+	height: auto;
+}
+.muiTabBarGrid .mblTabBarButton.muiBtnSubmit,
+.muiTabBarGrid .mblTabBarButton.muiBtnNext,
+.muiTabBarGrid .mblTabBarButton.muiBtnDefault{
+	display: -webkit-box;
+	display: box;
+	-webkit-box-orient: horizontal;
+	box-orient: horizontal;
+	-webkit-box-pack: center;
+	box-pack: center;
+	-webkit-box-align:center;
+	box-align:center;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton {
+	padding: 6px 12px;
+}
+
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonLabel {
+	vertical-align: middle;
+	font-size: 1.6rem;
+	text-align: center;
+}
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonLabel i.mui{
+	margin-right: 2px;
+	line-height: 1;
+	font-size: 2rem;
+	position: relative;
+	top:-1px;
+}
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonLabel i.mui.mui-nextStep{ top:0;}
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonLabel i.mui.mui-cancel{ margin-right: 0;}
+
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonIconArea {
+	padding: 0;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton.mblTabBarButtonHasIcon {
+	padding:4px 12px;
+	background: none;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton.mblTabBarButtonHasIcon .mui-flowchart{
+	color: #3fa9f5;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton.muiBtnSubmit {
+	color: #fff;
+	background-color: #f0ad4e;
+	border-color: #eea236;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton.muiBtnDefault {
+	color: #454545;
+	background-color: #d7d7d7;
+	/*border-color: #adadad;*/
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButton.muiBtnNext {
+	color: #fff;
+	background-color: #77C3F5;
+	border-color: #A1C3DB;
+}
+
+/**提交前加小图标.mblTabBarButtonLabel .mui-right**/
+.muiTabBarGrid .mblTabBarButton .mblTabBarButtonLabel i.mui-right{
+	width:1.6rem;
+	height:1.6rem;
+	line-height:1.8rem;
+	margin:-0.2rem 0.6rem 0 0;
+	font-size:1.2rem;
+	border:1px #fff solid;
+	border-radius:50%;
+	text-align:center;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButtonHasIcon.mblTabBarButton.muiBtnNext{ border-color: transparent;}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButtonHasIcon.mblTabBarButton .mblTabBarButtonIconArea{
+	width:auto;
+	margin:0;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButtonHasIcon.mblTabBarButton .mblTabBarButtonIconArea i.mui{
+	font-size: 2rem;
+	line-height: 2.1rem;
+	position: relative;
+}
+.muiTabBarGrid.mblTabBarTabBar .mblTabBarButtonHasIcon.mblTabBarButton .mblTabBarButtonLabel{
+	margin-left: 2px;
+	width:auto;
+}.muiTop {
+	position: absolute;
+	background-color: rgba(0,0,0,0.35);
+	text-align: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	cursor: pointer;
+	display: none;
+	line-height: 4rem;
+}
+
+.muiTop > i { 
+	color: #fff;
+	vertical-align: middle;
+}
+.muiNavBarButton.mblTabBar .muiBookmarkTabButton.mui.mui-star-on{
+	color: #ffcc33;
+}
+
+@-webkit-keyframes bookmaskscale{
+	0.1%{-webkit-transform:scale(1);}
+    50%{-webkit-transform:scale(1.2);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.muiBookMaskScale{
+	-webkit-animation-name: bookmaskscale;
+	-webkit-animation-duration: 0.3s;
+	-webkit-animation-fill-mode: both;
+}
+/*附件区域*/
+.muiAttachments {
+ 	/*border-radius:5px;*/	
+ 	overflow: hidden; 
+ 	margin-bottom:10px;
+}
+/*正常模式下*/
+.muiAttachmentsnormal{
+	/*border: 1px solid #DBDBDB;*/
+}
+/*简单模式下*/
+.muiAttachmentssimple{
+	border: none;
+}
+/*附件项默认样式*/
+.muiAttachmentItem {
+	width: 100%;
+	clear: both;
+	min-height:5.6rem;
+ 	height:5.6rem;	
+	display: table;
+}
+/*标题项*/
+.muiAttTitle{
+	height: 3.5rem;  
+	min-height:3.5rem;
+	line-height: 3.5rem;
+	/*background-color: #f3f3f3 !important;*/
+	/*border-top: 1px solid #DBDBDB;*/
+	border-bottom: 1px solid #DBDBDB;
+}
+.muiAttTitle.muiAttachmentItem .muiAttachmentItemIcon{
+	height: 3.4rem;
+	width: 2rem;
+	background:none;
+}
+.muiAttTitle .muiAttachmentItemIcon i.mui{
+	color: #000 !important;
+	font-size: 1.6rem;
+	line-height: 3.6rem;
+}
+.muiAttTitle.muiAttachmentItem .muiAttachmentItemL{
+	padding: 0 0 0 0.4rem;
+	width: 2rem;
+}
+.muiAttTitle.muiAttachmentItem .muiAttachmentItemName{
+	font-size: 1.2rem;
+	margin-bottom: 0;
+}
+.muiAttTitle.muiAttachmentItem .muiAttachmentItemC{
+	padding: 0 0 0 0.2rem;
+}
+.muiAttTitle .muiAttachmentItemR{
+	display: none !important;
+}
+/*列表下附件项*/
+.muiAttachmentsnormal .muiAttachmentList .muiAttachmentItem{
+	border-bottom: 1px solid #DBDBDB;
+	background-color: #FFF;
+}
+.muiAttachmentsnormal .muiAttachmentList .muiAttachmentItem:last-child{
+	/*border:none;*/
+}
+/*列表下附件项简单模式*/
+.muiAttachmentssimple .muiAttachmentList .muiAttachmentItem{
+	border:none;
+	background-color: #FFF;
+}
+/*选中效果*/
+.muiAttachmentList .muiAttachmentItem.mblListItemSelected{
+	background-color: #E4E4E4 !important;	
+}
+
+/*附件项内部样式*/
+.muiAttachmentItem>div {
+	border-collapse: 0rem;
+	border-spacing: 0rem;
+	padding: 0.5rem 0;
+}
+.muiAttachmentItem .muiAttachmentItem:first-child .muiAttachmentItemName{
+	height: 3.5rem;
+	line-height: 3.5rem;
+	max-height: 3.5rem;
+}
+/*附件项名称*/
+.muiAttachmentItem .muiAttachmentItemName {
+	margin-bottom: 0.2rem;
+	width: 100%;
+	max-height: 3.2rem;
+	line-height:1.6rem;
+	vertical-align: middle;
+	color: #262626;
+	font-size: 1.4rem;
+	word-break: break-all;
+	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.muiAttachmentItem .muiAttachmentItemL {
+	display: table-cell;
+	padding-left: 0.8rem;
+	text-align: center;
+	width: 3rem;
+	line-height: 3rem;
+	vertical-align: middle;
+}
+.muiAttachmentItem .muiAttachmentItemR {
+	width:2.5rem;
+	padding-left: 0.8rem;
+	padding-right: 1rem;
+	text-align:right;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.muiAttachmentItem .muiAttachmentItemC {
+	display: table-cell;
+	max-width: 70%;
+	vertical-align:middle;
+	padding-left: 0.8rem;
+}
+/*附件大小*/
+.muiAttachmentItem .muiAttachmentItemSize {
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	display: block;
+	color: #a4a4a4;
+}
+/*附件打开图标*/
+.muiAttachmentItem .muiAttachmentItemExpand {
+	text-align: center;
+	color: #b1b1b1;
+}
+.muiAttachmentItem .muiAttachmentItemExpand.mui{
+	font-size: 2rem;
+}
+/*附件图标*/
+.muiAttachmentItem .muiAttachmentItemIcon {
+	height: 4.8rem;
+	width: 4.8rem;
+	overflow: hidden;
+}
+
+.muiAttachmentItem .muiAttachmentItemIcon img{
+	width: 100%;
+	min-height: 100%;
+}
+.muiAttachmentItem .muiAttachmentItemIcon i{
+	width: 100%;
+	height:100%;
+	line-height: 5rem;
+	color: #fff;
+}
+.muiAttachmentItem .muiAttachmentItemIcon .mui{ font-size: 4rem;}
+.mui-files .muiAttachmentItemIcon{
+	background-color: #7c88a1;
+}
+
+.mui-files-ppt .muiAttachmentItemIcon{
+	background-color: #e49446;
+}
+
+.mui-files-img .muiAttachmentItemIcon{
+	background-color: #dbb74e;
+}
+
+.mui-files-text .muiAttachmentItemIcon{
+	background-color: #4b7bc4;
+}
+
+.mui-files-excel .muiAttachmentItemIcon{
+	background-color: #61b045;
+}
+
+.mui-files-pdf .muiAttachmentItemIcon{
+	background-color: #e6546f;
+}
+
+.mui-files-word .muiAttachmentItemIcon{
+	background-color: #4178d3;
+}
+
+.mui-files-zip .muiAttachmentItemIcon{
+	background-color: #559bcc;
+}
+
+.mui-files-project .muiAttachmentItemIcon{
+	background-color: #33ba5f;
+}
+
+.mui-files-visio .muiAttachmentItemIcon{
+	background-color: #1d6ad6;
+}
+
+.mui-files-html .muiAttachmentItemIcon{
+	background-color: #7084bd;
+}
+
+/*附件编辑*/
+.muiAttachmentList{ zoom: 1;}
+.muiAttachmentList:after{ display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}
+.muiAttachmentEditItem{
+	display:block;
+	margin: 0.3rem 1rem;
+    padding:0.3rem 0;
+	vertical-align: top;
+	float: left;
+}
+.muiAttachmentEditItem .muiAttachmentItemT{
+	position:relative;
+	width: 7.7rem;
+	height: 7.7rem;
+	/*background-color:#EEEEEE;*/
+	border-radius:5px;
+}
+.muiAttachmentEditOptItem .muiAttachmentItemT{
+	border:1px dashed #e2e2e2;
+}
+.muiAttachmentItemT .muiFieldRequired{
+	position: absolute;
+	top: 0rem;
+	right: 0.4rem;
+}
+.muiAttachmentEditItem .muiAttachmentItemStatus{
+	position:absolute;
+	top:0rem;
+	left:0rem;
+	width:100%;
+	height: 100%;
+	opacity: 0.9;
+	z-index: 3;
+	text-align:center;
+	border-radius:5px;
+	background-color: #EEEEEE;
+	line-height: 7rem;
+}
+.muiAttachmentEditItem .muiAttachmentItemStatus>.mui{ line-height: inherit;}
+.muiAttachmentEditItem .muiAttachmentItemIcon{
+	width: 100%;
+	height:100%;
+    text-align:center;
+    border-radius:5px;
+	overflow: hidden;
+}
+.muiAttachmentEditItem .muiAttachmentItemIcon img{
+	width: 100%;
+	min-height: 100%;
+}
+.muiAttachmentEditItem .muiAttachmentItemIcon i{
+	width: 100%;
+	height:100%;
+	line-height:8.1rem;
+	color:#fff;
+	font-size:7rem;
+}
+.muiAttachmentEditItem .muiAttachmentItemIcon i.mui-plus{ color: #b7b7b7;}
+.muiAttachmentEditItem .muiAttachmentUploadFile{
+	position:absolute;
+	top:0rem;
+	left:0rem;
+	width:100%;
+	height: 100%;
+	cursor: pointer;
+	filter:alpha(opacity:0);
+	opacity: 0;
+	z-index: 5;
+}
+
+.muiAttachmentEditItem .muiAttachmentItemB{
+	width: 7.7rem;
+	overflow: hidden;
+}
+
+.muiAttachmentEditOptItem .muiAttachmentItemB{
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	color: #898989;
+	font-size: 1.3rem;
+	height: auto;
+	line-height: 2rem;
+	overflow: hidden;
+}
+
+.muiAttachmentEditItem .muiAttachmentItemName {
+	width: 100%;
+	color: #262626;
+	font-size: 1.2rem;
+	line-height:1.4rem;
+	white-space:nowrap;
+	overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;
+}
+.muiAttachmentEditItem .muiAttachmentItemSize {
+	text-align: center;
+	line-height: 1.2rem;
+	font-size: 1rem;
+	display: block;
+	color: #a4a4a4;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.muiAttachmentEditItem .muiAttachmentItemDel{
+	position:absolute;
+	top:-0.5rem;
+	right:-0.6rem;
+	width:2rem;
+	height:2rem;
+	line-height:1.7rem;
+	vertical-align:middle;
+	z-index: 2;
+	border-radius:50%;
+	text-align:center;
+	background-color:#FC573B;
+}
+.muiAttachmentEditItem .muiAttachmentItemDel i{
+	line-height:1.7rem;
+	font-size:1rem;
+	color:#FFFFFF;
+}
+/*附件上传选择*/
+.muiAttachmentUploadArea{
+	position: absolute;
+	top:0rem;
+	width:100%;
+	height: 100%;
+	z-index: 100;
+	text-align: center;
+}
+.muiAttachmentUploadbak{
+	position: absolute;
+	width:100%;
+	height: 100%;
+	background-color:#999999;
+	opacity: 0.7;
+	z-index: 101;
+}
+.muiAttachmentUploadOpt{
+	position: absolute;
+	z-index: 102;
+	width:100%;
+	bottom: 0.5rem;
+}
+
+.muiAttachmentUploadSelect,.muiAttachmentUploadCancel{
+	background-color:#F7F7F7;
+	opacity: 1 important;
+	text-align: center;
+	color:#017BFF;
+	width:100%;
+	width:95%;
+	margin:0.8rem auto;
+	font-weight: bold;
+	font-size:1.6rem;
+	border-radius:0.6rem;;
+}
+
+.muiAttachmentUploadSelect > div, .muiAttachmentUploadCancel{
+	height: 4rem;
+	line-height: 4rem;
+	vertical-align: middle;
+}
+.muiAttachmentUploadSelect > div:first-child {
+	border-bottom: 1px solid #DBDBDB;
+}
+.muiDialogTip {
+	top:-1000rem;
+	position: absolute;
+	z-index: 99999;
+	opacity: 0;
+	min-height:10rem;
+	min-width:10rem;
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.65);
+	text-align: center;
+	-webkit-transition: all 0.2s linear;
+}
+
+.muiDialogTip>div {
+	margin: 1rem 0 0 0;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.muiDialogTip .muiDialogTipIcon {
+	width: 4rem;
+	height: 4rem;
+	line-height: 4rem;
+	color:#f0ad4e;
+	/*border:1px solid #f0ad4e;*/
+	border-radius:50%;
+	margin: 0 auto;
+}
+
+.muiDialogTip .muiDialogTipIcon div {
+	vertical-align: middle;
+	font-size: 3.5rem;
+	line-height: inherit;
+}
+.muiDialogTip .muiDialogTipIcon .mui-success{
+	position:relative;
+	left:2px;
+	top:-1px;
+}
+.muiDialogTip .muiDialogTipText {
+	margin:1rem 0.8rem 0.5rem; 
+}
+
+.muiDialogTip .muiDialogTipText span {
+	color: #fff;
+	font-size: 1.6rem;
+	line-height: 1.8rem;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+@-webkit-keyframes dialogSmokeUp{
+	0.1%{-webkit-transform:scale(1) translate3d(0px, 0px, 0px) rotate(0deg);opacity:1;}
+	25%{-webkit-transform:scale(1.25) translate3d(0px, -1.5rem, 0px) rotate(-30deg);opacity:0.75;}
+	50%{-webkit-transform:scale(1.5) translate3d(0px, -3rem, 0px) rotate(-0deg);opacity:0.5;}
+	75%{-webkit-transform:scale(1.75) translate3d(0px, -4.5rem, 0px) rotate(30deg);opacity:0.25;}
+    100%{-webkit-transform:scale(2) translate3d(0px, -6rem, 0px) rotate(0deg);opacity:0;}
+} 
+
+@-webkit-keyframes dialogSmokeDown{
+    0.1%{-webkit-transform:scale(2) translate3d(0px, -6rem, 0px) rotate(0deg);opacity:0;}
+    25%{-webkit-transform:scale(1.75) translate3d(0px, -4.5rem, 0px) rotate(30deg);opacity:0.25;}
+    50%{-webkit-transform:scale(1.5) translate3d(0px, -3rem, 0px) rotate(0);opacity:0.5;}
+    75%{-webkit-transform:scale(1.25) translate3d(0px, -1.5rem, 0px) rotate(-30deg);opacity:0.75;}
+    100%{-webkit-transform:scale(1) translate3d(0px, 0px, 0px) rotate(0deg);opacity:1;}
+} 
+
+.muiDialogSmokeDown{
+	color: #ffcc33;
+	z-index: 10;
+	-webkit-animation-name: dialogSmokeDown;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-timing-function: linear ;/*动画播放频率*/
+	-webkit-animation-fill-mode: both;
+}
+
+.muiDialogSmokeUp{
+	color: #ffcc33;
+	z-index: 10;
+	-webkit-animation-name: dialogSmokeUp;
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-timing-function: linear ;/*动画播放频率*/
+	-webkit-animation-fill-mode: both;
+}
+
+.muiDialogElement{
+	position: absolute;
+	top: 0rem;
+	width: 100%;
+	height: 100%;
+	z-index: 99999;
+	background-color: rgba(0, 0, 0, 0.6);
+	-webkit-transform: scale(0, 0);
+	-webkit-transition: -webkit-transform 0.5s ease-out;
+}
+
+.muiDialogElement{
+	-webkit-transform: scale(1, 1);
+}
+
+.muiDialogElement .muiDialogElementContainer {
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width:90%;
+	margin-left: -45%;
+	margin-top: -40%;
+	-webkit-appearance: none;
+	-webkit-border-radius: 5px;	
+	border-radius: 5px;
+	overflow: hidden;
+	min-width: 20rem;
+	min-height: 20rem;
+}
+
+.muiDialogElement .muiDialogElementDiv{
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom: 1px solid #bdbdbd;
+	background-color: #f1f1f1;
+	position: relative;
+	height: 3.5rem;
+}
+
+.muiDialogElement .muiDialogElementTitle{
+	padding: 0 1rem;
+	color: #373737;
+	font-size: 1.4rem;
+	line-height: 3.5rem;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: absolute;
+	left: 1rem;
+	right: 5rem;
+}
+
+.muiDialogElement .muiDialogElementContent{
+	padding:0 0.5rem;
+	text-align: center;
+	margin:auto 0.5rem;
+}
+
+.muiDialogElement .muiDialogElementButtons{
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-top: 1px solid #bdbdbd;
+	background-color: #f2f2f2;
+	text-align: center;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	vertical-align: middle;
+	width: 100%;
+	display: table;
+}
+
+.muiDialogElement .muiDialogElementButtons .muiDialogElementButton{
+	color: #2c2c2c;
+	text-align: center;
+	line-height: 3.5rem;
+	vertical-align: middle;
+	font-size: 1.4rem;
+	border-right: 1px solid #bdbdbd;
+	padding: 0 2rem;
+	display: table-cell;
+}
+.muiDialogElement .muiDialogElementButtons .muiDialogElementButton:last-child{
+	color: #007aff;
+	border-right: 0;
+}
+
+
+.muiDialogElementClose{
+	position: absolute;
+	right: 1rem;
+	top: 50%;
+	margin-top: -10px;
+	font-size: 1.8rem;
+	font-weight: bold;
+	color: #8f8f8f;
+}
+
+.muiDialogBarTip {
+	position: fixed;
+	top: 0;
+	background-color: RGBA(240, 173, 79, 0.95);
+	width: 100%;
+	line-height: 1.8rem;
+	font-size: 1.6rem;
+	color: #fff;
+	text-align: center;
+	z-index: 900;
+}
+.muiDialogBarTip .containerNode {
+	padding: 5px 2rem 5px 1rem;
+	min-height: 22px;
+	position: relative;
+}
+.muiDialogBarTip .closeNode {
+	display: inline-block;
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top:4px;
+	right: 0.3rem;
+}
+.muiDialogBarTip .closeNode .mui {
+	color: #fff;
+	font-size: 1rem;
+	line-height: 2rem;
+	width: 2rem;
+}
+.muiDialogBarTip .iconNode {
+	display: none;
+	width: 2rem;
+	height: 2rem;
+	color: #fff;
+	position: absolute;
+	left: 0.3rem;
+	top:0.4rem;
+}
+.muiDialogBarTip span {
+	text-align: left;
+	display: block;
+	font-size: 1.4rem;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.muiButtonAfter{
+	position: absolute;
+	top:0rem;
+	width:100%;
+	height: 100%;
+	z-index: 100;
+	background-color:#999999;
+	opacity: 0.6;
+	text-align: center;
+	display:table;
+}
+.muiButtonAfter >span {
+	display:table-cell;
+	vertical-align:middle;
+}
+.muiButtonAfter >span i{
+	font-size: 4rem;
+}
+
+.muiBackDialogShow .muiBackDialogElement{ height: auto;} 
+.muiBackDialogShow .muiBackDialogElement > div{
+	height: 8rem;
+	line-height: 8rem;
+}
+
+.muiConfirmDialogElement {
+	min-height: 8rem;
+	text-align: center;
+	width: 100%;
+	display:table;
+}
+.muiConfirmDialogElement>div {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.muiConfirmDialogShow .muiConfirmDialogElement>div{
+	line-height: 8rem;
+}
+
+.muiConfirmDialogShow .muiDialogElementContainer {
+	min-height: 10rem !important;
+	margin-top: -25%;
+}
+
+.muiDialogOperationTip {
+	overflow: hidden;
+	position: absolute;
+}
+
+.muiDialogOperationButton.mui-checked mui {
+	line-height: 2.5rem;
+	font-size: 2.5rem;
+}
+
+.muiDialogOperationButton {
+	display: inline-block;
+	height: 2.9rem;
+	line-height: 2.9rem;
+	margin: 0 0.5rem;
+	color: #dfe1e6;
+	background: #444c63;
+	text-align: center;
+	/*text-shadow:1px 1px 1px rgba(0,0,0,0.75);*/
+	font-size: 1.4rem;
+	padding: 0rem 1.5rem;
+	border-radius: 3px;
+}
+
+.muiDialogOperationButton .mui {
+	font-size: 2.2rem;
+}
+
+.muiDialogOperationContainer {
+	-webkit-transform :translate3d(100%,0,0px);
+	-webkit-transition:-webkit-transform 0.2s linear;
+	padding: 0.5rem 0.3rem;
+	background: #282e44;
+	border-radius: 3px;
+	border: 1px solid #111830;
+	height: 2.9rem;
+}
+.muiListPicslideContainer{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.muiListPicslidePaging{
+	position:absolute;
+	padding:0 0.8rem;
+    height:2.5rem;
+    line-height:2.5rem;
+    text-align:center;
+    color:#fff;
+    font-size:1.6rem;
+    background-color:rgba(208,122,38,0.65);
+    left:0;
+    bottom:4.5rem;
+    z-index: 1;
+}
+.muiListPicslideCur{
+	 font-size:2rem;
+}
+.muiListPicslideTitle{
+	padding:0rem 0.8rem;
+    width:60%;
+    height:3rem;
+    line-height:3rem;
+    text-align:left;
+    color:#fff;
+    font-size:1.8rem;
+    background-color:rgba(119,143,155,0.55);
+    position:absolute;
+    left:0;
+    bottom:0.8rem;
+    z-index: 1;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.muiListPicslideItem{
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	vertical-align: middle;
+}
+.muiListPicItemImg{
+	margin:auto;
+	vertical-align: middle;
+}
+
+.muiRtfPicSlider{
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	background-color:rgba(0, 0, 0 , 0.92);
+	-webkit-transition:-webkit-transform 0.5s ease-out;
+	transition:transform 0.5s ease-out;
+	-webkit-transition:transform 0.5s ease-out;
+	transition:-webkit-transform 0.5s ease-out;
+	-webkit-transform: scale(0,0) ;
+	transform: scale(0,0) ;
+	z-index: 20;
+}
+.muiRtfPicShow{
+	-webkit-transform: scale(1,1) !important;
+	transform: scale(1,1) !important;
+}
+.muiCateLists {
+	margin: 0;
+	padding: 0;
+	list-style:none;
+	background-color: white;
+	overflow: hidden; 
+}
+.muiCateLists > .muiCateLoading{
+	text-align: center;
+	color: #a4a4a4;
+}
+.muiCateItem{
+	list-style:none;
+	overflow: hidden;
+	display: block;
+}
+.muiCateInfoItem,.muiGroupItem,.muiCateNavInfo{
+	margin: 0rem 0rem;
+	display: block;
+}
+.muiCateInfoItem{
+	padding: 0.8rem 0.5rem 0.8rem 1rem;
+	border-bottom: 1px solid #dfdfdf;
+}
+.muiGroupItem,.muiCateNavInfo{
+	background-color: #eaeaea;
+}
+.muiCateNavInfo{
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+.muiCateContainer{
+	clear:both;
+	width:100%;
+	overflow: hidden;
+	display:table;
+	border: none;
+}
+.muiCateContainer > div{
+	vertical-align: middle;
+	height:100%;
+	border: none;
+	display: table-cell;
+}
+.muiCateSelArea{
+    padding-right:0.5rem;
+	width:2rem;
+}
+.muiCateSelArea .muiCateSel{
+	width:1.6rem;
+	height: 1.6rem;
+	border-radius: 50%;
+	border: 0.1rem solid #dfe1e0;
+	text-align: center; 
+}
+.muiCateSelArea .muiCateSeled{
+	background-color: #1fbaf3; border:0px;
+}
+.muiCateSel .muiCateSelected{
+	font-size: 1.4rem;
+	color: white;
+	line-height: 1.6rem;
+	position: relative;
+	top:-1px;
+}
+.muiCateIcon{
+	width: 3.2rem;
+	text-align: center;
+ }
+.muiCateIcon i,.muiCateIcon img{
+	width: 3.2rem;
+	height: 3.2rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+.muiCateIcon i{
+	width: 3rem;
+	height: 3rem !important;
+	line-height: 3rem;
+}
+
+.muiCateInfo{
+}
+.muiCateTitle{
+	color: #7f7f7f; padding: 0.2rem 1rem; font-size:1.3rem;
+}
+.muiCateInfo .muiCateName{
+	padding-left: 0.5rem;
+}
+
+.muiCateMore{
+	width: 5rem;
+	text-align: center;
+	vertical-align: middle;
+}
+.muiCateMore i{
+	font-size: 2rem; color:#A09E9E;
+	padding: 0.3rem 0rem 0rem 0rem;
+}
+/**头部**/
+.muiCateHeader{
+	width:100%;
+	overflow: hidden;
+}
+.muiCateHeaderContent{
+	width:100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+ 	color:#fff;	
+ 	table-layout:fixed;  
+ 	position: relative;
+}
+.muiCateHeaderContent > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+.muiCateHeaderCancel{
+	padding-right: 1rem;
+	text-align: center;
+	color: #fff;
+	/*float: right;*/
+	cursor: pointer;
+	text-align: right;
+}
+.muiCateHeaderReturn{
+	padding-left:1rem;
+	text-align: left;
+	cursor: pointer;
+}
+.muiCateHeaderReturn i{
+	color: #fff;
+	font-size:1.6rem;
+	line-height: 1.6rem;
+}
+.muiCateHeaderReturn i.mui-back:before{
+	font-size:2.2rem;
+}
+
+
+.muiCateHeaderTitle{
+	width: 44%;
+	margin: 0 28%;
+	text-align: center;
+	font-size:1.8rem;
+ 	font-weight:bold;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	position: absolute;
+	left: 0;
+}
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiCateHeaderTitle{
+		width: 54%;
+		margin: 0 23%;
+	}
+}
+
+
+
+
+/**导航**/
+.muiCateNav{
+	position: absolute;
+	top: -100rem;
+	height: 1rem;
+	right: 0.3rem;
+	width: 2rem;
+	font-size: 1.2rem;
+	z-index: 2;
+}
+.muiCateNavItem{
+	cursor:pointer;
+	display: block;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+/**多选选择区**/
+.muiCateSec{
+	display: block;
+	width: 100%;
+	height: 5rem;
+	background-color:#f9f9f9;
+	border-top:0.1rem solid #Babbbd;
+	overflow: hidden;
+}
+.muiCateSec .muiCateSecContainer{
+	position:relative;
+	width: 100%;
+	height: 100%;
+	display: inline-table;
+}
+.muiCateSecContainer > div{
+	display: table-cell;
+	height: 100%;
+	overflow: hidden;
+}
+.muiCateSecLeft{
+	
+}
+.muiCateSecRight{
+	width: 7rem;
+}
+.muiCateSecBtn{
+	position:absolute;
+	top:1rem;
+	margin:0rem;
+	border: 1px solid transparent;
+	background-color: #1fbaf3;
+	width: 6.5rem;
+	height: 3rem;
+	text-align:center;
+	line-height:3rem;
+	color: white;
+	cursor:pointer;
+	border-radius: 3px;
+	display: block;
+	transition:background-color .3s;
+}
+.muiCateSecBtnDis{
+	color: #b5b5b5;
+	border: #b5b5b5 1px solid;
+	background-color: transparent;
+}
+.muiCateSecItems{
+	overflow: hidden;
+}
+.muiCateSecItem{
+	width: 6rem;
+	height: 6rem;
+	padding:0rem 0.2rem;
+	display: inline-block;
+}
+.muiCateSecItemIcon{
+	margin-top:0.4rem;
+	width:100%;
+}
+.muiCateSecItemIcon > div{
+	margin: 0rem auto;
+}
+.muiCateSecItemLabel{
+	width:100%;
+	font-size: 1.0rem;
+	text-align:center;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+	overflow: hidden;
+}
+/*地址本dialog*/
+.muiCateDiaglog{
+	position: absolute;
+	top:0rem;
+	left:0rem;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+	z-index: 99999;
+	background-color: white;
+	-webkit-transition: -webkit-transform 400ms linear;
+	-webkit-transform: translate3d(100%, 0, 0);
+}
+
+/**地址本**/
+.muiAddressDept,
+.muiAddressPost,
+.mui-organization{
+	text-align:center;
+	color: white;
+	background-color: #F86E54;
+	font-size: 2.2rem;
+}
+.muiAddressPost{
+	background-color: #61AEF2;
+}
+.mui-organization{
+	background-color: #63adf4;
+}
+.muiCateIcon .mui-file-text{
+	color: #fff;
+	font-size: 2.2rem;
+	background-color: #61AEF2;
+}
+.muiCateFiledShow{
+    text-align:left;
+}
+.muiCateFiledShow > div {
+	margin:0.1rem 0.3rem;
+    padding:0.2rem;
+	display: inline-block;
+    border-radius:3px;
+}
+.muiCateFiledShow .muiAddressOrg{
+	margin:0rem;
+    padding:0rem;
+    font-size:1.4rem;
+	position: relative;
+}
+.muiCateFiledShow > div i{
+	position: absolute;
+	right: 0.3rem;
+	top:-0.15rem;
+	height:1.6rem;
+	font-size: 1.2rem;
+	color: #333;
+}
+.muiCateFiledShow .muiAddressOrgEdit{
+    font-size:1.4rem;
+    margin:0.1rem 0.3rem;
+    padding:0.2rem;
+	position: relative;
+	color: #fff;
+    background-color:#18b4ed;
+	padding-right: 16px;
+ }
+ .muiCateFiledShow .muiCatePlaceHold{
+ 	color: #A9A9A9; 
+ }
+.muiLbpmserviceAuditContainer{
+	padding-top: 10px;
+	border-top:1px solid #e2e2e2;
+}
+.muiLbpmserviceAuditNodeItem {
+	margin-left: 1.6rem;
+	padding: 0.5rem 0rem 0.5rem 1.6rem;
+	-webkit-transition: all 0.2s ease-out;
+	overflow: hidden;
+	margin-right: 1.6rem;
+}
+
+.muiLbpmserviceAuditLabelItem {
+	position: relative;
+	padding-left: 1.6rem;
+	margin:0 1.6rem; 
+	-webkit-transition: all 0.2s ease-out;
+	background-color: #fff;
+	border-left: 0.1rem solid #e8e8e8;
+}
+
+.muiLbpmserviceAuditNodeItemBorder {
+	border-left: 0.1rem solid #e8e8e8;
+}
+.muiLbpmserviceAuditNodeItemContainer {
+	background: #fff;
+	position: relative;
+}
+
+.muiLbpmserviceAuditNodeImage {
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	position: absolute;
+	left: 0.6rem;
+	top: 0.4rem;
+}
+
+.muiLbpmserviceAuditNodeInfo h4 {
+	color: #2c79c7;
+	font-weight: normal;
+	font-size: 1.3rem;
+	line-height: 2rem;
+	padding: 0;
+	margin: 0;
+}
+
+.muiLbpmserviceAuditNodeInfo {
+	padding: 0.3rem 0.5rem 0.5rem 4.5rem;
+	background-color: #f5f5f5;
+	position: relative;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px 5px 0px 0px
+}
+
+.muiLbpmserviceAuditNodeInfo:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiLbpmserviceAuditNodeDate {
+	color: #777676;
+	line-height: 1.3rem;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.muiLbpmserviceAuditNodeDate span {
+	font-size: 1rem;
+	display: inline-block;
+	padding-left: 0.4rem;
+}
+
+.muiLbpmserviceAuditNodeContent {
+	border-radius: 0px 0px 5px 5px;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	color: #050505;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+}
+
+.muiLbpmserviceAuditNodeContent p {
+	padding: 0;
+	margin: 0;
+}
+
+.muiLbpmserviceAuditNodeContent p:last-child {
+	text-align: right;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.muiLbpmserviceAuditNodeContent .muiLbpmserviceAuditNodeNode {
+	font-size: 1.6rem;
+	padding: 0 0 1rem 0;
+	word-break: break-all;
+}
+.muiLbpmserviceAuditNodeContent .muiAttachmentItem .muiAttachmentItemL{ padding-left: 0;}
+.muiLbpmserviceAuditNodeContent .muiAttachmentItem .muiAttachmentItemR{ padding-right: 0;}
+
+.muiLbpmserviceAuditNodeContent em {
+	font-weight: normal;
+	font-style: normal;
+	color: #7e7e7e;
+}
+
+div .muiLbpmserviceAuditLabelItem:first-child{ margin-top: 10px;}
+.muiLbpmserviceAuditLabelItemTitle {
+	font-size: 1.4rem;
+	color: #777676;
+	padding: 6px 0;
+}
+
+.muiLbpmserviceAuditLabelItemTitle i {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border: 0.6rem solid transparent;
+	border-bottom-color: #d8ab56;
+	top: -0.3rem;
+	position: relative;
+	margin-left: 0.5rem;
+}
+
+.muiLbpmserviceAuditLabelItemTitle.hide i {
+	border-top-color: #d8ab56;
+	border-bottom-color: transparent;
+	top: 0.3rem;
+}
+
+.muiLbpmserviceAuditLabelItemDot {
+	display: inline-block;
+	position: absolute;
+	left: -1.2rem;
+	top: 3px;
+	width: 2.5rem;
+	height: 2.4rem;
+	background-color: #fff;
+}
+
+.muiLbpmserviceAuditLabelItemDot.mui {
+	font-size: 3.3rem;
+	color: #18b4ed;
+}
+
+.muiLbpmserviceAuditBranchItem {
+	text-align: center;
+	padding: 1rem 3.2rem
+}
+
+.muiLbpmserviceAuditBranchContent {
+	
+}
+
+.muiLbpmserviceAuditBranchTitle {
+	position: relative;
+	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	border-radius: 5px;
+	background: #fbd48a;
+	color: #fff;
+	font-size: 1.6rem;
+	width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.muiLbpmserviceAuditBranchTitle i {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border: 0.6rem solid transparent;
+	border-bottom-color: #d8ab56;
+	top: -0.3rem;
+	position: relative;
+	margin-left: 0.5rem;
+}
+
+.muiLbpmserviceAuditBranchTitle.hide i {
+	border-top-color: #d8ab56;
+	border-bottom-color: transparent;
+	top: 0.3rem;
+}
+
+.muiLbpmserviceAuditNodeFrom {
+	font-style: normal;
+	color: #8e8e8e;
+	line-height: 1.3rem;
+	padding: 0;
+	margin: 0;
+	font-size: 1rem;
+	float: right;
+}
+
+.muiLbpmserviceAuditNodeDate.mui.mui-time {
+	font-size: 1rem;
+}
+
+.muiLbpmserviceAuditNodeActionName {
+	color: #777676;
+	font-size: 1rem !important;
+}
+
+.muiLbpmserviceAuditNodeNode .muiLbpmserviceAuditNodeHide {
+	font-style: italic;
+}
+
+.muiLbpmserviceAuditStartItem{
+	margin-left: 1.6rem;
+	padding: 0 0 0.5rem 1.6rem;
+	margin-right: 1.6rem;
+}
+	
+.muiLbpmserviceAuditStartItem>span{
+	background-color: #2EACD9;
+	padding: 0.3rem 0.8rem;
+	color: #fff;
+	font-size: 1.3rem;
+	border-radius: 0.3rem;
+	margin:0 0 0.7rem -3.4rem ;
+	display: inline-block;
+}
+
+.muiLbpmserviceAuditLabelItem.summary .muiLbpmserviceAuditLabelItemTitle{
+	color: #EEC786;
+	font-size: 1.4rem;	
+}
+@CHARSET "UTF-8";
+
+.muiAccordionPanel>div {
+	margin-bottom: 1.5rem;
+}
+
+.muiAccordionPanelTitle {
+	height: 3.5rem;
+	line-height: 3.5rem;
+	background-color: #f7f7f7;
+	color: #bdbcbc;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+}
+
+.muiAccordionPanelTitle span {
+	margin-left: 0.8rem;
+	background-color: #fff;
+	padding:0 0.3rem;
+	border: 1px solid #cacaca;
+	font-size: 2rem;
+	border-radius: 2px;
+	line-height: 2rem;
+	text-align: center;
+	position: absolute;
+	top:7px;
+}
+.muiAccordionPanelTitle>div:last-child {
+	margin-left: 3.8rem;
+	line-height: inherit;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.muiAccordionPanelTitle>div:first-child{ margin-left:1rem;} 
+
+.muiAccordionPanelTitle div {
+	color: #555e67;
+	font-size: 1.5rem;
+	line-height: 2.8rem;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.muiAccordionPanelContent {
+	color: #2f2f2f;
+	font-size: 1.8rem;
+	-webkit-transition: all 200ms linear;
+	border-top: none;
+	display: none;
+	padding: 0rem 0 0 1rem;
+	border-bottom: 1px solid #e2e2e2;
+}
+.muiAccordionPanelContent .muiAttachments{ margin-right: 1rem;}
+.muiAccordionPanelContent .muiLbpmserviceAuditNodeContent .muiAttachments{ margin-right: 0;}
+.muiAccordionPanelContent .muiAttachments .muiAttachmentItem .muiAttachmentItemR{ padding-right: 0;}
+
+.muiAccordionPanelContainer:last-child .muiAccordionPanelContent {
+	border-bottom: 0;
+}
+.muiAccordionPanelContent .muiNormal > tbody > tr > td,
+.muiAccordionPanelContent .muiSimple > tr > td{
+	/*padding: 0 4px;*/
+	padding: 0;
+	min-width: 150px;
+}
+.muiAccordionPanelContent .mblListItem {
+	padding: 0 1rem;
+	height: 42px;
+	line-height: 42px;
+	border-bottom:0;
+}
+.muiAccordionPanelContent .mblListItem.detailTableForward{/* padding-right: 0;*/ padding-left: 0;}
+.muiAccordionPanelContent .mblListItem:last-child {
+	border-bottom: 0;
+}
+.muiAccordionPanelContent .mblListItem .mui-picview:before{ content: "\AB12";}
+.muiAccordionPanelContent .mblListItemIcon {
+	margin-top: 8px;
+	margin-right: 6px;
+	color: #eea236;
+}
+
+.muiAccordionPanelContent .mblListItemRightIcon {
+	margin-top: 5px;
+	line-height: 3.2rem;
+	font-size: 1.8rem;
+	color: #eea236;
+}
+
+.muiAccordionPanelContent .mblListItemLabel {
+	font-size: 1.6rem;
+	font-weight: bold;
+	color: #eea236;
+}
+
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.muiAccordionPanelTitle div {
+		font-size: 1.5rem
+	}
+}
+
+.muiSlidePanel {
+	background-color: rgba(52, 52, 52, 0.95);
+	color: #A3A3A3;
+	position: absolute;
+	-webkit-transition: -webkit-transform 400ms linear;
+	-webkit-transform: translate3d(-70%, 0, 0);
+}
+
+.muiSlidePanel.left{
+	
+}
+
+.muiSlidePanel.right{
+	right: 0;
+	top: 0;
+	-webkit-transform: translate3d(70%, 0, 0);
+	left: auto;
+}
+
+.muiSlidePanelCatalog {
+	position: relative;
+	padding: 1rem 0 1rem 3.2rem;
+	border-bottom: 1px solid #2C2C2C;
+	min-height: 2.4rem;
+}
+.muiSlidePanel .mui {
+	width: 2rem;
+	height: 2rem;
+	font-size: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	margin-top: -0.9rem;
+}
+
+.muiSlidePanelCatalog>div:last-child {
+	line-height: 2.4rem;
+	font-size: 1.4rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.muiSlidePanelCatalog.selected {
+	color: #fff !important;
+	background-color: #262626;
+	/*-webkit-transform: scale(1.1);*/
+}
+
+.muiPanelOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.35);
+	z-index: 9999;
+}.muiDateTimeDialogContent .mblSpinWheelDatePicker {
+	width: 100%;
+}
+
+.muiDateTimeDialogContent .mblSpinWheelTimePicker {
+	width: 11.8rem;
+}
+.muiDateTimeDialogContent .mblSpinWheelSlot {
+	width: 33%;
+	z-index: 1;
+	top:-5px;
+}
+
+.muiDateTimeDialogContent .mblSpinWheelSlotLabel {
+	font-weight: normal;
+	height: 3.5rem !important;
+	font-size: 1.5rem;
+	color: #000;
+}
+.muiDateTimeDialogContent .mblSpinWheelSlotLabelBlue{ color: #0959d2;}
+.muiDateTimeDialogContent .mblSpinWheelBar {
+	height: 4.2rem !important;
+	top: 6.7rem;
+	background-color: #f1f8ff;
+	z-index: 0;
+}
+
+.muiDateTimeDialogContent .mblSpinWheel {
+	height: 18rem;
+	margin-bottom: 1rem;
+	margin: 0 auto;
+}
+
+.muiDateTimeDialogDisContent .muiDateTimeArea{
+	position:relative;
+	border: 0;
+	border-spacing: 0;
+	width: 100%;
+	height: 18rem;
+	overflow: hidden;
+}
+.muiDateTimeDialogDisContent .muiDateTimeArea>div{
+	position: absolute;
+	height: 15rem;
+	width:100%;
+	top:0rem;
+	left:0rem;
+	z-index: 1;
+	opacity:0;
+}
+.muiDateTimeDialogDisContent .muiDateTimeChoices{
+	width: 98%;
+	height:2.5rem;
+	line-height:2.5rem;
+	border-radius: 5px;
+	border: 1px solid #007aff;
+	margin: 5px auto 0;
+	display: table;
+}
+.muiDateTimeDialogDisContent .muiDateTimeChoices >div{
+	display:table-cell;
+	width: 50%;
+	text-align: center;
+	font-size: 1.3rem;
+}
+.muiDateTimeDialogDisContent .muiDateTimeChoices >div.checked{
+	color: #fff;
+	background-color: #007aff;
+}
+
+.muiDateTimeContent {
+}
+
+.muiFormInputContnet input {
+	padding: 0.2rem;
+	height: 2rem;
+	border: 0;
+	background-color: inherit;
+	width: 100%;
+}
+
+.muiDateTimeField .muiField {
+	width: auto;
+	padding: 0;
+}
+
+.muiFormSelectContnet .muiFormDatetimeText {
+	display: inline-block;
+}
+
+.muiFormSelectContnet.edit .muiFormDatetimeText{
+	padding-right: 1.5rem;
+}
+
+
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+	.muiDateTimeDialogContent .mblSpinWheelSlotLabel{
+		height: 4rem !important;
+	}
+	.muiDateTimeDialogContent .mblSpinWheel{
+		height: 20rem;
+	}
+	.muiDateTimeDialogDisContent .muiDateTimeArea{
+		height: 20rem;
+	}
+	.muiDateTimeDialogContent .mblSpinWheelBar{
+		height: 4.5rem !important;
+		top:7.2rem;
+	}
+}
+.muiSearchButton{
+	color:#3564aa;
+	min-width:4rem;
+	height: 100%;
+	cursor: pointer;
+}
+
+.muiSearchBarDiv{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 100%;
+	z-index:10;
+	padding: 0rem 0rem;
+	overflow: hidden;
+	-webkit-transition: -webkit-transform 400ms linear;
+	-webkit-transform:translate3d(100%, 0, 0);
+}
+.muiSearchBar{
+	width:100%;
+	vertical-align: middle;
+	background-color: #f7f7f7;
+	border-bottom:1px solid #e8e8e8;
+}
+.muiSearchBar > form{
+	height: 100%;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.muiSearchBarContainer{
+	display:table;
+	width:95%;
+	height: 2.8rem;
+	line-height: 2.8rem;
+	margin: 0rem auto;
+	
+}
+.muiSearchBarContainer > div{
+	vertical-align: middle;
+	display: table-cell;
+}
+.muiSearchDiv{
+	position: relative;
+	border: 0.1rem solid #d7d7d7;
+	background-color: #fff;
+	border-radius: 0.4rem;
+	height: 100%;
+	overflow: hidden;
+}
+.muiSearchIcon,.muiSearchInput,.muiSearchClear{
+	border: none !important;
+	width: 2.5rem;
+	font-size:2rem;
+	height: 100%;
+	line-height: 2.8rem;
+	vertical-align: middle;
+	display: inline-block;
+	background:none !important;
+}
+.muiSearchIcon,.muiSearchClear{
+	position: absolute;
+	color: #93989d;
+	text-align:center;
+}
+.muiSearchIcon{
+	top:0rem;
+	left:0.5rem;
+}
+.muiSearchClear{
+	top:0rem;
+	right:0;
+	display: none;
+	z-index: 14 !important;
+}
+.muiSearchInput{
+	position: absolute;
+	padding:0rem 2rem 0rem 3.2rem;
+	top:0rem;
+	width:100%;
+	text-align:left;
+	font-size:1.4rem;
+	line-height:2.8rem;
+	height:2.8rem;
+	vertical-align:middle;
+	outline:none;
+	background-color:none;
+	-webkit-appearance:none;
+	-webkit-box-shadow:none;
+	appearance:none;
+	box-shadow:none;
+}
+/*.muiSearchInput::-webkit-input-placeholder{}*/
+.muiSearchBtnDiv{
+	text-align: center;
+	width:4.8rem;
+	height:100%;
+	overflow: hidden;
+}
+.muiSearchCancelBtn{
+	padding:0rem 0.3rem;
+    text-align:center;
+    vertical-align:middle;
+    font-size:1.4rem;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+}
+.muiSearchPrompt{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	z-index:10;
+	overflow:hidden;
+	background-color:rgba(255, 255, 255 , 1);
+	padding: 0rem 0rem;
+	-webkit-transition:-webkit-transform 400ms linear;
+	-webkit-transform:translate3d(100%, 0, 0);
+}
+
+.muiSearchPrompt .muiSearchRecord,.muiSearchPrompt .muiSearchOpt{
+	color: #555;
+}
+.muiSearchPrompt .muiSearchRecord{
+	width: 100%;
+	margin: 0px auto;
+	margin-bottom: 1.2rem;
+}
+.muiSearchPrompt .muiSearchNoRecord{
+	margin: 0rem 1rem;
+	color:#999;	
+	border-bottom:1px dashed #ddd;
+	height:3.2rem;
+	line-height:3.2rem;
+	font-size:1.4rem;
+
+
+}
+.muiSearchPrompt .muiSearchOpt{
+	text-align: center;
+	margin-top: 2.5rem;
+}
+.muiSearchRecord > div{
+	padding: 1.2rem 1rem;
+	margin:0 1rem;
+	border-bottom:  #e5e5e5 solid 1px;
+	color:#0c0c0c
+}
+.muiSearchOpt >div{
+	display: inline-block;
+}
+
+.muiSearchOpt .muiSearchClearBtn{
+    width:60%;
+    margin:0 auto;
+	padding: 1rem 0;
+    color:#fff;
+	background-color: #55B3F4;
+    border-radius:0.2rem;
+	cursor: pointer;
+}
+
+.muiSearchTitle{
+margin: 0rem 1rem;
+	color:#999;	
+	border-bottom:1px dashed #ddd;
+	height:3.2rem;
+	line-height:3.2rem;
+	font-size:1.4rem;
+}
+.muiSearchTitle span{
+
+}/*列表对象*/
+.muiListItem{
+	padding: 1.3rem 0 0.5rem;
+	border-bottom: 1px solid #e5e5e5;
+	display: block;
+	list-style: none;
+	margin: 0 1rem;
+	overflow: hidden;
+}
+
+/*列表摘要*/
+.muiListSummary{
+	color: #989898;
+	font-size: 1.3rem;
+	line-height: 1.5rem;
+}
+
+/*列表简要信息*/
+.muiListInfo{
+	margin-top: 1.2rem;
+	clear: both;
+	width: 100%;
+	color: #555;
+	display: table;
+	min-height: 1.8rem;
+	table-layout: fixed; 
+	position:relative;
+}
+
+.muiListInfo>div{
+	font-size: 1.2rem;
+	text-align: left;
+	vertical-align: middle;
+    white-space:nowrap;
+	display: table-cell;
+	line-height: 1;
+}
+.muiListInfo>div>i.mui{
+	margin-right: 2px;
+	font-size: 1.5rem;
+	line-height: 1;
+	position: relative;
+	top:-1px;
+}
+
+/*右图列表*/
+.muiComplexrItem{
+	display: block;
+}
+.muiComplexrTop{
+	color: #333;
+	display: block;
+	zoom:1;
+	/*min-height: 5.5rem;*/
+}
+.muiComplexrTop:after{
+	content: 'clear';
+	clear: both;
+	display: block;
+	line-height: 0;
+	visibility: hidden;
+}
+.muiComplexrBottom{
+	
+}
+.muiComplexrTitle{
+	margin:0 0 0.8rem 0;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.muiComplexrItem:visited{
+	color: #888;
+}
+.muiComplexrSummary{
+    margin:0;
+	max-height: 3.2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 8.8rem;
+	height: 6.6rem;
+	overflow: hidden;
+	float: right;
+}
+.muiComplexrImg{
+	width: 100%;
+	text-align: right;
+}
+
+.muiComplexrCreated,.muiComplexrRead,.muiComplexrStatus{
+		color: #989898;
+}
+.muiComplexrItem .muiComplexrRead{ font-size:1.5rem; position: relative; top:-1px;}
+.muiComplexrItem .muiComplexrRead .muiNumber{ font-size:1.2rem; position:relative; top:-2px;}
+.muiComplexrCreated{ padding-right:2rem; float:left}
+.muiComplexrCreator{
+	min-width: 48px;
+	float:left;
+	padding-right:2rem;
+}
+
+.muiComplexrRead{
+	width: 4rem; float:left
+}
+
+.muiListInfo>div.muiComplexrStatus{
+	margin-top: -6px;
+	min-height: 26px;
+	text-align: right;
+	line-height: normal;
+	float:right;
+}
+
+.muiComplexrStatusBorder{
+	font-size: 1rem;
+ 	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: initial;
+	display:block;
+	padding: 0.2rem 0.4rem;
+	max-width: 5rem;
+}
+/*** 三级页面带回复的（圈子话题，问答阅读）***/
+.muiTopicReplyContainer .muiPostItem {
+	display: block;-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.muiTopicReplyContainer .muiPostItem:last-child{ border-bottom:none;}
+.muiTopicReplyContainer .muiPostItem .muiPostContent{ background-color:transparent;}
+.muiTopicReplyContainer .mblEdgeToEdgeList {
+	background-color: #f5f7fa;
+}
+.muiTopicReplyContainer .muiPostItem .muiPostHead .muiTopicReplyOpt,
+.muiTopicReplyContainer .muiPostItem .muiPostHead  .muiPostReplyOpt{ vertical-align:top; width:3.6rem;}
+.muiTopicReplyContent{
+	padding: 0.5rem 0 0.5rem 4.5rem;
+	display: block;
+	color: #333;
+	word-break: break-word;
+	word-wrap: break-all;
+	font-size: 1.4rem;
+}
+.muiTopicReplyContent>p{
+	padding:0;
+	margin:0;
+}
+
+.muiTopicReplyOperation {
+	position: relative;
+	right: 0rem;
+	top: 0.5rem;
+	display: block;
+	width: 3rem;
+	height: 2rem;
+	background: #fff;
+	border: 0.1rem #cbcbcb solid;
+	border-radius: 4px; z-index:11;
+	text-align: center;-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.muiTopicReplyOperation .l {
+	position: absolute;
+	left: -1.1rem;
+	top: 0.5rem;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-width: 0.5rem;
+	border-style: dashed solid dashed dashed;
+	border-color: transparent #cbcbcb transparent transparent;
+}
+.muiTopicReplyOperation .f {
+	position: absolute;
+	left: -1rem;
+	top: 0.5rem;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-width: 0.5rem;
+	border-style: dashed solid dashed dashed;
+	border-color: transparent #FFF transparent transparent;
+}
+.muiTopicReplyOperation .mui.mui-more {
+	line-height: 2.5rem;
+	font-size: 2.5rem;
+	color: #626466;
+}
+.muiTopicReplyEvaluation {
+	padding-left:4.5rem;
+	font-size:1.2rem; padding-top:1rem;
+}
+.muiTopicReplyEvaluationLi:first-child{ border-top:0.1rem solid #d9d9d9;}
+.muiTopicReplyEvaluationLi {
+	padding: 0.6rem 0.2rem;
+}
+.muiTopicReplyEvaluationLi i.muiTopicReplyEvaTime {
+	color: #a0a0a3;
+	font-style: normal;
+	padding-left:0.2rem;
+}
+
+
+/*左图列表*/
+.muiComplexlItem {
+}
+
+.muiComplexlItem a {
+	padding-left: 11rem;
+	position: relative;
+	min-height: 7.8rem;
+	display: block;
+}
+
+.muiComplexlItem a>span:first-child {
+	height: 7.6rem;
+	width: 10rem;
+	position: absolute;
+	left: .25rem;
+	top: 0;
+	line-height: 7.6rem;
+	text-align: center;
+}
+
+.muiComplexlItem h3{
+	margin: 0 0 0.5rem;
+	font-size: 1.7rem;
+	color: #000;
+	word-break: break-all;
+	font-weight: normal;
+}
+.muiComplexlItem a:VISITED h3{
+	color: #888;
+}
+
+.muiComplexlItem p {
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	max-height: 3.1em;
+}
+
+.muiComplexlItem img {
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: top; margin-top:5px;
+	position: relative;
+	top: -1px;
+}
+
+.muiComplexlBottom {
+}
+
+.muiComplexlItem .muiComplexlCreated,.muiComplexlItem .muiComplexlRead {
+	text-align: left;
+	color: #989898;
+}
+
+.muiComplexlItem .muiComplexlRead{
+	text-align: right;
+	padding-left: 1rem;
+}
+
+
+/*纯文本列表*/
+.muiTextItem {
+	display: block;
+}
+.muiTextItem.muiTextItemL {
+	padding-left: 3rem;
+	position: relative;
+}
+
+.muiTextItem.muiTextItemL>img{
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 0.8rem;
+	left: 0.5rem;
+}
+
+.muiTextItem a{
+	margin: 0 0 0.5rem 0;
+	vertical-align: middle;
+	font-size: 1.6rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.muiListItem a:visited .muiSubject,.muiListItem a:visited .muiComplexrTitle {
+	color: #888 !important;
+}
+
+.muiTextItem p{
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+	clear: both;
+	width: auto;
+	color: #555;
+	display: table;
+	min-height: 1.8rem;
+	table-layout: fixed;
+}
+
+.muiTextItem a img {
+	width: 2.8rem;
+	height: 2.1rem;
+	margin-left: 0.8rem;
+}
+
+.muiTextCreated,.muiTextCreator{
+	color: #989898;
+	width: 6.5rem;
+	padding-right: 1rem;
+}
+
+.muiTextCreator{
+	min-width: 48px;
+}
+
+a.com_author {
+	display: inline;
+}
+
+/*审批列表*/
+.muiProcessItem{
+	overflow: hidden;
+}
+.muiProcessRight{
+	width: 7rem;
+	text-align:center;
+	overflow: hidden;
+	float: right;
+}
+.muiProcessImg{
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+}
+.muiProcessCreator{
+	display: block;
+	font-size: 1.2rem !important;
+	line-height:1;
+
+}
+.muiProcessCreated{
+	font-size: 1.2rem !important;
+	color:#989898!important;
+	line-height: 1!important;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+	top:-4px;
+}
+.muiEssence{ color:#f00; border-color:#f00;}
+.muiProcessLeft{
+	height: 100%;
+	display: block;
+}
+.muiProcessStatusBorder{
+	display: inline-block;
+	font-size: 1.2rem;
+	color:#297de0;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	padding:0rem 0.3rem;
+	border-radius: 0.2rem;
+	border-width: 1px;
+	border-style: solid;
+	margin-right: 0.5rem; position:relative; top:-0.1rem;
+}
+.muiProcessStatusBorder.muiEssence{ border-color:#f00; color:#f00;}
+.muiProcessLeft .muiProcessStatusBorder,.muiCardItem .muiProcessStatusBorder{ position:relative; top:-0.1rem; margin-right: 0.5rem;}
+.muiProcessDiscard{
+	border-color: #ff9c00;
+	color: #ff9c00;
+}
+.muiProcessDraft{
+	border-color: #aaa;
+	color: #aaa;
+}
+.muiProcessExamine{
+	border-color: #18b4ed;
+	color: #18b4ed;}
+.muiProcessRefuse{
+	border-color: #ff0000;
+	color: #ff0000;
+}
+.muiProcessPublish{
+	border-color: #4cbe45;
+	color: #4cbe45;
+}
+
+.muiProcessTitle{
+	margin: 0 0 0.5rem 0;
+ 	min-height:3.8rem;	
+ 	font-size: 1.6rem;
+	font-weight: normal;
+	line-height: 1.9rem;
+	max-height: 3.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.muiProcessSummary{
+	margin:14px 0rem 0rem 0rem;
+	padding-right: 7rem;
+	color:#989898!important;
+	font-size:1.2rem!important;
+	line-height: 1;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiProcessSign{
+	color: #989898;
+	font-size:1.4rem;
+	line-height: 1.8rem;
+	margin-right: 0.3rem;
+}
+
+/*卡片式列表*/
+.muiCardItem{
+	overflow:hidden;
+	margin-top:1rem;
+	background:#fff;
+	display:block;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	padding:1rem; 
+	min-height:6rem;
+	border-radius:5px;
+	border:1px solid #d0d0d0;
+	line-height:1.5rem;
+	position:relative;
+}
+.muiCardItem .figure{ 
+	position:relative;
+	min-height:3.7rem;
+	margin-bottom:8px;
+	padding-left:4.5rem;
+}
+.muiCardItem .figure .figureImgW{ 
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.muiCardItem .figure .title{  
+	vertical-align:top;
+	line-height: 1.9rem;
+	word-break:break-all;
+	margin: 0 0 0.5rem 0;
+ 	min-height:3.8rem;	
+ 	font-size: 1.6rem;
+	font-weight: normal;
+	max-height: 3.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+}
+.muiCardItem:last-child{
+	margin-bottom:1rem;
+}
+.muiCardItem .imgBox{ width:3.7rem; height:3.7rem; line-height:3.6rem; background:#3fa9f5; border-radius:50%; text-align:center; color:#fff; font-size:4rem;}
+.muiCardItem .imgBox .mui{ font-size:2.8rem;}
+.muiCardItem .imgBox .mui.mui-bookOpenLogo{ position: relative; top:-3px;}
+.gray .mblEdgeToEdgeList{ background-color:transparent;}
+
+.muiCardItem .lock .title{ 
+	color:#888!important;
+}
+.muiCardItem .figure .title .warn{ 
+	color:#f00;
+	margin-right:5px;
+}
+.muiCardItem.mblListItemSelected{
+	background-color: rgb(228, 228, 228);
+}
+.muiCardSummary{ 
+	border-top:1px solid #e1e1e1;
+	padding-top:8px;
+	margin: 1rem 0rem 0rem 0rem;
+}
+.muiCardSummary .summary{
+	max-height: 3.5rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	margin-bottom:6px;
+	word-break: break-all;
+	line-height:1.8rem;
+}
+.muiCardIcoList{ 
+	zoom:1;
+	padding-left: 0px;
+}
+.muiCardIcoList:after{ 
+	display:block;
+	clear:both;
+	line-height:0px;
+	visibility:hidden;
+	content:'clear';
+}
+.muiCardIcoList li{ 
+	font-size:1.2rem;
+	margin-top:2px;
+	float:left;
+	margin-right:1rem;
+	color:#888;
+	line-height:1.4rem;
+}
+.muiCardIcoList li i{ 
+	margin-right:2px;
+	position: relative;
+	top:-1px;
+}
+.muiCardIcoList li:last-child{ 
+	margin-right:0px;
+}
+/*.muiCardItem .icoLock{ 
+	font-size:1.4rem;
+	color:#fff;
+	display:inline-block;
+	width:0px;
+	height:0px;
+	border-top: 2.6rem solid #b8b8b8;
+	border-left: 2.6rem solid transparent;
+	position:absolute;
+	right:0px;
+	top:0px;
+}*/
+.muiCardItem .icoLock{ 
+	width: 55px; height:10px;
+	font-size: 1.2rem;
+	position: absolute;
+	right: -16px;
+	top: -6px;
+	padding: 5px 0px;
+	background-color: #b8b8b8;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+.muiCardItem .icoLock i{ 
+	position:absolute;
+	left:30px;
+	top:4px; 
+	font-size:1.6rem; z-index:12;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg)
+}
+.muiCardItem ul{list-style: none;}
+.muiCardItem .mui {
+	font-size:1.6rem;
+	line-height: 1.4rem; 
+	vertical-align:middle;
+}
+.muiCardItem .mui.mui-eyes{ font-size:1.5rem;}
+
+/*图文混合*/
+.muiMixContentItem{
+	display: block;
+	margin: 0.8rem;
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
+}
+.muiMixContentItem .muiListItem{
+	margin:0rem; padding:0rem; border-radius: 0.3rem;  border-bottom:none;padding: 0.8rem;border:1px solid #d5d5d5;
+}
+.muiMixContentItem .muiListItem:visited .muiMixContentTitle{
+	color: #888;
+}
+
+.muiMixContentItem .icoLock{ 
+	width: 55px; height:10px;
+	font-size: 1.2rem;
+	position: absolute;
+	right: -16px;
+	top: -6px;
+	padding: 5px 0px;
+	background-color: #b8b8b8;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+
+.muiMixContentItem .icoLock i {
+	position: absolute;
+	left: 30px;
+	top: -1px;
+	font-size: 1.6rem;
+	z-index: 12;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
+
+.muiMixContentItem .muiMixContentTop{
+	clear:both;
+	width:100%;
+	overflow: hidden;
+	display:table;
+	border: none;
+}
+.muiMixContentItem .muiMixContentTop >div{
+	vertical-align: middle;
+	height:100%;
+	border: none;
+	display: table-cell; padding-bottom:0.3rem;
+}
+.muiMixContentItem .muiMixContentIcon{
+	width: 3.7rem;
+	text-align: center;
+}
+.muiMixContentItem .muiMixContentIcon img{
+	width: 3.7rem;
+	height: 3.7rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+.muiMixContentItem .muiMixContentCreate{
+	padding-left: 0.3rem; vertical-align:top;
+}
+.muiMixContentItem .muiMixContentCreate>div{
+	text-align: left;
+	white-space: nowrap;
+}
+.muiMixContentItem .muiMixContentCreate>div>i.mui{
+	margin-right: 2px;
+	font-size: 1.2rem;
+	line-height: 1;
+	position: relative;
+	top:-2px;
+}
+
+.muiMixContentItem .muiMixContentCreator{
+	display: block;
+	font-size: 1.4rem;
+	font-style: normal;
+	margin: 0rem 0.2rem; color:#2c79c7; line-height:2.2rem;
+}
+
+.muiMixContentItem .muiMixContentCreated {
+	color: #989898;
+	font-size: 1.1rem;
+	margin: 0.3rem 0.2rem 0;
+}
+.muiMixContentItem .muiMixContentCreated>span{ margin-right:0.3rem;}
+.muiMixContentItem .muiMixContentCreated .mui{ font-size:1.2rem; line-height:1.2rem; position:relative; top:-0.2rem; margin-right:0.2rem;}
+.muiMixContentItem .muiMixContentMiddle{
+	cursor: pointer; display:block;
+}
+.muiMixContentItem .muiMixContentTitle{
+	margin: 0.4rem 0rem;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.7rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	
+}
+.muiMixContentItem .muiMixContentTitle .muiTopicHeadPink{ color:#f00;}
+.muiMixContentItem .muiMixContentTitle .mui-hotPost{ position:relative; top:-0.1rem; background:#ff6012; width:1.8rem; text-align:center; border-radius:0.3rem; height:1.8rem; line-height:1.9rem; font-size:1.6rem; color:#fff;}
+.muiMixContentItem .muiMixContentSummary{
+	margin:0; color:#989898;
+	max-height: 1.8rem; max-height:5.4rem; line-height:1.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical; margin: 0.1rem 0 0.6rem 0;
+}
+.muiMixContentItem .muiMixContentBottom{
+	float: right; font-size:1.6rem; line-height:1.6rem;color:#989898; padding-top:0.3rem;
+}
+.muiMixContentItem .muiMixContentBottom .mui{ font-size:1.8rem; line-height:1; text-align: right;}
+.muiMixContentItem .muiMixContentBottom .mui.mui-praise,
+.muiMixContentItem .muiMixContentBottom .mui.mui-eyes{ font-size: 1.8rem;}
+.muiMixContentItem .muiMixContentBottom .muiMixContentNum{
+	display:inline-block;
+	margin-left: 1rem;
+	cursor: pointer;
+}
+.muiMixContentItem .muiMixContentNum .muiNumber{
+	font-size:1.2rem; 
+	position:relative; margin-left:0.3rem;
+}
+.muiMixContentItem .muiTopicHeadSign{
+	display: inline-block;
+	font-size: 1.2rem;
+	color:#297de0;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	padding:0rem 0.3rem;
+	border-radius: 0.2rem;
+	border-width: 1px;
+	border-style: solid;
+	margin-right: 0.5rem; position:relative; top:-0.1rem;
+}
+.muiMixContentTopItem.muiMixContentItem{ padding: 0 0.8rem; border:none; border-radius:0px; zoom:1;}
+.muiMixContentTopItem{
+	background-color: #FFF;
+	padding:0 0.6rem;
+	margin: 0rem;
+}
+.muiMixContentTopItem .muiListItem{
+	margin: 0rem!important;
+	border-radius:0px !important;
+	border:none;
+	padding:1rem 0;
+	border-top: 1px solid #e5e5e5;
+	display: block;
+}
+.muiMixContentTopItem:first-child .muiListItem{ border-top: 0;}
+.muiMixContentTopItem .muiMixContentTopInfo{
+	line-height: 1.8rem;
+	max-height: 2rem;
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+.muiMixContentTopItem .muiContentStatusBorder{
+}
+.muiMixContentTopItem .muiMixContentTopCate{
+	display: inline-block;
+	font-size: 1.5rem;
+	color:#297de0;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	margin-right:0.5rem;
+	cursor: pointer;
+}
+.muiMixContentTopItem .muiMixContentTopTitle{
+	display: inline;
+	font-size: 1.5rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	color: #0c0c0c;
+	cursor: pointer;
+}
+.muiMixContentItem a.muiMixContentMiddle:visited .muiMixContentTitle{
+	color: #888;
+}
+.muiMixContentItem.mblListItemSelected{
+	background: none !important;
+}
+.muiMixContentItem.mblListItemSelected .muiListItem{
+	background-color: rgb(228, 228, 228) !important;
+}
+
+/*无数据展示*/
+.muiListNoData{
+	position:relative;
+    list-style:none;
+    width: 100%;
+    display: inline-block;
+}
+
+.muiListNoDataArea{
+	width:100%;
+	min-height:8rem;
+	vertical-align:middle;
+	text-align:center;
+	line-height: normal;
+	display: inline-block;
+}
+.muiListNoDataIcon{
+	margin:0 auto 1rem auto;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	text-align:center;
+	background-color: #d8d8d8;
+}
+.muiListNoDataIcon i{
+	font-size: 8rem;
+	line-height: 8rem;
+	height: 8rem;
+	vertical-align: middle;
+	font-weight: lighter;
+	color: white;
+	margin-top: 1.5rem;
+}
+
+.muiListNoDataTxt{
+	color: #afafaf;
+	display: inline-block;
+}
+
+/* 选中 */
+.mblListItemSelected {
+  background-color: rgb(228, 228, 228)!important;
+}
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {.muiProcessStatusBorder{ padding:0.1rem 0.3rem;}
+ .muiProcessSummary{margin:0.5rem 0rem 0rem 0rem;}	.muiListSummary{
+	color: #989898;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	}
+	/*.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 9rem;
+	height: 7.0rem;
+	overflow: hidden;
+	float: right;
+	}*/
+	.muiComplexrTitle{
+	margin:0 0 0.5rem 0;
+	font-size: 1.7rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	}
+	/*.muiListInfo>div{
+	font-size: 1.3rem;
+	text-align: left;
+	vertical-align: middle;
+	display: table-cell;
+	line-height: 2.5rem;
+	}*/
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+  	.muiListSummary{
+	color: #989898;
+	font-size: 1.4rem;
+	line-height: 1.5rem;
+	}
+	/*.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 9rem;
+	height: 7.0rem;
+	overflow: hidden;
+	float: right;
+	}*/
+	.muiComplexrTitle{
+	margin:0 0 0.5rem 0;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	}
+	/*.muiListInfo>div{
+	font-size: 1.2rem;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 2.5rem;
+	}*/
+}
+
+.muiListThumb>p {
+	background-position: 50%;
+	border-top: 4px solid #fff;
+	border-left: 4px solid #fff;
+	padding-top: 32.6%;
+	position: relative;
+	cursor: pointer;
+	display: table-cell;
+	max-width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+.muiListThumb {
+	display: table;
+	width: 100%;
+}
+
+
+
+/******** 三级阅读（话题、论坛、问答阅读页） ******/
+.muiPostItem{border-bottom:1px solid #e5e5e5;}
+.muiPostItem .muiPostContent{background-color:#FFF;padding:.8rem;}
+.muiPostItem:FIRST-CHILD .muiPostContent{margin-top:0!important;}
+.muiPostItem .muiPostContentT .muiPostHead{display:table;width:100%;}
+.muiPostItem .muiPostContentT .muiPostHead > div{display:table-cell;vertical-align:middle;padding-bottom:.5rem;}
+.muiPostItem .muiPostContentT .muiPostIcon{width:3.7rem;text-align:center;}
+.muiPostItem .muiPostContentT .muiPostIcon img{width:3.7rem;height:3.7rem!important;border-radius:50%;overflow:hidden;text-align:center;vertical-align:middle;}
+.muiPostItem .muiPostContentT .muiPostCreate{padding:.2rem 0 0 .5rem;}
+.muiPostItem .muiPostContentT .muiPostCreate .mui{font-size:1.4rem;line-height:1.4rem;position:relative;top:-.1rem;}
+.muiPostItem .muiPostContentT .muiPostCreate >span{display:block;line-height:1.7rem;height:1.7rem;vertical-align:middle;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreator{display:block;font-size:1.4rem;font-style:normal;color:#2c79c7;line-height:2.2rem;margin:0 .2rem;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreated{color:#989898;font-size:1.1rem;margin:.3rem .2rem 0;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreated .mui{margin-right:.3rem;}
+.muiPostItem .muiPostReplyOpt{ vertical-align:top; width:3.6rem;}
+
+
+
+
+
+
+
+
+
+
+
+.muiViewBanner{
+	background: url(../../../resource/images/view_banner_bg.jpg) no-repeat left top; 
+	background-size:cover;
+	overflow: hidden;
+	position: relative;  
+	padding-top:2rem; 
+	padding-bottom:1.5rem; 
+	padding-right:1rem;
+}
+
+.muiViewBanner .leftInfo{
+  position:absolute; 
+  left:1rem; 
+  top:2rem;
+}
+.muiViewBanner .muiSummaryImg {
+	width: 5rem;
+	height: 5rem;
+	border-radius: 50%; 
+}
+.muiViewBanner .leftInfo .figure{ 
+	display:inline-block;
+	width:5rem;
+	height:5rem;
+	border-radius: 50%; 
+	border:3px solid rgba(255,255,255,1); 
+}
+
+.muiViewBanner .rightInfo{
+	position: relative;
+	margin-left: 7.5rem;
+}
+.muiViewBanner .rightInfo .title{
+	margin-bottom: 0.2rem;
+	text-align: left;
+	color: #fff;
+	font-size:1.8rem;
+	font-weight: 700;
+	word-break:break-all;
+ 	min-height:5.6rem;	
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+}
+
+.muiViewBanner ul{
+	position: relative;
+	list-style:none;
+	padding-left:0px;
+	margin: 0;
+}
+
+.muiViewBanner ul li{
+	font-size: 1.2rem;
+	margin-top: 2px;
+	line-height: 1.4rem;
+	display:inline-block;
+	margin-right: 1rem;
+	color: #fff;
+}
+
+.muiViewBanner .mui {
+	font-size: 1.6rem;
+	line-height: 1; 
+	margin-right:0.5rem;
+	vertical-align:middle;
+	position: relative;
+	top:-1px;
+}
+.muiViewBanner .muiEssence {vertical-align: middle;}
+
+
+.muiTopicHead{width:100%;background-color:#30b1e9;background-size:cover;}
+.muiTopicHead .muiTopicContent{padding:1rem 1.2rem 1.3rem 1rem;}
+.muiTopicHead .muiTopicContent > div{}
+.muiTopicHead .muiTopicContent > div.muiTopicHeadT{min-height:5.5rem;padding-bottom:1rem;}
+.muiTopicHead .muiTopicHeadSign{border-color:initial;margin-right:.5rem;max-width:5rem;display:inline-block;font-size:1.2rem;color:#fff;height:1.6rem;line-height:1.6rem;padding:0 .3rem;border-radius:.2rem;border-width:1px;border-style:solid;margin-right:.5rem;}
+.muiTopicHead .muiTopicHeadTitle{font-size:1.8rem;color:#fff;font-weight:700;display:-webkit-box;-webkit-box-orient:vertical;min-height:4rem;-webkit-box-pack:center;line-height:2.2rem;}
+.muiTopicHead .muiTopicHeadT .mui-hotPost{margin-right:.5rem;padding:0;position:relative;top:-.3rem;background:#ff2828;width:2rem;text-align:center;border-radius:.3rem;height:2.1rem;line-height:2.1rem;font-size:1.7rem;color:#fff;}
+.muiTopicHead .muiTopicHeadT .muiTopicHeadSign{font-style:normal;margin-right:.5rem;position:relative;top:-.2rem;border:none;padding:0;width:2rem;text-align:center;border-radius:.3rem;height:2rem;line-height:2rem;font-size:1.5rem;color:#fff;}
+.muiTopicHead .muiTopicHeadT .muiTopicHeadPink{background:#ff6600;}
+.muiTopicHead .muiTopicHeadT .muiTopicHeadTop{background:#48d61a;}
+.muiTopicHead .muiTopicHeadT .mui-todo_lock,.muiTopicHead .muiTopicHeadT .mui-lock{margin-right:.5rem;padding:0;position:relative;top:-.3rem;background:#414141;width:2rem;text-align:center;border-radius:.3rem;height:2rem;line-height:2rem;font-size:1.6rem;color:#fff;}
+.muiTopicHead .muiTopicHeadSummary{display:table;width:100%;font-size:1.2rem;}
+.muiTopicHead .muiTopicHeadSummary > div{display:table-cell;}
+.muiTopicHead .muiTopicHeadSummary > div.muiTopicHeadNumInfo{float:right;margin:0 .4rem 0 0;text-align:left;}
+.muiTopicHead .muiTopicHeadSummary > div.muiTopicHeadCate{text-align:right;}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadCate span{display:inline-block;float:left;height:2rem;line-height:2rem;border-radius:1.5rem;padding:0 1rem;color:#fff;cursor:pointer;background:rgba(255,255,255,0.3);}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadCate i{font-size:1.6rem;line-height:1.6rem;}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadNum{font-size:1.5rem;line-height:1.5rem;margin-left:1.5rem;color:#fff;}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadNum:FIRST-CHILD{margin-left:0;}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadNum span{display:inline-block;color:#fff;line-height:1.5rem; font-size:1.2rem;vertical-align:top;}
+.muiTopicHead .muiTopicHeadSummary .muiTopicHeadNum.mui-msg{font-size:1.6rem;line-height:1.6rem;}
+
+.muiCommonHeader{ width:100%;height:12rem;background-size:cover;overflow:hidden;-webkit-transition:all 100ms linear;position:relative;}
+.muiCommonHeaderPic{ position:absolute; left:0px; top:0px; width:5.7rem;height:5.7rem;text-align:center;overflow:hidden;padding-top:2.8rem;padding-left:0.8rem;}
+.muiCommonHeaderPic span{ display:block; width:5.3rem; height:5.3rem; border-radius:50%; border:2px solid #fff;}
+.muiCommonHeaderPic img{width:5.3rem;height:5.3rem; border-radius:50%; }
+.muiCommonHeaderInfo{ padding-top:2.5rem; margin-left:8rem; margin-right:1.2rem;}
+.muiCommonHeaderBar{ width:100%;}
+.muiCommonHeaderBar h2{display:block;margin:0 0 .5rem;padding:0 0 .5rem 1rem;color:#fff;border-bottom:1px rgba(255,255,255,0.5) solid;font-size:1.8rem;font-weight:normal;}
+.muiCommonHeaderBar ul{list-style:none;margin:0;padding:0;display:table;width:100%;}
+.muiCommonHeaderBar ul li{display:table-cell;text-align:left;color:#fff;}
+.muiCommonHeaderBar ul li div{ padding-left:0.5rem; text-align:center; display:inline-block;}
+.muiCommonHeaderBar ul h3,.muiCommonHeaderBar ul h4{font-weight:normal;font-size:1.4rem;padding:0;margin:0;}
+.muiCommonHeaderBar ul h4{padding-top:.2rem;}
+
+
+
+
+
+
+
+
+
+/** 简要CSS **/
+.personContainer strong{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: inline-block;
+	color: #898989;
+	font-size: 1.4rem;
+	padding-top: 1.5rem;
+	padding-left: 0.8rem;
+	padding-right: 1.5rem;
+}
+.personContainer .personList{}
+
+.personContainer .staffCell {
+	display: inline-block;
+	float: left;
+	margin-right: 1.4rem;
+	text-align: center;
+}
+@media screen and (min-width: 321px) and (max-width: 400px) {
+	.personContainer .staffCell {
+		margin-right: 1.4rem;
+	}
+}
+
+.personContainer .staffCell img {
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+	margin-bottom: 0.3rem;
+}
+
+.personContainer .staffCell .name {
+	display: block;
+	font-size: 1.2rem;
+	width: 3.8rem;
+	word-break: break-all;
+}
+
+.personContainer .staffCell .more {
+	display: inline-block;
+	width: 3.7rem;
+	height: 3.7rem;
+	line-height: 3.7rem;
+	border-radius: 50%;
+	background: #6fc13a;
+	color: #fff;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+.personTotal{
+	margin-top:5px;
+	text-align: center;
+}
+
+/** 详情CSS **/
+.personHeader {
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed!important;
+	color: #fff;
+	table-layout: fixed;
+}
+
+.personHeader > div {
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.personHeaderReturn {
+	padding-left: 1rem;
+	color: #fff;
+	cursor: pointer;
+}
+
+.personHeaderTitle {
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.muiPerson .muiPersonIcon{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+	width: 3.2rem;
+	text-align: center;
+}
+
+.muiPerson .muiPersonIcon img{
+	width: 3rem;
+	height: 3rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+
+.muiPerson .muiPersonInfo{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+}
+
+.muiPerson .muiPersonName{
+	padding-left: 0.5rem;
+}
+
+.muiPerson .personHeader{
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+	color: #fff;
+	table-layout: fixed;
+}
+
+.personHeader > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.personHeaderTitle{
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.personHeaderReturn{
+	padding-left: 1rem;
+	color: #fff;
+	/* float: right; */
+	cursor: pointer;
+}
+
+.mblEdgeToEdgeList .muiListItem.muiPerson{
+	margin: 0;
+	padding: 0.8rem 0.5rem 0.8rem 1rem;
+}

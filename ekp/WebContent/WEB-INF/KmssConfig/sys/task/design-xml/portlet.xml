@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	<!--所有任务 -->
+	<portlet id="sys.task.allDoc" name="{sys-task:sysTaskMain.list.all}" module="{sys-task:sysTask.tree.title}" description="{portlet.list.desc1}">
+		<source  format="sys.ui.classic" type="AjaxXml" >
+			<code>
+			<![CDATA[
+				{
+					"url":"/sys/common/dataxml.jsp?s_bean=sysTaskMainPortletService&rowsize=!{rowsize}&scope=!{scope}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{sys-task:sysTaskMain.docCreateTime}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{sys-task:sysTaskMain.portlet.rowsize}" key="rowsize" kind="rowsize" />
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="/sys/task/sys_task_main/sysTaskMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/sys/task/index.jsp" />
+		</operations>
+	</portlet>
+	
+	<!-- 我的任务 -->
+	<portlet id="sys.task.newDoc" name="{sys-task:sysTaskMain.my}" module="{sys-task:sysTask.tree.title}" description="{portlet.list.desc2}">
+		<source  format="sys.ui.listtable" type="AjaxJson" >
+			<code>
+			<![CDATA[
+				{"url":"/sys/task/sys_task_portlet/SysTaskMainPortlet.do?method=getDataList&rowsize=!{rowsize}&type=!{type}&scope=!{scope}"}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{sys-task:sysTaskMain.docCreateTime}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{sys-task:sysTaskMain.portlet.rowsize}" key="rowsize" kind="rowsize" />
+		     <var name="{sys-task:sysTaskMain.fdCategoryId}" key="type" kind="enumValue" default="all">
+			  {    "values":[{"text":"{sys-task:sysTaskMain.portlet.all}", "value":"all" },{ "text":"{sys-task:sysTaskMain.portlet.myAppoint}", "value":"myAppoint" },{ "text":"{sys-task:sysTaskMain.portlet.myAttention}", "value":"myAttention" },{ "text":"{sys-task:sysTaskMain.portlet.myPerform}", "value":"myPerform" }],
+	               "showType":"radio"
+               }
+			</var>
+		</vars>
+		<operations>
+			<operation
+				name="{operation.create}"
+				type="create"
+				href="/sys/task/sys_task_main/sysTaskMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/sys/task/index.jsp" />
+		</operations>
+	</portlet>   
+</root>

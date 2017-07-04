@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIfaceImpl"
+		messageKey="tib-sys-core-provider:table.tibSysCoreIfaceImpl"
+		displayProperty="fdName"
+		serviceBean="tibSysCoreIfaceImplService"
+		table="tib_sys_core_iface_impl"
+		url="/tib/sys/core/provider/tib_sys_core_iface_impl/tibSysCoreIfaceImpl.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdImplRef"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.fdImplRef"
+			type="String"
+			column="fd_impl_ref"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdImplRefName"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.fdImplRefName"
+			type="String"
+			column="fd_impl_ref_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFuncType"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.fdFuncType"
+			type="String"
+			column="fd_func_type"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdImplRefData"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.fdImplRefData"
+			type="String"
+			column="fd_impl_ref_data"
+			notNull="false"
+			length="3000"
+			validate="true" />
+
+		<modelProperty
+			name="tibSysCoreIface"
+			messageKey="tib-sys-core-provider:tibSysCoreIfaceImpl.tibSysCoreIface"
+			type="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface"
+			column="tib_sys_core_iface"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskComment"
+		messageKey="kms-ask:table.kmsAskComment"
+		displayProperty="docSubject"
+		serviceBean="kmsAskCommentService"
+		table="kms_ask_comment"
+		url="/kms/ask/kms_ask_comment/kmsAskComment.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-ask:kmsAskComment.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="true"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCommentTime"
+			messageKey="kms-ask:kmsAskComment.fdCommentTime"
+			type="DateTime"
+			column="fd_comment_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdPoster"
+			messageKey="kms-ask:kmsAskComment.fdPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_poster_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdKmsAskPost"
+			messageKey="kms-ask:kmsAskComment.fdKmsAskPost"
+			type="com.landray.kmss.kms.ask.model.KmsAskPost"
+			column="fd_post_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

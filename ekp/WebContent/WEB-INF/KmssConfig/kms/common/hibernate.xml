@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+	PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsWebserviceAuth.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsAppConfig.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsFtsearchConfig.hbm.xml" />
+			
+		<!-- 推荐知识 -->
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsHomeKnowledgeIntro.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsHomeKnowledgeMapping.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsCommonDocErrorCorrection.hbm.xml" /> 
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsCommonRecycleLog.hbm.xml" />
+		
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsCommonDataPush.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsShareMain.hbm.xml" />
+		<mapping resource="com/landray/kmss/kms/common/model/KmsCommentMain.hbm.xml"/>
+		<mapping
+			resource="com/landray/kmss/kms/common/model/KmsCommonAtUser.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

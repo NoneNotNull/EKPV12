@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.evaluation.model.SysEvaluationReply"
+	messageKey="sys-evaluation:table.sysEvaluationReply"
+	serviceBean="sysEvaluationReplyService"
+	table="sys_evaluation_reply"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdReplyTime"
+	messageKey="sys-evaluation:sysEvaluationReply.fdReplyTime"
+	type="DateTime"
+	column="fd_reply_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="docContent"
+	messageKey="sys-evaluation:sysEvaluationReply.fdReplyContent"
+	type="String"
+	column="doc_content"
+	notNull="false"
+	length="1500"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-evaluation:sysEvaluationReply.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-evaluation:sysEvaluationReply.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<modelProperty
+	name="fdReplyer"
+	messageKey="sys-evaluation:sysEvaluationReply.fdReplyer"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_replyer_id"
+	notNull="false"
+/>
+<modelProperty
+	name="fdParentReplyer"
+	messageKey="sys-evaluation:sysEvaluationReply.fdParentReplyer"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_parent_replyer_id"
+	notNull="false"
+/>
+</model></models>

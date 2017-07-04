@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgGroupCate"
+		messageKey="sys-organization:table.sysOrgGroupCate"
+		displayProperty="fdName"
+		serviceBean="sysOrgGroupCateService"
+		table="sys_org_group_cate">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-organization:sysOrgGroupCate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdKeyword"
+			messageKey="sys-organization:sysOrgGroupCate.fdKeyword"
+			type="String"
+			column="fd_keyword"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="model.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey="model.fdAlterTime"
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-organization:sysOrgGroupCate.fdParent"
+			type="com.landray.kmss.sys.organization.model.SysOrgGroupCate"
+			column="fd_parentid"
+			notNull="false"
+			unique="false"
+			treeModel="true"
+			dialogJS="Dialog_Tree(!{mulSelect},'!{idField}','!{nameField}',null,Tree_GetBeanNameFromService('sysOrgGroupCateService', 'hbmParent', 'fdName:fdId'),'!{message(sys-organization:table.sysOrgGroupCate)');" />
+		<listProperty
+			name="hbmChildren"
+			messageKey="sys-organization:sysOrgGroupCate.hbmChildren"
+			column="fd_parentid"
+			type="com.landray.kmss.sys.organization.model.SysOrgGroupCate"
+			inverse="true"
+			readOnly="true"
+			canDisplay="false" />
+	</model>
+</models>

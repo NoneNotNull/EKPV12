@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgRoleConf"
+		messageKey="sys-organization:table.sysOrgRoleConf"
+		displayProperty="fdName"
+		serviceBean="sysOrgRoleConfService"
+		table="sys_org_role_conf">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-organization:sysOrgRoleConf.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" 
+			validate="true"/>
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-organization:sysOrgRoleConf.fdOrder"
+			type="Long"
+			column="fd_order"
+			notNull="false" 
+			validate="true"/>
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="sys-organization:sysOrgRoleConf.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false" />
+			
+		<listProperty
+			name="sysRoleLineEditors"
+			messageKey="sys-organization:sysOrgRoleConf.fdRoleLineEditors"
+			column="fd_role_line_conf_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_org_role_line_editor" />
+	</model>
+</models>

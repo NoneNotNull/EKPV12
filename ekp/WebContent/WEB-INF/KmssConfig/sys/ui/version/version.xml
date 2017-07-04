@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 iframe阻塞问题</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 类别选择框支持“取消选定”</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-26</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 火狐下审批人点击签章没反应</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文查看页面新建签章问题修复</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie8下bodyonresize事件不触发的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-01-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 弹出框支持拖拽功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-01-14</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 低版本浏览器提示</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-01-06</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 图片阅读被下放panel遮挡的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 格子视图列数参数错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 竖向菜单增加滚动条</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-05</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 分页跳转数字为空时报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-02</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 portlet精华图标配置改为不通用</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-26</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 多分辨率响应式样式处理</description>
+			<author>李信</author>
+			<revision-time>2014-11-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表数据源接口支持通过类名设置样式</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 多分辨率响应式样式处理</description>
+			<author>李信</author>
+			<revision-time>2014-11-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表数据源接口支持通过类名设置样式</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>移除 pc登陆页面的登陆方式切换</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-12</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 场所较多时切换场所列表显示不完成的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-07</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 筛选器属性过多出现更多按钮</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 fixed组件</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 视图切换按钮偶发出现下拉按钮不隐藏的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 门户如果出现多个幻灯片后高宽出现异常的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一移动端跟pc端列表数据源</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 portlet支持配置是否显示精华图标</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 日历组件中，闰月不再显示农历节日</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE10下表格部分边框消失现象</description>
+			<author>周梓凡</author>
+			<revision-time>2014-09-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 筛选器在有条件下且条件非设置的默认值会出现列表空白的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-26</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 筛选器在网络或机器慢等不可抗因素下初始化列表失败的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-18</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表与iframe切换效果</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-11</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 限制视图翻页组件每页最大条目数为500条</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页组件</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 面板展开折叠记忆功能</description>
+			<author>傅游翔</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 EKP门户部件支持IBM Portal</description>
+			<author>李勇</author>
+			<revision-time>2014-07-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 增加人员搜索结果为一人时，默认放入筛选条件</description>
+			<author>傅游翔</author>
+			<revision-time>2014-06-23</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 自动筛选器boolean类型禁止多选</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-23</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 门户多语言显示</description>
+			<author>魏本源</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+	</modifies>
+</version>

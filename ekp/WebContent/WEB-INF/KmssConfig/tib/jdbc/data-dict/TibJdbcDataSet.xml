@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcDataSet"
+		messageKey="tib-jdbc:table.tibJdbcDataSet"
+		displayProperty="docSubject"
+		serviceBean="tibJdbcDataSetService"
+		table="tib_jdbc_data_set"
+		url="/tib/jdbc/tib_jdbc_data_set/tibJdbcDataSet.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="tib-jdbc:tibJdbcDataSet.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDataSource"
+			messageKey="tib-jdbc:tibJdbcDataSet.fdDataSource"
+			type="String"
+			column="fd_data_source"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSqlExpression"
+			messageKey="tib-jdbc:tibJdbcDataSet.fdSqlExpression"
+			type="String"
+			column="fd_sql_expression"
+			notNull="true"
+			length="300"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdData"
+			messageKey="tib-sys-core-control:tibSysCoreControl.fdData"
+			type="RTF"
+			column="fd_data"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+			
+		<modelProperty
+			name="docCategory"
+			messageKey="tib-jdbc:tibJdbcDataSet.docCategory"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcDataSetCategory"
+			column="doc_category_id"
+			notNull="true"
+			validate="true"/>
+	</model>
+</models>

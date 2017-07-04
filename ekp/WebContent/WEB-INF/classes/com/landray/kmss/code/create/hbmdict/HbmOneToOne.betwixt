@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info primitiveTypes="attribute">
+	<element name="one-to-one">
+		<attribute
+			name="class"
+			property="type" />
+		<addDefaults />
+	</element>
+</info>

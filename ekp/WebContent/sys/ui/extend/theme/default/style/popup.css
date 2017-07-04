@@ -1,0 +1,8 @@
+@charset "utf-8";
+.lui_popup_border_stroke {
+	background-color: #3ca0d6; 
+}
+.lui_popup_border_content {
+	border-color: #3ca0d6;
+	border-style: solid;
+}

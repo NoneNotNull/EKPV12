@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<extension-point id="com.landray.kmss.sys.xform.jsp.generator">
+		<item name="generator">
+			<param name="bean" kind="spring" required="true"
+				basedOn="com.landray.kmss.sys.xform.base.service.parse.JspGenerator">
+				<description>解析HTML，生成器</description>
+			</param>
+			<param name="order" kind="int">
+				<description>排序号</description>
+			</param>
+			<description>表单HTML生成器</description>
+		</item>
+		<description>
+			表单HTML生成器，目的是可以实现多HTML生成器自动新增和移除
+		</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.xform.base.service.controls">
+		<item name="control">
+			<param name="class" kind="java"
+				basedOn="com.landray.kmss.sys.xform.base.service.ISysFormTemplateControl">
+				<description>解析HTML，并生成JSP的类</description>
+			</param>
+			<param name="file" kind="filepath">
+				<description>前段HTML生成，数据字典生成的JS代码</description>
+			</param>
+			<description>表单控件</description>
+		</item>
+		<item name="designJs">
+			<param name="file" kind="filepath">
+				<description>前端js文件地址，一般是嵌入组件以外的js，也可用于干预或修改组件。</description>
+			</param>
+			<description>表单编辑界面嵌入js文件</description>
+		</item>
+		<description>
+			表单扩展点，支持新增表单控件。
+			control - class 配置后台解析HTML生成JSP的java类。
+			control - file 配置前段，表单HTML、数据字典生成的JS代码。
+		</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.xform.base.service.dataEvents">
+		<item name="dataEvent">
+			<param name="label" kind="string" required="true">
+				<description>用来显示在前端页面的文本。</description>
+			</param>
+			<param name="bean" kind="spring" required="true"
+				basedOn="com.landray.kmss.sys.metadata.interfaces.IExtendDataEvent">
+				<description>在spring里注册的，执行保存事件的JAVA类，注意：需要实现的接口是元数据的。</description>
+			</param>
+			<description>存储事件</description>
+		</item>
+		<description>
+			表单存储事件扩展点。
+			dataEvent - 存储事件
+		</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.xform.jsp.handlers">
+		<item name="handler">
+			<param name="class" kind="java"
+				basedOn="com.landray.kmss.sys.xform.base.service.parse.ParseHandler">
+				<description>解析HTML，并生成JSP的类</description>
+			</param>
+			<param name="file" kind="filepath">
+				<description>前段HTML生成，数据字典生成的JS代码</description>
+			</param>
+			<description>表单控件</description>
+		</item>
+		<description>
+			表单扩展点，新扩展点，建议使用此扩展点
+		</description>
+	</extension-point>
+	
+	<extension-point id="com.landray.kmss.sys.xform.jsp.pda.handlers">
+		<item name="handler">
+			<param name="class" kind="java"
+				basedOn="com.landray.kmss.sys.xform.base.service.parse.ParseHandler">
+				<description>解析HTML，并生成JSP的类。注意：最后输出全为只读</description>
+			</param>
+			<description>表单控件</description>
+		</item>
+		<description>
+			表单PDA功能支持扩展点
+		</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.xform.jsp.generator" model="*">
+		<item name="generator">
+			<param name="bean" value="sysFormTemplateJspGenerator" />
+			<param name="order" value="10"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.xform.base.service.controls" model="*">
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateDetailsTableControl" />
+			<param name="file" value="/sys/xform/designer/detailstable_lang.jsp;/sys/xform/designer/detailstable.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateCalculationControl" />
+			<param name="file" value="/sys/xform/designer/calculation/calculation_lang.jsp;
+										/sys/xform/designer/calculation/calculation.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateBrControl" />
+			<param name="file" value="/sys/xform/designer/brcontrol_lang.jsp;
+										/sys/xform/designer/brcontrol.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateTabControl" />
+			<param name="file" value="/sys/xform/designer/tab_lang.jsp;/sys/xform/designer/tab.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateAuditShowControl" />
+			<param name="file" value="/sys/xform/designer/auditshow_lang.jsp;/sys/xform/designer/auditshow.js" />
+		</item>
+		<!--审批控件-->
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateAuditNoteControl" />
+			<param name="file" value="/sys/xform/designer/auditnote.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateChinaValueControl" />
+			<param name="file" value="/sys/xform/designer/chinaValue/chinaValue_lang.jsp;/sys/xform/designer/chinaValue/chinaValue.js" />
+		</item>
+		<item name="control">
+			<param name="file" value="/sys/xform/designer/undo.js;/sys/xform/designer/undo_lang.jsp" />
+		</item>
+		<item name="control">
+			<param name="file" value="/sys/xform/impt/import.jsp;/sys/xform/designer/excel.js" />
+		</item>
+		<!-- 联动控件 -->
+		
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateRelationSelectControl" />
+			<param name="file" value="/sys/xform/designer/relation/relation.js;/sys/xform/designer/relation_select/relation_select_lang.jsp;/sys/xform/designer/relation_select/relation_select.js" />
+		</item>
+	
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateRelationEventControl" />
+			<param name="file" value="/sys/xform/designer/relation/relation.js;/sys/xform/designer/relation_event/relation_event_lang.jsp;/sys/xform/designer/relation_event/relation_event.js" />
+		</item>
+		
+		
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateFieldLayoutControl" />
+			<param name="file" value="/sys/xform/designer/relation/relation.js;/sys/xform/designer/fieldlayout/fieldpanel.js;/sys/xform/designer/fieldlayout/fieldlayout.js" />
+		</item>
+		
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.xform.base.service.dataEvents" model="*">
+		<item name="dataEvent" enable="false">
+			<param name="bean" value="sysFormDataEventDemo" />
+			<param name="label" value="存储事件样例" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.xform.base.service.spring.SysFormDbPublishMessage" />
+			<param name="service" value="sysFormDbMessageReceiver" />
+		</item>
+		<item name="messageReceiver">
+			<param name="type" value="com.landray.kmss.sys.xform.base.service.spring.SysFormDbCancelMessage" />
+			<param name="service" value="sysFormDbMessageReceiver" />
+		</item>
+	</extension>
+	
+	<!--<extension point="com.landray.kmss.sys.xform.base.service.controls" model="*">
+		<item name="control">
+			<param name="class" value="com.landray.kmss.sys.xform.base.service.controls.SysFormTemplateLabelTableControl" />
+			<param name="file" value="/sys/xform/designer/labeltable.js" />
+		</item>
+	</extension>-->
+	
+</plugin>

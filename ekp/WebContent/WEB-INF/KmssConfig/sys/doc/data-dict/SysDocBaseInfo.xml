@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.doc.model.SysDocBaseInfo"
+		messageKey="sys-doc:sysDoc.modelName"
+		serviceBean="sysDocBaseInfoService">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docType"
+			messageKey="sys-doc:sysDocBaseInfo.docType"
+			type="String"
+			column="doc_type"
+			notNull="false"
+			unique="false"
+			length="200"
+			readOnly="true"
+			canDisplay="false" />
+		<simpleProperty
+			name="docSubject"
+			messageKey="sys-doc:sysDocBaseInfo.docSubject"
+			canSearch="true"
+			canRelation="true"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			unique="false"
+			length="200"
+			canDisplay="true"
+			canSubscribe="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-doc:sysDocBaseInfo.docCreateTime"
+			canSearch="true"
+			canRelation="true"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			unique="false"
+			readOnly="true" />
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="sys-doc:sysDocBaseInfo.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			unique="false"
+			readOnly="true"
+			canSearch="true"
+			canRelation="true"
+			canDisplay="true" />
+		<simpleProperty
+			name="docContent"
+			messageKey="sys-doc:sysDocBaseInfo.docContent"
+			canSearch="true"
+			canRelation="true"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			unique="false"
+			canDisplay="true" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-doc:sysDocBaseInfo.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="true" />
+		<simpleProperty
+			name="docAlterClientIp"
+			messageKey="sys-doc:sysDocBaseInfo.docAlterClientIP"
+			type="String"
+			column="doc_alter_client_ip"
+			notNull="false"
+			unique="false"
+			length="30"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="docExpire"
+			messageKey="sys-doc:sysDocBaseInfo.docExpire"
+			canSearch="true"
+			canRelation="true"
+			type="Long"
+			column="doc_expire"
+			notNull="false"
+			unique="false"
+			length="2"
+			canDisplay="true" />
+		<simpleProperty
+			name="docStatus"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			length="2"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="docMainVersion"
+			messageKey="sys-doc:sysDocBaseInfo.docMainVersion"
+			type="Long"
+			column="doc_main_version"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="true"
+			readOnly="true" />
+		<simpleProperty
+			name="docAuxiVersion"
+			messageKey="sys-doc:sysDocBaseInfo.docAuxiVersion"
+			type="Long"
+			column="doc_auxi_version"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="true"
+			readOnly="true" />
+		<simpleProperty
+			name="docReadCount"
+			messageKey="sys-doc:sysDocBaseInfo.docReadCount"
+			type="Long"
+			column="doc_read_count"
+			notNull="false"
+			unique="false"
+			length="19"
+			canDisplay="true"
+			readOnly="true"
+			defaultValue="0" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="sys-doc:sysDocBaseInfo.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="docIsIntroduced"
+			messageKey="sys-doc:sysDocBaseInfo.docIsIntroduced"
+			type="Boolean"
+			column="doc_is_introduced"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="docIsNewVersion"
+			messageKey="sys-doc:sysDocBaseInfo.docIsNewVersion"
+			type="Boolean"
+			column="doc_is_new_version"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="docIsLocked"
+			messageKey="sys-doc:sysDocBaseInfo.docIsLocked"
+			type="Boolean"
+			column="doc_is_locked"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+		<modelProperty
+			name="docOriginDoc"
+			messageKey="sys-doc:sysDocBaseInfo.docOriginDoc"
+			type="com.landray.kmss.sys.doc.model.SysDocBaseInfo"
+			column="doc_origin_docid"
+			notNull="false"
+			unique="false"
+			readOnly="true"
+			canDisplay="false" />
+		<modelProperty
+			name="docAuthor"
+			messageKey="sys-doc:sysDocBaseInfo.docAuthor"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_author_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="true" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-doc:sysDocBaseInfo.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canDisplay="true"
+			readOnly="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			canSubscribe="true" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-doc:sysDocBaseInfo.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="true" />
+		<modelProperty
+			name="docDept"
+			messageKey="sys-doc:sysDocBaseInfo.docDept"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_ORGORDEPT);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_dept_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="true" />
+		<listProperty
+			name="docHistoryEditions"
+			messageKey="sys-doc:sysDocBaseInfo.docHistoryEditions"
+			column="doc_origin_docid"
+			type="com.landray.kmss.sys.doc.model.SysDocBaseInfo"
+			inverse="true"
+			canDisplay="true"
+			readOnly="true" />
+	</model>
+</models>

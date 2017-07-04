@@ -1,0 +1,15 @@
+WebContent/WEB-INF/KmssConfig/third/evernote/design.xml=cb6fbf8c6fde9645e5b8c5afcd6f214a
+WebContent/WEB-INF/KmssConfig/third/evernote/plugin.xml=016f11f45101080b9cd4050b03c5a501
+WebContent/WEB-INF/KmssConfig/third/evernote/spring.xml=978c37f742cd8e53fdbd4bc16aa45a8c
+WebContent/WEB-INF/KmssConfig/third/evernote/version/description.xml=b4d5988418ca49ddb34402f8dfcccf2f
+WebContent/WEB-INF/KmssConfig/third/evernote/version/version.xml=a1d75166ba85cd3d97ffc7987b4b857a
+WebContent/WEB-INF/lib/kmss_third_evernote.jar=d98160029be5995ee829e51faa95b73e
+WebContent/third/evernote/applyClient.html=41548872b671d3335ccbcaba6dee213e
+WebContent/third/evernote/config.jsp=68349f8f3ae6b91253578373b51c664b
+WebContent/third/evernote/resource/evernote1.png=4d65c33f7842f270beed55de61cdce7f
+WebContent/third/evernote/resource/evernote2.png=a1f73ff20eb00abea4876f88edf2bdc4
+WebContent/third/evernote/resource/evernote3.png=caef0247b4392f0e71be55bc94729b26
+WebContent/third/evernote/resource/evernote4.png=2e8b67d0f753d5d84f1cbf825efc5333
+WebContent/third/evernote/resource/evernote5.png=79dfb1dfafda31ced60ee4fe5ccabeee
+WebContent/third/evernote/resource/evernote6.png=59bcec88e0ea89d3041c5850dc3b5c8a
+WebContent/third/evernote/resource/evernote7.png=32b936bd01fdfd7f7c0beccee9c8094a

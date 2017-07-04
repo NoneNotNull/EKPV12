@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysBookmarkMainForm"
+			type="com.landray.kmss.sys.bookmark.forms.SysBookmarkMainForm">
+		</form-bean>
+		<form-bean
+			name="sysBookmarkPublicCategoryForm"
+			type="com.landray.kmss.sys.bookmark.forms.SysBookmarkPublicCategoryForm">
+		</form-bean>
+		<form-bean
+			name="sysBookmarkPersonCategoryForm"
+			type="com.landray.kmss.sys.bookmark.forms.SysBookmarkPersonCategoryForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/bookmark/sys_bookmark_main/sysBookmarkCategory"
+			type="com.landray.kmss.sys.bookmark.actions.SysBookmarkCategoryAction"
+			name="sysBookmarkMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action> 
+
+		<action
+			path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain"
+			type="com.landray.kmss.sys.bookmark.actions.SysBookmarkMainAction"
+			name="sysBookmarkMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain_list.jsp">
+			</forward>
+			<forward
+				name="searchResult"
+				path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain_list.jsp">
+			</forward>
+			<forward
+				name="editAll"
+				path="/sys/bookmark/sys_bookmark_main/sysBookmarkMain_editAll.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/bookmark/sys_bookmark_person_category/sysBookmarkPersonCategory"
+			type="com.landray.kmss.sys.bookmark.actions.SysBookmarkPersonCategoryAction"
+			name="sysBookmarkPersonCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/bookmark/sys_bookmark_person_category/sysBookmarkPersonCategory_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/bookmark/sys_bookmark_person_category/sysBookmarkPersonCategory_edit.jsp">
+			</forward>
+			<forward
+				name="editUi"
+				path="/sys/bookmark/sys_bookmark_person_category/sysBookmarkPersonCategory_editUi.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/bookmark/sys_bookmark_person_category/sysBookmarkPersonCategory_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/bookmark/sys_bookmark_public_category/sysBookmarkPublicCategory"
+			type="com.landray.kmss.sys.bookmark.actions.SysBookmarkPublicCategoryAction"
+			name="sysBookmarkPublicCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/bookmark/sys_bookmark_public_category/sysBookmarkPublicCategory_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/bookmark/sys_bookmark_public_category/sysBookmarkPublicCategory_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/bookmark/sys_bookmark_public_category/sysBookmarkPublicCategory_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.bookmark.ApplicationResources"
+		key="sys-bookmark" />
+</struts-config>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskPost"
+		messageKey="kms-ask:table.kmsAskPost"
+		displayProperty="docSubject"
+		serviceBean="kmsAskPostService"
+		table="kms_ask_post"
+		url="/kms/ask/kms_ask_post/kmsAskPost.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-ask:kmsAskPost.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="true"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsBest"
+			messageKey="kms-ask:kmsAskPost.fdIsBest"
+			type="Boolean"
+			column="fd_is_best"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="fdAgreeNum"
+			messageKey="kms-ask:kmsAskPost.fdAgreeNum"
+			type="Integer"
+			column="fd_agree_num"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPostTime"
+			messageKey="kms-ask:kmsAskPost.fdPostTime"
+			type="DateTime"
+			column="fd_post_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCommentNum"
+			messageKey="kms-ask:kmsAskPost.fdCommentNum"
+			type="Integer"
+			column="fd_comment_num"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<modelProperty
+			name="fdKmsAskTopic"
+			messageKey="kms-ask:kmsAskPost.fdKmsAskTopic"
+			type="com.landray.kmss.kms.ask.model.KmsAskTopic"
+			column="fd_topic_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdPoster"
+			messageKey="kms-ask:kmsAskPost.fdPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_poster_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

@@ -1,0 +1,42 @@
+.speechArea{
+	margin: 5px 0;
+	padding: 4px 0 4px 1rem;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+}
+#speechDiv{
+	margin: 0;
+	padding: 0;
+}
+#speechDiv > li{
+	list-style: none;
+	padding: 5px 0;
+	border-bottom: 1px solid #e2e2e2;
+}
+#speechDiv > li:last-child{
+	border-bottom: 0;
+}
+
+#speechDiv > li>div{
+	position: relative;
+}
+#speechDiv > li .speechIcon{
+	margin-right: 5px;
+	color: #3fa9f5;
+}
+#speechDiv > li .speechClose{
+	color: #999;
+	font-size: 14px;
+	position: absolute;
+	right: 1rem;
+	min-width: 4rem;
+
+}
+#speechDiv > li .speechName{
+	max-width: 80%;
+	white-space: nowrap;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	display: inline-block;
+}

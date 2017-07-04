@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	
+	<!-- 点评模块 评分等级 -->	
+	<type name="sysEvaluation_Score" default-value="1">
+		<value-label>
+			<value>0</value>
+			<label-key>sysEvaluationMain.evaluationScore.best</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>sysEvaluationMain.evaluationScore.better</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysEvaluationMain.evaluationScore.good</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>sysEvaluationMain.evaluationScore.normal</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>sysEvaluationMain.evaluationScore.bad</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+	</type>
+	
+	<!-- 点评总览（点评对象） -->
+	<type name="sysEvaluationType">
+		<value-label>
+			<value>0</value>
+			<label-key>table.sysEvaluationMain.all</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>table.sysEvaluationNotes</label-key>
+			<bundle>sys-evaluation</bundle>
+		</value-label>
+	</type>
+</column-enums>

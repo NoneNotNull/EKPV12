@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="km-forum:module.km.forum"
+		urlPrefix="/km/forum/"
+		defaultValidator="roleValidator(role=ROLE_KMFORUM_DEFAULT)">
+		<roles>
+			ROLE_KMFORUM_DEFAULT; ROLE_KMFORUMCONFIG_ADMIN;
+			ROLE_KMFORUMCATE_ADMIN; ROLE_KMFORUMPOST_POSTCREATE;
+			ROLE_KMFORUMPOST_POSTREPLY; ROLE_KMFORUMPOST_POSTEDIT;
+			ROLE_KMFORUMPOST_POSTDELETE; ROLE_KMFORUMTOPIC_TOPICDELETE;
+			ROLE_KMFORUMTOPIC_TOPICSTICK;
+			ROLE_KMFORUMTOPIC_TOPICUNDOSTICK;
+			ROLE_KMFORUMTOPIC_TOPICPINK;
+			ROLE_KMFORUMTOPIC_TOPICUNDOPINK; ROLE_KMFORUMTOPIC_TOPICMOVE;
+			ROLE_KMFORUMTOPIC_CONCLUDE;
+		</roles>
+		<!-- 分类转移权限 -->
+		<request
+			path="km_forum/kmForumTopic_changeCategory.jsp"
+			defaultValidator="roleValidator(role=ROLE_KMFORUMCONFIG_ADMIN)|roleValidator(role=ROLE_KMFORUMTOPIC_TRANSFER)">
+		</request>
+		<!-- 论坛设置 -->
+		<request
+			path="km_forum_config/kmForumConfig*"
+			defaultValidator="roleValidator(role=ROLE_KMFORUMCONFIG_ADMIN)">
+			<query
+				queryString="method=viewLevel"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+		<!-- 版块设置 -->
+		<request
+			path="km_forum_cate/kmForumCategory*"
+			defaultValidator="roleValidator(role=ROLE_KMFORUMCATE_ADMIN)">
+			<query
+				queryString="method=main|getForumTopicCategoryAll|categoryDetail"
+				validator="roleValidator(role=SYSROLE_USER)" />
+			<query
+				queryString="method=manage|manageUpdate"
+				validator="roleValidator(role=ROLE_KMFORUMCATE_ADMIN)|authFieldValidator(type=cateManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+		</request>
+		<!-- 社区主题 -->
+		<request
+			path="km_forum/kmForumTopic*">
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICDELETE)|authFieldValidator(type=cateManager,recid=fdForumId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+			<query
+				queryString="method= Draft|deleteDraft"
+				validator="roleValidator(role=ROLE_KMFORUM_DEFAULT)" />
+			<!-- 默认发帖人可删除、结贴自己发的帖子  modify by tanyh 删除只能版主和删除权限 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICDELETE)|authFieldValidator(type=topicManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<query
+				queryString="method=conclude"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_CONCLUDE)|authFieldValidator(type=topicManagerAndPoster,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<!-- 默认发帖人可删除、结贴自己发的帖子 -->
+			<query
+				queryString="method=stick"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICSTICK)|authFieldValidator(type=topicManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<query
+				queryString="method=undoStick"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICUNDOSTICK)|authFieldValidator(type=topicManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<query
+				queryString="method=pink"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICPINK)|authFieldValidator(type=topicManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<query
+				queryString="method=undoPink"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICUNDOPINK)|authFieldValidator(type=topicManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumTopic)" />
+			<query
+				queryString="method=showMove|move"
+				validator="roleValidator(role=ROLE_KMFORUMTOPIC_TOPICMOVE)|authFieldValidator(type=cateManager,recid=fdForumId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+		</request>
+		<!-- 社区帖子 -->
+		<request
+			path="km_forum/kmForumPost*">
+			<!--控制非按版本视图的发帖按钮-->
+			<query
+				queryString="method=add&amp;owner=true"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTCREATE)" />
+			<!--控制帖子阅读页面的发帖按钮及按版块视图的发帖按钮-->
+			<query
+				queryString="method=add&amp;fdForumId=*"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTCREATE)&amp;authFieldValidator(type=catePostManager,recid=fdForumId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+			<!--为建门户快捷方式而使用-->
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTCREATE)" />
+			<query
+				queryString="method=save|saveadd"
+				validator="[roleValidator(role=ROLE_KMFORUMPOST_POSTREPLY)|roleValidator(role=ROLE_KMFORUMPOST_POSTCREATE)]&amp;authFieldValidator(type=catePostManager,recid=fdForumId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+			<query
+				queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTEDIT)|authFieldValidator(type=postManager,recid=fdId,model=com.landray.kmss.km.forum.model.KmForumPost)" />
+			<!--<query
+				queryString="method=reply|quote"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTREPLY)&amp;authFieldValidator(type=catePostManager,recid=fdForumId,model=com.landray.kmss.km.forum.model.KmForumCategory)" />
+			-->
+			<!-- modify by 谭又豪  回复权限去掉并且板块版主权限 -->
+			<query
+				queryString="method=reply|quote"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTREPLY)" />		
+			<!--
+				<query queryString="method=quote"
+				validator="roleValidator(role=ROLE_KMFORUM_DEFAULT)"/>
+			-->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMFORUMPOST_POSTDELETE)" />
+		</request>
+		<!-- 版务管理 -->
+		<filters
+			modelName="com.landray.kmss.km.forum.model.KmForumCategory">
+			<filter
+				type="cateManager"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+			<filter
+				type="catePostManager"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="catePostManager"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.km.forum.model.KmForumTopic">
+			<filter
+				type="topicManager"
+				expression="authFieldFilter(field=kmForumCategory.authAllEditors.fdId)" />
+			<filter
+				type="topicManagerAndPoster"
+				expression="authFieldFilter(field=kmForumCategory.authAllEditors.fdId;fdPoster.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.km.forum.model.KmForumPost">
+			<filter
+				type="postManager"
+				expression="authFieldFilter(field=kmForumTopic.kmForumCategory.authAllEditors.fdId;fdPoster.fdId)" />
+		</filters>
+	</module>
+	<!-- 全文检索 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.forum.model.KmForumTopic"
+				validator="roleValidator(role=ROLE_KMFORUM_DEFAULT)" />
+		</request>
+	</module>
+   	<!-- 清除置顶-->
+	<quartz
+		messageKey="km-forum:kmForumJob.job.checkPeriodValidity"
+		jobService="kmForumTopicService"
+		cronExpression="1 0 0 ? * *"
+		jobMethod="updateTopAgent" />
+
+	<!-- 个人信息
+	<portlet
+		moduleKey="km-forum:home.nav.kmForum"
+		messageKey="km-forum:menu.kmForum.userInfo"
+		contentURL="/km/forum/km_forum_score/kmForumScore.do?method=view&amp;fdId=0&amp;type=portlet"
+		moreURL="/km/forum.index"
+		createURL="/km/forum/km_forum/kmForumPost.do?method=add" /> -->
+		
+	<!-- 高级搜索 modify by zhouchao 20090525-->
+	<search
+		modelName="com.landray.kmss.km.forum.model.KmForumTopic"
+		messageKey="km-forum:KmForumPost.search.title"
+		whereBlock="kmForumTopic.fdStatus='30' or kmForumTopic.fdStatus='40'"
+		resultProperties="docSubject;kmForumCategory;fdPoster;docCreateTime;fdLastPoster;fdLastPostTime" />
+	<ftSearch
+		modelName="com.landray.kmss.km.forum.model.KmForumTopic"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="text" />
+		<luceneField
+			name="content"
+			property="forumPosts:docContent"
+			type="text" />
+		<luceneField
+			name="category"
+			property="kmForumCategory.fdHierarchyId"
+			type="Text" />
+		<luceneField
+			name="poster"
+			property="forumPosts:fdPoster.fdName"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="fdPoster.fdName"
+			type="Text" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+	</ftSearch>
+
+	<treeNodes
+		type="myjob">
+		<treeNode
+			messageKey="km-forum:menu.kmForum.myForum.tree">
+			<treeNode
+				messageKey="km-forum:menu.kmForum.myTopic"
+				url="/km/forum/km_forum/kmForumTopic.do?method=list&amp;myPost=true">
+			</treeNode>
+			<treeNode
+				messageKey="km-forum:menu.kmForum.myPost"
+				url="/km/forum/km_forum/kmForumTopic.do?method=list&amp;MyJoin=true">
+			</treeNode>
+			<treeNode
+				messageKey="km-forum:menu.kmForum.userInfo"
+				url="/km/forum/km_forum_score/kmForumScore.do?method=view&amp;fdId=0&amp;owner=true">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<treeNodes type="config">
+		<treeNode
+			messageKey="km-forum:menu.kmForum.global">
+			<treeNode
+				messageKey="km-forum:menu.kmForum.config"
+				url="/km/forum/km_forum_config/kmForumConfig.do?method=edit">
+			</treeNode>
+			<treeNode
+				messageKey="km-forum:menu.kmForum.directory"
+				url="/km/forum/km_forum_cate/kmForumCategory.do?method=list&amp;type=directory">
+			</treeNode>
+			<treeNode
+				messageKey="km-forum:menu.kmForum.category"
+				url="/km/forum/km_forum_cate/kmForumCategory.do?method=list&amp;type=forum">
+			</treeNode>
+		</treeNode>
+		<treeNode
+			messageKey="km-forum:menu.kmForum.manage"
+			url="/km/forum/tree_km_forum_mid.jsp"
+			target="2">
+		</treeNode>
+	</treeNodes>
+	<homePage
+		urlPrefix="km/forum"
+		url="/km/forum/index.jsp"
+		messageKey="km-forum:home.nav.kmForum" 
+		config="/moduleindex_notopic.jsp?nav=/km/forum/tree_config.jsp"/>
+</configs>

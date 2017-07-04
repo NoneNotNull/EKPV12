@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcTable"
+	messageKey="tib-sys-sap-connector:table.tibSysSapRfcTable"
+	treeModel="true"
+	serviceBean="tibSysSapRfcTableService"
+	table="tib_sys_sap_rfc_table"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdOrder"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdisin"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdisin"
+	type="String"
+	column="fd_isin"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdUse"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdUse"
+	type="Boolean"
+	column="fd_use"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdParameterName"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParameterName"
+	type="String"
+	column="fd_parameter_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdParameterType"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParameterType"
+	type="String"
+	column="fd_parameter_type"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdParameterLength"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParameterLength"
+	type="Integer"
+	column="fd_parameter_length"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdParameterTypeName"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParameterTypeName"
+	type="String"
+	column="fd_parameter_type_name"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdParameterRequired"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParameterRequired"
+	type="String"
+	column="fd_parameter_required"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdMark"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdMark"
+	type="String"
+	column="fd_mark"
+	notNull="false"
+	length="200"
+/>
+<modelProperty
+	name="fdFunction"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdFunction"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+	column="fd_function_id"
+	notNull="false"
+/>
+<modelProperty
+	name="fdParent"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdParent"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcTable"
+	column="fd_parent_id"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdHierarchyId"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdHierarchyId"
+	type="String"
+	column="fd_hierarchy_id"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdRfcParamXml"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcTable.fdRfcParamXml"
+	type="RTF"
+	column="fd_rfc_param_xml"
+	notNull="false"
+	length="1000000"
+/>
+</model></models>

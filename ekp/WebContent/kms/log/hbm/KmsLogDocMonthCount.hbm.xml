@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class
+		table="kms_log_doc_month_count"
+		entity-name="KmsLogDocMonthCount">
+		
+		<id
+			name="fdId"
+			type="java.lang.String"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+		
+
+		<property
+			name="fdDocId"
+			column="fd_doc_id"
+			insert="true"
+			update="false"
+			length="100"
+			not-null="true"
+			type="java.lang.String" />
+			
+		
+	</class>
+</hibernate-mapping>

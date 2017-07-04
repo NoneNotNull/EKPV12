@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.cluster.model.SysClusterGroupFunc"
+		messageKey=""
+		serviceBean="sysClusterGroupFuncService"
+		table="sys_cluster_group_func">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdGroupKey"
+			messageKey=""
+			canDisplay="false"
+			type="String"
+			column="fd_group_key"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdFunc"
+			messageKey=""
+			canDisplay="false"
+			type="String"
+			column="fd_func"
+			notNull="true"
+			length="200" />
+	</model>
+</models>

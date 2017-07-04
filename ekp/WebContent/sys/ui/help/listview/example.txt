@@ -1,0 +1,53 @@
+基本调用：
+
+三级页面列表视图：
+	<list:listview>
+		<ui:source type="AjaxJson">
+			{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+		</ui:source>
+		<list:colTable layout="sys.ui.listview.listtable" name="listtable">
+			<list:col-checkbox name="List_Selected" style="width:5%"></list:col-checkbox>
+			<list:col-serial title="${ lfn:message('page.serial') }" headerStyle="width:5%"></list:col-serial>
+			<list:col-auto props="docSubject;docAuthor.fdName;docDept.fdName;docReadCount;docScore;docPublishTime"></list:col-auto>
+		</list:colTable>
+	</list:listview>
+	<list:paging></list:paging>
+
+格子视图：
+	<list:listview>
+		<list:gridTable name="gridtable" columnNum="4" gridHref="">
+			<ui:source type="AjaxJson">
+				{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+			</ui:source>
+			<list:row-template ref="sys.ui.listview.gridtable" >
+			</list:row-template>
+		</list:gridTable>
+	</list:listview>
+	<list:paging></list:paging>
+
+摘要视图：
+	<list:listview>
+		<ui:source type="AjaxJson">
+			{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+		</ui:source>
+		<list:rowTable
+			name="rowtable" onRowClick="" 
+			style="" target="_blank"> 
+			<list:row-template ref="sys.ui.listview.rowtable">
+			</list:row-template>
+		</list:rowTable>
+	</list:listview>
+	<list:paging></list:paging>
+
+列表视图：
+	<list:listview>
+		<ui:source type="AjaxJson">
+			{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+		</ui:source>
+		<list:colTable layout="sys.ui.listview.columntable" name="columntable">
+			<list:col-checkbox name="List_Selected" style="width:5%"></list:col-checkbox>
+			<list:col-serial title="${ lfn:message('page.serial') }" headerStyle="width:5%"></list:col-serial>
+			<list:col-auto props="docSubject;docAuthor.fdName;docDept.fdName;docReadCount;docScore;docPublishTime"></list:col-auto>
+		</list:colTable>
+	</list:listview>
+	<list:paging></list:paging>

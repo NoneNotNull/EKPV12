@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<!-- 数据库检测 -->
+	<extension-point
+		id="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>
+					唯一标识，此标识在所有的数据库检测扩展中是唯一的，建议使用java bean的全限定名。
+				</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>
+					必选，显示名称
+				</description>
+			</param>
+			<param
+				name="bean"
+				required="true"
+				kind="string"
+				basedOn="com.landray.kmss.sys.admin.dbchecker.core.ISchemaChecker">
+				<description>
+					必选，数据库检测实现接口
+				</description>
+			</param>
+			<param
+				name="priority"
+				kind="string"
+				restriction="LOW;NORM;MEDIUM;HIGHT;COLUMN;TABLE"
+				default="NORM">
+				<description>
+					可选，检测优先级、修复优先级默认取检测优先级。
+					TABLE和COLUMN这2个级别为内部使用，外部扩展一般不要使用。
+					级别及其级别基数范围：
+					LOW [-10 - 0)：低
+					NORM [0 - 10)：一般
+					MEDIUM [10 - 20)：中等
+					HIGHT [20 - 30)：高
+					COLUMN [30 - 40)：高
+					TABLE [40 - 50)：高
+				</description>
+			</param>
+			<description>数据库检测扩展配置</description>
+		</item>
+		<description>数据库检测扩展，请实现此扩展点。</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.TableChecker" />
+			<param
+				name="name"
+				value="表检测" />
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.TableChecker" />
+			<param
+				name="priority"
+				value="TABLE" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.ColumnChecker" />
+			<param
+				name="name"
+				value="字段检测" />
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.ColumnChecker" />
+			<param
+				name="priority"
+				value="COLUMN" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.ConstraintChecker" />
+			<param
+				name="name"
+				value="约束检测" />
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.ConstraintChecker" />
+			<param
+				name="priority"
+				value="HIGHT" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.IndexChecker" />
+			<param
+				name="name"
+				value="索引检测" />
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.IndexChecker" />
+			<param
+				name="priority"
+				value="NORM" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.dbchecker">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.SqlConfigChecker" />
+			<param
+				name="name"
+				value="数据库参数检测" />
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.admin.dbchecker.checker.SqlConfigChecker" />
+			<param
+				name="priority"
+				value="HIGHT" />
+		</item>
+	</extension>
+
+</plugin>

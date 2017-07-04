@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 索引时，解析扩展数据时，修改了主文档中的数据</description>
+			<author>程继军</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 当模块某些字段有问题，导致索引查询语句报错而打印大量日志</description>
+			<author>程继军</author>
+			<revision-time>2015-03-25</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复了资产管理不能索引的问题</description>
+			<author>程继军</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 索引由原来的单线程改为多线程方式，提高索引速度</description>
+			<author>程继军</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 优化查询索引和建立索引中查询db的次数</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索定时任务没有结束时间</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持对单个圈子内的话题，图册进行搜索</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 跨脚本攻击XSS漏洞</description>
+			<author>刘金华</author>
+			<revision-time>2015-03-17</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 同义词功能中错误引用了统一搜索接口中的一个异常类</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 同义词的导入导出功能及界面</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 索引完成时间由统一的一个时间，改为按模块分别记录完成时间</description>
+			<author>程继军</author>
+			<revision-time>2015-02-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 搜索页面左侧条件筛选显示优化</description>
+			<author>毛燕加</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索结果页面，模块及子类别以树的方式显示，并能选择多个模块和类别</description>
+			<author>毛燕加</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 人名搜索可配置及可扩展功能</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-29</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索支持扩展属性筛选的索引</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-23</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 删除索引操作代码逻辑不合理，会造成索引中存在数据库已经删除的文档</description>
+			<author>毛燕加</author>
+			<revision-time>2015-01-08</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 人名搜索显示员工黄页人员信息功能</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-05</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程管理搜索中自定义表单内容显示优化</description>
+			<author>毛燕加</author>
+			<revision-time>2015-01-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索结果列表，附件图片显示错误，加大图片的显示大小</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-30</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 同义词搜索，预定义一批同义词和繁简体处理</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-26</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>李显鹏</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 建立索引出现error不能继续建索引</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-24</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 文本文件出现乱码问题,xml文件不能索引到</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-04</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索结果列表点击模块名字，能直接进入该模块首页</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-04</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类功能导致外系统搜索空指针异常</description>
+			<author>刘金华</author>
+			<revision-time>2014-11-24</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 admin.do独立搜索启用开关应用场景注释说明</description>
+			<author>刘金华</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 用户自定义词库搜索词库和歧义词库功能</description>
+			<author>刘金华</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文搜索，沟通模块，点击分类后无法显示数据</description>
+			<author>毛燕加</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 标题中有单引号或双引号时，文档点不开</description>
+			<author>毛燕加</author>
+			<revision-time>2014-10-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索页面出现脚本错误</description>
+			<author>毛燕加</author>
+			<revision-time>2014-10-11</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 各个模块数据可以按照模块分类进行聚合，并在模块聚合位置显示</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-26</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文搜索中自定义表单中文转换</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 高亮显示没有补全</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 隐藏搜索设置中3个搜索页面</description>
+			<author>刘金华</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索域字段权重可配置功能</description>
+			<author>毛燕加</author>
+			<revision-time>2014-08-28</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索词过长（几十上百汉字）时拼音转汉字异常导致搜索内存溢出</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 索引时查询数据列表异常日志输出过大处理</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 页面的一些调整（高亮标签的显示功能、下方的搜索框和左侧相关搜索重叠）</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索结果阅读权限问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索扩展配置模块没登录系统也能访问</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 索引日期和文档日期不一致的问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索条件的选择问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 跨系统搜索功能缺陷修改</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索词前后有空格时搜索出现空指针异常</description>
+			<author>刘金华</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 autocad dwg文本抓取开发</description>
+			<author>刘金华</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 拼音转汉字联想词提示及搜索纠错功能</description>
+			<author>刘金华</author>
+			<revision-time>2014-06-06</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 weblogic环境下，全局配置的“全文搜索_搜索设置”节点，点击报错</description>
+			<author>刘金华</author>
+			<revision-time>2014-05-23</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索结果页面中英文环境下一些折行显示的样式问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-04-03</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索分面接口</description>
+			<author>李钟海</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索配置xml的解析方式更改</description>
+			<author>李钟海</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 自定义表单搜索不出的问题</description>
+			<author>李钟海</author>
+			<revision-time>2013-08-07</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 英文环境js和样式问题</description>
+			<author>李钟海</author>
+			<revision-time>2013-07-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索分页最后一页分页连接不显示问题</description>
+			<author>李钟海</author>
+			<revision-time>2013-05-06</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 非发布状态文档搜索不到问题修改</description>
+			<author>李钟海</author>
+			<revision-time>2013-03-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 单独搜索创建者的高亮显示</description>
+			<author>李钟海</author>
+			<revision-time>2013-03-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索搜索创建者不能模糊匹配问题</description>
+			<author>李钟海</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 attachment.js移动到附件机制里面</description>
+			<author>李勇</author>
+			<revision-time>2013-01-05</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 索引附件流关闭，搜索后台管理功能修改 多系统支持修复</description>
+			<author>李钟海</author>
+			<revision-time>2012-12-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 取消缺省配置下的全文检索搜索启用同义词</description>
+			<author>李钟海</author>
+			<revision-time>2012-12-11</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 admin.do的配置更改，搜索主页面的版面调整</description>
+			<author>李钟海</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索支持多分类搜索</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-27</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索引擎切换插件实现</description>
+			<author>李钟海</author>
+			<revision-time>2012-09-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 将autonomy转移到thrid作为单独组件，新增搜索外系统权限对照关系</description>
+			<author>李钟海</author>
+			<revision-time>2012-08-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 扩展点实现ElasticSearch数据的存储</description>
+			<author>李钟海</author>
+			<revision-time>2012-08-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索后台数据管理，按照有重复值的栏位排序，hibernate分页不准问题</description>
+			<author>李钟海</author>
+			<revision-time>2012-06-29</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 autonomy引擎搜索</description>
+			<author>李钟海</author>
+			<revision-time>2012-06-04</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 查询结果显示大附件摘要内存消耗过大，搜索单实例IO异常</description>
+			<author>李钟海</author>
+			<revision-time>2012-05-30</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文检索创建索引出错后的死循环及其他索引时的问题</description>
+			<author>李钟海</author>
+			<revision-time>2012-05-16</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联机制配置全文检索无结果以及全文检索高级页面的恢复</description>
+			<author>李钟海</author>
+			<revision-time>2012-05-16</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>工作沟通全文检索权限问题修改</description>
+			<author>李钟海</author>
+			<revision-time>2012-03-09</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>全文检索独立部署管理员配置问题修复</description>
+			<author>李钟海</author>
+			<revision-time>2012-03-08</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>全文检索对工作沟通模块的权限修复</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-29</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>全文检索全角转换半角</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-28</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>可配置的独立搜索</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-17</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索模块结构调整</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-10</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索后台显示列表调整</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-10</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索功能bug修复</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-07</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>热词，联想，分词的唯一性校验。搜索屏蔽默认值，联想词时间格式设定</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-02</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索相关功能后台维护修改，增加搜索词的长度限定</description>
+			<author>李钟海</author>
+			<revision-time>2012-02-01</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>解决“在结果中搜索”后，在搜索框中会多次重复显示搜索词</description>
+			<author>李钟海</author>
+			<revision-time>2012-01-31</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>联想词定时任务失败，分词名称唯一，附件搜索显示创建时间和创建者</description>
+			<author>李钟海</author>
+			<revision-time>2012-01-31</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复无法导入联想与热词，修复联想词的定时任务，修改分词唯一性</description>
+			<author>李钟海</author>
+			<revision-time>2012-01-18</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正按标签搜不到数据问题；修正搜索结果记录链接错误问题；修正按附件搜索结果不准确问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-01-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正按创建者搜不到数据的问题；修正后台同义词搜索时报错问题；修正当文档中含有HTML代码造成结果页面显示出错的问题；修正搜索关键字中包含英文单引号，显示搜索操作失败的问题。</description>
+			<author>黄伟强</author>
+			<revision-time>2012-01-11</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索模块后台管理页面修改</description>
+			<author>黄伟强</author>
+			<revision-time>2012-01-10</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>更新标签立方flash文件，修正搜索时取不到同义词的问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-01-09</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修正同义词集获取问题</description>
+			<author>黄伟强</author>
+			<revision-time>2012-01-06</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索模块定时任务messageKey补交修改</description>
+			<author>李钟海</author>
+			<revision-time>2012-01-04</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>全文检索性能问题修改</description>
+			<author>李钟海</author>
+			<revision-time>2011-12-31</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索功能增强，需更新core模块以及sys/tag模块</description>
+			<author>黄伟强</author>
+			<revision-time>2011-12-26</revision-time>
+			<relation>
+				<relation-module>sys/tag</relation-module>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>90UI搜索结果中附件图标展示问题</description>
+			<author>李衡</author>
+			<revision-time>2011-12-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索标签移到搜索模块共用</description>
+			<author>李钟海</author>
+			<revision-time>2011-12-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>搜索项目新功能增强</description>
+			<author>李钟海</author>
+			<revision-time>2011-12-19</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改MimeTypeUtils指定读取系统统一的MimeType</description>
+			<author>易荣烽</author>
+			<revision-time>2011-12-13</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>luceneSearcher做成单例模式</description>
+			<author>李勇</author>
+			<revision-time>2011-12-08</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>ekp90UI改造</description>
+			<author>庄为亮</author>
+			<revision-time>2011-10-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>保存与传参时由原来的全路径修改为具体model名称，在执行查询时转为全路径，避免保存与查询时超出长度的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-10</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>全文检索查询结果页面UI改造</description>
+			<author>庄为亮</author>
+			<revision-time>2011-09-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>遗留bug解决，为附件增加全文检索拦截，解决编辑文档时更新附件或删除附件，旧附件索引无法删除问题，缺陷单号20110530007</description>
+			<author>周超</author>
+			<revision-time>2011-08-20</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>回滚去重处理,对于检索结果与附件内容相关情况,打开连接后打开附件,检索结果按相关度排序,相关度相同按创建时间降序排序</description>
+			<author>李衡</author>
+			<revision-time>2011-08-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>全文检索结果按创建时间降序展示,搜索去重接口支持排序功能的修改</description>
+			<author>李衡</author>
+			<revision-time>2011-07-26</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>临时配置文件保存时判断目录是否存在，不存在就先创建目录</description>
+			<author>李勇</author>
+			<revision-time>2011-07-14</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>全文检索结果去重</description>
+			<author>李衡</author>
+			<revision-time>2011-07-08</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>全文索引Office2007支持</description>
+			<author>李勇</author>
+			<revision-time>2011-06-27</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修正权限信息缓存表中的authOrgIds被修改的bug</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-02-14</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>修改http为request.getScheme()</description>
+			<author>周超</author>
+			<revision-time>2011-05-03</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>为附件增加全文检索拦截，解决删除文档时附件索引无法删除问题</description>
+			<author>周超</author>
+			<revision-time>2011-06-02</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>为附件增加全文检索拦截，解决编辑文档时更新附件或删除附件，旧附件索引无法删除问题</description>
+			<author>周超</author>
+			<revision-time>2011-06-02</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

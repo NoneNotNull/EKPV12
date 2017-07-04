@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<!-- 数据库检测 -->
+	<extension-point id="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" required="true" kind="unid">
+				<description>
+					唯一标识，建议使用java bean的全限定名。
+				</description>
+			</param>
+			<param name="order" kind="int" default="99">
+				<description>
+					可选，同类配置排序号
+				</description>
+			</param>
+			<param name="target" kind="string" default="_self">
+				<description>
+					连接目标
+				</description>
+			</param>
+			<param name="titleMessageKey" required="true" kind="string">
+				<description>
+					必选，模块名称的Key
+				</description>
+			</param>
+			<param name="navMessageKey" required="true" kind="string">
+				<description>
+					必选，导航栏上的文字的Key
+				</description>
+			</param>
+			<param name="indexPage" required="true" kind="string">
+				<description>
+					必选，首页路径
+				</description>
+			</param>
+			<param name="modulePath" required="true" kind="string">
+				<description>
+					必选，模块路径 ，例如kms/ask
+				</description>
+			</param>
+			<description>KMS模块信息扩展点</description>
+		</item>
+		
+		<item name="search">
+			<param name="canSearch" kind="string" default="true">
+				<description>
+					是否能收索
+				</description>
+			</param>
+			<param name="searchMessageKey" required="true" kind="string">
+				<description>
+					必选，搜索框上显示的模块名称的Key
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					搜索框上排序
+				</description>
+			</param>
+			<param name="modelClass" required="true" kind="string">
+				<description>
+					必选，modelClass
+				</description>
+			</param>
+			<description>全文检索扩展点</description>
+		</item>
+		
+		<item name="adminTree">
+			<param name="navMessageKey" kind="string" required="true">
+				<description>
+					必选，模块名称
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，排序号
+				</description>
+			</param>
+			<param name="canDisplay" kind="string" default="true">
+				<description>
+					必选，是否显示该模块
+				</description>
+			</param>
+			<param name="adminTreeUrl" kind="string" required="true">
+				<description>
+					必选，adminTree路径
+				</description>
+			</param>
+			<param name="modelClass" required="true" kind="string">
+				<description>
+					必选，modelClass
+				</description>
+			</param>
+			<description>后台管理树扩展点</description>
+		</item>
+		
+		<item name="personal">
+			<param name="navMessageKey" kind="string" default="true">
+				<description>
+					必选，左边导航栏上的key
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，左边导航排序号
+				</description>
+			</param>
+			<param name="canDisplay" kind="string" default="true">
+				<description>
+					必选，是否显示该模块
+				</description>
+			</param>
+			<param name="personalUrl" kind="string" default="true">
+				<description>
+					必选，各个人主页路径
+				</description>
+			</param>
+			<param name="modulePath" required="true" kind="string">
+				<description>
+					必选，模块路径 ，例如kms/ask
+				</description>
+			</param>
+			<param name="modelClass" required="true" kind="string">
+				<description>
+					必选，modelClass
+				</description>
+			</param>
+			<description>个人主页扩展点</description>
+		</item>
+		<!-- 
+		<item name="sns">
+			<param name="modelName" required="true" kind="string">
+				<description>
+					必选，modelName
+				</description>
+			</param>
+			<param name="categoryModelName" required="true" kind="string">
+				<description>
+					必选，分类categoryModelName
+				</description>
+			</param>
+			<param name="shareMessageKey" kind="string" required="true">
+				<description>
+					必选，shareMessageKey
+				</description>
+			</param>
+			<param name="page" kind="string" required="true">
+				<description>
+					必选，分享点实现页面
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，分享点排序号
+				</description>
+			</param>
+			<description>SNS分享扩展点</description>
+		</item>
+		 -->
+		<item name="person">
+			<param name="modelName" required="true" kind="string">
+				<description>
+					必选，modelName
+				</description>
+			</param>
+			<param name="shareMessageKey" kind="string" required="true">
+				<description>
+					必选，shareMessageKey
+				</description>
+			</param>
+			<param name="page" kind="string" required="true">
+				<description>
+					必选，分享点实现页面
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，分享点排序号
+				</description>
+			</param>
+			<description>分享到个人扩展点</description>
+		</item>
+		
+		<item name="group">
+			<param name="modelName" required="true" kind="string">
+				<description>
+					必选，modelName
+				</description>
+			</param>
+			<param name="categoryModelName" required="true" kind="string">
+				<description>
+					必选，分类categoryModelName
+				</description>
+			</param>
+			<param name="shareMessageKey" kind="string" required="true">
+				<description>
+					必选，shareMessageKey
+				</description>
+			</param>
+			<param name="page" kind="string" required="true">
+				<description>
+					必选，分享点实现页面
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，分享点排序号
+				</description>
+			</param>
+			<description>分享到朋友圈扩展点，生成二维码分享</description>
+		</item>		
+		
+		<item name="entry">
+			<param name="unid" kind="string" required="true">
+				<description>
+					必选，主键
+				</description>
+			</param>
+			<param name="moduleName" kind="string" required="true">
+				<description>
+					必选，模块名称
+				</description>
+			</param>
+			<param name="order" required="true" kind="int">
+				<description>
+					必选，排序号
+				</description>
+			</param>
+			<param name="jspUrl" kind="string" required="false">
+				<description>
+					可选，jsp路径
+				</description>
+			</param>
+			<param name="modelClass" kind="string" required="true">
+				<description>
+					必选，modelClass
+				</description>
+			</param>
+			<param name="categoryClass" kind="string" required="true">
+				<description>
+					必选，分类modelClass
+				</description>
+			</param>
+			<param name="service" kind="spring" required="true"
+				basedOn="com.landray.kmss.kms.common.interfaces.IKmsDataBean">
+				<description>
+					可选，情景列表service，场景配置使用
+				</description>
+			</param>
+			<description>情景管理实体</description>
+		</item>
+		<description>数据库检测扩展配置</description>
+	</extension-point>
+	
+<!-- 
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.sys.tag" />
+			<param name="navMessageKey" value="sys-tag:table.sysTagTags" />
+			<param name="indexPage" value="/kms/common/kms_tag_main/kmsTagMain.do?method=searchTop" />
+			<param name="modulePath" value="/sys/tag" />
+			<param name="modelClass" value="com.landray.kmss.sys.tag.model.SysTagMain" />
+			<param name="titleMessageKey" value="sys-tag:table.sysTagTags" />
+			<param name="order" value="7" />
+		</item>
+	</extension>
+-->
+
+		<extension-point id="com.landray.kmss.kms.common.datapush">
+		<item name="push">
+			<param name="unid" required="true" kind="unid">
+				<description>
+					唯一标识，建议使用java bean的全限定名。
+				</description>
+			</param>
+			<param name="pushModules" required="true" kind="string">
+				<description>
+					必选，跳转模块,用分号隔开
+				</description>
+			</param>
+			<description>推送扩展点配置</description>
+		</item>
+		
+		<item name="bepush">
+			<param name="unid" required="true" kind="unid">
+				<description>
+					唯一标识，建议使用java bean的全限定名。
+				</description>
+			</param>
+			<param name="pushURL" required="true" kind="string">
+				<description>
+					必选，跳转路径
+				</description>
+			</param>
+			<param name="name" required="true" kind="string">
+				<description>
+					名称
+				</description>
+			</param>
+			<param name="img" required="true" kind="string">
+				<description>
+					推送图标
+				</description>
+			</param>
+			<param name="cateModelName"  kind="string">
+				<description>
+					分类model
+				</description>	
+			</param>
+			<param name="auths"  kind="string">
+				<description>
+					创建权限
+				</description>	
+			</param>
+			<description>被推送的扩展点配置</description>
+		</item>
+		<description>被推送的扩展点配置</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.config.loader.extend">
+		<item name="frameworkExtend">
+			<param name="fileSuffix" value="kms"></param>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-common:kmsShareLog.readRecord"/>
+			<param name="className" value="com.landray.kmss.kms.common.service.spring.KmsShareMainServiceImp"/>
+			<param name="operateMethod" value="addShareRecord"/>
+			<param name="modelName" value="com.landray.kmss.kms.learn.model.KmsLearnMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogShareProxy"/>
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,33 @@
+﻿.muiFormRadio {
+	height: 1.5rem;
+	width: 1.5rem;
+	/*background: #fff;*/
+	position: relative;
+	vertical-align: middle;
+	line-height: 1.5rem;
+	display: inline-block;
+}
+
+.muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay{ color: #fa8733;}
+
+.muiFormRadio .muiFormRadioOverlay {
+	color: #d8d8d8;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 7px;
+	left: 0;
+	font-size: 2.4rem;
+	line-height: 100%;
+	display: inline-block;
+}
+.muiFieldItem.view .muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay,
+.muiFieldItem.readOnly .muiFormRadioChecked .muiFormRadio .muiFormRadioOverlay{ color: #898989;}
+
+.muiFormRadio input {
+	margin: 3px 0 0 1px;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}

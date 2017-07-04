@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 流程模板拷贝后编号规则不能修改问题修正</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 模板中自定义编号规则时，若不设置规则，不允许提交</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-19</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 添加可使用者及流水号是否补零等相关功能</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-03</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 编号规则自定义时报文档不存在错误</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑状态下，编号机制加载不出来问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-13</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌浏览器下“自定义”编号无法提交问题； 修复编号机制多浏览器问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 编号配置重复校验及页面展示问题调整</description>
+			<author>李衡</author>
+			<revision-time>2014-04-23</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现导出初始化数据接口</description>
+			<author>张乐志</author>
+			<revision-time>2014-03-28</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 流水号管理列表和流水号详情中当未设置规则名称时展示分类名称或者模板名称。</description>
+			<author>张乐志</author>
+			<revision-time>2014-01-15</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 兼容多浏览器</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 编号规则控件兼容支持chrome和firefox浏览器</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-10</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 查看界面增加创建人修改人和日期相关信息</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-09</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 查看绑定的编号规则时显示问题</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-09</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容：编号元素下拉样式调整</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-06</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 时间格式*13:30显示不对的问题</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-06</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 去掉加载数据时flash回调机制</description>
+			<author>张乐志</author>
+			<revision-time>2013-06-27</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 分类中设置自定义编号规则时，拥有新建类别权限即可自定义编号规则</description>
+			<author>张乐志</author>
+			<revision-time>2013-06-06</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 增强通用编号规则权限校验控制</description>
+			<author>张乐志</author>
+			<revision-time>2013-05-22</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 增强flash控件在低网速条件下的加载和调用，调整编号规则常量展示。</description>
+			<author>张乐志</author>
+			<revision-time>2013-05-21</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 优化编号机制</description>
+			<author>张乐志</author>
+			<revision-time>2013-04-27</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加支持公式定义器中函数重写，增加公式定义器中支持单引号，编号规则界面优化调整flash控件提示更准确、增加隐式调用界面。</description>
+			<author>张乐志</author>
+			<revision-time>2013-04-17</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 增强编号规则绑定切换功能</description>
+			<author>张乐志</author>
+			<revision-time>2013-04-12</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 展示界面flash控件不可操作</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-28</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复自定义编号规则修改后编号重置问题</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复特定服务器下可能出现的脚本错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-26</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 编号规则修改后原流水号值保留；修复了分类绑定自定义编号规则后无法再修改的问题；增加了并发处理</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整权限控制</description>
+			<author>张乐志</author>
+			<revision-time>2013-02-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整了admin.do的显示位置</description>
+			<author>叶中奇</author>
+			<revision-time>2012-11-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 调整系统样式并修复bugs</description>
+			<author>张乐志</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加系统配置扩展、兼容已有模块中的编号规则</description>
+			<author>张乐志</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现了用户界面操作时更直观，增加了异常包容处理，增加了国际化，增加了延时加载。</description>
+			<author>张乐志</author>
+			<revision-time>2012-10-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复编号规则查看页面样式美观问题</description>
+			<author>张乐志</author>
+			<revision-time>2012-09-28</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现权限管理和流水号管理，并实现了流水号管理菜单是按照模块划分的树形菜单</description>
+			<author>张乐志</author>
+			<revision-time>2012-09-28</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 根据代码评审结果进行调整。增加了扩展点，流水号增加了范围，样式进行了部分调整。</description>
+			<author>张乐志</author>
+			<revision-time>2012-09-26</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 调整和优化编号机制</description>
+			<author>张乐志</author>
+			<revision-time>2012-09-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 新增编号机制服务源码</description>
+			<author>张乐志</author>
+			<revision-time>2012-09-10</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

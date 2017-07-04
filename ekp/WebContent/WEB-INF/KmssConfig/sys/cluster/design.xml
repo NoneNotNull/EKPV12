@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey=""
+		urlPrefix="/sys/cluster/"
+		defaultValidator="roleValidator(role=SYSROLE_ADMIN)" />
+	<homePage
+		urlPrefix="sys/cluster"
+		messageKey="sys-cluster:sysCluster.tree"
+		config="/moduleindex_notopic.jsp?nav=/sys/cluster/tree.jsp"
+		type="sys" />
+</configs>

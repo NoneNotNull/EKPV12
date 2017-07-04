@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pdaConfig>
+	<module 
+		urlPrefix="sys/news">
+		<!-- messageKey必填
+			 type：doc,list,pic -->
+		<!--业务模块对PDA暴露的列表链接  messageKey必须 , type：doc,list,pic等-->
+		<config messageKey="sys-news:sysNewsMain.portlet.sysNewsMain" 
+			type="list"
+			templateClass="com.landray.kmss.sys.news.model.SysNewsTemplate"
+			dataUrl="/sys/news/sys_news_main/sysNewsMain.do?method=listChildren&amp;status=30&amp;categoryId=!{cateid}&amp;nodeType=CATEGORY" />
+			
+		<!--业务模块对PDA暴露的列表链接  messageKey必须 , type：doc,list-->
+		<config messageKey="sys-simplecategory-pda:pda.simple.cate.title" 
+			type="list"
+			dataUrl="/sys/simplecategory/pda/sysSimpleCategory.do?method=pdaSimpleCategory&amp;templateClass=com.landray.kmss.sys.news.model.SysNewsTemplate" />
+		
+		<!--业务模块对PDA暴露的图片列表链接  -->
+		<config messageKey="sys-news:sysNewsMain.portlet.withHead"
+			type="pic"
+			templateClass="com.landray.kmss.sys.news.model.SysNewsTemplate"
+			dataUrl="/sys/news/sys_news_main/sysNewsMain.do?method=listChildren&amp;status=30&amp;categoryId=!{cateid}&amp;nodeType=CATEGORY&amp;type=pic" />
+
+	</module>
+</pdaConfig>

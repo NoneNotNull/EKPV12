@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script>
+var dialogObject=parent.dialogArguments?parent.dialogArguments:parent.opener.Com_Parameter.Dialog;
+var Com_Parameter = {
+	ContextPath:dialogObject.Window.Com_Parameter.ContextPath,
+	ResPath:dialogObject.Window.Com_Parameter.ResPath,
+	Style:dialogObject.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogObject.Window.Com_Parameter.StylePath,
+	Cache:dialogObject.Window.Com_Parameter.Cache
+};
+// 多语言对象
+LangObject = parent.FlowChartObject.Lang;
+// 当前节点多语言对象
+LangNodeObject = LangObject.Node;
+// 数据类型对象
+DataTypeLangObject = LangObject.DataType;
+</script>
+<script type="text/javascript" src="../../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/" + Com_Parameter.Style + "/doc/");
+Com_IncludeFile("docutil.js|doclist.js|dialog.js|data.js|formula.js");
+</script>
+<script>
+// 必须实现的方法，供父窗口(attribute_robotnode.html)调用。
+function returnValue() {
+	if (!check()) return null;
+	
+	var rtnJson = new Array();
+	rtnJson.push("{");
+	// java程序片段
+	var content = document.getElementById("content");
+	var script = Com_StrEscape(content.value);
+	rtnJson.push("\"content\":\"" + script + "\"");
+	// 结束
+	rtnJson.push("}");
+	return rtnJson.join('');
+};
+
+function check() {
+	return true;
+};
+
+/***********************************************
+功能：转义代码中的敏感字符
+***********************************************/
+function Com_StrEscape(s){
+	if(s==null || s=="")
+		return "";
+	var re = /&/g;
+	s = s.replace(re, "&amp;");
+	re = /\\/g;
+	s = s.replace(re, "\\\\");
+	re = /\"/g;
+	s = s.replace(re, "&quot;");
+	re = /'/g;
+	s = s.replace(re, '&#39;');
+	re = /</g;
+	s = s.replace(re, "&lt;");
+	re = /\r\n|[\r\n]/g;
+	s = s.replace(re, "<BR>");
+	re = />/g;
+	s.replace(re, "&gt;");
+	re = /\r\n|[\r\n]/g;
+	return s = s.replace(re, "<BR>");
+}
+
+
+/***********************************************
+功能：代码中转义符还原成敏感字符
+***********************************************/
+function Com_StrDeEscape(s){
+	if(s==null || s=="")
+		return "";
+	var re = /<BR>/ig;
+	s = s.replace(re, "\r\n");
+	re = /&amp;/g;
+	s = s.replace(re, "&");
+	re = /&quot;/g;
+	s = s.replace(re, "\"");
+	re = /&#39;/g;
+	s = s.replace(re, "'");	
+	re = /&lt;/g;
+	s = s.replace(re, "<");	
+	re = /&gt;/g;
+	return s.replace(re, ">");
+}
+
+function writeMessage(key) {
+	document.write(LangNodeObject[key]);
+};
+
+function init(){
+	var contentObj = document.getElementById("content");
+	if (parent.NodeContent != null && parent.NodeContent != '') {
+		var json =eval('('+ parent.NodeContent + ')');
+		contentObj.value = Com_StrDeEscape(json.content);
+	}
+}
+
+function createExample(){
+	var contentObj = document.getElementById("content");
+	var exampleCode = "";
+	exampleCode += "/**\r\n";
+	exampleCode += "* JAVA脚本片段中包含一个隐式对象(taskExecutionContext)\r\n";
+	exampleCode += "* com.landray.kmss.sys.lbpm.engine.manager.task.TaskExecutionContext taskExecutionContext;\r\n";
+	exampleCode += "*/\r\n";
+	exampleCode += "//下面样例代码 ，仅供项目使用时参考 例如：取主文档对象\r\n";
+	exampleCode += "com.landray.kmss.common.model.IBaseModel baseModel= taskExecutionContext.getMainModel();\r\n";
+	exampleCode += "System.out.println(baseModel.getFdId());\r\n";
+	exampleCode += "//获取当流程对象\r\n";
+	exampleCode += "com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess process=taskExecutionContext.getProcessInstance();\r\n";
+	exampleCode += "System.out.println(process.getFdId());\r\n";
+		
+	contentObj.value += "\r\n"+exampleCode;
+}
+
+</script>
+<body onload="init();">
+<table width="100%" class="tb_normal">
+	<tr >
+		<td width="15%">
+			<script>writeMessage("robot_RunScriptContent");</script>
+		</td>
+		<td>
+			<textarea id="content" style="height:200" cols="85%"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td width="15%"><script>writeMessage("robot_Description");</script></td>
+		<td>
+			<button viewdisabled="true" onclick="createExample();"><script>writeMessage("robot_RunScript_CreateExample");</script></button>
+			<script>writeMessage("robot_RunScript_Help");</script>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

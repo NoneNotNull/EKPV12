@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>2.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>zone</short-name>
+	<uri>http://www.landray.com.cn/tags/zone</uri>
+	
+	<tag>
+		<name>personinfo</name> 
+		<tag-class>com.landray.kmss.sys.zone.taglib.InfoPersonTag</tag-class>
+		<body-content>scriptless</body-content>
+		<dynamic-attributes>false</dynamic-attributes>
+		<attribute>
+			<description><![CDATA[是否使用默认显示模板 ]]></description>
+			<name>isDefaultTemplate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[具体显示的哪个扩展 ]]></description>
+			<name>infoId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[人员的组织架构id ]]></description>
+			<name>personId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[当isDefaultTemplate为false时，
+			使用标签内部的展现，类型可以为Javascript或者Template，默认为Javascript ]]>
+			</description>
+			<name>type</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description><![CDATA[pc端展现还是移动端 ]]></description>
+			<name>device</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+</taglib>

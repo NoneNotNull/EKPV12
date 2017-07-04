@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.common.model.KmsHomeKnowledgeIntro"
+		messageKey="kms-common:table.kmsHomeKnowledgeIntro"
+		displayProperty="fdName"
+		serviceBean="kmsHomeKnowledgeIntroService"
+		table="kms_home_knowledge_intro"
+		url="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPhase"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdPhase"
+			type="Integer"
+			column="fd_phase"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="true"
+			length="50"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdPortalId"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdPortalId"
+			type="String"
+			column="fd_portal_id"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPortalName"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdPortalName"
+			type="String"
+			column="fd_portal_name"
+			notNull="true"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTopContent"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdTopContent"
+			type="String"
+			column="fd_top_content"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTopUrl"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdTopUrl"
+			type="String"
+			column="fd_top_url"
+			notNull="false"
+			length="300"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTopName"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdTopName"
+			type="String"
+			column="fd_top_name"
+			notNull="false"
+			length="45"
+			validate="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="fdKnowledgeMapping"
+			messageKey="kms-common:kmsHomeKnowledgeIntro.fdKnowledgeMapping"
+			type="com.landray.kmss.kms.common.model.KmsHomeKnowledgeMapping"
+			column="fd_mapping_id"
+			cascade="all-delete-orphan" />
+
+	</model>
+</models>

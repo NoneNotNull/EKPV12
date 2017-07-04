@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.material.model.SysMaterialMain"
+		messageKey="sys-material:table.sysMaterialMain"
+		displayProperty="fdModelTitle"
+		serviceBean="sysMaterialMainService"
+		table="sys_material_main"
+		url="/sys/material/sys_material_main/sysMaterialMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdModelTitle"
+			messageKey="sys-material:sysMaterialMain.fdModelTitle"
+			type="String"
+			column="fd_model_title"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-material:sysMaterialMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdAttId"
+			messageKey="sys-material:sysMaterialMain.fdAttId"
+			type="String"
+			column="fd_att_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-material:sysMaterialMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-material:sysMaterialMain.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-material:sysMaterialMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+	</model>
+</models>

@@ -1,0 +1,19 @@
+.lui_knowledge_order_text {
+	color: #979797;
+	float: left;
+	padding-top: 1px;
+}
+
+.lui_knowledge_page_top {
+	float:left;
+}
+.lui_knowledge_order_btn {
+	float: left;
+}
+.lui_knowledge_toolbar {
+	float: right;
+}
+.lui_knowledge_toolbar>.lui_knowledge_toolbar_inner,
+.lui_knowledge_order_btn>.lui_knowledge_order_btn_inner {
+	display: inline-block;vertical-align: middle;
+}

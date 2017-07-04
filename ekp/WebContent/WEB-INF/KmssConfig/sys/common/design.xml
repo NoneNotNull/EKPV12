@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		urlPrefix="/sys/common/"
+		defaultValidator="true"
+		messageKey="common.moduleName">
+		<roles>SYSROLE_ADMIN</roles>
+		<request
+			path="config*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)" />
+		<request
+			path="upload*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)" />
+		<request
+			path="dataxml.jsp*"
+			defaultValidator="ajaxRoleValidator(role=SYSROLE_USER)">
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetDataService" />
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetPageService" />
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetDataByKeyService" />
+		</request>			
+		<request
+			path="datajson.jsp*"
+			defaultValidator="ajaxRoleValidator(role=SYSROLE_USER)">
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetDataService" />
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetPageService" />
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetDataByKeyService" />
+		</request>	
+		<request
+			path="treexml.jsp*"
+			defaultValidator="ajaxRoleValidator(role=SYSROLE_USER)">
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetTreeService" />
+		</request>
+		<request
+			path="treejson.jsp*"
+			defaultValidator="ajaxRoleValidator(role=SYSROLE_USER)">
+			<query
+				validator="roleValidator(role=SYSROLE_ADMIN)"
+				position="bottom"
+				queryString="s_bean=XMLGetTreeService" />
+		</request>
+		<request
+			path="debug.jsp*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+		</request>		
+		<request
+			path="code.jsp*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)">
+		</request>	
+	</module>
+</configs>

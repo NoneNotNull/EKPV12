@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/third/pda/model/PdaModuleConfigView.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaModuleLabelList.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaModuleLabelView.hbm.xml" />
+
+		<mapping
+			resource="com/landray/kmss/third/pda/model/PdaModuleConfigMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/third/pda/model/PdaModuleCate.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaLicenseSetting.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaMessagePushInfo.hbm.xml" />
+
+		<mapping
+			resource="com/landray/kmss/third/pda/model/PdaMessagePushMember.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaHomePageConfig.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaHomePagePortlet.hbm.xml" />
+
+		<mapping resource="com/landray/kmss/third/pda/model/PdaHomeCustomPortlet.hbm.xml" />
+		
+		<mapping resource="com/landray/kmss/third/pda/model/PdaTabViewConfigMain.hbm.xml" />
+		
+		<mapping resource="com/landray/kmss/third/pda/model/PdaTabViewLabelList.hbm.xml" />
+		
+		<mapping resource="com/landray/kmss/third/pda/model/PdaDataExtendConfig.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

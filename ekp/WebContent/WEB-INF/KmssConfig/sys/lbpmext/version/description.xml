@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>LBPM扩展服务</module-name>
+		<module-path>sys/lbpmext</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>f840bb2aefd93a9c26245260e536007c</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>1</serial-num>
+	</module>
+</description>

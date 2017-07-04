@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.relation.model.SysRelationForeignModule"
+		messageKey="sys-relation:table.sysRelationForeignModule"
+		serviceBean="sysRelationForeignModuleService"
+		table="sys_relation_foreign_module">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdModuleKey"
+			messageKey="sys-relation:sysRelationForeignModule.fdModuleKey"
+			type="String"
+			column="fd_module_key"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="sys-relation:sysRelationForeignModule.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-relation:sysRelationForeignModule.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false" />
+		<simpleProperty
+			name="fdSearchEngineBean"
+			messageKey="sys-relation:sysRelationForeignModule.fdSearchEngineBean"
+			type="String"
+			column="fd_search_engine_bean"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdSearchParameter"
+			messageKey="sys-relation:sysRelationForeignModule.fdSearchParameter"
+			type="RTF"
+			column="fd_search_parameter"
+			notNull="false"
+			length="1000000" />
+		<listProperty
+			name="fdRelationParams"
+			messageKey="sys-relation:sysRelationForeignModule.fdRelationParams"
+			column="fd_module_id"
+			type="com.landray.kmss.sys.relation.model.SysRelationForeignParam"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

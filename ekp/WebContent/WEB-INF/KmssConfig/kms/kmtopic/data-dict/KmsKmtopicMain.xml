@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"
+		messageKey="kms-kmtopic:table.kmsKmtopicMain"
+		displayProperty="docSubject"
+		serviceBean="kmsKmtopicMainService"
+		table="kms_kmtopic_main"
+		url="/kms/kmtopic/kms_kmtopic_main/kmsKmtopicMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			canRelation="true"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			unique="false"
+			length="2"
+			canDisplay="true"
+			enumType="common_status"
+			readOnly="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docCreateTime"
+			canRelation="true"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+		
+		<simpleProperty
+			name="docIsIntroduced"
+			messageKey="sys-doc:sysDocBaseInfo.docIsIntroduced"
+			type="Boolean"
+			column="doc_is_introduced"
+			notNull="false"
+			unique="false"
+			canDisplay="false"
+			readOnly="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="kms-kmtopic:kmsKmtopicMain.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="kms-kmtopic:kmsKmtopicMain.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="1500"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDisplayStyle"
+			messageKey="kms-kmtopic:kmsKmtopicMain.fdDisplayStyle"
+			type="String"
+			column="fd_display_style"
+			notNull="false"
+			length="36"
+			enumType="kms_kmtopic_main_fd_display_style"
+			validate="true" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docCategory"
+			type="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"
+			column="doc_category_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-doc:sysDocBaseInfo.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true"
+			unique="false"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(!{mulSelect}, '!{idField}','!{nameField}', ';',ORG_TYPE_PERSON);" />
+
+		<modelProperty
+			name="docDept"
+			messageKey="sys-doc:sysDocBaseInfo.docDept"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_ORGORDEPT);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_dept_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-kmtopic:kmsKmtopicMain.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docAuthor"
+			messageKey="sys-doc:sysDocBaseInfo.docAuthor"
+			canSearch="true"
+			canRelation="true"
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON);"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_author_id"
+			notNull="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="false" />
+
+		<listProperty
+			name="fdCatelogList"
+			messageKey="kms-kmtopic:kmsKmtopicMain.fdCatelogList"
+			type="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCatelog"
+			column="fd_main"
+			cascade="all-delete-orphan" />
+
+		<listProperty
+			name="authReaders"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_reader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authEditors"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_editor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authOtherReaders"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authOtherReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_oreader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authOtherEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_oeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAllReaders"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authAllReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_areader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-kmtopic:kmsKmtopicMain.authAllEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_kmtopic_main_aeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+	</model>
+</models>

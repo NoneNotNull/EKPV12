@@ -1,0 +1,30 @@
+var drawDatas = function(datas){
+	if(datas==null || datas.length==0)
+		return;
+	for(var i=0; i<datas.length; i++){
+		{$<div class="lui_dataview_treemenu_flat_item">$}
+			drawText(datas[i]);
+			{$<div class="lui_dataview_treemenu_flat_children">$}
+				drawDatas(datas[i].children);
+			{$</div>$}
+		{$</div>$}
+	}
+}
+var drawText = function(data){
+	var text = env.fn.formatText(data.text);
+	{$<div class="lui_dataview_treemenu_flat_{% (data.selected?'selected':'normal') %}">
+		<div class="lui_dataview_treemenu_flat_text"
+		   onmouseover="this.className='lui_dataview_treemenu_flat_text lui_dataview_treemenu_flat_text_hover';"
+		   onmouseout="this.className='lui_dataview_treemenu_flat_text';">$}
+	if(data.href){
+		{$<a class="textEllipsis" title="{%text%}" href="{%env.fn.formatUrl(data.href)%}" target="{%(data.target || '_blank')%}">
+			{%text%}</a>$}
+	}else{
+		{$<span class="textEllipsis" title="{%text%}">{%text%}</span>$}
+	}
+	{$</div></div>$}
+}
+{$<div class="lui_dataview_treemenu_flat">$}
+drawDatas(data);
+{$</div>$}
+

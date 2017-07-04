@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcMappManage"
+		messageKey="tib-jdbc:table.tibJdbcMappManage"
+		displayProperty="docSubject"
+		serviceBean="tibJdbcMappManageService"
+		table="tib_jdbc_mapp_manage"
+		url="/tib/jdbc/tib_jdbc_mapp_manage/tibJdbcMappManage.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="tib-jdbc:tibJdbcMappManage.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDataSource"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdDataSource"
+			type="String"
+			column="fd_data_source"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsEnabled"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdIsEnabled"
+			type="Boolean"
+			column="fd_is_enabled"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDataSourceSql"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdDataSourceSql"
+			type="String"
+			column="fd_data_source_sql"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTargetSource"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdTargetSource"
+			type="String"
+			column="fd_target_source"
+			notNull="false"
+			length="100"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTargetSourceSelectedTable"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdTargetSourceSelectedTable"
+			type="String"
+			column="fd_target_source_selected_table"
+			notNull="false"
+			length="1000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdDataSetSql"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdDataSetSql"
+			type="String"
+			column="fd_data_set_sql"
+			notNull="true"
+			length="1000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdMappConfigJson"
+			messageKey="tib-jdbc:tibJdbcMappManage.fdMappConfigJson"
+			type="RTF"
+			column="fd_mapp_config_json"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="tib-jdbc:tibJdbcMappManage.docCategory"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcMappCategory"
+			column="doc_category"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="tibJdbcDataSet"
+			messageKey="tib-jdbc:tibJdbcMappManage.tibJdbcDataSet"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcDataSet"
+			column="tib_jdbc_data_set"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

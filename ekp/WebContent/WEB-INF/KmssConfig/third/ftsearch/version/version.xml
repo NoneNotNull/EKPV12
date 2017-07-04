@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 索引时，解析扩展数据时，修改了主文档中的数据</description>
+			<author>程继军</author>
+			<revision-time>2015-03-25</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复了资产管理不能索引的问题</description>
+			<author>程继军</author>
+			<revision-time>2015-03-21</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持对单个圈子内的话题,图册进行搜索</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 跨脚本攻击XSS漏洞</description>
+			<author>刘金华</author>
+			<revision-time>2015-03-17</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 同义词的导入导出功能及界面</description>
+			<author>毛燕加</author>
+			<revision-time>2015-03-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 索引完成时间由统一的一个时间，改为按模块分别记录完成时间</description>
+			<author>程继军</author>
+			<revision-time>2015-02-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索扩展属性筛选非category字段内，k=v形式时不同k之间采用and方式结合</description>
+			<author>程继军</author>
+			<revision-time>2015-02-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索结果页面，模块及子类别以树的方式显示，并能选择多个模块和类别</description>
+			<author>毛燕加</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加同义词权重和字符串搜索参数配置界面同时将统一搜索服务的配置修改不需要重启ekp</description>
+			<author>毛燕加</author>
+			<revision-time>2015-01-30</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 搜索结果中显示id</description>
+			<author>毛燕加</author>
+			<revision-time>2015-01-30</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 人名搜索可配置及可扩展功能</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-29</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 多个词搜索，中间有空格时，导致排序结果不好</description>
+			<author>程继军</author>
+			<revision-time>2015-01-29</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 重构搜索请求json表达式的生成代码</description>
+			<author>程继军</author>
+			<revision-time>2015-01-29</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索支持扩展属性筛选的索引 version</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-23</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 人名搜索显示员工黄页人员信息功能</description>
+			<author>刘金华</author>
+			<revision-time>2015-01-05</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 同义词搜索,预定义一批同义词和繁简体出来</description>
+			<author>毛燕加</author>
+			<revision-time>2014-12-26</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 统一搜索配置多个服务填写说明与后台代码不一致的问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-12-24</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 建立索引的时候出现部分属性找不到的错误</description>
+			<author>毛燕加</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 对于相似度差别不大的文档，时间新的排在前面</description>
+			<author>程继军</author>
+			<revision-time>2014-12-19</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 用户自定义搜索词库和歧义词库功能</description>
+			<author>刘金华</author>
+			<revision-time>2014-10-24</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 搜索优化-数字和字母组合搜索优化</description>
+			<author>程继军</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联搜索出现空指针异常</description>
+			<author>毛燕加</author>
+			<revision-time>2014-10-08</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 筛选字段搜索,高亮没有根据选择字段进行高亮</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 kms关联搜索出现空指针异常</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 高亮显示没有补全</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>关联 core升级3.10</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索域字段权重可配置功能</description>
+			<author>毛燕加</author>
+			<revision-time>2014-09-01</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 标题过长且有标点，搜索结果显示时会被截断</description>
+			<author>毛燕加</author>
+			<revision-time>2014-08-28</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 搜索结果高亮显示</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 搜索结果排序</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-27</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 搜索分词调整为ansj、搜索结果停用词高亮补全</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 索引文档html和js标签去除，标签导致高亮错位问题等一些显示问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 admin.do统一搜索配置打开不需要验证登入</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 索引日期和文档日期不一致的问题</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 跨系统搜索功能缺陷修改</description>
+			<author>刘金华</author>
+			<revision-time>2014-07-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 autocad dwg文本抓取开发</description>
+			<author>刘金华</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 拼音转汉字联想词提示及搜索纠错功能</description>
+			<author>刘金华</author>
+			<revision-time>2014-06-06</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 跨系统搜索外系统个数license控制功能</description>
+			<author>刘金华</author>
+			<revision-time>2014-05-20</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 搜索分面功能</description>
+			<author>李钟海</author>
+			<revision-time>2013-09-02</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索组件功能的增强、搜索扩展性等修改</description>
+			<author>李钟海</author>
+			<revision-time>2013-03-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 统一搜索组件</description>
+			<author>李钟海</author>
+			<revision-time>2012-09-25</revision-time>
+			<relation>
+				<relation-module>sys/ftsearch</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+	</modifies>
+</version>

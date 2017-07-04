@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="tibSysCoreIfaceDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.core.provider.dao.hibernate.TibSysCoreIfaceDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface" />
+	</bean>
+	<bean id="tibSysCoreIfaceTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfaceServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysCoreIfaceDao" />
+		</property>
+		
+		<property name="tibSysCoreTagService">
+			<ref local="tibSysCoreTagService" />
+		</property>
+		
+	</bean>
+	<bean id="tibSysCoreIfaceService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysCoreIfaceTarget" />
+		</property>
+	</bean>
+
+	<bean id="tibSysCoreNodeDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.core.provider.dao.hibernate.TibSysCoreNodeDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreNode" />
+	</bean>
+	<bean id="tibSysCoreNodeTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreNodeServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysCoreNodeDao" />
+		</property>
+	</bean>
+	<bean id="tibSysCoreNodeService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysCoreNodeTarget" />
+		</property>
+	</bean>
+
+	<bean id="tibSysCoreTagDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.core.provider.dao.hibernate.TibSysCoreTagDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag" />
+	</bean>
+	<bean id="tibSysCoreTagTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreTagServiceImp">
+		<property name="baseDao">
+			<ref local="tibSysCoreTagDao" />
+		</property>
+	</bean>
+	<bean id="tibSysCoreTagService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibSysCoreTagTarget" />
+		</property>
+	</bean>
+
+
+	<!-- provider 相关spring注册 -->
+	<bean id="tibSysTransportInfo"
+		class="com.landray.kmss.tib.sys.core.provider.process.provider.interfaces.impl.TibSysTransportInfo"></bean>
+
+	<bean id="tibSysTransportProvider"
+		class="com.landray.kmss.tib.sys.core.provider.process.provider.interfaces.impl.TibSysTransportProvider"></bean>
+	
+	<!-- 选择分类 -->	
+	<bean id="tibSysCoreIfaceRefBean"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfaceRefBean"></bean>
+		
+	<bean id="tibSysEventProxy"
+		class="com.landray.kmss.tib.sys.core.provider.process.provider.interfaces.impl.TibSysEventProxy"></bean>	
+
+	<bean id="tibSysCoreTagsListBean"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreTagsListBean"></bean>
+
+	<!-- 获取模版XML -->	
+	<bean id="tibSysCoreIfaceTemplateBean"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfaceTemplateBean"></bean>
+	
+	<!-- 获取扩展点配置信息 -->	
+	<bean id="tibSysCoreIfacePluginsBean"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfacePluginsBean"></bean>
+
+	<!-- 接口实现 -->
+	<bean id="tibUnitInterface"
+		class="com.landray.kmss.tib.sys.core.provider.interfaces.impl.TibUnitInterfaceImpl">
+		<property name="tibSysCoreDispatcher">
+		  <ref local="tibSysCoreDispatcher"/>
+		</property>
+		<property name="tibSysCoreIfaceService">
+		  <ref local="tibSysCoreIfaceService"/>
+		</property>
+	</bean>
+		
+	<bean id="tibSysCoreDispatcher"
+		class="com.landray.kmss.tib.sys.core.provider.process.dispatcher.TibSysCoreDispatcher"></bean>	
+	
+	<bean
+		id="tibSysCoreIfaceImplDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sys.core.provider.dao.hibernate.TibSysCoreIfaceImplDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIfaceImpl" />
+	</bean>
+	<bean
+		id="tibSysCoreIfaceImplTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfaceImplServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSysCoreIfaceImplDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSysCoreIfaceImplService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSysCoreIfaceImplTarget" />
+		</property>
+	</bean>
+	<!-- 通过接口ID获取xml树 -->
+	<bean id="tibSysCoreIfaceXmlBean"
+		class="com.landray.kmss.tib.sys.core.provider.service.spring.TibSysCoreIfaceXmlBean">
+		<property name="tibSysCoreIfaceService">
+			<ref local="tibSysCoreIfaceService" />
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 附件控件增加必填校验功能</description>
+			<author>曹映辉</author>
+			<revision-time>2015-03-03</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie10表格边线样式问题</description>
+			<author>朱湖强</author>
+			<revision-time>2015-02-27</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批操作控件增加驳回可选节点功能,</description>
+			<author>曹映辉</author>
+			<revision-time>2015-01-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 签章初始化</description>
+			<author>魏本源</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批操作控件</description>
+			<author>曹映辉</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 基本属性布局控件</description>
+			<author>曹映辉</author>
+			<revision-time>2014-12-12</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 明细表行内滚动支持</description>
+			<author>曹映辉</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 事件控件分页,搜索,多选,明细表支持</description>
+			<author>曹映辉</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 大小写控件支持移动端</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 明细表相套表格时，计算控件无值问题</description>
+			<author>傅游翔</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 自定义表单Excel导入控件</description>
+			<author>李衡</author>
+			<revision-time>2014-09-25</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 事件控件</description>
+			<author>曹映辉</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 多行文本框长度不限制时被限制为200问题</description>
+			<author>曹映辉</author>
+			<revision-time>2014-08-21</revision-time>
+			<relation>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 超过64K超大表单支持</description>
+			<author>曹映辉</author>
+			<revision-time>2014-07-10</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端审批驳回后，起草人编辑文档时富文本出现html源码问题</description>
+			<author>傅游翔</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动两列展现，奇数列情况下，出现不显示内容的缺陷</description>
+			<author>傅游翔</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 动态下拉框控件</description>
+			<author>曹映辉</author>
+			<revision-time>2014-06-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见控件可展示抄送节点意见</description>
+			<author>李衡</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单非IE浏览器下编辑功能</description>
+			<author>傅游翔</author>
+			<revision-time>2014-05-27</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复权限区段无控件时，高度比较低的问题</description>
+			<author>傅游翔</author>
+			<revision-time>2014-05-22</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 weblogic下表单数据映射出现页面报错问题</description>
+			<author>曹映辉</author>
+			<revision-time>2014-04-29</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据初始化执行顺序涉及模块修改</description>
+			<author>李斌斌</author>
+			<revision-time>2014-03-10</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 配置数据映射后，单行文本和多行文本支持长度校验</description>
+			<author>傅游翔</author>
+			<revision-time>2014-03-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 自定义表单支持组织架构数据初始化导入导出</description>
+			<author>李斌斌</author>
+			<revision-time>2014-02-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 把xform的框架加载移动到表单模块</description>
+			<author>叶中奇</author>
+			<revision-time>2013-12-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 表单有必填组件时，导致移动端无法审批问题</description>
+			<author>傅游翔</author>
+			<revision-time>2013-10-14</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 修改admin.do中表单配置的提示信息</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-27</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 屏蔽通用表单被引用后模板的表单数据映射 修复</description>
+			<author>曹映辉</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动终端新建时必填校验不生效</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 JSP片段在移动终端使用，但必须通过admin.do开启</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多行文本设置只读后无法显示</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动控件支持扩展扩充解析器</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 表单文本控件增加数字千分位显示模式</description>
+			<author>曹映辉</author>
+			<revision-time>2013-08-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 自定义表单无法创建附件控件问题</description>
+			<author>曹映辉</author>
+			<revision-time>2013-04-15</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 文本框不显示且只读状态时新建文档异常</description>
+			<author>曹映辉</author>
+			<revision-time>2013-03-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 attachment.js移动到附件机制里面</description>
+			<author>李勇</author>
+			<revision-time>2013-01-05</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 启用审批意见展示控件</description>
+			<author>曹映辉</author>
+			<revision-time>2012-12-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 富文本类型控件增加配置是否过滤各种脚本、表达式等</description>
+			<author>傅游翔</author>
+			<revision-time>2012-12-11</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 应用模板的模板设置中表单数据映射权限分配给模板可维护人员</description>
+			<author>杨建宏</author>
+			<revision-time>2012-12-08</revision-time>
+			<relation>
+				<relation-module>km/review</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 增强对于表单控件显示文字校验，不允许某些特殊字符</description>
+			<author>傅游翔</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 在提交按钮点击后给自定义表单的内容Base64处理，在传输过程中不允许一个关键字的出现</description>
+			<author>李勇</author>
+			<revision-time>2012-11-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 表单映射新增地址簿控件等无法做映射问题</description>
+			<author>傅游翔</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程权限标签移动到流程机制</description>
+			<author>傅游翔</author>
+			<revision-time>2012-10-31</revision-time>
+			<relation>
+				<relation-module>sys/workflow</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端新建自定义表单功能</description>
+			<author>李衡</author>
+			<revision-time>2012-10-26</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 精确数据类型BigDecimal支持，解决数字不准确问题</description>
+			<author>傅游翔</author>
+			<revision-time>2012-10-16</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 提升自定义表单明细表脚本容错性</description>
+			<author>曹映辉</author>
+			<revision-time>2012-07-03</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 自定义表单模板保存版本提示问题，增加默认选择推荐保存版本类型</description>
+			<author>曹映辉</author>
+			<revision-time>2012-06-04</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动办公中明细表数据无法显示的问题</description>
+			<author>李衡</author>
+			<revision-time>2012-05-14</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于数据字典中字段与model字段不统一，导致执行“导出为初始数据”报错</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-10</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 使用JNDI数据源连接方式产生的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-05-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 明细表最后一行数据无法删除问题 注意：升级后需重新编译表单模板！</description>
+			<author>曹映辉</author>
+			<revision-time>2012-04-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 表单中计算控件国际化的问题</description>
+			<author>傅游翔</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>关联 由于群集接口变动导致相应的修改</description>
+			<author>叶中奇</author>
+			<revision-time>2012-03-29</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 自定义表单中新增多标签控件，为控件布局提供多面板展示功能</description>
+			<author>曹映辉</author>
+			<revision-time>2012-03-26</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修改被授权人编辑权限无法编辑问题</description>
+			<author>曹映辉</author>
+			<revision-time>2012-02-24</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复文本控件新增时，字符类型默认时不能选中Email校验</description>
+			<author>傅游翔</author>
+			<revision-time>2011-12-30</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复明细增加删除操作后，计算控件没有自动更新计算值问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-12-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正部分字符未国际化问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-11-10</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正无法修改数据类型的缺陷</description>
+			<author>傅游翔</author>
+			<revision-time>2011-11-10</revision-time>
+			<relation>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改流程模板中表单数据设置-映射-返回表单时系统报错</description>
+			<author>曹映辉</author>
+			<revision-time>2011-11-03</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>增加前端计算控件初始值功能</description>
+			<author>傅游翔</author>
+			<revision-time>2011-09-08</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正表单映射，一键生，并修改表单字段后，后再编辑出现JS错误</description>
+			<author>傅游翔</author>
+			<revision-time>2011-08-09</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复表单生成JSP在复杂相套，有权限区段情况下出现页面混乱问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-07-22</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正PDA版本多行文本无法自动换行问题（需重新生成JSP）</description>
+			<author>傅游翔</author>
+			<revision-time>2011-07-22</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>多行文本百分比宽度下无法自动换行问题（需要重新生成JSP）</description>
+			<author>傅游翔</author>
+			<revision-time>2011-07-11</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>属性框内容超长导致属性框变形问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-06-17</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>附件在pda中显示的支持</description>
+			<author>李衡</author>
+			<revision-time>2011-05-17</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>RTF控件初始值未转义导致数据字典解析问题修复</description>
+			<author>傅游翔</author>
+			<revision-time>2011-05-11</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>明细表审批数据丢失修复</description>
+			<author>傅游翔</author>
+			<revision-time>2011-05-11</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修正设置只读后，PDA浏览情况下，表单出错问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-04-22</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修正IE6下滤镜导致权限无法选中流程节点的问题</description>
+			<author>傅游翔</author>
+			<revision-time>2011-04-07</revision-time>
+			<baseline>EKP9.0.0.B2.2011041101</baseline>
+		</modify>
+		<modify>
+			<description>增加表单数据字典解析容错功能，防止表单一个模板数据字典出现非法字符，导致整个表单失效</description>
+			<author>傅游翔</author>
+			<revision-time>2011-01-24</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

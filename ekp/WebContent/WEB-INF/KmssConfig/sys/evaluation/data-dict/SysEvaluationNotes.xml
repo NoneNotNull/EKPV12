@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.evaluation.model.SysEvaluationNotes"
+	messageKey="sys-evaluation:table.sysEvaluationNotes"
+	serviceBean="sysEvaluationNotesService"
+	table="sys_evaluation_notes"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdEvaluationTime"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdEvaluationTime"
+	type="DateTime"
+	column="fd_evaluation_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdEvaluationContent"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdEvaluationContent"
+	type="String"
+	column="fd_evaluation_content"
+	notNull="false"
+	length="1500"
+/>
+<simpleProperty
+	name="fdIsNewVersion"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdIsNewVersion"
+	type="Boolean"
+	column="fd_is_new_version"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdReplyCount"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdReplyCount"
+	type="Integer"
+	column="fd_reply_count"
+	notNull="false"
+	length="10"
+/>
+<modelProperty
+	name="fdEvaluator"
+	messageKey="sys-evaluation:sysEvaluationNotes.fdEvaluator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="fd_evaluator_id"
+	notNull="false"
+/>
+</model></models>

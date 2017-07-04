@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettingExt"
+		table="tib_sys_soap_setting_ext">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdWsExtName"
+			column="fd_ws_ext_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdWsExtValue"
+			column="fd_ws_ext_value"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<many-to-one
+			name="fdServer"
+			column="fd_server_setting"
+			insert="true"
+			update="true"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>

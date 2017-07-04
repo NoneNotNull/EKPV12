@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveRegDetailList"
+		messageKey="km-imissive:table.kmImissiveRegDetailList"
+		displayProperty="fdId"
+		serviceBean="kmImissiveRegDetailListService"
+		table="km_imissive_regdetail_list"
+		url="/km/imissive/km_imissive_regdetail_list/kmImissiveRegDetailList.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdStatus"
+			messageKey="km-imissive:kmImissiveRegDetailList.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="36"
+			canDisplay="true"
+			enumType="kmImissiveReg_status"/>
+		<modelProperty
+			name="fdReg"
+		    messageKey="km-imissive:kmImissiveRegDetailList.fdreg"
+			type="com.landray.kmss.km.imissive.model.KmImissiveReg"
+			column="fd_reg_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdUnit"
+		    messageKey="km-imissive:kmImissiveRegDetailList.fdUnit"
+			type="com.landray.kmss.km.imissive.model.KmImissiveUnit"
+			column="fd_unit_id"
+			notNull="false"
+			validate="false" />
+		<modelProperty
+			name="fdOrg"
+		    messageKey="km-imissive:kmImissiveRegDetailList.fdOrg"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_org_id"
+			notNull="false"
+			validate="false" />
+	</model>
+</models>

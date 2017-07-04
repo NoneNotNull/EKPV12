@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="kmsWikiMain.fdOfficialEdition">
+		<value-label>
+			<value>0</value>
+			<label-key>kmsWikiMain.fdOfficialEdition_0</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmsWikiMain.fdOfficialEdition_1</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsWikiMain.fdOfficialEdition_2</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+	</type>
+	<type name="kmsWikiMain.fdLastEdition">
+		<value-label>
+			<value>0</value>
+			<label-key>kmsWikiMain.fdLastEdition_0</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmsWikiMain.fdLastEdition_1</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsWikiMain.fdLastEdition_2</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>kmsWikiMain.fdLastEdition_3</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+	</type>
+	<type name="kmsWikiMain.isOfficial">
+		<value-label>
+			<value>0</value>
+			<label-key>kmsWikiMain.no</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>kmsWikiMain.yes</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsWikiMain.yes</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+	</type>
+	
+	<type name="kmsWikiMain.fdAuthorType">
+		<value-label>
+			<value>0</value>
+			<label-key>authorType.inner</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+		<value-label>
+			<value>1</value>
+			<label-key>authorType.outer</label-key>
+			<bundle>kms-wiki</bundle>
+		</value-label>
+	</type>
+	
+</column-enums>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+
+	<extension-point
+		id="com.landray.kmss.sys.lbpmservice.node.support.rules.routeDecision">
+		<item
+			name="decision">
+			<param
+				name="modelFiller"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpmservice.node.support.rules.ModelDataFiller">
+				<description>规则服务提供的适配器实现。</description>
+			</param>
+			<description>流程图根据前端页面填充的信息做分支条件过滤，组装自定义的Model的扩展点</description>
+		</item>
+		<description>过滤流程图的分支条件相关扩展点。</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 获取审批处理人的事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="manualNodeHanlderGetterEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.eventType.manualNodeHanlderGetterEvent" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.node.support.ManualNodeHanlderGetterEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 审批类解析处理人，组织架构缺失（比如：禁用）时，则会触发此事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="availableHandlerEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.eventType.availableHandlerEvent" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.node.support.AvailableHandlerEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 审批类节点处理人为空跳过事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="skipIfEmptyHandlerEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.eventType.skipIfEmptyHandlerEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.node.support.SkipNodeOrWorkitemProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.node.support.SkipIfEmptyHandlerEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 审批类节点处理人身份重复跳过事件 -->
+		<item
+			name="event">
+			<param
+				name="type"
+				value="skipIfHandlerRepeatEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.eventType.skipIfHandlerRepeatEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpmservice.node.support.SkipNodeOrWorkitemProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpmservice.node.support.SkipIfHandlerRepeatEvent" />
+			<param
+				name="display"
+				value="false" />
+		</item>
+		<!-- 流程结束或者删除时清理工作代理表 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="cleanWorkingproxyListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.cleanWorkingproxyListener" />
+			<param
+				name="eventTypes"
+				value="processEndEvent" />
+			<param
+				name="listener"
+				value="cleanWorkingproxyListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 审批身份重复跳过监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalIfHanderRepeatListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.skipApprovalIfHanderRepeatListener" />
+			<param
+				name="eventTypes"
+				value="endedNodeEvent;skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalIfHanderRepeatListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!-- 审批身份重复或处理人为空跳过监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalForManualNodeListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.skipApprovalForManualNodeListener" />
+			<param
+				name="eventTypes"
+				value="skipIfEmptyHandlerEvent;skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalForManualNodeListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!--身份重复跳过监听器(特权人、已处理人操作) -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalForOperationListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.skipApprovalForOperationListener" />
+			<param
+				name="eventTypes"
+				value="skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalForOperationListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!--身份重复跳过监听器(通过操作) -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalForPassOperationListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.skipApprovalForPassOperationListener" />
+			<param
+				name="eventTypes"
+				value="skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalForPassOperationListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+		<!--跨节点身份重复跳过监听器-->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalIfNodeHandlerRepeatListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-support:lbpm.listenerType.skipApprovalIfNodeHandlerRepeatListener" />
+			<param
+				name="eventTypes"
+				value="handlerPassOperationEvent;drafterSubmitEvent;jumpNextTaskEvent;skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalIfNodeHandlerRepeatListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

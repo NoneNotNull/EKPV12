@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.cluster.model.SysClusterServer"
+		messageKey="sys-cluster:table.sysClusterServer"
+		displayProperty="fdName"
+		serviceBean="sysClusterServerService"
+		table="sys_cluster_server">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-cluster:sysClusterServer.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-cluster:sysClusterServer.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdAnonymous"
+			messageKey="sys-cluster:sysClusterServer.fdAnonymous"
+			type="Boolean"
+			column="fd_anonymous"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdDispatcherType"
+			messageKey="sys-cluster:sysClusterServer.fdDispatcherType"
+			type="Integer"
+			column="fd_dispatcher_type"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-cluster:sysClusterServer.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdPid"
+			messageKey="sys-cluster:sysClusterServer.fdPid"
+			type="String"
+			column="fd_pid"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdAddress"
+			messageKey="sys-cluster:sysClusterServer.fdAddress"
+			type="String"
+			column="fd_address"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdPorts"
+			messageKey="sys-cluster:sysClusterServer.fdPorts"
+			type="String"
+			column="fd_ports"
+			notNull="false"
+			length="1000" />
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-cluster:sysClusterServer.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdRefreshTime"
+			messageKey="sys-cluster:sysClusterServer.fdRefreshTime"
+			type="DateTime"
+			column="fd_refresh_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdShutdown"
+			messageKey=""
+			canDisplay="false"
+			type="Boolean"
+			column="fd_shutdown"
+			notNull="false"
+			length="1" />
+	</model>
+</models>

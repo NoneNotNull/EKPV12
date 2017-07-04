@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module messageKey="tib-common:module.tib.common" urlPrefix="/tib/common/"
+		defaultValidator="true">
+		<roles>
+			ROLE_TIB_COMMON_USE;
+			ROLE_TIB_COMMON_ADMIN;
+			ROLE_TIB_COMMON_LOG_ADD;
+			ROLE_TIB_COMMON_LOG_VIEW;
+			ROLE_TIB_COMMON_LOG_EDIT;
+			ROLE_TIB_COMMON_LOG_DELETE;
+			ROLE_TIB_COMMON_MAPPING_MODULE_ADD;
+			ROLE_TIB_COMMON_MAPPING_MODULE_VIEW;
+			ROLE_TIB_COMMON_MAPPING_MODULE_EDIT;
+			ROLE_TIB_COMMON_MAPPING_MODULE_DELETE;
+			ROLE_TIB_COMMON_MAPPING_CONFIG_ADD;
+			ROLE_TIB_COMMON_MAPPING_CONFIG_VIEW;
+			ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT;
+			ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE;
+		</roles>
+		<request path="*"
+			defaultValidator="roleValidator(role=ROLE_TIB_COMMON_USE)" />
+		<!-- 模块注册 -->
+		<request path="mapping/tib_common_mapping_module/tibCommonMappingModule*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.mapping.model.TibCommonMappingModule">
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_DELETE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_EDIT)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_VIEW)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_ADD)" />
+			
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_EDIT)" />
+			
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_DELETE)" />	
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_MODULE_ADD)" />	
+		</request>
+		<!-- 映射配置 -->
+		<request path="mapping/tib_common_mapping_main/tibCommonMappingMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.mapping.model.TibCommonMappingMain">
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_VIEW)" />
+			
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT)" />
+			
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE)" />	
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_ADD)" />	
+		</request>
+		
+		<!-- 映射配置func -->
+		<request path="mapping/tib_common_mapping_func*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+			defaultValidator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT)">
+		</request>
+
+		<!-- 操作日志 -->
+		<request path="log/tib_common_log_opt/tibCommonLogOpt*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.log.model.TibCommonLogOpt">
+			<!-- 阅读 -->
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_VIEW)|roleValidator(role=ROLE_TIB_COMMON_LOG_EDIT)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)" />
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_ADD)" />
+		</request>
+		<!-- 日志记录 -->
+		<request path="log/tib_common_log_main/tibCommonLogMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.log.model.TibCommonLogMain">
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_LOG_EDIT)|roleValidator(role=ROLE_TIB_COMMON_LOG_VIEW)" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_EDIT)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)" />
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_ADD)" />
+		</request>
+		
+		<!-- 日志管理-->
+		<request path="log/tib_common_log_manage/tibCommonLogManage*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.common.log.model.TibCommonLogManage">
+			
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_LOG_EDIT)|roleValidator(role=ROLE_TIB_COMMON_LOG_VIEW)" />
+			
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_EDIT)" />
+			
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_DELETE)" />
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_LOG_ADD)" />
+		</request>
+		
+		
+		<!-- 使用权限 -->
+		<request path="resource/js/erp_data.jsp*">
+              <query
+                    validator="roleValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_USE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_VIEW)"/>
+       </request>
+	</module>
+	
+	<!-- 配置service使用权限 -->
+	<module urlPrefix="sys/common/">
+       <request path="dataxml.jsp*">
+              <query
+                     validator="roleValidator(role=SYSROLE_USER)|roleValidator(role=ROLE_TIB_COMMON_ADMIN)|roleValidator(role=ROLE_TIB_COMMON_USE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_DELETE)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_EDIT)|roleValidator(role=ROLE_TIB_COMMON_MAPPING_CONFIG_VIEW)"/>
+       </request>
+	</module>
+	<!-- 删除日志定时任务 -->
+	<quartz
+        messageKey="tib-common-log:tibCommonLogManage.logClean"
+        jobService="tibCommonLogMainService"
+        jobMethod="backup"
+        enable="true"
+        cronExpression="0 0 1 * * ?"
+        runType="SINGLENODE" />
+        
+	<homePage urlPrefix="tib/common"
+		url="/tib/common/index.jsp" 
+		messageKey="tib-common:module.tib.common"
+		config="/moduleindex_notopic.jsp?nav=/tib/common/tree.jsp" />
+
+</configs>

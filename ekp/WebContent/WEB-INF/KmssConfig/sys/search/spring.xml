@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysSearchConfigTree"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchConfigTree">
+		<property
+			name="sysSearchMainService">
+			<ref
+				local="sysSearchMainService" />
+		</property>
+	</bean>
+	<bean
+		id="sysSearchMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.search.dao.hibernate.SysSearchMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.search.model.SysSearchMain" />
+	</bean>
+	<bean
+		id="sysSearchMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysSearchMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysSearchMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysSearchMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysSearchCategoryDictLoader"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchCategoryDictLoaderImp">
+		<property
+			name="sysDictLoader">
+			<ref
+				bean="sysDictLoader" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysSearchModelDictService"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchModelDictService">
+		<!--
+			property name="dictLoader"> <ref bean="sysSearchCategoryDictLoader"
+			/> </property
+		-->
+	</bean>
+
+	<bean
+		id="sysSearchTemplateTree"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchTemplateTree">
+	</bean>
+
+	<bean
+		id="sysSearchResultExportDictService"
+		class="com.landray.kmss.sys.search.service.spring.SysSearchResultExportDictService">
+		<property
+			name="sysSearchMainService">
+			<ref
+				local="sysSearchMainService" />
+		</property>
+	</bean>
+</beans>

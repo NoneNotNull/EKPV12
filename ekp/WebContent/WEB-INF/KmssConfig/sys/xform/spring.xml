@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysFormDictLoadService"
+		name="sysDictLoader,sysFormCacheMannager"
+		class="com.landray.kmss.sys.xform.service.DictLoadService">
+		<property name="templateHistoryDao">
+			<ref bean="sysFormTemplateHistoryDao" />
+		</property>
+		<property name="commonTempHistoryDao">
+			<ref bean="sysFormCommonTempHistoryDao" />
+		</property>
+		<property name="cacheManager">
+			<ref local="sysFormCacheManager" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysFormDictVarTree"
+		class="com.landray.kmss.sys.xform.service.SysFormDictTreeVarService">
+		<property name="loader">
+			<ref bean="sysFormDictLoadService" />
+		</property>
+		<property name="sysFormCommonTemplateService">
+			<ref bean="sysFormCommonTemplateService" />
+		</property>
+		<property name="sysFormTemplateService">
+			<ref bean="sysFormTemplateService" />
+		</property>
+	</bean>
+	<!-- 
+		<bean
+		id="hbmFileService"
+		class="com.landray.kmss.sys.xform.service.HbmFileServiceImp">
+		</bean> 
+	-->
+	<bean id="sysFormCacheManager"
+		class="com.landray.kmss.sys.xform.service.XFormCacheManager">
+	</bean>
+	<bean id="xformOrgElementDataInit"
+		class="com.landray.kmss.sys.xform.service.XformOrgElementDataInit">
+	</bean>
+</beans>

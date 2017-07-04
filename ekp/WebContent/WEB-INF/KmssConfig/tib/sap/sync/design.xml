@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-sap-sync:module.tib.sap.sync"
+		urlPrefix="/tib/sap/sync/"
+		defaultValidator="roleValidator(role=ROLE_TIB_SAP_SYNC_DEFAULT)">
+		<roles>
+			ROLE_TIB_SAP_SYNC_DEFAULT
+			
+		</roles>
+		
+		
+		
+	</module>
+
+</configs>

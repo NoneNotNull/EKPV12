@@ -1,0 +1,54 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory"
+		table="tib_jdbc_task_category">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdName"
+			column="fd_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdHierarchyId"
+			column="fd_hierarchy_id"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="true" />
+
+		<property
+			name="fdOrder"
+			column="fd_order"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<many-to-one
+			name="hbmParent"
+			class="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory"
+			column="fd_parent_id"
+			insert="true"
+			update="true"
+			not-null="false" 
+			/>
+
+
+
+	</class>
+</hibernate-mapping>

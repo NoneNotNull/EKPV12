@@ -1,0 +1,68 @@
+@charset "utf-8";  
+
+.muiAgendaNormal{
+	border: 0;
+}
+.muiAgendaNormal>tbody>tr {
+	border-bottom: 1px solid #e2e2e2;
+	position: relative;
+}
+.muiAgendaNormal>tbody>tr:last-child { border-bottom:0}
+
+.muiAgendaNormal>tbody>tr>td{
+	padding:0 0.3rem;
+	border: 0;
+}
+.muiAgendaNormal>tbody>tr:first-child>td{
+	height: 3rem;
+}
+
+.muiAgendaNormal input{
+	border: none;
+	border-radius: 0;
+	-webkit-appearance:none;
+}
+.muiAgendaNormal>tbody>tr>td>div {
+	padding: 6px 5px;
+	text-align: left;
+	color: #858585;
+	font-size: 14px;
+	border: 1px solid #ececec;
+	display: table-cell;
+}
+.muiAgendaNormal>tbody>tr>td>input{
+	padding: 6px 5px;
+	text-align: center;
+	color: #858585;
+	font-size: 14px;
+	/*display: table-cell;*/
+	border:0;
+	background: none;
+}
+
+.muiAgendaNormal .muiField{
+	min-width: 6rem;
+	background-color: #fff;
+}
+
+.muiAgendaNormal .title {
+	border:0!important;
+	font-size:1.4rem;
+}
+
+.muiAgendaNormal .muiDetailTableAdd {
+	border:0!important;
+	color: #3fa9f5;
+	font-size:1.3rem;
+	float: right;
+}
+	
+.muiAgendaNormal .muiDetailTableDel{
+	border: 0;
+	text-align: left;
+	padding: 6px 0px;
+}
+
+.muiAgendaNormal .muiDetailTableDel i{
+	margin: 0;
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sap.sync.model.TibSapSyncCategory"
+	messageKey="tib-sap-sync:table.tibSapSyncCategory"
+	displayProperty="fdName"
+	serviceBean="tibSapSyncCategoryService"
+	table="tib_sap_sync_category"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="tib-sap-sync:tibSapSyncCategory.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="tib-sap-sync:tibSapSyncCategory.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+	length="10"
+/>
+<simpleProperty
+	name="fdHierarchyId"
+	messageKey="tib-sap-sync:tibSapSyncCategory.fdHierarchyId"
+	type="String"
+	column="fd_hierarchy_id"
+	notNull="false"
+	length="1500"
+/>
+<modelProperty
+	name="fdParent"
+	messageKey="tib-sap-sync:tibSapSyncCategory.fdParent"
+	type="com.landray.kmss.tib.sap.sync.model.TibSapSyncCategory"
+	column="fd_parent_id"
+	notNull="false"
+/>
+</model></models>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZoneNavigation.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZoneNavLink.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePersonInfo.hbm.xml" />
+		<!-- 员工黄页添加 -->	
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePersonData.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePersonAttenFan.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePerDataTempl.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePersonDataCate.hbm.xml" />
+		<!-- 员工黄页添加 -->
+		<!-- 照片墙 -->
+		<mapping
+			resource="com/landray/kmss/sys/zone/model/SysZonePhotoMain.hbm.xml" />	
+		<!-- 照片墙 -->	
+	</session-factory>
+</hibernate-configuration>

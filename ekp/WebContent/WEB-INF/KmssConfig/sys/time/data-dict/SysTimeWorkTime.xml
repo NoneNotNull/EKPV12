@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.time.model.SysTimeWorkTime"
+		messageKey="sys-time:table.sysTimeWorkTime"
+		serviceBean="sysTimeWorkTimeService"
+		table="sys_time_work_time">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="hbmWorkStartTime"
+			messageKey="sys-time:sysTimeWorkTime.hbmWorkStartTime"
+			type="Long"
+			column="fd_work_start_time"
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="hbmWorkEndTime"
+			messageKey="sys-time:sysTimeWorkTime.hbmWorkEndTime"
+			type="Long"
+			column="fd_work_end_time"
+			notNull="false"
+			length="19" />
+		<modelProperty
+			name="sysTimeWork"
+			messageKey="sys-time:sysTimeWorkTime.sysTimeWork"
+			type="com.landray.kmss.sys.time.model.SysTimeWork"
+			column="fd_work_id"
+			notNull="false" />
+	</model>
+</models>

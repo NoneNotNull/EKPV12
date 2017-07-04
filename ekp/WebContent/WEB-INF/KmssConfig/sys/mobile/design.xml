@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-mobile:module.sys.mobile"
+		urlPrefix="/sys/mobile/" defaultValidator="true">
+
+		<roles>ROLE_SYSMOBILE_ADMIN;</roles>
+
+		<!-- 待办管理 -->
+		<request
+			path="sys_mobile_module_category_config/sysMobileModuleCategoryConfig.do*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+			<query
+				queryString="method=edit|update|delete"
+				validator="roleValidator(role=ROLE_SYSMOBILE_ADMIN)" />
+		</request>
+	</module>
+
+</configs>

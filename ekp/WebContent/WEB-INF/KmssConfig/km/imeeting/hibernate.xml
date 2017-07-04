@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingResCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingMainHistory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingSummary.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingStat.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingBook.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingDevice.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingRes.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingAgenda.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/imeeting/model/KmImeetingMainFeedback.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

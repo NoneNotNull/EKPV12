@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="sysNotifyTodoPortlet"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoPortlet">
+		<property
+			name="todoService">
+			<ref
+				local="sysNotifyTodoService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifyTodoCountService"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoCountService">
+		<property
+			name="todoService">
+			<ref
+				local="sysNotifyTodoService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifySettingDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifySettingDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.model.SysNotifySetting" />
+	</bean>
+	<bean
+		id="sysNotifySettingTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifySettingServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifySettingDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifySettingService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifySettingTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifyTodoDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyTodoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.model.SysNotifyTodo" />
+	</bean>
+	<bean
+		id="sysNotifyTodoTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyTodoDao" />
+		</property>
+
+		<!-- 消息队列服务 add by wubing date:2014-08-12 -->
+		<property
+			name="notifyQueueExecuteService">
+			<ref
+				bean="notifyQueueExecuteService" />
+		</property>
+		<property
+			name="sysNotifyCommonService">
+			<ref
+				bean="sysNotifyCommonService" />
+		</property>
+		
+	</bean>
+	<bean
+		id="sysNotifyTodoService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyTodoTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyTodoDoneInfoDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyTodoDoneInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.model.SysNotifyTodoDoneInfo" />
+	</bean>
+	<bean
+		id="sysNotifyTodoDoneInfoTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoDoneInfoServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyTodoDoneInfoDao" />
+		</property>
+		<property
+			name="sysNotifyCommonService">
+			<ref
+				bean="sysNotifyCommonService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyTodoDoneInfoService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyTodoDoneInfoTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifySettingCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.notify.service.spring.SysNotifySettingCoreServiceImp">
+				<property
+					name="notifySettingService">
+					<ref
+						local="sysNotifySettingService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyMainCoreTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyMainCoreServiceImp">
+		<property
+			name="notifySettingService">
+			<ref
+				local="sysNotifySettingService" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyMainCoreService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyMainCoreTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="mailSender"
+		class="com.landray.kmss.sys.notify.service.spring.KmssMailSenderImpl">
+	</bean>
+	<bean
+		id="sysNotifyEmailProvider"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.notify.provider.SysNotifyEmailProviderImp">
+				<property
+					name="mailSender">
+					<ref
+						local="mailSender" />
+				</property>
+				<property
+					name="orgService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+			
+				<!-- 消息队列服务 add by wubing date:2014-08-12 -->
+				<property
+					name="notifyQueueExecuteService">
+					<ref
+						bean="notifyQueueExecuteService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyTodoProvider"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.notify.provider.SysNotifyTodoProviderImp">
+				<property
+					name="notifyTodoService">
+					<ref
+						local="sysNotifyTodoService" />
+				</property>
+				<property
+					name="orgService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+
+				<!-- 消息队列服务 add by wubing date:2014-08-12 -->
+				<property
+					name="notifyQueueExecuteService">
+					<ref
+						bean="notifyQueueExecuteService" />
+				</property>
+
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyMobileProvider"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.notify.provider.SysNotifyMobileProviderImp">
+				<property
+					name="orgService">
+					<ref
+						bean="sysOrgCoreService" />
+				</property>
+				<property
+					name="sysNotifyShortMessageSendDao">
+					<ref
+						bean="sysNotifyShortMessageSendDao" />
+				</property>
+
+				<!-- 消息队列服务 add by wubing date:2014-08-12 -->
+				<property
+					name="notifyQueueExecuteService">
+					<ref
+						bean="notifyQueueExecuteService" />
+				</property>
+
+			</bean>
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifyShortMessageSendDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyShortMessageSendDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.model.SysNotifyShortMessageSend" />
+	</bean>
+
+	<bean
+		id="sysNotifyTodoJobService"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoJobServiceImp">
+		<property
+			name="sysNotifyTodoService">
+			<ref
+				local="sysNotifyTodoService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysNotifyTodoWebService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<bean
+				class="com.landray.kmss.sys.notify.webservice.SysNotifyTodoWebServiceImp">
+				<property
+					name="sysWsOrgService"
+					ref="sysWsOrgService" />
+				<property
+					name="sysNotifyTodoService"
+					ref="sysNotifyTodoService" />
+				<property
+					name="sysOrgCoreService"
+					ref="sysOrgCoreService" />
+				<property
+					name="sysNotifyTodoDoneInfoService"
+					ref="sysNotifyTodoDoneInfoService" />	
+			</bean>
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 分类 业务bean -->
+	<bean id="sysNotifyRemindCategoryDao" parent="KmssAuthBaseDao" class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyRemindCategoryDaoImp">
+		<property name="modelName" value="com.landray.kmss.sys.notify.model.SysNotifyRemindCategory" />
+	</bean>
+	<bean id="sysNotifyRemindCategoryTarget" parent="KmssBaseTarget" class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysNotifyRemindCategoryDao" />
+		</property>
+	</bean>
+	<bean id="sysNotifyRemindCategoryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysNotifyRemindCategoryTarget" />
+		</property>
+	</bean>
+
+    <!-- 提醒机制 主文档 业务bean -->
+	<bean id="sysNotifyRemindMainDao" parent="KmssAuthBaseDao" class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyRemindMainDaoImp">
+		<property name="modelName" value="com.landray.kmss.sys.notify.model.SysNotifyRemindMain" />
+	</bean>
+	<bean id="sysNotifyRemindMainTarget" parent="KmssBaseTarget" class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysNotifyRemindMainDao" />
+		</property>
+		<property name="sysNotifyRemindCommonService">
+			<ref local="sysNotifyRemindCommonService" />
+		</property>
+		<property name="sysQuartzCoreService">
+			<ref bean="sysQuartzCoreService" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref local="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean id="sysNotifyRemindMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysNotifyRemindMainTarget" />
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 基础数据 业务bean -->
+	<bean id="sysNotifyRemindCommonDao" parent="KmssAuthBaseDao" class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyRemindCommonDaoImp">
+		<property name="modelName" value="com.landray.kmss.sys.notify.model.SysNotifyCommonMain" />
+	</bean>
+	<bean id="sysNotifyRemindCommonTarget" parent="KmssBaseTarget" class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindCommonServiceImp">
+		<property name="baseDao">
+			<ref local="sysNotifyRemindCommonDao" />
+		</property>
+	</bean>
+	<bean id="sysNotifyRemindCommonService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysNotifyRemindCommonTarget" />
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 分类 接口bean -->
+    <bean id="sysNotifyRemindCategoryCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindCategoryCoreServiceImpl">
+				<property name="sysNotifyRemindCategoryService">
+					<ref local="sysNotifyRemindCategoryService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 主文档 接口bean -->
+	<bean id="sysNotifyRemindMainCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindMainCoreServiceImpl">
+				<property name="sysNotifyRemindMainService">
+					<ref local="sysNotifyRemindMainService" />
+				</property>
+				<property name="sysNotifyRemindCategoryService">
+					<ref local="sysNotifyRemindCategoryService" />
+				</property>
+				<property name="sysQuartzCoreService">
+					<ref bean="sysQuartzCoreService" />
+				</property>
+				<property name="sysNotifyRemindCommonService">
+					<ref local="sysNotifyRemindCommonService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 基础数据 接口bean -->
+	<bean id="sysNotifyRemindCommonCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindCommonCoreServiceImpl">
+				<property name="sysNotifyRemindCommonService">
+					<ref local="sysNotifyRemindCommonService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 提醒机制 主文档 定时任务体实现bean -->
+	<bean id="sysNotifyRemindMainJobService" class="com.landray.kmss.sys.notify.service.spring.SysNotifyRemindMainJobServiceImp">
+		<property name="sysNotifyRemindMainService">
+			<ref local="sysNotifyRemindMainService" />
+		</property>
+		<property name="sysNotifyRemindCommonService">
+			<ref local="sysNotifyRemindCommonService" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="sysNotifyCategoryDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.notify.dao.hibernate.SysNotifyCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.notify.model.SysNotifyCategory" />
+	</bean>
+	<bean
+		id="sysNotifyCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysNotifyCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyCategoryTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysNotifyTodoNotAsynchTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.notify.service.spring.SysNotifyTodoServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysNotifyTodoDao" />
+		</property>
+		<property name="notAsynch">
+			<value>true</value>
+		</property>
+
+		<!-- 消息队列服务 add by wubing date:2014-08-12 -->
+		<property
+			name="notifyQueueExecuteService">
+			<ref
+				bean="notifyQueueExecuteService" />
+		</property>
+
+	</bean>
+	<bean
+		id="sysNotifyTodoNotAsynchService"
+		parent="KmssBaseCoreService">
+		<property
+			name="target">
+			<ref
+				local="sysNotifyTodoNotAsynchTarget" />
+		</property>
+	</bean>
+	
+	<bean id="sysNotifyCommonService" class="com.landray.kmss.sys.notify.service.spring.SysNotifyCommonServiceImp">
+	</bean>
+	
+</beans>

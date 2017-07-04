@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.quartz.model.SysQuartzJob"
+	messageKey="sys-quartz:table.sysQuartzJob"
+	serviceBean="sysQuartzJobService"
+	table="sys_quartz_job"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-quartz:sysQuartzJob.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-quartz:sysQuartzJob.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-quartz:sysQuartzJob.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdSubject"
+	messageKey="sys-quartz:sysQuartzJob.fdSubject"
+	type="String"
+	column="fd_subject"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdJobService"
+	messageKey="sys-quartz:sysQuartzJob.fdJobService"
+	type="String"
+	column="fd_job_service"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdJobMethod"
+	messageKey="sys-quartz:sysQuartzJob.fdJobMethod"
+	type="String"
+	column="fd_job_method"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdLink"
+	messageKey="sys-quartz:sysQuartzJob.fdLink"
+	type="String"
+	column="fd_link"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdParameter"
+	messageKey="sys-quartz:sysQuartzJob.fdParameter"
+	type="String"
+	column="fd_parameter"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdCronExpression"
+	messageKey="sys-quartz:sysQuartzJob.fdCronExpression"
+	type="String"
+	column="fd_cron_expression"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdEnabled"
+	messageKey="sys-quartz:sysQuartzJob.fdEnabled"
+	type="Boolean"
+	column="fd_enabled"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdIsSysJob"
+	messageKey="sys-quartz:sysQuartzJob.fdIsSysJob"
+	type="Boolean"
+	column="fd_is_sys_job"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRunType"
+	messageKey="sys-quartz:sysQuartzJob.fdRunType"
+	type="Integer"
+	column="fd_run_type"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRunTime"
+	messageKey="sys-quartz:sysQuartzJob.fdRunTime"
+	type="DateTime"
+	column="fd_run_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRequired"
+	messageKey="sys-quartz:sysQuartzJob.fdRequired"
+	type="Boolean"
+	column="fd_required"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdTriggered"
+	messageKey="sys-quartz:sysQuartzJob.fdTriggered"
+	type="Boolean"
+	column="fd_triggered"
+	notNull="false"
+/>
+</model></models>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmsKmapsCategoryForm"
+			type="com.landray.kmss.kms.kmaps.forms.KmsKmapsCategoryForm">
+		</form-bean>
+		<form-bean
+			name="kmsKmapsMainForm"
+			type="com.landray.kmss.kms.kmaps.forms.KmsKmapsMainForm">
+		</form-bean>
+		<form-bean
+			name="kmsKmapsTemplateForm"
+			type="com.landray.kmss.kms.kmaps.forms.KmsKmapsTemplateForm">
+		</form-bean>
+		<form-bean
+			name="kmsKmapsDataImportForm"
+			type="com.landray.kmss.kms.kmaps.forms.KmsKmapsDataImportForm">
+		</form-bean>
+		<form-bean
+			name="kmsKmapsTemplCategoryForm"
+			type="com.landray.kmss.kms.kmaps.forms.KmsKmapsTemplCategoryForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsCategoryAction"
+			name="kmsKmapsCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/kmaps/kms_kmaps_category/kmsKmapsCategory_list.jsp">
+			</forward>
+		</action> 
+		<action
+			path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsMainAction"
+			name="kmsKmapsMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmaps/kms_kmaps_ui/kmsKmapsMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/kmaps/kms_kmaps_ui/kmsKmapsMain_edit.jsp">
+			</forward>
+			<forward
+				name="editProperty"
+				path="/kms/kmaps/kms_kmaps_ui/kmsKmapsMain_info_property.jsp">
+			</forward>
+			<forward
+				name="saveTemplate"
+				path="/kms/kmaps/kms_kmaps_temp_ui/kmsKmapsTemplate_BaseInfo.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_list.jsp">
+			</forward>
+			<!-- 上传图片页面 -->
+			<forward
+				name="insertBG"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_edit_insertBG.jsp">
+			</forward>
+			<!-- flash页面 -->
+			<forward
+				name="stylepage"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_view_stylepage.jsp">
+			</forward>
+			<forward
+				name="adminlist"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_adminlist.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_list.jsp">
+			</forward>
+		</action> 
+		
+		<action
+			path="/kms/kmaps/kms_kmaps_index/kmsKmapsMainIndex"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsMainIndexAction"
+			name="kmsKmapsMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="index"
+				path="/kms/kmaps/kms_kmaps_ui/kmsKmapsMain_list.jsp">
+			</forward>
+			<forward
+				name="temp_index"
+				path="/kms/kmaps/kms_kmaps_ui/kmsKmapsMain_template_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/kms/kmaps/kms_kmaps_main/kmsKmapsAtt"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsAttMainAction"
+			name="sysAttMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_list.jsp">
+			</forward>
+			<!-- 上传图片页面 -->
+			<forward
+				name="insertBG"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_edit_insertBG.jsp">
+			</forward>
+			<!-- flash页面 -->
+			<forward
+				name="stylepage"
+				path="/kms/kmaps/kms_kmaps_main/kmsKmapsMain_view_stylepage.jsp">
+			</forward>
+		</action> 
+		
+		<action
+			path="/kms/kmaps/kms_kmaps_template/kmsKmapsTemplate"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsTemplateAction"
+			name="kmsKmapsTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmaps/kms_kmaps_temp_ui/kmsKmapsTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/kms/kmaps/kms_kmaps_temp_ui/kmsKmapsTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/kms/kmaps/kms_kmaps_template/kmsKmapsTemplate_list.jsp" />
+			<forward
+				name="importTemplate"
+				path="/kms/kmaps/kms_kmaps_main/html/dialog_confirm_content.jsp" />
+			<forward
+				name="listChildren"
+				path="/kms/kmaps/kms_kmaps_temp_ui/kmsKmapsTemplate_list.jsp">
+			</forward>
+			<forward
+				name="manageList"
+				path="/kms/kmaps/kms_kmaps_temp_ui/kmsKmapsTemplate_list.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/kmaps/kms_kmaps_import/kmsKmapsDataImport"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsDataImportAction"
+			name="kmsKmapsDataImportForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward name="status"
+				path="/kms/kmaps/kms_kmaps_import/kmsKmapsDataImport_status.jsp">
+			</forward>
+			<forward
+				name="noexist"
+				path="/kms/kmaps/kms_kmaps_import/noexist.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/kms/kmaps/kms_kmaps_templ_category/kmsKmapsTemplCategory"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsTemplCategoryAction"
+			name="kmsKmapsTemplCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/kms/kmaps/kms_kmaps_templ_category/kmsKmapsTemplCategory_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/kms/kmaps/kms_kmaps_templ_category/kmsKmapsTemplCategory_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/kms/kmaps/kms_kmaps_templ_category/kmsKmapsTemplCategory_list.jsp">
+			</forward>
+		</action>
+		<!-- 门户 -->
+		<action
+			path="/kms/kmaps/kms_kmaps_portlet/kmsKmapsPortlet"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsPortletAction"
+			name="kmsKmapsMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		<action
+			path="/kms/kmaps/kms_kmaps_portlet/kmsKmapsCategoryPortlet"
+			type="com.landray.kmss.kms.kmaps.actions.KmsKmapsCategoryPortletAction"
+			name="kmsKmapsMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>    
+		
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.kms.kmaps.ApplicationResources"
+		key="kms-kmaps" />
+</struts-config>

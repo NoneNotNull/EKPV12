@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag"
+		table="tib_sys_core_tag">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdTagName"
+			column="fd_tag_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdOrder"
+			column="fd_order"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+			
+		<!-- inverse="true" -->
+		<bag
+			name="tibSysCoreIfaces"
+			table="tib_sys_core_iface_tags"
+		  	cascade="save-update"
+		  	>
+			<key
+				column="fd_tag_id" />
+			<many-to-many
+				class="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface"
+				column="fd_iface_id"  />
+		</bag>
+
+	</class>
+</hibernate-mapping>

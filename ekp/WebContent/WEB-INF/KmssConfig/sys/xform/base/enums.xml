@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	
+	<type name="sysFormTemplate_displayType">
+		<value-label>
+			<value>1</value>
+			<label-key>XFormTemplate.desplay.defined</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>XFormTemplate.desplay.defining</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+	</type>
+	<type name="sysFormTemplate_fdMode">
+		<value-label>
+			<value>1</value>
+			<label-key>sysFormTemplate.fdTemplateType.nouse</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>sysFormTemplate.fdTemplateType.define</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sysFormTemplate.fdTemplateType.other</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+	</type>
+	<type name="sysForm_DB_Mode">
+		<value-label>
+			<value>1</value>
+			<label-key>xform.db.def.option.mode.designer</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>xform.db.def.option.mode.dba</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+	</type>
+	
+	<!-- 关系类型 -->
+	<type name="sysFormDbColumn_fdRelType">
+		<!-- 一对多 -->
+		<value-label>
+			<value>1</value>
+			<label-key>fdRelType.oneToMany</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+		<!-- 多对多 -->
+		<value-label>
+			<value>2</value>
+			<label-key>fdRelType.manyToMany</label-key>
+			<bundle>sys-xform</bundle>
+		</value-label>
+	</type>
+</column-enums>

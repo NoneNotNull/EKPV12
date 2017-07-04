@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.task.model.SysTaskCategory"
+		messageKey="sys-task:table.sysTaskCategory"
+		displayProperty="fdName"
+		serviceBean="sysTaskCategoryService"
+		table="sys_task_category">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-task:sysTaskCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-task:sysTaskCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="sys-task:sysTaskCategory.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false"
+			length="10" />
+	</model>
+</models>

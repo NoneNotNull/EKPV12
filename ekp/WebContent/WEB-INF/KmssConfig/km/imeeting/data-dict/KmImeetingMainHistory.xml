@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingMainHistory"
+		messageKey="km-imeeting:table.kmImeetingMainHistory"
+		displayProperty="fdId"
+		serviceBean="kmImeetingMainHistoryService"
+		table="km_imeeting_main_history"
+		url="/km/imeeting/km_imeeting_main_history/kmImeetingMainHistory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOptType"
+			messageKey="km-imeeting:kmImeetingMainHistory.fdOptType"
+			type="String"
+			column="fd_opt_type"
+			notNull="false"
+			length="36"
+			enumType="km_imeeting_main_history_fd_opt_type"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdOptContent"
+			messageKey="km-imeeting:kmImeetingMainHistory.fdOptContent"
+			type="RTF"
+			column="fd_opt_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdOptDate"
+			messageKey="km-imeeting:kmImeetingMainHistory.fdOptDate"
+			type="DateTime"
+			column="fd_opt_date"
+			notNull="false"
+			validate="true" />
+			
+		<modelProperty
+			name="fdOptPerson"
+			messageKey="km-imeeting:kmImeetingMainHistory.fdOptPerson"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_opt_person"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdMeeting"
+			messageKey="km-imeeting:kmImeetingMainHistory.fdMeeting"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+			column="fd_meeting_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

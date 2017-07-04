@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysEvaluationMainForm"
+			type="com.landray.kmss.sys.evaluation.forms.SysEvaluationMainForm" />
+		<form-bean
+			name="sysEvaluationReplyForm"
+			type="com.landray.kmss.sys.evaluation.forms.SysEvaluationReplyForm" />
+		<form-bean
+			name="sysEvaluationNotesForm"
+			type="com.landray.kmss.sys.evaluation.forms.SysEvaluationNotesForm" />
+		<form-bean
+			name="sysEvaluationNotesConfigForm"
+			type="com.landray.kmss.sys.evaluation.forms.SysEvaluationNotesConfigForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain"
+			type="com.landray.kmss.sys.evaluation.actions.SysEvaluationMainAction"
+			name="sysEvaluationMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_view.jsp" />
+			<forward
+				name="score"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_score.jsp" />
+			<forward
+				name="edit"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_list.jsp" />
+			<forward
+				name="newsList"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_news_list.jsp" />
+			<forward
+				name="edit4Doc"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_doc_edit.jsp" />
+			<forward
+				name="list4Doc"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_doc_list.jsp" />
+			<forward
+				name="listUi"
+				path="/sys/evaluation/import/sysEvaluationMain_view_list.jsp" />
+			<forward
+				name="list4Doc.4pda"
+				path="/sys/evaluation/sys_evaluation_main/sysEvaluationMain_list.4pda.jsp" />
+			<forward
+				name="mobileList"
+				path="/sys/evaluation/mobile/list.jsp" />
+			<forward
+				name="listOverView"
+				path="/sys/evaluation/import/sysEvaluationMain_over_view_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/evaluation/sys_evaluation_main/sysEvaluationReply"
+			type="com.landray.kmss.sys.evaluation.actions.SysEvaluationReplyAction"
+			name="sysEvaluationReplyForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="replyDialogs"
+				path="/sys/evaluation/import/sysEvaluationMain_reply_dialog.jsp" />
+		</action>
+		
+		<action
+			path="/sys/evaluation/sys_evaluation_main/sysEvaluationNotes"
+			type="com.landray.kmss.sys.evaluation.actions.SysEvaluationNotesAction"
+			name="sysEvaluationNotesForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/evaluation/import/sysEvaluationNotes_view.jsp" />
+			<forward
+				name="listNotes"
+				path="/sys/evaluation/import/sysEvaluationNotes_view_list.jsp" />
+			<forward
+				name="listOverView"
+				path="/sys/evaluation/import/sysEvaluationNotes_over_view_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/evaluation/sys_evaluation_notes/sysEvaluationNotesConfig"
+			type="com.landray.kmss.sys.evaluation.actions.SysEvaluationNotesConfigAction"
+			name="sysEvaluationNotesConfigForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/evaluation/import/sysEvaluationNotes_config.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.evaluation.ApplicationResources"
+		key="sys-evaluation" />
+</struts-config>

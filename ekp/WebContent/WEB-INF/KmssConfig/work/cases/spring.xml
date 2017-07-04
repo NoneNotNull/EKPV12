@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean
+		id="workCasesMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.work.cases.dao.hibernate.WorkCasesMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.work.cases.model.WorkCasesMain" />
+	</bean>
+
+	<bean
+		id="workCasesMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.work.cases.service.spring.WorkCasesMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="workCasesMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="workCasesMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="workCasesMainTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="workCasesMainListener"
+		class="com.landray.kmss.work.cases.listener.WorkCasesMainListener">
+		<property
+			name="workCasesMainService">
+			<ref
+				local="workCasesMainService" />
+		</property>
+		<!-- 注入sysNotifyMainCoreService -->
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	
+
+	
+	<bean
+		id="workCasesCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.work.cases.dao.hibernate.WorkCasesCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.work.cases.model.WorkCasesCategory" />
+	</bean>
+
+	<bean
+		id="workCasesCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.work.cases.service.spring.WorkCasesCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="workCasesCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="workCasesCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="workCasesCategoryTarget" />
+		</property>
+	</bean>
+	<!-- 门户 -->
+	<bean
+		id="workCasesMainPortletService"
+		class="com.landray.kmss.work.cases.service.spring.WorkCasesMainPortletServiceImpl">
+		<property name="workCasesMainService">
+			<ref local="workCasesMainService" />
+		</property>
+	</bean>
+	
+
+</beans>

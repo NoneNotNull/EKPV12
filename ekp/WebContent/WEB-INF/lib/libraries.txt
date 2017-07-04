@@ -1,0 +1,9 @@
+commons-fileupload.jar - Apache Commons Fil Upload version 1.0
+commons-logging.jar - Apache Commons Logging version ???
+cos-multipart.jar - Cos Multipart File Upload version ???
+mail.jar - Mail API version ???
+ognl.jar - OGNL version 2.6.5
+oscore.jar - OSCore version 2.2.4
+pell-multipart.jar - Pell Multipart File Upload version ???
+velocity-dep.jar - Velocity (plus dependencies) version 1.3.1
+xwork.jar - XWork version 1.0.5

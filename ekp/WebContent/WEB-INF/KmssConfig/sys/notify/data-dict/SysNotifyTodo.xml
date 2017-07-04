@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.notify.model.SysNotifyTodo"
+	messageKey="sys-notify:table.sysNotifyTodo"
+	serviceBean="sysNotifyTodoService"
+	table="sys_notify_todo"
+>
+<idProperty><generator
+	type="native"
+/></idProperty>
+<simpleProperty
+	name="fdAppName"
+	messageKey="sys-notify:sysNotifyTodo.fdAppName"
+	type="String"
+	column="fd_app_name"
+	notNull="false"
+	unique="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelName"
+	messageKey="sys-notify:sysNotifyTodo.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	unique="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="sys-notify:sysNotifyTodo.fdModelId"
+	type="Long"
+	column="fd_model_id"
+	notNull="false"
+	unique="false"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="sys-notify:sysNotifyTodo.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	unique="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdCreateTime"
+	messageKey="sys-notify:sysNotifyTodo.docCreateTime"
+	type="DateTime"
+	column="fd_create_time"
+	notNull="false"
+	unique="false"
+/>
+<simpleProperty
+	name="fdSubject"
+	messageKey="sys-notify:sysNotifyTodo.fdSubject"
+	type="String"
+	column="fd_subject"
+	notNull="true"
+	unique="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdType"
+	messageKey="sys-notify:sysNotifyTodo.fdType"
+	type="Integer"
+	column="fd_type"
+	notNull="true"
+	enumType="sys_todo_cate"
+	unique="false"
+/>
+<simpleProperty
+	name="fdLink"
+	messageKey="sys-notify:sysNotifyTodo.fdLink"
+	type="String"
+	column="fd_link"
+	notNull="false"
+	unique="false"
+	length="1200"
+/>
+<listProperty
+	name="hbmTodoTargets"
+	messageKey="sys-notify:sysNotifyTodo.hbmTodoTargets"
+	column="fd_todoid"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	table="sys_notify_todotarget"
+	inverse="false"
+/>
+<listProperty
+	name="hbmDoneInfos"
+	messageKey="sys-notify:sysNotifyTodo.hbmDoneInfos"
+	column="fd_todoid"
+	type="com.landray.kmss.sys.notify.model.SysNotifyTodoDoneInfo"
+	cascade="all-delete-orphan"
+	inverse="false"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="sys-notify:sysNotifyTodo.docCreatorName"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="doc_creator_id"
+	notNull="false"
+	canSearch="true"
+	dialogJS="Dialog_Address(!{mulSelect}, '!{idField}', '!{nameField}', null, ORG_TYPE_PERSON);" />
+</model></models>

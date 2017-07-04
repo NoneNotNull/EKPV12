@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchMultisystem"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchMultisystem"
+		displayProperty="fdSystemName"
+		serviceBean="sysFtsearchMultisystemService"
+		table="sys_ftsearch_multisystem"
+		url="/sys/ftsearch/expand/sys_ftsearch_multisystem/sysFtsearchMultisystem.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="100"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdSystemName"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdSystemName"
+			type="String"
+			column="fd_system_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSystemModel"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdSystemModel"
+			type="String"
+			column="fd_system_model"
+			notNull="true"
+			length="100"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSystemIndexdb"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdSystemIndexdb"
+			type="String"
+			column="fd_system_indexdb"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSelectFlag"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdSelectFlag"
+			type="Boolean"
+			column="fd_select_flag"
+			notNull="false"
+			length="1"
+			validate="true" />
+		<simpleProperty
+			name="fdModelUrl"
+			messageKey="sys-ftsearch-expand:sysFtsearchMultisystem.fdModelUrl"
+			type="String"
+			column="fd_model_url"
+			notNull="false"
+			length="250"
+			validate="false" />
+	</model>
+</models>

@@ -1,0 +1,7 @@
+由于EKP会议模块对于日历框架的使用要求有些特殊，对于原版的fullcalendar(1.6.4版本)做了部分改动，特记录如下
+(因eclipse无法对比fullcalendar.js记录，故此文件的修改，要求写该js代码的具体修改位置)：
+
+1、新增 日程支持按优先级排序
+		修改位置：9行
+		原内容：function ge(t,e){ e.rightCol-e.leftCol-(t.rightCol-t.leftCol)
+   		修改内容：function ge(t,e){return (e.event.priority || 0) - (t.event.priority || 0) || e.rightCol-e.leftCol-(t.rightCol-t.leftCol)

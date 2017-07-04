@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.property.model.SysPropertyReference"
+		messageKey="sys-property:table.sysPropertyReference"
+		displayProperty="fdDisplayName"
+		serviceBean="sysPropertyReferenceService"
+		table="sys_property_reference"
+		url="/sys/property/sys_property_reference/sysPropertyReference.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdDisplayName"
+			messageKey="sys-property:sysPropertyReference.fdDisplayName"
+			type="String"
+			column="fd_display_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsNotNull"
+			messageKey="sys-property:sysPropertyReference.fdIsNotNull"
+			type="Boolean"
+			column="fd_is_not_null"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDisplayInLine"
+			messageKey="sys-property:sysPropertyReference.fdDisplayInLine"
+			type="Boolean"
+			column="fd_display_in_line"
+			notNull="false"
+			length="1"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-property:sysPropertyReference.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="fdDefine"
+			messageKey="sys-property:sysPropertyReference.fdDefine"
+			type="com.landray.kmss.sys.property.model.SysPropertyDefine"
+			column="fd_define_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="fdTemplate"
+			messageKey="sys-property:sysPropertyReference.fdTemplate"
+			type="com.landray.kmss.sys.property.model.SysPropertyTemplate"
+			column="fd_template_id"
+			notNull="true"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarAuth.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarLabel.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarMain.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarOutCache.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarShareGroup.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarSyncBind.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarSyncMapping.hbm.xml" />
+		<mapping resource="com/landray/kmss/km/calendar/model/KmCalendarAgendaLabel.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

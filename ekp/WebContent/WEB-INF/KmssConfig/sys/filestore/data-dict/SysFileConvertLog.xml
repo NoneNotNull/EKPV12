@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.filestore.model.SysFileConvertLog"
+		messageKey="sys-filestore:table.sysFileConvertLog"
+		serviceBean="sysFileConvertLogService"
+		table="sys_file_convert_log">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdQueueId"
+			messageKey="sys-filestore:sysFileConvertLog.fdQueueId"
+			type="String"
+			column="fd_queue_id"
+			notNull="true"
+			length="36"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdConverterKey"
+			messageKey="sys-filestore:sysFileConvertLog.fdConverterKey"
+			type="String"
+			column="fd_converter_key"
+			notNull="true"
+			length="100"
+			validate="false" />
+
+		<simpleProperty
+			name="fdConvertStatus"
+			messageKey="sys-filestore:sysFileConvertLog.fdConvertStatus"
+			type="String"
+			column="fd_convert_status"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdStatusTime"
+			messageKey="sys-filestore:sysFileConvertLog.fdStatusTime"
+			type="DateTime"
+			column="fd_status_time"
+			notNull="false" />
+			
+		<simpleProperty
+			name="fdStatusInfo"
+			messageKey="sys-filestore:sysFileConvertLog.fdStatusInfo"
+			type="String"
+			column="fd_status_info"
+			notNull="false"
+			validate="false" />
+	</model>
+</models>

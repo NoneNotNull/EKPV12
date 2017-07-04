@@ -1,0 +1,140 @@
+/*relation setting page*/
+html,body{
+	background-image:none !important; 
+}
+.rela_config{
+	width: 100%;
+	height:400px;
+	overflow-y: auto;
+	overflow-x: hidden;;
+}
+.rela_title{
+	font-weight: bold;
+}
+.rela_list_title_area,.rela_detail_title_area{
+	/*width: 100%;*/
+	color: #0b62a5;
+	font-size:14px;
+	padding:3px 0px 0px 10px;
+	height:35px;
+	line-height: 35px;
+}
+.rela_list_title_area{
+	background-color: #47b5e6;
+}
+.rela_detail_title_area{
+	background-color: #f3f3f3;
+}
+
+.rela_config_table,.rela_config_detail,.rela_config_subset{
+	width: 100%;
+}
+.rela_config_table table,.rela_config_detail table,.rela_config_subset table{
+	width: 100%;
+	margin: 0px auto;
+}
+.rela_config_table table{
+	border: 1px #e8e8e8 solid;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+.rela_config_table table tr td , .rela_config_detail table tr td,.rela_config_subset table tr td{
+	padding:5px 0px;
+	height:25px;
+	line-height: 25px;
+	vertical-align: middle;
+	border-collapse: collapse;
+	border-bottom: 1px #e8e8e8 solid;
+}
+.rela_config_table table  tr td:FIRST-CHILD,
+.rela_config_subset table  tr td:FIRST-CHILD,
+.rela_config_detail table  tr td:FIRST-CHILD{
+	padding-left: 30px;
+}
+.rela_opt_area,rela_opt_tb_area{
+	text-align: right;
+	padding-right: 30px;
+}
+.rela_opt_tb_area{
+	overflow: hidden;
+	float:right;
+	width:25%;
+}
+.rela_opt_area_main{
+	width: 25%;
+}
+
+.rela_config_subset table tr td{
+	border-bottom:none;
+}
+.rela_conf_tab{
+	width:100%;
+	background-color: #F2F2F2;
+	padding:5px 0px;
+	height:25px;
+	line-height: 25px;
+	vertical-align: middle;
+	border-bottom: 1px #e8e8e8 solid;
+}
+.rela_td_title{
+	float:left;
+	width:65%;
+	padding-left:30px;
+}
+
+.rela_opt_area > div,.rela_opt_tb_area > div{
+	margin-left:10px; 
+	float: left;
+}
+.rela_config_inline{
+	position:relative;
+	width: 100%;
+	height: 1px;
+	margin:20px 0px;
+	display:none;
+	border-top: 1px solid #00A2E8;
+}
+.rela_config_inline_txt{
+	position:absolute;
+	display: inline-block;
+	left: 48%;
+	font-size:14px;
+	top:-10px;
+	background-color: #FFFFFF;
+	padding: 0px 10px;
+	color: #00A2E8;
+	cursor: pointer;
+}
+.rela_conf_tr_selected{
+	background-color: #FEFAEE;
+}
+.rela_config_detail{
+	display: none;
+}
+.rela_input_noborder{
+	border: none !important;
+}
+.lui_icon_s{
+	cursor: pointer;
+}
+.rela_scope{
+	border-bottom: 1px #e8e8e8 solid !important;
+	border-top: 1px #e8e8e8 solid !important;
+}
+.rela_scope_button{
+	border-top: 1px #e8e8e8 solid !important;
+    padding-top:20px!important;
+}
+
+.rela_preview_result{
+	display:inline-block;
+	padding: 3px 5px;
+	background-color: #e4f0fe;
+	margin:0px 3px; 
+}
+
+.rela_preview_sumaray{
+	display:inline-block;
+	color: red;
+}

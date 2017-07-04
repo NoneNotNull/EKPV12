@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension-point id="com.landray.kmss.sys.xform">
+		<item name="config">
+			<param name="template" kind="java" 
+				basedOn="com.landray.kmss.sys.xform.interfaces.ISysFormTemplateModel">
+				<description>模板类</description>
+			</param>
+			<param name="key" kind="string">
+				<description>fdKey</description>
+			</param>
+			<description>表单机制配置</description>
+		</item>
+		<description>
+			表单机制配置，目前不稳定
+		</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.sys.config.loader">
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="initFormDB" />
+			<param
+				name="loader"
+				value="com.landray.kmss.sys.xform.base.service.spring.InitFormLoader" />
+			<param
+				name="order"
+				value="5" />
+		</item>
+	</extension>
+		
+	<extension
+		point="com.landray.kmss.sys.admin.commontools">
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-xform:sysFormTemplate.config.tree.reUpdate.xform}" />
+			<param
+				name="path"
+				value="/sys/xform/base/sysFormTemplateReUpdate.jsp" />
+			<param
+				name="description"
+				value="{sys-xform:sysFormTemplate.reUpdate.hit}" />
+		</item>													
+	</extension>
+	<!-- 表单组织架构初始化导入导出扩展项 -->
+	<extension point="com.landray.kmss.sys.datainit" model="*">
+		<item name="datainit">
+		   <param name="bean" value="xformOrgElementDataInit"/>
+		   <param name="order" value="2"/>
+		</item>
+	</extension>
+</plugin>

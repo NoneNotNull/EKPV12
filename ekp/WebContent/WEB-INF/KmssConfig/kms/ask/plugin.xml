@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.ask" />
+			<param name="navMessageKey" value="kms-ask:title.kms.ask" />
+			<param name="indexPage" value="/kms/ask/index.jsp" />
+			<param name="modulePath" value="/kms/ask" />
+			<param name="titleMessageKey" value="kms-ask:title.kms.ask" />
+			<param name="order" value="4" />
+		</item>
+		<item name="adminTree">
+			<param name="order" value="4" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-ask:title.kms.ask" />
+			<param name="adminTreeUrl" value="/kms/ask/admintree.jsp" />
+		</item>
+		<item name="search">
+			<param name="order" value="4" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+			<param name="searchMessageKey" value="kms-ask:search.kms.ask" />
+			<param name="canSearch" value="true" />
+		</item>
+		<item name="personal">
+			<param name="order" value="4" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-ask:personal.kms.ask" />
+			<param name="personalUrl" value="/kms/ask/kms_ask_personal/kms_personal_ask.jsp" />
+			<param name="modulePath" value="/kms/ask" />
+			<!-- 专家左边栏导航图标前缀 -->
+			<param name="icon" value="icon_ask"/>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.expert">
+		<item name="area">
+			<param name="uuid" value="com.landray.kmss.kms.ask" />
+			<param name="areaMessageKey" value="kms-ask:area.kms.ask" />
+			<param name="order" value="2" />
+			<param name="modulePath" value="kms/ask" />
+			<param name="cateModelName" value="com.landray.kmss.kms.ask.model.KmsAskCategory" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.communitycko">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.ask" />
+			<param name="titleMessageKey" value="kms-ask:title.kms.cko.ask" />
+			<param name="order" value="1" />
+			<param name="modulePath" value="/kms/ask" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+		</item>
+		<item name="list">
+			<param name="unid" value="com.landray.kmss.kms.ask" />
+			<param name="tabId" value="ask" />
+			<param name="titleMessageKey" value="kms-ask:title.kms.cko.ask" />
+			<param name="order" value="2" />
+			<param name="orderBy" value="fdAskScore" />
+			<param name="modulePath" value="/kms/ask" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="entry">
+			<param name="unid" value="com.landray.kmss.kms.ask" />
+			<param name="moduleName" value="kms-ask:title.kms.ask" />
+			<param name="service" value="kmsAskProfilePortlet" />
+			<param name="order" value="4" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+			<param name="categoryClass" value="com.landray.kmss.kms.ask.model.KmsAskCategory" />
+			<param name="jspUrl" value="/kms/ask/profile/index.jsp" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.third.pda.extend" model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+			<param name="templateClass" value="com.landray.kmss.kms.ask.model.KmsAskCategory" />
+			<param name="createTempURL"
+				value="/kms/ask/kms_ask_topic/kmsAskTopic.do?method=add&amp;fdCategoryId=!{cateid}" />
+		</item>
+	</extension>
+
+	<!--
+		<extension point="com.landray.kmss.third.pda.tabView" model="kms/ask">
+		<item name="tabView"> <param name="tabName"
+		value="kms-ask:kmsAsk.other.pda.index" /> <param name="tabType"
+		value="home" /> <param name="modelName"
+		value="com.landray.kmss.kms.ask.model.KmsAskTopic" /> <param
+		name="tabOrder" value="1" /> </item> <item name="tabView"> <param
+		name="tabName" value="kms-ask:kmsAsk.button.category" /> <param
+		name="tabType" value="list" /> <param name="modelName"
+		value="com.landray.kmss.kms.ask.model.KmsAskTopic" /> <param
+		name="tabUrl"
+		value="/kms/ask/kms_ask_category/kmsAskCategory.do?method=listTemplate&amp;type=list"
+		/> <param name="tabOrder" value="2" /> </item> <item name="tabView">
+		<param name="tabName" value="kms-ask:kmsAsk.button.search" /> <param
+		name="tabType" value="search" /> <param name="modelName"
+		value="com.landray.kmss.kms.ask.model.KmsAskTopic" /> <param
+		name="tabOrder" value="3" /> </item> <item name="tabView"> <param
+		name="tabName" value="kms-ask:kmsAsk.button.module" /> <param
+		name="tabType" value="module" /> <param name="modelName"
+		value="com.landray.kmss.kms.ask.model.KmsAskTopic" /> <param
+		name="tabOrder" value="4" /> </item> </extension>
+	-->
+	
+	<!--爱问维护服务   -->
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="爱问维护webservice服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.ask.webservice.service.IKmsAskWebservice" />
+			<param name="serviceBean" value="kmsAskWebservice" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+		
+	<extension point="com.landray.kmss.kms.common.datapush">
+		<item name="push">
+			<param name="unid" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="pushModules" value="com.landray.kmss.kms.wiki.model.KmsWikiMain;com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+		</item>
+	</extension>
+	
+	<!-- 爱问模块日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="moduleName" value="kms-ask:module.kms.ask"/>
+			<param name="categoryField" value="fdKmsAskCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:kmsAsk.ask"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskTopicServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="type" value="4"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:kmsAsk.log.deleteTopics"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskTopicServiceImp"/>			
+			<param name="operateMethod" value="deleteTopicAll"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="type" value="4"/>
+			<param name="logServiceBean" value="kmsLogAskBestPostProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskTopicServiceImp"/>			
+			<param name="operateMethod" value="deleteTopic"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="type" value="4"/>
+			<param name="logServiceBean" value="kmsLogAskBestPostProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.addCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.updateCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryServiceImp"/>			
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.delCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskCategoryServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:kmsAskAddition.fdKmsAskPost"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskPostServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskPost"/>
+			<param name="type" value="7"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:log.kmsAskPost.deletePost"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskPostServiceImp"/>			
+			<param name="operateMethod" value="deletePost"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskPost"/>
+			<param name="type" value="7"/>
+			<param name="logServiceBean" value="kmsLogAskBestPostProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:button.kmsAsk.best"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskPostServiceImp"/>			
+			<param name="operateMethod" value="updateBestAnswer"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskPost"/>
+			<param name="type" value="7"/>
+			<param name="logServiceBean" value="kmsLogAskBestPostProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-ask:kmsAskPost.agree"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.ask.model.KmsAskTopic"/>
+			<param name="className" value="com.landray.kmss.kms.ask.service.spring.KmsAskAgreeServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskAgree"/>
+			<param name="type" value="7"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<!-- 爱问模块结束 -->
+	
+	
+	<extension point="com.landray.kmss.sys.zone.communicate">
+		<item name="communicate" >
+			<param name="unid" value="ask" />
+			<param name="order" value="2"/>
+			<param name="icon" value="/kms/ask/resource/images/Ypage_icon_info.png" />
+	    	<param name="js_class" value="ImAsk" />
+			<param name="js_src" value="/kms/ask/resource/plugin/ImAsk.js" />
+		</item>
+		<item name="communicate_mobile" >
+			<param name="unid" value="ask_mobile"  />
+			<param name="order" value="1"/>
+			<param name="icon" value="mui-quiz"/>
+			<param name="text" value="{kms-ask:kmsAsk.ask}"/>
+			<param name="href" value="/kms/ask/kms_ask_topic/kmsAskTopic.do?method=add&amp;fdPosterType=3&amp;fdPosterTypeListId=!{personId}"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{kms-ask:title.kms.ask}" />
+			<param name="modelName" value="com.landray.kmss.kms.ask.model.KmsAskTopic" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui-ask-view.js" />
+			<param name="targetFile" value="/kms/ask/mobile/js/mui-ask-view.js" />
+			<param name="srcFold" value="/kms/ask/mobile/js/view" />
+		</item>
+		<item name="js-pkg">
+			<param name="name" value="mui-ask-edit.js" />
+			<param name="targetFile" value="/kms/ask/mobile/js/mui-ask-edit.js" />
+			<param name="srcFold" value="/kms/ask/mobile/js/edit" />
+		</item>
+		<item name="js-pkg">
+			<param name="name" value="mui-ask-list.js" />
+			<param name="targetFile" value="/kms/ask/mobile/js/mui-ask-list.js" />
+			<param name="srcFold" value="/kms/ask/mobile/js/list" />
+		</item>
+		<item 
+			name="css-file">
+			<param 
+				name="name" 
+				value="mui-ask-view.css" />
+			<param 
+				name="targetFile" 
+				value="/kms/ask/mobile/css/view.css" />
+		</item>
+		<item 
+			name="css-file">
+			<param 
+				name="name" 
+				value="mui-ask-edit.css" />
+			<param 
+				name="targetFile" 
+				value="/kms/ask/mobile/css/edit.css" />
+		</item>
+		<item 
+			name="css-file">
+			<param 
+				name="name" 
+				value="mui-ask-list.css" />
+			<param 
+				name="targetFile" 
+				value="/kms/ask/mobile/css/list.css" />
+		</item>
+	</extension>
+	
+	
+</plugin>

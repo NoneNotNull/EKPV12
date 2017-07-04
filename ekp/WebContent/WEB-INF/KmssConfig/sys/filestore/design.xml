@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module messageKey="sys-filestore:module.sys.filestore"
+		urlPrefix="/sys/filestore/" defaultValidator="roleValidator(role=ROLE_SYSFILESTORE_DEFAULT)">
+		<roles>
+			ROLE_SYSFILESTORE_DEFAULT;
+			ROLE_SYSFILESTORE_ADMIN;
+		</roles>
+		<request path="sys_filestore_queue/sysFileConvertConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.filestore.model.SysFileConvertConfig">
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_SYSFILESTORE_ADMIN)" />
+			<query queryString="method=edit"
+				validator="roleValidator(role=ROLE_SYSFILESTORE_ADMIN)" />
+			<query queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSFILESTORE_ADMIN)" />
+		</request>
+		<request path="sys_filestore_queue/sysFileConvertQueue*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.filestore.model.SysFileConvertQueue">
+			<query queryString="method=reDistribute"
+				validator="roleValidator(role=ROLE_SYSFILESTORE_ADMIN)" />
+		</request>
+	</module>
+
+	<quartz messageKey="sys-filestore:timeouttasksetfailure"
+		jobService="timeoutTaskSetFailure" jobMethod="setTaskFailure"
+		cronExpression="0 0/10 * * * ?" enable="true" />
+
+	<homePage urlPrefix="" messageKey="sys-filestore:module.sys.filestore"
+		config="/moduleindex_notopic.jsp?nav=/sys/filestore/tree.jsp" type="sys" />
+</configs>

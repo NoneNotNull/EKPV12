@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	
+	<!-- 服务提供者扩展 -->
+	<extension
+		point="com.landray.kmss.tib.sys.core.provider.plugins"
+		model="*">
+			<item name="provider">
+			<param
+				name="providerKey"
+				value="sap" />
+			<param
+				name="providerName"
+				value="{tib-sys-sap:tibSysSap.sap.provider}" />
+			<!-- spring 注册 -->
+			<param
+				name="executeClass"
+				value="tibSysSapJcoProvider" />
+			<param
+				name="infoClass"
+				value="tibSysSapInfo" />	
+			<param
+				name="convertXmlJsPath"
+				value="tib/sys/sap/connector/resource/js/sapProvider.js" />	
+			<param
+				name="convertXmlJsFunc"
+				value="sapToStandardXml" />	
+		</item>
+	</extension>
+	
+	<!-- SAP数据初始化 -->
+	<extension
+		point="com.landray.kmss.tib.common.init"
+		model="*">
+			<item name="init">
+			<param
+				name="moduleKey"
+				value="sap" />
+			<param
+				name="initTitle"
+				value="{tib-sys-sap-connector:init.sap}" />
+			<!-- spring 注册 -->
+			<param
+				name="springBean"
+				value="tibSysSapInitExecute" />
+			<param
+				name="jspPath"
+				value="../../sys/sap/connector/tib_sys_sap_init/tibSysSapInitSap.jsp" />	
+		</item>
+	</extension>
+	
+	
+	<!-- 导入导出(SAP连接配置) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSysSapJcoSettingKey" />
+			<param
+				name="moduleType"
+				value="sap" />
+			<param
+				name="springName"
+				value="tibSysSapJcoSettingService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-sap-connector:imExport.sap.connCfg}" />
+			<param
+				name="showName"
+				value="fdPoolName" />
+			<param
+				name="parentRelation"
+				value="fdTibSysSapCode" />
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				value="fdServerName" />
+		</item>
+	</extension>
+	
+	<!-- 导入导出(SAP函数分类) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSysSapRfcSettingKey" />
+			<param
+				name="moduleType"
+				value="sap" />
+			<param
+				name="springName"
+				value="tibSysSapRfcSettingService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-sap-connector:imExport.sap.funcCfg}" />
+			<param
+				name="showName"
+				value="fdFunctionName" />
+			<param
+				name="parentRelation"
+				value="docCategory" />
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				value="fdName" />
+		</item>
+	</extension>
+	
+	<!-- 导入导出(SAP定时任务映射) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSapSyncJobKey" />
+			<param
+				name="moduleType"
+				value="sap" />
+			<param
+				name="springName"
+				value="tibSapSyncJobService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-sap-connector:imExport.sap.quartzMapping}" />
+			<param
+				name="showName"
+				value="fdSubject" />
+			<param
+				name="parentRelation"
+				value="docCategory" />
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				value="fdName" />
+		</item>
+	</extension>
+	
+</plugin>

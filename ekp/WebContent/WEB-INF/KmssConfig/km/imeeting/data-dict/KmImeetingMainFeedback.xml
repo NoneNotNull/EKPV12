@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingMainFeedback"
+		messageKey="km-imeeting:table.kmImeetingMainFeedback"
+		displayProperty="fdId"
+		serviceBean="kmImeetingMainFeedbackService"
+		table="km_imeeting_main_feedback"
+		url="/km/imeeting/km_imeeting_main_feedback/kmImeetingMainFeedback.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOperateType"
+			messageKey="km-imeeting:kmImeetingMainFeedback.fdOperateType"
+			type="String"
+			column="fd_operate_type"
+			notNull="false"
+			length="36"
+			enumType="km_imeeting_main_feedback_fd_operate_type"
+			validate="true" />
+
+		<simpleProperty
+			name="fdReason"
+			messageKey="km-imeeting:kmImeetingMainFeedback.fdReason"
+			type="String"
+			column="fd_reason"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imeeting:kmImeetingMainFeedback.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+		
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-imeeting:kmImeetingMainFeedback.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdFeedbackCount"
+			messageKey="km-imeeting:kmImeetingMainFeedback.fdFeedbackCount"
+			type="Integer"
+			column="fd_feedback_count"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imeeting:kmImeetingMainFeedback.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdMeeting"
+			messageKey="km-imeeting:kmImeetingMainFeedback.fdMeeting"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+			column="fd_meeting_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docAttend"
+			messageKey="km-imeeting:kmImeetingMainFeedback.docAttendId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_attend_id"
+			notNull="false"
+			validate="false" />
+
+	</model> 
+</models>

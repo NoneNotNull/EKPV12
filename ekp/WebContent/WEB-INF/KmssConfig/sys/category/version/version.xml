@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 点击无文档的辅分类报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类可使用者无法在类别下新建模板的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-10-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 全局分类复制权限问题</description>
+			<author>周梓凡</author>
+			<revision-time>2014-10-09</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 全局分类导致的常用分类设置报错</description>
+			<author>傅游翔</author>
+			<revision-time>2014-09-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 辅分类筛选项无法显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类设置和模板设置树根据权限展现</description>
+			<author>易荣烽</author>
+			<revision-time>2014-08-06</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类导航由于查询分类数目大于1000导致报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 创建人的可编辑权限导致维护权限继承时子分类无限循环的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-11-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件全局分类扩展实现,业务模块实现此扩展移动端可实现功能区分类功能</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 场所变更功能，可以修改分类及其文档的所属场所</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-08-02</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 对选择分类搜索内容进行国际化</description>
+			<author>张乐志</author>
+			<revision-time>2013-07-24</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 集团分级数据隔离接口参数的调整</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-05-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 新建操作选择模板弹出框中增加搜索功能。（仅需与core中resource/jsp/syscategorydialog.jsp配合使用）</description>
+			<author>张乐志</author>
+			<revision-time>2013-03-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 未开启分级管理时，新建分类无法选择父分类的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类校验器中类型转换异常的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 在未部署集团分级的分类中显示了场所信息和场所的权限过滤问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-06</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档转移分类时可以选择上级场所的模板问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端类别选择时过滤没有权限使用的类别和空类别</description>
+			<author>李衡</author>
+			<revision-time>2012-12-03</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>移除 旧场所代码</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-11-21</revision-time>
+			<relation>
+				<relation-module>km/meeting</relation-module>
+				<relation-module>km/resource</relation-module>
+				<relation-module>km/review</relation-module>
+				<relation-module>km/pindagate</relation-module>
+				<relation-module>km/elearning</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现全局分类的维护者角色分离</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 全局分类的分级管理功能</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-10-08</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>sys/right</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端类别选择功能</description>
+			<author>李衡</author>
+			<revision-time>2012-10-25</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 全局分类查询，充分利用索引，提升查询性能</description>
+			<author>曹映辉</author>
+			<revision-time>2012-09-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>简单分类、全局分类树节点权限优化</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-02-28</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改按辅类别查询文档除了按模板维度查询外，点击辅类别时也可以查看到该辅类别下面的所有文档</description>
+			<author>庄为亮</author>
+			<revision-time>2012-02-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>全局分类、辅分类，使用新建时过滤没有使用权限的节点</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-22</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正weblogic环境按钮出现乱码问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改在系统没有组织架构时，打开全局分类显示为空并在后台报错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-14</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正数据字典，保证数据初始化导出导入的正确性</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-09-27</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>当复制分类时选中多个分类给出提示</description>
+			<author>赵义洪</author>
+			<revision-time>2011-05-16</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

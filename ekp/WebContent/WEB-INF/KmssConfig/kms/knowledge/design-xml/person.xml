@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<category
+		msgKey="kms-knowledge:module.kms.knowledge"
+		modelName="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+	
+</root>

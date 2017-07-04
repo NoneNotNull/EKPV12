@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.picList{
+	border: #c0c0c0 1px solid;
+	height: 105px;
+	width:640px;
+	padding-left:4px;
+	
+}
+.picList UL{
+	height:100px;
+	border:0px;
+	list-style-type:none;
+}
+
+.picList UL LI{
+	margin-left:1px;
+	margin-right:2px;
+	margin-top:1px;
+	margin-bottom:1px;
+	float: left;
+	border: #c0c0c0 1px solid;
+}

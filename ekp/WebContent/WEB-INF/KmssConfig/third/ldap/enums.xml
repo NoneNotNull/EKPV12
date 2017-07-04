@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="ldap_objKey" emptyLabelKey="page.firstOption">
+		<value-label>
+			<value>number</value>
+			<label-key>kmss.ldap.relation.objKey.number</label-key>
+			<bundle>third-ldap</bundle>
+		</value-label>
+		<value-label>
+			<value>keyword</value>
+			<label-key>kmss.ldap.relation.objKey.keyword</label-key>
+			<bundle>third-ldap</bundle>
+		</value-label>
+		<value-label>
+			<value>dn</value>
+			<label-key>kmss.ldap.relation.objKey.dn</label-key>
+			<bundle>third-ldap</bundle>
+		</value-label>		
+	</type>
+
+</column-enums>

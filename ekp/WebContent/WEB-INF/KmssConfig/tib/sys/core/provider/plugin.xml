@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd">
+	
+	<extension-point
+		id="com.landray.kmss.tib.sys.core.provider.plugins">
+		<item
+			name="provider">
+			<param
+				name="providerKey"
+				required="true"
+				kind="unid">
+				<description>
+					配置providerKey,全局唯一,必填,服务提供的KEY
+				</description>
+			</param>
+				<param
+				name="providerName"
+				required="true"
+				kind="string">
+				<description>
+					配置providerName,配置显示名称
+				</description>
+			</param>
+			<param
+				name="key"
+				required="false"
+				kind="string">
+				<description>
+					与前台页面配置的key一致，用于获取自定义组件的接口实现
+				</description>
+			</param>
+			<param
+				name="orderBy"
+				required="false"
+				kind="string">
+				<description>
+					与前台页面配置的key一致，用于获取自定义组件的接口实现
+				</description>
+			</param>
+			<param
+				name="executeClass"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.tib.sys.core.provider.process.provider.interfaces.impl.TibSysBaseProvider">
+				<description>
+					配置executeClass,服务执行类
+				</description>
+			</param>
+			<param
+				name="infoClass"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.tib.sys.core.provider.process.provider.interfaces.ITibSysCoreInfo">
+				<description>
+					配置infoClass,服务信息类,用来获取这个provider的信息的,如分类。
+				</description>
+			</param>
+			<param
+				name="convertXmlJsPath"
+				required="false"
+				kind="string">
+				<description>
+					转化XML工具的js路径,如：tib/sys/soap/connector/resource/js/soapProvider.js
+				</description>
+			</param>
+			<param
+				name="convertXmlJsFunc"
+				required="false"
+				kind="string">
+				<description>
+					转化XML工具的js函数名
+				</description>
+			</param>
+			<description>
+			  配置Tib服务提供者信息
+			</description>
+		</item>
+		<description>配置Tib服务提供者扩展</description>
+	</extension-point>
+	
+	<extension
+		point="com.landray.kmss.tib.sys.core.provider.plugins"
+		model="*">
+			<item name="provider">
+			<param
+				name="providerKey"
+				value="customKey" />
+			<param
+				name="providerName"
+				value="{tib-sys-core-provider:tibSysCore.customer.provider}" />
+			<param
+				name="key"
+				value="test" />
+			<!-- spring 注册 -->
+			<param
+				name="executeClass"
+				value="tibSysTransportProvider" />
+			<param
+				name="infoClass"
+				value="tibSysTransportInfo" />	
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.tib.sys.core.provider.plugins"
+		model="*">
+			<item name="provider">
+			<param
+				name="providerKey"
+				value="customKey2" />
+			<param
+				name="providerName"
+				value="{tib-sys-core-provider:tibSysCore.customer.provider}" />
+			<param
+				name="key"
+				value="aaa;bbb;test;ccc" />
+			<param
+				name="orderBy"
+				value="2" />
+			<!-- spring 注册 -->
+			<param
+				name="executeClass"
+				value="tibSysTransportProvider" />
+			<param
+				name="infoClass"
+				value="tibSysTransportInfo" />	
+		</item>
+	</extension>
+	
+	<!-- 导入导出(TIB统一接口) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSysCoreProviderKey" />
+			<param
+				name="moduleType"
+				value="iface" />
+			<param
+				name="springName"
+				value="tibSysCoreIfaceImplService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-core-provider:imExport.iface.ifaceImpl}" />
+			<param
+				name="showName"
+				value="fdName" />
+			<param
+				name="parentRelation"
+				value="tibSysCoreIface" />
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				value="fdIfaceName" />
+		</item>
+	</extension>
+	
+	
+	</plugin>

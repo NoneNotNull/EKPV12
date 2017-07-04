@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<!-- 注册知识仓中库知识类型  -->
+	<extension point="com.landray.kmss.kms.knowledge.type">
+		<item name="knowledgeType">
+			<param name="messageText" value="{kms-wiki:moudle.name.kmsWiki}" />
+			<param name="methodName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+			<param name="knowledgeTypeValue" value="2" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.wiki" />
+			<param name="navMessageKey" value="kms-wiki:title.kms.wiki" />
+			<param name="indexPage" value="/kms/wiki/index.jsp" />
+			<param name="modulePath" value="/kms/wiki" />
+			<param name="adminPage" value="/kms/wiki/admintree.jsp" />
+			<param name="titleMessageKey" value="kms-wiki:module.kms.wiki" />
+			<param name="order" value="6" />
+		</item>
+		<item name="adminTree">
+			<param name="order" value="6" />
+			<param name="modelClass" value="com.landray.kmss.kms.ask.model.KmsWikiMain" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-wiki:title.kms.wiki" />
+			<param name="adminTreeUrl" value="/kms/wiki/admintree.jsp" />
+		</item>
+		<item name="search">
+			<param name="order" value="6" />
+			<param name="modelClass" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+			<param name="searchMessageKey" value="kms-wiki:search.kms.wiki" />
+			<param name="canSearch" value="true" />
+		</item>
+		<item name="personal">
+			<param name="order" value="6" />
+			<param name="modelClass" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-wiki:personal.kms.wiki" />
+			<param name="personalUrl" value="/kms/wiki/kms_wiki_personal/kms_personal_wiki.jsp" />
+			<param name="modulePath" value="/kms/wiki" />
+			<param name="icon" value="icon_wiki"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.communitycko">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.wiki" />
+			<param name="titleMessageKey" value="kms-wiki:title.kms.wiki" />
+			<param name="order" value="2" />
+			<param name="modulePath" value="/kms/wiki" />
+			<param name="modelClass" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+		</item>
+		<item name="list">
+			<param name="unid" value="com.landray.kmss.kms.wiki" />
+			<param name="tabId" value="wiki" />
+			<param name="titleMessageKey" value="kms-wiki:title.kms.cko.wiki" />
+			<param name="order" value="3" />
+			<param name="orderBy" value="fdWikiScore" />
+			<param name="modulePath" value="/kms/wiki" />
+			<param name="modelClass" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+		</item>
+	</extension>
+
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.wiki.model.KmsWikiMain">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+
+	<!-- 查看页面jsp生成器 ，自定义页面-->
+	<extension point="com.landray.kmss.sys.property.builder.setting"
+		model="com.landray.kmss.kms.wiki.model.KmsWikiMain">
+		<item name="jspBuilder">
+			<param name="bean" value="kmsWikiMainViewJspBuilder" />
+			<param name="ext" value="true" />
+		</item>
+	</extension>
+
+	<!-- 类别筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.wiki.model.KmsWikiMain">
+		<item name="filter">
+			<param name="filterBean" value="kmsWikiCategoryFilter" />
+			<param name="text" value="{kms-wiki:kmsWiki.categoryFilter}" />
+			<param name="dataType" value="com.landray.kmss.kms.wiki.model.KmsWikiCategory" />
+		</item>
+	</extension>
+
+	<!-- 年度筛选器扩展点实现 -->
+	<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.wiki.model.KmsWikiMain">
+		<item name="filter">
+			<param name="filterBean" value="kmsWikiYearFilter" />
+			<param name="text" value="{kms-wiki:kmsWiki.yearFilter}" />
+			<param name="dataType" value="DateTime" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="entry">
+			<param name="unid" value="com.landray.kmss.kms.wiki" />
+			<param name="moduleName" value="kms-wiki:title.kms.wiki" />
+			<param name="service" value="kmsWikiProfilePortlet" />
+			<param name="order" value="3" />
+			<param name="modelClass" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+			<param name="categoryClass" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+			<param name="jspUrl" value="/kms/wiki/profile/index.jsp" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.third.pda.extend" model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain" />
+			<param name="templateClass" value="com.landray.kmss.kms.wiki.model.KmsWikiCategory" />
+			<param name="filterURL"
+				value="/sys/property/sys_property_filter_pda/sysPropertyFilterPda.do?method=getPropertyFilter" />
+		</item>
+	</extension>
+
+	<!--
+		<extension point="com.landray.kmss.third.pda.tabView"
+		model="kms/wiki"> <item name="tabView"> <param name="tabName"
+		value="kms-wiki:kmsWiki.other.pda.index" /> <param name="tabType"
+		value="home" /> <param name="modelName"
+		value="com.landray.kmss.kms.wiki.model.KmsWikiMain" /> <param
+		name="tabIcon" value="third/pda/resource/images/icon/tabview_01.png"
+		/> <param name="tabOrder" value="1" /> </item> <item name="tabView">
+		<param name="tabName" value="kms-wiki:kmsWiki.button.template" />
+		<param name="tabType" value="list" /> <param name="modelName"
+		value="com.landray.kmss.kms.wiki.model.KmsWikiMain" /> <param
+		name="tabUrl"
+		value="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory.do?method=listTemplate&amp;type=list&amp;fdTemplateType=2;3"
+		/> <param name="tabIcon"
+		value="third/pda/resource/images/icon/tabview_02.png" /> <param
+		name="tabOrder" value="2" /> </item> <item name="tabView"> <param
+		name="tabName" value="kms-wiki:tree.main.search" /> <param
+		name="tabType" value="search" /> <param name="modelName"
+		value="com.landray.kmss.kms.wiki.model.KmsWikiMain" /> <param
+		name="tabIcon" value="third/pda/resource/images/icon/tabview_03.png"
+		/> <param name="tabOrder" value="3" /> </item> </extension>
+	-->
+
+	<!--维基库维护类别服务   -->
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="维基库类别维护webservice服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.wiki.webservice.category.service.IKmsWikiMaintainCategoryWSService" />
+			<param name="serviceBean" value="kmsWikiMaintainCategoryWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<!--维基库查询类别服务   -->
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="维基库类别查询webservice服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.wiki.webservice.category.service.IkmsWikiSearchCategoryWSService" />
+			<param name="serviceBean" value="kmsWikiSearchCategoryWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<!--维基库文档维护服务   -->
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="维基库文档维护webservice服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.wiki.webservice.doc.service.IKmsWikiMaintainDocWSService" />
+			<param name="serviceBean" value="kmsWikiMaintainDocWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<!-- wiki知识库订阅部署 -->
+	<!--
+		<extension point="com.landray.kmss.sys.follow.setting"
+		model="com.landray.kmss.kms.wiki.model.KmsWikiMain"> <item
+		name="followSetting"> <param name="methodName" value="add" /> <param
+		name="templateModel"
+		value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+		<param name="templateField" value="docCategory.fdHierarchyId" />
+		</item> </extension>
+	-->
+	
+	
+	<extension point="com.landray.kmss.kms.common.datapush">
+		<item name="bepush">
+			<param name="unid" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="pushURL" value="/kms/wiki/kms_wiki_main/kmsWikiMain.do?method=add&amp;fdCategoryId=!{fdCategoryId}"/>
+			<param name="name" value="kms-wiki:kmsWiki.tree.title"/>
+			<param name="img" value="/kms/common/kms_common_push/img/wiki.png"/>
+			<param name="auths" value="ROLE_KMSKNOWLEDGE_CREATE"/>
+		</item>
+	</extension>
+	
+	<!-- 维基库日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="moduleName" value="kms-wiki:module.kms.wiki"/>
+			<param name="categoryField" value="docCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-wiki:kmswiki.add.title"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-wiki:kmswiki.addVersion.title"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>
+			<param name="operateMethod" value="addVersion"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.edit"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-knowledge:kmsKnowledge.button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>			
+			<param name="operateMethod" value="updateRecycle"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogDocRecycleProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-knowledge:kmsKnowledge.button.recover"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.spring.KmsWikiMainServiceImp"/>			
+			<param name="operateMethod" value="updateRecover"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogDocRecycleProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-wiki:kmsWiki.editTag"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="className" value="com.landray.kmss.kms.wiki.service.KmsWikiMainXMLService"/>
+			<param name="operateMethod" value="getDataList"/>
+			<param name="modelName" value="com.landray.kmss.kms.wiki.model.KmsWikiMain"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogUpdateTagsProxy"/>
+		</item>
+	</extension>
+</plugin>

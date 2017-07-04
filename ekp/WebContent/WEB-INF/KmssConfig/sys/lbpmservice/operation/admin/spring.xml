@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="adminAbandonOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminAbandonOperationBehaviour" />
+	<bean
+		id="adminOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminOperationBinder" />
+	<bean
+		id="processSuspendOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.ProcessSuspendOperationBehaviour" />
+	<bean
+		id="processResumeOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.ProcessResumeOperationBehaviour" />
+
+	<bean
+		id="lbpmAdminChangeCurHandlerBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminChangeCurHandlerBehaviour">
+		<property name="processDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmAdminChangeCurHandlerAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminChangeCurHandlerAccessor">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmAdminJumpBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminJumpBehaviour">
+		<property name="concurrentFinder">
+			<ref bean="concurrentFinder" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmAdminJumpAccessor"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminJumpAccessor" />
+
+	<bean
+		id="lbpmAdminPassBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminPassBehaviour" />
+	<bean
+		id="lbpmAdminModifyProcessBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.LbpmAdminModifyProcessBehaviour">
+		<property name="processDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	<!-- 修改流程图 -->
+	<bean
+		id="modifyProcessAdditionOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.ModifyProcessAdditionOperationBehaviour">
+		<property name="processDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	<bean
+		id="modifyProcessAdditionOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.ModifyProcessAdditionOperationBinder">
+	</bean>
+	<bean
+		id="adminNodeSuspendOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminNodeSuspendOperationBehaviour" />
+	<bean
+		id="adminNodeResumeOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminNodeResumeOperationBehaviour" />
+	<bean
+		id="adminSuspendResumeOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminSuspendResumeOperationBinder" />
+	<bean
+		id="adminChangeCurHandlerOperationBinder"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminChangeCurHandlerOperationBinder" />
+	<bean
+		id="adminEndConcurrentBranchBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminEndConcurrentBranchBehaviour">
+		<property name="concurrentFinder">
+			<ref bean="concurrentFinder" />
+		</property>
+	</bean>
+	<!-- 流程重新执行 -->
+	<bean
+		id="adminRetryQueueOperationBehaviour"
+		parent="abstractOperationBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminRetryQueueOperationBehaviour" />
+
+	<bean
+		id="adminHistoryExpecterLogListener"
+		class="com.landray.kmss.sys.lbpmservice.operation.admin.AdminHistoryExpecterLogListener" />
+</beans>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.wiki.model.KmsWikiCatelog"
+		messageKey="kms-wiki:table.kmsWikiCatelog"
+		displayProperty="fdId"
+		serviceBean="kmsWikiCatelogService"
+		table="kms_wiki_catelog"
+		url="/kms/wiki/kms_wiki_catelog/kmsWikiCatelog.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-wiki:kmsWikiCatelog.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="kms-wiki:kmsWikiCatelog.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-wiki:kmsWikiCatelog.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParentId"
+			messageKey="kms-wiki:kmsWikiCatelog.fdParentId"
+			type="String"
+			column="fd_parent_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-wiki:kmsWikiCatelog.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<modelProperty
+			name="fdMain"
+			messageKey="kms-wiki:kmsWikiCatelog.fdMain"
+			type="com.landray.kmss.kms.wiki.model.KmsWikiMain"
+			column="fd_main_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="authEditors"
+			messageKey="kms-wiki:kmsWikiCatelog.authEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_wiki_catelog_editor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authOtherEditors"
+			messageKey="kms-wiki:kmsWikiCatelog.authOtherEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_wiki_catelog_oeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAllEditors"
+			messageKey="kms-wiki:kmsWikiCatelog.authAllEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_wiki_catelog_aeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+	</model>
+</models>

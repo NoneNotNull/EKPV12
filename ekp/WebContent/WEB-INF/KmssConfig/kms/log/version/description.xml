@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>KMS日志库</module-name>
+		<module-path>kms/log</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>289a3641d32960ee4007f9fc2b6cdee2</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>1</serial-num>
+	</module>
+</description>

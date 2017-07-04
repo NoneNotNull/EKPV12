@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="work_cases_main_fd_work">
+		<value-label>
+			<value>1</value>
+			<label-key>enumeration_work_cases_main_fd_work_type_daily</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>enumeration_work_cases_main_fd_work_type_station</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+	</type>
+	<type
+		name="work_cases_main_docstatus">
+		<value-label>
+			<value>10</value>
+			<label-key>enumeration_work_cases_main_docstatus_draft</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>enumeration_work_cases_main_docstatus_review</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>enumeration_work_cases_main_docstatus_pass</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+		<value-label>
+			<value>32</value>
+			<label-key>enumeration_work_cases_main_docstatus_invalid</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+			<value-label>
+			<value>00</value>
+			<label-key>enumeration_work_cases_main_docstatus_abandon</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+			<value-label>
+			<value>11</value>
+			<label-key>enumeration_work_cases_main_docstatus_	</label-key>
+			<bundle>work-cases</bundle>
+		</value-label>
+	</type>
+</column-enums>

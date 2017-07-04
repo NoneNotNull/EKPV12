@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 基本属性布局 -->
+	<extension-point id="com.landray.kmss.sys.xform.fieldlayout">
+		<item name="config">
+			<param name="fieldIds" required="true" kind="string">
+				<description>字段ID,或唯一标识,多个字段英文逗号分隔,调用系统默认页面时该字段匹配数据字典</description>
+			</param>
+			<param name="fieldNames"  kind="string">
+				<description>字段名称或描述</description>
+			</param>
+			<param name="formIds"  kind="string">
+				<description>字段对应的表单Form的name 多值字段用":"号分割(如:docCreatorId:docCreatorName),为空则取fieldIds作为该属性的值</description>
+			</param>
+			<param name="required"  kind="string">
+				<description>是否必填(true/false,为true界面上必须选择该字段),默认false</description>
+			</param>
+			<param name="unique"  kind="string">
+				<description>是否唯一(该字段只能选择一次),默认true</description>
+			</param>
+			<param name="jspParams"  kind="string">
+				<description>参数配置页面地址</description>
+			</param>
+			<param name="jspParams"  kind="string">
+				<description>参数配置页面地址</description>
+			</param>
+			<param name="requiredParams"  kind="string">
+				<description>必填参数,参数设置中,某些参数是不能为空的多个参数用逗号隔开</description>
+			</param>
+			<description>参数配置</description>
+		</item>
+		<description>
+			基本属性布局
+		</description>
+	</extension-point>
+	
+	<!-- 基本属性布局扩展 -->
+	<!--
+	<extension point="com.landray.kmss.sys.xform.fieldlayout" model="com.landray.kmss.km.review.model.KmReviewMain">
+		<item name="config">
+			<param name="fieldIds" value="abc"></param>
+			
+		</item>
+	</extension>
+	-->
+</plugin>

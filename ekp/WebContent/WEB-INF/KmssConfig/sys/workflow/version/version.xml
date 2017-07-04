@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 公文后台审批常用意见导出为基础数据报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-21</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回事件兼容问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-24</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免引用兼容引擎的内容</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-29</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载组织架构对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件审批和日志显示分拆</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件支持审批过程中对表单字段进行编辑</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程授权、审批意见兼容性问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-17</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限配置兼容支持</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-06-07</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文签收出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-05-08</revision-time>
+			<relation>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决编译的兼容性问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-19</revision-time>
+			<relation>
+				<relation-module>sys/lbpmplug</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 LBPM兼容引擎组件</description>
+			<author>傅游翔</author>
+			<revision-time>2013-01-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/time</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+	</modifies>
+</version>

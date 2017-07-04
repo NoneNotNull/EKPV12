@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script>
+var Com_Parameter = {
+	ContextPath:dialogArguments.Window.Com_Parameter.ContextPath,
+	ResPath:dialogArguments.Window.Com_Parameter.ResPath,
+	Style:dialogArguments.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogArguments.Window.Com_Parameter.StylePath
+};
+// 多语言对象
+LangObject = parent.FlowChartObject.Lang;
+//流程模版取ID
+var fdIdObj = dialogArguments.Window.parent.parent.document.getElementById('fdId');
+if (fdIdObj == null) {
+	fdIdObj = window.parent.parent.dialogArguments.Window.parent.parent.document.getElementsByName('fdId')[0];
+}
+// 特权人取模版ID
+var hrefFlag = window.parent.parent.dialogArguments.Window.parent.parent.document.location.href;
+if (hrefFlag != null && hrefFlag.indexOf("template=false") != -1) {
+	fdIdObj = window.parent.dialogArguments.Window.parent.parent.dialogArguments.Window.dialogArguments.Window.document.getElementsByName("fdTemplateId")[0];
+}
+fdTemplateId=fdIdObj.value;
+// 当前节点多语言对象
+LangNodeObject = LangObject.Node;
+// 数据类型对象
+DataTypeLangObject = LangObject.DataType;
+</script>
+<script type="text/javascript" src="../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/" + Com_Parameter.Style + "/doc/");
+Com_IncludeFile("docutil.js|doclist.js|dialog.js|data.js|formula.js");
+</script>
+<script>
+// 必须实现的方法，供父窗口(attribute_robotnode.html)调用。
+function returnValue() {
+	var rtnJson = new Array();
+	rtnJson.push("{");
+	var sapFunc=document.getElementById("sapFunc");
+	var index = sapFunc.selectedIndex; // 选中索引
+	var value;
+	var text;
+	if(index==-1) 
+		value="";
+	else
+		value = sapFunc.options[index].value; // 选中值
+	text= sapFunc.options[index].text;
+	rtnJson.push("\"funcId\":\"" + value + "\"");
+	rtnJson.push(",\"funcName\":\"" + text + "\"");
+	rtnJson.push("}");
+	return rtnJson.join('');
+}
+
+function check() {
+	return true;
+}
+
+function writeMessage(key) {
+	document.write(LangNodeObject[key]);
+}
+function initFuncOption(){
+	var data = new KMSSData();
+	data.SendToBean("tibCommonMappingFuncListService&fdType=1&fdInvokeType=3&fdTemplateId="+fdTemplateId,setFuncOption);	
+}
+function setFuncOption(rtnData){
+	var json=null;
+	var option;
+	var sapFunc=document.getElementById("sapFunc");
+	var rtnDataArray=rtnData.GetHashMapArray();
+	if (parent.NodeContent != null && parent.NodeContent != '') {
+		json =eval('('+ parent.NodeContent + ')');
+	}
+	//保证在主文档流程查看页面也能查看正确
+	
+	if (rtnDataArray.length == 0) {
+			if (json == null)
+				return;
+			else {
+				option = new Option(json.funcName, json.funcId);
+				sapFunc.add(option);
+				return;
+			}
+	}
+	for ( var i = 0; i < rtnDataArray.length; i++) {
+		option = new Option(rtnDataArray[i]["text"],
+				rtnDataArray[i]["value"]);
+		if (json != null) {
+			if (option.value == json.funcId)
+				option.selected = true;
+		}
+		sapFunc.add(option);
+	}
+}
+</script>
+<body onload="initFuncOption();">
+<table width="100%" class="tb_normal">
+	<tr>
+		<td width="15%" class="td_normal_title">BAPI函数</td>
+		<td><select id="sapFunc"></select></td>
+	</tr>
+</table>
+</body>
+</html>

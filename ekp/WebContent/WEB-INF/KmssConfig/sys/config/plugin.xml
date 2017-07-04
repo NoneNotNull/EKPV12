@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="properties"
+				kind="filepath"
+				pattern="^.*?\.(properties)$">
+				<description>
+					可选，默认配置文件路径
+					存放在/WEB-INF/KmssConfig/模块名/配置文件.properties，文件类型为properties
+					例：/WEB-INF/KmssConfig/sys/notify/default.properties
+				</description>
+			</param>
+			<param
+				name="jsp"
+				kind="filepath"
+				required="true"
+				pattern="^.*?\.(jsp)$">
+				<description>
+					必填，配置页面URL路径
+					存放在/模块名/配置页面.jsp，文件类型为jsp
+					例:/sys/notify/config.jsp
+				</description>
+			</param>
+			<param
+				name="type"
+				kind="string"
+				restriction="base;baseAdvance;authentication;enterprise;integrate;application;other"
+				default="integrate">
+				<description>
+					可选，配置类型，base基础配置类,baseAdvance高级基础配置类，integrate集成配置类，other其他配置类
+				</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="99">
+				<description>
+					可选，同类配置排序号
+				</description>
+			</param>
+			<description>
+				admin.do配置扩展
+				1、如配置了默认配置文件则先加载默认配置文件中的参数，再加载KmssConfig.properties文件的参数，进行合并，最后返回到配置页面
+				2、如没有配置默认配置文件则加载完KmssConfig.properties文件的参数，直接返回到页面
+				3、页面统一使用xform标签
+				通用函数：
+				1、校验函数：config_addCheckFuncList(func);
+				说明：func为无参函数，命名规范:config_模块名/功能名_checkFunc()
+				2、注册是否唯一函数：config_addUniqueParameter(id, title);
+				说明：id为id:itemname，例：com.landray.kmss.sys.config.admin.do:config
+					  title，为校验提示语
+					    如OMS接入，系统中只允许有一个实例存在，则需要注册唯一，在config_addCheckFuncList(func)中注册
+				3、页面加载函数：config_addOnloadFuncList(func);
+				说明：func为无参函数，命名规范:config_模块名/功能名_onloadFunc()
+			</description>
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				kind="string">
+				<description>
+					配置文件名称
+				</description>
+			</param>
+			<param
+				name="path"
+				kind="filepath">
+				<description>
+					配置文件路径
+				</description>
+			</param>
+			<description>
+				admin.do页面配置文件备份扩展	
+			</description>
+		</item>
+		<description>
+			1、admin.do配置页面扩展
+			2、admin.do配置文件备份
+		</description>
+	</extension-point>
+	<extension-point id="com.landray.kmss.sys.config.design">
+		<item name="xml">
+			<param name="namespace" required="true" kind="string">
+				<description>
+					xml命名空间
+				</description>
+			</param>
+			<param name="handler" required="true" kind="java" basedOn="com.landray.kmss.sys.config.xml.NamespaceHandlerSupport">
+				<description>
+					解析器
+				</description>
+			</param>
+			<description>
+				命名空间解析器
+			</description>
+		</item>
+		<description>
+			xml
+		</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/base/dbConfig.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="10" />
+		</item>
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/base/globalConfig.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="20" />
+		</item>
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/base/jmxConfig.jsp" />
+			<param
+				name="type"
+				value="base" />
+			<param
+				name="order"
+				value="80" />
+		</item>		
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/base/dnsConfig.jsp" />
+			<param
+				name="type"
+				value="enterprise" />
+			<param
+				name="order"
+				value="40" />
+		</item>
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/base/langConfig.jsp" />
+			<param
+				name="type"
+				value="enterprise" />
+			<param
+				name="order"
+				value="10" />
+		</item>
+
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/config/configJsp/other/hiddenConfig.jsp" />
+			<param
+				name="type"
+				value="other" />
+			<param
+				name="order"
+				value="0" />
+		</item>
+
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="admin.properties" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/admin.properties" />
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="kmssconfig.properties" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/kmssconfig.properties" />
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="landray.license" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/landray.license" />
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="log4j.properties" />
+			<param
+				name="path"
+				value="/WEB-INF/classes/log4j.properties" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.sys.admin.commontools">
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-config:sys.sysAdminCommonTools.viewModuleInfo}" />
+			<param
+				name="path"
+				value="/all.version" />
+			<param
+				name="description"
+				value="{sys-config:sys.sysAdminCommonTools.viewModuleInfo.Description}" />
+		</item>
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-config:sys.sysAdminCommonTools.reloadConfigInfo}" />
+			<param
+				name="path"
+				value="/sys/common/config.do?method=resetConfig" />
+			<param
+				name="description"
+				value="{sys-config:sys.sysAdminCommonTools.reloadConfigInfo.Description}" />
+		</item>
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-config:sys.sysAdminCommonTools.updateLog4jLevel}" />
+			<param
+				name="path"
+				value="/sys/config/SystemDebug.jsp" />
+			<param
+				name="description"
+				value="{sys-config:sys.sysAdminCommonTools.updateLog4jLevel.Description}" />
+		</item>
+		<item
+			name="tools">
+			<param
+				name="name"
+				value="{sys-config:sys.sysAdminCommonTools.viewDataDict}" />
+			<param
+				name="path"
+				value="/sys/common/editDbInfo.jsp" />
+			<param
+				name="description"
+				value="{sys-config:sys.sysAdminCommonTools.viewDataDict.Description}" />
+		</item>																	
+	</extension>
+	<extension point="com.landray.kmss.sys.config.design">
+		<item name="xml">
+			<param name="namespace" value="http://www.landray.com.cn/schema/design" />
+			<param name="handler" value="com.landray.kmss.sys.config.xml.DesignNamespaceHandler" />
+		</item>
+	</extension>
+</plugin>

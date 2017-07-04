@@ -1,0 +1,60 @@
+{
+	datas: [
+	    {
+	        "label": "金融行业知识管理方法指引",
+	        "creator": "管理员",
+	        "fdId": "13eabdb40d51fe4ce7c3d36421bad61f",
+	        "created": "2014.07.12",
+	        "summary": "移动互联应用的热潮正在各行各业掀起，企业的协作模式、营销与服务模式、商业模式",
+	        "href": "/sys/news/sys_news_main/sysNewsMain.do?method=view&fdId=13eabdb40d51fe4ce7c3d36421bad61f"
+	    },
+	    {
+	        "label": "移动互联改变传统的集团战略执行模式",
+	        "creator": "管理员",
+	         "icon": "./data/dish2.gif",
+	        "fdId": "146eb92b332fc2df73355514d2d9dc23",
+	        "created": "2014-06-30",
+	        "summary": "移动互联应用的热潮正在各行各业掀起，企业的协作模式、营销与服务模式、商业模式在移动互联的驱动下正发生演变",
+	        "href": "/sys/news/sys_news_main/sysNewsMain.do?method=view&fdId=146eb92b332fc2df73355514d2d9dc23"
+	    },
+	    {
+	        "label": "2014，春之蓄势、绽放精彩一",
+	        "creator": "管理员",
+	        "fdId": "145def827cf8cb025926d5746bc9f384",
+	        "created": "2014-05-09",
+	        "summary": "移动互联应用的热潮正在各行各业掀起，企业的协作模式、营销与服务模式、商业模式",
+	        "href": "/sys/news/sys_news_main/sysNewsMain.do?method=view&fdId=145def827cf8cb025926d5746bc9f384"
+	    },
+	    {
+	        "label": "2014年春季代理商培训活动深圳站圆满落幕",
+	        "creator": "管理员",
+	        "fdId": "142978be36391bb731ae3a94d21ab3f1",
+	        "created": "2014-05-09",
+	        "summary": "移动互联应用的热潮正在各行各业掀起，企业的协作模式、营销与服务模式、商业模式在移动互联的驱动下正发生演变",
+	        "href": "/sys/news/sys_news_main/sysNewsMain.do?method=view&fdId=142978be36391bb731ae3a94d21ab3f1"
+	    },
+	    {
+	        "label": "喜讯！中国建筑西南设计研究院二期项目通过验收！",
+	        "icon": "./data/dish1.gif",
+	        "creator": "管理员",
+	        "fdId": "142600fe6d9289943352e1a4e648227f",
+	        "created": "2013-11-16",
+	        "summary": "新闻关新闻关新闻关新闻关新闻关新闻关新闻关",
+	        "href": "/sys/news/sys_news_main/sysNewsMain.do?method=view&fdId=142600fe6d9289943352e1a4e648227f"
+	    },
+	    {
+	        "label": "两地CIO联盟齐聚势：移动互联，请“卸妆”！",
+	        "creator": "管理员",
+	        "icon": "./data/dish3.gif",
+	        "fdId": "13e4e9e6d5a5d1b132dbfb44c99848ee",
+	        "created": "2013-10-11",
+	        "summary":"蓝凌软件作为移动互联解决方案优秀提供商，与京东、中钢等伙伴及两地的CIO共同探讨移动互联如何帮助传统企业转型的成功之道",
+	        "href": "/km/doc/km_doc_knowledge/kmDocKnowledge.do?method=view&fdId=13e4e92f8498b30d6ab87864e90a1e2e"
+	    }
+	],
+	page: {
+		totalSize: 50,
+		currentPage: 1,
+		pageSize: 20
+	}
+}

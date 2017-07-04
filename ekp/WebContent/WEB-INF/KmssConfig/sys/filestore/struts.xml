@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="sysFileConvertQueueForm"
+			type="com.landray.kmss.sys.filestore.forms.SysFileConvertQueueForm">
+		</form-bean>
+		<form-bean name="sysFileConvertConfigForm"
+			type="com.landray.kmss.sys.filestore.forms.SysFileConvertConfigForm">
+		</form-bean>
+		<form-bean name="sysFileConvertLogForm"
+			type="com.landray.kmss.sys.filestore.forms.SysFileConvertLogForm">
+		</form-bean>
+	</form-beans>
+	<!-- 操作映射 -->
+	<action-mappings>
+	   <!-- 新UED新增Action -->
+	     <action
+			path="/sys/filestore/sys_filestore_queue/sysFileConvertQueue"
+			type="com.landray.kmss.sys.filestore.actions.SysFileConvertQueueAction"
+		    name="sysFileConvertQueueForm"
+			parameter="method"
+			input="edit">
+			<forward 
+				name="data" 
+				path="/sys/filestore/convertqueue/data.jsp"></forward>
+		 </action>
+		 <action
+			path="/sys/filestore/sys_filestore_queue/sysFileConvertConfig"
+			type="com.landray.kmss.sys.filestore.actions.SysFileConvertConfigAction"
+		    name="sysFileConvertConfigForm"
+			parameter="method"
+			input="edit">
+			<forward 
+				name="data" 
+				path="/sys/filestore/convertconfig/data.jsp"></forward>
+			<forward 
+				name="edit" 
+				path="/sys/filestore/convertconfig/edit.jsp"></forward>
+		 </action>
+		 
+		  <action
+			path="/sys/filestore/sys_filestore_queue/sysFileConvertLog"
+			type="com.landray.kmss.sys.filestore.actions.SysFileConvertLogAction"
+		    name="sysFileConvertLogForm"
+			parameter="method"
+			input="edit">
+			<forward 
+				name="result" 
+				path="/sys/filestore/convertlog/result.jsp"></forward>
+		 </action>
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources parameter="com.landray.kmss.sys.filestore.ApplicationResources"
+		key="sys-filestore" />
+</struts-config>

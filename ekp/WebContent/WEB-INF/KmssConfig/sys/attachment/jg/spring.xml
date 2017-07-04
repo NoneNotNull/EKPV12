@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="sysAttJGLoadFileFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGLoadFileFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGLoadTemplateFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.attachment.jg.SysAttJGLoadTemplateFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGSaveFileFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGSaveFileFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGSaveAsHtmlFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGSaveAsHtmlFunction">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGSaveAsImageFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.attachment.jg.SysAttJGSaveAsImageFunction">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGSaveAsPdfFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGSaveAsPdfFunction">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGPutFileFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGPutFileFunction">
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGGetFileFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGGetFileFunction">
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGInsertImageFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.attachment.jg.SysAttJGInsertImageFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="sysAttJGInsertFileFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGInsertFileFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	
+	<bean id="sysAttJGAddtionIsFirstFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGAddtionIsFirstFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+				<property name="sysOrgCoreService">
+					<ref bean="sysOrgCoreService" />
+				</property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sysAttJGAddtionUpdateTimeFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGAddtionUpdateTimeFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="sysAttJGAddtionClearEditFunction" parent="KmssBaseService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.attachment.jg.SysAttJGAddtionClearEditFunction">
+				<property name="sysAttMainService">
+					<ref bean="sysAttMainService" />
+				</property>
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

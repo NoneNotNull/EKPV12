@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysWfProcessSubService"
+		class="com.landray.kmss.sys.workflow.engine.SysWfProcessSubServiceImp">
+		<property
+			name="processService">
+			<ref
+				bean="lbpmProcessCoreService" />
+		</property>
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysWfAfterDoingWfNodeListener"
+		class="com.landray.kmss.sys.workflow.engine.SysWfAfterDoingWfNodeListener">
+		<property
+			name="processExecuteService">
+			<ref
+				bean="lbpmProcessExecuteService" />
+		</property>
+	</bean>
+</beans>

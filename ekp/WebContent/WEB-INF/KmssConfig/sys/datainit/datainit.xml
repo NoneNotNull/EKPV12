@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-init>
+	<!-- 权限角色导出导入 -->
+	<model
+		name="com.landray.kmss.sys.authorization.model.SysAuthRole">
+		<relation>
+			<!-- 声明导出的属性名称及其导入的条件（属性名称可以多个，条件只能一个） -->
+			<property>fdAlias</property>
+			<where>
+				<![CDATA[
+					sysAuthRole.fdAlias = :fdAlias
+				]]>
+			</where>
+		</relation>
+		<!-- 需实现com.landray.kmss.sys.datainit.service.spring.ISysDatainitInterceptor接口 -->
+		<interceptor
+			class="com.landray.kmss.sys.datainit.interceptor.SysDatainitAuthRoleInterceptor" />
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgPerson"><!-- 个人 -->
+		<relation>
+			<!-- 声明导出的属性名称及其导入的条件（属性名称可以多个，条件只能一个） -->
+			<property>fdId</property>
+			<property>fdLoginName</property>
+			<property>hbmParent.fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                	sysOrgPerson.fdLoginName=:fdLoginName
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgDept"> <!-- 部门 -->
+		<relation>
+			<property>fdId</property>
+			<property>fdName</property>
+			<property>hbmParent.fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                     sysOrgDept.fdName=:fdName and sysOrgDept.hbmParent.fdName=:hbmParent.fdName
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgOrg"> <!-- 机构  -->
+		<relation>
+			<property>fdId</property>
+			<property>fdName</property>
+			<property>hbmParent.fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                	 sysOrgOrg.fdName=:fdName
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgElement">
+		<relation>
+			<property>fdId</property>
+			<property>fdName</property>
+			<property>hbmParent.fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                	 sysOrgElement.fdName=:fdName
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgGroup"><!-- 群组 -->
+		<relation>
+			<property>fdId</property>
+			<property>fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                     sysOrgGroup.fdName=:fdName 
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.organization.model.SysOrgPost"><!-- 岗位 -->
+		<relation>
+			<property>fdId</property>
+			<property>fdName</property>
+			<property>hbmParent.fdName</property>
+			<property>fdOrgType</property>
+			<where>
+                <![CDATA[
+                     sysOrgPost.fdName=:fdName and sysOrgPost.hbmParent.fdName=:hbmParent.fdName
+                ]]>
+			</where>
+		</relation>
+	</model>
+	<!-- 主页导出导入 -->
+	<model
+		name="com.landray.kmss.sys.home.model.SysHomeStyle">
+		<relation>
+			<!-- 声明导出的属性名称及其导入的条件（属性名称可以多个，条件只能一个） -->
+			<property>fdPath</property>
+			<where>
+				<![CDATA[
+					sysHomeStyle.fdPath = :fdPath
+				]]>
+			</where>
+		</relation>
+	</model>
+	<model
+		name="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmNodeDefinition">
+		<!-- 声明复合主键 -->
+		<composite-id>fdProcess;fdFactId</composite-id>
+	</model>
+	<model
+		name="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmRtNodeDefine">
+		<!-- 声明复合主键 -->
+		<composite-id>fdProcess;fdFactId</composite-id>
+	</model>
+</data-init>

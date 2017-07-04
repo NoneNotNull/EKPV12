@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapSetting.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapSettingExt.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapQuery.hbm.xml" />
+	    <mapping
+			resource="com/landray/kmss/tib/sys/soap/connector/model/TibSysSoapSettCategory.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

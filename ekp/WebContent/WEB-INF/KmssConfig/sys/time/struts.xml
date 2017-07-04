@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysTimeAreaForm"
+			type="com.landray.kmss.sys.time.forms.SysTimeAreaForm">
+		</form-bean>
+		<form-bean
+			name="sysTimeWorkForm"
+			type="com.landray.kmss.sys.time.forms.SysTimeWorkForm">
+		</form-bean>
+		<form-bean
+			name="sysTimeWorkTimeForm"
+			type="com.landray.kmss.sys.time.forms.SysTimeWorkTimeForm">
+		</form-bean>
+		<form-bean
+			name="sysTimePatchworkForm"
+			type="com.landray.kmss.sys.time.forms.SysTimePatchworkForm">
+		</form-bean>
+		<form-bean
+			name="sysTimePatchworkTimeForm"
+			type="com.landray.kmss.sys.time.forms.SysTimePatchworkTimeForm">
+		</form-bean>
+		<form-bean
+			name="sysTimeVacationForm"
+			type="com.landray.kmss.sys.time.forms.SysTimeVacationForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/time/sys_time_area/sysTimeArea"
+			type="com.landray.kmss.sys.time.actions.SysTimeAreaAction"
+			name="sysTimeAreaForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_area/sysTimeArea_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_area/sysTimeArea_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_area/sysTimeArea_list.jsp">
+			</forward>
+			<forward
+				name="listUi"
+				path="/sys/time/sys_time_area/sysTimeArea_listUi.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/time/sys_time_work/sysTimeWork"
+			type="com.landray.kmss.sys.time.actions.SysTimeWorkAction"
+			name="sysTimeWorkForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_work/sysTimeWork_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_work/sysTimeWork_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_work/sysTimeWork_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/time/sys_time_work_time/sysTimeWorkTime"
+			type="com.landray.kmss.sys.time.actions.SysTimeWorkTimeAction"
+			name="sysTimeWorkTimeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_work_time/sysTimeWorkTime_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_work_time/sysTimeWorkTime_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_work_time/sysTimeWorkTime_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/time/sys_time_patchwork/sysTimePatchwork"
+			type="com.landray.kmss.sys.time.actions.SysTimePatchworkAction"
+			name="sysTimePatchworkForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_patchwork/sysTimePatchwork_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_patchwork/sysTimePatchwork_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_patchwork/sysTimePatchwork_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/time/sys_time_patchwork_time/sysTimePatchworkTime"
+			type="com.landray.kmss.sys.time.actions.SysTimePatchworkTimeAction"
+			name="sysTimePatchworkTimeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_patchwork_time/sysTimePatchworkTime_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_patchwork_time/sysTimePatchworkTime_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_patchwork_time/sysTimePatchworkTime_list.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/time/sys_time_vacation/sysTimeVacation"
+			type="com.landray.kmss.sys.time.actions.SysTimeVacationAction"
+			name="sysTimeVacationForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/time/sys_time_vacation/sysTimeVacation_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/time/sys_time_vacation/sysTimeVacation_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/time/sys_time_vacation/sysTimeVacation_list.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.time.ApplicationResources"
+		key="sys-time" />
+
+</struts-config>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.log.model.TibCommonLogOpt"
+		table="tibCommon_opt_log">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdPerson"
+			column="fd_person"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdAlertTime"
+			column="fd_alert_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdUrl"
+			column="fd_url"
+			update="true"
+			insert="true"
+			length="500"
+			not-null="false" />
+
+		<property
+			name="fdContent"
+			column="fd_content"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+	</class>
+</hibernate-mapping>

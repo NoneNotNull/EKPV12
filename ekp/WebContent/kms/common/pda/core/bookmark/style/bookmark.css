@@ -1,0 +1,43 @@
+.lui-bookmark-success-dialog {
+	position: absolute;
+	width: 100%;
+	display:none;
+}
+.lui-bookmark-success-dialog-box {
+	background-color: #4691D5;
+	padding: 8px 5px;
+	border-radius: 5px;
+	position: relative;
+	left : 10px;
+	color: #FFFFFF;
+	min-width: 105px;
+}
+.lui-bookmark-tri {
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 11px solid #4691D5;
+	position: relative;
+	left: 35px;
+}
+
+@keyframes dialogOpacity {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@-webkit-keyframes dialogOpacity {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+@-o-keyframes dialogOpacity {
+	from {opacity: 1;}
+	to {opacity: 0;}
+}
+
+.success_dialog_animation {
+	animation:dialogOpacity 4s;
+	-moz-animation: dialogOpacity 4s;	
+	-webkit-animation: dialogOpacity 4s;	
+	-o-animation: dialogOpacity 4s;
+}

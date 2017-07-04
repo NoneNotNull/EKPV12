@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd">
+	
+	<extension
+		point="com.landray.kmss.tib.sys.core.provider.plugins"
+		model="*">
+			<item name="provider">
+			<param
+				name="providerKey"
+				value="customKey_u8" />
+			<param
+				name="providerName"
+				value="{tib-sys-u8:tibSysU8.customer.u8}" />
+			<param
+				name="key"
+				value="U8-GL_accvouch" />
+			<!-- spring 注册 -->
+			<param
+				name="executeClass"
+				value="tibSysU8Provider" />
+			<param
+				name="infoClass"
+				value="tibSysU8Info" />	
+		</item>
+	</extension>
+	
+	
+</plugin>

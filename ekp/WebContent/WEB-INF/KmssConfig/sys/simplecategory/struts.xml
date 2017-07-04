@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean
+			name="cateChgForm"
+			type="com.landray.kmss.sys.simplecategory.forms.CateChgForm" />
+	</form-beans>
+	<action-mappings>
+		<action
+			path="/sys/sc/scdt"
+			type="com.landray.kmss.sys.simplecategory.actions.SysSimpleCategoryDtAction"
+			parameter="method"
+			unknown="false"
+			scope="request">
+		</action>
+		<action
+			path="/sys/sc/cateChg"
+			type="com.landray.kmss.sys.simplecategory.actions.CateChgAction"
+			name="cateChgForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+			<forward
+				name="cateChgEdit"
+				path="/sys/simplecategory/sys_simple_category/doc_cate_change.jsp">
+			</forward>
+		</action>
+		
+		<action
+			path="/sys/simplecategory/criteria/sysSimpleCategoryCriteria"
+			type="com.landray.kmss.sys.simplecategory.actions.SysSimpleCategoryCriteriaAction"
+			parameter="method"
+			unknown="false"
+			scope="request">
+		</action>
+		
+		<!-- 分类概览 -->
+		<action
+			path="/sys/sc/categoryPreivew"
+			type="com.landray.kmss.sys.simplecategory.actions.SysSimpleCategoryPreviewAction"
+			parameter="method"
+			unknown="false"
+			scope="request">
+			<forward
+				name="previewPage"
+				path="/sys/simplecategory/category_preview/category_preview.jsp">
+			</forward>
+		</action>
+		
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.simplecategory.ApplicationResources"
+		key="sys-simplecategory" />
+</struts-config>

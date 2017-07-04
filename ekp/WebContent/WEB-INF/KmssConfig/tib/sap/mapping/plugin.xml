@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	
+		<!-- 表单事件扩展 需要 在添加表单事件的配置模块添加 jsp 片段 -->
+	<extension point="com.landray.kmss.sys.xform.jsp.generator" model="*">
+		<item name="generator">
+			<param name="bean" value="tibSapFormEventJspGenerator" />
+			<param name="order" value="50"/>
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.formula"
+		model="*">
+		<item
+			name="function">
+			<param
+				name="className"
+				value="com.landray.kmss.tib.sap.mapping.service.spring.TibSapRFCFunctions" />
+		</item>
+	</extension>
+	
+	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.robot.support"
+		model="*">
+			<item
+			name="robot">
+			<param
+				name="unid"
+				value="RunSapBapi" />
+			<param
+				name="category"
+				value="{tib-common-mapping:tib.form.flow.mapping}" />
+			<param
+				name="type"
+				value="{tib-sap:erpEkpSap.runBAPI}" />
+			<param
+				name="bean"
+				value="tibSapWfRobotNodeRunSapBapiService" />
+			<param
+				name="url"
+				value="/tib/sap/mapping/attribute_robotnode_runSapBapi.html" />
+		</item>
+	</extension>
+	
+	<!-- 
+	<extension point="com.landray.kmss.sys.xform.base.service.controls" model="*">
+		<item name="control">
+			<param name="class" value="com.landray.kmss.tib.sap.mapping.plugins.controls.dialog.TibSapMappingDialogControl" />
+			<param name="file" value="/tib/sap/mapping/plugins/controls/dialog/sapDataByDialog.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.tib.sap.mapping.plugins.controls.select.TibSapMappingSelectControl" />
+			<param name="file" value="/tib/sap/mapping/plugins/controls/select/sapDataBySelect.js" />
+		</item>
+		<item name="control">
+			<param name="class" value="com.landray.kmss.tib.sap.mapping.plugins.controls.list.TibSapMappingListControl" />
+			<param name="file" value="/tib/sap/mapping/plugins/controls/list/sapDataByList.js" />
+		</item>
+	</extension>
+	 -->
+	<!-- SAP服务注册模块  --> 
+	<extension
+		point="com.landray.kmss.tib.common.mapping.plugins.integration"
+		model="*">
+		
+		<item
+			name="tibCommonMappingIntegration">
+			<param
+				name="integrationKey"
+				value="SAP" />
+			<param
+				name="displayName"
+				value="SAP集成" />
+				<!-- 中间件类型为 1 -->
+			<param
+				name="fdIntegrationType"
+				value="1" />
+			<param
+				name="fdMapperConfigJsp"
+				value="tib/sap/mapping/tib_sap_mapping_func/tibSapMappingFunc_edit.jsp" />
+			<param
+				name="ekpIntegrationBean"
+				value="tibSapMappingIntegration" />	
+			<param
+				name="formEventJS"
+				value="tib/sap/mapping/sapEkpFormEvent.js" />
+			<!-- 生成jsp片段路径 (已废除)-->			
+			<param
+				name="formEventPath"
+				value="tib/sap/mapping/formEventJsp/" />
+			<!-- 表单事件js主体方法名称  用来生成jsp使用-->	
+			<param
+				name="formEventFuncName"
+				value="doBAPI" />
+			
+			<param
+				name="order"
+				value="52" />		
+				
+			<!-- 为控件使用 -->
+			<param
+				name="infoClass"
+				value="tibSapControlTreeInfo" />	
+			<param
+				name="formControlJS"
+				value="tib/sap/mapping/sapFormControl.js" />	
+				
+		</item>
+	</extension>
+	
+	<!-- 流程事件扩展点（驳回事件） -->
+	<extension point="com.landray.kmss.lbpm.engine.event">
+		<item name="listener">
+			<param
+				name="unid"
+				value="sapResumeListener" />
+			<param
+				name="messageKey"
+				value="tib-sap:tibSapMapping.flowRefuseListener" />
+			<param
+				name="eventTypes"
+				value="lbpmHandlerRefuseEvent" />
+			<param
+				name="listener"
+				value="tibSapMappingFlowRefuseListener" />
+			<param
+				name="conditionJsp"
+				value="/tib/sap/mapping/attribute_flowRefuse_listenerSap.jsp" />
+		</item>
+	</extension>
+	
+	<!-- TIB表单控件扩展 -->
+	<extension point="com.landray.kmss.sys.xform.relation.params">
+		<item name="config">
+			<param name="sourceName" value="SAP"></param>
+			<param name="sourceUUID" value="SAP"></param>
+			<param name="sourceBean" value="tibCommonMappingControlRelation"></param>
+			<param name="paramsURL" value="tib/common/resource/jsp/dialog/dialog.jsp?springBean=tibCommonMappingControlTreeBean&amp;infoBean=tibSapControlTreeInfo&amp;url=tib/sys/sap/connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting.do"></param>
+			<param name="order" value="0"></param>
+		</item>
+	</extension>
+		
+</plugin>

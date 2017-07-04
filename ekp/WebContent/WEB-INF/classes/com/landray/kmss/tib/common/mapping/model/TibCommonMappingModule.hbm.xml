@@ -1,0 +1,107 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.mapping.model.TibCommonMappingModule"
+		table="tib_common_mapping_module">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		
+		<property 
+			name="fdType" 
+			column="fd_type" 
+			update="true"
+			insert="true" 
+			length="32" 
+			not-null="false" />
+			
+		<property
+			name="fdServerName"
+			column="fd_server_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdServerIp"
+			column="fd_server_ip"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdModuleName"
+			column="fd_module_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+			
+		<property
+			name="fdMainModelName"
+			column="fd_main_model_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+
+		<property
+			name="fdTemplateName"
+			column="fd_template_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdUse"
+			column="fd_use"
+			update="true"
+			insert="true"
+			not-null="false" />
+			<property
+			name="fdCate"
+			column="fd_cate"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="fdModelTemFieldName"
+			column="fd_mode_tem_field_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+		<property
+			name="fdTemCateFieldName"
+			column="fd_tem_cate_field_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+			<property
+			name="fdTemNameFieldName"
+			column="fd_tem_name_field_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+		<property
+			name="fdFormTemFieldName"
+			column="fd_form_tem_field_name"
+			update="true"
+			insert="true"
+			length="100"
+			not-null="false" />
+	</class>
+</hibernate-mapping>

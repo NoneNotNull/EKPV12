@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.keydata.supplier.model.KmSupplierMain"
+		messageKey="km-keydata-supplier:table.kmSupplierMain"
+		displayProperty="fdName"
+		serviceBean="kmsuppliermainService"
+		extendClass="com.landray.kmss.km.keydata.base.model.KmKeydataBase"
+		table="km_keydata_supplier_main"
+		url="/km/keydata/supplier/km_supplier_main/kmSupplierMain.do?method=showUsed&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 
+		<simpleProperty
+			name="fdName"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCode"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdCode"
+			type="String"
+			column="fd_code"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-keydata-supplier:kmSupplierMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-keydata-supplier:kmSupplierMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="true"
+			validate="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-keydata-supplier:kmSupplierMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false" />	
+		
+		 -->
+		<simpleProperty
+			name="fdLegal"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdLegal"
+			type="String"
+			column="fd_legal"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEstablishedDate"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdEstablishedDate"
+			type="DateTime"
+			column="fd_established_date"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRegMoney"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdRegMoney"
+			type="String"
+			column="fd_reg_money"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAddress"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdAddress"
+			type="String"
+			column="fd_address"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPost"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdPost"
+			type="String"
+			column="fd_post"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrl"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdContactPerson"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdContactPerson"
+			type="String"
+			column="fd_contact_person"
+			notNull="true"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPhone"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdPhone"
+			type="String"
+			column="fd_phone"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEmail"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdEmail"
+			type="String"
+			column="fd_email"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFax"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdFax"
+			type="String"
+			column="fd_fax"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSummary"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdSummary"
+			type="String"
+			column="fd_summary"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAccountName"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdAccountName"
+			type="String"
+			column="fd_account_name"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAccountBank"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdAccountBank"
+			type="String"
+			column="fd_account_bank"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAccountNo"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdAccountNo"
+			type="String"
+			column="fd_account_no"
+			notNull="false"
+			length="50"
+			validate="true" />
+			
+		
+			
+		<modelProperty
+			name="kmSupplierCategory"
+			messageKey="km-keydata-supplier:kmSupplierMain.fdCategoryName"
+			type="com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory"
+			column="fd_category_id"
+			notNull="true"
+			unique="true"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.km.keydata.supplier.model.KmSupplierCategory','!{idField}','!{nameField}',false,null,'00')"
+			canSearch="true"
+			canRelation="true"
+			canDisplay="true"
+			canSubscribe="true" />
+
+	</model>
+</models>

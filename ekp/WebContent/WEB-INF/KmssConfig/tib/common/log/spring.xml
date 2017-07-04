@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 日志 -->
+	<bean
+		id="tibCommonLogMainBackupDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.log.dao.hibernate.TibCommonLogMainBackupDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.log.model.TibCommonLogMainBackup" />
+	</bean>
+	<bean
+		id="tibCommonLogMainBackupTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.log.service.spring.TibCommonLogMainBackupServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonLogMainBackupDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonLogMainBackupService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibCommonLogMainBackupTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibCommonLogOptDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.log.dao.hibernate.TibCommonLogOptDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.log.model.TibCommonLogOpt" />
+	</bean>
+	<bean
+		id="tibCommonLogOptTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.log.service.spring.TibCommonLogOptServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonLogOptDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonLogOptService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibCommonLogOptTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibCommonLogMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.log.dao.hibernate.TibCommonLogMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.log.model.TibCommonLogMain" />
+	</bean>
+	<bean
+		id="tibCommonLogMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.log.service.spring.TibCommonLogMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonLogMainDao" />
+		</property>
+		<property name="tibCommonLogManageService">
+			<ref local="tibCommonLogManageService" />
+		</property>
+		<property name="tibCommonLogMainBackupService">
+			<ref local="tibCommonLogMainBackupService" />
+		</property>
+	</bean>
+	<bean id="tibCommonLogMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="tibCommonLogMainTarget" />
+		</property>
+		
+	</bean>
+
+	<bean
+		id="tibCommonLogManageDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.common.log.dao.hibernate.TibCommonLogManageDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.common.log.model.TibCommonLogManage" />
+	</bean>
+	<bean
+		id="tibCommonLogManageTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.common.log.service.spring.TibCommonLogManageServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibCommonLogManageDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibCommonLogManageService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibCommonLogManageTarget" />
+		</property>
+	</bean>
+	<bean
+		id="tibCommonLogInterface"
+		class="com.landray.kmss.tib.common.log.interfaces.TibCommonLogInterfaceImpl">
+		<property name="tibCommonLogMainService">
+			<ref local="tibCommonLogMainService" />
+		</property>
+		<property name="tibCommonLogManageService">
+			<ref local="tibCommonLogManageService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibCommonLogTypeTreeService"
+		class="com.landray.kmss.tib.common.log.service.bean.TibCommonLogTypeTreeServiceImp">
+	</bean>
+	
+		
+</beans>

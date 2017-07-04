@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 点评机制中点评回复表补全层级ID(fdHierarchyId) -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.sys.evaluation.transfer.EvaluationTransferTask" />
+			<param name="name" value="点评机制数据迁移" />
+			<param name="path" value="/sys/evaluation/" />
+			<param name="check"
+				value="com.landray.kmss.sys.evaluation.transfer.EvaluationTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.sys.evaluation.transfer.EvaluationTransferTask" />
+			<param name="description"
+				value="点评回复表sys_evaluation_reply新增层级ID字段,并补全层级ID(fdHierarchyId)" />
+		</item>
+	</extension>
+</plugin>

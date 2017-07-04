@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- defaultValidator="roleValidator(role=ROLE_SYSZONE_DEFAULT)" 员工黄页添加 -->
+	<module
+		messageKey="sys-zone:module.sys.zone"
+		urlPrefix="/sys/zone/"
+		defaultValidator="roleValidator(role=ROLE_SYSZONE_DEFAULT)">
+		<roles>
+			ROLE_SYSZONE_ADMIN;
+			ROLE_SYSZONE_DEFAULT;<!-- 员工黄页添加 -->
+			ROLE_SYSZONE_EVALUATE_CREATE;ROLE_SYSZONE_EVALUATE_DELETE
+		</roles>
+		<request
+			path="sys_zone_navigation/sysZoneNavigation*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZoneNavigation">
+			<query
+				queryString="method=add|save|update|delete|edit|deleteall"
+				validator="roleValidator(role=ROLE_SYSZONE_ADMIN)" />
+		</request>
+		<request
+			path="tree.jsp*"
+			defaultValidator="roleValidator(role=ROLE_SYSZONE_ADMIN)">
+		</request>
+		<!-- 员工黄页添加==开始 -->
+		<request
+			path="sys_zone_person_data/sysZonePersonData*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePersonData">
+		</request>
+
+		<request
+			path="sys_zone_person_atten_fan/sysZonePersonAttenFan*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePersonAttenFan">
+		</request>
+
+		<request
+			path="sys_zone_per_data_templ/sysZonePerDataTempl*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePerDataTempl">
+		</request>
+		<!-- 修改 -->
+			
+		
+		<!-- 修改 -->
+		<request
+			path="sys_zone_person_data_cate/sysZonePersonDataCate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePersonDataCate">
+			<query
+				queryString="method=view|add|save|update|delete|edit|deleteall"
+				validator="roleValidator(role=ROLE_SYSZONE_ADMIN)" />
+		</request>
+		
+		<!-- 员工黄页添加==结束 -->
+		<!-- 照片墙 -->
+		<request
+			path="sys_zone_photo_main/sysZonePhotoMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePhotoMain">
+			<query
+				queryString="method=loadMap"
+				validator="roleValidator(role=ROLE_SYSZONE_DEFAULT)" />
+		</request>
+		<request
+			path="sys_zone_photo_main/sysZonePhotoMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.zone.model.SysZonePhotoMain">
+			<query
+				queryString="method=view|add|save|update|delete|edit|deleteall"
+				validator="roleValidator(role=ROLE_SYSZONE_ADMIN)" />
+		</request>
+		<!-- 照片墙 -->
+	</module>
+	
+	<!-- 点评 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/evaluation/">
+		<request path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.zone.model.SysZonePersonInfo&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_SYSZONE_EVALUATE_CREATE)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.zone.model.SysZonePersonInfo&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_SYSZONE_EVALUATE_DELETE)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.zone.model.SysZonePersonInfo"
+				validator="roleValidator(role=ROLE_SYSZONE_DEFAULT)" />
+		</request>
+	
+	</module>
+	<!-- 照片墙定时任务 -->
+	<quartz
+		cronExpression="0 0 5 ? * 1"
+		jobService="sysZonePhotoBuliderService"
+		messageKey="sys-zone:SysZonePhoto.map.preview"
+		jobMethod="rebuildPhoto" />
+	<!-- 组织架构人员数据同步到黄页 -->	
+	<quartz
+		cronExpression="0 0 4 ? * 3"
+		jobService="sysZonePersonInfoDataIntoQuartzService"
+		messageKey="sys-zone:SysZonePersonInfo.dataIn.quartz"
+		jobMethod="updateInfoData" />				
+	<!-- 全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.sys.zone.model.SysZonePersonInfo"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="person.fdName"
+			type="Text" />
+		<luceneField
+			name="content"
+			property="fdSignature"
+			type="text" />
+		<!-- 机构 -->
+		<luceneField
+			name="addField1"
+			property="person.fdParentOrg.fdName"
+			type="text" />	
+		<!-- 电话 -->
+		<luceneField
+			name="addField2"
+			property="person.fdWorkPhone"
+			type="text" />	
+		<!-- 部门 -->
+		<luceneField
+			name="addField3"
+			property="person.fdParent.fdName"
+			type="text" />	
+		<!-- 移动电话-->
+		<luceneField
+			name="addField4"
+			property="person.fdMobileNo"
+			type="text" />
+		<!-- 岗位-->	
+		<luceneField
+			name="addField5"
+			property="person.fdPosts:fdName"
+			type="text" />		
+		<!-- 邮箱-->
+		<luceneField
+			name="addField6"
+			property="person.fdEmail"
+			type="text" />
+		<!-- 个人资料-->
+		<luceneField
+			name="addField7"
+			property="fdDatas:docContent"			
+			type="text" />
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+	</ftSearch>
+		
+	<homePage
+		urlPrefix="sys/zone"
+		url="/sys/zone/index.jsp"
+		messageKey="sys-zone:module.name"
+		config="/moduleindex_notopic.jsp?nav=/sys/zone/tree.jsp"
+		type="global" />
+</configs>

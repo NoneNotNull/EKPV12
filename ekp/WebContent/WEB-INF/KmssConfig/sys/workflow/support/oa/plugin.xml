@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	
+	<extension-point
+		id="com.landray.kmss.sys.workflow.support.oa.robot.support">
+		<item
+			name="robot">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>唯一标识，此标识在所有的机器人节点中都是唯一的，强烈建议使用java bean的全限定名。</description>
+			</param>
+			<param
+				name="category"
+				required="true"
+				kind="string">
+				<description>主分类</description>
+			</param>
+			<param
+				name="type"
+				required="true"
+				kind="string">
+				<description>子分类</description>
+			</param>
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.workflow.support.oa.robot.interfaces.ISysWfRobotNodeService">
+				<description>机器人功能实现bean。请继承com.landray.kmss.sys.workflow.support.oa.robot.support.AbstractRobotNodeServiceImp，此类有些默认方法可提供。</description>
+			</param>
+			<param
+				name="url"
+				kind="string"
+				default="/sys/lbpmservice/node/robotnode/attribute_robotnode_default.html">
+				<description>
+					机器人节点前端配置页面的URL，可选。URL为模块路径，比如：审批流程的URL是/km/review/*。
+					在机器人节点前端配置页面必须有个returnValue函数，此为js函数，此函数的返回值是机器人节点配置信息组成的字符串信息。
+				</description>
+			</param>
+			<description>机器人节点配置</description>
+		</item>
+		<description>机器人节点的扩展。若需自定义机器人节点，请实现此扩展点。</description>
+	</extension-point>
+	
+	<extension-point
+		id="com.landray.kmss.sys.workflow.support.oa.subprocess">
+		<item
+			name="subprocess">
+			<param
+				name="name"
+				kind="string" >
+				<description>在对选择对话框中展现的文字，如果没设置将根据modelName配置来获取显示文字</description>
+			</param>
+			<param
+				name="modelName"
+				required="true"
+				kind="string" >
+				<description>主文档的类全限定名</description>
+			</param>
+			<param
+				name="cateBean"
+				kind="string">
+				<description>选择对话框中需要展现分类/模板tree service</description>
+			</param>
+			<param
+				name="dictBean"
+				kind="string">
+				<description>选择分类后，所需要展现属性时，获取属性的链接。同cateBean类似。</description>
+			</param>
+			<param
+				name="createParam"
+				kind="string" >
+				<description>
+					初始化时所需参数，与action的add方法参数类似，如果没有，子流程启动时，也不会传参。
+					例如 配置为fdTemplateId=!{cateid}，会使用当前所选节点值（默认是模板或分类ID）替换!{cateid}。
+					参数在RequestContext里，是以fdTemplateId为Key，!{cateid}为Value。
+				</description>
+			</param>
+			<description>可以被当成子流程的相关部署参数</description>
+		</item>
+		<description>
+			需要能被当做子流程启动的模块，可部署此扩展点。
+			但需要注意的是，子流程必须是在service中执行初始化也就是原先在createNewForm中的操作，要转移到service方法中，
+			必须是实现了com.landray.kmss.sys.metadata.interfaces.IExtendDataService。
+			一般建议继承com.landray.kmss.sys.metadata.interfaces.ExtendDataServiceImp，
+			覆盖其中initBizModelSetting方法做初始化操作。
+		</description>
+	</extension-point>
+	
+</plugin>

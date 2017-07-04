@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.webservice2.model.SysWebserviceMain"
+		messageKey="sys-webservice2:table.sysWebserviceMain"
+		displayProperty="fdName"
+		serviceBean="sysWebserviceMainService"
+		table="sys_webservice_main"
+		url="/sys/webservice2/sys_webservice_main/sysWebserviceMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-webservice2:sysWebserviceMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdServiceClass"
+			messageKey="sys-webservice2:sysWebserviceMain.fdServiceClass"
+			type="String"
+			column="fd_service_class"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdServiceBean"
+			messageKey="sys-webservice2:sysWebserviceMain.fdServiceBean"
+			type="String"
+			column="fd_service_bean"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdServiceParam"
+			messageKey="sys-webservice2:sysWebserviceMain.fdServiceParam"
+			type="String"
+			column="fd_service_param"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAddress"
+			messageKey="sys-webservice2:sysWebserviceMain.fdAddress"
+			type="String"
+			column="fd_address"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAnonymous"
+			messageKey="sys-webservice2:sysWebserviceMain.fdAnonymous"
+			type="Boolean"
+			column="fd_anonymous"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdServiceStatus"
+			messageKey="sys-webservice2:sysWebserviceMain.fdServiceStatus"
+			type="Integer"
+			column="fd_service_status"
+			notNull="true"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStartupType"
+			messageKey="sys-webservice2:sysWebserviceMain.fdStartupType"
+			type="String"
+			column="fd_startup_type"
+			notNull="true"
+			length="2"
+			enumType="sys_webservice_main_fd_startup_type"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdSoapMsgLogging"
+			messageKey="sys-webservice2:sysWebserviceMain.fdSoapMsgLogging"
+			type="Boolean"
+			column="fd_soap_msg_logging"
+			notNull="true"
+			length="36"
+			validate="true" />			
+			
+		<simpleProperty
+			name="fdMaxConn"
+			messageKey="sys-webservice2:sysWebserviceMain.fdMaxConn"
+			type="Integer"
+			column="fd_max_conn"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeOut"
+			messageKey="sys-webservice2:sysWebserviceMain.fdTimeOut"
+			type="Long"
+			column="fd_time_out"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="sys-webservice2:sysWebserviceMain.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		<listProperty
+			name="fdUser"
+			messageKey="sys-webservice2:sysWebserviceMain.fdUser"
+			type="com.landray.kmss.sys.webservice2.model.SysWebserviceUser"
+			table="sys_webservice_main_user"
+			column="fd_user_id"
+			elementColumn="fd_user_id" />
+
+	</model>
+</models>

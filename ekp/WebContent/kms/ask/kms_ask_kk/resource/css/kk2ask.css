@@ -1,0 +1,76 @@
+*{ margin:0; padding:0;}
+html{ border:0;}
+body{ font-size:12px; font-family:Verdana,Arial,Microsoft YaHei,"宋体"; color: rgb(102, 102, 102); }
+input{ vertical-align: middle;color: #333;font-size: 12px;}
+a{ color:#666; text-decoration:none;}
+a img{border:0;}
+.c{ height:1%;}
+.c:after{ content:"."; display:block; height:0; clear:both; visibility:hidden;}
+
+#wrapper{padding: 10px;}
+#wrapper .box{ width:100%; margin:0 auto;}
+#main3{ background:#fff url(./img/bg3.gif) repeat-x left bottom; padding:0 0 10px 0; margin-top:32px !important;}
+
+.location{}
+.location a{ margin:0 5px; color:#666; text-decoration:none;}
+.location a:hover{ color:#666;}
+.location a.home{ display:inline-block; background:url(./img/bg.gif) no-repeat 0 -1200px; padding-left:22px; margin:0 5px 0 0;}
+.location span{ color:#f30; font-weight:bold; margin-left:5px;}
+
+.l{float:left;}
+.r{float:right;}
+
+.clear{ clear:both; height:0; line-height:0; font-size:0; overflow:hidden;}
+
+.m_t5{ margin-top:5px;}
+.m_t10{ margin-top:5px;}
+.m_l10{ margin-left:10px;}
+
+
+
+.box6{ border:2px solid #ccc; padding:20px; zoom:1;}
+.box7{ border:2px solid #fec784; padding:15px; width:685px; zoom:1;}
+
+.title5{ background:url(./img/dot2.gif) repeat-x left bottom; padding:0 5px 8px;}
+.title5 h2{ float:left;}
+.title5 span{ float:right;}
+.title6{ background:url(./img/dot2.gif) repeat-x left bottom; padding:0 5px 4px;}
+
+.h2_6{ color:#06f; font-size:16px; font-weight:bold;}
+.h3_1{ background:url(./img/bg.gif) no-repeat 0 -2250px; padding-left:26px; color:#333; font-size:16px; font-weight:bold; line-height:22px;}
+.h3_1 span{ color:#999; font-size:12px; font-weight:normal;}
+
+.tar{text-align:right !important;}
+.p_b{ color:#666; font-size:12px; line-height:20px;}
+
+.t_f{}
+.t_f th{ font-size:12px; font-weight:bold; line-height:30px; text-align:left; padding-left:16px;}
+.t_f td{ line-height:30px; vertical-align:middle;}
+.t_f th.t_f_a{ padding:0;}
+
+.a_b{ color:#06f; text-decoration:none;}
+.a_b:hover{ color:#06f;}
+
+.dl_f{ background:url(./img/dot2.gif) repeat-x left bottom; padding:12px 0 5px 10px;}
+.dl_f dt{ color:#666; font-size:14px; line-height:20px;}
+.dl_f dd{ float:right;}
+.dl_f dd span.a1{ display:inline-block; background:url(./img/split2.gif) no-repeat right center; padding-right:10px;}
+.dl_f dd span.a2{ display:inline-block; background:url(./img/split2.gif) no-repeat left center; padding-left:10px;}
+
+.form_a{ width:719px;}
+
+.btn_o{ background:url(./img/btn.gif) repeat-x 0 -700px; height:35px;}
+.btn_o a{ display:block; background:url(./img/btn.gif) no-repeat 0 -650px;}
+.btn_o a span{ display:block; background:url(./img/btn_r6.gif) no-repeat right top; padding:0 20px; color:#fff; font-size:16px; line-height:35px; text-align:center;}
+.btn_o a:hover{ color:#fff; text-decoration:none;}
+.btn_o a:hover span{ font-weight:bold;}
+	
+.search_input{float: left;height: 20px;width: 118px;margin-left: 2px}
+.search_btn{background:url(./img/search_2.jpg) no-repeat;width:29px;height:24px; border:0; background: display: block;float: left;cursor: pointer;}
+
+.ul_a li{list-style-image: none;border-bottom: dotted 0.5px #d7d9db;cursor: pointer; }
+.ul_a li a{color: black;margin-right:5px;line-height: 20px;}
+.ul_a li span{color: #6c6c6c;float: right;}
+.ul_a :HOVER {
+	background-color: #c2e2f8;
+}

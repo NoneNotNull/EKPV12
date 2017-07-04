@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="kms-ask:module.kms.ask"
+		urlPrefix="/kms/ask/"
+		defaultValidator="roleValidator(role=ROLE_KMSASK_DEFAULT)">
+		<roles>
+			<!-- 爱问默认权限 -->
+			ROLE_KMSASK_DEFAULT;
+			<!-- 爱问维护分类 -->
+			ROLE_KMSASKCATEGORY_ADMIN;
+			<!-- 转移分类 -->
+			ROLE_KMSASKCATEGORY_CHANGE;
+			<!-- 删除问题 -->
+			ROLE_KMSASKTOPIC_DELETE;
+			<!--关闭问题 -->
+			ROLE_KMSASKTOPIC_CLOSE;
+			<!-- 置顶 -->
+			ROLE_KMSASKTOPIC_SETTOP;
+			<!-- 取消置顶 -->
+			ROLE_KMSASKTOPIC_CANCELTOP;
+			<!-- 创建问题 -->
+			ROLE_KMSASKTOPIC_CREATE;
+			<!-- 推荐问题 -->
+			ROLE_KMSASKTOPIC_INTRODUCE;
+			<!-- 取消推荐 -->
+			ROLE_KMSASKTOPIC_INTRODUCE_CANCEL;
+			<!-- 删除回复 -->
+			ROLE_KMSASKPOST_DELETE;
+			<!-- 置为最佳 -->
+			ROLE_KMSASKPOST_BEST;
+			<!-- 回复问题 -->
+			ROLE_KMSASKPOST_CREATE;
+			<!-- 修改货币 -->
+			ROLE_KMSASKMONEY_ALTER;
+			<!-- 爱问通知设置 -->
+			ROLE_KMSASKNOTIFY_EDIT;
+			<!-- 爱问问题设置 -->
+			ROLE_KMSASKCONFIG_EDIT;
+			<!-- 删除评论 -->
+			ROLE_KMSASKCOMMENT_DELETE;
+			<!-- 分类导入权限 -->
+			ROLE_KMSASKTOPIC_EXCEL_IMPORT;
+			<!-- 分类权限扩充 -->
+			ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION;
+			
+			ROLE_KMSASKTOPIC_BACKSTAGE_MANAGER;
+		</roles>
+
+
+		<!-- 赞成 -->
+		<request
+			path="kms_ask_agree/kmsAskAgree*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskAgree">
+		</request>
+		<!-- 评论 -->
+		<request  
+			path="kms_ask_comment/kmsAskComment*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskComment">
+			<query queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMSASKCOMMENT_DELETE)" />
+		</request>
+		<!-- 补充提问、回复 -->
+		<request
+			path="kms_ask_addition/kmsAskAddition*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskAddition,cateModel=com.landray.kmss.kms.ask.model.KmsAskCategory">
+			<!-- 删除补充回复 -->
+			<query
+				queryString="method=delete&amp;type=post"
+				validator="roleValidator(role=ROLE_KMSASKPOST_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除补充提问 -->
+			<query
+				queryString="method=delete&amp;type=ask"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+		<!-- 问题设置 -->
+		<request
+			path="kms_ask_config/kmsAskConfig*">
+			<query
+				queryString="method=edit"
+				validator="roleValidator(role=ROLE_KMSASKCONFIG_EDIT)" />
+		</request>
+		<!-- 爱问通知设置 -->
+		<request
+			path="kms_ask_notify/answerNotify*">
+			<query
+				queryString="method=edit"
+				validator="roleValidator(role=ROLE_KMSASKNOTIFY_EDIT)" />
+		</request>
+		<!-- 货币修改 -->
+		<request
+			path="kms_ask_config/kmsAskMoneyAlter*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskMoneyAlter"
+			defaultValidator="roleValidator(role=ROLE_KMSASKMONEY_ALTER)">
+		</request>
+		<!-- 贷币初始化设置 -->
+		<request
+			path="kms_ask_config/kmsKnowledgeMoneyConfig*"
+			defaultValidator="roleValidator(role=ROLE_KMSASKKNOWLEDGEMONEYRULE_EDIT)">
+		</request>
+
+		<!-- 爱问分类权限 -->
+		<request
+			path="kms_ask_category/kmsAskCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskCategory,adminRoleName=ROLE_KMSASKCATEGORY_ADMIN">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 复制 -->
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+
+		<!-- 爱问提问 -->
+		<request
+			path="kms_ask_topic/kmsAskTopic*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskTopic,cateModel=com.landray.kmss.kms.ask.model.KmsAskCategory,adminRoleName=ROLE_KMSASKCATEGORY_ADMIN">
+			<!-- 删除问题 -->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_DELETE)&amp;authSimpleCategoryEditorValidator(property=fdKmsAskCategory,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 删除多个问题 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 关闭问题 -->
+			<query
+				queryString="method=close"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CLOSE)&amp;authSimpleCategoryEditorValidator(property=fdKmsAskCategory,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)|authFieldValidator(type=currUserTopic,recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskTopic)" />
+			
+			<!-- 分类下提问 -->
+			<query
+				queryString="method=add&amp;fdCategoryId=*"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdCategoryId)" />
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CREATE)" />	
+	    	<query
+				queryString="method=save|saveadd"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdKmsAskCategoryId)" />
+			
+			<!-- 增加悬赏~问题创建者 -->
+			<query
+				queryString="method=addScore"
+				validator="authFieldValidator(type=currUserTopic,recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskTopic)" />
+			<!-- 更改分类~具有该分类编辑权限 -->
+			<query
+				queryString="method=editCategory|updateCategory"
+				validator="roleValidator(role=ROLE_KMSASKCATEGORY_CHANGE)|kmsAskAuthValidator(recidTopic=fdId)" />
+			<!-- 修改向专家求助~问题创建者 -->
+			<query
+				queryString="method=updateExpertTypeHelp"
+				validator="authFieldValidator(type=currUserTopic,recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskTopic)" />
+			<!-- 二级页面置顶/首页置顶 -->
+			<query
+				queryString="method=setTop&amp;local=index"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_SETTOP)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- View页面置顶 -->
+			<query
+				queryString="method=setTop&amp;local=view"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_SETTOP)&amp;authSimpleCategoryEditorValidator(property=fdKmsAskCategory,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 取消首页置顶 -->
+			<query
+				queryString="method=cancelTop&amp;local=index"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CANCELTOP)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- View页面取消置顶 -->
+			<query
+				queryString="method=cancelTop&amp;local=view"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_CANCELTOP)&amp;authSimpleCategoryEditorValidator(property=fdKmsAskCategory,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+
+		<!-- 爱问推荐 -->
+		<request
+			path="kms_ask_introduce/kmsAskIntroduce*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskIntroduce">
+			<!-- 推荐权限~角色权限 |该问题领域专家（爱问分类）-->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_INTRODUCE)|kmsAskAuthValidator(recidIntro=fdId)" />
+			<!-- 取消推荐 -->
+			<query
+				queryString="method=cancelIntro"
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_INTRODUCE_CANCEL)" />
+		</request>
+
+		<!-- 爱问回复 -->
+		<request
+			path="kms_ask_post/kmsAskPost*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.kms.ask.model.KmsAskPost,cateModel=com.landray.kmss.kms.ask.model.KmsAskCategory">
+			<!-- 删除回复~角色权限|具有该分类编辑权限-->
+			<query
+				queryString="method=delete"
+				validator="roleValidator(role=ROLE_KMSASKPOST_DELETE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 置为最佳 -->
+			<query
+				queryString="method=best"
+				validator="authFieldValidator(type=currUserTopic,recid=fdTopicId,model=com.landray.kmss.kms.ask.model.KmsAskTopic)|roleValidator(role=ROLE_KMSASKPOST_BEST)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+			<!-- 回复权限~角色权限&提问可回答权限 -->
+			<query
+				queryString="method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_KMSASKPOST_CREATE)&amp;kmsAskAuthValidator(recidPost=fdTopicId)" />
+		</request>
+		
+		<!-- 爱问推送 -->
+		<request
+			path="kms_ask_kk/*"
+			defaultValidator="roleValidator(role=ROLE_KMSASKTOPIC_CREATE)">
+		</request>
+
+		<filters
+			modelName="com.landray.kmss.kms.ask.model.KmsAskTopic">
+			<!-- 判断当前用户是否为提问者 -->
+			<filter
+				type="currUserTopic"
+				expression="authFieldFilter(field=fdPoster.fdId)" />
+	<!--	<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSASKCATEGORY_ADMIN)" /> 
+		 	<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=fdKmsAskCategory.authAllReaders.fdId)" /> -->	
+		</filters>
+
+		<filters
+			modelName="com.landray.kmss.kms.ask.model.KmsAskPost">
+			<!-- 判断当前用户是否为回复者 -->
+			<filter
+				type="currUserPost"
+				expression="authFieldFilter(field=fdPoster.fdId)" />
+		</filters>
+		
+	</module>
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.kms.ask.model.KmsAskCategory&amp;modelName=com.landray.kmss.kms.ask.model.KmsAskTopic"
+				validator="roleValidator(role=ROLE_KMSASKCATEGORY_CHANGE)&amp;authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.kms.ask.model.KmsAskCategory,role=ROLE_KMSASKTOPIC_CATEGORY_MAINTAINER_EXTENSION)" />
+		</request>
+	</module>
+	
+	<!-- 导入导出模板 -->
+	<module urlPrefix="/sys/transport/">
+		<request path="sys_transport_import/SysTransportImport*">
+			<query
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_EXCEL_IMPORT)"
+				queryString="fdModelName=com.landray.kmss.kms.ask.model.KmsAskCategory" />
+		</request>
+		<request path="sys_transport_import/SysTransportUpload*">
+			<query
+				validator="roleValidator(role=ROLE_KMSASKTOPIC_EXCEL_IMPORT)"
+				queryString="fdModelName=com.landray.kmss.kms.ask.model.KmsAskCategory" />
+		</request>
+	</module>
+	
+	<!-- 搜索权限 -->
+	<module messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.kms.ask.model.KmsAskTopic"
+				validator="roleValidator(role=ROLE_KMSASK_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 分类概览定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsAskTopicCategoryPreManagerService"
+		messageKey="kms-ask:kmsAsk.quartz.preview"
+		jobMethod="____previeQuartz" />
+	<!-- 分类数据保护定时任务，暂时注释
+		<quartz
+			cronExpression="0 0 4 * * ?"
+			jobService="kmsAskPreService" 
+			messageKey="kms-ask:kmsAsk.quartz.categoryCount"
+			jobMethod="updateAskCount" />-->
+	<!--<portlet
+			moduleKey="kms-ask:title.kms.ask"
+			messageKey="kms-ask:kmsAsk.portlet.newAsk"
+			templateClass="com.landray.kmss.kms.ask.model.KmsAskCategory"	
+			contentURL="/kms/ask/kms_ask_portlet/kms_ask_portlet_latest.jsp?fdCategoryId=!{cateid}&amp;rowsize=!{rowsize}"
+			moreURL="/kms/ask.index" 
+			createURL="/kms/ask/kms_ask_topic/kmsAskTopic.do?method=add"/>
+
+		--><!-- 关闭提问定时任务 -->
+	<quartz
+		cronExpression="0 0 3 ? * 1"
+		jobService="kmsAskTopicService"
+		messageKey="kms-ask:kmsAsk.quartz.closeAnswerWarn"
+		jobMethod="quartzAnswer" />
+		
+		
+	<!-- 知识数定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmsHomeAskService" 
+		messageKey="kms-ask:kmsAsk.quartz.count"
+		jobMethod="updateAskCount" />
+		
+	<!-- 页面定时任务// -->
+		
+	<!-- 全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.kms.ask.model.KmsAskTopic"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="Text" />
+		<luceneField
+			name="ekpDigest"
+			property="fdKmsAskPostList:docContent"
+			type="Text" />
+		<luceneField
+			name="category"
+			property="fdKmsAskCategory.fdHierarchyId"
+			type="keyword" />
+		<luceneField
+			name="content"
+			property="docContent"
+			type="Text" /> 
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="Text" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" /><!-- 检索创建时间,只需要修改property，不需改name -->
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+	</ftSearch>
+	
+	<!-- 关联机制 -->
+	<relation
+		modelName="com.landray.kmss.kms.ask.model.KmsAskTopic"
+		messageKey="kms-ask:table.kmsAskTopic"/>
+	
+	<!-- kms后台管理 -->
+	<treeNodes type="kms">
+		<treeNode
+			messageKey="kms-ask:kmsAsk.config.tree">
+			<treeNode
+				messageKey="kms-ask:table.kmsAskIntroduce"
+				url="/kms/ask/kms_ask_introduce/kmsAskIntroduce.do?method=list">
+			</treeNode>
+			<treeNode
+				messageKey="kms-ask:kmsAsk.notify.set"
+				url="/sys/appconfig/sys_appconfig/sysAppConfig.do?method=edit&amp;modelName=com.landray.kmss.kms.ask.model.KmsAskNotifyConfig">
+			</treeNode>
+			<treeNode
+				messageKey="kms-ask:table.kmsAskCategory"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.kms.ask.model.KmsAskCategory&amp;actionUrl=/kms/ask/kms_ask_category/kmsAskCategory.do&amp;formName=kmsAskCategoryForm&amp;mainModelName=com.landray.kmss.kms.ask.model.KmsAskTopic&amp;docFkName=fdKmsAskCategory">
+			</treeNode>
+			<treeNode
+				messageKey="kms-ask:kmsAsk.config.category.import"
+				url="/sys/transport/sys_transport_import/SysTransportImport.do?method=list&amp;fdModelName=com.landray.kmss.kms.ask.model.KmsAskCategory">
+			</treeNode>
+			<treeNode
+				messageKey="kms-ask:menu.kmsAsk.config"
+				url="/kms/ask/kms_ask_config/kmsAskConfig.do?method=view">
+			</treeNode>
+			<treeNode
+				messageKey="kms-ask:kmsAskPost.knowledgeMoney.manger"
+				url="/kms/ask/kms_ask_config/kmsKnowledgeMoneyMain.jsp">
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	
+	<!-- 爱问主页配置 -->
+	<homePage
+		urlPrefix="kms/ask"
+		url="/kms/ask/index.jsp"  
+		messageKey="kms-ask:kmsAsk.tree.title"
+		config="/moduleindex_notopic.jsp?nav=/kms/ask/tree.jsp"/>
+	<!-- 爱问流程配置 -->
+	<flowDef
+		modelName="com.landray.kmss.kms.ask.model.KmsAskTopic"
+		templateModelName="com.landray.kmss.kms.ask.model.KmsAskCategory"
+		key="mainDoc"
+		templatePropertyName="kmsAskCategory"
+		moduleMessageKey="kms-ask:table.kmdoc"
+		type="oa" />
+	
+</configs>

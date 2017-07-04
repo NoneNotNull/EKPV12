@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaModuleLabelList"
+		messageKey="third-pda:table.pdaModuleLabelList"
+		displayProperty="fdName"
+		serviceBean="pdaModuleLabelListService"
+		table="pda_module_label_list"
+		url="/third/pda/pda_module_label_list/pdaModuleLabelList.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="third-pda:pdaModuleLabelList.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="third-pda:pdaModuleLabelList.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDataUrl"
+			messageKey="third-pda:pdaModuleLabelList.fdDataUrl"
+			type="String"
+			column="fd_data_url"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdCountUrl"
+			messageKey="third-pda:pdaModuleLabelList.fdCountUrl"
+			type="String"
+			column="fd_count_url"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<modelProperty
+			name="fdModule"
+			messageKey="third-pda:pdaModuleLabelList.fdModule"
+			type="com.landray.kmss.third.pda.model.PdaModuleConfigMain"
+			column="fd_module_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

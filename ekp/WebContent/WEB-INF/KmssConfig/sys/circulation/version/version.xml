@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 传阅机制支持通过isShowUiContent参数设置是否显示tab页签</description>
+			<author>朱湖强</author>
+			<revision-time>2015-01-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 普通用户无法查看传阅记录问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 传阅记录列表自适应高度问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 传阅机制的标签显示多浏览器支持</description>
+			<author>李衡</author>
+			<revision-time>2013-04-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 删除传阅记录时回收接收人的阅读权限和待阅信息</description>
+			<author>仇兴</author>
+			<revision-time>2012-09-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 “无数据时”，提示信息不统一的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-17</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+	</modifies>
+</version>

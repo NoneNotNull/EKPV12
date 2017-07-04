@@ -1,0 +1,94 @@
+.kms_share {
+	height: 16px;
+	line-height: 16px;
+	zoom: 1;
+}
+.kms_share .btn_more {
+	padding-left: 20px;
+	background: url(img/btn_share_more.png) no-repeat 0 50%;
+}
+.kms_share span {
+	display: block;
+	float: left;
+}
+.kms_share .btn_weibo {
+	background: url(img/btn_share_weibo.png) no-repeat 0 50%;
+}
+.kms_share .btn_weibo,.kms_share .btn_coll{
+	margin-left: 4px;
+	width: 18px;
+	height: 18px;
+	display: block;
+	float: left;
+	cursor: pointer;
+}
+
+.kms_share .btn_coll {
+	background: url(img/btn_share_coll.png) no-repeat 0 50%;
+}
+
+.kms_share_icon{
+	background: url(img/icon_share.png) no-repeat 0 10%;
+	width: 20px;
+	height: 20px;
+	display: block;
+	cursor: pointer;
+	float:left;
+	padding-right: 4px;
+}
+.lui_toolbar_frame .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l{
+	BORDER: 0px #30ade3 solid!important;
+	background: url(img/sharePersonal2.jpg) no-repeat 0 10%!important;
+	height: 30px;
+}
+.share_toolbar .lui_toolbar_frame .lui_toolbar_btn .lui_widget_btn_txt{
+	padding: 4px 15px;
+}
+.share_toolbar{
+	margin:10px 20px 0px;
+}
+.lui_toolbar_frame .lui_toolbar_btn_l{
+	background: url(img/shareCircle.jpg) no-repeat 0 10%!important;
+	BORDER: 0px #bbbbbb solid!important;
+	height: 30px!important;
+}
+.lui_toolbar_frame .lui_toolbar_btn_toggle_on .lui_toolbar_btn_l .lui_widget_btn_txt{
+	color:white!important;
+}
+.lui_toolbar_frame .lui_toolbar_btn_l .lui_widget_btn_txt{
+	color:black!important;
+}
+.share_count{
+	float:left;
+}
+.share_friends_tip{
+	vertical-align:top;
+	text-align:left;
+	padding-top: 40px!important;
+}
+.share_friends_tip div{
+	font-size:18px;
+	margin: 5px 0px;
+}
+.share_friends_QRCode{
+	width:30%;
+	padding-left: 3%;
+}
+.share_friends_tbl{
+	border: 1px solid #DFDFDF;
+	width:100%;
+	height:202px;
+}
+.tb_simple .inputselectsgl{
+	border: 1px solid #DFDFDF!important;
+}
+.share_btn_gray{
+	background: url(img/shareCircle.jpg) no-repeat 0 10%!important;
+	BORDER: 0px #bbbbbb solid!important;
+	height: 30px!important;
+	padding: 4px 15px;
+	cursor: pointer;
+}
+.share_btn_on{
+	background: url(img/sharePersonal2.jpg) no-repeat 0 10%!important;
+}

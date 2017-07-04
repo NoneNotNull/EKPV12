@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 日程机制 分类 业务bean -->
+	<bean id="sysAgendaCategoryDao" parent="KmssAuthBaseDao" class="com.landray.kmss.sys.agenda.dao.hibernate.SysAgendaCategoryDaoImp">
+		<property name="modelName" value="com.landray.kmss.sys.agenda.model.SysAgendaCategory" />
+	</bean>
+	<bean id="sysAgendaCategoryTarget" parent="KmssBaseTarget" class="com.landray.kmss.sys.agenda.service.spring.SysAgendaCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="sysAgendaCategoryDao" />
+		</property>
+	</bean>
+	<bean id="sysAgendaCategoryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysAgendaCategoryTarget" />
+		</property>
+	</bean>
+    <!-- 日程机制 主文档 业务bean -->
+	<bean id="sysAgendaMainDao" parent="KmssAuthBaseDao" class="com.landray.kmss.sys.agenda.dao.hibernate.SysAgendaMainDaoImp">
+		<property name="modelName" value="com.landray.kmss.sys.agenda.model.SysAgendaMain" />
+	</bean>
+	<bean id="sysAgendaMainTarget" parent="KmssBaseTarget" class="com.landray.kmss.sys.agenda.service.spring.SysAgendaMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysAgendaMainDao" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean id="sysAgendaMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysAgendaMainTarget" />
+		</property>
+	</bean>
+	
+	
+	<!-- 日程机制 分类 接口bean -->
+    <bean id="sysAgendaCategoryCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.agenda.service.spring.SysAgendaCategoryCoreServiceImpl">
+				<property name="sysAgendaCategoryService">
+					<ref local="sysAgendaCategoryService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+	<!-- 日程机制 主文档 接口bean -->
+	<bean id="sysAgendaMainCoreService" parent="KmssBaseCoreService">
+		<property name="target">
+			<bean class="com.landray.kmss.sys.agenda.service.spring.SysAgendaMainCoreServiceImpl">
+				<property name="sysAgendaMainService">
+					<ref local="sysAgendaMainService" />
+				</property>
+				<property name="sysAgendaCategoryService">
+					<ref local="sysAgendaCategoryService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+</beans>

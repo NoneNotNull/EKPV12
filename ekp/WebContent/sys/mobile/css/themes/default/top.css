@@ -1,0 +1,15 @@
+﻿.muiTop {
+	position: absolute;
+	background-color: rgba(0,0,0,0.35);
+	text-align: center;
+	width: 3.5rem;
+	height: 3.5rem;
+	cursor: pointer;
+	display: none;
+	line-height: 4rem;
+}
+
+.muiTop > i { 
+	color: #fff;
+	vertical-align: middle;
+}

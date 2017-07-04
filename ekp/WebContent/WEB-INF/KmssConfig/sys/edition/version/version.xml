@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>加上遗漏的messageKey</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>查看页面的版本信息，用ekp9的样式时，版本过多时,显示不全</description>
+			<author>朱湖强</author>
+			<revision-time>2011-11-11</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>增加当前版本字段，用于pda手机端显示</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-29</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

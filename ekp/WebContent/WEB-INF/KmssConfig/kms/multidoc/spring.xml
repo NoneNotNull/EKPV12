@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="kmsMultidocKnowledgeDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.kms.multidoc.dao.hibernate.KmsMultidocKnowledgeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+	</bean>
+	
+	<bean
+		id="hqlCombiner"
+		class="com.landray.kmss.common.dao.HQLCombiner">
+		<property name="hqlBuilder">
+			<ref bean="kmssAuthHQLBuilder" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsMultidocKnowledgeTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsMultidocKnowledgeDao" />
+		</property>
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property
+			name="kmsMultidocGenerateSnService">
+			<ref
+				local="kmsMultidocGenerateSnService" />
+		</property>
+		<property
+			name="sysCategoryPropertyService">
+			<ref
+				bean="sysCategoryPropertyService" />
+		</property>
+		<property
+			name="sysWfProcessSubService">
+			<ref
+				bean="sysWfProcessSubService" />
+		</property>
+		<property
+			name="backgroundAuthService">
+			<ref
+				bean="backgroundAuthService" />
+		</property>
+		<property
+			name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+		<property name="sysAttMainService">
+			<ref bean="sysAttMainService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref bean="sysTagMainRelationService" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService" />
+		</property>
+		<property name="kmsCommonRecycleLogService">
+			<ref bean="kmsCommonRecycleLogService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocKnowledgeService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsMultidocKnowledgeTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocKnowledgePortlet"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgePortlet">
+		<property
+			name="kmsMultidocKnowledgeService">
+			<ref
+				local="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="kmsMultidocTemplateService">
+			<ref
+				local="kmsMultidocTemplateService" />
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property
+			name="beanNames">
+			<value>kmsMultidocKnowledgeDao</value>
+		</property>
+		<property
+			name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+				<value>luceneDeleteAdvisor</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.multidoc.dao.hibernate.KmsMultidocTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate" />
+	</bean>
+	<bean
+		id="kmsMultidocTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsMultidocTemplateDao" />
+		</property>
+		<property
+			name="kmsMultidocGenerateSnService">
+			<ref
+				local="kmsMultidocGenerateSnService" />
+		</property>
+		 
+	</bean>
+	<bean
+		id="kmsMultidocTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsMultidocTemplateTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocTemplateTreeService"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocTemplateTreeService">
+		<property
+			name="kmsMultidocTemplateService">
+			<ref
+				local="kmsMultidocTemplateService" />
+		</property>
+	</bean>
+	<!-- 我常用文档目录portlet -->
+	<bean
+		id="kmsMultidocKnowledgeCommonPortlet"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeCommonPortlet">
+		<property
+			name="kmsMultidocTemplateService">
+			<ref
+				local="kmsMultidocTemplateService" />
+		</property>
+		<property
+			name="sysAppConfigService">
+			<ref
+				bean="sysAppConfigService" />
+		</property>
+	</bean>
+
+	<!-- 流水号 -->
+	<bean
+		id="kmsMultidocSnDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.multidoc.dao.hibernate.KmsMultidocSnDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.multidoc.model.KmsMultidocSn" />
+	</bean>
+	<bean
+		id="kmsMultidocSnTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocSnServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsMultidocSnDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocSnService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsMultidocSnTarget" />
+		</property>
+	</bean>
+
+	<!-- 流水号服务 -->
+
+	<bean
+		id="kmsMultidocGenerateSnTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocGenerateSnServiceImp">
+		<property
+			name="kmsMultidocSnService">
+			<ref
+				local="kmsMultidocSnService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocGenerateSnService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsMultidocGenerateSnTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="get*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 搜索数据字典加载器（扩展点实现） -->
+	<bean
+		id="kmsMultidocSearchCategoryDictLoader"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocSearchCategoryDictLoader">
+		<property
+			name="sysDictLoader">
+			<ref
+				bean="sysPropertyDictLoader" />
+		</property>
+	</bean>
+	
+
+	
+
+	<bean
+		id="kmsMultidocViewJspBuilder"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocViewJspBuilder">
+		<property
+			name="tagBuilder">
+			<ref
+				bean="sysPropertyTagBuilder" />
+		</property>
+	</bean>
+		 
+	<bean
+		id="kmsMultidocTemplateCheckService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocTemplateCheckService">
+		<property name="kmsMultidocTemplateService">
+			<ref local="kmsMultidocTemplateService" />
+		</property>
+		 
+	</bean>
+	<!--
+		<bean
+			id="kmsMultidocClassFilter"
+			class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocClassFilter">
+			<property
+				name="kmsMultidocTemplateService">
+				<ref
+					bean="kmsMultidocTemplateService" />
+			</property>
+		</bean>
+		-->
+
+	 
+	<bean
+		id="kmsMultidocTemplateListService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocTemplateListService">
+		<property name="kmsMultidocTemplateService">
+			<ref local="kmsMultidocTemplateService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="authCategoryExternalValidator"
+		class="com.landray.kmss.kms.multidoc.service.AuthCategoryExternalValidator">
+		<property name="kmsMultidocTemplateService">
+			<ref local="kmsMultidocTemplateService" />
+		</property>
+	</bean>
+	
+	<!-- 标准地址本改造的服务类 -->
+	<bean
+		id="kmsMultidocOrgDialogList"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocOrgDialogList">
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+	</bean>
+	<!-- 修改知识文档预览的service部署 by yangf 20110913 -->
+	<bean id="kmsMultidocKnowledgePreTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgePreServiceImp"
+		parent="KmssBaseTarget">
+		<property
+			name="kmsMultidocKnowledgeService">
+			<ref
+				local="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="baseDao">
+			<ref local="kmsMultidocKnowledgePreDao" />
+		</property>
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocKnowledgePreService"
+		parent="KmssBaseService">
+
+		<property name="target">
+			<ref local="kmsMultidocKnowledgePreTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocKnowledgePreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.multidoc.dao.hibernate.KmsMultidocKnowledgePreDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledgePre" />
+	</bean>
+	
+	<bean
+		id="kmsMultidocKnowledgeXMLService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocKnowledgeXMLService">
+		<property name="kmsMultidocKnowledgeService">
+			<ref local="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="sysTagMainRelationService">
+			<ref
+				bean="sysTagMainRelationService" />
+		</property>
+		<property name="sysTagMainService">
+			<ref bean="sysTagMainService" />
+		</property>
+		<property
+			name="sysTagTagsService">
+			<ref bean="sysTagTagsService" />
+		</property>
+		 
+	</bean>
+	
+	<bean
+		id="kmsMultidocKnowledgePreXMLService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocKnowledgePreXMLService">
+		<property name="kmsMultidocKnowledgePreService">
+			<ref local="kmsMultidocKnowledgePreService" />
+		</property>
+	</bean>
+    
+	<bean
+		id="kmsMultidocFormulaDictVarTree"
+		class="com.landray.kmss.kms.multidoc.dict.KmsMultidocFormulaDictVarTree">
+		<property name="sysPropertyTemplateService" ref="sysPropertyTemplateService"></property>
+	</bean>
+    
+	<bean
+		id="kmsMultidocFilterListService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocFilterListService">
+		<property
+			name="sysPropertyFilterService">
+			<ref bean="sysPropertyFilterService" />
+		</property>
+		<property
+			name="sysPropertyFilterSettingService">
+			<ref bean="sysPropertyFilterSettingService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsMultidocSearchTreeService"
+		class="com.landray.kmss.kms.multidoc.service.KmsMultidocSearchTreeService">
+		<property
+			name="sysPropertyFilterService">
+			<ref bean="sysPropertyFilterService" />
+		</property>
+		<property
+			name="sysPropertyFilterSettingService">
+			<ref bean="sysPropertyFilterSettingService" />
+		</property>
+		<property
+			name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="kmsMultidocTemplateService">
+			<ref bean="kmsMultidocTemplateService" />
+		</property>
+		<property
+			name="sysPropertyTreeService">
+			<ref bean="sysPropertyTreeService" />
+		</property>
+		
+	</bean>
+	<bean id="kmsMultidocWebserviceService" class="com.landray.kmss.kms.multidoc.webservice.KmsMultidocWebserviceService">
+		<property
+			name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="sysWsAttService">
+			<ref bean="sysWsAttService" />
+		</property>
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property
+			name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+	</bean>
+	<!--多维库类别维护Webservice服务 begin-->
+	<bean id="kmsMultidocMaintainCategoryWSService"
+		class="com.landray.kmss.kms.multidoc.webservice.category.service.KmsMultidocMaintainCategoryWSService">
+		<property name="kmsMultidocAddCategoryProcessor">
+			<ref bean="kmsMultidocAddCategoryProcessor" />
+		</property>
+		<property name="kmsMultidocUpdateCategoryProcessor">
+			<ref bean="kmsMultidocUpdateCategoryProcessor" />
+		</property>
+		<property name="kmsMultidocDelCategoryProcessor">
+			<ref bean="kmsMultidocDelCategoryProcessor" />
+		</property>
+	</bean>
+	
+	<bean id="kmsMultidocAddCategoryProcessor" class="com.landray.kmss.kms.multidoc.webservice.category.processor.KmsMultidocAddCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsMultidocUpdateCategoryProcessor" class="com.landray.kmss.kms.multidoc.webservice.category.processor.KmsMultidocUpdateCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	
+	<bean id="kmsMultidocDelCategoryProcessor" class="com.landray.kmss.kms.multidoc.webservice.category.processor.KmsMultidocDelCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="compBklinkService">
+			<ref bean="compBklinkService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	<!--多维库类别维护Webservice服务定义end -->
+   
+	<!--多维库类别查询Webservice服务 begin-->
+	<bean id="kmsMultidocSearchCategoryWSService"
+		class="com.landray.kmss.kms.multidoc.webservice.category.service.KmsMultidocSearchCategoryWSService">
+		<property name="kmsMultidocSearchCategoryProcessor">
+			<ref bean="kmsMultidocSearchCategoryProcessor" />
+		</property>	
+		<property
+			name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>		
+	</bean>
+     
+	<bean id="kmsMultidocSearchCategoryProcessor" class="com.landray.kmss.kms.common.webservice.processor.category.KmsSearchCategoryProcessor">
+		<property
+			name="actualOperateService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+	<!--多维库类别查询Webservice服务 end --> 
+    
+	<!--多维库文档维护Webservice服务 begin-->
+	<bean id="kmsMultidocMaintainDocWSService"
+		class="com.landray.kmss.kms.multidoc.webservice.doc.service.KmsMultidocMaintainDocWSService">
+		<property name="kmsMultidocAddDocProcessor">
+			<ref bean="kmsMultidocAddDocProcessor" />
+		</property>	
+		<property name="kmsMultidocUpdateDocProcessor">
+			<ref bean="kmsMultidocUpdateDocProcessor" />
+		</property>
+		<property name="kmsMultidocDelDocProcessor">
+			<ref bean="kmsMultidocDelDocProcessor" />
+		</property>	
+	</bean>
+     
+	<bean id="kmsMultidocAddDocProcessor" class="com.landray.kmss.kms.multidoc.webservice.doc.processor.KmsMultidocAddDocProcessor">
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsMultidocUpdateDocProcessor" class="com.landray.kmss.kms.multidoc.webservice.doc.processor.KmsMultidocUpdateDocProcessor">
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsMultidocDelDocProcessor" class="com.landray.kmss.kms.multidoc.webservice.doc.processor.KmsMultidocDelDocProcessor">
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property
+			name="actualOperateService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="sysWsOrgService">
+			<ref bean="sysWsOrgService" />
+		</property>
+		<property name="kmsWebserviceAuthService">
+			<ref bean="kmsWebserviceAuthService" />
+		</property>
+	</bean>
+	<!--多维库文档维护Webservice服务 end-->
+	<bean id="kmsSelectedShowService"
+		class="com.landray.kmss.kms.multidoc.service.portlet.KmsSelectedShowService">
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="kmsMultidocTemplateService">
+			<ref bean="kmsMultidocTemplateService" />
+		</property>
+	</bean>      
+	<bean id="kmsHomeMultidocService"
+		class="com.landray.kmss.kms.multidoc.service.portlet.KmsHomeMultidocService">
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="kmsMultidocTemplateService">
+			<ref bean="kmsMultidocTemplateService" />
+		</property>
+		<property name="kmsMultidocKnowledgePreService">
+			<ref bean="kmsMultidocKnowledgePreService" />
+		</property>
+		<property name="sysPropertyFilterSettingService">
+			<ref bean="sysPropertyFilterSettingService"/>
+		</property>
+		<property name="sysPropertyReferenceService">
+			<ref bean="sysPropertyReferenceService"/>
+		</property>
+		<property name="sysPropertyFilterMainService">
+			<ref bean="sysPropertyFilterMainService" />
+		</property>
+		<property name="sysPropertyFilterService">
+			<ref bean="sysPropertyFilterService"/>
+		</property>
+	</bean>
+	
+	<!-- 知识主页取查询条件 -->
+	<bean id="kmsHomeFilterXMLService" class="com.landray.kmss.kms.multidoc.service.spring.KmsHomeFilterXMLService">
+		<property name="sysPropertyFilterMainService">
+			<ref bean="sysPropertyFilterMainService" />
+		</property>
+	</bean>
+	
+	<!--个人主页多维库列表portlet -->
+	<bean id="kmsDocKnowledgePersonalPortlet"
+		class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocKnowledgePersonalPortlet">
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsDocKnowledgeIntroPortlet" class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocKnowledgeIntroPortlet">
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsDocKnowledgePerCenterPortlet"
+		class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocKnowledgePerCenterPortlet">
+		<property name="sysNotifyTodoService">
+			<ref bean="sysNotifyTodoService" />
+		</property>
+		<property name="sysBookmarkMainService">
+			<ref bean="sysBookmarkMainService" />
+		</property>
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+	</bean>
+	
+	<!-- 风琴式分类概览 -->
+	<bean id="kmsDocknowledgeCategoryPortlet" class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocknowledgeCategoryPortlet">
+		<property name="kmsMultidocTemplateService">
+			<ref local="kmsMultidocTemplateService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsDocKnowledgeProfilePortlet" class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocKnowledgeProfilePortlet">
+		<property name="kmsMultidocKnowledgeService">
+			<ref local="kmsMultidocKnowledgeService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsDocknowledgeCategoryExtendPortlet" class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocknowledgeCategoryExtendPortlet">
+		<property name="kmsMultidocTemplateService">
+			<ref local="kmsMultidocTemplateService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsDocFirstCategoryPortlet" class="com.landray.kmss.kms.multidoc.service.portlet.KmsDocFirstCategoryPortlet">
+		<property name="kmsMultidocTemplateService">
+			<ref bean="kmsMultidocTemplateService"/>
+		</property>
+	</bean>
+	<bean id="kmsIntroSelectedShowService"
+		class="com.landray.kmss.kms.multidoc.service.portlet.KmsIntroSelectedShowService">
+		<property name="kmsMultidocKnowledgeService">
+			<ref bean="kmsMultidocKnowledgeService" />
+		</property>
+		<property name="kmsMultidocTemplateService">
+			<ref bean="kmsMultidocTemplateService" />
+		</property>
+	</bean>  
+	
+	<!--多维分类概览-->
+	<bean id="kmsMultidocCategoryPreManagerService" class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsMultidocKnowledgeService"/>
+		</property>
+		<property name="templateService">
+			<ref bean="kmsMultidocTemplateService"/>
+		</property>
+		<property name="preService">
+			<ref bean="kmsMultidocCategoryPreService"/>
+		</property>
+	</bean>	
+	<bean
+		id="kmsMultidocCategoryPreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.multidoc.dao.hibernate.KmsMultidocCategoryPreviewDao">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.multidoc.model.KmsMultidocCategoryPreview" />
+	</bean>
+	<bean id="kmsMultidocCategoryPreTarget"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocCategoryPreviewService"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsMultidocCategoryPreDao" />
+		</property>
+		<property
+			name="kmsMultidocKnowledgeService">
+			<ref
+				local="kmsMultidocKnowledgeService" />
+		</property>
+		<property
+			name="kmsKnowledgeCategoryService">
+			<ref
+				bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>  
+	<bean
+		id="kmsMultidocCategoryPreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsMultidocCategoryPreTarget" />
+		</property>
+	</bean>  
+	
+	<bean
+		id="kmsMultidocPortletService"
+		class="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocPortletService">
+		<property name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService"/>
+		</property>
+		<property name="kmsMultidocKnowledgeService">
+			<ref local="kmsMultidocKnowledgeService"/>
+		</property>
+	</bean> 
+	
+	<bean
+		id="kmsMultidocLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsMultidocKnowledgeService</value>
+				<value>kmsMultidocKnowledgeXMLService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>	
+</beans>
+ 

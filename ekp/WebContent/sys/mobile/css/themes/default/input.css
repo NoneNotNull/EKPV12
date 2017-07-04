@@ -1,0 +1,16 @@
+﻿.muiFormInput {
+	padding: 0;
+	border: none;
+	text-align: left;
+	width: 100%;
+	font-size: 1.4rem;
+}
+
+.muiFormTextarea {
+	border: none;
+	overflow-y: hidden;
+	padding: 0;
+	vertical-align: top;
+	width: 100%;
+	font-size: 1.4rem;
+}

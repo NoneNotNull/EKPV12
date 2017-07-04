@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptFilter"
+		messageKey="kms-evaluate:table.kmsEvaluateDeptFilter"
+		displayProperty="fdCountStartTime"
+		serviceBean="kmsEvaluateDeptFilterService"
+		table="kms_evaluate_dept_filter"
+		url="/kms/evaluate/kms_evaluate_dept_filter/kmsEvaluateDeptFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCountStartTime"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdCountStartTime"
+			type="Long"
+			column="fd_count_start_time"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCountEndTime"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdCountEndTime"
+			type="Long"
+			column="fd_count_end_time"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="read"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.read"
+			type="Boolean"
+			column="read"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="evaluation"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.evaluation"
+			type="Boolean"
+			column="evaluation"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="introduce"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.introduce"
+			type="Boolean"
+			column="introduce"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="create"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.create"
+			type="Boolean"
+			column="create"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="delete"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.delete"
+			type="Boolean"
+			column="delete"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="update"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.update"
+			type="Boolean"
+			column="update"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdAlterTime"
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdCount"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdCount"
+			type="com.landray.kmss.kms.evaluate.model.KmsEvaluateDeptCount"
+			column="fd_count_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdDept"
+			messageKey="kms-evaluate:kmsEvaluateDeptFilter.fdDept"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_dept"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

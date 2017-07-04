@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 将连接URL字段长度从200增加至1000</description>
+			<author>李斌斌</author>
+			<revision-time>2014-01-16</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 多行文本框编辑时输入换行，显示的时候没换行的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-27</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修正数据源自动提交问题，避免事务提交后，自动提交强置为true</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>添加关闭数据库连接和关闭流动作</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-09-06</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>增加描述字段</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-29</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

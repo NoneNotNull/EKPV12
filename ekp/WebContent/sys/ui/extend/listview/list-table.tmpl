@@ -1,0 +1,45 @@
+var lv = layout.parent;
+var datas = lv.getData().datas;
+var columns = lv.getData().columns;
+{$
+<div class="lui_listview_main">
+	<div class="lui_listview_header_l">
+		<div class="lui_listview_header_r">
+			<div class="lui_listview_header_c">
+			</div>
+		</div>
+	</div>
+	<div class="lui_listview_center_l">
+		<div class="lui_listview_center_r">
+			<div class="lui_listview_center_c">
+				<table width="100%" class="lui_listview_columntable_listtable">
+					<thead class="lui_listview_listtable_thead" data-lui-mark="column.table.header">$}
+						for (var i = 0; i < columns.length; i ++) {
+							var col = columns[i];
+							{$<th class="lui_listview_listtable_th" style='{%col.style%}' data-lui-mark-id='{%col.rowId%}' data-lui-mark-sort='{%col.sort%}' data-lui-mark-toggle-index='{%col.index%}'>{%col.title%}</th>$}
+						}
+					{$</thead>
+					<tbody>$}
+						for (var i = 0; i < datas.length; i ++) {
+							
+							{$<tr class="lui_listview_listtable_tr" data-lui-mark-id='{%lv.kvData[i]['rowId']%}'>$}
+							var row = datas[i];
+							for (var j = 0; j < row.length; j ++) {
+								var cell = row[j];
+								{$<td class="lui_listview_listtable_td" style='{%cell.style%}'>{%cell.value%}</td>$}
+							}
+							{$</tr>$}
+						}
+					{$</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="lui_listview_footer_l">
+		<div class="lui_listview_footer_r">
+			<div class="lui_listview_foot_c">
+			</div>
+		</div>
+	</div>
+</div>
+$}

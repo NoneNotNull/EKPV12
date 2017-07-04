@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="wechatConfigForm"
+			type="com.landray.kmss.third.wechat.forms.WechatConfigForm" />	
+	 <form-bean
+			name="wechatSysConfigForm"
+			type="com.landray.kmss.third.wechat.forms.WechatSysConfigForm" />	
+	</form-beans>
+	
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/third/wechat/wechatLoginHelper"
+			type="com.landray.kmss.third.wechat.actions.WechatLoginHelperAction"
+			name="wechatConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/third/wechat/wechatIndex.jsp" />
+			<forward
+				name="edit"
+				path="/third/wechat/wechatConfig_edit.jsp" />
+			<forward name="login" path="/third/wechat/welogin.jsp" />
+			<forward name="bindSuccess" path="/third/wechat/bindSuccess.jsp" />
+			<forward name="bindFail" path="/third/wechat/bindFail.jsp" />		
+			<forward name="relogin" path="/third/wechat/relogin.jsp" />		
+		</action>
+		
+		<action
+			path="/third/wechat/wechatConfig"
+			type="com.landray.kmss.third.wechat.actions.WechatConfigAction"
+			name="wechatSysConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/third/wechat/wechatIndex.jsp" />
+			<forward
+				name="edit"
+				path="/third/wechat/wechatSysConfig_edit.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="sys-material:module.sys.material"
+		urlPrefix="/sys/material/"
+		defaultValidator="roleValidator(role=SYSROLE_USER)">
+		<roles>
+			ROLE_SYSMATERIAL_DEFAULT
+		</roles>
+
+		<request
+			path="sys_material_main/sysMaterialMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.material.model.SysMaterialMain">
+		</request>
+
+	</module>
+	
+	<homePage
+		urlPrefix="sys/material"
+		messageKey="sys-material:module.sys.material"
+		config="/sys/material/sys_material_main/sysMaterialMain.do?method=list&amp;fdModelName=com.landray.kmss.sns.group.model.SnsGroupMain" 
+		type="global" />
+	
+</configs>

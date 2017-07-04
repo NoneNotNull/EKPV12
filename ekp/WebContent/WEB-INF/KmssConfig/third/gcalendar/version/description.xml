@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://www.example.org/description-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/description-config ../../../description.xsd">
+	<module>
+		<module-name>谷歌日历集成组件</module-name>
+		<module-path>third/gcalendar</module-path>
+		<baseline>V12.0.0.R.20150325</baseline>
+		<source-md5>20444102d9bb93a1ef057263e62a3ab7</source-md5>
+		<is-custom>否</is-custom>
+		<serial-num>0</serial-num>
+	</module>
+</description>

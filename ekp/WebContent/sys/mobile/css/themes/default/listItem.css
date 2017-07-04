@@ -1,0 +1,956 @@
+﻿/*列表对象*/
+.muiListItem{
+	padding: 1.3rem 0 0.5rem;
+	border-bottom: 1px solid #e5e5e5;
+	display: block;
+	list-style: none;
+	margin: 0 1rem;
+	overflow: hidden;
+}
+
+/*列表摘要*/
+.muiListSummary{
+	color: #989898;
+	font-size: 1.3rem;
+	line-height: 1.5rem;
+}
+
+/*列表简要信息*/
+.muiListInfo{
+	margin-top: 1.2rem;
+	clear: both;
+	width: 100%;
+	color: #555;
+	display: table;
+	min-height: 1.8rem;
+	table-layout: fixed; 
+	position:relative;
+}
+
+.muiListInfo>div{
+	font-size: 1.2rem;
+	text-align: left;
+	vertical-align: middle;
+    white-space:nowrap;
+	display: table-cell;
+	line-height: 1;
+}
+.muiListInfo>div>i.mui{
+	margin-right: 2px;
+	font-size: 1.5rem;
+	line-height: 1;
+	position: relative;
+	top:-1px;
+}
+
+/*右图列表*/
+.muiComplexrItem{
+	display: block;
+}
+.muiComplexrTop{
+	color: #333;
+	display: block;
+	zoom:1;
+	/*min-height: 5.5rem;*/
+}
+.muiComplexrTop:after{
+	content: 'clear';
+	clear: both;
+	display: block;
+	line-height: 0;
+	visibility: hidden;
+}
+.muiComplexrBottom{
+	
+}
+.muiComplexrTitle{
+	margin:0 0 0.8rem 0;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.muiComplexrItem:visited{
+	color: #888;
+}
+.muiComplexrSummary{
+    margin:0;
+	max-height: 3.2rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 8.8rem;
+	height: 6.6rem;
+	overflow: hidden;
+	float: right;
+}
+.muiComplexrImg{
+	width: 100%;
+	text-align: right;
+}
+
+.muiComplexrCreated,.muiComplexrRead,.muiComplexrStatus{
+		color: #989898;
+}
+.muiComplexrItem .muiComplexrRead{ font-size:1.5rem; position: relative; top:-1px;}
+.muiComplexrItem .muiComplexrRead .muiNumber{ font-size:1.2rem; position:relative; top:-2px;}
+.muiComplexrCreated{ padding-right:2rem; float:left}
+.muiComplexrCreator{
+	min-width: 48px;
+	float:left;
+	padding-right:2rem;
+}
+
+.muiComplexrRead{
+	width: 4rem; float:left
+}
+
+.muiListInfo>div.muiComplexrStatus{
+	margin-top: -6px;
+	min-height: 26px;
+	text-align: right;
+	line-height: normal;
+	float:right;
+}
+
+.muiComplexrStatusBorder{
+	font-size: 1rem;
+ 	border-radius: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: initial;
+	display:block;
+	padding: 0.2rem 0.4rem;
+	max-width: 5rem;
+}
+/*** 三级页面带回复的（圈子话题，问答阅读）***/
+.muiTopicReplyContainer .muiPostItem {
+	display: block;-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.muiTopicReplyContainer .muiPostItem:last-child{ border-bottom:none;}
+.muiTopicReplyContainer .muiPostItem .muiPostContent{ background-color:transparent;}
+.muiTopicReplyContainer .mblEdgeToEdgeList {
+	background-color: #f5f7fa;
+}
+.muiTopicReplyContainer .muiPostItem .muiPostHead .muiTopicReplyOpt,
+.muiTopicReplyContainer .muiPostItem .muiPostHead  .muiPostReplyOpt{ vertical-align:top; width:3.6rem;}
+.muiTopicReplyContent{
+	padding: 0.5rem 0 0.5rem 4.5rem;
+	display: block;
+	color: #333;
+	word-break: break-word;
+	word-wrap: break-all;
+	font-size: 1.4rem;
+}
+.muiTopicReplyContent>p{
+	padding:0;
+	margin:0;
+}
+
+.muiTopicReplyOperation {
+	position: relative;
+	right: 0rem;
+	top: 0.5rem;
+	display: block;
+	width: 3rem;
+	height: 2rem;
+	background: #fff;
+	border: 0.1rem #cbcbcb solid;
+	border-radius: 4px; z-index:11;
+	text-align: center;-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.muiTopicReplyOperation .l {
+	position: absolute;
+	left: -1.1rem;
+	top: 0.5rem;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-width: 0.5rem;
+	border-style: dashed solid dashed dashed;
+	border-color: transparent #cbcbcb transparent transparent;
+}
+.muiTopicReplyOperation .f {
+	position: absolute;
+	left: -1rem;
+	top: 0.5rem;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	border-width: 0.5rem;
+	border-style: dashed solid dashed dashed;
+	border-color: transparent #FFF transparent transparent;
+}
+.muiTopicReplyOperation .mui.mui-more {
+	line-height: 2.5rem;
+	font-size: 2.5rem;
+	color: #626466;
+}
+.muiTopicReplyEvaluation {
+	padding-left:4.5rem;
+	font-size:1.2rem; padding-top:1rem;
+}
+.muiTopicReplyEvaluationLi:first-child{ border-top:0.1rem solid #d9d9d9;}
+.muiTopicReplyEvaluationLi {
+	padding: 0.6rem 0.2rem;
+}
+.muiTopicReplyEvaluationLi i.muiTopicReplyEvaTime {
+	color: #a0a0a3;
+	font-style: normal;
+	padding-left:0.2rem;
+}
+
+
+/*左图列表*/
+.muiComplexlItem {
+}
+
+.muiComplexlItem a {
+	padding-left: 11rem;
+	position: relative;
+	min-height: 7.8rem;
+	display: block;
+}
+
+.muiComplexlItem a>span:first-child {
+	height: 7.6rem;
+	width: 10rem;
+	position: absolute;
+	left: .25rem;
+	top: 0;
+	line-height: 7.6rem;
+	text-align: center;
+}
+
+.muiComplexlItem h3{
+	margin: 0 0 0.5rem;
+	font-size: 1.7rem;
+	color: #000;
+	word-break: break-all;
+	font-weight: normal;
+}
+.muiComplexlItem a:VISITED h3{
+	color: #888;
+}
+
+.muiComplexlItem p {
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	max-height: 3.1em;
+}
+
+.muiComplexlItem img {
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: top; margin-top:5px;
+	position: relative;
+	top: -1px;
+}
+
+.muiComplexlBottom {
+}
+
+.muiComplexlItem .muiComplexlCreated,.muiComplexlItem .muiComplexlRead {
+	text-align: left;
+	color: #989898;
+}
+
+.muiComplexlItem .muiComplexlRead{
+	text-align: right;
+	padding-left: 1rem;
+}
+
+
+/*纯文本列表*/
+.muiTextItem {
+	display: block;
+}
+.muiTextItem.muiTextItemL {
+	padding-left: 3rem;
+	position: relative;
+}
+
+.muiTextItem.muiTextItemL>img{
+	width: 2rem;
+	height: 2rem;
+	position: absolute;
+	top: 0.8rem;
+	left: 0.5rem;
+}
+
+.muiTextItem a{
+	margin: 0 0 0.5rem 0;
+	vertical-align: middle;
+	font-size: 1.6rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.muiListItem a:visited .muiSubject,.muiListItem a:visited .muiComplexrTitle {
+	color: #888 !important;
+}
+
+.muiTextItem p{
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+	clear: both;
+	width: auto;
+	color: #555;
+	display: table;
+	min-height: 1.8rem;
+	table-layout: fixed;
+}
+
+.muiTextItem a img {
+	width: 2.8rem;
+	height: 2.1rem;
+	margin-left: 0.8rem;
+}
+
+.muiTextCreated,.muiTextCreator{
+	color: #989898;
+	width: 6.5rem;
+	padding-right: 1rem;
+}
+
+.muiTextCreator{
+	min-width: 48px;
+}
+
+a.com_author {
+	display: inline;
+}
+
+/*审批列表*/
+.muiProcessItem{
+	overflow: hidden;
+}
+.muiProcessRight{
+	width: 7rem;
+	text-align:center;
+	overflow: hidden;
+	float: right;
+}
+.muiProcessImg{
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+}
+.muiProcessCreator{
+	display: block;
+	font-size: 1.2rem !important;
+	line-height:1;
+
+}
+.muiProcessCreated{
+	font-size: 1.2rem !important;
+	color:#989898!important;
+	line-height: 1!important;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative;
+	top:-4px;
+}
+.muiEssence{ color:#f00; border-color:#f00;}
+.muiProcessLeft{
+	height: 100%;
+	display: block;
+}
+.muiProcessStatusBorder{
+	display: inline-block;
+	font-size: 1.2rem;
+	color:#297de0;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	padding:0rem 0.3rem;
+	border-radius: 0.2rem;
+	border-width: 1px;
+	border-style: solid;
+	margin-right: 0.5rem; position:relative; top:-0.1rem;
+}
+.muiProcessStatusBorder.muiEssence{ border-color:#f00; color:#f00;}
+.muiProcessLeft .muiProcessStatusBorder,.muiCardItem .muiProcessStatusBorder{ position:relative; top:-0.1rem; margin-right: 0.5rem;}
+.muiProcessDiscard{
+	border-color: #ff9c00;
+	color: #ff9c00;
+}
+.muiProcessDraft{
+	border-color: #aaa;
+	color: #aaa;
+}
+.muiProcessExamine{
+	border-color: #18b4ed;
+	color: #18b4ed;}
+.muiProcessRefuse{
+	border-color: #ff0000;
+	color: #ff0000;
+}
+.muiProcessPublish{
+	border-color: #4cbe45;
+	color: #4cbe45;
+}
+
+.muiProcessTitle{
+	margin: 0 0 0.5rem 0;
+ 	min-height:3.8rem;	
+ 	font-size: 1.6rem;
+	font-weight: normal;
+	line-height: 1.9rem;
+	max-height: 3.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.muiProcessSummary{
+	margin:14px 0rem 0rem 0rem;
+	padding-right: 7rem;
+	color:#989898!important;
+	font-size:1.2rem!important;
+	line-height: 1;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+.muiProcessSign{
+	color: #989898;
+	font-size:1.4rem;
+	line-height: 1.8rem;
+	margin-right: 0.3rem;
+}
+
+/*卡片式列表*/
+.muiCardItem{
+	overflow:hidden;
+	margin-top:1rem;
+	background:#fff;
+	display:block;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	padding:1rem; 
+	min-height:6rem;
+	border-radius:5px;
+	border:1px solid #d0d0d0;
+	line-height:1.5rem;
+	position:relative;
+}
+.muiCardItem .figure{ 
+	position:relative;
+	min-height:3.7rem;
+	margin-bottom:8px;
+	padding-left:4.5rem;
+}
+.muiCardItem .figure .figureImgW{ 
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.muiCardItem .figure .title{  
+	vertical-align:top;
+	line-height: 1.9rem;
+	word-break:break-all;
+	margin: 0 0 0.5rem 0;
+ 	min-height:3.8rem;	
+ 	font-size: 1.6rem;
+	font-weight: normal;
+	max-height: 3.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	-webkit-box-pack: center;
+}
+.muiCardItem:last-child{
+	margin-bottom:1rem;
+}
+.muiCardItem .imgBox{ width:3.7rem; height:3.7rem; line-height:3.6rem; background:#3fa9f5; border-radius:50%; text-align:center; color:#fff; font-size:4rem;}
+.muiCardItem .imgBox .mui{ font-size:2.8rem;}
+.muiCardItem .imgBox .mui.mui-bookOpenLogo{ position: relative; top:-3px;}
+.gray .mblEdgeToEdgeList{ background-color:transparent;}
+
+.muiCardItem .lock .title{ 
+	color:#888!important;
+}
+.muiCardItem .figure .title .warn{ 
+	color:#f00;
+	margin-right:5px;
+}
+.muiCardItem.mblListItemSelected{
+	background-color: rgb(228, 228, 228);
+}
+.muiCardSummary{ 
+	border-top:1px solid #e1e1e1;
+	padding-top:8px;
+	margin: 1rem 0rem 0rem 0rem;
+}
+.muiCardSummary .summary{
+	max-height: 3.5rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	margin-bottom:6px;
+	word-break: break-all;
+	line-height:1.8rem;
+}
+.muiCardIcoList{ 
+	zoom:1;
+	padding-left: 0px;
+}
+.muiCardIcoList:after{ 
+	display:block;
+	clear:both;
+	line-height:0px;
+	visibility:hidden;
+	content:'clear';
+}
+.muiCardIcoList li{ 
+	font-size:1.2rem;
+	margin-top:2px;
+	float:left;
+	margin-right:1rem;
+	color:#888;
+	line-height:1.4rem;
+}
+.muiCardIcoList li i{ 
+	margin-right:2px;
+	position: relative;
+	top:-1px;
+}
+.muiCardIcoList li:last-child{ 
+	margin-right:0px;
+}
+/*.muiCardItem .icoLock{ 
+	font-size:1.4rem;
+	color:#fff;
+	display:inline-block;
+	width:0px;
+	height:0px;
+	border-top: 2.6rem solid #b8b8b8;
+	border-left: 2.6rem solid transparent;
+	position:absolute;
+	right:0px;
+	top:0px;
+}*/
+.muiCardItem .icoLock{ 
+	width: 55px; height:10px;
+	font-size: 1.2rem;
+	position: absolute;
+	right: -16px;
+	top: -6px;
+	padding: 5px 0px;
+	background-color: #b8b8b8;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+.muiCardItem .icoLock i{ 
+	position:absolute;
+	left:30px;
+	top:4px; 
+	font-size:1.6rem; z-index:12;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg)
+}
+.muiCardItem ul{list-style: none;}
+.muiCardItem .mui {
+	font-size:1.6rem;
+	line-height: 1.4rem; 
+	vertical-align:middle;
+}
+.muiCardItem .mui.mui-eyes{ font-size:1.5rem;}
+
+/*图文混合*/
+.muiMixContentItem{
+	display: block;
+	margin: 0.8rem;
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
+}
+.muiMixContentItem .muiListItem{
+	margin:0rem; padding:0rem; border-radius: 0.3rem;  border-bottom:none;padding: 0.8rem;border:1px solid #d5d5d5;
+}
+.muiMixContentItem .muiListItem:visited .muiMixContentTitle{
+	color: #888;
+}
+
+.muiMixContentItem .icoLock{ 
+	width: 55px; height:10px;
+	font-size: 1.2rem;
+	position: absolute;
+	right: -16px;
+	top: -6px;
+	padding: 5px 0px;
+	background-color: #b8b8b8;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+
+.muiMixContentItem .icoLock i {
+	position: absolute;
+	left: 30px;
+	top: -1px;
+	font-size: 1.6rem;
+	z-index: 12;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+}
+
+.muiMixContentItem .muiMixContentTop{
+	clear:both;
+	width:100%;
+	overflow: hidden;
+	display:table;
+	border: none;
+}
+.muiMixContentItem .muiMixContentTop >div{
+	vertical-align: middle;
+	height:100%;
+	border: none;
+	display: table-cell; padding-bottom:0.3rem;
+}
+.muiMixContentItem .muiMixContentIcon{
+	width: 3.7rem;
+	text-align: center;
+}
+.muiMixContentItem .muiMixContentIcon img{
+	width: 3.7rem;
+	height: 3.7rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+.muiMixContentItem .muiMixContentCreate{
+	padding-left: 0.3rem; vertical-align:top;
+}
+.muiMixContentItem .muiMixContentCreate>div{
+	text-align: left;
+	white-space: nowrap;
+}
+.muiMixContentItem .muiMixContentCreate>div>i.mui{
+	margin-right: 2px;
+	font-size: 1.2rem;
+	line-height: 1;
+	position: relative;
+	top:-2px;
+}
+
+.muiMixContentItem .muiMixContentCreator{
+	display: block;
+	font-size: 1.4rem;
+	font-style: normal;
+	margin: 0rem 0.2rem; color:#2c79c7; line-height:2.2rem;
+}
+
+.muiMixContentItem .muiMixContentCreated {
+	color: #989898;
+	font-size: 1.1rem;
+	margin: 0.3rem 0.2rem 0;
+}
+.muiMixContentItem .muiMixContentCreated>span{ margin-right:0.3rem;}
+.muiMixContentItem .muiMixContentCreated .mui{ font-size:1.2rem; line-height:1.2rem; position:relative; top:-0.2rem; margin-right:0.2rem;}
+.muiMixContentItem .muiMixContentMiddle{
+	cursor: pointer; display:block;
+}
+.muiMixContentItem .muiMixContentTitle{
+	margin: 0.4rem 0rem;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.7rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	
+}
+.muiMixContentItem .muiMixContentTitle .muiTopicHeadPink{ color:#f00;}
+.muiMixContentItem .muiMixContentTitle .mui-hotPost{ position:relative; top:-0.1rem; background:#ff6012; width:1.8rem; text-align:center; border-radius:0.3rem; height:1.8rem; line-height:1.9rem; font-size:1.6rem; color:#fff;}
+.muiMixContentItem .muiMixContentSummary{
+	margin:0; color:#989898;
+	max-height: 1.8rem; max-height:5.4rem; line-height:1.8rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical; margin: 0.1rem 0 0.6rem 0;
+}
+.muiMixContentItem .muiMixContentBottom{
+	float: right; font-size:1.6rem; line-height:1.6rem;color:#989898; padding-top:0.3rem;
+}
+.muiMixContentItem .muiMixContentBottom .mui{ font-size:1.8rem; line-height:1; text-align: right;}
+.muiMixContentItem .muiMixContentBottom .mui.mui-praise,
+.muiMixContentItem .muiMixContentBottom .mui.mui-eyes{ font-size: 1.8rem;}
+.muiMixContentItem .muiMixContentBottom .muiMixContentNum{
+	display:inline-block;
+	margin-left: 1rem;
+	cursor: pointer;
+}
+.muiMixContentItem .muiMixContentNum .muiNumber{
+	font-size:1.2rem; 
+	position:relative; margin-left:0.3rem;
+}
+.muiMixContentItem .muiTopicHeadSign{
+	display: inline-block;
+	font-size: 1.2rem;
+	color:#297de0;
+	height: 1.6rem;
+	line-height: 1.6rem;
+	padding:0rem 0.3rem;
+	border-radius: 0.2rem;
+	border-width: 1px;
+	border-style: solid;
+	margin-right: 0.5rem; position:relative; top:-0.1rem;
+}
+.muiMixContentTopItem.muiMixContentItem{ padding: 0 0.8rem; border:none; border-radius:0px; zoom:1;}
+.muiMixContentTopItem{
+	background-color: #FFF;
+	padding:0 0.6rem;
+	margin: 0rem;
+}
+.muiMixContentTopItem .muiListItem{
+	margin: 0rem!important;
+	border-radius:0px !important;
+	border:none;
+	padding:1rem 0;
+	border-top: 1px solid #e5e5e5;
+	display: block;
+}
+.muiMixContentTopItem:first-child .muiListItem{ border-top: 0;}
+.muiMixContentTopItem .muiMixContentTopInfo{
+	line-height: 1.8rem;
+	max-height: 2rem;
+	overflow: hidden;
+	white-space:nowrap;
+	text-overflow: ellipsis;
+}
+.muiMixContentTopItem .muiContentStatusBorder{
+}
+.muiMixContentTopItem .muiMixContentTopCate{
+	display: inline-block;
+	font-size: 1.5rem;
+	color:#297de0;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	margin-right:0.5rem;
+	cursor: pointer;
+}
+.muiMixContentTopItem .muiMixContentTopTitle{
+	display: inline;
+	font-size: 1.5rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	color: #0c0c0c;
+	cursor: pointer;
+}
+.muiMixContentItem a.muiMixContentMiddle:visited .muiMixContentTitle{
+	color: #888;
+}
+.muiMixContentItem.mblListItemSelected{
+	background: none !important;
+}
+.muiMixContentItem.mblListItemSelected .muiListItem{
+	background-color: rgb(228, 228, 228) !important;
+}
+
+/*无数据展示*/
+.muiListNoData{
+	position:relative;
+    list-style:none;
+    width: 100%;
+    display: inline-block;
+}
+
+.muiListNoDataArea{
+	width:100%;
+	min-height:8rem;
+	vertical-align:middle;
+	text-align:center;
+	line-height: normal;
+	display: inline-block;
+}
+.muiListNoDataIcon{
+	margin:0 auto 1rem auto;
+	width: 10rem;
+	height: 10rem;
+	border-radius: 50%;
+	text-align:center;
+	background-color: #d8d8d8;
+}
+.muiListNoDataIcon i{
+	font-size: 8rem;
+	line-height: 8rem;
+	height: 8rem;
+	vertical-align: middle;
+	font-weight: lighter;
+	color: white;
+	margin-top: 1.5rem;
+}
+
+.muiListNoDataTxt{
+	color: #afafaf;
+	display: inline-block;
+}
+
+/* 选中 */
+.mblListItemSelected {
+  background-color: rgb(228, 228, 228)!important;
+}
+
+
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {.muiProcessStatusBorder{ padding:0.1rem 0.3rem;}
+ .muiProcessSummary{margin:0.5rem 0rem 0rem 0rem;}	.muiListSummary{
+	color: #989898;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	}
+	/*.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 9rem;
+	height: 7.0rem;
+	overflow: hidden;
+	float: right;
+	}*/
+	.muiComplexrTitle{
+	margin:0 0 0.5rem 0;
+	font-size: 1.7rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	}
+	/*.muiListInfo>div{
+	font-size: 1.3rem;
+	text-align: left;
+	vertical-align: middle;
+	display: table-cell;
+	line-height: 2.5rem;
+	}*/
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+  	.muiListSummary{
+	color: #989898;
+	font-size: 1.4rem;
+	line-height: 1.5rem;
+	}
+	/*.muiComplexrIcon{
+	margin-left:0.4rem;
+	width: 9rem;
+	height: 7.0rem;
+	overflow: hidden;
+	float: right;
+	}*/
+	.muiComplexrTitle{
+	margin:0 0 0.5rem 0;
+	font-size: 1.6rem;
+    font-weight: normal;
+	line-height: 1.8rem;
+	max-height: 3.6rem;
+	color: #0c0c0c;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	}
+	/*.muiListInfo>div{
+	font-size: 1.2rem;
+	text-align: left;
+	vertical-align: middle;
+	line-height: 2.5rem;
+	}*/
+}
+
+.muiListThumb>p {
+	background-position: 50%;
+	border-top: 4px solid #fff;
+	border-left: 4px solid #fff;
+	padding-top: 32.6%;
+	position: relative;
+	cursor: pointer;
+	display: table-cell;
+	max-width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: transparent;
+}
+
+.muiListThumb {
+	display: table;
+	width: 100%;
+}
+
+
+
+/******** 三级阅读（话题、论坛、问答阅读页） ******/
+.muiPostItem{border-bottom:1px solid #e5e5e5;}
+.muiPostItem .muiPostContent{background-color:#FFF;padding:.8rem;}
+.muiPostItem:FIRST-CHILD .muiPostContent{margin-top:0!important;}
+.muiPostItem .muiPostContentT .muiPostHead{display:table;width:100%;}
+.muiPostItem .muiPostContentT .muiPostHead > div{display:table-cell;vertical-align:middle;padding-bottom:.5rem;}
+.muiPostItem .muiPostContentT .muiPostIcon{width:3.7rem;text-align:center;}
+.muiPostItem .muiPostContentT .muiPostIcon img{width:3.7rem;height:3.7rem!important;border-radius:50%;overflow:hidden;text-align:center;vertical-align:middle;}
+.muiPostItem .muiPostContentT .muiPostCreate{padding:.2rem 0 0 .5rem;}
+.muiPostItem .muiPostContentT .muiPostCreate .mui{font-size:1.4rem;line-height:1.4rem;position:relative;top:-.1rem;}
+.muiPostItem .muiPostContentT .muiPostCreate >span{display:block;line-height:1.7rem;height:1.7rem;vertical-align:middle;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreator{display:block;font-size:1.4rem;font-style:normal;color:#2c79c7;line-height:2.2rem;margin:0 .2rem;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreated{color:#989898;font-size:1.1rem;margin:.3rem .2rem 0;}
+.muiPostItem .muiPostContentT .muiPostCreate .muiPostCreated .mui{margin-right:.3rem;}
+.muiPostItem .muiPostReplyOpt{ vertical-align:top; width:3.6rem;}
+
+
+
+
+
+
+
+
+
+
+

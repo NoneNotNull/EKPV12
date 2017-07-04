@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.soap.sync.model.TibSoapSyncTempFunc"
+		messageKey="tib-soap-sync:table.tibSoapSyncTempFunc"
+		displayProperty="fdId"
+		serviceBean="tibSoapSyncTempFuncService"
+		table="tib_soap_sync_temp_func"
+		url="/tib/soap/sync/tib_soap_sync_temp_func/tibSoapSyncTempFunc.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdInvokeType"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdInvokeType"
+			type="Integer"
+			column="fd_invoke_type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFuncMark"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdFuncMark"
+			type="String"
+			column="fd_func_mark"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSoapXml"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdSoapXml"
+			type="RTF"
+			column="fd_soap_xml"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUse"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdUse"
+			type="Boolean"
+			column="fd_use"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdQuartzTime"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdQuartzTime"
+			type="DateTime"
+			column="fd_quartz_time"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdQuartz"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdQuartz"
+			type="com.landray.kmss.tib.soap.sync.model.TibSoapSyncJob"
+			column="fd_quartz_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdSoapMain"
+			messageKey="tib-soap-sync:tibSoapSyncTempFunc.fdSoapMain"
+			type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+			column="fd_soap_main"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

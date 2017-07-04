@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 移动端个人列表不显示标题的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-01-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 附件转换机制，使用转换为HTML方式打开附件进行阅读</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-12-24</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/filestore</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档编辑后排序会出错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-12-24</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 批量上传附件时，带属性的分类下，对附件进行编辑会报错</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库分类概览信息IE8下显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 多附件上传时，对附件进行编辑时报js错</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-21</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库分类概览和思维导图数据存取</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建编辑知识专辑时，从知识仓库选择的文档摘要为空时显示'undefine'</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-12</revision-time>
+			<relation>
+				<relation-module>kms/kmtopic</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识仓库编辑分类时，标签设置无法应用到子类别的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-07</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识专辑选择知识仓库文件时，通过搜索得到的文件内容为空的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>kms/kmtopic</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联机制配置中自定义属性显示根据模块和分类联动</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 置顶的文档在oracle数据库下排在最后的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识仓库view页面关联配置权限过滤问题</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-29</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 类别修改名称后门户数据未更新的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识仓库移动端搜索不出数据的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-18</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端列表精华标识的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库后台配置权限</description>
+			<author>张文辉</author>
+			<revision-time>2014-09-02</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 分类树权限优化</description>
+			<author>龚一涛</author>
+			<revision-time>2014-09-02</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 附件显示页面下，点击按“发布日期”查看时报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 绿色主题下排序按钮显示错行的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库二级页面筛选项是草稿时不显示置顶按钮</description>
+			<author>张文辉</author>
+			<revision-time>2014-08-01</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端二级页面图片可能加载不出来的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-01</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 门户部件兼容IBM Portal</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 维基库在选模板后更新提交会造成内容丢失</description>
+			<author>龚一涛</author>
+			<revision-time>2014-07-23</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 词条目录模板view页面去掉删除按钮</description>
+			<author>龚一涛</author>
+			<revision-time>2014-07-23</revision-time>
+			<relation>
+				<relation-module>component/bklink</relation-module>
+				<relation-module>kms/wiki</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识仓库移动端列表页面</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-06-27</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 批量上传附件中，编辑附件信息时可上传封面</description>
+			<author>张文辉</author>
+			<revision-time>2014-06-19</revision-time>
+			<relation>
+				<relation-module>kms/kmtopic</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建时选择分类直接关闭报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-16</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms日志拦截部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 非管理员用户批量修改属性报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-05-28</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 分类概览在IE8下显示错乱的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-30</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 “回收站”功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-30</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 部分字段说明</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-21</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>移除 发布权限控制，划分各库单独控制</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-21</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识仓库文档发布到新闻模块功能</description>
+			<author>徐广敏</author>
+			<revision-time>2014-02-20</revision-time>
+			<relation>
+				<relation-module>kms/multidoc</relation-module>
+				<relation-module>kms/wiki</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 文档批量新增功能</description>
+			<author>陈良</author>
+			<revision-time>2013-12-23</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 维基模板场所功能</description>
+			<author>徐广敏</author>
+			<revision-time>2013-12-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 模板action增加异步查询功能</description>
+			<author>陈良</author>
+			<revision-time>2013-11-11</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 维基知识模版</description>
+			<author>郭昌平</author>
+			<revision-time>2013-11-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 初始化代码</description>
+			<author>郭昌平</author>
+			<revision-time>2013-10-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+	</modifies>
+</version>

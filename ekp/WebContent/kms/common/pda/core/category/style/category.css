@@ -1,0 +1,159 @@
+@CHARSET "UTF-8";
+
+.lui-category {
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+.lui-category li {
+	height: 50px;
+	line-height: 50px;
+	zoom: 1;
+	border-bottom: 1px solid #ecebeb;
+}
+
+.lui-category li .lui-category-subject {
+	font-size: 1.2em;
+	color: #484848;
+	position: absolute;
+	left: 6px;
+	right: 50px;
+	width: auto;
+}
+
+.lui-tip {
+	float: right;
+	padding-right: 1.8%;
+	position: relative;
+}
+
+.lui-tip em {
+	margin-right: 20px;
+	font-weight: normal;
+	text-align: right;
+	color: #3284d0;
+	font-size: 1.1em
+}
+
+.lui-tip span {
+	width: 14px;
+	height: 24px;
+	background: url(../images/arrow_01.png) no-repeat 0 50%;
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	cursor: pointe
+}
+
+.lui-filter .lui-category-filter {
+	float: right;
+	padding-right: 15px;
+	width: 50px;
+}
+
+.lui-filter .lui-category-filter input {
+	width: 100%;
+}
+
+.lui-category-header {
+	position: static;
+	overflow: hidden;
+}
+
+.lui-category-header ul {
+	width: 100%;
+	position: absolute;
+}
+
+.lui-category-header .lui-docSubject {
+	right: 50px;
+}
+
+.lui-category-header .lui-docSubject h2 {
+	color: #3284d0;
+	font-weight: normal;
+}
+
+.lui-category-submit-btn {
+	display: inline;
+	border-radius: 10%;
+	padding: 6px;
+	color: #3284d0;
+	position: relative;
+	top: 4px;
+	font-weight: bolder;
+}
+
+.lui-category .lui-category-item {
+	padding: 10px;
+	margin: 5px;
+	font-size: 1.3em;
+	display: inline-block;
+}
+
+.lui-category .lui-category-item input {
+	margin-right: 5px;
+}
+
+.lui-filter {
+	padding: 10px;
+	position: absolute;
+	top: 50px;
+	width: 95%;
+	bottom: 0;
+	overflow-y: scroll;
+}
+
+.lui-filter li {
+	border: 1px solid #ecebeb;
+	height: 50px;
+	line-height: 50px;
+	zoom: 1;
+	background: url("../images/arrow_02.png") right bottom no-repeat;
+}
+
+.lui-filter li span {
+	line-height: 48px;
+}
+
+.lui-filter .lui-filter-subject {
+	width: 35%;
+	float: left;
+	background-color: #EBEBEC;
+	margin: 1px;
+}
+
+.lui-filter .lui-filter-item {
+	width: 60%;
+	float: left;
+	padding-left: 4px;
+}
+
+.lui-filter-items li {
+	height: 40px;
+	line-height: 40px;
+	zoom: 1;
+	border-bottom: 1px solid #ecebeb;
+}
+
+.lui-filter-items li .lui-filter-item-subject {
+	font-size: 1.0em;
+	color: #484848;
+	position: absolute;
+	left: 6px;
+	right: 50px;
+	width: auto;
+}
+
+.lui-filter-items .lui-tip span {
+	width: 10px;
+	height: 20px;
+	right: 10px;
+	top: 13px;
+	cursor: pointer;
+	background-size: 0.5em;
+}

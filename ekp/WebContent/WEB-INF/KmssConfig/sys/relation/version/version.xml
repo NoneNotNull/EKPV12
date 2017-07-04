@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 多关联时，完善添加静态关联信息</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-27</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 静态关联数据迁移失败记录到日志中</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-24</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie下关联总览显示低版本浏览器提示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2015-03-17</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 编辑文档分类时，在知识关联设置页签中添加了静态关联，再次编辑此分类时不显示添加的关联</description>
+			<author>张文辉</author>
+			<revision-time>2015-03-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联信息选择从模板导入，报网页错误，无法正常执行</description>
+			<author>张文辉</author>
+			<revision-time>2015-01-07</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联配置信息排序错乱问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-05</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 针对静态链接中包含的fdId长度过长时校验</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-21</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 静态关联数据迁移兼容历史数据</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 新建编辑文档时，编辑静态关联信息保存后关联信息缺失</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 当文档创建新版本后，旧版本关联信息丢失</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-13</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 多关联中静态链接编辑时无法加载已有静态链接数据</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-12</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联机制配置中自定义属性显示根据模块和分类联动</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-11-05</revision-time>
+			<relation>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建编辑文档时，关联配置保存后不生效的问题</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 静态关联中，当删除文档或者去除相关关联时，无法更新关联此文档的文档关联类型</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 知识关联总览，仅统计静态关联</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-05</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联机制中全文检索方式选择创建者无效的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 view页面关联配置权限过滤问题</description>
+			<author>徐广敏</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 高级关联超过20个选项显示的问题</description>
+			<author>郭昌平</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端关联报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-08</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 阅读时支持“关联配置”功能</description>
+			<author>徐广敏</author>
+			<revision-time>2014-04-28</revision-time>
+			<relation>
+				<relation-module>kms/multidoc</relation-module>
+				<relation-module>kms/wiki</relation-module>
+				<relation-module>kms/knowledge</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 精确搜索条件为空不显示信息的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-10-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，FF下分类名称修改无效</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，保存按钮无响应</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑后保存关联机制信息无效的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-08-07</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改已存在的知识地图，无法保存。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-08-01</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联机制标签使用、查看关联、关联设置的多浏览器支持，标签机制使用规则更改</description>
+			<author>李衡</author>
+			<revision-time>2013-04-26</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联静态页面只显示前10条的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 删除英文资源文件中的中文字段以便导出翻译</description>
+			<author>魏本源</author>
+			<revision-time>2013-01-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 “显示全部”英文国际化文件</description>
+			<author>魏本源</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 SQL注入问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于字段长度太短而造成选择关联Id多余50个报错的问题</description>
+			<author>徐武飞</author>
+			<revision-time>2013-01-07</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 精确搜索中，分类选择允许勾选包含子分类</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-29</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 精确搜索中扩展属性扩展点接口配置</description>
+			<author>郭昌平</author>
+			<revision-time>2012-12-26</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 避免资源内容关联流程</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-11-05</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 关联文档按创建时间显示前十条</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-02</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识文档模块中关联全文搜索时，简版阅读界面和多标签页面的查询结果排序不一致的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-20</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联类型为静态网页时，添加、删除、编辑后，保存不生效的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-04-17</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 “无数据时”，提示信息不统一的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-09</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>移动办公增加关联信息查看功能</description>
+			<author>李衡</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>90UI关联信息展示调整</description>
+			<author>李衡</author>
+			<revision-time>2011-12-22</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>调整文档发布页面阅读机制窗口高度</description>
+			<author>庄为亮</author>
+			<revision-time>2011-12-05</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改缺陷：增加一类知识关联，系统默认给一个类别名称，用户修改名称后重新编辑完成，类别名称又变为系统默认</description>
+			<author>朱湖强</author>
+			<revision-time>2011-11-29</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>加上遗漏的messageKey</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-11-17</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>李衡</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>支持关联机制的导入导出</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-25</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>ekp90UI改造</description>
+			<author>庄为亮</author>
+			<revision-time>2011-10-14</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改在ie9下，关联文档标签下点击“增加”按钮报“属性dyniFrameSize的值为null、未定义或不是Function对象”的脚步错误</description>
+			<author>庄为亮</author>
+			<revision-time>2011-08-29</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>调整关联机制 “静态网页”的操作方式和界面样式</description>
+			<author>庄为亮</author>
+			<revision-time>2011-08-21</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>解决关联机制打开全文检索再打开其他类型报错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-08-06</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改在IE6下，点击关联机制预览页面左边链接时，弹出一个javascript:void(0)页面的bug</description>
+			<author>zhuangwl</author>
+			<revision-time>2011-04-28</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>全文检索搜索范围选择太多导致数据截断问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-03-28</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>修改流程审批通过后，关联信息可能会丢失问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-02-21</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>静态链接全文检索去掉一些关键字样式，避免搜索“km”等报错</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-01-13</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>静态链接最后一页分页错误问题，去掉prototype.js，避免跟jquery.js冲突</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-01-11</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>静态链接字段改为大字段（兼容旧数据）</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-01-10</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>在design.xml添加可配置额外的关联条件，之前只能关联发布的文档，现在改为只能关联非草稿的文档</description>
+			<author>缪贵荣</author>
+			<revision-time>2010-12-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+	</modifies>
+</version>

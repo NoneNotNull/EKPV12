@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.signature.model.KmSignatureDocumentHistory"
+		messageKey="km-signature:table.documentHistory"
+		displayProperty="fdMarkName"
+		serviceBean="kmSignatureDocumentHistoryService"
+		table="km_signature_doc_history"
+		url="/km/signature/km_signature_document_history/kmSignatureDocumentHistory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 自动编号 -->
+		<simpleProperty
+			name="fdHistoryId"
+			messageKey="km-signature:documentHistory.id"
+			type="Integer"
+			column="fd_history_id"
+			notNull="true"
+			length="10"
+			validate="false" />
+		<!-- 文档记录号 -->
+		<simpleProperty
+			name="fdRecordId"
+			messageKey="km-signature:documentHistory.recordid"
+			type="String"
+			column="fd_record_id"
+			notNull="false"
+			length="36"
+			validate="false" />
+		<!-- 字段名称 -->
+		<simpleProperty
+			name="fdFieldName"
+			messageKey="km-signature:documentHistory.fieldname"
+			type="String"
+			column="fd_field_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 印章名称 -->
+		<simpleProperty
+			name="fdMarkName"
+			messageKey="km-signature:documentHistory.markname"
+			type="String"
+			column="fd_mark_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 印章用户 -->
+		<simpleProperty
+			name="fdUserName"
+			messageKey="km-signature:documentHistory.username"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 日期时间 -->
+		<simpleProperty
+			name="fdDateTime"
+			messageKey="km-signature:documentHistory.datetime"
+			type="DateTime"
+			column="fd_date_time"
+			notNull="false"
+			validate="false" />
+		<!-- 印章IP地址 -->
+		<simpleProperty
+			name="fdHostName"
+			messageKey="km-signature:documentHistory.hostname"
+			type="String"
+			column="fd_host_name"
+			notNull="false"
+			length="200"
+			validate="false" />
+		<!-- 自动生成的印章唯一编号 -->
+		<simpleProperty
+			name="fdMarkGuid"
+			messageKey="km-signature:documentHistory.markguid"
+			type="String"
+			column="fd_mark_guid"
+			notNull="false"
+			length="200"
+			validate="false" />
+
+	</model>
+</models>

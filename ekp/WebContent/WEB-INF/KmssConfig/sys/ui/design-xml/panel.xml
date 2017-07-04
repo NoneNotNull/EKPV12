@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<!-- 无边框单标签 -->
+	<layout
+		id="sys.ui.nonepanel.default"
+		name="{sys-ui:layout.nonepanel.default}"
+		kind="nonepanel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/nonepanel1.png">
+		<code
+			src="/sys/ui/extend/panel/nonepanel.tmpl" bgcolor="transparent" />
+	</layout>
+	<layout
+		id="sys.ui.nonepanel.transparent"
+		name="{sys-ui:layout.nonepanel.transparent}"
+		kind="nonepanel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/nonepanel2.png">
+		<code
+			src="/sys/ui/extend/panel/nonepanel.tmpl" bgcolor="color" />
+	</layout>
+	<!-- 单标签 --> 
+	<layout
+		id="sys.ui.panel.default"
+		name="{sys-ui:layout.panel.default}"
+		kind="panel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/panel.jpg">
+		<code
+			src="/sys/ui/extend/panel/panel.tmpl" />
+	</layout>
+	<layout
+		id="sys.ui.panel.light"
+		name="{sys-ui:layout.panel.light}"
+		kind="panel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/panel2.jpg">
+		<code
+			src="/sys/ui/extend/panel/panel.tmpl"
+			extend="light">
+		</code>
+	</layout>
+
+	<!-- 多标签 -->
+	<layout
+		id="sys.ui.tabpanel.default"
+		name="{sys-ui:layout.tabpanel.default}"
+		kind="tabpanel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/tabpanel.jpg">
+		<code
+			src="/sys/ui/extend/panel/tabpanel.tmpl" />
+	</layout>
+	<layout
+		id="sys.ui.tabpanel.light"
+		name="{sys-ui:layout.tabpanel.light}"
+		kind="tabpanel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/tabpanel2.jpg">
+		<code
+			src="/sys/ui/extend/panel/tabpanel.tmpl"
+			extend="light" />
+	</layout>
+	<layout
+		id="sys.ui.tabpanel.border"
+		name="{sys-ui:layout.tabpanel.border}"
+		kind="tabpanel"
+		type="Template"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/tabpanel_border.jpg">
+		<code
+			src="/sys/ui/extend/panel/borderpanel.tmpl" />
+		<vars>
+			<var key="width" kind="string" name="{sys-ui:layout.var.scale}">
+				{"help":"Exemple：1:1:1"}
+			</var>
+			<var key="showTitle" kind="enumValue" name="{sys-ui:layout.var.showtitle}">
+				{"values":[{"text":"{sys-ui:layout.var.value.yes}", "value":"true"}],"showType":"checkbox"}
+			</var>
+		</vars>
+	</layout>
+
+	<!-- 可折叠标签 -->
+	<layout
+		id="sys.ui.accordionpanel.default"
+		name="{sys-ui:layout.accordionpanel.default}"
+		kind="accordionpanel"
+		type="Javascript"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/accordionpanel.jpg">
+		<code
+			src="/sys/ui/extend/panel/accordionpanel.js" />
+	</layout>
+	<layout
+		id="sys.ui.tabpage.default"
+		name="三级页面多标签面板"
+		kind="tabpage"
+		type="Javascript"
+		for="portal;zone"
+		thumb="/sys/ui/extend/panel/help/accordionpanel-float.jpg">
+		<code
+			src="/sys/ui/extend/panel/tabpage.js" />
+	</layout>
+	<!-- panel的Content -->
+	<layout
+		id="sys.ui.content.default"
+		name="内容"
+		kind="content"
+		type="lui/view/layout!Template">
+		<code
+			src="/sys/ui/extend/panel/content.tmpl" />
+	</layout>
+</root>

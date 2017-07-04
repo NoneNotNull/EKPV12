@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticiple"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchParticiple"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchParticipleService"
+		table="sys_ftsearch_participle"
+		url="/sys/ftsearch/expand/sys_ftsearch_participle/sysFtsearchParticiple.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdParticiple"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.fdParticiple"
+			type="String"
+			column="fd_participle"
+			notNull="false"
+			length="36"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.fdCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+
+		<simpleProperty
+			name="docCreatorName"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.docCreatorName"
+			type="String"
+			column="doc_creator_name"
+			notNull="false"
+			length="36"
+			validate="false"
+			canSearch="true"
+			 />
+
+		<simpleProperty
+			name="fdCreatorId"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.fdCreatorId"
+			type="String"
+			column="fd_creator_id"
+			notNull="false"
+			length="36"
+			validate="false"
+			 />
+		
+		<simpleProperty
+			name="fdExportState"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.fdExportState"
+			type="Integer"
+			column="fd_export_state"
+			notNull="false"
+			length="4"
+			validate="false"
+			 />
+		
+		<modelProperty
+			name="fdCategory"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticiple.fdCategory"
+			type="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticipleCategory"
+			column="fd_category_id"
+			notNull="false"
+			validate="false"
+			canSearch="true"
+			canDisplay="true"
+			 />
+
+	</model>
+</models>

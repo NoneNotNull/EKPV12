@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="third-wechat:module.third.wechat"
+		defaultValidator="true"
+		urlPrefix="/third/wechat/">		
+
+		<request path="wechatLoginHelper*" defaultValidator="true">
+		</request>
+		<request
+			path="wechat_config/wechatConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.wechat.model.WechatConfig">
+		</request>
+		
+		
+
+		
+	</module>
+	
+	<module messageKey="third-wechat:module.third.wechat" urlPrefix="/third/wechat/" defaultValidator="roleValidator(role=ROLE_THIRDWECHAT_DEFAULT)">
+		<roles>
+			ROLE_THIRDWECHAT_DEFAULT;ROLE_THIRDWECHAT_ADMIN
+		</roles>
+		<request
+			path="wechatConfig*"
+			defaultValidator="roleValidator(role=ROLE_THIRDWECHAT_ADMIN)">
+		</request>
+	</module>
+	
+	
+	<homePage
+		urlPrefix="third/wechat"
+		url="/moduleindex.jsp?nav=/third/wechat/tree.jsp"
+		messageKey="third-wechat:module.third.wechat" />
+
+</configs>

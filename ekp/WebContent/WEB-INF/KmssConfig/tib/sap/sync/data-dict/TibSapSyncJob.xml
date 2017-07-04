@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sap.sync.model.TibSapSyncJob"
+	messageKey="tib-sap-sync:table.tibSapSyncJob"
+	serviceBean="tibSapSyncJobService"
+	table="tib_sap_sync_job"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdModelName"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdModelName"
+	type="String"
+	column="fd_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdModelId"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdModelId"
+	type="String"
+	column="fd_model_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdKey"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdKey"
+	type="String"
+	column="fd_key"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdSubject"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdSubject"
+	type="String"
+	column="fd_subject"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdJobService"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdJobService"
+	type="String"
+	column="fd_job_service"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdJobMethod"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdJobMethod"
+	type="String"
+	column="fd_job_method"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdLink"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdLink"
+	type="String"
+	column="fd_link"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdParameter"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdParameter"
+	type="String"
+	column="fd_parameter"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdCronExpression"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdCronExpression"
+	type="String"
+	column="fd_cron_expression"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdEnabled"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdEnabled"
+	type="Boolean"
+	column="fd_enabled"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdIsSysJob"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdIsSysJob"
+	type="Boolean"
+	column="fd_is_sys_job"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdRunType"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdRunType"
+	type="Integer"
+	column="fd_run_type"
+	notNull="false"
+	length="4"
+/>
+<simpleProperty
+	name="fdRunTime"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdRunTime"
+	type="DateTime"
+	column="fd_run_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdRequired"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdRequired"
+	type="Boolean"
+	column="fd_required"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdTriggered"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdTriggered"
+	type="Boolean"
+	column="fd_triggered"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdQuartzEkp"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdQuartzEkp"
+	type="String"
+	column="fd_quartz_ekp"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdUseExplain"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdUseExplain"
+	type="String"
+	column="fd_use_explain"
+	notNull="false"
+	length="200"
+/>
+<modelProperty
+	name="docCategory"
+	messageKey="tib-sap-sync:tibSapSyncJob.docCategory"
+	type="com.landray.kmss.tib.sap.sync.model.TibSapSyncCategory"
+	column="doc_category_id"
+	notNull="false"
+/>
+<listProperty
+	name="fdSapInfo"
+	messageKey="tib-sap-sync:tibSapSyncJob.fdSapInfo"
+	column="fd_quartz_id"
+	type="com.landray.kmss.tib.sap.sync.model.TibSapSyncTempFunc"
+	cascade="all-delete-orphan"
+/>
+</model></models>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="virtualMachineService"
+		class="com.landray.kmss.sys.lbpm.pvm.service.VirtualMachineServiceImpl">
+		<property name="defaultEngineWire">
+			<ref bean="defaultEngineWire" />
+		</property>
+		<property name="activityProvider">
+			<ref bean="activityProvider" />
+		</property>
+		<property name="eventMulticaster">
+			<ref bean="eventMulticaster" />
+		</property>
+	</bean>
+</beans>

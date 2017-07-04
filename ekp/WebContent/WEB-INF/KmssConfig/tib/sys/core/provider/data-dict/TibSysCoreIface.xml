@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface"
+		messageKey="tib-sys-core-provider:table.tibSysCoreIface"
+		displayProperty="fdId"
+		serviceBean="tibSysCoreIfaceService"
+		table="tib_sys_core_iface"
+		url="/tib/sys/core/provider/tib_sys_core_iface/tibSysCoreIface.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdIfaceName"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceName"
+			type="String"
+			column="fd_iface_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIfaceKey"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceKey"
+			type="String"
+			column="fd_iface_key"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIfaceControl"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceControl"
+			type="Boolean"
+			column="fd_iface_control"
+			notNull="false"
+			length="36"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdControlPattern"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdControlPattern"
+			type="String"
+			column="fd_control_pattern"
+			notNull="true"
+			length="36"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdIfaceType"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceType"
+			type="String"
+			column="fd_iface_type"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIfaceXml"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceXml"
+			type="RTF"
+			column="fd_iface_ref_data"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+			
+		<listProperty
+			name="fdIfaceTags"
+			messageKey="tib-sys-core-provider:tibSysCoreIface.fdIfaceTags"
+			type="com.landray.kmss.tib.sys.core.provider.model.TibSysCoreTag"
+			table="tib_sys_core_iface_tags"
+			column="fd_iface_id"
+			elementColumn="fd_tag_id" />
+
+	</model>
+</models>

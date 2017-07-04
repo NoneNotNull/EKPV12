@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysPerson_fdStatus" default-value="2">
+		<value-label>
+			<value>1</value>
+			<label-key>status.stoped</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>status.started</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+	</type>
+	<type name="sysPersonCfg_fdStatus" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>sysPersonCfgLink.status.enabled</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>sysPersonCfgLink.status.disabled</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+	</type>
+	<type name="sysPerson_fdPushType" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>push.type.none</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>push.type.all</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>push.type.selected</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+	</type>
+	<type name="sysPerson_urlTarget" default-value="_top">
+		<value-label>
+			<value>_top</value>
+			<label-key>url.target.self</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>_blank</value>
+			<label-key>url.target.blank</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+	</type>
+	<type name="sysPerson_cfgTarget" default-value="_top">
+		<value-label>
+			<value>_top</value>
+			<label-key>url.target.self</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>_blank</value>
+			<label-key>url.target.blank</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+		<value-label>
+			<value>iframe</value>
+			<label-key>url.target.iframe</label-key>
+			<bundle>sys-person</bundle>
+		</value-label>
+	</type>
+</column-enums>

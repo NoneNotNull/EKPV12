@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 【员工黄页-移动场景】增加TA的流程</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-31</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程模板拷贝后编号规则不能修改问题修正</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-24</revision-time>
+			<relation>
+				<relation-module>sys/number</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 打印页面字体放大缩小多浏览器问题</description>
+			<author>朱湖强</author>
+			<revision-time>2015-03-11</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 可见他人草稿问题处理</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-07</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 非草稿状态下均可进行传阅</description>
+			<author>周梓凡</author>
+			<revision-time>2015-03-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程新建页面分类显示层级</description>
+			<author>周梓凡</author>
+			<revision-time>2014-12-15</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 标题自动生成规则字段长度大小调整</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-08</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 bam2新建相关流程工作项时不选择模板，发起流程工作项时报错</description>
+			<author>魏本源</author>
+			<revision-time>2014-11-28</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 业务活动管理模块新建工作项时不选择会议模板和流程模板，发起相关会议和相关流程工作项不显示输出物</description>
+			<author>魏本源</author>
+			<revision-time>2014-11-28</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表页面标题列定最小宽度</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-26</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 列表中，流程当前处理人过多时显示省略号</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-11</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 在移动端发起新建操作，文档未继承模板中的默认可阅读者/可编辑者/附件权限</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-05</revision-time>
+			<relation>
+				<relation-module>sys/right</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 列表页面点击批量修改权限则增加阅读者不生效</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-16</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 全系统分类信息收集部署</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-15</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 我发起的/我审批的/所有流程 porlet窗口中字段的显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-10-14</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新事件</description>
+			<author>傅游翔</author>
+			<revision-time>2014-09-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 辅分类筛选</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-28</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动新UED支持</description>
+			<author>李衡</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程管理对组织架构类型json参数的支持</description>
+			<author>曹映辉</author>
+			<revision-time>2014-08-22</revision-time>
+			<relation>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程支持表分区查询（oracle和mysql)</description>
+			<author>李勇</author>
+			<revision-time>2014-08-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 按钮样式不随皮肤问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-13</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 按钮不随皮肤样式问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-07</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 皮肤样式问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-07</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 子流程删除增加提示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-16</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 无法批量删除自己草稿问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-16</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 点击常用分类，列表数据不正确问题；移除 所有分类导航</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-25</revision-time>
+			<relation>
+				<relation-module>sys/person</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程打印时，审批内容和审批记录中附件无法展现问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程打印时，审批内容和审批记录中附件无法展现问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>点击常用分类筛选器和列表数据不正确问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-22</revision-time>
+			<relation>
+				<relation-module>sys/person</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程文档起早人复制功能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-05-21</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 模板列表中点击列标题无法排序</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 通过子流程创建文档时，同步机制信息未带出</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-12</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+				<relation-module>sys/agenda</relation-module>
+			</relation>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 完善多语言</description>
+			<author>魏本源</author>
+			<revision-time>2014-05-08</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>优化 查看版本信息页面</description>
+			<author>魏本源</author>
+			<revision-time>2014-04-09</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 部署编号机制</description>
+			<author>张乐志</author>
+			<revision-time>2014-01-06</revision-time>
+			<relation>
+				<relation-module>sys/number</relation-module>
+			</relation>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程模块部署日程机制</description>
+			<author>孟磊</author>
+			<revision-time>2013-11-21</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+				<relation-module>sys/agenda</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程审批中必填校验</description>
+			<author>傅游翔</author>
+			<revision-time>2013-11-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件支持审批过程中对表单字段进行编辑</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程管理支持功能区配置分类列表</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-04</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程管理与bam2集成</description>
+			<author>孟磊</author>
+			<revision-time>2013-08-19</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 应用配置的导航树链接比较旧导致场所级联更新报错的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-08-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 list页面搜索（因用户体验不好暂时隐藏）</description>
+			<author>魏本源</author>
+			<revision-time>2013-08-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 list页面搜索在按分类下无法保持搜索当前list的问题</description>
+			<author>魏本源</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 list页面搜索只在当前页搜索，补充回车后执行搜索动作</description>
+			<author>魏本源</author>
+			<revision-time>2013-07-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 list页面增加搜索功能</description>
+			<author>魏本源</author>
+			<revision-time>2013-07-24</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多语言问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 集团分级数据隔离接口参数的调整</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-05-15</revision-time>
+			<relation>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 关联机制的引用修改</description>
+			<author>李衡</author>
+			<revision-time>2013-04-26</revision-time>
+			<relation>
+				<relation-module>sys/relation</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 反馈记录页签展示多浏览器兼容处理</description>
+			<author>李衡</author>
+			<revision-time>2013-04-25</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>优化 增加默认阅读者权限生效时间点（文档审批通过后生效和文档提交后生效 ）</description>
+			<author>朱湖强</author>
+			<revision-time>2013-04-22</revision-time>
+			<relation>
+				<relation-module>sys/right</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 具有修改权限的用户在修改权限页面无法看到提交按钮的错误</description>
+			<author>杨建宏</author>
+			<revision-time>2013-04-12</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 表单数据映射的权限缺陷</description>
+			<author>杨建宏</author>
+			<revision-time>2013-04-03</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单自动去除上下左右边界空白</description>
+			<author>曹映辉</author>
+			<revision-time>2013-03-28</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批流程阅读界面改造</description>
+			<author>李衡</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>李勇</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程管理中部署新版工作沟通</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-11</revision-time>
+			<relation>
+				<relation-module>km/collaborate</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 文档转移分类时可以选择上级场所的模板问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 使用c:import替换jsp:include引入场所属性页面</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-12-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 模板设置中表单数据映射权限分配给模板可维护人员，模板拷贝权限分配给模板所属类别的可使用人员</description>
+			<author>杨建宏</author>
+			<revision-time>2012-12-08</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程管理模块对于BAM2的支持</description>
+			<author>李衡</author>
+			<revision-time>2012-12-06</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 模块内部的类别维护者权限</description>
+			<author>汪俊锋</author>
+			<revision-time>2012-11-01</revision-time>
+			<relation>
+				<relation-module>sys/category</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 增加集团分级授权</description>
+			<author>张乐志</author>
+			<revision-time>2012-11-01</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/authorization</relation-module>
+				<relation-module>sys/category</relation-module>
+				<relation-module>sys/right</relation-module>
+				<relation-module>sys/metadata</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端创建流程功能</description>
+			<author>李衡</author>
+			<revision-time>2012-10-25</revision-time>
+			<relation>
+				<relation-module>sys/workflow</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 在搜索页面选择模板之后无法取消选定模板的问题</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-08-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 第一次使用流程管理模块，默认打印选项都勾选上同时修改提示信息</description>
+			<author>朱湖强</author>
+			<revision-time>2012-07-25</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 可配置流程打印的默认项</description>
+			<author>朱湖强</author>
+			<revision-time>2012-07-16</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 在门户配置流程管理模板，点击更多报错</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-12</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>移除 点击portlet的新建按钮时，默认新建该分类的文档而不需要用户选择分类</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击portlet的新建按钮时，默认新建该分类的文档而不需要用户选择分类</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 将流程状态由“发布”改为“结束”</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-17</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于SQL语句不规范导致在DB2中出错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-04-25</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>移除 由于“草稿”状态下的文档通常不允许被搜索，因此移除搜索条件中的“草稿”选项</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-16</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置实现窗口配置时自动生成的URL由模块路径改为所选择模块或类别的精确路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-04-05</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批流程模块实现对多标签控件的支持</description>
+			<author>曹映辉</author>
+			<revision-time>2012-03-26</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修改按部门查询节点添加到自定义导航里，无法查找到页面的bug</description>
+			<author>庄为亮</author>
+			<revision-time>2012-02-29</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>解决审批流程列表按“文档状态”排序，查询翻页时出现某些数据重复，某些数据永远无法显示问题。该问题需要加入唯一性字段排序。 缺陷单20120212001</description>
+			<author>周超</author>
+			<revision-time>2012-02-28</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>新增查询结果明细表展现支持</description>
+			<author>傅游翔</author>
+			<revision-time>2012-02-27</revision-time>
+			<relation>
+				<relation-module>sys/search</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>主页"我的常用流程模板"设置中的节点权限过滤</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-01-16</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改为流程结束后，打开流程默认进入审批内容标签</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-27</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改沟通转办或驳回等操作字段校验问题</description>
+			<author>曹映辉</author>
+			<revision-time>2011-12-16</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>增加 起草人不可修改可阅读者/附件权限的控制项</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-01</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>取消流程审批中部分portlet的分类选择</description>
+			<author>苏韶勇</author>
+			<revision-time>2011-11-30</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>添加启动审批流程WebService</description>
+			<author>汪俊锋</author>
+			<revision-time>2011-11-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修正weblogic环境按钮出现乱码问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-20</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正“阅读状态所有人不可下载”编辑不生效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-17</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>系统参数配置增加"通用表单模板"节点</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修正数据字典，避免导出导入出错</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-11</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>转移功能开放到按模板查看视图，原来只是按分类下查看能转移</description>
+			<author>杨建宏</author>
+			<revision-time>2011-09-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改状态为“已反馈”的文档也能进行传阅</description>
+			<author>杨建宏</author>
+			<revision-time>2011-09-28</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>流程模板提交时校验模板编号前缀是否相同，如果有相同的，给出提示</description>
+			<author>赵义洪</author>
+			<revision-time>2011-08-04</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>启用FCK编辑内容过滤</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-14</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>模板在富文本和自定义表单之间切换后，同步清理一些不必要信息</description>
+			<author>傅游翔</author>
+			<revision-time>2011-04-22</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>kk客户端界面流程类别树增加使用权限过滤</description>
+			<author>张文添</author>
+			<revision-time>2011-05-10</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

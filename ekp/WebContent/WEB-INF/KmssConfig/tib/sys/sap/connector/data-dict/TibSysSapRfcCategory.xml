@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory"
+	messageKey="tib-sys-sap-connector:table.tibSysSapRfcCategory"
+	displayProperty="fdName"
+	treeModel="true"
+	serviceBean="tibSysSapRfcCategoryService"
+	table="tib_sys_sap_rfc_category"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcCategory.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcCategory.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+	length="10"
+/>
+<simpleProperty
+	name="fdHierarchyId"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcCategory.fdHierarchyId"
+	type="String"
+	column="fd_hierarchy_id"
+	notNull="false"
+	length="1000"
+/>
+<modelProperty
+	name="hbmParent"
+	messageKey="tib-sys-sap-connector:tibSysSapRfcCategory.hbmParent"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory"
+	column="fd_parent_id"
+	cascade="save-update"
+/>
+</model></models>

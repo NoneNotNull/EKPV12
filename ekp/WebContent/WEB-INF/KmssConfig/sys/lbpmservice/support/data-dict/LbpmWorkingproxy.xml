@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmWorkingproxy"
+		messageKey="sys-lbpmservice-support:table.lbpmWorkingproxy"
+		serviceBean="lbpmWorkingproxyService"
+		table="lbpm_workingproxy">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdFactNodeId"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdFactNodeId"
+			type="String"
+			column="fd_fact_node_id"
+			notNull="false"
+			length="10" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="32" />
+			
+		<modelProperty
+			name="fdExpecter"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdExpecter"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_expecter_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdProxy"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdProxy"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_proxy_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdByproxy"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdByproxy"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_byproxy_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpmservice-support:lbpmWorkingproxy.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fdProcess"
+			notNull="false" />
+
+	</model>
+</models>

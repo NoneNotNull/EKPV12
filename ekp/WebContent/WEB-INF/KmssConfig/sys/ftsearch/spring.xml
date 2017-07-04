@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysLuceneDocKeyDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.ftsearch.db.dao.hibernate.SysLuceneDocKeyDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.ftsearch.db.model.SysLuceneDocKey" />
+	</bean>
+	<bean
+		id="sysLuceneDocKeyTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SysLuceneDocKeyServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysLuceneDocKeyDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysLuceneDocKeyService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysLuceneDocKeyTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="preparedBeanDB"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.PreparedBeanDBImp">
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssParentDao" />
+		</property>
+	</bean>
+
+	<bean
+		id="searchBuilder"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SearchBuilderImp">
+		<property
+			name="sysFtsearchConfigService">
+			<ref
+				bean="sysFtsearchConfigService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="searchByLucene"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SearchByLuceneImp">
+	</bean>
+	<bean
+		id="indexByLucene"
+		class="com.landray.kmss.sys.ftsearch.lucene.IndexByLuceneImp">
+	</bean>
+	
+	<bean
+		id="searcherClusterReceiver"
+		class="com.landray.kmss.sys.ftsearch.lucene.SearcherClusterReceiver">
+	</bean>
+	
+	<!--
+		<bean id="chineseTokenizer"
+		class="com.landray.kmss.sys.ftsearch.analysis.cn.ChineseTokenizer">
+		</bean>
+	-->
+
+	<bean
+		id="indexTaskRunner"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.IndexTaskRunner">
+		<property
+			name="sysAttMainService">
+			<ref
+				bean="sysAttMainService" />
+		</property>
+		<property
+			name="sysAttUploadService">
+			<ref
+				bean="sysAttUploadService" />
+		</property>
+		<property
+			name="preparedBeanDB">
+			<ref
+				bean="preparedBeanDB" />
+		</property>
+		<property
+			name="sysLuceneDocKeyService">
+			<ref
+				bean="sysLuceneDocKeyService" />
+		</property>
+	</bean>
+
+	<bean
+		id="indexObjectRunner"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.IndexObjectRunner">
+		<property
+			name="sysAttMainService">
+			<ref
+				bean="sysAttMainService" />
+		</property>
+		<property
+			name="preparedBeanDB">
+			<ref
+				bean="preparedBeanDB" />
+		</property>
+	</bean>
+
+	<bean
+		id="docKeyWriteAdvice"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.DocKeyWriteAdvice">
+				<property
+					name="sysLuceneDocKeyService"
+					ref="sysLuceneDocKeyService" />
+				<property
+					name="sysAttMainService"
+					ref="sysAttMainService" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*delete" />
+	</bean>
+
+	<bean
+		id="luceneCreateAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.LuceneCreateAdvice">
+				<property
+					name="indexObject"
+					ref="indexObjectRunner" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*add" />
+	</bean>
+
+	<bean
+		id="luceneSaveAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.LuceneSaveAdvice">
+				<property
+					name="indexObject"
+					ref="indexObjectRunner" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*update" />
+	</bean>
+
+	<bean
+		id="luceneDeleteAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.LuceneDeleteAdvice">
+				<property
+					name="indexObject"
+					ref="indexObjectRunner" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*delete" />
+	</bean>
+	<bean
+		id="docKeyWriteAttAdvice"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.DocKeyWriteAttAdvice">
+				<property
+					name="sysLuceneDocKeyService"
+					ref="sysLuceneDocKeyService" />
+				<property
+					name="sysAttMainService"
+					ref="sysAttMainService" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*delete" />
+	</bean> 
+	<bean
+		id="luceneDeleteAttAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.LuceneDeleteAttAdvice">
+				<property
+					name="indexObject"
+					ref="indexObjectRunner" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*delete" />
+	</bean>
+	<bean
+		id="luceneSaveAttAdvisor"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property
+			name="advice">
+			<bean
+				class="com.landray.kmss.sys.ftsearch.db.service.spring.aop.LuceneSaveAttAdvice">
+				<property
+					name="sysLuceneDocKeyService"
+					ref="sysLuceneDocKeyService" />
+				<property
+					name="sysAttMainService"
+					ref="sysAttMainService" />
+			</bean>
+		</property>
+		<property
+			name="pattern"
+			value=".*update" />
+	</bean> 
+	<!--
+		<bean id="sysFtsearchConfigService"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SysFtsearchConfigServiceImp">
+		</bean>
+	-->
+
+	<bean
+		id="sysFtsearchConfigServiceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SysFtsearchConfigServiceImp">
+	</bean>
+	<bean
+		id="sysFtsearchConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysFtsearchConfigServiceTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysFtsearchByModelXMLService"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.SysFtsearchByModelXMLService">
+		<property
+			name="sysFtsearchConfigService"> 
+			<ref
+				local="sysFtsearchConfigService" />
+		</property>
+	</bean> 
+	
+	<bean
+		id="defaultSearchPermisionsService"
+		class="com.landray.kmss.sys.ftsearch.db.service.spring.DefaultSearchPermisionsServiceImp">
+	</bean>
+
+</beans>

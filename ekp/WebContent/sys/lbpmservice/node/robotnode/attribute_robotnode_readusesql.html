@@ -1,0 +1,432 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<script>
+var dialogObject=parent.dialogArguments?parent.dialogArguments:parent.opener.Com_Parameter.Dialog;
+var Com_Parameter = {
+	ContextPath:dialogObject.Window.Com_Parameter.ContextPath,
+	ResPath:dialogObject.Window.Com_Parameter.ResPath,
+	Style:dialogObject.Window.Com_Parameter.Style,
+	JsFileList:new Array,
+	StylePath:dialogObject.Window.Com_Parameter.StylePath,
+	Cache:dialogObject.Window.Com_Parameter.Cache
+};
+// 多语言对象
+LangObject = parent.FlowChartObject.Lang;
+// 当前节点多语言对象
+LangNodeObject = LangObject.Node;
+// 数据类型对象
+DataTypeLangObject = LangObject.DataType;
+// 记录上一次的数据对象
+PrevDataHistory = {inputParams:{sql:'', params:[]}, outParams:{dbConnect:'', sql:'', params:[]}};
+</script>
+<script type="text/javascript" src="../../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/" + Com_Parameter.Style + "/doc/");
+Com_IncludeFile("docutil.js|doclist.js|dialog.js|data.js|formula.js");
+</script>
+<script>
+// 必须实现的方法，供父窗口(attribute_robotnode.html)调用。
+function returnValue() {
+	if (!check()) return null;
+	
+	var rtnJson = new Array();
+	rtnJson.push("{");
+	// 数据库连接
+	var objConnect = document.getElementById("dbConnect");
+	rtnJson.push("\"dbConnect\":\"" + objConnect.value + "\"");
+	// SQL语句
+	var objSQL = document.getElementById("SQL");
+	rtnJson.push(",\"sql\":\"" + objSQL.value + "\"");
+	// 输入参数
+	rtnJson.push("," + getParameterJsonByTable("inputParams"));
+	// 输出参数
+	rtnJson.push("," + getParameterJsonByTable("outParams"));
+	// 结束
+	rtnJson.push("}");
+	return rtnJson.join('');
+};
+
+function check() {
+	var inputHistory = PrevDataHistory['inputParams'], outHistory = PrevDataHistory['outParams'];
+	var SQLString = Com_Trim(document.getElementById("SQL").value);
+	if (inputHistory.params != null && inputHistory.params.length > 0 && inputHistory.sql != SQLString) {
+		alert(LangNodeObject['robot_RDB_CheckInputParam']);
+		return false;
+	}
+	var connect = document.getElementById("dbConnect").value;
+	if (inputHistory.params != null && inputHistory.params.length > 0 && outHistory.sql != SQLString && outHistory.dbConnect != connect) {
+		alert(LangNodeObject['robot_RDB_CheckOutParam']);
+		return false;
+	}
+	return true;
+};
+
+function getParameterJsonByTable(id) {
+	var rtnJson = new Array();
+	var table = document.getElementById(id);
+	for (var i = 1, length = table.rows.length; i < length; i++) {
+		rtnJson.push(getParamterJsonByRow(id, table.rows[i]));
+	}
+	return "\"" + id + "\":[" + rtnJson.join(",") + "]";
+};
+
+function getParamterJsonByRow(id, trElement) {
+	var rtnJson = new Array();
+	rtnJson.push("{");
+	// 参数名
+	rtnJson.push("\"name\":\"" + (trElement.cells[0].innerText||trElement.cells[0].textContent) + "\"");
+	
+	if (id == "inputParams") {
+		// 参数类型
+		rtnJson.push(",\"dataType\":\"" + getElementsByParent(trElement.cells[1], "select")[0].value + "\"");
+		// 读取表单字段
+		var inputArr = getElementsByParent(trElement.cells[2], "input");
+		rtnJson.push(",\"idField\":\"" + parent.formatJson(inputArr[0].value) + "\"");
+		rtnJson.push(",\"nameField\":\"" + parent.formatJson(inputArr[1].value) + "\"");
+	} else {
+		// 是否使用
+		var isUsing = getElementsByParent(trElement.cells[1], "input")[0].checked ? "true" : "false";
+		rtnJson.push(",\"isUse\":\"" + isUsing + "\"");
+		// 写入表单字段
+		var selectElement = getElementsByParent(trElement.cells[2], "select")[0];
+		var option = selectElement.options[selectElement.selectedIndex];
+		rtnJson.push(",\"idField\":\"" + option.value + "\"");
+		rtnJson.push(",\"nameField\":\"" + option.text + "\"");
+	}
+	
+	// 结束
+	rtnJson.push("}");
+	return rtnJson.join('');
+};
+
+function getElementsByParent(oParent, tagName) {
+	var rtnResult = new Array(), child;
+	for (var i = 0, length = oParent.childNodes.length; i < length; i++) {
+		child = oParent.childNodes[i];
+		if (child.tagName && child.tagName.toLowerCase() == tagName)
+			rtnResult.push(child);
+	}
+	return rtnResult;
+};
+
+function writeMessage(key) {
+	document.write(LangNodeObject[key]);
+};
+
+// 根据SQL语句，获得输入参数
+function getInputParamtersBySQL() {
+	var objSQL = document.getElementById("SQL");
+	if (!objSQL) return null;
+	// 查找相应的参数
+	var rtnArr = objSQL.value.match(/:[^\s=)<>,]+/ig);
+	if (rtnArr == null) return null;
+	// 修剪相同的值，并剔除冒号
+	var rtnResult = new Array(), find;
+	for (var i = 0, alength = rtnArr.length; i < alength; i++) {
+		find = false;
+		for (var j = 0, rlength = rtnResult.length; j < rlength; j++) {
+			if ((":" + rtnResult[j]) == rtnArr[i]) {
+				find = true;
+				break;
+			}
+		}
+		if (!find) rtnResult.push(rtnArr[i].substr(1));
+	}
+	return rtnResult;
+};
+
+// 根据SQL语句，获得输出参数
+function getOutParamtersBySQL() {
+	var SQLString = PrevDataHistory['outParams'].sql;
+	// SQL语句与输入参数获取时的SQL不一致
+	var inputParamLength = PrevDataHistory['inputParams'].params.length;
+	if (inputParamLength > 0 && PrevDataHistory['inputParams'].sql != SQLString) {
+		alert(LangNodeObject.robot_RDB_CheckInputParam);
+		return;
+	}
+	// 组装相应的json
+	var rtnJson = new Array();
+	rtnJson.push('{"dbConnect":"' + PrevDataHistory['outParams'].dbConnect + '"');
+	rtnJson.push(',"sql":"' + SQLString + '"');
+	if (inputParamLength > 0) rtnJson.push(',' + getParameterJsonByTable('inputParams'));
+	rtnJson.push('}');
+	// 显示载入状态
+	var outHref = document.getElementById('out');
+	outHref.innerHTML = '<img src=\'' + Com_Parameter.ContextPath + 'resource/style/common/images/loading.gif\'>';
+	outHref.removeAttribute('href');
+	// 调用Ajax
+	(new KMSSData()).AddHashMap({json: rtnJson.join('')}).SendToBean("robotNodeRDBService", doActionInOutParamters);
+};
+
+function doActionInOutParamters(rtnData) {
+	var rtnResult = new Array();
+	var nodesValue = rtnData.GetHashMapArray();
+	for(var i = 1, length = nodesValue.length; i < length; i++) {
+		rtnResult.push({name:nodesValue[i]['column'], dataType:'', isUse:'false', idField:'', nameField:''});
+	}
+	// 恢复原始状态
+	var outHref = document.getElementById("out");
+	outHref.innerHTML = LangNodeObject['robot_Param_Get'];
+	outHref.setAttribute('href', 'JavaScript:OutputParamters(\'outParams\');');
+	// 若返回值不为空，则是SQL或数据库链接不正确
+	var error = nodesValue[0]['error'];
+	switch (error) {
+	case '':
+		OutputParamters('outParams', rtnResult);
+		break;
+	case 'connect db error':
+		alert(LangNodeObject.robot_RDB_NoDbConnect);
+		break;
+	case 'execute sql error':
+		alert(LangNodeObject.robot_RDB_SQLError);
+		break;
+	}
+};
+
+function transFormFieldList() {
+	var rtnResult = new Array();
+	var fieldList = parent.FlowChartObject.FormFieldList;
+	if (!fieldList) return rtnResult;
+	// 转换成option支持的格式
+	for (var i = 0, length = fieldList.length; i < length; i++) {
+		rtnResult.push({value:fieldList[i].name, name:fieldList[i].label});
+	}
+	return rtnResult;
+};
+
+// 输出参数
+function OutputParamters(id, params) {
+	// 删除存在的参数行
+	var table = document.getElementById(id);
+	for (var i = table.rows.length - 1; i > 0; i--)
+		table.deleteRow(i);
+	// 获取相应参数集
+	var _params = params || null;
+	if (_params == null) {
+		PrevDataHistory[id].sql = Com_Trim(document.getElementById("SQL").value);
+		switch(id) {
+		case 'inputParams':
+			_params = getInputParamtersBySQL();
+			break;
+		case 'outParams':
+			PrevDataHistory[id].dbConnect = document.getElementById("dbConnect").value;
+			getOutParamtersBySQL();
+			// 由于采用了异步获取，则退出
+			return;
+		}
+		if (_params == null) {
+			alert(LangNodeObject.robot_RDB_NoInParameter);
+			return;
+		}
+		PrevDataHistory[id].params = _params;
+	}
+	// 生成新的参数行
+	var trElement, paramObject;
+	for (var i = 0, length = _params.length; i < length; i++) {
+		// 转成对象模式
+		var type = typeof(_params[i]);
+		if (type == 'string') {
+			paramObject = {name:_params[i], dataType:'', isUse:'false', idField:'', nameField:''};
+		} else if (type == 'object') {
+			paramObject = _params[i];
+		} else {
+			continue;
+		}
+		// 新建一行
+		trElement = table.insertRow(-1);
+		trElement.setAttribute('align', 'center');
+		// 参数名
+		createTextElement(trElement, paramObject.name);
+		
+		if (id == "inputParams") {
+			// 参数类型
+			createSelectElement(trElement, getDataTypeOptions(), paramObject.dataType);
+			// 读取表单字段
+			createReadOnlyElement(trElement, 
+				paramObject.idField + '|' + paramObject.nameField, 
+				'openExpressionEditor(this);');
+		} else {
+			// 是否使用
+			createCheckboxElement(trElement, (paramObject.isUse == 'true'));
+			// 写入表单字段
+			createSelectElement(trElement, transFormFieldList(), paramObject.idField, paramObject.nameField);
+		}
+	}
+};
+
+/* 创建文本的Dom对象
+ 参数:
+		trElement : 表格中tr对象
+		value     : 文本值
+*/
+function createTextElement(trElement, value) {
+	var tdElement = trElement.insertCell(-1);
+	tdElement.innerHTML = value || '';
+};
+
+/* 创建Select的Dom对象
+ 参数:
+		trElement  : 表格中tr对象
+		options    : 选项列表数组，规则：[{value:'',name:''}]
+		checkValue : 选中值
+		checkName  : 选中文本
+*/
+function createSelectElement(trElement, options, checkValue, checkName) {
+	var rtnResult = new Array();
+	if (options == null || options.length == 0) {
+		var value = checkValue || '', name = checkName || '';
+		if (name != '')	rtnResult.push('<option value=\'' + value + '\' selected>' + name + '</option>');
+	} else {
+		for (var i = 0, length = options.length; i < length; i++) {
+			var option = options[i], value = option.value || option.name;
+			rtnResult.push('<option value=\'' + value + '\'');
+			if (value == checkValue) rtnResult.push(' selected');
+			rtnResult.push('>' + option.name + '</option>');
+		}
+	}
+	// 输出Dom对象
+	var tdElement = trElement.insertCell(-1);
+	tdElement.innerHTML = '<select>' + rtnResult.join('') + '</select>';
+};
+
+/* 创建checkbox的Dom对象，此只有一个选项并且为布尔值
+ 参数:
+		trElement    : 表格中tr对象
+		booleanValue : 选中值，boolean类型
+*/
+function createCheckboxElement(trElement, booleanValue) {
+	var tdElement = trElement.insertCell(-1);
+	tdElement.innerHTML = '<input type=\'checkbox\'' + (booleanValue ? ' checked' : '') + ' />';
+};
+
+/* 创建input只读的Dom对象
+ 参数:
+		trElement    : 表格中tr对象
+		valueAndName : 值对，规则：value|name(输出2个input) 或 name(输出1个input)
+		selectJs     : 选择使用的js代码，若没有此参数则不显示
+*/
+function createReadOnlyElement(trElement, valueAndName, selectJs) {
+	var rtnResult = new Array(), _valueAndName = valueAndName || '';
+	var valueList = _valueAndName.split('|'), name = _valueAndName;
+	if (valueList.length > 1) {
+		rtnResult.push('<input style=\'display:none\'');
+		rtnResult.push(' value=\'' + (valueList[0] || '') + '\'');
+		rtnResult.push('>');
+		name = valueList[1];
+	}
+	// 输出显示部分
+	rtnResult.push('<input class=\'inputsgl\' readonly value=\'' + name + '\'>');
+	// 输出选择部分
+	if (selectJs) {
+		var _js = (selectJs == '') ? '' : selectJs;
+		rtnResult.push(' <a href=\'JavaScript:void(0);\' onclick=\'' + _js + '\'>' + LangNodeObject.select + '</a>');
+	}
+	var tdElement = trElement.insertCell(-1);
+	tdElement.innerHTML = rtnResult.join('');
+};
+
+function getDataTypeOptions() {
+	var rtnArray = new Array();
+	rtnArray.push({value:'String', name:DataTypeLangObject.String});
+	rtnArray.push({value:'DateTime', name:DataTypeLangObject.Date});
+	rtnArray.push({value:'Double', name:DataTypeLangObject.Number});
+	return rtnArray;
+};
+
+function openExpressionEditor(owner) {
+	var idField, nameField;
+	var arrElement = getElementsByParent(owner.parentNode, "input");
+	if (arrElement.length < 2) return;
+	if (arrElement[0].style.display == 'none') {
+		idField = arrElement[0];
+		nameField = arrElement[1];
+	} else {
+		idField = arrElement[1];
+		nameField = arrElement[0];
+	}
+	// 获取相应配置的数据类型
+	var dataTypeElement = getElementsByParent(owner.parentNode.parentNode.cells[1], "select")[0];
+	// 调用公式定义器
+	Formula_Dialog(idField, nameField, parent.FlowChartObject.FormFieldList, dataTypeElement.value, null, "com.landray.kmss.sys.lbpm.engine.formula.LbpmFunction",parent.FlowChartObject.ModelName);
+};
+
+function initDocument() {
+	// 初始化数据库连接选项
+	var objConnect = document.getElementById("dbConnect");
+	(new KMSSData()).AddBeanData("compDbcpXMLService").PutToSelect(objConnect, 'name');
+	// 节点原配置的类型不是当前类型
+	if (parent.NodeData.unid != parent.document.getElementById("type").value) return;
+	// 若没获取到内容，则...
+	if (!parent.NodeContent) return;
+	// 获得内容对象
+	var json = eval('(' + parent.NodeContent + ')');
+	// 数据库连接
+	objConnect.value = json.dbConnect;
+	// SQL语句
+	document.getElementById("SQL").value = json.sql;
+	// 初始化相关配置
+	PrevDataHistory['inputParams'].sql = json.sql;
+	PrevDataHistory['inputParams'].params = getInputParamtersBySQL();
+	PrevDataHistory['outParams'].sql = json.sql;
+	PrevDataHistory['outParams'].dbConnect = json.dbConnect;
+	// 输入参数
+	OutputParamters("inputParams", json.inputParams);
+	// 输出参数
+	OutputParamters("outParams", json.outParams);
+};
+</script>
+<body onload="initDocument();">
+<table width="100%" class="tb_normal">
+	<tr>
+		<td width="15%"><script>writeMessage("robot_RDB_DbConnection");</script></td>
+		<td>
+			<select id="dbConnect"></select>
+		</td>
+	</tr>
+	<tr>
+		<td width="15%"><script>writeMessage("robot_RDB_SQL");</script></td>
+		<td>
+			<textarea id="SQL" style="width:100%"></textarea>
+			<script>writeMessage("robot_RDB_SQL_Example");</script>: select * from my_table where id=:id<br>
+			<script>writeMessage("robot_RDB_SQL_Example");</script>: select id, name from my_table where id=:id
+		</td>
+	</tr>
+	<tr>
+		<td width="15%">
+			<script>writeMessage("robot_RDB_InputParam");</script>
+			<span type="hiddenInRead">[<a href="JavaScript:OutputParamters('inputParams');"><script>writeMessage("robot_Param_Get");</script></a>]</span>
+		</td>
+		<td>
+			<table id="inputParams" width="100%" class="tb_normal">
+				<tr align="center">
+					<td width="30%"><script>writeMessage("robot_Param_Name");</script></td>
+					<td width="30%"><script>writeMessage("robot_Param_Type");</script></td>
+					<td><script>writeMessage("robot_Param_ReadFieldName");</script></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="15%">
+			<script>writeMessage("robot_RDB_ReturnValue");</script>
+			<span type="hiddenInRead">[<a href="JavaScript:OutputParamters('outParams');" id="out"><script>writeMessage("robot_Param_Get");</script></a>]</span>
+		</td>
+		<td>
+			<table id="outParams" width="100%" class="tb_normal">
+				<tr align="center">
+					<td width="30%"><script>writeMessage("robot_RDB_OutParamName");</script></td>
+					<td width="30%"><script>writeMessage("robot_Param_IsUse");</script></td>
+					<td><script>writeMessage("robot_Param_WriteFieldName");</script></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td width="15%"><script>writeMessage("robot_Description");</script></td>
+		<td><script>writeMessage("robot_RDB_Read_Help");</script></td>
+	</tr>
+</table>
+</body>
+</html>

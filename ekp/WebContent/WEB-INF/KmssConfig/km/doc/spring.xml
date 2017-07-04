@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="kmDocKnowledgeDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.doc.dao.hibernate.KmDocKnowledgeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.doc.model.KmDocKnowledge" />
+	</bean>
+	<bean
+		id="kmDocKnowledgeTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.km.doc.service.spring.KmDocKnowledgeServiceImp">
+		<property name="baseDao">
+			<ref local="kmDocKnowledgeDao" />
+		</property>
+		<property name="kmDocTemplateService">
+			<ref local="kmDocTemplateService" />
+		</property>		
+	</bean>
+	<bean
+		id="kmDocKnowledgeService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmDocKnowledgeTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmDocKnowledgePortlet"
+		class="com.landray.kmss.km.doc.service.spring.KmDocKnowledgePortlet">
+		<property name="kmDocKnowledgeService">
+			<ref local="kmDocKnowledgeService" />
+		</property>
+		<property name="kmDocTemplateService">
+			<ref local="kmDocTemplateService" />
+		</property>
+	</bean>
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>kmDocKnowledgeDao</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+				<value>luceneDeleteAdvisor</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+		id="kmDocTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.doc.dao.hibernate.KmDocTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.doc.model.KmDocTemplate" />
+	</bean>
+	<bean
+		id="kmDocTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.doc.service.spring.KmDocTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="kmDocTemplateDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmDocTemplateService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmDocTemplateTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmDocTemplateTreeService"
+		class="com.landray.kmss.km.doc.service.spring.KmDocTemplateTreeService">
+		<property name="kmDocTemplateService">
+			<ref local="kmDocTemplateService" />
+		</property>
+	</bean>
+	<!-- 我常用文档目录portlet -->
+	<bean
+		id="kmDocKnowledgeCommonPortlet"
+		class="com.landray.kmss.km.doc.service.spring.KmDocKnowledgeCommonPortlet">
+		<property name="kmDocTemplateService">
+			<ref local="kmDocTemplateService" />
+		</property>
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService" />
+		</property>
+	</bean>
+	<bean id="kmDocKnowledgePreTarget"
+	      class="com.landray.kmss.km.doc.service.spring.KmDocKnowledgePreServiceImp"
+	      parent="KmssBaseTarget">
+		<property name="kmDocKnowledgeService">
+			<ref local="kmDocKnowledgeService" />
+		</property>
+		<property name="kmDocTemplateService">
+			<ref local="kmDocTemplateService" />
+		</property>
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>
+		<property name="baseDao">
+			<ref local="kmDocKnowledgePreDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmDocKnowledgePreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmDocKnowledgePreTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmDocKnowledgePreDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.doc.dao.hibernate.KmDocKnowledgePreDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.doc.model.KmDocKnowledgePre" />
+	</bean>
+</beans>

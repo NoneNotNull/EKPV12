@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting"
+	messageKey="tib-sys-sap-connector:table.tibSysSapServerSetting"
+	serviceBean="tibSysSapServerSettingService"
+	table="tib_sys_sap_server_setting"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdServerCode"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdServerCode"
+	type="String"
+	column="fd_server_code"
+	notNull="true"
+	length="50"
+/>
+<simpleProperty
+	name="fdServerName"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdServerName"
+	type="String"
+	column="fd_server_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdServerIp"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdServerIp"
+	type="String"
+	column="fd_server_ip"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdTibSysSapCode"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdTibSysSapCode"
+	type="String"
+	column="fd_tib_sys_sap_code"
+	notNull="false"
+	length="32"
+/>
+<simpleProperty
+	name="fdClientCode"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdClientCode"
+	type="String"
+	column="fd_client_code"
+	notNull="true"
+	length="32"
+/>
+<simpleProperty
+	name="fdLanguage"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdLanguage"
+	type="String"
+	column="fd_language"
+	notNull="false"
+	length="32"
+/>
+<listProperty
+	name="fdTibSysSapExtList"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdTibSysSapExtList"
+	column="fd_server_id"
+	orderBy="fd_id"
+	type="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSettingExt"
+	cascade="all-delete-orphan"
+	inverse="true"
+/>
+<simpleProperty
+	name="fdUpdateTime"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdUpdateTime"
+	type="DateTime"
+	column="fd_update_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="fdDescribe"
+	messageKey="tib-sys-sap-connector:tibSysSapServerSetting.fdDescribe"
+	type="String"
+	column="fd_describe"
+	notNull="false"
+	length="200"
+/>
+</model></models>

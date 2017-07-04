@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type bundle="sys-portal" name="sys_portal_page_type">
+		<value-label>
+			<value>1</value>
+			<label-key>sys_portal_page_type_page</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sys_portal_page_type_url</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+	</type>
+	<type bundle="sys-portal" name="sys_portal_link_type">
+		<value-label>
+			<value>1</value>
+			<label-key>sys_portal_link_type_1</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sys_portal_link_type_2</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+	</type>
+	<type bundle="sys-portal" name="sys_portal_tree_type">
+		<value-label>
+			<value>1</value>
+			<label-key>sys_portal_tree_type_1</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>sys_portal_tree_type_2</label-key>
+			<bundle>sys-portal</bundle>
+		</value-label>
+	</type>
+</column-enums>

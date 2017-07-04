@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 子系统配置</description>
+			<author>叶中奇</author>
+			<revision-time>2014-10-31</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 新增允许后台调度多服务器运行的接口</description>
+			<author>叶中奇</author>
+			<revision-time>2014-08-12</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 基于新增的插件工厂容器加载结束监听器，来绝对保障集群是在其他服务初始化完成后执行。</description>
+			<author>龚健</author>
+			<revision-time>2014-07-01</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 插件工厂没有加载完成就启动集群，导致流程出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-05-12</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现线程池的JMX支持</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-03-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>关联 将获取数据库时间的工具类移入CORE中</description>
+			<author>易荣烽</author>
+			<revision-time>2013-03-04</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 调整了admin.do的显示位置</description>
+			<author>叶中奇</author>
+			<revision-time>2012-11-23</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 admin.do配置的描述信息</description>
+			<author>易荣烽</author>
+			<revision-time>2012-05-15</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持后台服务可以绑定某个节点运行的功能，通讯方式支持TCP协议和UDP协议的配置。 优化 减少了网络因素对群集环境造成的影响。 注意：由于本次改动重写了对外接口，因此牵涉到多个底层模块的修改，注意同步升级。</description>
+			<author>叶中奇</author>
+			<revision-time>2012-03-29</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+				<relation-module>sys/xform</relation-module>
+				<relation-module>sys/workflow</relation-module>
+				<relation-module>sys/ftsearch</relation-module>
+				<relation-module>sys/property</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修改事务问题，关闭session</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-03-13</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>将admin.do中群集相关配置移入模块内进行解耦</description>
+			<author>易荣烽</author>
+			<revision-time>2012-03-12</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>ui改动，提示页面跟风格走！</description>
+			<author>卢海军</author>
+			<revision-time>2011-11-10</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType" id="137f498360618e34925fe4a42e7a4713">
+			<param
+				name="type"
+				value="sendNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.sendNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.sendnode.SendNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/sendnode/node_attribute.jsp" />	
+			<param
+				name="nodeDescType"
+				value="sendNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="sendNodeBehaviourService" />																									
+		</item>
+		<item
+			name="nodeDescType" id="1388582e3d0cb5d78fa530c441f87027">
+			<param
+				name="type"
+				value="sendNodeDesc"/>
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/sendnode/node_flowchart.js"/>
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/sendnode/node_desc.js"/>
+			<param
+				name="taskDesc"
+				value="sendNodeDesc" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/edition/sys_edition_main/sysEditionMain"
+			type="com.landray.kmss.sys.edition.actions.SysEditionMainAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/edition/sys_edition_main/sysEditionMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/edition/sys_edition_main/sysEditionMain_list.jsp">
+			</forward>
+			<forward
+				name="listdata"
+				path="/sys/edition/import/listdata.jsp">
+			</forward>			
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.edition.ApplicationResources"
+		key="sys-edition" />
+</struts-config>

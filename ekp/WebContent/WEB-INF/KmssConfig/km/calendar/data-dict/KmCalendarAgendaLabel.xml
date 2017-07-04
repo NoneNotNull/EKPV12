@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarAgendaLabel"
+		messageKey="km-calendar:table.kmCalendarAgendaLabel"
+		displayProperty="fdId"
+		serviceBean="kmCalendarAgendaLabelService"
+		table="km_calendar_agenda_label"
+		url="/km/calendar/km_calendar_agenda_label/kmCalendarAgendaLabel.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdColor"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdColor"
+			type="String"
+			column="fd_color"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdModelName"
+			type="String"
+			column="fd_model_name"
+			length="200"
+			notNull="false"
+			validate="true" />
+			
+		<simpleProperty
+			name="isAgendaLabel"
+			messageKey="km-calendar:kmCalendarAgendaLabel.isAgendaLabel"
+			type="Boolean"
+			length="1"
+			column="is_agenda_label"
+			notNull="false"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="km-calendar:kmCalendarAgendaLabel.fdIsAvailable"
+			type="Boolean"
+			length="1"
+			column="fd_is_available"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

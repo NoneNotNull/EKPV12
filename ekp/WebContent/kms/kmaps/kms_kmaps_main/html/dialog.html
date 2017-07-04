@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="x-ua-compatible" content="IE=6"/>
+</head>
+<script>
+var dialogObject=null;
+if(window.showModalDialog){
+	dialogObject = window.dialogArguments;
+}
+function beforeClose(){
+	dialogObject.rtnData = dialogRtnValue;
+	dialogObject.AfterShow();
+}
+if(dialogObject.winTitle!=null)
+	document.title = dialogObject.winTitle;
+function Com_DialogReturn(value){
+	close();
+}
+</script>
+<FRAMESET rows="*,75" framespacing=1 bordercolor=#003048 frameborder=1>
+		<FRAME name=treeFrame frameborder=0 src="../../kms_kmaps_template/kmsKmapsTemplate.do?method=importTemplate"> 
+		<FRAME noresize scrolling=no name=optFrame frameborder=0 src="dialog_confirm_btn.html">
+</FRAMESET>
+</html>

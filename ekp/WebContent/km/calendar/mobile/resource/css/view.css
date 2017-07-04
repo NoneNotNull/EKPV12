@@ -1,0 +1,230 @@
+@charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.muiScheduleReadBox {
+	margin-bottom: 1.5rem;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.muiScheduleReadHeaer {
+	height: 120px;
+	background: url(../images/calendar_view_bg.jpg) no-repeat;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+}
+
+.muiScheduleReadHeaer .dateBar {
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+
+.muiScheduleReadHeaer .dateBar>li:first-child {
+	margin-bottom: 5px;
+}
+
+.muiScheduleReadHeaer .dateBar>li {
+	color: #fff;
+	font-size: 1.4rem;
+	text-align: right;
+}
+
+.muiScheduleReadHeaer .dateBar .curDate {
+	white-space: nowrap;
+	line-height: 34px;
+	font-size: 1.4rem;
+	border-top-left-radius: 17px;
+	border-bottom-left-radius: 17px;
+	/*background-color: #18b4ed;*/
+	display: inline-block;
+	padding: 0 12px 0 20px;
+	background-color:rgba(51,51,51,0.5);
+}
+
+.muiScheduleReadHeaer .dateBar .curDate em{font-size:2.4rem;font-style:normal;padding:0 0.1rem 0 0;}
+.muiScheduleReadHeaer .dateBar .curDate em.Today{font-size:1.8rem;}
+
+.muiScheduleReadHeaer .dateBar .date, .muiScheduleReadHeaer .dateBar .week {
+	padding:1px 8px;
+}
+
+.muiScheduleReadBox .txtContent {
+	line-height: 1.5;
+	color: #333;
+	font-size: 1.6rem;
+	background-color: #fff;
+	padding: 8px 1rem;
+	font-weight:normal;
+}
+
+.muiScheduleDateBox{ 
+	margin-bottom: 1.5rem;
+	min-height: 100px;
+	border-top: 1px solid #d9d9d9;
+	border-bottom: 1px solid #d9d9d9;
+	background-color: #fff;
+	position: relative;
+}
+
+.muiScheduleDateBox .inner{
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+}
+
+.muiScheduleDateBox .colBar {
+	display: table-cell;
+	padding: 20px 5px 15px;
+}
+
+.muiScheduleDateBox .dateBrand {
+	width: 100px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.muiScheduleDateBox .dateBrand.left{
+	margin-right: 40px;
+}
+
+.muiScheduleDateBox .dateBrand.right{
+	margin-left: 40px;
+}
+
+.muiScheduleDateBox .dateBrand .head {
+	line-height: 28px;
+	color: #fff;
+	font-size: 1.4rem;
+	/*font-family: 'Hiragino Sans GB';*/
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.muiScheduleDateBox .dateBrand .content {
+	height:32px;
+	line-height:32px;
+	color: #333;
+	font-size:1.6rem;
+	/*font-family: 'Hiragino Sans GB';*/
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	border: 1px solid #d9d9d9;
+	border-top: 0;
+}
+
+.muiScheduleDateBox .dateBrand .head.redBg {
+	background-color: #3fa9f5;
+}
+
+.muiScheduleDateBox .dateBrand .head.blueBg {
+	background-color: #3fa9f5;
+}
+
+.muiScheduleDateBox .dateBrand .btn {
+	margin-top: 10px;
+	line-height:24px;
+	color: #7f7f7f;
+	font-size: 1.2rem;
+	border-radius: 15px;
+	border: 1px solid #d9d9d9;
+	display: block;
+}
+
+.muiScheduleDateBox .countdownBar {
+	color: #7f7f7f;
+	font-size: 1.4rem;
+	white-space: nowrap;
+	/*verflow: hidden;*/
+	z-index: 1;
+	position: absolute;
+	left: 50%;
+	top: 50%; 
+	margin-left: -20px;
+	margin-top: -32px;
+}
+.muiScheduleDateBox .countdownBar:before{ content:""; display:block; width:78px;/* height:30px;*/ border-top:1px solid #8c8c8c; position:absolute; left:-20px; top:16px; }
+.muiScheduleDateBox .countdownBar .mui{
+	padding-top: 8px;
+	width: 38px;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	color: #898989;
+	background:#fff;
+	font-size: 2rem;
+	position:relative;
+	z-index:9;
+}
+
+.muiScheduleDateBox .countdownBar .duration{
+	text-align: center;
+ 	width: 80px;
+  	margin-left: -21px;
+  	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow:hidden;
+}
+
+.muiScheduleDateBox .countdownBar .txt {
+	text-align: center;
+	padding: 2px 0;
+}
+
+.kmCalendarFormContent{
+	background-color: white;
+	padding-left: 1rem;
+	border-top:1px solid #d9d9d9;
+	border-bottom:1px solid #d9d9d9;
+}
+
+.docLabelContainer{
+	display: inline-block;
+	color: white;
+	padding: 0.5rem;
+}
+
+.muiCalendarDefaultLabel{
+	background-color: rgb(193, 156, 83);
+}
+
+.muiCalendarEdit{
+	float: right;
+}
+
+.muiCalendarEdit .mui.mui-up{
+	transform:rotate(90deg);
+}
+
+.muiCalendarOptBar{
+	width: 100%;
+	margin: 1.5rem 0;
+	color: #3a3a3a;
+	border-top: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	background-color: #fff;
+	display: table;
+}
+.muiCalendarOptBar>div{
+	display: table-cell;
+	text-align: center;
+	height:4rem;
+	line-height:4rem;
+}
+.muiCalendarOptBar>div i.mui{
+	margin-right: 4px;
+	font-size: 2rem;
+	position: relative;
+	top:-1px;
+}
+.muiCalendarOptBar .muiCalendarDeleteOpt{
+	border-right: 1px solid #e2e2e2;
+}
+.muiCalendarOptBar .muiCalendarEditOpt{}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.example.rules.model.ExampleRulesMain"
+		messageKey="example-rules:table.exampleRulesMain"
+		displayProperty="docSubject"
+		serviceBean="exampleRulesMainService"
+		table="example_rules_main"
+		url="/example/rules/example_rules_main/exampleRulesMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="example-rules:exampleRulesMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="example-rules:exampleRulesMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdWorkType"
+			messageKey="example-rules:exampleRulesMain.fdWorkType"
+			type="String"
+			column="fd_work_type"
+			notNull="false"
+			length="2"
+			enumType="example_rules_main_fd_work_type"
+			validate="true" />
+
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="example-rules:exampleRulesMain.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="example-rules:exampleRulesMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="example-rules:exampleRulesMain.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="docStatus"
+			messageKey="example-rules:exampleRulesMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="true"
+			length="2"
+			enumType="example_rules_main_doc_status"
+			validate="false" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="example-rules:exampleRulesMain.docCategory"
+			type="com.landray.kmss.example.rules.model.ExampleRulesCategory"
+			column="doc_category_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="example-rules:exampleRulesMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<listProperty
+			name="fdNotifiers"
+			messageKey="example-rules:exampleRulesMain.fdNotifiers"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_org_notifiers"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authReaders"
+			messageKey="example-rules:exampleRulesMain.authReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_reader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authEditors"
+			messageKey="example-rules:exampleRulesMain.authEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_editor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authOtherReaders"
+			messageKey="example-rules:exampleRulesMain.authOtherReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_oreader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAllReaders"
+			messageKey="example-rules:exampleRulesMain.authAllReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_areader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authOtherEditors"
+			messageKey="example-rules:exampleRulesMain.authOtherEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_oeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAllEditors"
+			messageKey="example-rules:exampleRulesMain.authAllEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="example_rules_main_aeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+ 
+
+ 
+	</model>
+</models>

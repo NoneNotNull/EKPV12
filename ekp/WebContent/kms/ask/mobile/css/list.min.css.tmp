@@ -1,0 +1,61 @@
+
+.muiHeader{box-shadow:none; }/*** ***/
+
+.muiMixContentTitle .mui-score{ font-size:1.8rem; line-height:1.8rem; color:#fea906; margin-right:0.5rem; }
+.muiMixContentTitle .muiAskScore{ font-family:Roboto,Tahoma,Arial,"Droid Sans","Helvetica Neue","Droid Sans Fallback","Heiti SC",sans-self; font-size:1.6rem; position:relative; top:-0.2rem;}
+.muiMixContentItem .muiMixContentTitle{ min-height:1.8rem;}
+.muiMixContentItem{ padding-right:0px;}
+.muiListItem{ }
+.muiMixContentMiddle{ display:block;}
+
+.muiMixContentItem .muiMixContentTop{ position:relative; overflow:auto;  }
+.muiMixContentItem .muiMixContentTop>div{ vertical-align:top;}
+.muiMixContentItem .muiMixContentTop>div.muiAskStatus{
+	width:5.5rem;
+	color:rgba(255,0,0,0.5);
+	text-align: right;
+	position:relative;
+}
+.muiMixContentItem .muiMixContentTop .muiAskStatus{ padding-bottom:1rem;}
+.muiMixContentTop .muiAskStatus .mui{
+     transform:rotate(60deg);
+     -webkit-transform:rotate(60deg);
+     font-size:6rem;
+     font-weight:normal;
+     line-height: inherit;
+     position: absolute;
+     right: 0;
+     top: -8px;
+ }
+.muiAskTag{ color:#989898; font-size:1.4rem; line-height:1.8rem; padding-top:0.5rem;}
+.muiAskTag .mui{ font-size:1.8rem; line-height:1.8rem; margin-right:0.3rem; position:relative; top:-1px; z-index:9;}
+.muiAskTag em{ font-style:normal; margin:0 0.4rem;  color:#999;}
+
+.muiHeader{ margin-bottom:0px;}
+.muiCommonHeader {
+  	background:#0a6bb2 url(./images/bg.jpg) no-repeat 50% 100%;
+	background-size: cover;
+}
+
+
+.muiAskHeaderNav {
+	-webkit-transition: all 100ms linear;
+	height: 0;
+	overflow: hidden;
+	border-bottom:1px solid #e5e5e5;
+}
+
+
+.muiAskHeaderNav .muiHeaderItem {
+	display: table-cell;
+}
+
+.muiAskHomeButton {
+	color: #fff;
+	min-width: 4rem;
+	height: 100%;
+	cursor: pointer;
+	background-color: #2c79c7;
+}
+
+

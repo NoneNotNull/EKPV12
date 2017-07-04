@@ -1,0 +1,104 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapJcoSetting"
+		table="tib_sys_sap_jco_setting">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdPoolName"
+			column="fd_pool_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="fdPoolAdmin"
+			column="fd_pool_admin"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdPoolSecret"
+			column="fd_pool_secret"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdPoolStatus"
+			column="fd_pool_status"
+			update="true"
+			insert="true"
+			not-null="true" />
+
+		<property
+			name="fdConnectType"
+			column="fd_connect_type"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="false" />
+
+		<property
+			name="fdPoolCapacity"
+			column="fd_pool_capacity"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdPoolNumber"
+			column="fd_pool_number"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="fdPoolTime"
+			column="fd_pool_time"
+			update="true"
+			insert="true"
+			length="10"
+			not-null="false" />
+
+		<property
+			name="fdDescribe"
+			column="fd_describe"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdUpdateTime"
+			column="fd_update_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<many-to-one
+			name="fdTibSysSapCode"
+			column="fd_tib_sys_sap_code"
+			insert="true"
+			update="true"
+			not-null="true" />
+
+	</class>
+</hibernate-mapping>

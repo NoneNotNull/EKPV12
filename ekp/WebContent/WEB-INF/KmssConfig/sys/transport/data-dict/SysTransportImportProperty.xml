@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.transport.model.SysTransportImportProperty"
+	messageKey="sys-transport:table.sysTransportImportProperty"
+	displayProperty="fdName"
+	serviceBean="sysTransportImportPropertyService"
+	table="sys_transport_import_property"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="sys-transport:sysTransportImportProperty.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="100"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="sys-transport:sysTransportImportProperty.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="true"
+/>
+<modelProperty
+	name="config"
+	messageKey="sys-transport:sysTransportImportProperty.config"
+	type="com.landray.kmss.sys.transport.model.SysTransportImportConfig"
+	column="fd_parent_id"
+	notNull="false"
+/>
+<listProperty
+	name="keyList"
+	messageKey="sys-transport:sysTransportImportProperty.keyList"
+	column="fd_parent_id"
+	type="com.landray.kmss.sys.transport.model.SysTransportImportKey"
+	table="sys_transport_import_key"
+	cascade="all"
+/>
+</model></models>

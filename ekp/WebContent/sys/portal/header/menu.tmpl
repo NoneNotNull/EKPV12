@@ -1,0 +1,35 @@
+var target = render.vars.target?render.vars.target:'_self';
+
+{$
+<div class="lui_portal_header_menu_l clearfloat">
+	<div class="lui_portal_header_menu_r">
+		<div class="lui_portal_header_menu_c">
+$}
+for(var i=0; i<data.length; i++){
+	var text = env.fn.formatText(data[i].text);
+	var selected = data[i].selected == null ? false : data[i].selected;
+	//debugger;
+	{$
+	<div class="{% selected ? 'lui_portal_header_menu_item_current' : '' %}"
+		class2="{% selected ? 'lui_portal_header_menu_item_current' : '' %}"
+		onmouseover="this.className='lui_portal_header_menu_item_hover';"
+		onmouseout="this.className=this.getAttribute('class2');">
+		<div class="lui_portal_header_menu_item_l"
+			onclick="window.open('{%env.fn.formatUrl(data[i].href)%}', '{% target %}');">
+			<div class="lui_portal_header_menu_item_r">
+				<div class="lui_portal_header_menu_item_c">
+				{% text %}
+				</div>
+			</div>
+		</div>
+	</div>
+	$}
+	if(i<data.length-1){
+		{$<div class='lui_portal_header_menu_item_line'></div>$}
+	}
+}
+{$
+		</div>
+	</div>
+</div>
+$}

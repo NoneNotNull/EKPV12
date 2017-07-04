@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.km.review.model.KmReviewTemplate"
+		table="km_review_template">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+
+        <property
+			name="syncDataToCalendarTime"
+			column="sync_data_to_calendar_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdName"
+			column="fd_name"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="200" />
+
+		<property
+			name="fdLableVisiable"
+			column="fd_lable_visiable"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdFeedbackModify"
+			column="fd_feedback_modify"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="1" />
+		<property
+			name="fdOrder"
+			column="fd_order"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="10" />
+		<property
+			name="fdNumberPrefix"
+			column="fd_number_prefix"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="200" />
+		<property
+			name="docContent"
+			column="doc_content"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1000000"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+		<property
+			name="fdUseForm"
+			column="fd_use_form"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<many-to-one
+			name="docCreator"
+			column="doc_creator_id"
+			update="true"
+			insert="true"
+			not-null="true" />
+		<many-to-one
+			name="docCategory"
+			column="fd_category_id"
+			update="true"
+			insert="true"
+			not-null="true" />
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="true" />
+		<property
+			name="authReaderFlag"
+			column="auth_reader_flag"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNodownload"
+			column="auth_tmp_att_nodownload"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNocopy"
+			column="auth_tmp_att_nocopy"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authTmpAttNoprint"
+			column="auth_tmp_att_noprint"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdIsExternal"
+			column="fd_is_external"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+	    <property 
+			name="fdExternalUrl" 
+    		column="fd_external_url" 
+			update="true" 
+			insert="true" 
+			not-null="false" 
+			length="1000" />	
+		
+		<!--  
+		<property
+			name="fdExtFilePath"
+			column="fd_ext_file_path"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+		-->
+		<bag
+			name="authTmpReaders"
+			table="km_review_tmp_main_reader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+
+		<bag
+			name="authReaders"
+			table="km_review_template_reader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+
+		<bag
+			name="authEditors"
+			table="km_review_template_editor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_editor_id" />
+		</bag>
+
+		<bag
+			name="authOtherEditors"
+			table="km_review_template_oeditor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_editor_id" />
+		</bag>
+
+		<bag
+			name="authOtherReaders"
+			table="km_review_template_oreader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_reader_id" />
+		</bag>
+
+		<bag
+			name="authAllReaders"
+			table="km_review_template_areader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_all_reader_id" />
+		</bag>
+
+		<bag
+			name="authAllEditors"
+			table="km_review_template_aeditor"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_all_editor_id" />
+		</bag>
+
+		<bag
+			name="authTmpAttDownloads"
+			table="km_review_tmp_main_attdl"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_download_id" />
+		</bag>
+
+		<bag
+			name="authTmpAttCopys"
+			table="km_review_tmp_main_attcopy"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_copy_id" />
+		</bag>
+
+		<bag
+			name="authTmpAttPrints"
+			table="km_review_tmp_main_attprint"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_print_id" />
+		</bag>
+		<bag
+			name="fdLabelReaders"
+			table="km_review_temp_lable_reader"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_lable_reader_id" />
+		</bag>
+
+
+
+		<bag
+			name="docProperties"
+			table="km_review_template_property"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.category.model.SysCategoryProperty"
+				column="fd_property_id" />
+		</bag>
+
+
+		<bag
+			name="fdPosts"
+			table="km_review_template_post"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_post_id" />
+		</bag>
+
+
+		<bag
+			name="fdFeedback"
+			table="km_review_template_feedback"
+			lazy="true">
+			<key column="fd_template_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_feedback_id" />
+		</bag>
+		<bag
+			name="docKeyword"
+			cascade="all-delete-orphan"
+			inverse="true">
+			<key column="fd_object_id" />
+			<one-to-many
+				class="com.landray.kmss.km.review.model.KmReviewTemplateKeyword" />
+		</bag>
+		
+		<!-- 修改人修改时间 -->
+		<many-to-one
+			name="docAlteror"
+			column="doc_alteror_id"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="docAlterTime"
+			column="doc_alter_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="authChangeReaderFlag"
+			column="fd_change_reader_flag"
+			update="true"
+			insert="true"/>
+		<property
+			name="authRBPFlag"
+			column="fd_rbp_flag"
+			update="true"
+			insert="true"/>
+		<property
+			name="authChangeAtt"
+			column="fd_change_att"
+			update="true"
+			insert="true"/>
+			
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_kmReviewTemplate_authAreaId" />
+		<property
+			name="titleRegulation"
+			column="fd_title_regulation"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="3000" />
+		<property
+			name="titleRegulationName"
+			column="fd_title_regulation_name"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="3000" />
+	</class>
+</hibernate-mapping>

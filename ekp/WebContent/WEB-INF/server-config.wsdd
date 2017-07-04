@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment
+	xmlns="http://xml.apache.org/axis/wsdd/"
+	xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<globalConfiguration>
+		<parameter
+			value="admin"
+			name="adminPassword" />
+		<parameter
+			value="org.apache.axis.attachments.AttachmentsImpl"
+			name="attachments.implementation" />
+		<parameter
+			value="true"
+			name="sendXsiTypes" />
+		<parameter
+			value="true"
+			name="sendMultiRefs" />
+		<parameter
+			value="true"
+			name="axis.development.system" />
+		<parameter
+			value="true"
+			name="sendXMLDeclaration" />
+		<parameter
+			value="true"
+			name="axis.sendMinimizedElements" />
+		<parameter
+			value="true"
+			name="dotNetSoapEncFix" />
+		<parameter
+			value="false"
+			name="sendMultiRefs" />
+		<requestFlow>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter
+					value="session"
+					name="scope" />
+			</handler>
+			<handler type="java:org.apache.axis.handlers.JWSHandler">
+				<parameter
+					value="request"
+					name="scope" />
+				<parameter
+					value=".jwr"
+					name="extension" />
+			</handler>
+		</requestFlow>
+	</globalConfiguration>
+
+	<handler
+		type="java:org.apache.axis.transport.local.LocalResponder"
+		name="LocalResponder" />
+	<handler
+		type="java:org.apache.axis.handlers.http.URLMapper"
+		name="URLMapper" />
+	<handler
+		type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"
+		name="Authenticate" />
+
+	<service
+		provider="java:RPC"
+		name="Version">
+		<parameter
+			value="getVersion"
+			name="allowedMethods" />
+		<parameter
+			value="org.apache.axis.Version"
+			name="className" />
+	</service>
+	
+	<service
+		name="AdminService"
+		provider="java:MSG">
+		<parameter
+			name="allowedMethods"
+			value="AdminService" />
+		<parameter
+			name="enableRemoteAdmin"
+			value="true" />
+		<parameter
+			name="className"
+			value="org.apache.axis.utils.Admin" />
+		<namespace>http://xml.apache.org/axis/wsdd/</namespace>
+	</service>
+	<transport name="http">
+		<requestFlow>
+			<handler type="URLMapper" />
+			<handler
+				type="java:org.apache.axis.handlers.http.HTTPAuthHandler" />
+		</requestFlow>
+	</transport>
+	<transport name="local">
+		<responseFlow>
+			<handler type="LocalResponder" />
+		</responseFlow>
+	</transport>
+</deployment>
+

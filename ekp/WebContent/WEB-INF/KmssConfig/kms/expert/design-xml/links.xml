@@ -1,0 +1,15 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="shortcut" order="10">
+		<link 
+			  id="kms_expert_shorcut_add"
+			  url="/kms/expert/kms_expert_info/kmsExpertInfo.do?method=add" 
+			  msgKey="kms-expert:kmsExpert.add"
+			  icon="lui_icon_l_icon_43"
+		/>
+	</links>
+</root>

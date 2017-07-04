@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="publishSysWfEventService"
+		class="com.landray.kmss.sys.workflow.base.service.spring.PublishSysWfEventService">
+	</bean>
+
+	<bean
+		id="sysWfApprovalTypeDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.workflow.base.dao.hibernate.SysWfApprovalTypeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.workflow.base.model.SysWfApprovalType" />
+	</bean>
+	<bean
+		id="sysWfApprovalTypeTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.workflow.base.service.spring.SysWfApprovalTypeServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysWfApprovalTypeDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysWfApprovalTypeService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysWfApprovalTypeTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysWfApprovalAuditNoteListener"
+		class="com.landray.kmss.sys.workflow.base.service.spring.SysWfApprovalAuditNoteListener">
+		<property
+			name="accessManager">
+			<ref
+				bean="accessManager" />
+		</property>
+	</bean>
+</beans>

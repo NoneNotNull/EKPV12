@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonSysTabCategory"
+		messageKey="sys-person:sysPersonSysTabCategory"
+		displayProperty="fdName"
+		serviceBean="sysPersonSysTabCategoryService"
+		table="sys_person_systab_category">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-person:sysPersonSysTabCategory.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true" />
+			
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-person:sysPersonSysTabCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true" />
+			
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-person:sysPersonSysTabCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+			
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-person:sysPersonSysTabCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+			
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonSysTabCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-person:sysPersonSysTabCategory.fdType"
+			type="String"
+			column="fd_type"
+			notNull="true"
+			length="10" />
+			
+		<simpleProperty
+			name="fdTarget"
+			messageKey="sys-person:sysPersonSysTabCategory.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="10" />
+			
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-person:sysPersonSysTabCategory.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="true"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdPushType"
+			messageKey="sys-person:sysPersonSysTabCategory.fdPushType"
+			type="String"
+			column="fd_push_type"
+			notNull="true"
+			length="10"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonSysTabCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+			
+		<listProperty
+			name="fdLinks"
+			messageKey="sys-person:sysPersonSysTabCategory.fdLinks"
+			column="fd_cate_id"
+			orderBy="fd_order"
+			type="com.landray.kmss.sys.person.model.SysPersonSysTabLink"
+			cascade="all-delete-orphan"
+			inverse="false" />
+			
+		<listProperty
+			name="fdPages"
+			messageKey="sys-person:sysPersonSysTabCategory.fdPages"
+			column="fd_cate_id"
+			type="com.landray.kmss.sys.person.model.SysPersonSysTabPage"
+			cascade="all-delete-orphan"
+			inverse="false" />
+			
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-person:sysPersonSysTabCategory.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_person_systab_cate_aeditor" />
+			
+		<listProperty
+			name="authEditors"
+			messageKey="sys-person:sysPersonSysTabCategory.authEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_person_systab_cate_editor" />
+			
+		<listProperty
+			name="fdPushElements"
+			messageKey="sys-person:sysPersonSysTabCategory.fdPushElements"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_push_id"
+			table="sys_person_systab_cate_pusher" />
+	</model>
+</models>

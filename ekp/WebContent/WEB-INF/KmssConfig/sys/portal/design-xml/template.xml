@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" 
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:portal="http://www.landray.com.cn/schema/portal"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd
+	http://www.landray.com.cn/schema/portal
+	../../../sys/portal/portal.xsd">
+	<template id="template.default"
+		name="{sys-portal:portlet.template.default}"
+		file="/sys/portal/template/default/index.jsp"
+		designer="/sys/portal/template/default/designer.jsp"
+		for="portal"
+		thumb="/sys/portal/template/default/index.jpg"
+		help="/sys/portal/template/default/help.jsp">
+	</template> 
+	  
+	<portal:header 
+		id="header.menu" 
+		name="{sys-portal:portlet.header.menu}"
+		file="/sys/portal/template/menu/header.jsp"
+		thumb="/sys/portal/template/menu/header.jpg"
+		help="">
+		<portal:vars>
+			<var key="showPortal" name="{sys-portal:portlet.header.var.switch}" kind="enumValue" default="true">
+				{"values":[{"text":"{sys-portal:portlet.header.var.yes}", "value":"true"}],"showType":"checkbox","help":"{sys-portal:portlet.header.var.isswitch}"}
+			</var>
+			<var key="showSearch" name="{sys-portal:portlet.header.var.search}" kind="enumValue" default="true">
+				{"values":[{"text":"{sys-portal:portlet.header.var.yes}", "value":"true"}],"showType":"checkbox","help":"{sys-portal:portlet.header.var.ishowsearch}"}
+			</var>
+			<var key="showPerson" name="{sys-portal:portlet.header.var.person}" kind="enumValue" default="true">
+				{"values":[{"text":"{sys-portal:portlet.header.var.yes}", "value":"true"}],"showType":"checkbox","help":"{sys-portal:portlet.header.var.isperson}"}
+			</var>
+			<var key="showFavorite" name="{sys-portal:portlet.header.var.bookmark}" kind="enumValue" default="true">
+				{"values":[{"text":"{sys-portal:portlet.header.var.yes}", "value":"true"}],"showType":"checkbox","help":"{sys-portal:portlet.header.var.isbookmark}"}
+			</var>
+			<var key="showNotify" name="{sys-portal:portlet.header.var.notify}" kind="enumValue" default="true">
+				{"values":[{"text":"{sys-portal:portlet.header.var.yes}", "value":"true"}],"showType":"checkbox","help":"{sys-portal:portlet.header.var.isnotify}"}
+			</var>
+			<var key="refreshTime" name="{sys-portal:portlet.header.var.refresh}" kind="int">
+				{"help":"{sys-portal:portlet.header.var.isrefresh}","default":"0"}
+			</var>
+		</portal:vars>
+	</portal:header>
+	<portal:footer
+		id="footer.default" 
+		name="{sys-portal:portlet.footer.default}"
+		file="/sys/portal/template/default/footer.jsp"		
+		thumb="/sys/portal/template/default/footer.jpg"
+		help="">
+	</portal:footer>
+</root>

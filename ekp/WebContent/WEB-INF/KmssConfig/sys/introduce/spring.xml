@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysIntroduceMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.introduce.dao.hibernate.SysIntroduceMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.introduce.model.SysIntroduceMain" />
+	</bean>
+	<bean
+		id="sysIntroduceMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.introduce.service.spring.SysIntroduceMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysIntroduceMainDao" />
+		</property>
+		<property name="notifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="sysNewsTemplateService">
+			<ref bean="sysNewsTemplateService" />
+		</property>
+		<property name="sysNewsMainDao">
+			<ref bean="sysNewsMainDao" />
+		</property>
+		<property name="sysWfProcessSubService">
+			<ref bean="sysWfProcessSubService" />
+		</property>
+	</bean>
+	<bean
+		id="sysIntroduceMainService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysIntroduceMainTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="sysIntroduceCoreService"
+		parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.introduce.service.spring.SysIntroduceCoreServiceImp">
+				<property name="sysIntroduceMainService">
+					<ref local="sysIntroduceMainService" />
+				</property>
+				<property name="dispatchCoreService">
+			        <ref bean="dispatchCoreService" />
+		        </property>
+			</bean>
+		</property>
+	</bean>
+	<bean
+		id="sysIntroduceGoalCheckService"
+		class="com.landray.kmss.sys.introduce.service.spring.SysIntroduceGoalCheckService">
+		<property name="sysIntroduceMainService">
+			<ref local="sysIntroduceMainService" />
+		</property>
+	</bean>
+
+</beans>

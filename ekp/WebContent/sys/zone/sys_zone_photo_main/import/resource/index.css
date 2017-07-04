@@ -1,0 +1,24 @@
+.mapDiv {
+	width: 66px;
+	height: 66px;
+	padding: 2px 0px 0px 2px;
+	background-color: white;
+	z-index: 1001;
+	position: absolute;
+	display:none;
+}
+
+.lui_sys_zone_photo_img:hover {    
+	-webkit-transform:scale(2);
+	-moz-transform:scale(2);
+	-o-transform:scale(2);
+	transform:scale(2);
+}
+
+.lui_sys_zone_photo_img {
+	display:block;
+	-webkit-transition:all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	-o-transition:all 0.5s ease;
+	transition:all 0.5s ease;
+}

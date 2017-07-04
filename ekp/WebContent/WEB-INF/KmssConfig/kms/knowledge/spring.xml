@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="kmsKnowledgeBaseDocDao" parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeBaseDocDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeBaseDoc" />
+	</bean>
+	<bean id="kmsKnowledgeBaseDocTarget" parent="KmssExtendDataTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeBaseDocServiceImp">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeBaseDocDao" />
+		</property>
+		<property name="kmsKnowledgeCategoryService">
+			<ref local="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+		<property name="kmsCommonRecycleLogService">
+			<ref bean="kmsCommonRecycleLogService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeBaseDocService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeBaseDocTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeCategoryDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeCategoryDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+	</bean>
+	<bean id="kmsKnowledgeCategoryTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeCategoryDao" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeCategoryService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeCategoryCheckService"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryNameCheckService">
+		<property name="kmsKnowledgeCategoryService">
+			<ref local="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeWikiTemplateDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeWikiTemplateDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeWikiTemplate" />
+	</bean>
+	<bean id="kmsKnowledgeWikiTemplateTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeWikiTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeWikiTemplateDao" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeWikiTemplateService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeWikiTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeWikiCatalogDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeWikiCatalogDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeWikiCatalog" />
+	</bean>
+	<bean id="kmsKnowledgeWikiCatalogTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeWikiCatalogServiceImp">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeWikiCatalogDao" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeWikiCatalogService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeWikiCatalogTarget" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeWikiTemplateTree"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeWikiTemplateTree">
+		<property name="kmsKnowledgeWikiTemplateService">
+			<ref local="kmsKnowledgeWikiTemplateService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeDocTemplateDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeDocTemplateDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeDocTemplate" />
+	</bean>
+	<bean id="kmsKnowledgeDocTemplateTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeDocTemplateServiceImp">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeDocTemplateDao" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeDocTemplateService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeDocTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeDocTemplateTree"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeDocTemplateTree">
+		<property name="kmsKnowledgeDocTemplateService">
+			<ref local="kmsKnowledgeDocTemplateService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeFormulaDictVarTree"
+		class="com.landray.kmss.kms.knowledge.dict.KmsKnowledgeFormulaDictVarTree">
+		<property name="sysPropertyTemplateService" ref="sysPropertyTemplateService"></property>
+	</bean>
+
+	<!-- 属性扩展筛选器 -->
+	<bean id="kmsKnowledgeYearFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeYearFilter">
+	</bean>
+	<bean id="kmsKnowledgeMonthFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeMonthFilter">
+	</bean>
+	<bean id="kmsKnowledgeDeptFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeDeptFilter">
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeCategoryFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeCategoryFilter">
+	</bean>
+	<bean id="kmsKnowledgeTreeFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeTreeFilter">
+		<property name="sysPropertyTreeService">
+			<ref bean="sysPropertyTreeService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgePostFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgePostFilter">
+	</bean>
+	<bean id="kmsKnowledgeLinkageFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeLinkageFilter">
+		<property name="sysPropertyDefineService">
+			<ref bean="sysPropertyDefineService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeTagFilter"
+		class="com.landray.kmss.kms.knowledge.filter.KmsKnowledgeTagFilter">
+		<property name="sysTagApplicationLogService">
+			<ref bean="sysTagApplicationLogService" />
+		</property>
+		<property name="sysTagMainRelationService">
+			<ref bean="sysTagMainRelationService" />
+		</property>
+	</bean>
+	<!--分类概览 -->
+	<bean id="kmsKnowledgeCategoryPreManagerService"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryPreManagerService">
+		<property name="mainService">
+			<ref bean="kmsKnowledgeBaseDocService" />
+		</property>
+		<property name="templateService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="preService">
+			<ref bean="kmsKnowledgeCategoryPreService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeCategoryPreDao" parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.kms.knowledge.dao.hibernate.KmsKnowledgeCategoryPreviewDao">
+		<property name="modelName"
+			value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategoryPreview" />
+	</bean>
+	<bean id="kmsKnowledgeCategoryPreTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryPreviewService"
+		parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsKnowledgeCategoryPreDao" />
+		</property>
+		<property name="kmsKnowledgeCategoryService">
+			<ref bean="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+	<bean id="kmsKnowledgeCategoryPreService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsKnowledgeCategoryPreTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeCategoryTreeService"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeCategoryTreeService">
+		<property name="kmsKnowledgeCategoryService">
+			<ref local="kmsKnowledgeCategoryService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeByCateDatabean"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeByCateDatabean">
+		<property name="kmsKnowledgeBaseDocService">
+			<ref local="kmsKnowledgeBaseDocService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeBySearch"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeBySearch">
+		<property name="kmsKnowledgeBaseDocService">
+			<ref local="kmsKnowledgeBaseDocService" />
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgePortletService"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgePortletService">
+		<property name="kmsKnowledgeCategoryService">
+			<ref local="kmsKnowledgeCategoryService" />
+		</property>
+		<property name="kmsKnowledgeBaseDocService">
+			<ref local="kmsKnowledgeBaseDocService" />
+		</property>
+	</bean>
+
+	<bean id="kmsMultipleUploadService" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsMultipleUploadServiceImp">
+	</bean>
+
+	<bean id="kmsKnowledgeLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsKnowledgeBaseDocService</value>
+				<value>kmsKnowledgeCategoryService</value>
+				<value>cateChgService</value>
+				<value>changeRightService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="kmsKnowledgeProfilePortlet"
+		class="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeProfilePortlet">
+		<property name="kmsKnowledgeBaseDocService">
+			<ref local="kmsKnowledgeBaseDocService" />
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.component.dbop.model.CompDbcp"
+	messageKey="component-dbop:table.compDbcp"
+	displayProperty="fdName"
+	serviceBean="compDbcpService"
+	table="comp_dbcp"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="component-dbop:compDbcp.fdName"
+	type="String"
+	column="fd_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdType"
+	messageKey="component-dbop:compDbcp.fdType"
+	type="String"
+	column="fd_type"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdDriver"
+	messageKey="component-dbop:compDbcp.fdDriver"
+	type="String"
+	column="fd_driver"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdUrl"
+	messageKey="component-dbop:compDbcp.fdUrl"
+	type="String"
+	column="fd_url"
+	notNull="false"
+	length="1000"
+/>
+<simpleProperty
+	name="fdUsername"
+	messageKey="component-dbop:compDbcp.fdUsername"
+	type="String"
+	column="fd_username"
+	notNull="false"
+	length="50"
+/>
+<simpleProperty
+	name="fdPassword"
+	messageKey="component-dbop:compDbcp.fdPassword"
+	type="String"
+	column="fd_password"
+	notNull="false"
+	length="50"
+/>
+</model></models>

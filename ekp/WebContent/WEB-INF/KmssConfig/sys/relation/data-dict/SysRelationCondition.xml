@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.relation.model.SysRelationCondition"
+		messageKey="sys-relation:table.sysRelationCondition"
+		serviceBean=""
+		table="sys_relation_condition">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdItemName"
+			messageKey="sys-relation:sysRelationCondition.fdItemName"
+			type="String"
+			column="fd_item_name"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdParameter1"
+			messageKey="sys-relation:sysRelationCondition.fdParameter1"
+			type="String"
+			column="fd_parameter1"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdParameter2"
+			messageKey="sys-relation:sysRelationCondition.fdParameter2"
+			type="String"
+			column="fd_parameter2"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdParameter3"
+			messageKey="sys-relation:sysRelationCondition.fdParameter3"
+			type="String"
+			column="fd_parameter3"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdBlurSearch"
+			messageKey="sys-relation:sysRelationCondition.fdBlurSearch"
+			type="Long"
+			column="fd_blur_search"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdVarName"
+			messageKey="sys-relation:sysRelationCondition.fdVarName"
+			type="String"
+			column="fd_var_name"
+			notNull="false"
+			length="50" />
+		<modelProperty
+			name="sysRelationEntry"
+			messageKey="sys-relation:sysRelationCondition.sysRelationEntry"
+			type="com.landray.kmss.sys.relation.model.SysRelationEntry"
+			column="fd_entryid"
+			notNull="false" />
+	</model>
+</models>

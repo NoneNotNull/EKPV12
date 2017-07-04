@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+<type name="jdbc_yesno" default-value="true">
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+</column-enums>

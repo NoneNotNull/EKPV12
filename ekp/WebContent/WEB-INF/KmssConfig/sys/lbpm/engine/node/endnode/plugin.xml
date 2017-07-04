@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../../plugin.xsd ">
+	<!-- 结束节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType" id="138bdecd59d7b47fe163773429bb4cd6">
+			<param
+				name="type"
+				value="endNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine:lbpm.nodeType.endNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpm.engine.node.endnode.EndNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpm/engine/node/endnode/node_attribute.jsp" />	
+			<param
+				name="nodeDescType"
+				value="endNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="endNodeBehaviourService" />																									
+		</item>
+		<item
+			name="nodeDescType" id="138bdeef2731434e56eecdc489caefd4">
+			<param
+				name="type"
+				value="endNodeDesc"/>
+			<param
+				name="chartJs"
+				value="/sys/lbpm/engine/node/endnode/node_flowchart.js"/>
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpm/engine/node/endnode/node_desc.js"/>
+			<param
+				name="taskDesc"
+				value="endNodeDesc" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmProcessFinishedEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine-node-endnode:lbpm.eventType.lbpmProcessFinishedEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.node.endnode.EndNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.node.endnode.LbpmProcessFinishedEvent" />
+		</item>
+		<item
+			name="event">
+			<param
+				name="type"
+				value="lbpmProcessAbandonedEvent" />
+			<param
+				name="messageKey"
+				value="sys-lbpm-engine-node-endnode:lbpm.eventType.lbpmProcessAbandonedEvent" />
+			<param
+				name="provider"
+				value="com.landray.kmss.sys.lbpm.engine.node.endnode.EndNodeEventProvider" />
+			<param
+				name="monitors"
+				value="com.landray.kmss.sys.lbpm.engine.node.endnode.LbpmProcessAbandonedEvent" />
+		</item>
+	</extension>
+</plugin>

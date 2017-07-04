@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="微信对接服务" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.third.wechat.service.IWechatWebserviceService" />
+			<param
+				name="serviceBean"
+				value="wechatWebserviceService" />				
+			<param
+				name="serviceDoc"
+				value="/third/wechat/wechatWebService_in_help.jsp" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.notify">
+		<item name="todoExtend" enable="true">
+			<param name="bean" value="weChatNotifyTodoProvider" />
+		</item>
+	</extension>
+
+
+<!--kzm 配置扩展点  type值有五种 integrate,application,other,baseAdvance,authentication,base,enterprise-->	
+    <extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/third/wechat/wechatConfig.jsp" />
+			<param
+				name="type"
+				value="integrate" />
+			<param
+				name="order"
+				value="100" />
+		</item>
+	</extension>
+	
+	
+	<!-- 消息机制扩展:微信消息 注意 asynch项要设置 否则在流程模板中不会出现该可选项 -->
+	<extension
+		point="com.landray.kmss.sys.notify" >
+		<item
+			name="notifyType"
+			enable="${lwe.notify.type.todo.enabled}">
+			<param
+				name="key"
+				value="wechat" />
+			<param
+				name="name"
+				value="{third-wechat:lwe.nofify.type.wechat}" />
+			<param
+				name="isDefault"
+				value="${lwe.notify.type.todo.default}" />
+			<param
+				name="asynch"
+				value="false" />	
+			<param
+				name="bean"
+				value="weChatNotifyProvider" />
+		</item>
+	</extension>
+	
+</plugin>

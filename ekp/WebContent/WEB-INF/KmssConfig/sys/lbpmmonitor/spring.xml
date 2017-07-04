@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="sysLbpmMonitorModuleTreeService"
+		class="com.landray.kmss.sys.lbpmmonitor.service.spring.SysLbpmMonitorModuleTreeService" />
+
+	<bean
+		id="sysLbpmMonitorFlowTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.lbpmmonitor.service.spring.SysLbpmMonitorFlowServiceImp">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+		<property name="lbpmProcessService">
+			<ref bean="lbpmProcessService" />
+		</property>
+		<property name="sysCategoryMainService">
+			<ref bean="sysCategoryMainService" />
+		</property>
+		<property name="expecterLogService">
+			<ref bean="lbpmExpecterLogService" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="sysLbpmMonitorFlowService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysLbpmMonitorFlowTarget" />
+		</property>
+	</bean>
+
+</beans>

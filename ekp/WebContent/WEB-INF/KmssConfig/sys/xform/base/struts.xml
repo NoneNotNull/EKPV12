@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysFormCommonTemplateForm"
+			type="com.landray.kmss.sys.xform.base.forms.SysFormCommonTemplateForm">
+		</form-bean>
+		<form-bean
+			name="sysFormDbTableForm"
+			type="com.landray.kmss.sys.xform.base.forms.SysFormDbTableForm">
+		</form-bean>
+	</form-beans>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/xform/sys_form_common_template/sysFormCommonTemplate"
+			type="com.landray.kmss.sys.xform.base.actions.SysFormCommonTemplateAction"
+			name="sysFormCommonTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/xform/sys_form_common_template/sysFormCommonTemplate_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/xform/sys_form_common_template/sysFormCommonTemplate_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/xform/sys_form_common_template/sysFormCommonTemplate_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/xform/base/sys_form_db_table/sysFormDbTable"
+			type="com.landray.kmss.sys.xform.base.actions.SysFormDbTableAction"
+			name="sysFormDbTableForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTableSelect_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTableSelect_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTable_list.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTable_list.jsp">
+			</forward>
+			<forward
+				name="redirect"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTable.do">
+			</forward>
+			<forward
+				name="prompt"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTable_prompt.jsp">
+			</forward>
+			<forward
+				name="auto"
+				path="/sys/xform/base/sys_form_db_table/sysFormDbTableAuto_edit.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/xform/sys_form_template/sysFormTemplate"
+			type="com.landray.kmss.sys.xform.base.actions.SysFormTemplateAction"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+	</action-mappings>
+	
+	<message-resources
+		parameter="com.landray.kmss.sys.xform.base.ApplicationResources"
+		key="sys-xform-base" />
+</struts-config>

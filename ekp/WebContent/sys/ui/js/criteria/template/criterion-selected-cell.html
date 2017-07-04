@@ -1,0 +1,42 @@
+
+{$
+	<li data-criterion-key="{%data.key%}">
+		<a href="javascript:;">
+			<span class="text"><span class="title">{%data.title%}:</span> $}
+			var valueType = data.src.valueType;
+			var req = data.src.isRequired();
+			for (var i = 0; i < data.values.length; i ++) {
+				var val = data.values[i];
+				if (valueType == 'normal') {
+					if (i > 0) {
+						{$、$}
+					}
+					{${%val.text%}$}
+				}
+				else if (valueType == 'hierarchy') {
+					if (i > 0) {
+						{$ &gt; $}
+					}
+					{${%val.text%}$}
+				}
+				else if (valueType == 'range') {
+					if (val.text == '') {
+						continue;
+					}
+					if (i > 0) {
+						if (val.text == data.values[0].text)
+							continue;
+						if (data.values[i - 1].text != '')
+							{$ - $}
+					}
+					{${%val.text%}$}
+				}
+			}
+			{$</span>$}
+			if (!req) {
+			{$<i class="cancel"></i>$}
+			}
+			{$
+		</a>
+	</li>
+$}

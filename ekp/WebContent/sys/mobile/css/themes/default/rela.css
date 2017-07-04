@@ -1,0 +1,78 @@
+﻿.muiRelation {
+	  background-color: #f0f0f0;
+} 
+
+.muiRelationAccordion{
+	padding: 1rem 1rem 0 1rem;
+}
+.muiRelationAccordion .muiAccordionPanelContent{
+	padding-left: 0;
+}
+.muiRelation>div.muiAccordionPanelTitle {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.muiRelationItem {
+	padding: 10px 0px;
+	list-style: none;
+	color: #888;
+	font-size: 1.6rem;
+	border-bottom: 1px solid #dbdbdb;
+	display: table;
+	width: 100%;
+}
+
+.muiRelationItem:last-child{ border-bottom:0;}
+.muiRelationItem .muiRelationContent {
+	display: table-cell;
+	padding-left: 1rem;
+	padding-top: 0px;
+}
+
+.muiRelationItem .muiRelationContent:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiRelationItem .muiRelationContent .muiRelationLabel {
+	margin-bottom: 0.2rem;
+	width: 100%;
+	color: #262626 !important;
+	font-size: 1.6rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	word-wrap: break-word;
+	word-break: break-all;
+	max-height: 3.8rem;
+}
+.muiRelationItem .muiRelationContent .muiRelationLabel:visited { color:#888;}
+.muiRelationItem .muiRelationContent .muiRelationCreated,
+.muiRelationItem .muiRelationContent .muiRelationCreator {
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 1.2rem;
+	display: inline-block;
+	color: #a4a4a4;
+	padding-right: 1rem;
+}
+
+.muiRelationContentR {
+	width: 2.5rem;
+	padding-left: 0.8rem;
+	text-align: center;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.muiRelationContentR .muiRelationContentRExpand {
+	font-size: 1.6rem;
+	text-align: center;
+	color: #b1b1b1;
+}

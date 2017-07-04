@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="lbpmTemplateForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmTemplateForm" />
+		<form-bean
+			name="lbpmTemplateChangeHistoryForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmTemplateChangeHistoryForm" />
+		<form-bean
+			name="lbpmAuditNoteForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmAuditNoteForm" />
+		<form-bean
+			name="lbpmUsageForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmUsageForm" />
+		<form-bean
+			name="lbpmOperationsForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmOperationsForm" />
+		<form-bean
+			name="lbpmOperMainForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmOperMainForm" />
+		<form-bean
+			name="lbpmProcessMainForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmProcessMainForm" />
+		<form-bean
+			name="lbpmTemplateExportAndImportForm"
+			type="com.landray.kmss.sys.lbpmservice.support.forms.LbpmTemplateExportAndImportForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmTemplateAction"
+			name="lbpmTemplateForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_list.jsp" />
+			<forward
+				name="updateAuditor"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_auditor.jsp" />
+			<forward
+				name="viewHistory"
+				path="/sys/lbpmservice/support/lbpm_template/lbpmTemplate_viewHistory.jsp" />
+		</action>
+		
+		<action
+			path="/sys/lbpmservice/support/lbpm_process/lbpmProcess"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmProcessMainAction"
+			name="lbpmProcessMainForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="listNodeSubs"
+				path="/sys/lbpmservice/support/lbpm_subprocess/lbpmSubProcess_list.jsp">
+			</forward>
+			<forward
+				name="viewSub"
+				path="/sys/lbpmservice/support/lbpm_subprocess/lbpmSubProcess_view.jsp">
+			</forward>
+			<forward
+				name="viewParent"
+				path="/sys/lbpmservice/support/lbpm_subprocess/lbpmSubProcess_view.jsp">
+			</forward>
+			<forward
+				name="viewProcess"
+				path="/sys/lbpmservice/common/process_view_only.jsp">
+			</forward>
+			<forward
+				name="viewChart"
+				path="/sys/lbpmservice/include/sysLbpmProcess_flowchart.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/lbpmservice/support/lbpm_template_change_history/lbpmTemplateChangeHistory"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmTemplateChangeHistoryAction"
+			name="lbpmTemplateChangeHistoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_template_change_history/lbpmTemplateChangeHistory_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_template_change_history/lbpmTemplateChangeHistory_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpmservice/support/lbpm_template_change_history/lbpmTemplateChangeHistory_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/lbpmservice/support/lbpm_audit_note/lbpmAuditNote"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmAuditNoteAction"
+			name="lbpmAuditNoteForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="listNotes"
+				path="/sys/lbpmservice/support/lbpm_audit_note/lbpmAuditNote_list.jsp"/>
+			<forward
+				name="listFlowLog"
+				path="/sys/lbpmservice/support/lbpm_audit_note/lbpmAuditNote_flowLog_list.jsp"/>
+			<forward
+				name="listAuditNotes"
+				path="/sys/lbpmservice/support/lbpm_audit_note/lbpmAuditNote_view.jsp"/>
+		</action>
+		
+		<action
+			path="/sys/lbpmservice/support/lbpm_usage/lbpmUsage"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmUsageAction"
+			name="lbpmUsageForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="define"
+				path="/sys/lbpmservice/support/lbpm_usage/lbpmUsage_define.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_usage/lbpmUsage_edit.jsp" />
+		</action>
+
+		<action
+			path="/sys/lbpmservice/support/lbpm_operations/lbpmOperations"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmOperationsAction"
+			name="lbpmOperationsForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_operations/lbpmOperations_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_operations/lbpmOperations_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpmservice/support/lbpm_operations/lbpmOperations_list.jsp" />
+		</action>
+
+		<action
+			path="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmOperMainAction"
+			name="lbpmOperMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain_list.jsp" />
+		</action>
+		
+		<action
+			path="/sys/lbpmservice/support/lbpm_template_exportandimport/lbpmTemplateExportAndImport"
+			type="com.landray.kmss.sys.lbpmservice.support.actions.LbpmTemplateExportAndImportAction"
+			name="lbpmTemplateExportAndImportForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmservice/support/lbpm_template_exportandimport/lbpmTemplateImport_view.jsp" />
+			<forward
+				name="import"
+				path="/sys/lbpmservice/support/lbpm_template_exportandimport/lbpmTemplateImport_view.jsp" />
+		</action>
+	</action-mappings>
+	
+	<message-resources
+		parameter="com.landray.kmss.sys.lbpmservice.support.ApplicationResources"
+		key="sys-lbpmservice-support" />
+	
+</struts-config>

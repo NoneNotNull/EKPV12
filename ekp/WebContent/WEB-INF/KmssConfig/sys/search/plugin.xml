@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">	
+	<extension-point
+		id="com.landray.kmss.sys.search.dict.config">
+		<item
+			name="dict">
+			<param
+				name="name"
+				kind="string"
+				required="true" >
+				<description>在对选择对话框中展现的文字，如果没设置将根据modelName配置来获取显示文字</description>
+			</param>
+			<param
+				name="templateName"
+				kind="string" >
+				<description>主文档的模板/分类全限定名</description>
+			</param>
+			<param
+				name="templatePropertyName"
+				kind="string" >
+				<description>模板/分类在主文档model的属性名</description>
+			</param>
+			<param
+				name="key"
+				kind="string" >
+				<description>与表单匹配的key</description>
+			</param>
+			<param
+				name="cateBean"
+				kind="string">
+				<description>选择对话框中需要展现分类/模板tree service</description>
+			</param>
+			<param
+				name="dictLoader"
+				kind="string">
+				<description>加载数据字典类。</description>
+			</param>
+			<description>可以被当成子流程的相关部署参数</description>
+		</item>
+		<description>
+			需要查询扩展数据时配置此扩展点
+		</description>
+	</extension-point>
+
+	
+</plugin>

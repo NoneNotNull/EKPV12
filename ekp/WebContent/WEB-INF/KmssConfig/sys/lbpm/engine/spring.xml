@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="hdbManager"
+		class="com.landray.kmss.sys.lbpm.engine.persistence.dao.hibernate.HDBManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="accessManagerTarget"
+		class="com.landray.kmss.sys.lbpm.engine.persistence.support.DBAccessManager">
+		<property name="manager">
+			<ref local="hdbManager" />
+		</property>
+	</bean>
+	<bean id="accessManager" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="accessManagerTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+ 
+	<!-- 流程信息加载服务 -->
+	<bean id="lbpmProcessInstanceInfoLoaderTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.ProcessInstanceInfoLoader">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="processDefinitionService">
+			<ref local="lbpmProcessDefinitionServiceTarget" />
+		</property>
+		<property name="lbpmExpecterLogAccessService">
+			<ref local="lbpmExpecterLogService" />
+		</property>
+	</bean>
+	<bean id="lbpmProcessInstanceInfoLoader" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessInstanceInfoLoaderTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 流程相关服务 -->
+	<bean id="lbpmProcessServiceManager"
+		class="com.landray.kmss.sys.lbpm.engine.support.ProcessServiceManagerImp">
+		<property name="processInstanceInfoLoader">
+			<ref local="lbpmProcessInstanceInfoLoader" />
+		</property>
+		<property name="orgTemporaryStore">
+			<ref local="orgTemporaryStore" />
+		</property>
+		<property name="lbpmExpecterLogAccessService">
+			<ref local="lbpmExpecterLogService" />
+		</property>
+	</bean>
+
+	<!-- 流程事件侦听器 -->
+	<bean id="cleanScopeParameterListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.CleanScopeParameterListener">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<!-- 流程结束事件侦听器 -->
+	<bean id="processEndListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.ProcessEndListener">
+		<property name="processDefinitionService">
+			<ref local="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	
+	<!-- 节点进入事件侦听器-->
+	<bean id="nodeEnterListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.NodeEnterListener">
+	</bean>
+	<!-- 节点结束、废弃事件侦听器-->
+	<bean id="nodeEndListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.NodeEndListener">
+	</bean>
+	<!-- 工作项进入事件侦听器-->
+	<bean id="workitemEnterListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEnterListener">
+	</bean>
+	<!-- 工作项结束事件侦听器-->
+	<bean id="workitemEndListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemEndListener">
+	</bean>
+	<!-- 工作项废弃事件侦听器-->
+	<bean id="workitemAbandonListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.WorkitemAbandonListener">
+	</bean>
+	<!-- 节点跳转时检测并发相关信息侦听器 -->
+	<bean
+		id="concurrentJumpListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.ConcurrentJumpListener">
+		<property name="concurrentFinder">
+			<ref local="concurrentFinder" />
+		</property>
+	</bean>
+	<!-- 设置临时数据到任务侦听器-->
+	<bean id="setTempDataListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.SetTempDataListener">
+	</bean>
+
+	<!-- 流程节点解析类 -->
+	<bean id="lbpmDefaultNodeXmlParser"
+		class="com.landray.kmss.sys.lbpm.engine.node.DefaultNodeXmlParser" />
+
+	<!-- 流程定义服务类 -->
+	<bean id="lbpmProcessDefinitionServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.def.ProcessDefinitionServiceImp">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<bean id="lbpmProcessDefinitionService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessDefinitionServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 流程ajax获取详细信息定义服务类 -->
+	<bean id="lbpmProcessDefinitionDetailServiceServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.def.ProcessDefinitionDetailService">
+		<property name="processDefinitionService">
+			<ref local="lbpmProcessDefinitionService" />
+		</property>
+	</bean>
+	<bean id="lbpmProcessDefinitionDetailService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessDefinitionDetailServiceServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 流程队列异常处理 -->
+	<bean id="lbpmProcessErrorQueueServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.queue.ProcessErrorQueueService">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<bean id="lbpmProcessErrorQueueService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessErrorQueueServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="handle">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 流程队列服务 -->
+	<bean id="lbpmProcessQueueServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.queue.ProcessQueueService">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+		<property name="errorQueueTracker">
+			<ref local="lbpmProcessErrorQueueService" />
+		</property>
+		<property name="distributeLoader">
+			<ref bean="distributeLoader" />
+		</property>
+		<property name="clusterProvider">
+			<ref bean="clusterProvider" />
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+	</bean>
+	
+	<bean id="lbpmProcessQueueService"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessQueueServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="active*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="poll*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="doTask*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 流程队列调度 -->
+	<bean id="flowDriver"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.queue.ProcessQueueDistributor">
+		<property name="queueService">
+			<ref local="lbpmProcessQueueService" />
+		</property>
+		<property name="errorQueueService">
+			<ref local="lbpmProcessErrorQueueService" />
+		</property>
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="flowQueueLock">
+			<ref local="flowQueueLock" />
+		</property>
+	</bean>
+	<!-- 流程队列锁服务 -->
+	<bean id="flowQueueLockTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.queue.ProcessQueueDbLock">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="clusterProvider">
+			<ref bean="clusterProvider" />
+		</property>
+	</bean>
+	<bean id="flowQueueLock"
+		parent="KmssParentService">
+		<property name="target">
+			<ref local="flowQueueLockTarget" />
+		</property>
+	</bean>
+
+	<!-- 流程执行服务 -->
+	<bean id="lbpmProcessExecuteServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.ProcessExecuteServiceImp">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="processInstanceInfoLoader">
+			<ref local="lbpmProcessInstanceInfoLoader" />
+		</property>
+		<property name="virtualMachineService">
+			<ref bean="virtualMachineService" />
+		</property>
+		<property name="processDefinitionService">
+			<ref local="lbpmProcessDefinitionServiceTarget" />
+		</property>
+		<property name="processQueueService">
+			<ref local="lbpmProcessQueueServiceTarget" />
+		</property>
+	</bean>
+	<bean id="lbpmProcessExecuteService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmProcessExecuteServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="start*">PROPAGATION_REQUIRED</prop>
+				<prop key="restart*">PROPAGATION_REQUIRED</prop>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+				<prop key="systemExecute*">PROPAGATION_REQUIRED</prop>
+				<prop key="doExecute*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 执行服务异常通知特权人 -->
+	<bean id="lbpmProcessExceptionNotifier"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.ProcessExceptionNotifier">
+		<property name="processServiceManager">
+			<ref local="lbpmProcessServiceManager" />
+		</property>
+		<property name="backgroundAuthService">
+			<ref bean="backgroundAuthService" />
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<value>lbpmProcessExecuteService</value>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>lbpmProcessExceptionNotifier</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 预计处理人日志服务  -->
+	<bean
+		id="lbpmExpecterLogService"
+		class="com.landray.kmss.sys.lbpm.engine.integrate.expecterlog.LbpmExpecterLogServiceImp">
+		<property
+			name="accessManager">
+			<ref
+				local="accessManager" />
+		</property>
+	</bean>
+	
+	<!-- 流程定时任务服务 -->
+	<bean id="lbpmQuartzService"
+		class="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzService">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="sysQuartzCoreService">
+			<ref bean="sysQuartzCoreService" />
+		</property>
+		<property name="sysQuartzJobService">
+			<ref bean="sysQuartzJobService" />
+		</property>
+	</bean>
+	<!-- 定时任务系统操作 -->
+	<bean id="lbpmQuartzOperationBehaviour"
+		class="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzOperationBehaviour">
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean id="lbpmQuartzOperationBinder"
+		class="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmQuartzOperationBinder">
+	</bean>
+	
+	<!-- 删除无效的流程实例  -->
+	<bean id="lbpmDeleteUnavailableProcess"
+		class="com.landray.kmss.sys.lbpm.engine.integrate.quartz.LbpmDeleteUnavailableProcess">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+		<property name="processExecuteService">
+			<ref local="lbpmProcessExecuteService" />
+		</property>
+	</bean>
+
+	<!-- 默认节点实例持久化服务 -->
+	<bean id="lbpmDefaultNodeTaskProvider"
+		class="com.landray.kmss.sys.lbpm.engine.task.DefaultNodeTaskProvider">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<!-- 默认工作项的持久化服务 -->
+	<bean id="lbpmDefaultWorkitemTaskProvider"
+		class="com.landray.kmss.sys.lbpm.engine.task.DefaultWorkitemTaskProvider">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<!-- 前端任务数据访问服务 -->
+	<bean id="lbpmTaskDataAccessTarget"
+		class="com.landray.kmss.sys.lbpm.engine.manager.task.TaskDataAccessService">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+	</bean>
+	<bean id="lbpmTaskDataAccessService" lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="lbpmTaskDataAccessTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 流程临时人员信息 -->
+	<bean
+		id="orgTemporaryStore"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.OrgTemporaryStoreService">
+		<property
+			name="accessManager">
+			<ref
+				local="accessManager" />
+		</property>
+	</bean>
+	<!-- 并发搜寻器服务 -->
+	<bean
+		id="concurrentFinder"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.DefaultConcurrentFinder" />
+		
+	<!-- 操作活动抽象类 -->
+	<bean
+		id="abstractOperationBehaviour"
+		abstract="true"
+		class="com.landray.kmss.sys.lbpm.engine.operation.AbstractOperationBehaviour">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+
+	<!-- 提供给PVM的服务类 -->
+	<bean id="defaultEngineWire"
+		class="com.landray.kmss.sys.lbpm.engine.support.pvm.EngineWireImp">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref local="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean id="activityProvider"
+		class="com.landray.kmss.sys.lbpm.engine.support.pvm.EngineActivityProviderImp">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref local="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean id="eventMulticaster"
+		class="com.landray.kmss.sys.lbpm.engine.support.pvm.EngineEventMulticasterImp">
+		<property name="accessManager">
+			<ref local="accessManager" />
+		</property>
+		<property name="processServiceManager">
+			<ref local="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	
+	<!-- 特权人操作监听，删除错误队列 -->
+	<bean id="processErrorQueueDeleteListener"
+		class="com.landray.kmss.sys.lbpm.engine.manager.event.ProcessErrorQueueDeleteListener">
+		<property name="processErrorQueueService">
+			<ref local="lbpmProcessErrorQueueService" />
+		</property>
+	</bean>
+	
+	<!-- 流程队列线程池 MBEAN -->
+	<bean id="LBPMThreadPoolMBean"
+		class="com.landray.kmss.sys.lbpm.engine.support.execute.queue.ThreadPoolMBean">
+		<property name="lbpmProcessQueueService">
+			<ref local="lbpmProcessQueueService" />
+		</property>
+	</bean>
+
+	<!-- 直接获取流程参数服务JSON，供web页面调用 -->
+	<bean id="lbpmProcessParameterAccessService"
+		class="com.landray.kmss.sys.lbpm.engine.manager.ProcessParameterAccessService">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+
+</beans>

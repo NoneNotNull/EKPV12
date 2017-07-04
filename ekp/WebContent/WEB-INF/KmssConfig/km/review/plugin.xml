@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.robot.subflow"
+		model="*">
+		<item
+			name="subflow">
+			<param
+				name="modelName"
+				value="com.landray.kmss.km.review.model.KmReviewMain" />
+			<param
+				name="dictBean"
+				value="sysWfRobotNodeModelDictService&amp;modelName=!{modelName}&amp;templateId=!{cateid}" />
+			<param
+				name="createParam"
+				value="fdTemplateId=!{cateid}" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.subprocess"
+		model="*">
+		
+		<item
+			name="subprocess">
+			<param
+				name="modelName"
+				value="com.landray.kmss.km.review.model.KmReviewMain" />
+			<param
+				name="createParam"
+				value="fdTemplateId=!{cateid}" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.search.dict.config"
+		model="com.landray.kmss.km.review.model.KmReviewMain">
+		
+		<item
+			name="dict">
+			<param
+				name="name" 
+				value="{km-review:kmReview.moduleName}"/>
+			<param
+				name="templateName"
+				value="com.landray.kmss.km.review.model.KmReviewTemplate" />
+			<param
+				name="templatePropertyName"
+				value="fdTemplate" />
+			<param
+				name="key"
+				value="reviewMainDoc" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.xform"
+		model="com.landray.kmss.km.review.model.KmReviewMain">
+		
+		<item
+			name="config">
+			<param
+				name="template"
+				value="com.landray.kmss.km.review.model.KmReviewTemplate" />
+			<param
+				name="key"
+				value="reviewMainDoc" />
+		</item>
+	</extension>
+	
+	<!-- webservice2 -->
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="流程启动" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.km.review.webservice.IKmReviewWebserviceService" />
+			<param
+				name="serviceBean"
+				value="kmReviewWebserviceService" />				
+			<param
+				name="serviceDoc"
+				value="/km/review/km_review_webservice/kmReviewWebServiceHelp.jsp" />
+		</item>
+	</extension>
+	<!-- 移动组件新建功能 -->	
+	<!-- 功能区分类实现 扩展点 -->
+	<extension 
+		point="com.landray.kmss.third.pda.extend" 
+		model="*">
+		<item name="extend">
+			<param 
+				name="modelName" 
+				value="com.landray.kmss.km.review.model.KmReviewMain"/>
+			<param 
+				name="templateClass" 
+				value="com.landray.kmss.km.review.model.KmReviewTemplate"/>
+			<param name="filterURL"
+				value="/third/pda/pda_property_filter/pdaPropertyFilter.do?method=getPropertyFilter&amp;templateClass=KmReviewTemplate" />
+			<param 
+				name="createTempURL" 
+				value="/km/review/km_review_main/kmReviewMain.do?method=add&amp;fdTemplateId=!{cateid}"/>
+			<param 
+				name="createURL" 
+				value="/km/review/km_review_main/kmReviewMain.do?method=add&amp;fdTemplateId=!{cateid}"/>
+			<param name="extendJsp" value="/km/review/km_review_main/kmReviewMain_include_pda.jsp"/>
+		</item>
+	</extension>
+	
+	<!-- BAM2支持 -->
+	<extension 
+		point="com.landray.kmss.km.bam2.extend.work"
+		model="*">
+		<item 
+			name="extendModel" >
+		    <param 
+		    	name="modelName" 
+		    	value="com.landray.kmss.km.review.model.KmReviewMain" />
+			<param 
+				name="templateName" 
+				value="com.landray.kmss.km.review.model.KmReviewTemplate"/>
+		    <param 
+		    	name="bamName" 
+		    	value="{km-review:kmReviewMain.relatedReview}" />
+		    <param 
+		    	name="subjectField" 
+		    	value="docSubject" />
+		    <param 
+		    	name="cateBean" 
+		    	value="sysCategoryAuthTreeService"/>
+			<param 
+				name="viewURL" 
+				value="/km/review/km_review_main/kmReviewMain.do?method=view"/>
+			<param 
+				name="editURL" 
+				value="/km/review/km_review_main/kmReviewMain.do?method=edit"/>
+			<param 
+				name="addURL" 
+				value="/km/review/km_review_main/kmReviewMain.do?method=add&amp;fdTemplateId=!{cateid}"/>
+			<param 
+				name="listURL" 
+				value="/km/review/km_review_main/kmReviewMain_list_content.jsp"/>
+			<!-- bam2与产品集成新增参数 begin -->
+			<param name="statusField" value="docStatus" />
+			<param name="statusEnumsType" value="common_status"/>
+			<param name="workFinishField" value="fdWorkStatus" />
+			<!-- bam2与产品集成新增参数 end -->
+		</item>
+	  </extension>		
+	  <!-- 日程机制同步标签-->
+	  <extension
+			point="com.landray.kmss.sys.agenda.label"
+			model="*">		
+			<item name="label">
+				<param name="labelName" value="{km-review:table.kmReviewMain}" />
+				<param name="labelColor"  value="rgb(255, 184, 120)" />
+				<param name="modelName"  value="com.landray.kmss.km.review.model.KmReviewMain"/>
+			</item>
+		</extension>
+		
+		<!-- 编号机制 -->
+		<extension
+	        point="com.landray.kmss.sys.number.config"
+	        model="*">
+	        <item name="extend">
+	         <param name="modelName" value="com.landray.kmss.km.review.model.KmReviewMain"/>
+	         <param name="templatePropertyName" value="fdTemplate"/>
+	         <param name="moduleName" value="{km-review:table.kmReviewMain}"/>
+	         <param name="isReform" value="true"/>
+	         <param name="order" value="15"/>
+	        </item>
+         </extension>
+		<!-- 兼容性检测 -->
+		<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.km.review.model.KmReviewMain" />
+			<param name="name" value="{km-review:kmReview.update.title}" />
+			<param name="type" value="notify" />
+			<param name="path" value="/km/review/" />
+			<param name="description" value="{km-review:kmReview.update.desc}" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{km-review:table.kmReviewMain}" />
+			<param name="modelName" value="com.landray.kmss.km.review.model.KmReviewMain" />
+		</item>
+	</extension>
+	
+	<extension	point="com.landray.kmss.km.keydata"	model="*" >
+		<item
+			name="showKeydataUsed">
+			<param
+				name="name"
+				value="流程管理" />
+			<param
+				name="actionUrl"
+				value="/km/review/showKeydataUsed.jsp?keydataId=${keydataId}" />
+			<param
+				name="formName"
+				value="kmReviewMainForm" />
+		</item>
+	</extension>
+		
+</plugin>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-sys-sap:module.tib.sys.sap"
+		urlPrefix="/tib/sys/sap/"
+		defaultValidator="roleValidator(role=ROLE_SYS_SAP_DEFAULT)">
+		<roles>
+			ROLE_SYS_SAP_DEFAULT;
+			ROLE_SYS_SAP_ADMIN;
+			ROLE_SYS_SAP_SERVER_SETTING_ADD;
+			ROLE_SYS_SAP_SERVER_SETTING_VIEW;
+			ROLE_SYS_SAP_SERVER_SETTING_EDIT;
+			ROLE_SYS_SAP_SERVER_SETTING_DELETE;
+			
+			ROLE_SYS_SAP_JCO_SETTING_ADD;
+			ROLE_SYS_SAP_JCO_SETTING_VIEW;
+			ROLE_SYS_SAP_JCO_SETTING_EDIT;
+			ROLE_SYS_SAP_JCO_SETTING_DELETE;
+			
+			ROLE_SYS_SAP_RFC_SETTING_VIEW;
+			ROLE_SYS_SAP_RFC_SETTING_EDIT;
+			ROLE_SYS_SAP_RFC_SETTING_DELETE;
+			
+			ROLE_SYS_SAP_RFC_CATEGORY_VIEW;
+			ROLE_SYS_SAP_RFC_CATEGORY_EDIT;
+			ROLE_SYS_SAP_RFC_CATEGORY_DELETE;
+			
+			ROLE_SAP_SYNC_VIEW;
+			ROLE_SAP_SYNC_EDIT;
+			ROLE_SAP_SYNC_DELETE
+			
+		</roles>
+		
+		<!-- server配置 -->
+		<request
+			path="connector/tib_sys_sap_server_setting/tibSysSapServerSetting*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapServerSetting">
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_SERVER_DELETE)|roleValidator(role=ROLE_SYS_SAP_SERVER_EDIT)|roleValidator(role=ROLE_SYS_SAP_SERVER_VIEW)" />
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_SERVER_SETTING_ADD)" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_SERVER_EDIT)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_SERVER_DELETE)" />		
+		</request>
+		
+		<!-- rfc分类配置 -->
+		<request
+			path="connector/tib_sys_sap_rfc_category/tibSysSapRfcCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_CATEGORY_DELETE)|roleValidator(role=ROLE_SYS_SAP_RFC_CATEGORY_EDIT)|roleValidator(role=ROLE_SYS_SAP_RFC_CATEGORY_VIEW)|sysSimpleCategoryReaderValidator()" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_CATEGORY_EDIT)|sysSimpleCategoryEditorValidator()" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_CATEGORY_DELETE)|sysSimpleCategoryEditorValidator()" />	
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		<!-- jco文档 -->
+		<request
+			path="connector/tib_sys_sap_jco_setting/tibSysSapJcoSetting*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapJcoSetting">
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_DELETE)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_EDIT)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_VIEW)" />
+			<query queryString="method=add"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_ADD)" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_EDIT)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_JCO_SETTING_DELETE)" />	
+		</request>
+		<!-- 函数主文档 -->
+		<request
+			path="connector/tib_sys_sap_rfc_setting/tibSysSapRfcSetting*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting,cateModel=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory">
+			<!-- 在模板树下新建 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|authSimpleCategoryReaderValidator(cateId=fdTemplateId)" />
+			<query queryString="method=view"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_VIEW)|authSimpleCategoryReaderValidator(property=docCategory)" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)|authSimpleCategoryReaderValidator(property=docCategory)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)|authSimpleCategoryReaderValidator(property=docCategory)" />	
+			<query queryString="method=list"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_VIEW)|authSimpleCategoryReaderValidator(cateId=categoryId)" />
+		</request>
+		
+		<request
+			path="connector/tib_sys_sap_rfc_search_info/tibSysSapRfcSearchInfo*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSearchInfo">
+		<query queryString="method=view"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_VIEW)" />
+			<query queryString="method=edit|update"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)" />
+			<query queryString="method=delete|deleteall"
+				validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)" />	
+		</request>
+	</module>
+
+	<module urlPrefix="/sys/common/">
+		<request path="dataxml.jsp*"
+				 validatorParameter="recid=fdId,model=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting,cateModel=com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcCategory">
+			<query queryString="s_bean=tibSapMappingFuncTreeListService"
+					validator="roleValidator(role=ROLE_SYS_SAP_ADMIN)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_DELETE)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_EDIT)|roleValidator(role=ROLE_SYS_SAP_RFC_SETTING_VIEW)|authSimpleCategoryReaderValidator(cateId=selectId)" />
+		</request>
+	</module>
+
+	
+	<!--homePage
+		urlPrefix="tib/sys/sap"
+		url="/moduleindex.jsp?nav=/tib/sys/sap/tree.jsp"
+		messageKey="tib-sys-sap:module.tib.sys.sap" /-->
+
+</configs>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root
+	xmlns="http://www.landray.com.cn/schema/lui"
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui  ../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design  ../../../design-xml.xsd">
+
+	<!-- 个人导航 -->
+	<!-- <portlet
+		id="sys.person.home.nav"
+		name="{sys-person:portlet.mynav}"
+		module="{sys-person:module.name}"
+		description="{sys-person:portlet.mynav.description}">
+		<source format="sys.ui.html" type="AjaxText">
+			<code>
+				<![CDATA[
+					{"url":"/sys/person/sys_person_mynav_category/sysPersonMyNavCategory.do?method=portlet","formatKey":"html"}
+				]]>
+			</code>
+		</source>
+	</portlet> -->
+
+	<!-- 窗口栏 -->
+	<portlet
+		id="sys.person.home.tab"
+		name="{sys-person:portlet.taball}"
+		module="{sys-person:module.name}"
+		description="{sys-person:portlet.taball.description}">
+		<source format="sys.ui.jsp" type="Jsp">
+			<code src="/sys/person/sys_person_mytab_category/sysPersonMyTabCategory_portlet.jsp">
+			</code>
+		</source>
+	</portlet>
+	
+</root>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.organization.model.SysOMSCache"
+	messageKey="sys-organization:table.sysOMSCache"
+	serviceBean="sysOMSCacheService"
+	table="sys_oms_cache"
+>
+<idProperty>
+	<generator
+		type="assigned" />
+</idProperty>
+<simpleProperty
+	name="fdOrgElementId"
+	messageKey="sys-organization:sysOMSCache.fdOrgElementId"
+	type="String"
+	column="fd_org_element_id"
+	notNull="true"
+	length="36"
+/>
+<simpleProperty
+	name="fdAppName"
+	messageKey="sys-organization:sysOMSCache.fdAppName"
+	type="String"
+	column="fd_app_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdOpType"
+	messageKey="sys-organization:sysOMSCache.fdOpType"
+	type="Integer"
+	column="fd_op_type"
+	notNull="true"
+/>
+</model></models>

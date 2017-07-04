@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarSyncMapping"
+		messageKey="km-calendar:table.kmCalendarSyncMapping"
+		displayProperty="fdId"
+		serviceBean="kmCalendarSyncMappingService"
+		table="km_calendar_sync_mapping"
+		url="/km/calendar/km_calendar_sync_mapping/kmCalendarSyncMapping.do?method=view&amp;fdId=${fdId}">
+		
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdCalendarId"
+			messageKey="km-calendar:kmCalendarSyncMapping.fdCalendarId"
+			type="String"
+			column="fd_calendar_id"
+			notNull="true"
+			length="36"
+			validate="false" />
+
+		<simpleProperty
+			name="fdAppKey"
+			messageKey="km-calendar:kmCalendarSyncMapping.fdAppKey"
+			type="String"
+			column="fd_app_key"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAppUuid"
+			messageKey="km-calendar:kmCalendarSyncMapping.fdAppUuid"
+			type="String"
+			column="fd_app_uuid"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

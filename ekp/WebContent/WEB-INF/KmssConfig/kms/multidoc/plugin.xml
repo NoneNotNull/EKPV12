@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<!-- 注册知识仓中库知识类型  -->
+	<extension point="com.landray.kmss.kms.knowledge.type">
+		<item name="knowledgeType">
+			<param name="messageText" value="{kms-multidoc:title.kms.multidoc}" />
+			<param name="methodName"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="knowledgeTypeValue" value="1" />
+		</item>
+	</extension>
+
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+
+	<!-- 搜索扩展点实现 -->
+	<!--
+		<extension point="com.landray.kmss.sys.search.dict.config"
+		model="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge">
+		<item name="dict"> <param name="name"
+		value="{kms-multidoc:table.kmdoc}" /> <param name="templateName"
+		value="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate" />
+		<param name="templatePropertyName" value="kmsMultidocTemplate" />
+		<param name="key" value="mainDoc" /> <param name="dictLoader"
+		value="kmsMultidocSearchCategoryDictLoader" /> </item> </extension>
+	-->
+
+	<!-- 查看页面jsp生成器 -->
+	<!--
+		<extension point="com.landray.kmss.sys.property.builder.setting"
+		model="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge">
+		<item name="jspBuilder"> <param name="bean"
+		value="kmsMultidocViewJspBuilder" /> <param name="ext" value="true" />
+		</item> </extension>
+	-->
+
+
+	<!-- 类别筛选器扩展点实现 -->
+	<!--
+		<extension point="com.landray.kmss.sys.property.filter.setting"
+		model="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge">
+		<item name="filter"> <param name="filterBean"
+		value="kmsMultidocClassFilter" /> <param name="text"
+		value="{kms-multidoc:kmsMultidoc.classFilter}" /> <param
+		name="dataType"
+		value="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate" />
+		</item> </extension>
+	-->
+
+
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="多维知识库webservice的服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.multidoc.webservice.IKmsMultidocWebserviceService" />
+			<param name="serviceBean" value="kmsMultidocWebserviceService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="多维知识库类别查询webservice的服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.multidoc.webservice.category.service.IKmsMultidocSearchCategoryWSService" />
+			<param name="serviceBean" value="kmsMultidocSearchCategoryWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="多维知识库维护类别webserivce的服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.multidoc.webservice.category.service.IKmsMultidocMaintainCategoryWSService" />
+			<param name="serviceBean" value="kmsMultidocMaintainCategoryWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.sys.webservice2">
+		<item name="registry">
+			<param name="serviceName" value="多维知识库文档维护webserivce的服务" />
+			<param name="serviceClass"
+				value="com.landray.kmss.kms.multidoc.webservice.doc.service.IKmsMultidocMaintainDocWSService" />
+			<param name="serviceBean" value="kmsMultidocMaintainDocWSService" />
+			<param name="serviceDoc" value="/kms/multidoc/webservice/kmsmultidoc_help.jsp" />
+		</item>
+	</extension>
+
+	<!-- 子流程扩展点实现 -->
+	<extension point="com.landray.kmss.sys.workflow.support.oa.subprocess"
+		model="*">
+
+		<item name="subprocess">
+			<param name="modelName"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="createParam" value="fdTemplateId=!{cateid}" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.multidoc" />
+			<param name="navMessageKey" value="kms-multidoc:title.kms.multidoc" />
+			<param name="indexPage" value="/kms/multidoc/index.jsp" />
+			<param name="modulePath" value="/kms/multidoc" />
+			<param name="titleMessageKey" value="kms-multidoc:title.kms.multidoc" />
+			<param name="order" value="2" />
+		</item>
+		<item name="adminTree">
+			<param name="order" value="2" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-multidoc:title.kms.multidoc" />
+			<param name="adminTreeUrl" value="/kms/multidoc/admintree.jsp" />
+		</item>
+		<item name="search">
+			<param name="order" value="2" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="searchMessageKey" value="kms-multidoc:search.kms.multidoc" />
+			<param name="canSearch" value="true" />
+		</item>
+		<item name="personal">
+			<param name="order" value="2" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-multidoc:personal.kms.multidoc" />
+			<param name="personalUrl"
+				value="/kms/multidoc/kms_multidoc_personal/kms_personal_doc.jsp" />
+			<param name="modulePath" value="/kms/multidoc" />
+			<param name="icon" value="icon_multidoc"/>
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.communitycko">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.multidoc" />
+			<param name="titleMessageKey" value="kms-multidoc:title.kms.cko.multidoc" />
+			<param name="order" value="4" />
+			<param name="modulePath" value="/kms/multidoc" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+		</item>
+		<item name="list">
+			<param name="unid" value="com.landray.kmss.kms.multidoc" />
+			<param name="tabId" value="multidoc" />
+			<param name="titleMessageKey" value="kms-multidoc:title.kms.cko.multidoc" />
+			<param name="order" value="4" />
+			<param name="modulePath" value="/kms/multidoc" />
+			<param name="orderBy" value="fdAllScore" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.kms.common">
+		<item name="entry">
+			<param name="unid" value="com.landray.kmss.kms.multidoc" />
+			<param name="moduleName" value="kms-multidoc:title.kms.multidoc" />
+			<param name="service" value="kmsDocKnowledgeProfilePortlet" />
+			<param name="order" value="1" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="categoryClass"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" />
+			<param name="jspUrl" value="/kms/multidoc/profile/index.jsp" />
+		</item>
+	</extension>
+	<!-- bam2支持 -->
+	<extension point="com.landray.kmss.km.bam2.extend.work"
+		model="*">
+		<item name="extendModel">
+			<param name="modelName"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="templateName"
+				value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory" /><!-- ekp11及ekp11以上版本 -->
+			<!-- <param name="templateName"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate" />--><!-- ekp11以下版本 -->
+			<param name="bamName" value="{kms-multidoc:kmsMultidoc.relatedMultidoc}" />
+			<param name="subjectField" value="docSubject" />
+			<param name="cateBean" value="sysSimpleCategoryTreeService" />
+			<param name="docTypeDesc" value="{kms-multidoc:kmsMultidoc.relatedMultidoc}" />
+			<param name="viewURL"
+				value="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge.do?method=view" />
+			<param name="editURL"
+				value="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge.do?method=edit" />
+			<param name="addURL"
+				value="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge.do?method=add&amp;fdTemplateId=!{cateid}" />
+			<param name="listURL"
+				value="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge_list_content.jsp" />
+			<!-- bam2与产品集成新增参数 begin -->
+			<param name="statusField" value="docStatus" />
+			<param name="statusEnumsType" value="common_status" />
+			<param name="workFinishField" value="fdWorkStatus" />
+			<!-- bam2与产品集成新增参数 end -->
+		</item>
+	</extension>
+
+	<extension point="com.landray.kmss.third.pda.extend" model="*">
+		<item name="extend">
+			<param name="modelName"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+			<param name="templateClass"
+				value="com.landray.kmss.kms.multidoc.model.KmsMultidocTemplate" />
+			<param name="filterURL"
+				value="/sys/property/sys_property_filter_pda/sysPropertyFilterPda.do?method=getPropertyFilter" />
+		</item>
+	</extension>
+
+	<!--
+		<extension point="com.landray.kmss.third.pda.tabView"
+		model="kms/multidoc"> <item name="tabView"> <param name="tabName"
+		value="kms-multidoc:kmsMultidoc.other.pda.index" /> <param
+		name="tabType" value="home" /> <param name="modelName"
+		value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+		<param name="tabOrder" value="1" /> </item> <item name="tabView">
+		<param name="tabName"
+		value="kms-multidoc:kmsMultidocTemplate.docCategory" /> <param
+		name="tabType" value="list" /> <param name="modelName"
+		value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+		<param name="tabUrl"
+		value="/kms/knowledge/kms_knowledge_category/kmsKnowledgeCategory.do?method=listTemplate&amp;type=list&amp;fdTemplateType=1;3"
+		/> <param name="tabOrder" value="2" /> </item> <item name="tabView">
+		<param name="tabName"
+		value="kms-multidoc:kmsMultidoc.tree.knowledgesearch" /> <param
+		name="tabType" value="search" /> <param name="modelName"
+		value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge" />
+		<param name="tabOrder" value="3" /> </item> </extension>
+	-->
+
+	<extension point="com.landray.kmss.kms.common.datapush">
+		<item name="bepush">
+			<param name="unid" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="pushURL" value="/kms/multidoc/kms_multidoc_knowledge/kmsMultidocKnowledge.do?method=add&amp;fdTemplateId=!{fdCategoryId}"/>
+			<param name="name" value="kms-multidoc:title.kms.multidoc"/>
+			<param name="img" value="/kms/common/kms_common_push/img/multidoc.png"/>
+			<param name="cateModelName" value="com.landray.kmss.kms.knowledge.model.KmsKnowledgeCategory"/>
+			<param name="auths" value="ROLE_KMSKNOWLEDGE_CREATE"/>
+		</item>
+	</extension>
+	
+	<!-- 文档知识库日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="moduleName" value="kms-multidoc:title.kms.multidoc"/>
+			<param name="categoryField" value="docCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.add"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.import"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>
+			<param name="operateMethod" value="addImport"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.edit"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-knowledge:kmsKnowledge.button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>			
+			<param name="operateMethod" value="updateRecycle"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogDocRecycleProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-knowledge:kmsKnowledge.button.recover"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.spring.KmsMultidocKnowledgeServiceImp"/>			
+			<param name="operateMethod" value="updateRecover"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogDocRecycleProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-multidoc:kmsMultidoc.button.editTag"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="className" value="com.landray.kmss.kms.multidoc.service.KmsMultidocKnowledgeXMLService"/>
+			<param name="operateMethod" value="getDataList"/>
+			<param name="modelName" value="com.landray.kmss.kms.multidoc.model.KmsMultidocKnowledge"/>
+			<param name="type" value="1"/>
+			<param name="logServiceBean" value="kmsLogUpdateTagsProxy"/>
+		</item>
+	</extension>
+</plugin>

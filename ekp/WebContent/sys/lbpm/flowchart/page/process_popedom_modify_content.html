@@ -1,0 +1,266 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+var dialogObject=window.dialogArguments?window.dialogArguments:opener.Com_Parameter.Dialog;
+if(!dialogObject){
+	dialogObject=window.parent.dialogArguments?window.parent.dialogArguments:opener.opener.Com_Parameter.Dialog;
+}
+var DocumentWindow = dialogObject.Window.parent.parent;
+var Com_Parameter = {
+	ContextPath:dialogObject.Window.Com_Parameter.ContextPath,
+	ResPath:dialogObject.Window.Com_Parameter.ResPath,
+	Style:dialogObject.Window.Com_Parameter.Style,
+	JsFileList:new Array(),
+	StylePath:dialogObject.Window.Com_Parameter.StylePath,
+	Cache:dialogObject.Window.Com_Parameter.Cache
+};
+//XML数据获取采用主页面缓存
+Data_XMLCatche = dialogObject.Window.Data_XMLCatche;
+FlowChartObject = dialogObject.FlowChartObject;
+LangObject = FlowChartObject.Lang.Right;
+</script>
+<script type="text/javascript" src="../../../../resource/js/common.js"></script>
+<script type="text/javascript">
+Com_IncludeFile("document.js", "style/"+Com_Parameter.Style+"/doc/");
+Com_IncludeFile("jquery.js|dialog.js|optbar.js|docutil.js");
+</script>
+<script type="text/javascript" src="../js/attribute.js"></script>
+<script>
+function initDocument(){
+	//设置标签页题头 add by limh  2010年9月14日
+	var tr_nodeModifyPopedom = document.getElementById("nodeModifyPopedom");
+	var tr_notionModifyPopedom = document.getElementById("notionModifyPopedom");
+	tr_nodeModifyPopedom.setAttribute("LKS_LabelName", LangObject["nodeModifyPopedom"]);
+	tr_notionModifyPopedom.setAttribute("LKS_LabelName", LangObject["notionModifyPopedom"]);
+	document.getElementsByName("btnOK")[0].value = FlowChartObject.Lang.OK;
+	document.getElementsByName("btnCancel")[0].value = FlowChartObject.Lang.Cancel;
+	document.title = LangObject.popedomModify;
+	var index = 0;
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		var node = FlowChartObject.Nodes.all[i];
+		var nodDesc = AttributeObject.Utils.nodeDesc(node);
+		if (nodDesc.isHandler || nodDesc.isDraftNode) {
+				var trObj = TB_Main.insertRow(-1);
+				var tdObj = trObj.insertCell(-1);
+				$(tdObj).text(node.Data.id + "." + node.Data.name);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = getCellHtmlCode(node.Data, "can", index);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = getCellHtmlCode(node.Data, "must", index);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = "<input type='hidden' name='id' value='" + node.Data.id + "'>"+
+					"<input type='checkbox' name='canModifyFlow'" + (node.Data.canModifyFlow=="true"?" checked":"") + ">";
+				tdObj.style.textAlign = "center";
+				//增加意见权限表格行及列 add by limh 2010年9月14日
+				trObj = TB_Second.insertRow(-1);
+				tdObj = trObj.insertCell(-1);
+				$(tdObj).text(node.Data.id + "." + node.Data.name);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = getNotionNodeCellHtmlCode(node.Data, index);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = getOtherNodeCellHtmlCode(node.Data, index);
+				tdObj = trObj.insertCell(-1);
+				tdObj.innerHTML = 	"<input type='checkbox' name='canModifyNotionPopedom'" + (node.Data.canModifyNotionPopedom=="true"?" checked":"") + ">";
+				tdObj.style.textAlign = "center";
+				index++;
+		}
+	}
+}
+
+//获取可修改或必须修改单元格的HTML代码
+function getCellHtmlCode(nodeData, type, index){
+	var ids = nodeData[type+"ModifyHandlerNodeIds"];
+	var names = "";
+	if(ids==null || ids==""){
+		ids = "";
+	}else{
+		var originIds = ids.split(";");
+		ids = "";
+		for(var i=0; i<originIds.length; i++){
+			var node = FlowChartObject.Nodes.GetNodeById(originIds[i]);
+			if(node==null)
+				continue;
+			ids += ";" + originIds[i];
+			names += ";" + originIds[i] + "." + node.Data.name;
+		}
+		ids = ids.substring(1);
+		names = names.substring(1);
+	}
+	var htmlCode = "<input type='hidden' name='"+type+"ModifyHandlerNodeIds' value='"+ids+"'>";
+	htmlCode += "<textarea readonly style='width:100%;height:50px' name='"+type+"ModifyHandlerNodeNames'>"+names+"</textarea>";
+	htmlCode += "<br><a href=\"javascript:selectNodes("+index+",'"+nodeData.id+"','"+type+"');\">"+FlowChartObject.Lang.select+"</a>";
+	return htmlCode;
+}
+
+//获取可查看节点的单元格的HTML代码add by limh 2010年9月14日
+function getNotionNodeCellHtmlCode(nodeData, index){
+	var ids = nodeData["nodeCanViewCurNodeIds"];
+	var names = "";
+	if(ids==null || ids==""){
+		ids = "";
+	}else{
+		var originIds = ids.split(";");
+		ids = "";
+		for(var i=0; i<originIds.length; i++){
+			var node = FlowChartObject.Nodes.GetNodeById(originIds[i]);
+			if(node==null)
+				continue;
+			ids += ";" + originIds[i];
+			names += ";" + originIds[i] + "." + node.Data.name;
+		}
+		ids = ids.substring(1);
+		names = names.substring(1);
+	}
+	var htmlCode = "<input type='hidden' name='nodeCanViewCurNodeIds' value='"+ids+"'>";
+	htmlCode += "<textarea readonly style='width:100%;height:50px' name='nodeCanViewCurNodeNames'>"+names+"</textarea>";
+	htmlCode += "<br><a href=\"javascript:selectNotionNodes("+index+",'"+nodeData.id+"');\">"+FlowChartObject.Lang.select+"</a>";
+	return htmlCode;
+}
+
+//获取其他可阅读者的单元格的HTML代码 add by limh 2010年9月14日
+function getOtherNodeCellHtmlCode(nodeData,index){
+	var ids = nodeData["otherCanViewCurNodeIds"];
+	var names = nodeData["otherCanViewCurNodeNames"];
+	if(ids==null || ids==""){
+		ids = "";
+		names = "";
+	}
+	var htmlCode = "<input type='hidden' name='otherCanViewCurNodeIds' value='"+ids+"'>";
+	htmlCode += "<textarea readonly style='width:100%;height:50px' name='otherCanViewCurNodeNames'>"+names+"</textarea>";
+	htmlCode += "<br><a href=\"#\" onclick=\"Dialog_Address(true,document.getElementsByName('otherCanViewCurNodeIds')["+index+"],document.getElementsByName('otherCanViewCurNodeNames')["+index+"], ';',ORG_TYPE_ALL);\">"+FlowChartObject.Lang.select+"</a>";
+	return htmlCode;
+}
+
+//选择可修改处理人的节点
+function selectNodes(index, id, type){
+	var data = new KMSSData();
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		var node = FlowChartObject.Nodes.all[i];
+		if(node.Data.id == id)
+			continue;
+		var nodDesc = AttributeObject.Utils.nodeDesc(node);
+		if ((nodDesc.isHandler && !nodDesc.isDraftNode) || nodDesc.isSendNode) {
+				data.AddHashMap({id:node.Data.id, name:node.Data.id+"."+node.Data.name});
+		}
+	}
+	var dialog = new KMSSDialog(true, true);
+	dialog.winTitle = LangObject.dialogTitle;
+	dialog.AddDefaultOption(data);
+	dialog.BindingField(document.getElementsByName(type+"ModifyHandlerNodeIds")[index], document.getElementsByName(type+"ModifyHandlerNodeNames")[index], ";");
+	dialog.Show();
+}
+
+//选择可查看当前节点的节点add by limh 2010年9月14日
+function selectNotionNodes(index, id){
+	var data = new KMSSData();
+	for(var i=0; i<FlowChartObject.Nodes.all.length; i++){
+		var node = FlowChartObject.Nodes.all[i];
+		if(node.Data.id == id)
+			continue;
+		var nodDesc = AttributeObject.Utils.nodeDesc(node);
+		if (nodDesc.isHandler || nodDesc.isDraftNode || nodDesc.isSendNode) {
+				data.AddHashMap({id:node.Data.id, name:node.Data.id+"."+node.Data.name});
+		}
+	}
+	var dialog = new KMSSDialog(true, true);
+	dialog.winTitle = LangObject.dialogTitle;
+	dialog.AddDefaultOption(data);
+	dialog.BindingField(document.getElementsByName("nodeCanViewCurNodeIds")[index], document.getElementsByName("nodeCanViewCurNodeNames")[index], ";");
+	dialog.Show();
+}
+
+
+//在页面中写语言包的信息
+function writeMessage(key){
+	document.write(LangObject[key]);
+}
+
+//将已经设置好的权限写回到流程模板信息中
+function writePopedomData(){
+	var idFields = document.getElementsByName("id");
+	var canFields = document.getElementsByName("canModifyHandlerNodeIds");
+	var mustFields = document.getElementsByName("mustModifyHandlerNodeIds");
+	var flowFields = document.getElementsByName("canModifyFlow");
+	//增加意见权限属性  add by limh 2010年9月14日
+	var nodeCanViewCurNodeIds = document.getElementsByName("nodeCanViewCurNodeIds");
+	var nodeCanViewCurNodeNames = document.getElementsByName("nodeCanViewCurNodeNames");
+	var otherCanViewCurNodeIds = document.getElementsByName("otherCanViewCurNodeIds");	
+	var otherCanViewCurNodeNames = document.getElementsByName("otherCanViewCurNodeNames");
+	var canModifyNotionPopedom = document.getElementsByName("canModifyNotionPopedom");
+	for(var i=0; i<idFields.length; i++){
+		
+		var nodeData = FlowChartObject.Nodes.GetNodeById(idFields[i].value).Data;
+		nodeData.canModifyHandlerNodeIds = canFields[i].value;
+		nodeData.mustModifyHandlerNodeIds = mustFields[i].value;
+		nodeData.canModifyFlow = flowFields[i].checked?"true":"false";
+		//增加意见权限属性  add by limh 2010年9月14日
+		nodeData.nodeCanViewCurNodeIds = nodeCanViewCurNodeIds[i].value;
+		nodeData.otherCanViewCurNodeIds = otherCanViewCurNodeIds[i].value;
+		nodeData.otherCanViewCurNodeNames = otherCanViewCurNodeNames[i].value;
+		nodeData.canModifyNotionPopedom = canModifyNotionPopedom[i].checked?"true":"false";
+	}
+	Com_CloseWindow();
+}
+</script>
+</head>
+<body>
+<div id="optBarDiv">
+<input name="btnOK" type="button" class="btnopt" onclick="writePopedomData();">
+<input name="btnCancel" type="button" class="btnopt" onclick="Com_CloseWindow();">
+</div>
+<br>
+<p class="txttitle">
+<script>writeMessage("popedomModifyContentTitle")</script>
+</p>
+<center>
+<table id="Label_Tabel" width=95%>
+	<!-- 基本信息 -->
+	<tr	LKS_LabelName="" id="nodeModifyPopedom">
+		<td>
+			<table class="tb_normal" id="TB_Main" style="width:100%;table-layout: fixed;">
+				<tr class="tr_normal_title">
+					<td width="10%" style="word-wrap:break-word">
+						<script>'nodeModifyPopedom'.substring(0,4)</script>
+						<script>writeMessage("nodeAndPopedom")</script>
+					</td>
+					<td width="40%" style="word-wrap:break-word">
+						<script>writeMessage("canModifyHandlerNodeNames")</script>
+					</td>
+					<td width="40%" style="word-wrap:break-word">
+						<script>writeMessage("mustModifyHandlerNodeNames")</script>
+					</td>
+					<td width="10%" style="word-wrap:break-word">
+						<script>writeMessage("canModifyFlow")</script>
+					</td>
+				</tr>
+			 </table>
+		</td>
+	</tr>
+	<tr	LKS_LabelName="" id="notionModifyPopedom">
+		<td>
+			<table class="tb_normal" id="TB_Second" style="width:100%;table-layout: fixed;">
+				<tr class="tr_normal_title">
+					<td width="10%" style="word-wrap:break-word">
+						<script>writeMessage("nodeAndPopedom")</script>
+					</td>
+					<td width="40%" style="word-wrap:break-word">
+						<script>writeMessage("nodeCanViewCurNode")</script>
+					</td>
+					<td width="40%" style="word-wrap:break-word">
+						<script>writeMessage("otherCanViewCurNode")</script>
+					</td>
+					<td width="10%" style="word-wrap:break-word">
+						<script>writeMessage("canModifyNotionPopedom")</script>
+						
+					</td>
+				</tr>
+			 </table>
+		</td>
+	</tr>
+</table>
+<br>
+</center>
+<script>initDocument();</script>
+</body>
+</html>

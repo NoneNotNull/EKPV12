@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogError"
+		messageKey="sys-log:table.sysLogError"
+		serviceBean="sysLogErrorService"
+		table="sys_log_error">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogError.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogError.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			unique="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogError.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogError.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogError.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			unique="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogError.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			length="1000000"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogError.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			unique="false"
+			length="10" />
+	</model>
+	<model
+		modelName="com.landray.kmss.sys.log.model.SysLogErrorBak"
+		messageKey="sys-log:table.sysLogErrorBak"
+		serviceBean="sysLogErrorBakService"
+		table="sys_log_error_bak">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-log:sysLogError.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true"
+			unique="false" />
+		<simpleProperty
+			name="fdIp"
+			messageKey="sys-log:sysLogError.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			unique="false"
+			length="15" />
+		<simpleProperty
+			name="fdOperator"
+			messageKey="sys-log:sysLogError.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty
+			name="fdOperatorId"
+			messageKey="sys-log:sysLogError.fdOperatorId"
+			type="String"
+			column="fd_operator_id"
+			notNull="false"
+			unique="false"
+			length="36" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-log:sysLogError.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			unique="false"
+			length="2083" />
+		<simpleProperty
+			name="fdErrorInfo"
+			messageKey="sys-log:sysLogError.fdErrorInfo"
+			type="RTF"
+			column="fd_error_info"
+			notNull="false"
+			unique="false" />
+		<simpleProperty
+			name="fdMethod"
+			messageKey="sys-log:sysLogError.fdMethod"
+			type="String"
+			column="fd_method"
+			notNull="false"
+			unique="false"
+			length="10" />
+	</model>
+</models>

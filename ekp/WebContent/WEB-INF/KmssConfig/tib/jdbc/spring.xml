@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibJdbcTaskManageDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcTaskManageDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcTaskManage" />
+	</bean>
+	<bean
+		id="tibJdbcTaskManageTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcTaskManageServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcTaskManageDao" />
+		</property>
+		<property name="sysQuartzJobService">
+		    <ref bean="sysQuartzJobTarget"/>
+	</property>
+	</bean>
+	<bean
+		id="tibJdbcTaskManageService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcTaskManageTarget" />
+		</property>
+	</bean>
+
+   <!-- tibJdbcTaskCategory任务分类树service -->
+	<bean id="tibJdbcTaskCategoryTreeService"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcTaskCategoryTreeServiceImp">
+		<property name="tibJdbcTaskCategoryService">
+			<ref bean="tibJdbcTaskCategoryTarget" />
+		</property>
+	</bean>
+
+ <!-- tibJdbcMappCategory映射分类树service -->
+	<bean id="tibJdbcMappCategoryTreeService"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcMappCategoryTreeServiceImp">
+		<property name="tibJdbcMappCategoryService">
+			<ref bean="tibJdbcMappCategoryTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibJdbcRelationDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcRelationDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcRelation" />
+	</bean>
+	<bean
+		id="tibJdbcRelationTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcRelationServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcRelationDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcRelationService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcRelationTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibJdbcTaskCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcTaskCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcTaskCategory" />
+	</bean>
+	<bean
+		id="tibJdbcTaskCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcTaskCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcTaskCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcTaskCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcTaskCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibJdbcMappCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcMappCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcMappCategory" />
+	</bean>
+	<bean
+		id="tibJdbcMappCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcMappCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcMappCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcMappCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcMappCategoryTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="tibJdbcMappManageDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcMappManageDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcMappManage" />
+	</bean>
+	<bean
+		id="tibJdbcMappManageTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcMappManageServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcMappManageDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcMappManageService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcMappManageTarget" />
+		</property>
+	</bean>
+
+
+
+	<!--获取table信息 bean Service -->
+	<bean id="tibJdbcLoadDBTablService" class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcLoadDBTablService"></bean>
+	<!--获取table的field信息 bean Service -->	
+    <bean id="tibJdbcLoadTableFieldService" class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcLoadTableFieldService"></bean>
+	<!-- 获取mappManageList数据 -->	
+	<bean id="tibJdbcMappManageBeanService" class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcMappManageBeanService"></bean>
+
+	<!-- 获取数据源数据 -->	
+	<bean id="tibJdbcLoadDBDataSourceService" class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcLoadDBDataSourceService"></bean>
+	
+	<!-- 全量同步 -->	
+	<bean id="tibJdbcTaskRunFullSync" 
+		  class="com.landray.kmss.tib.jdbc.iface.impl.TibJdbcTaskRunFullSync">
+		<property name="tibJdbcTaskManageService">
+			<ref local="tibJdbcTaskManageService"/>
+		</property>
+	</bean>
+	
+	<!-- 增量同步 -->	
+	<bean id="tibJdbcTaskRunIncrementSync" 
+		  class="com.landray.kmss.tib.jdbc.iface.impl.TibJdbcTaskRunIncrementSync">
+		<property name="tibJdbcTaskManageService">
+			<ref local="tibJdbcTaskManageService"/>
+		</property>
+	</bean>
+	
+	<!-- 日志同步 -->	
+	<bean id="tibJdbcTaskRunLogSync" 
+		  class="com.landray.kmss.tib.jdbc.iface.impl.TibJdbcTaskRunLogSync">
+	</bean>
+	<!-- 函数表达式列表 -->	
+	<bean id="tibJdbcExpressionBean" 
+		  class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcExpressionBean">
+	</bean>
+
+	<!-- JDBC定时任务 -->	
+	<bean id="tibJdbcSyncUniteQuartzService" 
+		  class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcSyncUniteQuartServiceImp">
+	 </bean>
+	 
+	<!-- 校验删除条件 -->	
+	<bean id="tibJdbcDeleteValidateBean" 
+		  class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcDeleteValidateBean">
+	</bean>
+	 
+	<!-- 数据集管理分类 -->	
+	<bean
+		id="tibJdbcDataSetCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcDataSetCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcDataSetCategory" />
+	</bean>
+	<bean
+		id="tibJdbcDataSetCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcDataSetCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcDataSetCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcDataSetCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcDataSetCategoryTarget" />
+		</property>
+	</bean>
+	 
+	<!-- JDBC数据集 -->
+	<bean
+		id="tibJdbcDataSetDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.jdbc.dao.hibernate.TibJdbcDataSetDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.jdbc.model.TibJdbcDataSet" />
+	</bean>
+	<bean
+		id="tibJdbcDataSetTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.jdbc.service.spring.TibJdbcDataSetServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibJdbcDataSetDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcDataSetService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibJdbcDataSetTarget" />
+		</property>
+	</bean>
+	<bean id="tibJdbcDataSetParamBean"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcDataSetParamBean">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="tibJdbcControlTreeInfo"
+		class="com.landray.kmss.tib.jdbc.control.TibJdbcControlTreeInfo">
+		<property name="tibJdbcDataSetService">
+			<ref bean="tibJdbcDataSetService" />
+		</property>
+		<property name="tibJdbcDataSetCategoryService">
+			<ref bean="tibJdbcDataSetCategoryService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="tibJdbcDataSetCategoryTreeService"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcDataSetCategoryTreeServiceImp">
+		<property name="tibJdbcDataSetCategoryService">
+			<ref bean="tibJdbcDataSetCategoryService" />
+		</property>
+	</bean>
+	
+	<bean id="tibJdbcDataSetTreeService"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcDataSetTreeBean">
+		<property name="tibJdbcDataSetCategoryService">
+			<ref bean="tibJdbcDataSetCategoryService" />
+		</property>
+		<property name="tibJdbcDataSetService">
+			<ref bean="tibJdbcDataSetService" />
+		</property>
+	</bean>
+	
+	<bean id="tibJdbcDataSetJsonBean"
+		class="com.landray.kmss.tib.jdbc.service.bean.TibJdbcDataSetJsonBean">
+		<property name="tibJdbcDataSetService">
+			<ref bean="tibJdbcDataSetService" />
+		</property>
+	</bean>
+	
+	<!-- 自定义表单控件 bean-->
+	<bean
+		id="tibJdbcSqlSelectDataBean"
+		class="com.landray.kmss.tib.jdbc.control.sql.TibJdbcFormTemplateSQLSelectDataBean">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="compDbcpService">
+			<ref bean="compDbcpService" />
+		</property>
+	</bean>
+	<bean
+		id="tibJdbcFormSQLSelectDBServiceImp"
+		class="com.landray.kmss.tib.jdbc.control.sql.TibJdbcFormSQLSelectDBServiceImp">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 多数据源 -->
+	<bean
+		id="tibJdbcFromTemplateDataRresourcesImp"
+		class="com.landray.kmss.tib.jdbc.control.sql.TibJdbcFromTemplateDataRresourcesImp">
+		<property name="compDbcpService">
+			<ref bean="compDbcpService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

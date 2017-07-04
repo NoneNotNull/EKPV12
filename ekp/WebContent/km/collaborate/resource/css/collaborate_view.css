@@ -1,0 +1,140 @@
+﻿@charset "utf-8";  
+
+/**
+** 代码制作人:xiex
+** 制作时间：2013-11-01
+** 文件内容描述：工作沟通
+** 修改日期：无
+** 修改内容：无
+**********************************************/
+
+
+/*** 公用，盒子 ****************************************************************************************/
+p{align:left}
+option{font-family: "微软雅黑", Geneva, "sans-serif" , "微软雅黑" , "宋体";font-size: 12px;color: #666;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,iieldset,input,textarea,p,blockquote,th,td{ margin:0; padding:0;list-style: none;}
+.lui_common_tabs_3_content_c{ padding:10px; background:#fff; border-top:1px solid #c2e2ef; }
+
+.clrfix{zoom:1;}/* 清除浮动 */
+.clrfix:after{display:block; content:'clear'; clear:both; line-height:0; visibility:hidden;}/* 清除浮动 */
+.clr{ clear:both;}
+body{ color:#868686; background-color:#f2f2f2; overflow-x:auto;font-size: 12px}
+.main_body{ width:980px; margin:0 auto;}
+.m_bodyL{ width:730px; margin-right:20px; float:left;}
+.m_bodyR{ width:230px; float:right;}
+
+.main_wrapperL{ width:172px; float:left;}
+.main_wrapperR{ width:808px; float:left;}
+.main_contentR{ padding:8px 10px 10px 10px; border:1px solid #eaeaea; /*border-left:0;*/ background-color:#fff;}
+
+.third_cbody{ width:980px; padding:26px 30px; margin:0 auto; border:1px solid #e5e5e5; background-color:#fff;}
+
+.comBox{ border:1px solid #47b5e6;}
+.comBox_2{ /*border:1px solid #e17d27;*/}
+
+/*****************************************************************************************************/
+
+.work_comm_View{ padding:13px 16px; background:#fff;}
+
+/** 快捷菜单 *******/
+.work_comm_menu{ position:fixed; right:20px; bottom:130px;cursor:pointer; border-bottom:1px solid #6ab3de;z-index: 1}
+.work_comm_menu ul li{ width:48px; height:49px; border:1px solid #6ab3de; border-bottom:0px; vertical-align: bottom; }
+.work_comm_menu ul li.item_1{ background:#fff url(../images/06-1.png) no-repeat center;}
+.work_comm_menu ul li.item_1:HOVER{ background:#fff url(../images/06.png) no-repeat center;}
+.work_comm_menu ul li.item_2{ background:#fff url(../images/04-1.png) no-repeat center;}
+.work_comm_menu ul li.item_2:HOVER{ background:#fff url(../images/04.png) no-repeat center;}
+.work_comm_menu ul li.item_3{ background:#fff url(../images/15.png) no-repeat center;}
+.work_comm_menu ul li.item_3:HOVER{ background:#fff url(../images/15-1.png) no-repeat center;}
+.work_comm_menu ul li.item_4{ background:#fff url(../images/12-1.png) no-repeat center;}
+.work_comm_menu ul li.item_4:HOVER{ background:#fff url(../images/12.png) no-repeat center;}
+
+/** 标题 *************/
+.work_comm_Title{ min-height:60px; border-bottom:1px solid #ededed; position:relative;padding-left: 17px;padding-top:13px; height: auto;}
+.work_comm_Title .left{ float:left; width:78px; padding-left:1px;height:70px}
+.work_comm_Title .right{position: relative;vertical-align: middle;height: auto;line-height: 27px;}
+.work_comm_Title .left img{ width:60px; height:60px;}
+.work_comm_Title .right h1.title{color: #3f9ecc;font-size: 16px;font-weight: normal;}
+.work_comm_Title .right div.baseInfo{}
+.work_comm_Title .right .author{ color:#f49602; ;}
+.work_comm_Title .right .num{ color:#2aac18;}
+.work_comm_Title  .a_edit{ position:absolute; right:25px; bottom:7px; cursor:pointer;}
+
+/** 内容 *************/
+.work_comm_Content{ padding:12px 18px;}
+.work_comm_Content .last_eidt{ height:27px; line-height:27px; margin:0px auto 8px; text-align:center; width:400px; background:#fff7c6;}
+.work_comm_ViewContentC .attach{ border-top:1px dotted #909090; margin-bottom:10px;}/* 附件 */
+.lui_common_tabs_3_contentMiddleM .lui_common_shade_btnGroup{ background:#fff;}
+.lui_common_tabs_3_contentMiddleM .txtarea_rtf{ background:url(images/txtarea_rtf_bg.png) no-repeat left top; width:799px; height:185px; padding:5px; padding-top:35px; overflow:hidden; border:1px solid #c0c0c0; margin:10px 0px;}
+.lui_common_tabs_3_title{ float:left; width:50%; height:20px; line-height:20px; color:#54a3cc; font-weight:bold;font-size: 14px}
+.shade_btn_box{ float:right; padding-top:10px;padding-right:px}
+.tips{background: #fff7c6;margin-top: 10px;line-height: 27px;border:1px #e8e8e8 solid;padding-left: 8px}
+.tips img{position: relative;top: 3px;}
+/*提交按钮**/
+.lui_common_shade_btnGroup .shade_btn_box li .shade_btnC input{ min-width:70px; height:28px; padding:0 5px; text-align:center; line-height:28px; font-size:13px; color:#fff; border:1px solid #33a2cf; background-color:#47b5e6; display:block;}
+
+/** 选项卡 ***********/
+.work_comm_tabs_1{ width:100%; background:#fff; margin:10px 0px;}
+.work_comm_tabs_1_titleM ul li span a{font-weight: bold;font-size: 14px;}/*选项卡样式参与情况和相关交流*/
+.work_comm_tabs_1_titleL{ height:32px; line-height:32px; border:1px solid #e0e0e0;background-color:#fff}
+.work_comm_tabs_1_titleL ul { width:100%;}
+.work_comm_tabs_1_titleL ul li{ float:left; padding:0px 18px; cursor:pointer;}
+.work_comm_tabs_1_titleL ul li.current{ height:31px; line-height:32px; border-bottom:0px; border-top:2px solid #59bfef; border-right:1px solid #e0e0e0; background:#f3f3f3;}
+.discuss .sort{ height:34px; background:#f3f3f3; border:1px solid #e0e0e0; border-top:0px;border-bottom:1px solid #b4b4b4}
+.discuss .sort ul{ float:right;}
+.discuss .sort ul li{ float:left; margin-top:5px; width:44px; height:20px; line-height:20px; border:1px solid #b4b4b4; margin-right:9px; text-align:right; cursor:pointer; background:#e8e8e8 url(../images/work_comm_icon_sort.png) no-repeat 90% center; padding-right:16px;}
+.discuss .sort ul li.current{ background-color:#fff;}
+
+/** 下拉框 ***************/
+.dropdown{font-family: "微软雅黑", Geneva, "sans-serif" , "微软雅黑" , "宋体";font-size: 12px;color: #666; width:108px; float:right; background:#fff; margin-top:7px; margin-right:5px;cursor:default; display:inline-block;height:20px;line-height:20px;overflow:hidden; border:1px solid #b8b8b8;}
+.dropdown .dropdown-input{display:block; padding:0 3px; width:80px;  height:20px; line-height:20px; float:left;}
+.dropdown .dropdown-icon{background:url(images/select_dropdown.gif) no-repeat center center transparent;border-left:1px solid #FFF;display:block;width:16px; float:left;}
+
+
+/** 列表 *********************/
+.discuss{ padding-bottom:20px;}
+.discuss_dl{}
+.discuss_dl dd{ border-bottom:1px solid #e3e3e3; padding:18px;background: #fff;}
+.discuss_dl dd .left{ width:78px; float:left;}
+.discuss_dl dd .right{ float:left; width:90%;}
+.discuss_dl dd .right div{font-family: "微软雅黑", Geneva, "sans-serif" , "微软雅黑" , "宋体";font-size: 12px;color: #666;}
+.discuss_dl dd .right .p1{ height:30px; line-height:30px;}
+.discuss_dl dd .right .p1 .floor{ display:inline-block; height:17px; line-height:17px; background:#dddddd; padding:0px 5px; margin-right:5px;}
+.discuss_dl dd .right .p1 .author{ margin-right:5px;}
+.discuss_dl dd .right .p2{padding-bottom:10px; width:100%;margin-bottom: 5px;}
+.discuss_dl dd .right .operate{ height:30px; line-height:30px; border-top:1px solid #def2fd;}
+.discuss_dl dd .right .operate .a_operate{ text-decoration:underline;cursor: pointer;}
+.discuss_dl dd .right .operate .split{ margin:0px 10px;}
+
+/** 引用 *************************/
+.discuss_dl .quoteC{ padding:10px; background-color:#f7f7f7;}
+.discuss_dl .quoteL{ background:#f7f7f7 url(../images/quote_L.png) no-repeat 10px 10px; padding-left:40px; margin-top:14px;}
+.discuss_dl .quote_content{ background: #f7f7f7 url(../images/quote_R.png) no-repeat 85% 99%; padding-right: 200px; }
+
+.info{ height:42px; line-height:42px; padding-left:14px; position:relative;background-color: #fff;margin-bottom: -6px;border-bottom: 1px solid #e3e3e3}
+.info .summary_tips{ color:#e17d27;}
+.btn_add_staff{ height:22px; line-height:22px; background:#47b5e6 url(../images/btn_add_staff_bg.png) no-repeat 6px 7px; padding-left:17px; border:1px solid #36a0d2; color:#fff; cursor:pointer; position:absolute; left:90%; top:12px;}
+
+
+/** 表格 *********************/
+.comm_table { width:100%;}
+.comm_table .th1{ width:55%;}
+.comm_table .th2{ width:15%;}
+.comm_table .th3{ width:15%;}
+.comm_table .th4{ width:15%;}
+.comm_table tr th{ height:35px; line-height:35px; border:1px solid #e3e3e3; border-width:1px 0px; text-align:center; color:#494949;padding-top:3px}
+.comm_table tr td{ padding:10px 0px; text-align:center; border-bottom:1px solid #e3e3e3;}
+.comm_table tr td .p1{padding-left:0px; text-align:left;}
+.comm_table tr td .date{ line-height:24px;padding-left:14px;}
+.comm_table tr td p{padding-left:14px;text-align: left}
+
+/** 点击标记按钮，悬浮框样式 **************************/
+#zone-bar-main{display:none;position:absolute;width:116px;}
+#zone-bar-main img{position: absolute;left:98px;top:50%;margin-top:-8px;}
+#zone-bar {width:100px;border: 1px solid #CCCCCC;background: white;text-align:center;float: left;padding:0;margin:0;}
+#zone-bar li {float: none;height: 100%; list-style-type:none}
+#zone-bar li:hover {background: none;}
+#zone-bar li a {display: block;float: none;padding: 10px 0 10px 0;width: 100px;}
+#zone-bar li a:hover {background: #d9f0b7;}
+
+
+

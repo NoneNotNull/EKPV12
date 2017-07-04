@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateSearchMCount"
+		messageKey="kms-evaluate:table.kmsEvaluateSearchMCount"
+		displayProperty="fdSearchKey"
+		serviceBean="kmsEvaluateSearchMCountService"
+		table="kms_evaluate_search_m_count"
+		url="/kms/evaluate/kms_evaluate_search_m_count/kmsEvaluateSearchMCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSearchKey"
+			messageKey="kms-evaluate:kmsEvaluateSearchMCount.fdSearchKey"
+			type="String"
+			column="fd_search_key"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="openDocCount"
+			messageKey="kms-evaluate:kmsEvaluateSearchMCount.openDocCount"
+			type="String"
+			column="open_doc_count"
+			notNull="true"
+			length="2"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateSearchMCount.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docDate"
+			messageKey="kms-evaluate:kmsEvaluateSearchMCount.docDate"
+			type="String"
+			column="doc_date"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdcreator"
+			messageKey="kms-evaluate:kmsEvaluateSearchMCount.fdcreator"
+			type="String"
+			column="fdCreator"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

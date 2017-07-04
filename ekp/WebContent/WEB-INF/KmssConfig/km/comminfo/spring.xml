@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="kmComminfoMainDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.comminfo.dao.hibernate.KmComminfoMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.comminfo.model.KmComminfoMain" />
+	</bean>
+	<bean id="kmComminfoMainTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoMainServiceImp">
+		<property name="baseDao">
+			<ref local="kmComminfoMainDao" />
+		</property>
+	</bean>
+	<bean id="kmComminfoMainService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmComminfoMainTarget"/>
+		</property>
+	</bean>
+
+
+	<bean id="kmComminfoCategoryDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.comminfo.dao.hibernate.KmComminfoCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.comminfo.model.KmComminfoCategory" />
+	</bean>
+	<bean id="kmComminfoCategoryTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoCategoryServiceImp">
+		<property name="baseDao">
+			<ref local="kmComminfoCategoryDao" />
+		</property>
+	</bean>
+	<bean id="kmComminfoCategoryService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmComminfoCategoryTarget"/>
+		</property>
+	</bean>
+	
+	
+	<bean id="kmComminfoAltInfoDao" 
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.km.comminfo.dao.hibernate.KmComminfoAltInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.comminfo.model.KmComminfoAltInfo" />
+	</bean>
+	<bean id="kmComminfoAltInfoTarget" 
+   		parent="KmssBaseTarget"
+   		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoAltInfoServiceImp">
+		<property name="baseDao">
+			<ref local="kmComminfoAltInfoDao" />
+		</property>
+	</bean>
+	<bean id="kmComminfoAltInfoService" 
+  		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmComminfoAltInfoTarget"/>
+		</property>
+	</bean>
+	
+	
+	<!-- 注入分类查询树 -->
+	<bean
+		id="kmCategoryTreeService"
+		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoCategoryTreeServiceImpl">
+		<property name="kmComminfoCategoryService">
+			<ref local="kmComminfoCategoryService" />
+		</property>
+	</bean>
+	<!-- 注入分类查询树 -->
+	
+	
+	<!-- portlet机制 -->
+	<bean
+		id="kmComminfoPortletService"
+		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoMainPortletServiceImp">
+		<property name="kmComminfoMainService">
+			<ref local="kmComminfoMainService" />
+		</property>
+	</bean>
+	<!-- portlet机制 -->
+	
+	<!-- 全文检索 -->
+		<bean  id="comminfoDaoCreator" 
+			 class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+			<property name="beanNames">
+				<value>kmComminfoMainDao</value>
+			</property>
+			<property name="interceptorNames">
+				<list>
+					<value>luceneCreateAdvisor</value>
+					<value>luceneSaveAdvisor</value>
+					<value>docKeyWriteAdvice</value>
+					<value>luceneDeleteAdvisor</value>
+				</list>
+			</property>
+		</bean>
+	<!-- 全文检索 -->
+	
+	<bean
+		id="kmComminfoCategoryTreeService"
+		class="com.landray.kmss.km.comminfo.service.spring.KmComminfoCategoryTreeServiceImpl">
+		<property name="kmComminfoCategoryService">
+			<ref local="kmComminfoCategoryService" />
+		</property>
+	</bean>
+	
+	<!-- ===================== Validators ==================== -->
+	<bean id="authValidator"
+		class="com.landray.kmss.km.comminfo.service.spring.AuthValidatorImp">
+		<property name="kmComminfoCategoryService">
+			<ref local="kmComminfoCategoryService" />
+		</property>
+	</bean>
+	
+	<bean id="authDeleteValidator"
+		class="com.landray.kmss.km.comminfo.service.spring.AuthDeleteValidatorImp">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+		<property name="hqlBuilder">
+			<ref bean="kmssAuthHQLBuilder" />
+		</property>
+	</bean>
+</beans>

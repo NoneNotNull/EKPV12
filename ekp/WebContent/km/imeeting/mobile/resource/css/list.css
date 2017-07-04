@@ -1,0 +1,190 @@
+@charset "utf-8";
+*{
+	padding: 0;
+	margin: 0;-webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+}
+/*** 会议列表 ***/
+.muiImeetingItem{ border-bottom:none;}
+
+.ImeetingListView .mblEdgeToEdgeList .muiListItem{ margin:0; padding-left:0.8rem; padding-right:0.8rem;}
+
+.ImeetingScrollableView,.ImeetingList{
+	background: #f0eff5;
+}
+
+.ImeetingList .summary{
+	margin-bottom: 0!important;
+}
+
+.calendarButton{
+	height: 3.8rem;
+	line-height: 3.8rem;
+	display: table-cell;
+	color: #3564aa;
+	min-width: 4rem;
+	height: 100%;
+	cursor: pointer;
+	background-color: #f6f6f6;
+}
+
+li.muiImeetingItem{
+	padding-top:0px; padding-bottom:0px;
+	padding-left: 2.8rem!important;
+	position: relative;  
+}
+.ImeetingListView .mblEdgeToEdgeList .muiImeetingItem{  padding-bottom:0px; bottom:0px;}
+.muiImeetingItem .arrow_dot {
+	width: 1.5rem;
+	display: block;
+	text-align: center;
+	z-index: 11;
+	position: absolute;
+	left: -1rem;
+	top: 1.7rem;
+	color: #2c79c7;
+}
+.muiImeetingItem .muiMeetingListContent .arrow_dot .mui{
+	font-size: 2.2rem;
+	margin-left: 1px;
+	line-height: 1;
+	background-color: #fff;
+ 	border-radius: 50%;
+}
+.muiImeetingItem .muiMeetingListContent{
+	border-left: 1px solid #2c79c7;
+	padding-left: 1.6rem;
+	position: relative; -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+.muiImeetingItem .muiMeetingListContent .address .mui{ font-size:1.5rem;  margin-right:2px; position:relative; top:-1px;}
+
+.muiImeetingItem p.title a {
+	color: #0c0c0c;
+	display: inline-block;
+	font-size: 1.6rem;
+	margin: 0px 0 2px;
+	width: 97%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.muiImeetingItem .date {
+	padding-top: 2.3rem; font-size:1.2rem; margin-bottom:5px; color:#7e7e7e; -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+.muiImeetingItem .address {
+	font-size:1.2rem;
+	color: #7e7e7e;
+}
+
+.muiImeetingItem .user {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid #e5e5e5;
+	line-height: 2.8rem;
+	max-height: 2.8rem; 
+	padding-bottom:8px; 
+}
+.muiImeetingItem:last-child .user{ border-bottom:0px;}
+.muiImeetingItem .user a{ font-size:1.2rem; color:#7e7e7e; }
+.muiImeetingItem .figure {
+	float: left;
+	width: 2.8rem;
+	height: 2.8rem;
+	text-align: center;
+	margin-right: 5px;
+	border-radius: 50%;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.muiImeetingItem .figure img {
+	width: 100%;
+}
+
+.muiImeetingItem .muiMeetingStatus.unHold {
+	background-color: #51b749;
+}
+
+.muiImeetingItem .muiMeetingStatus.holding {
+	background-color: #5484ed;
+}
+
+.muiImeetingItem .muiMeetingStatus.hold {
+	background-color: #f0ad4e;
+}
+
+.muiImeetingItem .muiMeetingStatus {
+	display: inline-block;
+	padding: 0px 5px;
+	color: #fff; font-size:1.2rem;
+	border-radius: 3px;
+	background: #cfcfcf;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	right: 5px;
+	top: 17px;
+}
+
+
+.rightContent p.title a {
+	color: #454545;
+	display: inline-block;
+	width: 98%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.rightContent p.user .mui{ font-size:1.6rem; margin-top:-0.2rem;}
+.rightContent p.place .mui{ font-size:1.7rem; margin-top:-0.2rem;}
+.rightContent p.user,.rightContent p.place {
+	font-size: 1.3rem;
+	color: #898989; 
+}
+
+.muiMeetingCardItem {
+	
+}
+.muiMeetingCardItem .muiListSummary{ border-top:0px;}
+.muiMeetingCardItem .figure{ padding-right:3rem;}
+.muiMeetingCardItem .figure.noStatusFigure{ padding-right:0rem;}
+.muiMeetingCardItem .muiCardSummary{ padding-top:0px;}
+.muiMeetingCardItem .muiCardIcoList li{ float:none;}
+.muiMeetingStatusTag{
+	width: 85px;
+	font-size: 1.2rem;
+	position: absolute;
+	right: -26px;
+	top: 5px;
+	padding: 5px 0px;
+	background-color: #6fc13a;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+.muiMeetingStatusTag.muiMeetingUnhold{ background:#51b749; }
+.muiMeetingStatusTag.muiMeetingHold{ background:#f0ad4e; } 
+.muiMeetingStatusTag.muiMeetingHolding{ background:#5484ed; } 
+.muiMeetingStatusTag.muiMeetingDraft{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingRefuse{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingExamine{ background:#c0c0c0; }
+.muiMeetingStatusTag.muiMeetingDiscard{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingCancel{ background:#c0c0c0; } 
+

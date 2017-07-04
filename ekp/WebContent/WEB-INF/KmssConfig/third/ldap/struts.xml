@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="ldapSettingForm"
+			type="com.landray.kmss.third.ldap.form.LdapSettingForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/third/ldap/setting"
+			type="com.landray.kmss.third.ldap.action.LdapSettingAction"
+			name="ldapSettingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/third/ldap/setting.jsp">
+			</forward>
+			<forward
+				name="show"
+				path="/third/ldap/show.jsp">
+			</forward>
+			<forward
+				name="success"
+				path="/sys/config/resource/success.jsp" />
+			<forward
+				name="failure"
+				path="/sys/config/resource/error.jsp" />
+		</action>
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.third.ldap.ApplicationResources"
+		key="third-ldap" />
+</struts-config>

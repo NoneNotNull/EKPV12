@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogSearchDoc"
+		messageKey="kms-log:table.kmsLogSearchDoc"
+		displayProperty="docSubject"
+		serviceBean="kmsLogSearchDocService"
+		table="kms_log_search_doc"
+		url="/kms/log/kms_log_search_doc/kmsLogSearchDoc.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-log:kmsLogSearchDoc.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSearchId"
+			messageKey="kms-log:kmsLogSearchDoc.fdSearchId"
+			type="String"
+			column="fd_search_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelId"
+			messageKey="kms-log:kmsLogSearchDoc.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="kms-log:kmsLogSearchDoc.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+	</model>
+</models>

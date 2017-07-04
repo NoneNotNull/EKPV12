@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkMain"
+		messageKey="sys-bookmark:table.sysBookmarkMain"
+		displayProperty="docSubject"
+		serviceBean="sysBookmarkMainService"
+		table="sys_bookmark_main"
+		url="/sys/bookmark/sys_bookmark_main/sysBookmarkMain.do?method=edit&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="sys-bookmark:sysBookmarkMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="200"
+			canSearch="true"
+			canDisplay="true" />
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-bookmark:sysBookmarkMain.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="1000"
+			canSearch="true"
+			canDisplay="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-bookmark:sysBookmarkMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			canSearch="true"
+			canDisplay="true" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-bookmark:sysBookmarkMain.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			canSearch="false"
+			canDisplay="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-bookmark:sysBookmarkMain.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			canSearch="true"
+			canDisplay="false"
+			length="500"
+			dialogJS="Dialog_List(false, '!{idField}', '!{nameField}', ';', 'sysBookmarkSourceListService')" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-bookmark:sysBookmarkMain.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			canSearch="false"
+			length="36"
+			canDisplay="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-bookmark:sysBookmarkMain.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<modelProperty
+			name="docCategory"
+			messageKey="sys-bookmark:sysBookmarkMain.docCategoryId"
+			type="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+			column="doc_category_id"
+			notNull="false"
+			canSearch="true"
+			canDisplay="true"
+			dialogJS="Dialog_Tree(!{mulSelect}, '!{idField}', '!{nameField}', null, 'sysBookmarkCategoryTreeService&amp;parentId=!{value}&amp;type=all');" />
+	</model>
+</models>

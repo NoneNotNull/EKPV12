@@ -1,0 +1,76 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft YaHei !important;
+	color: #333;
+	font-size: 15px;
+}
+
+.c {
+	height: 1%;
+}
+
+.c:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+}
+
+.m_t10 {
+	margin-top: 10px;
+}
+
+.m_t40 {
+	margin-top: 35px;
+}
+
+.pd_10 {
+	padding: 10px;
+}
+
+.list_summary {
+	text-align: left;
+	background-color: #f8f8f8;
+}
+
+.card_sec {
+	float: left;
+	margin-right: 5px;
+}
+
+.card_sec a {
+	display: block;
+	border: dotted 1px;
+	padding: 2px;
+}
+
+.list_summary img {
+	display: block;
+	max-height: 70px;
+	max-width: 118px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.catalog {
+	padding-left: 20px;
+	background: url("../img/catalog.gif") no-repeat 1px;;
+	font-size: 20px;
+	border-bottom: dotted 1px;
+	margin-bottom: 5px;
+	font-family: Microsoft YaHei !important;
+}
+
+.div_doctext article {
+	margin-top: 10px;
+}

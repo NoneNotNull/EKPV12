@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+<portlet
+		id="km.smissive.latest"
+		name="{km-smissive:portlet.smissive.newDoc}"
+		module="{km-smissive:module.km.smissive}"
+		description="{portlet.list.desc1}">
+		<source
+			format="sys.ui.classic"
+			type="AjaxXml">
+			<code>
+				<![CDATA[
+				{"url":"/sys/common/dataxml.jsp?s_bean=kmSmissivePortlet&fdCategoryId=!{cateid}&rowsize=!{rowsize}&scope=!{scope}"}
+				]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-smissive:kmSmissiveMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+			<var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+			<var name="{portlet.cate}"
+				key="cateid"
+				kind="sys.simplecategory">
+				{"model":"com.landray.kmss.km.smissive.model.KmSmissiveTemplate","name":"{button.select}"}
+			</var>
+		</vars>
+		<operations>
+	     	<operation
+				name="{operation.create}"
+				type="create"
+				href="javascript:(function(){seajs.use(['km/smissive/km_smissive_main_ui/js/create'], function(create) { 
+							create.addDoc(\'!{cateid}\');
+					 });})();"
+			    target="_self" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/smissive/?categoryId=!{cateid}" />
+	    </operations>
+</portlet>
+<portlet
+		id="km.smissive.myFlow"
+		name="{km-smissive:smissive.myDoc}"
+		module="{km-smissive:module.km.smissive}"
+		description="{portlet.list.desc2}">
+		<source
+			format="sys.ui.listtable"
+			type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/smissive/km_smissive_main/kmSmissiveMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&myFlow=!{myFlow}&scope=!{scope}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+			<var name="{km-smissive:kmSmissiveMain.docCreateTime}" key="scope" kind="enumValue" default="no">
+	                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+	                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+	                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+	                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+	                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+	                   "showType":"radio"
+	                  }
+	        </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		    <var name="{km-smissive:smissive.Doc.my}" key="myFlow" kind="enumValue" default="unExecuted">
+			  {    "values":[{ "text":"{km-smissive:smissive.approval.my}", "value":"unExecuted" },{ "text":"{km-smissive:smissive.approved.my}", "value":"executed" },{ "text":"{km-smissive:smissive.create.my}", "value":"myCreate" }],
+	               "showType":"radio"
+                }
+			</var>
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/smissive/km_smissive_main/kmSmissiveMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/smissive/"/>
+	    </operations>
+</portlet>
+</root>

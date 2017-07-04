@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.task.model.SysTaskFeedback"
+		messageKey="sys-task:table.sysTaskFeedback"
+		serviceBean="sysTaskFeedbackService"
+		table="sys_task_feedback"
+		displayProperty="sysTaskMain.docSubject"
+		url="/sys/task/sys_task_feedback/sysTaskFeedback.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-task:sysTaskFeedback.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdProgress"
+			messageKey="sys-task:sysTaskFeedback.fdProgress"
+			type="String"
+			column="fd_progress"
+			notNull="false"
+			length="3" />
+		<simpleProperty
+			name="fdCompleteDateTime"
+			messageKey="sys-task:sysTaskFeedback.fdCompleteTime"
+			type="DateTime"
+			column="fd_complete_date_time"
+			notNull="false" />
+		<simpleProperty
+			name="docContent"
+			messageKey="sys-task:sysTaskFeedback.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="true"
+			length="1000000"
+			validate="true"/>
+		<simpleProperty
+			name="shortContent"
+			messageKey="sys-task:sysTaskFeedback.docContent"
+			type="String"
+			column="short_content"
+			notNull="false"
+			length="500"
+			validate="false"/>
+		<simpleProperty
+			name="clientType"
+			messageKey="sys-task:sysTaskFeedback.clientType"
+			type="Integer"
+			column="client_type"
+			notNull="false"
+			length="4"
+			validate="false"/>
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-task:sysTaskFeedback.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="100" 
+			canDisplay="false"/>
+		<simpleProperty
+			name="fdNotifyWay"
+			messageKey="sys-task:sysTaskFeedback.fdNotifyWay"
+			type="String"
+			column="fd_notify_way"
+			notNull="false"
+			enumType="sysTaskMain_fdNotifyType"
+			length="100" />
+		<modelProperty
+			name="sysTaskMain"
+			messageKey="sys-task:sysTaskFeedback.sysTaskMain.docSubject"
+			type="com.landray.kmss.sys.task.model.SysTaskMain"
+			column="fd_task_id"
+			notNull="false" 
+			canDisplay="false"/>
+		<complexProperty
+			name="sysTaskMain.docSubject"
+			messageKey="sys-task:sysTaskFeedback.sysTaskMain.docSubject"
+			type="String"
+			notNull="false"
+			canDisplay="true"/>
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-task:sysTaskFeedback.fdNotifyType.creator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+	</model>
+</models>

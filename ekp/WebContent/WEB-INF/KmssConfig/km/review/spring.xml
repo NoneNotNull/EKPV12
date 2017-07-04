@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="kmReviewMainDao"
+		parent="KmssExtendDataAreaDao"
+		class="com.landray.kmss.km.review.dao.hibernate.KmReviewMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.review.model.KmReviewMain" />
+
+	</bean>
+	<bean
+		id="kmReviewMainTarget"
+		parent="KmssExtendDataTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmReviewMainDao" />
+		</property>
+		<property
+			name="kmReviewTemplateService">
+			<ref
+				local="kmReviewTemplateService" />
+		</property>
+		<property
+			name="sysCategoryMainService">
+			<ref
+				bean="sysCategoryMainService" />
+		</property>
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+		<property
+			name="kmReviewGenerateSnService">
+			<ref
+				local="kmReviewGenerateSnService" />
+		</property>
+		<property
+			name="sysAgendaMainCoreService">
+			<ref
+				bean="sysAgendaMainCoreService" />
+		</property>
+		<property name="sysNumberFlowService">
+        	<ref bean="sysNumberFlowService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmReviewMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmReviewMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmReviewFeedbackInfoDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.review.dao.hibernate.KmReviewFeedbackInfoDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.review.model.KmReviewFeedbackInfo" />
+	</bean>
+	<bean
+		id="kmReviewFeedbackInfoTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewFeedbackInfoServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmReviewFeedbackInfoDao" />
+		</property>
+		<property
+			name="kmReviewMainService">
+			<ref
+				local="kmReviewMainService" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewFeedbackInfoService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmReviewFeedbackInfoTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmReviewTemplateDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.review.dao.hibernate.KmReviewTemplateDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.review.model.KmReviewTemplate" />
+	</bean>
+	<bean
+		id="kmReviewTemplateTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewTemplateServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmReviewTemplateDao" />
+		</property>
+		<property
+			name="kmReviewGenerateSnService">
+			<ref
+				local="kmReviewGenerateSnService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewTemplateService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmReviewTemplateTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmReviewCategoryTreeService"
+		class="com.landray.kmss.km.review.service.spring.KmReviewCategoryTreeService">
+		<property
+			name="categoryMainService">
+			<ref
+				bean="sysCategoryMainService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewDepartmentTreeService"
+		class="com.landray.kmss.km.review.service.spring.KmReviewDepartmentTreeService">
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewTemplateTreeService"
+		class="com.landray.kmss.km.review.service.spring.KmReviewTemplateTreeService">
+		<property
+			name="kmReviewTemplateService">
+			<ref
+				local="kmReviewTemplateService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewOverviewService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmReviewOverviewTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewOverviewDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.review.dao.hibernate.KmReviewOverviewDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.review.model.KmReviewOverview" />
+	</bean>
+	<bean
+		id="kmReviewOverviewTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewOverviewServiceImp">
+		<property
+			name="categoryMainService">
+			<ref
+				bean="sysCategoryMainService" />
+		</property>
+		<property
+			name="kmReviewMainService">
+			<ref
+				local="kmReviewMainService" />
+		</property>
+		<property
+			name="kmReviewTemplateService">
+			<ref
+				local="kmReviewTemplateService" />
+		</property>
+		<property name="baseDao">
+			<ref local="kmReviewOverviewDao" />
+		</property>
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewDaoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property
+			name="beanNames">
+			<value>kmReviewMainDao</value>
+		</property>
+		<property
+			name="interceptorNames">
+			<list>
+				<value>luceneCreateAdvisor</value>
+				<value>luceneSaveAdvisor</value>
+				<value>luceneDeleteAdvisor</value>
+				<value>docKeyWriteAdvice</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 我的常用流程模板portlet -->
+	<bean
+		id="kmReviewCommonPortlet"
+		class="com.landray.kmss.km.review.service.spring.KmReviewCommonPortlet">
+		<property
+			name="sysAppConfigService">
+			<ref
+				bean="sysAppConfigService" />
+		</property>
+		<property
+			name="kmReviewTemplateService">
+			<ref
+				local="kmReviewTemplateService" />
+		</property>
+	</bean>
+	<!-- 我的流程portlet -->
+	<bean
+		id="kmReviewMainPortlet"
+		class="com.landray.kmss.km.review.service.spring.KmReviewMainPortlet">
+		<property
+			name="kmReviewMainService">
+			<ref
+				local="kmReviewMainService" />
+		</property>
+	</bean>
+	
+	<!-- 流水号 -->
+	<bean
+		id="kmReviewSnDao"
+		parent="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.km.review.dao.hibernate.KmReviewSnDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.km.review.model.KmReviewSn" />
+	</bean>
+	<bean
+		id="kmReviewSnTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewSnServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmReviewSnDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewSnService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmReviewSnTarget" />
+		</property>
+	</bean>
+	
+	<!-- 流水号服务 -->
+
+	<bean
+		id="kmReviewGenerateSnTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.km.review.service.spring.KmReviewGenerateSnServiceImp">
+		<property
+			name="kmReviewSnService">
+			<ref
+				local="kmReviewSnService" />
+		</property>
+	</bean>
+	<bean
+		id="kmReviewGenerateSnService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmReviewGenerateSnTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmReviewWebserviceServiceTarget"
+		class="com.landray.kmss.km.review.webservice.KmReviewWebserviceServiceImp">
+		<property name="kmReviewMainService" ref="kmReviewMainService" />
+		<property name="sysWsAttService" ref="sysWsAttService" />
+		<property name="sysWsOrgService" ref="sysWsOrgService" />	
+		<property name="backgroundAuthService" ref="backgroundAuthService" />	
+	</bean>
+	<bean
+		id="kmReviewWebserviceService"
+		parent="KmssBaseService">
+		<property name="target" ref="kmReviewWebserviceServiceTarget" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>	
+</beans>

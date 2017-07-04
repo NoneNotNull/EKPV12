@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.wechat.model.WechatConfig"
+		messageKey="third-wechat:table.wechatConfig"
+		displayProperty="fdId"
+		serviceBean="wechatConfigService"
+		table="wechat_config"
+		url="/third/wechat/wechat_config/wechatConfig.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="native" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdEkpid"
+			messageKey="third-wechat:wechatConfig.fdEkpid"
+			type="String"
+			column="fd_ekpid"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOpenid"
+			messageKey="third-wechat:wechatConfig.fdOpenid"
+			type="String"
+			column="fd_openid"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPushProcess"
+			messageKey="third-wechat:wechatConfig.fdPushProcess"
+			type="String"
+			column="fd_push_process"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPushRead"
+			messageKey="third-wechat:wechatConfig.fdPushRead"
+			type="String"
+			column="fd_push_read"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrlAccess"
+			messageKey="third-wechat:wechatConfig.fdUrlAccess"
+			type="String"
+			column="fd_url_access"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNickname"
+			messageKey="third-wechat:wechatConfig.fdNickname"
+			type="String"
+			column="fd_nickname"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdImage"
+			messageKey="third-wechat:wechatConfig.fdImage"
+			type="String"
+			column="fd_image"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

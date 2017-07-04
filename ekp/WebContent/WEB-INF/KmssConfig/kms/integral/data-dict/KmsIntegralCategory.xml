@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.kmss.landray.kms.integral.model.KmsIntegralCategory"
+		messageKey="kms-integral:table.kmsIntegralCategory"
+		displayProperty="fdName"
+		serviceBean="kmsIntegralCategoryService"
+		table="kms_integral_category"
+		url="/kms/integral/kms_integral_ategory/kmsIntegralCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-integral:kmsIntegralCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParent"
+			messageKey="kms-integral:kmsIntegralCategory.fdParent"
+			type="String"
+			column="fd_parent"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="kms-integral:kmsIntegralCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="moduleKey"
+			messageKey="kms-integral:kmsIntegralCategory.moduleKey"
+			type="String"
+			column="module_key"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCateModulus"
+			messageKey="kms-integral:kmsIntegralCategory.fdCateModulus"
+			type="String"
+			column="fd_cate_modulus"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+	</model>
+</models>

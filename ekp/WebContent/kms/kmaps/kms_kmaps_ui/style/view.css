@@ -1,0 +1,42 @@
+.lui_kmapmain_tagEdit input {
+	margin-top: 5px;
+	width: 100%;
+}
+
+.lui_kmapmain_tagEdit {
+	margin: 20px 30px;
+}
+
+.tag_tagSign {
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	background-color: #e4f0fe;
+	margin: 3px;
+}
+
+.relationContainer{
+	position: fixed;
+	top: 80px;
+	right: -310px;
+	width: 300px;
+	border: 1px #d3d3d3 solid;
+}
+
+.relationContainer iframe{
+	border: none;
+}
+
+.relationContainer span{
+	display: block;
+	background-color: #f2f2f2;
+	height: 36px;
+	position: relative;
+}
+
+.relationContainer span i{
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	cursor: pointer;
+}

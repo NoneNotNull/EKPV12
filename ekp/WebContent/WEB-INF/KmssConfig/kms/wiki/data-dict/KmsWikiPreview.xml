@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.wiki.model.KmsWikiPreview"
+		messageKey="kms-wiki:table.kmWikiPreview"
+		serviceBean="kmsWikiService"
+		displayProperty="fdId"
+		table="kms_wiki_pre">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdPreContent"
+			messageKey="kms-wiki:kmsWiki.kmsWikiPreview.fdPreContent"
+			type="RTF"
+			column="fd_pre_content"
+			notNull="false"
+			length="1000000" />
+	</model>
+</models>

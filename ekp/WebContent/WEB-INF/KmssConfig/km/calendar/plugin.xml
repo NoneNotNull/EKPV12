@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	<extension-point
+		id="com.landray.kmss.km.calendar.cms">
+		<item
+			name="cms">
+			<param
+				name="key"
+				kind="unid"
+				required="true">
+				<description>扩展对应的key值，如：google</description>
+			</param>
+			<param
+				name="name"
+				kind="unid"
+				required="true">
+				<description>扩展名称，如：google日历</description>
+			</param>
+			<param
+				name="cmsService"
+				kind="spring"
+				basedOn="com.landray.kmss.km.calendar.cms.interfaces.ICMSProvider"
+				required="true">
+				<description>日程同步扩展实现，详见ICMSProvider接口说明</description>
+			</param>
+			<param
+				name="OAuthService"
+				kind="spring"
+				basedOn="com.landray.kmss.km.calendar.cms.interfaces.IOAuthProvider"
+				required="false">
+				<description>OAuth扩展实现，只有当集成组件支持OAuth的时候才需要配置该节点</description>
+			</param>
+			<param
+				name="bindPageUrl"
+				kind="string"
+				required="false">
+				<description>绑定设置页面的链接，可选（针对非OAuth的情况）</description>
+			</param>
+			<param
+				name="order"
+				default="50"
+				kind="int">
+				<description>
+					排序号，序号小的优先被调用。
+				</description>
+			</param>
+			<description>
+			</description>
+		</item>
+		
+		<description>日程同步</description>
+	</extension-point>
+	
+	<extension
+		point="com.landray.kmss.sys.agenda">
+		<item
+			name="publish">
+			<param
+				name="name"
+				value="kmCalendar" />
+			<param name="service" value="kmCalendarMainService"/>
+		</item>
+	</extension>
+	
+	<!-- webservice2 -->
+	<extension
+		point="com.landray.kmss.sys.webservice2">
+		<item
+			name="registry">
+			<param
+				name="serviceName"
+				value="日程管理" />
+			<param
+				name="serviceClass"
+				value="com.landray.kmss.km.calendar.webservice.IKmCalendarWebserviceService" />
+			<param
+				name="serviceBean"
+				value="kmCalendarWebserviceService" />		
+			<param
+				name="serviceDoc"
+				value="/km/calendar/km_calendar_webservice/kmCalendarWebServiceHelp.jsp" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item name="js-pkg">
+			<param name="name" value="mui-calendar.js" />
+			<param name="targetFile" value="/km/calendar/mobile/resource/js/mui-calendar.js" />
+			<param name="srcFold" value="/km/calendar/mobile/resource/js" />
+		</item>
+	</extension>
+	
+	
+</plugin>

@@ -1,0 +1,297 @@
+body{
+	margin-top: 42px;
+	background-color: #f7f6f6;
+}
+.kms_kmtopic_content{
+	margin-bottom: 15px;
+	background-color: #fff;
+}
+.kms_kmtopic_headBox{
+	padding: 10px 355px 10px 15px;
+	min-height: 252px;
+	position: relative;
+}
+
+.kms_kmtopic_headBox .imgbox{
+	width: 270px;
+	height: 216px;
+	padding: 24px 10px 12px 35px;
+	overflow: hidden;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.kms_kmtopic_headBox h2{
+	margin-top: 5px;
+	margin-bottom: 6px;
+	line-height: 2.4;
+	font-weight: bold;
+	font-size: 20px;
+	color: #333;
+	text-align: center;
+}
+
+.kms_kmtopic_headBox .desc{
+	min-height: 170px;
+	line-height: 1.6;
+	text-align: justify;
+	overflow: hidden;
+}
+.kms_listWrapper{
+	margin-bottom: 15px;
+	background-color: #fff;
+}
+.kms_listBox {
+	background-color: #fff;
+}
+.mb20 {
+	margin-bottom: 20px;
+}
+.kms_listWrapper h4 {
+	height: 36px;
+	border-bottom: 1px solid #ebebeb;
+	zoom: 1;
+	background: #ededed;
+	margin-bottom:0px;
+	margin-top:0px;
+}
+.kms_listWrapper h4 .fileTitle{
+	margin-bottom: -1px;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 5px 0 16px;
+	font-size: 14px;
+	color: #4796ef;
+	display: inline-block;
+	float: left;
+}
+
+.lui_kmtopic_view_table_box{
+	width:100%;
+}
+.lui_kmtopic_view_table_box tr td {
+	padding: 12px 4px;
+	text-align: center;
+	border-bottom: 1px dashed #ccc;
+}
+.lui_kmtopic_view_table_box tr td.title {
+	text-align: left;
+	width: 40%;
+	word-wrap: break-word;
+}
+.lui_kmtopic_view_table_box tr td {
+	padding: 12px 4px;
+	text-align: center;
+	border-bottom: 1px dashed #ccc;
+}
+.lui_kmtopic_view_table_box tr td .t_link {
+	font-size: 13px;
+	color: #3e9ece;
+}
+.kms_kmtopic_tag {
+	margin: 0 auto;
+	border-top: 1px solid #ddd;
+}
+.kms_kmtopic_tag dl {
+	padding: 8px 8px;
+}
+.kms_kmtopic_tag dl dt {
+	margin-bottom: 6px;
+	font-weight: bold;
+}
+.kms_kmtopic_tag dl dd span {
+	margin-right: 20px;
+	color: #519de9;
+}
+.lui_form_info{
+	padding: 10px 4px 10px 10px;
+}
+.lui_kmtopic_gridtable_table {
+	width: 100%;
+}
+.lui_kmtopic_gridtable_table tr td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dotted #8F8F8F;
+}
+.lui_kmtopic_gridtable_content{
+	width: 98%;
+	margin: 2px;
+	padding: 10px 0;
+}
+.lui_kmtopic_gridtable_content .lui_kmtopic_gridtable_content_container {
+	margin: 0 auto;
+	width: 176px;
+}
+.lui_kmtopic_gridtable_content .lui_kmtopic_gridtable_content_image {
+	border: 1px solid #e9e9e9;
+	display: block;
+	height: 147px;
+	width: 176px;
+}
+.lui_kmtopic_gridtable_content h1 {
+	padding: 6px 0 0 20px;
+	text-align: center;
+	position: relative;
+	font-size: 100%;
+	font-weight: normal;
+	margin: 0 auto;
+}
+.clearfloat {
+	zoom: 1;
+}
+.lui_kmtopic_gridtable_content h1 input {
+	position: absolute;
+	top: 8px;
+	left: 4px;
+}
+.lui_kmtopic_gridtable_content .lui_kmtopic_gridtable_content_docSubject {
+	text-align: left;
+	display: block;
+	word-wrap: break-word;
+	min-height: 34px;
+}
+.com_subject{
+	color: #3e9ece;
+}
+.lui_kmtopic_gridtable_content .txtBox {
+	padding-top: 5px;
+	color: #969696;
+}
+.lui_kmtopic_cateInfo{
+	padding: 0px 4px 0px 6px;
+	list-style: none;
+}
+
+.lui_kmtopic_cateInfo li{
+	padding: 4px 0;
+}
+.kms_kmtopic_headBox .imgbox img{
+	width: 270px;
+	height: 216px;
+}
+.kms_kmtopic_headBox .kms_kmtopic_h_foot {
+	padding-top: 10px;
+	color: #989898;
+	border-top: 1px solid #d1d1d1;
+	height: 30px;
+}
+.kms_kmtopic_headBox .kms_opeGroup {
+	float: left;
+}
+.kms_opeGroup {
+	margin-bottom: 5px;
+}
+.kms_opeGroup a {
+	margin-right: 2px;
+	padding: 0 2px;
+	height: 22px;
+	line-height: 22px;
+	color: #363636;
+	border: 1px solid transparent;
+	display: inline-block;
+}
+
+.kms_opeGroup {
+	margin-bottom: 5px;
+}
+.kms_opeGroup a.on, .kms_opeGroup a:hover {
+	color: #4796ef;
+	border-color: #d1d1d1;
+}
+.lui_kmtopic_opt_select {
+	margin-left: 3px;
+	text-decoration: underline;
+	color: #57a7da;
+	height: 30px;
+	/**line-height: 30px;**/
+	/**vertical-align: middle;**/
+	cursor: pointer;
+}
+.lui_kmtopic_batchdown {
+	margin-right: 25px;
+	float: left;
+	height: 30px;
+	vertical-align: middle;
+
+	display: inline-block;
+	margin-left: 10px;
+	text-decoration: underline;
+	color: #57a7da;
+	cursor: pointer;
+	overflow: hidden;
+}
+.kms_listWrapper .btnPage {
+	padding: 10px 10px 0 0;
+	float: right;
+}
+.kms_kmtopic_headBox .btn_shareBox {
+	/**padding-top: 5px;**/
+	float: left;
+}
+
+.kms_listWrapper .btnPage .btn_pre {
+	width: 14px;
+	height: 14px;
+	border: 1px solid #eaeaea;
+	background: url(img/btn_page_pre_on.png) no-repeat 50% 50%;
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+}
+.kms_listWrapper .btnPage .btn_next {
+	width: 14px;
+	height: 14px;
+	border: 1px solid #eaeaea;
+	background: url(img/btn_page_next_on.png) no-repeat 50% 50%;
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+}
+.btn_preno{
+	width: 14px;
+	height: 14px;
+	border: 1px solid #eaeaea;
+	background: url(img/btn_page_pre.png) no-repeat 50% 50%;
+	display: inline-block;
+	float: left;
+}
+
+.btn_nextno{
+	width: 14px;
+	height: 14px;
+	border: 1px solid #eaeaea;
+	background: url(img/btn_page_next.png) no-repeat 50% 50%;
+	display: inline-block;
+	float: left;
+}
+
+.lui_kmtopic_tagEdit {
+	margin: 20px 30px;
+}
+.btn_praise {
+	float: right;
+}
+.page_set{
+	float: left;
+	margin-right: 8px;
+	color: #ccc;
+	width: 20px;
+	height: 14px;
+}
+.btn_slide{
+	padding: 10px 10px 0 0;
+	float: right;
+	color: #ccc;
+	cursor: pointer;
+}
+.kms_listWrapper h4 .fileTitle .fileCount{
+	margin-left: 6px;
+	font-size: 12px;
+	color: #bbb;
+}
+.emptyLogContent{
+	height:50px;
+	background-color: #fff;
+}

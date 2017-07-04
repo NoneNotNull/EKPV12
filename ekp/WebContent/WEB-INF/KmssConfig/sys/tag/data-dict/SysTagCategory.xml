@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagCategory"
+		messageKey="sys-tag:table.sysTagCategory"
+		displayProperty="fdName"
+		serviceBean="sysTagCategoryService"
+		table="sys_tag_category">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-tag:sysTagCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdTagQuoteTimes"
+			messageKey="sys-tag:sysTagCategory.fdTagQuoteTimes"
+			type="Integer"
+			column="fd_tag_quote_times"
+			notNull="false"
+			length="19" 
+			canDisplay="false"/>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-tag:sysTagCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<modelProperty
+			name="fdManager"
+			messageKey="sys-tag:sysTagCategory.fdManagerId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_manager_id"
+			notNull="true" />
+		<listProperty
+			name="fdTagTags"
+			messageKey="sys-tag:sysTagCategory.fdTagTags"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.tag.model.SysTagTags"
+			table="sys_tag_tags"
+			canDisplay="false" />
+	</model>
+</models>

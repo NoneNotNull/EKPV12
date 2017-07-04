@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalHtml"
+		messageKey="sys-portal:table.sysPortalHtml"
+		displayProperty="fdName"
+		serviceBean="sysPortalHtmlService"
+		table="sys_portal_html">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-portal:sysPortalHtml.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdContent"
+			messageKey="sys-portal:sysPortalHtml.fdContent"
+			type="RTF"
+			column="fd_content"
+			notNull="false"
+			length="1000000" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-portal:sysPortalHtml.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-portal:sysPortalHtml.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-portal:sysPortalHtml.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-portal:sysPortalHtml.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false" />
+		<listProperty
+			name="fdEditors"
+			messageKey=""
+			column="fd_html_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="sys_portal_html_editors" />
+	</model>
+</models>

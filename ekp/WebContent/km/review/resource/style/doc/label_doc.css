@@ -1,0 +1,165 @@
+﻿/*压缩类型：无*/
+*{
+	outline:none;
+	margin:0; padding:0;
+}
+.label_doc_area {
+	width: 80%;
+}
+.label_doc_tool{
+	position: absolute;
+	right:8%;
+	top:50%;
+	float:right;
+	width: 25px;
+	z-index: 10;
+	display: none;
+}
+.label_doc_menu,.label_doc_menu_expand{
+	text-align:center;
+	height:100px;
+	width: 25px;
+	color:#7b7b7b;
+	padding-top:5px;
+	border:1px #a3d0e4 solid;
+	cursor: pointer;
+	background:url("label_tab_menuex.gif") 6px 80px no-repeat;
+}
+.label_doc_menu_expand{
+	border-left:none;
+	background:url("label_tab_menuce.gif") 7px 80px no-repeat;
+}
+.label_doc_menuList{
+	position: absolute;
+	word-break: break-all;
+	word-wrap: break-word;
+	border:1px #a3d0e4 solid;
+	width: 120px;
+	z-index: 100;
+	padding: 5px 0px 5px 15px;
+	background-color: #f2f8ff;
+}
+.label_ul_menuList{
+	width:100%;
+	line-height:26px;
+	list-style: none;
+	margin:0px;
+	background-color:write; 
+}
+.label_ul_menuList li:VISITED{
+	text-decoration: none;
+}
+.label_ul_menuList a{
+	text-decoration: none;
+	font-size:13px;
+	color:#1981d1;
+	font-weight:bolder;
+	line-height:20px;
+	padding-left:8px;
+	background: url("label_tab_dot.png") left center no-repeat; 
+}
+.label_menu_opt{
+	width: 100%;
+	padding-left:8px;
+	margin:0px 0px 5px 0px;
+	cursor: pointer;
+}
+.label_doc_top{
+	margin-top:10px;
+	height:15px;
+	width: 24px;
+	border:1px #a3d0e4 solid;
+	cursor: pointer;
+	background: url("label_tab_top.gif") center center no-repeat;
+	display: none;
+}
+.label_doc {
+	width: 100%;
+	display: none;
+}
+.label_tab{
+	position: relative;
+	margin-top: 15px;
+	text-align: left;
+	line-height:30px;
+	width: 100%;
+	height: 30px;
+	vertical-align:middle;
+	cursor: pointer;
+}
+.label_tab_expand,.label_tab_cell{
+	height: 30px;
+	line-height:30px;
+	font-size: 13px;
+	font-weight:bolder;
+	color:#1981d1;
+	margin-left:8px;
+	padding:3px 15px 2px 0px; 
+	*padding:0px 15px 0px 0px; 
+	cursor: pointer;
+	background-color:write;
+	background-position:right center;
+	background-repeat:no-repeat;
+}
+.label_tab_expand {
+	background-image:url("label_tab_expand.png");
+}
+.label_tab_cell {
+	background-image:url("label_tab_cell.png");
+}
+.lable_left{
+	position: absolute;
+	top:0px;
+	left:0px;
+	background-color: white;
+	z-index: 36;
+	padding-right: 5px;
+}
+.lable_left_default,.lable_left_base,.lable_left_flow,.lable_left_right,
+.lable_left_read,.lable_left_relation,.lable_left_communicate,
+.lable_left_circulation,.lable_left_feedback,.lable_left_olddata{
+	float:left;
+	margin-top:7px;
+	width:18px;
+	height: 16px;
+	background-image: url("label_tab_icon.png");
+	background-repeat: no-repeat;
+	background-color:write;
+}
+.lable_left_default,.lable_left_base{
+	background-position:0px -29px;
+}
+.lable_left_flow{
+	background-position:0px 0px;
+}
+.lable_left_right{
+	background-position:0px -62px;
+}
+.lable_left_read{
+	background-position:0px -98px;
+}
+.lable_left_relation{
+	background-position:0px -134px;
+}
+.lable_left_communicate{
+	background-position:0px -167px;
+}
+.lable_left_circulation{
+	background-position:0px -200px;
+}
+.lable_left_feedback{
+	background-position:0px -235px;
+}
+.lable_left_olddata{
+	background-position:0px -268px;
+}
+.lable_right{
+	position: absolute;
+	top:0px;
+	left:0px;
+	margin-top:15px;
+	border-top:1px #BBBBBB dotted;
+	line-height:1px;
+	height:1px;
+	width:100%;
+}

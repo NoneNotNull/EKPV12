@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskAgree.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskComment.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskMoney.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskPre.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskMoneyAlter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskTopic.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskIntroduce.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskPost.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskAddition.hbm.xml" />
+			
+		<mapping
+			resource="com/landray/kmss/kms/ask/model/KmsAskTopicCategoryPreview.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

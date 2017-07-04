@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.wiki.model.KmsWikiCatelogTemplate"
+		messageKey="kms-wiki:table.kmsWikiCatelogTemplate"
+		displayProperty="fdId"
+		serviceBean="kmsWikiCatelogTemplateService"
+		table="kms_wiki_catelog_template"
+		url="/kms/wiki/kms_wiki_catelog_template/kmsWikiCatelogTemplate.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKey"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<modelProperty
+			name="fdTemplate"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.fdTemplate"
+			type="com.landray.kmss.kms.wiki.model.KmsWikiTemplate"
+			column="fd_template_id"
+			notNull="false"
+			validate="true" />
+
+		<listProperty
+			name="authTmpEditors"
+			messageKey="kms-wiki:kmsWikiCatelogTemplate.authTmpEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="kms_wiki_catelog_template_teditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+
+	</model>
+</models>

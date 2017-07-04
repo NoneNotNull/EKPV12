@@ -1,0 +1,12 @@
+WebContent/WEB-INF/KmssConfig/sys/material/data-dict/SysMaterialMain.xml=1a38e6adfea724e38032e7088cc77810
+WebContent/WEB-INF/KmssConfig/sys/material/design.xml=768a8a8744bcafd85b7e568093e03863
+WebContent/WEB-INF/KmssConfig/sys/material/enums.xml=e66162808d4e7678639a32f359f4d1af
+WebContent/WEB-INF/KmssConfig/sys/material/hibernate.xml=32554d2459f05b4d4e3b4d87aa8c9f91
+WebContent/WEB-INF/KmssConfig/sys/material/spring.xml=6821605f627e9a02a21ed28e389c0c1c
+WebContent/WEB-INF/KmssConfig/sys/material/struts.xml=ee9a2c7e54c47bd0a247658eeefebc34
+WebContent/WEB-INF/KmssConfig/sys/material/version/description.xml=0526513b188c9ef905cd607664f28562
+WebContent/WEB-INF/KmssConfig/sys/material/version/version.xml=c87ad2d3fc66bcddacb1f67143ac9b99
+WebContent/WEB-INF/lib/kmss_sys_material.jar=9ac2f9be1b2e19f9097400758d9bc880
+WebContent/sys/material/sys_material_main/sysMaterialMain_data.jsp=4fb3debb18222b337a3c6b9b75605048
+WebContent/sys/material/sys_material_main/sysMaterialMain_list.jsp=de0478b281fa24faad7039d4419c14f1
+WebContent/sys/material/sys_material_main/sysMaterialMain_upload.jsp=bbd4f13800c18350a03c325248ca2cd3

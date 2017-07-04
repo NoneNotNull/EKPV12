@@ -1,0 +1,211 @@
+﻿*{-webkit-tap-highlight-color:rgba(255,255,255,0);}
+.muiCalendarTable {
+	width: 100%;
+	text-align: center;
+	padding: 0 0.5rem;
+	background-color: #fafafa;
+	margin: 0;
+}
+.muiCalendarTable tr:last-child td{ padding-bottom:0.6rem; }
+.muiCalendarHead .muiCalendarMonthContent {
+	width: 18rem;
+	display: block;
+	margin: 0 auto;
+	position: absolute;
+	left: 3rem;
+	right: 3rem;
+}
+
+.muiCalendarHead {
+	border-bottom: 1px solid #e8e8e8;
+	color: #b8b8b8;
+	text-align: center;
+	background-color: #fff; 
+}
+.muiCalendarHead>div{ position:relative; top:0.3rem;}
+.muiCalendarHead:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+.muiCalendarHead .calendar-today{ font-size:1.8rem;  color:#3564aa;}
+.muiCalendarHead span.mui {
+	font-size: 2rem;
+	line-height: inherit; color:#3564aa;
+}
+.muiCalendarHead span.mui.mui-listView{ font-size:2.5rem;}
+.muiCalendarHead span.mui-attachment.mui, .muiCalendarHead span.mui-group.mui{
+	font-size: 2.4rem;
+	padding-top: 0.6rem;
+}
+
+.muiCalendarHead>div {
+	display: inline-block;
+}
+
+.muiCalendarHead .muiCalendarHeadFirst {
+	float: left;
+	padding-left: 0.2rem;
+}
+
+.muiCalendarHead .muiCalendarHeadLast {
+	float: right;
+}
+.muiCalendarHead .muiCalendarHeadFirst span{ padding-left: 0.7rem; width: 3rem; text-align: center;}
+.muiCalendarHead .muiCalendarHeadLast span{ padding-left: 0.3rem; padding-right: 0.8rem; width: 3rem; text-align: center;}
+.muiCalendarHead .muiCalendarHeadLast span.calendar-today{ padding-right: 0.8rem;}
+.muiCalendarHead>div:first-child {
+	float: left;
+}
+
+.muiCalendarHead span {
+	padding: 0.8rem 0.6rem;
+	display: inline-block;
+}
+
+.muiCalendarTable .muiCalendarWeek th {
+	font-size: 1.2rem;
+	padding: 0.8rem;
+	color: #4d4d4d;
+}
+
+.muiCalendarTable tbody tr:last-child>td {
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.muiCalendarTable td .muiCalendarDate {
+	border: 1px solid transparent;
+	font-size: 1.5rem;
+	display: inline-block;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 1.5rem;
+}
+
+.muiCalendarDateCurr.muiCalendarCurrentDate {
+	background: #2c79c7;
+	color: #fff !important;
+	border-color: #2c79c7 !important;
+}
+
+.muiCalendarTable td .muiCalendarHoliday{
+	color: #2c79c7;
+}
+
+.muiCalendarDateCurr.selected {
+	border-color: #2c79c7 !important;
+}
+
+.muiCalendarDateCurr.muiCalendarCurrentDate+.muiCalendarNotify {
+	background-color: #fff;
+}
+
+.muiCalendarNotify {
+	background-color: #FD8641;
+	width: 4px;
+	height: 4px;
+	display: inline-block;
+	top: 2.4rem;
+	left: 50%;
+	border-radius: 50%;
+	position: absolute;
+	margin-left: -2px;
+}
+
+.muiCalendarTable td {
+	position: relative;
+}
+
+.muiCalendarDatePre {
+	color: #d7d7d7!important;
+}
+
+.muiCalendarDateNext {
+	color: #d7d7d7!important;
+}
+
+.muiCalendarMonth {
+	color: #000;
+}
+
+.muiCalendarBottom {
+	border-bottom: 1px solid #e8e8e8;
+	padding: 0rem 0rem 0.5rem;
+	background-color: #fff;
+}
+
+.muiCalendarBottom>div {
+	border-bottom: 1px solid #e8e8e8;
+}
+.muiCalendarBottom .muiCalendarOpt{ padding:0.4rem 0.8rem;  -webkit-box-shadow:0px 0.3rem 0.6rem #e1e1e1 inset; box-shadow:0px 0.3rem 0.6rem #e1e1e1 inset;}
+
+.muiCalendarBottom .muiCalendarBottomLeft {
+	color: #2c79c7;
+	font-size: 3.5rem;
+	display: inline-block;
+	width: 4rem;
+	text-align: center;
+}
+
+.muiCalendarBottom .muiCalendarBottomCenter {
+	padding-left: 0.5rem;
+	display: inline-block;
+}
+
+.muiCalendarBottom .muiCalendarBottomCenter>div {
+	font-size: 1.2rem;
+	color: #898989;
+}
+
+.muiCalendarBottom .muiCalendarBottomRight {
+	font-size: 1.5rem;
+	color: #2f2f2f;
+	float: right;
+	vertical-align: middle;
+	display: inline-block;
+	position: relative;
+}
+
+.muiCalendarBottom .muiCalendarBottomRight .mui {
+	font-size: 1.8rem; font-weight:900;
+	padding-right: 0rem; margin-top:-0.2rem;
+}
+
+.muiCalendarBottom .muiCalendarBottomInfo>div {
+	display: inline-block;
+	font-size: 1.2rem; padding-top:0.2rem;
+}
+
+.muiCalendarScrollableView .mblScrollableViewContainer {
+	min-width: 100%;
+}
+
+.muiCalendarScrollableView {
+	overflow: hidden;
+}
+
+.muiCalendarContainer>div {
+	background-color: #000 !important;
+}
+
+.muiCalendarWeekTable {
+	position: absolute;
+	background-color: #f8f8f8;
+	z-index: 99;
+	-webkit-transform: translate3d(0, -12rem, 0); border-bottom:1px solid #e8e8e8;
+	height: 6.5rem;
+}
+
+.muiCalendarWeekTable tr td{ padding-bottom:6px;}
+
+
+
+
+
+
+
+

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNote"
+		messageKey="sys-lbpmservice-support:table.lbpmAuditNote"
+		displayProperty="fdId"
+		serviceBean="lbpmAuditNoteService"
+		table="lbpm_audit_note"
+		url="/sys/lbpmservice/support/lbpm_audit_note/lbpmAuditNote.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdFactNodeId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdFactNodeId"
+			type="String"
+			column="fd_fact_node_id"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFactNodeName"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdFactNodeName"
+			type="String"
+			column="fd_fact_node_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdActionKey"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdActionKey"
+			type="String"
+			column="fd_action_key"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdActionName"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdActionName"
+			type="String"
+			column="fd_action_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdActionInfo"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdActionInfo"
+			type="String"
+			column="fd_action_info"
+			notNull="false"
+			length="4000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAuditNote"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdAuditNote"
+			type="String"
+			column="fd_audit_note"
+			notNull="false"
+			length="4000"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdAuditNoteFrom"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdAuditNoteFrom"
+			type="String"
+			column="fd_audit_note_from"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdNodeId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdNodeId"
+			type="String"
+			column="fd_node_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdWorkitemId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdWorkitemId"
+			type="String"
+			column="fd_workitem_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdNotifyType"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdNotifyType"
+			type="String"
+			column="fd_notify_type"
+			notNull="false"
+			length="50" />
+
+		<simpleProperty
+			name="fdExecutionId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdExecutionId"
+			type="String"
+			column="fd_execution_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdParentExecutionId"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdParentExecutionId"
+			type="String"
+			column="fd_parent_execution_id"
+			notNull="false"
+			length="36" />
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdProcessId"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcess"
+			column="fd_process_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="fdHandler"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdHandler"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_handler_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdByaccr"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdByaccr"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_byaccr_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdExpecter"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdExpecter"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_expecter_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="fdAccr"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdAccr"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_accr_id"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAccrType"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdAccrType"
+			type="String"
+			column="fd_accr_type"
+			notNull="false"
+			length="10" />
+
+		<simpleProperty
+			name="fdPrivateGroup"
+			messageKey="sys-lbpmservice-support:lbpmAuditNote.fdPrivateGroup"
+			type="String"
+			column="fd_private_group"
+			notNull="false"
+			length="100" />
+
+		<listProperty
+			name="rtReaderList"
+			messageKey="sys-lbpmservice-support:table.lbpmAuditNoteRtReader"
+			column="fd_note_id"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNoteRtReader"
+			cascade="all-delete-orphan"
+			inverse="true" />
+
+		<listProperty
+			name="readerList"
+			messageKey="sys-lbpmservice-support:table.lbpmAuditNoteReader"
+			column="fd_note_id"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNoteReader"
+			cascade="all-delete-orphan"
+			inverse="true" />
+
+	</model>
+</models>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+		<type name="fd_log_type" default-value="2">
+		<value-label>
+			<value>1</value>
+			<label-key>tibCommonLogManage.fdLogType.basic</label-key>
+			<bundle>tib-common-log</bundle>
+			<label>基本</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>tibCommonLogManage.fdLogType.high</label-key>
+			<bundle>tib-common-log</bundle>
+			<label>高级</label>
+		</value-label>
+	</type>
+
+</column-enums>

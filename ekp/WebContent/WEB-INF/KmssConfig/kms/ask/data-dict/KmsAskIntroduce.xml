@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.ask.model.KmsAskIntroduce"
+		messageKey="kms-ask:table.kmsAskIntroduce"
+		displayProperty="docSubject"
+		serviceBean="kmsAskIntroduceService"
+		table="kms_ask_introduce"
+		url="/kms/ask/kms_ask_introduce/kmsAskIntroduce.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdIntroduceTime"
+			messageKey="kms-ask:kmsAskIntroduce.fdIntroduceTime"
+			type="DateTime"
+			column="fd_introduce_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdReason"
+			messageKey="kms-ask:kmsAskIntroduce.fdReason"
+			type="String"
+			column="fd_reason"
+			notNull="false"
+			length="1000"
+			validate="true" />
+
+		<modelProperty
+			name="fdPoster"
+			messageKey="kms-ask:kmsAskIntroduce.fdPoster"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_poster_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="fdKmsAskTopic"
+			messageKey="kms-ask:kmsAskIntroduce.fdKmsAskTopic"
+			type="com.landray.kmss.kms.ask.model.KmsAskTopic"
+			column="fd_topic_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralTargetDetail"
+		messageKey="kms-integral:table.kmsIntegralTargetDetail"
+		displayProperty="fdId"
+		serviceBean="kmsIntegralTargetDetailService"
+		table="kms_integral_target_detail"
+		url="/kms/integral/kms_integral_target_detail/kmsIntegralTargetDetail.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-integral:kmsIntegralTargetDetail.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdValue"
+			messageKey="kms-integral:kmsIntegralTargetDetail.fdValue"
+			type="Integer"
+			column="fd_value"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTarget"
+			messageKey="kms-integral:kmsIntegralTargetDetail.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSource"
+			messageKey="kms-integral:kmsIntegralTargetDetail.fdSource"
+			type="String"
+			column="fd_source"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRule"
+			messageKey="kms-integral:kmsIntegralTargetDetail.fdRule"
+			type="String"
+			column="fd_rule"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="type"
+			messageKey="kms-integral:kmsIntegralTargetDetail.type"
+			type="String"
+			column="type"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<modelProperty
+			name="owner"
+			messageKey="kms-integral:kmsIntegralTargetDetail.owner"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="owner"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

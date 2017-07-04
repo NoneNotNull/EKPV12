@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralTeam"
+		messageKey="kms-integral:table.kmsIntegralTeam"
+		displayProperty="fdName"
+		serviceBean="kmsIntegralTeamService"
+		table="kms_integral_team"
+		url="/kms/integral/kms_integral_team/kmsIntegralTeam.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-integral:kmsIntegralTeam.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

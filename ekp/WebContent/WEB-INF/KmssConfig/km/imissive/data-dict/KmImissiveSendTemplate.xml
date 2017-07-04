@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.imissive.model.KmImissiveSendTemplate"
+		messageKey="km-imissive:table.kmImissiveSendTemplate"
+		displayProperty="fdName"
+		serviceBean="kmImissiveSendTemplateService"
+		table="km_imissive_sendtemp"
+		url="/km/imissive/km_imissive_send_template/kmImissiveSendTemplate.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-imissive:kmImissiveSendTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-imissive:kmImissiveSendTemplate.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-imissive:kmImissiveSendTemplate.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true" />
+		<modelProperty
+			name="docCategory"
+			messageKey="km-imissive:kmImissiveSendTemplate.fdCatoryName"
+			type="com.landray.kmss.sys.category.model.SysCategoryMain"
+			column="fd_category_id"
+			notNull="true" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-imissive:kmImissiveSendTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="km-imissive:kmImissiveSendTemplate.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNodownload"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttNodownload"
+			type="Boolean"
+			column="auth_tmp_att_nodownload"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNocopy"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttNocopy"
+			type="Boolean"
+			column="auth_tmp_att_nocopy"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="authTmpAttNoprint"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttNoprint"
+			type="Boolean"
+			column="auth_tmp_att_noprint"
+			notNull="false"
+			length="1" />
+		<listProperty
+			name="docProperties"
+			messageKey="km-imissive:kmImissiveSendTemplate.docProperties"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.category.model.SysCategoryProperty"
+			elementColumn="fd_property_id"
+			table="km_imissive_stmp_property" />
+		<listProperty
+			name="authTmpReaders"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_imissive_stmp_main_reader" />
+		<listProperty
+			name="authReaders"
+			messageKey="km-imissive:kmImissiveSendTemplate.authReaderIds"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_imissive_stmp_reader" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-imissive:kmImissiveSendTemplate.authEditorIds"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_imissive_stmp_editor" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-imissive:kmImissiveSendTemplate.authOtherEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_imissive_stmp_oeditor" />
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-imissive:kmImissiveSendTemplate.authOtherReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_imissive_stmp_oreader" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-imissive:kmImissiveSendTemplate.authAllReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_imissive_stmp_areader" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-imissive:kmImissiveSendTemplate.authAllEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="km_imissive_stmp_aeditor" />
+		<listProperty
+			name="authTmpAttDownloads"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttDownloads"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_imissive_stmp_main_attdl" />
+		<listProperty
+			name="authTmpAttCopys"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttCopys"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_imissive_stmp_main_attcopy" />
+		<listProperty
+			name="authTmpAttPrints"
+			messageKey="km-imissive:kmImissiveSendTemplate.authTmpAttPrints"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_imissive_stmp_main_attprint" />
+		<attachmentProperty
+			name="autoHashMap"
+			messageKey="km-imissive:kmImissiveMain.attachment"
+			canDisplay="false" />
+		<simpleProperty
+			name="fdUseForm"
+			messageKey="km-imissive:kmImissiveSendTemplate.fdUseForm"
+			type="Boolean"
+			column="fd_use_form"
+			notNull="false"
+			length="1" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-imissive:kmImissiveSendTemplate.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-imissive:kmImissiveSendTemplate.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<simpleProperty
+			name="authChangeReaderFlag"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_reader_flag"
+			canDisplay="true"
+			readOnly="false" />
+		<simpleProperty
+			name="authRBPFlag"
+			messageKey="sys-right:right.effect.time"
+			type="Boolean"
+			column="fd_rbp_flag"
+			canDisplay="true"
+			readOnly="false"/>	
+		<simpleProperty
+			name="authChangeAtt"
+			messageKey="sys-doc:sysDocBaseInfo.docStatus"
+			type="Boolean"
+			column="fd_change_att"
+			canDisplay="true"
+			readOnly="false" />
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="auth_area_id"
+			notNull="false"
+			unique="false"
+			readOnly="true" />
+	</model>
+</models>

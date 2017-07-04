@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmQueue"
+		messageKey="sys-lbpm-engine:table.lbpmQueue"
+		serviceBean="lbpmQueueService"
+		table="lbpm_queue">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdProcessId"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdProcessId"
+			type="String"
+			column="fd_process_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdRootProcessId"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdRootProcessId"
+			type="String"
+			column="fd_root_process_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdTaskId"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdTaskId"
+			type="String"
+			column="fd_task_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdActivityType"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdActivityType"
+			type="String"
+			column="fd_activity_type"
+			notNull="false"
+			length="100" />
+
+		<simpleProperty
+			name="fdUserId"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdUserId"
+			type="String"
+			column="fd_user_id"
+			notNull="false"
+			length="36" />
+
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdParameter"
+			type="RTF"
+			column="fd_parameter"
+			notNull="false"
+			length="1000000" />
+
+		<simpleProperty
+			name="fdPriority"
+			messageKey="sys-lbpm-engine:lbpmQueue.fdPriority"
+			type="Integer"
+			column="fd_priority"
+			notNull="false"
+			length="10" />
+
+	</model>
+</models>

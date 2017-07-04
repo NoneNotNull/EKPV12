@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.authorization.model.SysAuthArea"
+		messageKey="sys-authorization:table.sysAuthArea"
+		displayProperty="fdName"
+		serviceBean="sysAuthAreaService"
+		table="sys_auth_area"
+		url="/sys/authorization/sys_auth_area/sysAuthArea.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-authorization:sysAuthArea.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-authorization:sysAuthArea.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="900"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-authorization:sysAuthArea.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="sys-authorization:sysAuthArea.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-authorization:sysAuthArea.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-authorization:sysAuthArea.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+			
+		<simpleProperty
+			name="fdOasSyncType"
+			messageKey="sys-authorization:sysAuthArea.fdOasSyncType"
+			type="Integer"
+			column="fd_oas_sync_type"
+			notNull="false"
+			length="4"
+			validate="false" />			
+
+		<modelProperty
+			name="hbmParent"
+			messageKey="sys-authorization:sysAuthArea.fdParent"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="fd_parent_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-authorization:sysAuthArea.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-authorization:sysAuthArea.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdCreateRole"
+			messageKey="sys-authorization:sysAuthArea.authAreaRole"
+			type="Boolean"
+			column="fd_create_role"
+			notNull="false"
+			validate="true" />					
+
+		<listProperty
+			name="authUra"
+			messageKey="sys-authorization:sysAuthArea.authUra"
+			type="com.landray.kmss.sys.authorization.model.SysAuthUra"
+			column="fd_areaid" />				
+
+		<listProperty
+			name="authAreaVisitor"
+			messageKey="sys-authorization:sysAuthArea.authAreaVisitor"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_auth_area_visitor"
+			column="fd_area_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAreaOrg"
+			messageKey="sys-authorization:sysAuthArea.authAreaOrg"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_auth_area_org"
+			column="fd_area_id"
+			elementColumn="fd_org_id" />
+
+		<listProperty
+			name="authAreaAdmin"
+			messageKey="sys-authorization:sysAuthArea.authAreaAdmin"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="sys_auth_area_admin"
+			column="fd_area_id"
+			elementColumn="fd_org_id" />
+			
+		<listProperty
+			name="authDefaultArea"
+			messageKey="sys-authorization:sysAuthArea.authDefaultArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthDefaultArea"
+			column="fd_area_id" />	
+
+	</model>
+</models>

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="kmsFtsearchConfigForm"
+			type="com.landray.kmss.kms.common.forms.KmsFtsearchConfigForm" />
+		<!-- 推荐知识 -->
+		<form-bean name="kmsHomeKnowledgeIntroForm"
+			type="com.landray.kmss.kms.common.forms.KmsHomeKnowledgeIntroForm" />
+		<form-bean name="kmsHomeKnowledgeMappingForm"
+			type="com.landray.kmss.kms.common.forms.KmsHomeKnowledgeMappingForm" />
+		<form-bean name="kmsCommonDocErrorCorrectionForm"
+			type="com.landray.kmss.kms.common.forms.KmsCommonDocErrorCorrectionForm"></form-bean>
+		<!-- 回收站日志 -->
+		<form-bean name="kmsCommonRecycleLogForm"
+			type="com.landray.kmss.kms.common.forms.KmsCommonRecycleLogForm" />
+		<form-bean name="kmsCommonDataPushForm"
+			type="com.landray.kmss.kms.common.forms.KmsCommonDataPushForm"></form-bean>
+		<!-- 分享 -->
+		<form-bean name="kmsShareMainForm"
+			type="com.landray.kmss.kms.common.forms.KmsShareMainForm"></form-bean>
+		<form-bean type="com.landray.kmss.kms.common.forms.KmsCommonDataPushForm"
+			name="kmsCommonDataPushForm" />
+		<form-bean type="com.landray.kmss.kms.common.forms.KmsCommentMainForm"
+			name="kmsCommentMainForm" />
+		<form-bean
+			name="kmsCommonAtUserForm"
+			type="com.landray.kmss.kms.common.forms.KmsCommonAtUserForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action path="/kms/common/kms_common_portlet/kmsCommonPortlet"
+			type="com.landray.kmss.kms.common.actions.KmsCommonPortletAction"
+			unknown="false" validate="true" scope="request">
+		</action>
+
+		<action path="/kms/common/kms_person_follow/kmsPersonFollow"
+			type="com.landray.kmss.kms.common.actions.KmsPersonFollowAction"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="update"
+				path="/kms/common/kms_personal/kms_personal_follow/kms_personal_follow.jsp">
+			</forward>
+			<forward name="view"
+				path="/kms/common/kms_personal/kms_personal_follow/kms_personal_follow.jsp">
+			</forward>
+			<forward name="followTagSave"
+				path="/kms/common/kms_personal/kms_personal_follow/kms_personal_follow.jsp">
+			</forward>
+		</action>
+
+		<action path="/kms/common/kms_tag_main/kmsTagMain"
+			type="com.landray.kmss.kms.common.actions.KmsTagMainAction" name="sysTagTopLogForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="searchTop" path="/kms/common/kms_tag_main/tag_top_main.jsp">
+			</forward>
+		</action>
+
+		<action path="/kms/common/kms_ftsearch_config/kmsFtsearchConfig"
+			type="com.landray.kmss.kms.common.actions.KmsFtsearchConfigAction"
+			name="kmsFtsearchConfigForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/kms/common/kms_ftsearch_config/kmsFtsearchConfig_view.jsp" />
+			<forward name="edit"
+				path="/kms/common/kms_ftsearch_config/kmsFtsearchConfig_edit.jsp" />
+			<forward name="list"
+				path="/kms/common/kms_ftsearch_config/kmsFtsearchConfig_list.jsp" />
+			<forward name="index"
+				path="/kms/common/kms_ftsearch_config/kmsFtsearchConfig_index.jsp" />
+		</action>
+
+		<!-- 推荐知识-->
+		<action path="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro"
+			type="com.landray.kmss.kms.common.actions.KmsHomeKnowledgeIntroAction"
+			name="kmsHomeKnowledgeIntroForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro_view.jsp" />
+			<forward name="edit"
+				path="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro_edit.jsp" />
+			<forward name="list"
+				path="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/common/kms_home_knowledge_mapping/kmsHomeKnowledgeMapping"
+			type="com.landray.kmss.kms.common.actions.KmsHomeKnowledgeMappingAction"
+			name="kmsHomeKnowledgeMappingForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/kms/common/kms_home_knowledge_mapping/kmsHomeKnowledgeMapping_view.jsp" />
+			<forward name="edit"
+				path="/kms/common/kms_home_knowledge_mapping/kmsHomeKnowledgeMapping_edit.jsp" />
+			<forward name="list"
+				path="/kms/common/kms_home_knowledge_mapping/kmsHomeKnowledgeMapping_list.jsp" />
+		</action>
+		<!-- 推荐知识//-->
+
+		<!-- 门户 -->
+		<action
+			path="/kms/common/kms_home_knowledge_intro_portlet/kmsHomeKnowledgeIntroPortlet"
+			type="com.landray.kmss.kms.common.actions.KmsHomeKnowledgeIntroPortletAction"
+			name="kmsHomeKnowledgeIntroForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="data"
+				path="/kms/common/kms_home_knowledge_intro_portlet/kmsHomeKnowledgeIntro_list.jsp" />
+		</action>
+
+		<action
+			path="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection"
+			type="com.landray.kmss.kms.common.actions.KmsCommonDocErrorCorrectionAction"
+			name="kmsCommonDocErrorCorrectionForm" parameter="method" unknown="false"
+			validate="true" scope="request">
+			<forward name="edit"
+				path="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection_edit.jsp" />
+			<forward name="list"
+				path="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection_list.jsp" />
+			<forward name="view"
+				path="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection_view.jsp" />
+			<forward name="viewinfo"
+				path="/kms/common/kms_common_doc_error_correction/kmsCommonDocErrorCorrection_viewinfo.jsp" />
+		</action>
+
+		<!-- 回收站日志 -->
+		<action path="/kms/common/kms_common_recycle_log/kmsCommonRecycleLog"
+			type="com.landray.kmss.kms.common.actions.KmsCommonRecycleLogAction"
+			name="kmsCommonRecycleLogForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/kms/common/kms_common_recycle_log/kmsCommonRecycleLog_view.jsp" />
+			<forward name="edit"
+				path="/kms/common/kms_common_recycle_log/kmsCommonRecycleLog_edit.jsp" />
+			<forward name="list"
+				path="/kms/common/kms_common_recycle_log/kmsCommonRecycleLog_list.jsp" />
+		</action>
+
+
+		<action path="/kms/common/kms_common_push/kmsCommonDatapush"
+			type="com.landray.kmss.kms.common.actions.KmsCommonDataPushAction"
+			name="kmsCommonDataPushForm" parameter="method" unknown="false"
+			validate="true" scope="request">
+		</action>
+
+		<!-- 分享 -->
+		<action path="/kms/common/kms_share/kmsShareMain"
+			type="com.landray.kmss.kms.common.actions.KmsShareMainAction" name="kmsShareMainForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/kms/common/kms_home_knowledge_intro/kmsHomeKnowledgeIntro_view.jsp" />
+			<forward name="shareLogView"
+				path="/kms/common/kms_share/share_log/kmsShareLog_view.jsp" />
+			<forward name="listLog"
+				path="/kms/common/kms_share/share_log/kmsShareLog_list.jsp" />
+			<forward name="listShareModules" path="/kms/common/kms_share/kmsShareMain_dialog.jsp" />
+		</action>
+
+		<!-- 移动端收藏路径 -->
+		<action path="/kms/common/kms_common_bookmark_main/KmsCommonBookmarkMain"
+			type="com.landray.kmss.kms.common.actions.pda.KmsCommonBookmarkMainAction"
+			name="sysBookmarkMainForm" parameter="method" unknown="false"
+			validate="true" scope="request">
+		</action>
+
+		<action path="/kms/common/kms_bookmark/KmsBookmarkMain"
+			type="com.landray.kmss.kms.common.actions.KmsBookMarkMainAction"
+			name="sysBookmarkMainForm" parameter="method" unknown="false"
+			validate="true" scope="request">
+		</action>
+
+		<action
+			path="/kms/common/kms_common_simple_category/KmsCommonSimpleCategory"
+			type="com.landray.kmss.kms.common.actions.pda.KmsCommonSimpleCategoryAction"
+			parameter="method" unknown="false" validate="true" scope="request">
+		</action>
+
+		<action path="/kms/attachment/kms_outer_search/kmsAttachmentOuterSearch"
+			type="com.landray.kmss.kms.common.actions.KmsAttachmentOuterSearchAction"
+			parameter="method" input="edit" unknown="false" scope="request" />
+
+		<action type="com.landray.kmss.kms.common.actions.KmsCommentMainAction"
+			name="kmsCommentMainForm" scope="request" validate="true" unknown="false"
+			path="/kms/common/kms_comment_main/kmsCommentMain" input="edit"
+			parameter="method">
+			<forward name="data"
+				path="/kms/common/kms_comment/kmsCommentMain_data.jsp" />
+		</action>
+
+		<action type="com.landray.kmss.kms.common.actions.KmsCommonDataPushAction"
+			name="kmsCommonDataPushForm" scope="request" validate="true" unknown="false"
+			path="/kms/common/kms_common_push/kmsCommonDatapush" parameter="method">
+		</action>
+		
+		<action
+			path="/kms/common/kms_common_sensitive/kmsCommonSensitive"
+			type="com.landray.kmss.kms.common.actions.KmsCommonSensitiveAction"
+			name="kmsCommonSensitiveForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/kms/common/kms_common_sensitive/kmsCommonSensitive_edit.jsp" />
+		</action>	
+		
+		<action
+			path="/kms/common/kms_common_at_users/kmsCommonAtUser"
+			type="com.landray.kmss.kms.common.actions.KmsCommonAtUserAction"
+			name="kmsCommonAtUserForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+	</action-mappings>
+</struts-config>

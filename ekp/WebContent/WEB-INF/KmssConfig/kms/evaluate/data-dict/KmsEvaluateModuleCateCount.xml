@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateModuleCateFilter"
+		messageKey="kms-evaluate:table.kmsEvaluateModuleCateFilter"
+		displayProperty="fdModules"
+		serviceBean="kmsEvaluateModuleCateFilterService"
+		table="kms_evaluate_module_cate_filter"
+		url="/kms/evaluate/kms_evaluate_module_cate_filter/kmsEvaluateModuleCateFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+	</model>
+</models>

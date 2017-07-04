@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<combin id="menu.nav.create" name="快捷操作【二级页面】" file="/sys/ui/extend/combin/create.jsp"></combin>
+
+	<combin id="criterion.sys.category" kind="criteria" name="全局分类筛选项【筛选器】" file="/sys/ui/extend/criteria/category.jsp">
+	</combin>
+	<combin id="criterion.sys.category.popup" kind="criteria" name="全局分类弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/category_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.property" kind="criteria" name="辅分类筛选项【筛选器】" file="/sys/ui/extend/criteria/property.jsp">
+	</combin>
+	<combin id="criterion.sys.property.popup" kind="criteria" name="辅分类筛弹出框选项【筛选器】" file="/sys/ui/extend/criteria/property_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.calendar" kind="criteria" name="日期筛选项【筛选器】" file="/sys/ui/extend/criteria/calendar.jsp">
+	</combin>
+	<combin id="criterion.sys.calendar.popup" kind="criteria" name="日期弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/calendar_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.simpleCategory" kind="criteria" name="简单分类筛选项【筛选器】" file="/sys/ui/extend/criteria/simpleCategory.jsp">
+	</combin>
+	<combin id="criterion.sys.simpleCategory.popup" kind="criteria" name="简单分类弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/simpleCategory_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.person" kind="criteria" name="人员筛选项【筛选器】" file="/sys/ui/extend/criteria/person.jsp">
+	</combin>
+	<combin id="criterion.sys.person.popup"  kind="criteria" name="人员弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/person_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.dept" kind="criteria" name="部分筛选项【筛选器】" file="/sys/ui/extend/criteria/department.jsp">
+	</combin>
+	<combin id="criterion.sys.dept.popup" kind="criteria" name="部分弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/department_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.docStatus" kind="criteria" name="文档状态筛选项【筛选器】" file="/sys/ui/extend/criteria/docStatus.jsp">
+	</combin>
+	<combin id="criterion.sys.docStatus.popup" kind="criteria" name="文档状态弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/docStatus_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.string" kind="criteria" name="字符类型筛选项【筛选器】" file="/sys/ui/extend/criteria/string.jsp">
+	</combin>
+	<combin id="criterion.sys.string.popup" kind="criteria" name="字符类型弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/string_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.num" kind="criteria" name="数字类型筛选项【筛选器】" file="/sys/ui/extend/criteria/num.jsp">
+	</combin>
+	<combin id="criterion.sys.num.popup" kind="criteria" name="数字类型弹出框筛选项【筛选器】" file="/sys/ui/extend/criteria/num_popup.jsp">
+	</combin>
+	<combin id="criterion.sys.docSubject" kind="criteria" name="标题筛选项【筛选器】" file="/sys/ui/extend/criteria/docSubject.jsp">
+	</combin>
+	
+	<combin name="数据分区" id="criterion.sys.partition" kind="criteria" file="/sys/ui/extend/criteria/partition.jsp"></combin>
+</root>

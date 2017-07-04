@@ -1,0 +1,12 @@
+
+if(data.data && data.data.length >= 0 ) { 
+	var arr = data.data;
+	{$ <ul >$}
+	for(var i = 0;  i < arr.length; i++) {
+		{$<li class="textEllipsis">
+			<span class='lui_zone_area_title'>{%arr[i].msg_title%}：</span>
+			<span class='lui_zone_area_txt' title='{%arr[i].category_names%}'>{%arr[i].category_names%}</span>
+		</li>$}
+	}
+	{$</ul>$}
+}

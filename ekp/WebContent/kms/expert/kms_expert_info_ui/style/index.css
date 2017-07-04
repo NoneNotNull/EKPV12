@@ -1,0 +1,133 @@
+.lui_expert_box {
+	border:2px solid transparent;
+	padding-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	margin: 10px 2px 6px ;	
+}
+
+.lui_expert_box:hover {
+	border:2px solid #419a18;
+
+}
+.lui_expert_askBtn{
+	width: 53px;
+	height: 18px;
+	padding: 0 5px;
+	line-height: 18px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #419a18;
+	background-color: #29aa19;
+	display: block;
+}
+a.lui_expert_askBtn:hover {
+	color: #fff;
+	background-color: #419a18;
+}
+.lui_expert_box ul {
+	 width:244px;
+	 height: 108px;
+	 padding:2px;
+	 list-style: none;
+}
+.lui_expert_box ul li{
+	margin-bottom: 3px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:125px;
+	height:19px;
+	white-space:nowrap;
+}
+a.lui_expert_img {
+	display:block;
+	height:105px;
+	width:102px;
+	border: 1px solid #d9d9d9;
+	margin-right: 5px;
+	float:left;
+	padding:2px;
+}
+a.lui_expert_img img {
+	display:none;
+    overflow:hidden; 
+    /*visibility: hidden;*/
+}
+
+
+/*===主页多标签页layout===*/
+.lui_tabpanel_expert_frame {
+}
+.lui_tabpanel_expert_navs_c {
+	height: 35px;
+	line-height: 35px;
+	padding-left:10px;
+	vertical-align: middle;
+	height: 35px;
+	vertical-align: middle;
+	margin-bottom: 1px;
+}
+.lui_tabpanel_expert_navs_item_l {
+	float: left;
+}
+.lui_tabpanel_expert_navs_item_c{
+	padding-left: 5px;
+}
+.lui_tabpanel_expert_navs_item_selected .lui_tabpanel_expert_navs_item_c {
+	background-color:transparent;
+	color:#636363;
+	border-top: 1px solid #c1c1c1;
+	border-right:1px solid #c1c1c1;
+	border-left:1px solid #c1c1c1;
+	border-bottom:2px solid #f2f2f2;
+	font-size: 15px;
+	font-weight: bold;
+}
+.lui_tabpanel_expert_navs_item_c {
+	font-size: 15px;
+	padding: 0px 10px;
+	cursor:pointer;
+}
+.lui_tabpanel_expert_content_l {
+
+}
+/**修改后的专家主页*/
+.lui_expert_box_2 {
+	border:2px solid transparent;
+	padding-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 2px;
+	margin: 10px 2px 6px ;	
+}
+
+.lui_expert_box_2:hover {
+	border:2px solid #3e9ece;
+
+}
+.lui_expert_askBtn_2{
+	padding: 0 5px;
+	line-height: 18px;
+	color: #fff;
+	text-align: center;
+	border: 1px solid #47b5e6;
+	background-color: #47b5e6;
+	display: inline;
+}
+a.lui_expert_askBtn_2:hover {
+	color: #fff;
+	background-color: #3e9ece;
+}
+.lui_expert_box_2 ul {
+	 width:360px;
+	 height: 108px;
+	 padding:2px;
+	 list-style: none;
+}
+.lui_expert_box_2 ul li{
+	margin-bottom: 3px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	width:240px;
+	height:19px;
+	white-space:nowrap;
+}

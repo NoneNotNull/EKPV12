@@ -1,0 +1,250 @@
+@CHARSET "UTF-8";
+
+/*弹出层*/
+.lui_dialog_frame {
+	background-color: #fff;
+	border: 2px solid #47b5e6;
+}
+
+.lui_dialog_head {
+	border: 2px solid #5cbaee;
+	border-bottom: none;
+	height: 32px;
+	line-height: 32px;
+	background-color: #47b5e6;
+	color: #fff;
+	font-size: 14px;
+}
+
+.lui_dialog_head_left {
+	font-size: 14px;
+	float: left;
+	padding-left: 12px;
+}
+
+.lui_dialog_head_right {
+	float: right;
+	background: url(../images/dialog/closeDiv.png);
+	width: 18px;
+	height: 18px;
+	margin: 5px 16px 0px 0px;
+	cursor: pointer;
+}
+
+.lui_dialog_center {
+	border-left: 2px solid #5cbaee;
+	border-right: 2px solid #5cbaee;
+	background-color: White
+}
+
+.lui_dialog_content {
+	background-color: #fff;
+	font-size: 14px; padding:1px;/** **/
+}
+
+.lui_dialog_content_left {
+	background-color: #47b5e6;
+	float: left;
+	width: 100px;
+	height: 100%
+}
+
+.lui_dialog_bottom {
+	border-bottom: 2px solid #5cbaee
+}
+
+.lui_dialog_buttons {
+}
+
+.lui_dialog_buttons .lui_dialog_buttons_container{
+	float: right;
+ 	padding:4px 1px 8px 0;
+}
+
+.lui_dialog_buttons .lui_toolbar_btn_l{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.lui_dialog_buttons .lui_dialog_buttons_button {
+	float: left;
+	min-width: 81px;
+	height: 25px;
+	margin-left: 10px;
+	margin-top: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 25px;
+	border: 1px solid #35a1d0;
+	background-color: #47b5e6;
+	display: block;
+}
+
+.lui_dialog_buttons .lui_dialog_buttons_button:hover {
+	background-color: #2f9adb;
+}
+
+/*@通用弹出框*/
+.lui_dialog_common_content_right {
+	float: left;
+	margin: 10px;
+	width: 60%;
+}
+
+.lui_dialog_common_content_inside {
+	font-size: 14px;
+	margin: 30px 0 10px;
+	word-wrap: break-word;
+	text-align:center;
+}
+
+.lui_dialog_common_content_timer p {
+	color: #adadad;
+	padding: 5px;
+	font-size: 12px
+}
+
+.lui_dialog_content_question {
+	margin: 6px;
+	background: #47b5e6 url(../images/dialog/unsure.png) no-repeat center;
+	float: left;
+	width: 100px;
+	height: 163px
+}
+
+.lui_dialog_content_warn {
+	margin: 6px;
+	background: #47b5e6 url(../images/dialog/oops.png) no-repeat center;
+	float: left;
+	width: 100px;
+	height: 163px
+}
+
+.lui_dialog_content_dollar {
+	margin: 6px;
+	background: #47b5e6 url(../images/dialog/dollar.png) no-repeat center;
+	float: left;
+	width: 100px;
+	height: 163px;
+}
+
+.lui_dialog_common_buttons{
+	padding: 30px 6px 6px;
+	text-align: center;
+}
+
+.lui_dialog_common_buttons .lui_dialog_buttons_button {
+	float: left;
+	min-width: 81px;
+	height: 25px;
+	margin-left: 10px;
+	margin-top: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	line-height: 25px;
+	border: 1px solid #35a1d0;
+	background-color: #47b5e6;
+	display: block;
+}
+
+.lui_dialog_common_buttons .lui_toolbar_btn_l{
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.lui_dialog_common_buttons .lui_dialog_buttons_button:hover {
+	background-color: #2f9adb;
+}
+
+/*@提示*/
+.lui_dialog_tip_frame {
+	margin-right: 10px;
+}
+
+.lui_dialog_tip_content_inside {
+	float: left;
+	padding-top: 20px;
+}
+
+.lui_dialog_tip_content_inside .lui_dialog_tip_content_inside_title{
+	font-size: 16px;
+	color: #000;
+}
+
+.lui_dialog_tip_content_inside .lui_dialog_tip_content_inside_message span{
+	color: #000;
+}
+
+.lui_dialog_tip_title_l {
+	height: 6px;
+	padding-left: 6px;
+}
+
+.lui_dialog_tip_title_c {
+	height: 6px;
+	padding-right: 6px;
+}
+
+.lui_dialog_tip_title_r {
+	height: 6px;
+}
+
+.lui_dialog_tip_center_r {
+	
+}
+
+.lui_dialog_tip_bottom_l {
+	height: 6px;
+	padding-left: 6px;
+}
+
+.lui_dialog_tip_bottom_c {
+	height: 15px;
+	padding-right: 36px;
+}
+
+.lui_dialog_tip_bottom_r {
+	height: 6px;
+}
+
+.lui_dialog_content_success {
+	margin: 6px;
+	background: url(../images/dialog/succeed.png) no-repeat center;
+	float: left;
+	width: 70px;
+	height: 60px;
+}
+
+.lui_dialog_content_failure {
+	margin: 6px;
+	background: url(../images/dialog/failed.png) no-repeat center;
+	float: left;
+	width: 70px;
+	height: 60px;
+}
+
+/*@loading*/
+.lui_dialog_loading_frame {
+	width: 244px;
+	/*height: 155px;*/
+	z-index: 1001;
+}
+
+.lui_dialog_loading_content{
+	text-align: center;
+}
+
+.lui_dialog_loading_content .load_img {
+	background: url(../images/dialog/loading.gif) no-repeat center center;
+	width: 60px;
+	height: 60px;
+	margin: 0 auto;
+}
+
+.lui_dialog_loading_content .load_txt {
+	font-size: 15px;
+	color: #000;
+	line-height: 30px;
+}

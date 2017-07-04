@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		urlPrefix="/sys/attachment/"
+		messageKey="sys-attachment:attachment.mechanism"
+		defaultValidator="true">
+		<request
+			path="uploaderServlet*"
+			defaultValidator="true" />
+		<request
+			path="sys_att_main/sysAttMain.*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)&amp;sysAttachmentValidator()" />
+		<request
+			path="sys_att_main/*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)" />
+		<request
+			path="tree.jsp*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)"/>
+		<request
+			path="sys_att_catalog/sysAttCatalog*"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+			<query 
+				queryString="method=add|edit|update|delete|deleteall|save" 
+				validator="roleValidator(role=SYSROLE_ADMIN)" />
+		</request>
+	</module>
+	<!-- 清理附件信息 -->
+	<quartz
+		messageKey="sys-attachment:sysAttMain.job.clearAttInfo"
+		jobService="sysAttMainService"
+		jobMethod="updateClearAtt"
+		cronExpression="0 30 1 * * ?"
+		runType="SINGLENODE"/>
+	<!-- 清理临时文件 -->
+	<quartz
+		messageKey="sys-attachment:sysAttMain.job.delTmpFile"
+		jobService="sysAttMainService"
+		jobMethod="delTmpFile"
+		enable="true"
+		cronExpression="0 0 3 * * ?"
+		runType="SINGLENODE" />		
+	<homePage
+		urlPrefix="sys/attachment"
+		url="/moduleindex.jsp?nav=/sys/attachment/tree.jsp"
+		messageKey="sys-attachment:attachment.mechanism" />
+</configs>

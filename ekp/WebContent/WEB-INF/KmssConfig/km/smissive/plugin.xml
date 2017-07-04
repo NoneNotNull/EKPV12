@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<!-- 时钟管理扩展 -->	
+	<extension
+		point="com.landray.kmss.sys.workflow.support.oa.subprocess"
+		model="*">		
+		<item
+			name="subprocess">
+			<param
+				name="modelName"
+				value="com.landray.kmss.km.smissive.model.KmSmissiveMain" />
+			<param
+				name="createParam"
+				value="fdTemplateId=!{cateid}" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.number.config"
+		model="*">
+		<item name="extend">
+			<param name="modelName" value="com.landray.kmss.km.smissive.model.KmSmissiveMain"/>
+			<param name="templatePropertyName" value="fdTemplate"/>
+			<param name="moduleName" value="{km-smissive:table.kmSmissiveMain}"/>
+			<param name="isReform" value="true"/>
+			<param name="order" value="10"/>
+		</item>
+	</extension>
+	
+	<!-- 兼容性检测 -->
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.km.smissive.transfer.KmSmissiveChecker" />
+			<param
+				name="name"
+				value="{km-smissive:sysNumber.config.sys.admin.transfer.name}" />
+			<param
+				name="type"
+				value="notify" />
+			<param
+				name="path"
+				value="/km/smissive/" />
+			<param
+				name="description"
+				value="{km-smissive:sysNumber.config.sys.admin.transfer.description}" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.admin.transfer">
+			<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.km.smissive.transfer.KmSmissiveNumChecker" />
+			<param name="name" value="{km-smissive:kmSmissive.NumChecker}" />
+			<param name="type" value="notify" />
+			<param name="path" value="/km/smissive/" />
+			<param name="description" value="{km-smissive:kmSmissive.NumChecker.desc}" />
+		</item>
+	</extension>
+	
+	<!-- 简版公文订阅管理 -->
+	<extension
+		point="com.landray.kmss.sys.follow.setting"
+		model="com.landray.kmss.km.smissive.model.KmSmissiveMain">
+		<item name="followSetting">
+			<param name="methodName" value="add" />
+			<param name="templateModel"  value="com.landray.kmss.km.smissive.model.KmSmissiveTemplate" />
+			<param name="templateField"  value="fdTemplate.fdHierarchyId" />
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{km-smissive:module.km.smissive}" />
+			<param name="modelName" value="com.landray.kmss.km.smissive.model.KmSmissiveMain" />
+		</item>
+	</extension>
+	
+</plugin>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="tibSapMappingIntegration"
+		class="com.landray.kmss.tib.sap.mapping.plugins.TibSapMappingIntegration">
+	</bean>	
+	<!-- 函数选择service -->
+	<bean
+		id="tibSapMappingFuncTreeListService"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingFuncTreeListService">
+		<property name="tibSysSapRfcSettingService">
+			<ref bean="tibSysSapRfcSettingService" />
+		</property>
+		<property name="tibSysSapRfcCategoryService">
+			<ref bean="tibSysSapRfcCategoryService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibSapMappingFuncXmlService"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingFuncXmlService">
+	</bean>
+	
+	<bean
+		id="tibSapMappingFormEventFuncBackXmlService"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingFormEventFuncBackXmlService">
+		<property name="tibSysSapJcoFunctionUtil">
+			<ref bean="tibSysSapJcoFunctionUtil" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibSapWfRobotNodeRunSapBapiService"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapWfRobotNodeRunSapBapiService">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+		<property name="tibSysSapJcoFunctionUtil">
+			<ref bean="tibSysSapJcoFunctionUtil" />
+		</property>
+		<property name="sysMetadataParser">
+			<ref bean="sysMetadataParser" />
+		</property>
+		<property name="tibCommonMappingFuncXmlOperateService">
+			<ref local="tibSapMappingFuncXmlOperateServiceImp"/>
+		</property>
+		<property name="tibCommonMappingMainService">
+			<ref bean="tibCommonMappingMainService" />
+		</property>
+		<property name="tibCommonMappingMetaParse">
+			<ref bean="tibCommonMappingMetaParse" />
+		</property>
+	</bean>
+	
+	<bean
+		id="tibSapMappingFuncXmlOperateServiceImp"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingFuncXmlOperateServiceImp">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+		<property name="tibCommonMappingModuleService">
+			<ref bean="tibCommonMappingModuleService" />
+		</property>
+		<property name="tibCommonMappingMetaParse">
+			<ref bean="tibCommonMappingMetaParse" />
+		</property>
+	</bean>
+	
+	<!--表单事件引入 jsp 片段 扩展  -->
+	<bean
+		id="tibSapFormEventJspGenerator"
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapFormEventJspGenerator">
+	</bean>
+	
+	<bean
+		id="tibSapRFCJSFunctionService" 
+		class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapRFCJSFunctionService">
+	</bean>
+	
+	<!-- SAP表单映射控件Bean注册 -->
+	<bean id="tibSapMappingXmlTemplateBean" class="com.landray.kmss.tib.sap.mapping.plugins.controls.common.TibSapMappingXmlTemplateBean">
+		<property name="tibSapMappingFuncXmlService">
+			<ref bean="tibSapMappingFuncXmlService" />
+		</property>
+	</bean>
+	
+	<bean id="tibSapMappingShowDataBean" class="com.landray.kmss.tib.sap.mapping.plugins.controls.common.TibSapMappingShowDataBean">
+	</bean>
+	
+	<bean id="tibSapMappingListBean" class="com.landray.kmss.tib.sap.mapping.plugins.controls.list.TibSapMappingListBean">
+		<property name="tibCommonMappingFuncXmlOperateService">
+			<ref bean="tibSapMappingFuncXmlOperateServiceImp" />
+		</property>
+	</bean>
+	
+	<bean id="tibSapMappingListFuncXml" class="com.landray.kmss.tib.sap.mapping.plugins.controls.list.TibSapMappingListFuncXml">
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService" />
+		</property>
+	</bean>
+	
+	<bean id="tibSapMappingListControlBackXmlBean" class="com.landray.kmss.tib.sap.mapping.plugins.controls.list.service.spring.TibSapMappingListControlBackXmlBean">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- List列表控件注入bean -->
+	<bean
+		id="tibSapMappingListControlMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.tib.sap.mapping.plugins.controls.list.dao.hibernate.TibSapMappingListControlMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.tib.sap.mapping.plugins.controls.list.model.TibSapMappingListControlMain" />
+	</bean>
+	<bean
+		id="tibSapMappingListControlMainTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.tib.sap.mapping.plugins.controls.list.service.spring.TibSapMappingListControlMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="tibSapMappingListControlMainDao" />
+		</property>
+	</bean>
+	<bean
+		id="tibSapMappingListControlMainService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="tibSapMappingListControlMainTarget" />
+		</property>
+	</bean>
+	
+	<!-- SAP-RunBapi，执行函数  -->
+	<bean name="tibSapMappingRunFunction" 
+		  class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingRunFunction" >
+		<property name="tibCommonMappingMainService">
+			<ref bean="tibCommonMappingMainService"/>			
+		</property>
+		<property name="tibCommonMappingMetaParse">
+			<ref bean="tibCommonMappingMetaParse" />
+		</property>
+		<property name="tibSapMappingFuncXmlOperateServiceImp">
+			<ref bean="tibSapMappingFuncXmlOperateServiceImp"/>			
+		</property>
+		<property name="tibSysSapJcoFunctionUtil">
+			<ref bean="tibSysSapJcoFunctionUtil"/>			
+		</property>
+	</bean>
+	<!-- 表单控件 -->
+	<bean name="tibSapControlTreeInfo" 
+		  class="com.landray.kmss.tib.sap.mapping.plugins.controls.TibSapControlTreeInfo" >
+		<property name="tibSysSapRfcCategoryService">
+			<ref bean="tibSysSapRfcCategoryService" />
+		</property>
+		<property name="tibSysSapRfcSettingService">
+			<ref bean="tibSysSapRfcSettingService" />
+		</property>
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 流程驳回 -->
+	<bean name="tibSapMappingFlowRefuseListener" 
+		  class="com.landray.kmss.tib.sap.mapping.service.spring.TibSapMappingFlowRefuseListener" >
+		<property name="tibCommonMappingFuncService">
+			<ref bean="tibCommonMappingFuncService"/>			
+		</property>
+		<property name="tibSapMappingRunFunction">
+			<ref bean="tibSapMappingRunFunction"/>			
+		</property>
+	</bean>
+	
+</beans>

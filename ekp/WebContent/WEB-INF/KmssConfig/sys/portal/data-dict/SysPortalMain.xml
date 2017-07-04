@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.portal.model.SysPortalMain"
+		messageKey="sys-portal:table.sysPortalMain"
+		displayProperty="fdName"
+		serviceBean="sysPortalMainService"
+		table="sys_portal_main">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-portal:sysPortalMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			validate="true"
+			length="200" />
+		<simpleProperty
+			name="fdLogo"
+			messageKey=""
+			type="String"
+			column="fd_logo"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdTheme"
+			messageKey=""
+			type="String"
+			column="fd_theme"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdHeaderId"
+			messageKey=""
+			type="String"
+			column="fd_header_id"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdHeaderVars"
+			messageKey=""
+			type="String"
+			column="fd_header_vars"
+			notNull="false"
+			length="999" />
+		<simpleProperty
+			name="fdFooterId"
+			messageKey=""
+			type="String"
+			column="fd_footer_id"
+			notNull="false"
+			length="255" />
+		<simpleProperty
+			name="fdFooterVars"
+			messageKey=""
+			type="String"
+			column="fd_footer_vars"
+			notNull="false"
+			length="999" />
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey=""
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="1500" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-portal:sysPortalMain.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdEnabled"
+			messageKey="sys-portal:sysPortalMain.fdEnabled"
+			type="Boolean"
+			column="fd_enabled"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdIcon"
+			messageKey=""
+			type="String"
+			column="fd_icon"
+			notNull="false"
+			length="36" />
+		<modelProperty
+			name="fdParent"
+			messageKey=""
+			type="com.landray.kmss.sys.portal.model.SysPortalMain"
+			column="fd_parent_id"
+			notNull="false" />
+		<simpleProperty
+			name="fdTarget"
+			messageKey=""
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="36" />
+		<listProperty
+			name="defReaders"
+			messageKey=""
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="def_reader_id"
+			table="sys_portal_main_reader" />
+		<listProperty
+			name="authEditors"
+			messageKey=""
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="sys_portal_main_editor" />
+		<listProperty
+			name="authAllEditors"
+			messageKey=""
+			column="fd_portal_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="sys_portal_main_aeditor" />
+		<listProperty
+			name="fdChildren"
+			messageKey=""
+			column="fd_parent_id"
+			type="com.landray.kmss.sys.portal.model.SysPortalMain" />
+		<listProperty
+			name="pages"
+			messageKey=""
+			column="fd_portal_id"
+			notNull="true"
+			type="com.landray.kmss.sys.portal.model.SysPortalMainPage"
+			cascade="all-delete-orphan"
+			inverse="true" />
+	</model>
+</models>

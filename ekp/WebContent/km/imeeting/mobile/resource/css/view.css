@@ -1,0 +1,637 @@
+@charset "utf-8";
+*{
+	padding: 0;
+	margin: 0;
+}
+
+.modifyLink{
+	text-decoration: underline;
+	color: white;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+.muiImeetingInfoBanner{
+	margin-top:-1px;
+	background:#a8c0cc url(../images/imeeting_view_bg.jpg) no-repeat 50% 100%;
+	background-size: cover;
+	overflow: hidden;
+	position: relative;
+}
+
+.muiImeetingInfoBanner .mui{ font-size:1.8rem; line-height:1;}
+.muiImeetingInfoBanner .txtInfoBar{
+	padding-top: 2.0rem;
+}
+
+.muiImeetingInfoBanner .txtInfoBar dt{
+	margin-bottom: 1rem;
+	text-align: center;
+	color: #fff;
+	font-size: 2.0rem;
+	font-weight: 700;
+	padding: 0 1.5rem;
+}
+
+.muiImeetingInfoBanner .txtInfoBar dd {
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	font-size: 1.3rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.muiImeetingInfoBanner .txtInfoBar dd .mui{ margin-right:0.2rem;}
+.muiImeetingInfoBanner .figureBar {
+	width: 10rem; position:relative; margin:1rem auto 1rem;
+	
+}
+
+.muiImeetingInfoBanner .figureBar .figure {
+	width: 5rem;
+	height: 5rem;
+	text-align: center;
+	border: 4px solid rgba(255,255,255,0.5);
+	border-radius: 50%;
+	display: block;
+	overflow: hidden;
+	margin: 0 auto 5px;
+}
+.muiImeetingInfoBanner .figureBar .mui{ font-size:1.9rem; margin-top:0.2rem;}
+
+.ImeetingFixedItem{
+	z-index: 99;
+}
+
+/*** 会议状态 ***/
+.muiMeetingStatusTag{  
+	width: 88px; font-size:1.2rem;
+    position:absolute; left:-25px; bottom:8px; padding:5px 0px;
+    background-color:#6fc13a; color:#fff;
+    text-align: center;
+    -webkit-transform: rotate(45deg);    /* for Chrome || Safari */
+    -moz-transform: rotate(45deg);       /* for Firefox */
+    -ms-transform: rotate(45deg);        /* for IE */
+    -o-transform: rotate(45deg);         /* for Opera */
+}
+
+.muiMeetingStatusTag.muiMeetingUnhold{ background:#51b749; }
+.muiMeetingStatusTag.muiMeetingHold{ background:#f0ad4e; } 
+.muiMeetingStatusTag.muiMeetingHolding{ background:#5484ed; } 
+.muiMeetingStatusTag.muiMeetingDraft{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingRefuse{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingExamine{ background:#c0c0c0; }
+.muiMeetingStatusTag.muiMeetingDiscard{ background:#c0c0c0; } 
+.muiMeetingStatusTag.muiMeetingCancel{ background:#c0c0c0; } 
+
+.muiImeetingInfoBanner .figureBar .name {
+	color: #fff;
+	font-size: 1.2rem;
+	text-align: center; line-height:1.5;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-break:break-all;
+}
+
+.muiImeetingInfoBanner .figureBar .figure img {
+	width:5rem; height:5rem; border-radius:50%;
+}
+
+.muiImeetingInfoBanner .tagBar {
+	width: 3.2rem;
+	height:3.2rem;
+	line-height: 3.2rem;
+	text-align: center;
+	color: #fff;
+	font-size: 1.2rem;
+	display: block;
+	border-radius: 50%;
+	background-color: rgba(111,193,58,0.64);
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	position: absolute;
+	bottom: 1.0rem;
+}
+
+.muiImeetingInfoBanner .tagBar.figureTag {
+	width: 1.9rem;
+	height:1.9rem;
+	line-height:1.9rem; text-align:center;
+	background-color: rgba(63,169,245,0.9);
+	position: absolute;
+	left: 5.8rem;
+	top: 3.6rem;
+}
+
+.muiImeetingInfoBanner .rightTag {
+	right: 1.2rem; 
+}
+.muiImeetingInfoBanner .rightTag .mui{ 
+	font-size:2.4rem;
+}
+
+#contentView,#personView,#feedbackView{
+	background: #f0eff5;
+}
+#processView{
+	display: block;
+	background-color: white;
+}
+
+.muiImeetingPanelContent{
+	padding:0rem 0 0 1rem!important;
+	margin:0 0;
+	background-color: white;
+	display: block!important;
+}
+.muiAccordionPanelTitle>div:last-child{
+	left: 0;
+	right: 0;
+}
+
+.muiAccordionPanel{
+	margin: 1.5rem 0 0;
+}
+
+.muiAccordionPanel .muiAccordionPanelContent{
+	padding: 0px 0px;
+	min-height: 3rem;
+}
+
+.muiAccordionPanel .txtContent{
+	line-height: 1.2;
+	color: #000;
+	font-size: 1.4rem;
+	padding: 8px 5px;
+	min-height: 3rem;
+}
+
+.muiAccordionPanel .txtContent .muiMeetingAimDiv{ 
+	padding:0.5rem;
+	font-size:1.4rem;
+}
+
+.AssistAccordionPanel,.ProcessAccordionPanel{
+	margin-top: 0px!important;
+}
+
+
+.muiAccordionPanelContent .muiAttachments{
+	margin-right: 0;
+	padding:0 5px;
+}
+
+/*************************************议程CSS *****************************************/
+
+.muiMeetingTbDiv {
+	border: 1px solid #dedfe0;
+	padding: 0.8rem;
+}
+
+.muiMeetingTb{
+	line-height: 1.2;
+}
+
+.muiMeetingTb tr th {
+	text-align: center;
+	white-space: nowrap;
+	color: #898989;
+	border-bottom: 2px solid #c7c7c7;
+	font-size: 1.4rem;
+	padding:0rem 0.5rem;
+	padding-bottom: 8px; font-weight:bold;
+	
+}
+
+.muiAgendaNormal .td1 {
+	min-width:18rem;
+	font-size: 1.4rem;
+}
+
+.muiAgendaNormal .td2 {
+	min-width:10rem;
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+.muiAgendaNormal .td3 {
+	min-width:10rem;
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+/*.muiMeetingTb .th3 {
+	padding-right: 2rem;
+}*/
+
+.muiMeetingTb tr td {
+	text-align: center;
+	color: #000;
+	font-size: 1.4rem;
+	padding-top: 1.5rem;
+	vertical-align: top;
+}
+
+.muiMeetingTb .td_title {
+	text-align: left; color:#000;
+}
+
+.muiMeetingTb .tagBar {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	color: #fff;
+	background: #18b4ed;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.muiReadButton{
+	font-weight: bold;
+	width: 95%;
+	font-size: 1.6rem;
+	margin: 2.3rem auto;
+	height: 40px;
+	line-height: 40px;
+	color: #2c79c7; border:1px solid #2c79c7;
+	text-align: center; border-radius:5px;
+}
+
+/***********************************************************/
+
+/********************** 会议人员CSS **********************/
+  
+.muiMeetingList li {
+	border-bottom: 1px dashed #e0e0e0;
+	line-height: 1;
+	zoom: 1;
+	padding: 8px 0px;
+	padding-left: 5rem;
+	position: relative;
+	
+}
+
+.muiMeetingList li:last-child {
+	border-bottom: 0px;
+}
+
+.muiMeetingList li:after{ clear:both; visibility:hidden; line-height:0px; content:"clear"; display:block;}
+.muiMeetingList strong {
+	position:absolute; left:0px; top:0px;
+	display: inline-block;
+	color: #898989;
+	font-size: 1.4rem;
+	padding-top:1.5rem;
+	padding-left: 0.8rem;
+	padding-right: 1.5rem;
+}
+.muiMeetingList strong>div{ text-align:center; color:#f00; font-size:1.2rem; padding-top:0.4rem;}
+.muiMeetingList .staffCell {
+    display:inline-block; float:left;
+	margin-right: 1.5rem;
+	text-align: center;
+}
+
+.muiMeetingList .staffCell img {
+	width: 3.7rem;
+	height: 3.7rem;
+	border-radius: 50%;
+	margin-bottom:0.3rem;
+}
+
+.muiMeetingList .staffCell .more {
+	display: inline-block;
+	width: 3.7rem;
+	height:3.7rem;
+	line-height: 3.7rem;
+	border-radius: 50%;
+	background: #6fc13a;
+	color: #fff;
+	font-size: 1.4rem;
+	text-align: center;
+}
+.muiMeetingList .staffCell .more .mui{ }
+.muiMeetingList .staffList{ 
+	padding:0.5rem 0; 
+	font-size:1.4rem; 
+	line-height:1.5;
+}
+
+.muiMeetingList .staffCell .name {
+	display: block;
+	font-size: 1.2rem;
+	width: 3.6rem;
+	word-break:break-all;
+}
+
+.personTotal{
+	margin-top:5px;
+	text-align: center;
+}
+/***********************************************************/
+
+/**********************反馈css **********************/
+.muiMeetingFeedbackHeader{
+	height: 2.8rem;
+	border: 0;
+	font-size: 1.2rem;
+	line-height: 2.8rem;
+	padding-left: 10px; overflow:hidden;
+}
+.muiMeetingFeedbackHeader.gray{ margin-top:3px;}
+.muiMeetingFeedbackList{ border-top:0px;border-bottom:0px;}
+.muiMeetingFeedbackHeader .muiMeetingFeedbackCriteria{
+	margin-right:1rem;
+	float: right;
+	padding: 0px;
+}
+
+.muiNavBarGroup .mblTabBarButton.muiMeetingFeedbackCriteriaItem{
+	padding: 0;
+	height: 3.2rem;
+	line-height: 3.2rem;
+	border-bottom: 1px solid #585858!important;
+	width:auto;
+	border:0px;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.muiNavBarGroup .mblTabBarButton.muiMeetingFeedbackCriteriaItem.selected .mblTabBarButtonLabel{
+	background-color: #7a7a7a;
+	color: #ffa500;
+	border-radius: 3px;
+}
+
+.muiMeetingFeedbackHeader .muiMeetingFeedbackCriteria .mui{ font-size:2rem;} 
+.muiMeetingFeedbackHeader .muiMeetingFeedbackCriteria .mblTabBarButtonIconArea{ text-align:right;}
+
+.muiMeetingFeedbackList .muiMeetingListItem {
+	padding: 1rem;
+	border-top: 1px solid #e5e5e5;
+	background: #fff;
+	position: relative; min-height:5rem;
+}
+
+.muiMeetingFeedbackList{ 
+	height: 100%;
+	
+}
+.muiMeetingFeedbackList .figure {
+	display: inline-block;
+	position: absolute;
+	left: 1rem;
+	top: 1rem;
+	float: left;
+	margin-right: 1rem;
+}
+
+.muiFeedbackImg{
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 50%;
+}
+
+.muiMeetingFeedbackList .figureTag {
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	left: 3rem;
+	top: 2.8rem;
+}
+.muiMeetingFeedbackList .figureTag .mui{ font-size:1.8rem; line-height:2rem; margin-left:0.1rem;}
+.muiMeetingFeedbackList .figureTag .mui.mui-meeting_noOpt{ font-size:1.7rem; }
+.muiFeedBackContent{ margin-left: 6rem; position: relative;}
+
+.muiFeedBackContent .feedBackBtn {
+	position: absolute;
+	right: 0.2rem;
+	top: 0rem;
+	display: inline-block;
+	width: 4.7rem;
+	height: 1.8rem;
+	line-height: 1.8rem;
+	text-align: center;
+	font-size: 1.2rem;
+	color: #808080;
+	border: 1px solid #e7e7e7;
+	border-radius: 3px;
+}
+
+.muiMeetingFeedbackList .figure .attend{
+	background-color: #59cb21;
+}
+.muiFeedBackContent .feedBackBtn.attend{ background:#fff; border:1px solid #59cb21; color:#59cb21;}
+
+.muiMeetingFeedbackList .figure .unAttend{
+	background-color: #ff9b0b;
+}
+.muiFeedBackContent .feedBackBtn.unAttend{ background:#fff; border:1px solid #ff9b0b; color:#ff9b0b;}
+
+.muiMeetingFeedbackList .figure .proxy{
+	background-color: #0099ff;
+}
+.muiFeedBackContent .feedBackBtn.proxy{ background:#fff; border:1px solid #0099ff; color:#0099ff;}
+
+.muiMeetingFeedbackList .figure .noOpt{
+	background-color: #ff7b70;
+}
+.muiFeedBackContent .feedBackBtn.noOpt{ background:#fff; border:1px solid #ff7b70; color:#ff7b70;}
+
+.muiMeetingFeedbackList .muiFeedBackContent .feedBackBtn .mui{ font-size:1.6rem; line-height:1.6rem; vertical-align:baseline; line-height:1;}
+.muiMeetingFeedbackList .muiFeedBackContent  .mui-depart.mui{ font-size:1.6rem; line-height:1.6rem; vertical-align:middle; }
+.muiFeedBackContent .mui{ margin-right:0.3rem;}
+
+.muiFeedBackContent .name {
+	display: block;
+	font-size: 1.4rem;
+	color: #000;
+	padding-bottom: 4px; width:80%; word-break:break-all; /*支持IE，chrome，FF不支持*/
+　　word-wrap:break-word;/*支持IE，chrome，FF*/
+	
+}
+
+.muiFeedBackContent .name .agent {
+	/*color: #ff9b0b;*/
+} 
+
+.muiFeedBackContent .name .agenIcon {
+	display: inline-block;
+	width: 1.8rem;
+	height: 1.8rem;
+	text-align: center;
+	line-height: 1.8rem;
+	background: #ff9b0b;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 1.1rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	font-style: normal;
+}
+
+.muiFeedBackContent p {
+	font-size: 1.2rem;
+	color: #898989;
+	padding-top: 0.5rem;
+}
+
+.muiFeedBackContent p.info {
+    font-size:1.4rem;
+	display: inline-block;
+	color:#3f3f3f;
+}
+
+.muiMeetingFeedbackCriteria{
+	color: #2c79c7;
+}
+
+.muiMeetingFeedbackCriteria .mblTabBarButtonLabel{
+	margin-left:0.3rem;
+	float: right;
+	line-height: 2.5rem;
+}
+
+.muiMeetingFeedbackOpener.muiNavBarGroup{
+	margin-top: 0px;
+	margin-left: 2.4rem;
+	padding: 5px;
+	text-align: center;
+	background-color: #606060;
+	border-color: transparent;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px #747474;
+	transition-property: opacity;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
+}
+.muiMeetingFeedbackOpener.muiNavBarGroup .muiNavBarGroupContainer{
+	width: 12rem;
+	padding: 0;
+}
+.muiNavBarGroup.muiMeetingFeedbackOpener .mblTabBarButtonLabel{
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+.muiNavBarGroup.muiMeetingFeedbackOpener .mblTooltipArrow{
+	border-top-width: 0;
+	border-top-color: #606060;
+	
+}
+
+.muiNavBarGroup.muiMeetingFeedbackOpener .mblTooltipInnerArrow{
+	border-bottom-color:#606060;
+}
+
+/*******************************************************/
+
+/********************** 会议人员详细页面 **********************/
+
+.imeetingBackBtn{
+	width: 15%!important;	
+}
+
+.imeetingBtn{
+	color: #fff;
+	background-color: #3F9DE5;
+	border-color: #3F9DE5;
+	margin: 8px 5px!important;
+	padding: 6px 0px!important;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	vertical-align: middle;
+	font-size: 1.6rem!important;
+	line-height: 1.4rem;
+	width: 20%!important;
+}
+
+.imeetingBtn .mblTabBarButtonLabel{ font-size:1.4rem;}
+.imeetingBtn .mblTabBarButtonLabel:visited{ color:#fff;}
+
+.kmImeetingPersonIcon{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+	width: 3.2rem;
+	text-align: center;
+}
+
+.kmImeetingPersonIcon img{
+	width: 3.2rem;
+	height: 3.2rem !important;
+	border-radius: 50%;
+	overflow: hidden;
+	text-align: center;
+	line-height: 2.5rem;
+	vertical-align: middle;
+}
+
+.kmImeetingPersonInfo{
+	vertical-align: middle;
+	height: 100%;
+	border: none;
+	display: table-cell;
+}
+
+.kmImeetingPersonName{
+	padding-left: 0.5rem;
+}
+
+.personHeader{
+	width: 100%;
+	display: inline-table;
+	border-bottom: 0.1rem solid #C9D7E0;
+	background-color: #18b4ed;
+	color: #fff;
+	table-layout: fixed;
+}
+
+.personHeader > div{
+	display: table-cell;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.personHeaderTitle{
+	width: 50%;
+	text-align: center;
+	font-size: 1.8rem;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.personHeaderReturn{
+	padding-left: 1rem;
+	color: #fff;
+	/* float: right; */
+	cursor: pointer;
+}
+
+
+/***********************************************************/

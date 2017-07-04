@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="sysNotifyRemindMainForm" type="com.landray.kmss.sys.notify.forms.SysNotifyRemindMainForm" />
+		<form-bean name="sysNotifyCategoryForm" type="com.landray.kmss.sys.notify.forms.SysNotifyCategoryForm" />
+	</form-beans>
+	
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action path="/sys/notify/sys_notify_todo/sysNotifyTodo"
+			type="com.landray.kmss.sys.notify.actions.SysNotifyTodoAction"
+			parameter="method" scope="request">
+			<forward name="listHome"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_home.jsp" />
+			<forward name="listHomeUi"
+				path="/sys/notify/sys_notify_todo_ui/sysNotifyTodo_home.jsp" />
+			<forward name="listHomeCateWithDataList"
+				path="/sys/notify/sys_notify_todo_ui/sysNotifyTodo_home_cate_list.jsp" />
+			<forward name="listHomeCateWithDataListData"
+				path="/sys/notify/sys_notify_todo_ui/sysNotifyTodo_home_cate_data.jsp" />
+			<forward name="listHomeCateNoData"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_home_cate.jsp" />	
+			<forward name="listTodo"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_list.jsp" />
+			<forward name="listDone"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodoDone_list.jsp" />
+			<forward name="listMngTodo"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodo_mng_list.jsp" />
+			<forward name="listMngDone"
+				path="/sys/notify/sys_notify_todo/sysNotifyTodoDone_mng_list.jsp" />
+			<forward name="newUiTodo"
+				path="/sys/notify/sys_notify_todo_ui/sysNotifyTodo_mng_list.jsp" />
+			<forward name="newUiDone"
+				path="/sys/notify/sys_notify_todo_ui/sysNotifyTodoDone_mng_list.jsp" />
+			<forward name="count"
+				path="/sys/notify/pda/count.jsp" />
+			<forward name="listHome.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listTodo.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listDone.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listMngTodo.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="listMngDone.4pda" path="/sys/notify/pda/notifyDataTodo_list.jsp" />
+			<forward name="count.4pda" path="/sys/notify/pda/count.jsp" />
+			<forward name="redirect" path="/resource/jsp/redirect.jsp"/>
+			
+			<forward name="listHome.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listTodo.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listDone.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listMngTodo.4m" path="/sys/notify/mobile/list.jsp" />
+			<forward name="listMngDone.4m" path="/sys/notify/mobile/list.jsp" />
+		</action>
+		<action
+			path="/sys/notify/sys_notify_todo/sysNotifyMainIndex"
+			type="com.landray.kmss.sys.notify.actions.SysNotifyMainIndexAction"
+			parameter="method"
+			scope="request">
+			<forward name="list" path="/sys/notify/sys_notify_todo_ui/sysNotifyTodo_list.jsp" />
+			<forward name="list.4m" path="/sys/notify/mobile/list.jsp" />
+		</action>
+		<action path="/sys/notify/sys_notify_todo/sysNotifyConfig"
+			type="com.landray.kmss.sys.notify.actions.SysNotifyConfigAction"
+			parameter="method" name="sysAppConfigForm" scope="request">
+		</action>
+		
+		<action
+			path="/sys/notify/sys_notify_main/sysNotifyMain"
+			type="com.landray.kmss.sys.notify.actions.SysNotifyMainAction"
+			name="sysNotifyRemindMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/notify/import/sysNotifyRemindMain_edit.jsp" />
+		</action>
+		<action
+			path="/sys/notify/sys_notify_main/sysNotifyMailTest"
+			type="com.landray.kmss.sys.notify.actions.SysNotifyMailTestAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+		</action>
+		
+		<action path="/sys/notify/sys_notify_category/sysNotifyCategory" 
+				type="com.landray.kmss.sys.notify.actions.SysNotifyCategoryAction" 
+				name="sysNotifyCategoryForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request">
+			<forward name="view" path="/sys/notify/sys_notify_category/sysNotifyCategory_view.jsp" />
+			<forward name="edit" path="/sys/notify/sys_notify_category/sysNotifyCategory_edit.jsp" />
+			<forward name="list" path="/sys/notify/sys_notify_category/sysNotifyCategory_list.jsp" />
+		</action>
+		
+	</action-mappings>
+
+	<message-resources parameter="com.landray.kmss.sys.notify.ApplicationResources"
+		key="sys-notify" />
+</struts-config>

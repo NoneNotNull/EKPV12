@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 门户页眉的待办通知数量增加暂停类型的待办及点击后跳转页面的参数传递处理</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-18</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 待办webservice服务添加更新接口</description>
+			<author>林秀贤</author>
+			<revision-time>2015-03-10</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端待办事宜新UED等相关处理</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-30</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 待办webservice接口参数扩展(优先级、创建者、消息内容扩展)</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 外部系统推送过来的待办消息来源没有值</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-10</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 实现待办可以同步和异步调用，邮件，短信，待办扩展异步调用；实现待办优先级以及待办内容扩展</description>
+			<author>吴兵</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>third/im/rtx</relation-module>
+				<relation-module>third/ekp/java</relation-module>
+				<relation-module>third/wechat</relation-module>
+				<relation-module>third/pda</relation-module>
+				<relation-module>km/calendar</relation-module>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办留下空白行问题</description>
+			<author>林秀贤</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典messagekey与资源文件不匹配</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新事件</description>
+			<author>傅游翔</author>
+			<revision-time>2014-09-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 kk中待办条数显示不正确问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 服务器访问路径设置为空时，邮件测试工具发送失败</description>
+			<author>李斌斌</author>
+			<revision-time>2014-08-13</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 admin.do中邮件服务器配置支持端口配置</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-28</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 邮件发送测试工具</description>
+			<author>李斌斌</author>
+			<revision-time>2014-07-25</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>新增 待办事宜系统全局配置</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-08</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端暂挂类的待办无法显示和待办条数不正确问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌下已办事项打开报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-10</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 通过子流程创建文档时，提醒机制信息未带出</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-12</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端提醒机制提醒单位选择小时出错</description>
+			<author>周梓凡</author>
+			<revision-time>2014-05-07</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>新增 提醒机制实现,包括主文档和分类两种情况的实现</description>
+			<author>孟磊</author>
+			<revision-time>2013-09-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 如果是流程最后一个节点，则短信和邮件的发起人取起草人</description>
+			<author>朱湖强</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办模块主页点击按应用的当前系统节点报错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2013-07-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>关联 移动端返回数据使用全路径</description>
+			<author>李衡</author>
+			<revision-time>2013-05-31</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办主页窗口上待审括号内的数量与您有几条待审事项的数量不一致的问题</description>
+			<author>杨建宏</author>
+			<revision-time>2013-05-07</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动待办列表无数据输出错误信息的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-21</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 获取待办数量不过滤重复的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-15</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持流程、节点暂停待办挂起（排除发起沟通的待办）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-11</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 短信通知方式中的短信发送人默认为文档的起草人（包括流程中的短信发送）</description>
+			<author>朱湖强</author>
+			<revision-time>2013-03-07</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 pda待办列表类型接口</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-06</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办事宜中已办事项列表页排序无效的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-02-05</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办列表页面的待办条数默认没有按admin.do中的配置显示</description>
+			<author>朱湖强</author>
+			<revision-time>2013-01-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 待办portlet的字体样式跟随皮肤改变</description>
+			<author>朱湖强</author>
+			<revision-time>2012-12-20</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 在admin.do中添加最大收件人个数配置，发送邮件根据配置的最大个数进行拆分，解决由于发送邮件收件人超出范围时会导致邮件发送失败的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-11-08</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 暂挂类型的门户窗口、视图、清理相应定时任务</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-11-01</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办暂挂状态切换问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-10-12</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 将待办中的所有人设置为已办（参数不同）的方法</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-09-28</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 待办webservice接口增加获取已处理类型待办</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-09-07</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 邮件通知按照个人的默认语言来发送邮件，如果个人默认语言没有设置则取官方语言</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-08-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/organization</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 待办挂起状态</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-08-09</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 将待办主题中含有html转义符的进行转义</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-07-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 待办可单个配置；移除 待办信息动态滚动</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-23</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 待办标题过长的问题</description>
+			<author>庄为亮</author>
+			<revision-time>2012-05-03</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决消息机制被调用2次的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2012-05-02</revision-time>
+			<relation>
+				<relation-module>sys/workflow</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>增加待办Webservice接口,以及待办来源信息显示</description>
+			<author>李衡</author>
+			<revision-time>2012-03-23</revision-time>
+			<relation>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复问题：系统中使用短信发送代办，由于没有保存接收人姓名而没有把短信记录归类到相应人员下</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-29</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改已处理待办多次点击出现重复显示的问题</description>
+			<author>李衡</author>
+			<revision-time>2011-12-12</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改邮件集成后代办窗口邮件信息显示2条的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-11-21</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>机制字段加索引</description>
+			<author>李衡</author>
+			<revision-time>2011-11-07</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>发送邮件的时候，链接前面加一段提示语，默认为：请点击以下链接查看</description>
+			<author>缪贵荣</author>
+			<revision-time>2011-10-31</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>解决coremail邮件集成后首页待办portlet不显示邮件数量的问题</description>
+			<author>何锡平</author>
+			<revision-time>2011-10-21</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改在tomcat6.0中admin.do页面报错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-11</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>移动组件参数配置变动后的更改</description>
+			<author>李衡</author>
+			<revision-time>2011-09-23</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>主页待办即时消失处理</description>
+			<author>李衡</author>
+			<revision-time>2011-09-19</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修复邮件发送导致线程永久休眠</description>
+			<author>傅游翔</author>
+			<revision-time>2011-08-08</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>邮件主题增加多语言支持</description>
+			<author>庄为亮</author>
+			<revision-time>2011-07-27</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>外系统同步过来的待办数据的pda展示控制</description>
+			<author>李衡</author>
+			<revision-time>2011-07-20</revision-time>
+			<relation>
+				<relation-module>third/pda</relation-module>
+			</relation>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>处理待办标题多语言的问题</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-16</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

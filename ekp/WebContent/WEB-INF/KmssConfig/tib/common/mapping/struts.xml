@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="tibCommonMappingMainForm"
+			type="com.landray.kmss.tib.common.mapping.forms.TibCommonMappingMainForm" />
+		<form-bean name="tibCommonMappingModuleForm"
+			type="com.landray.kmss.tib.common.mapping.forms.TibCommonMappingModuleForm" />
+		<form-bean name="tibCommonMappingFuncForm"
+			type="com.landray.kmss.tib.common.mapping.forms.TibCommonMappingFuncForm" />
+	
+	</form-beans>
+
+	<action-mappings>
+		<action
+			path="/tib/common/mapping/tib_common_mapping_main/tibCommonMappingMain"
+			type="com.landray.kmss.tib.common.mapping.actions.TibCommonMappingMainAction"
+			name="tibCommonMappingMainForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/tib/common/mapping/tib_common_mapping_main/tibCommonMappingMain_view.jsp" />
+			<forward name="edit"
+				path="/tib/common/mapping/tib_common_mapping_main/tibCommonMappingMain_edit.jsp" />
+			<forward name="list"
+				path="/tib/common/mapping/tib_common_mapping_main/tibCommonMappingMain_list.jsp" />
+			<forward name="moduleCate"
+				path="/tib/common/resource/jsp/module_cate_tree.jsp" />
+			<forward name="listTemplate"
+				path="/tib/common/mapping/tib_common_mapping_main/tibCommonMappingMain_list.jsp" />
+			<forward name="redirect" path="/resource/jsp/redirect.jsp"/>
+		</action>
+		<!-- UED -->
+		<action
+			path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModuleIndex"
+			type="com.landray.kmss.tib.common.mapping.actions.TibCommonMappingModuleIndexAction"
+			parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="list"
+				path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModule_ui_list.jsp" />
+		</action>
+		<action
+			path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModule"
+			type="com.landray.kmss.tib.common.mapping.actions.TibCommonMappingModuleAction"
+			name="tibCommonMappingModuleForm" parameter="method" input="edit"
+			unknown="false" validate="true" scope="request">
+			<forward name="view"
+				path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModule_view.jsp" />
+			<forward name="edit"
+				path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModule_edit.jsp" />
+			<forward name="list"
+				path="/tib/common/mapping/tib_common_mapping_module/tibCommonMappingModule_list.jsp" />
+		</action>
+
+
+		<action path="/tib/common/mapping/tib_common_mapping_func/tibCommonMappingFunc"
+			type="com.landray.kmss.tib.common.mapping.actions.tibCommonMappingFuncAction"
+			name="tibCommonMappingFuncForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/tib/common/mapping/tib_common_mapping_func/tibCommonMappingFunc_view.jsp" />
+			<forward name="list"
+				path="/tib/common/mapping/tib_common_mapping_func/tibCommonMappingFunc_list.jsp" />
+		</action>
+		
+	</action-mappings>
+</struts-config>

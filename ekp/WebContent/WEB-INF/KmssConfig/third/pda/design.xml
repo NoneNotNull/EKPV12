@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module messageKey="third-pda:module.third.pda" urlPrefix="/third/pda/"
+		defaultValidator="true">
+		<roles>
+			ROLE_THIRDPDA_DEFAULT;
+			ROLE_THIRDPDA_ADMIN
+		</roles>
+
+		<request path="resource/**" defaultValidator="true" />
+
+		<request path="login.jsp*" defaultValidator="true" />
+		
+		<request path="ua.jsp*" defaultValidator="true" />
+		
+		<request path="index.jsp*" defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+
+		<request path="module.jsp*" defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+
+		<request path="public/**" defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+
+		<request path="pda_module_config_view/pdaModuleConfigView*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaModuleConfigView">
+		</request>
+
+		<request path="pda_module_label_list/pdaModuleLabelList*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaModuleLabelList">
+		</request>
+
+		<request path="pda_module_label_view/pdaModuleLabelView*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaModuleLabelView">
+		</request>
+		
+		<request path="third_pda_config/pdaLicenseConfig*"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<query queryString="method=update|save|config" validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+		</request>
+		
+		<request path="pda_rows_per_page_config/pdaRowsPerPageConfig*" 
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_ADMIN)"/>
+
+		<request path="third_pda_config/pdaMsgPushInfo*"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+
+		<request path="third_pda_config/pdaMsgPushMem*"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+			
+		<request path="pda_home_page_cfg/pdaHomePageConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaHomePageConfig"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<!-- 所有增删查改功能 -->
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+			<query queryString="method=view|list" validator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+		</request>
+		
+		<request path="pda_custon_page_portlet/pdaHomeCustomPortlet*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaHomeCustomPortlet"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<!-- 所有增删查改功能 -->
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+			<query queryString="method=view|list" validator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+		</request>
+
+		<request path="pda_module_config_main/pdaModuleConfigMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaModuleConfigMain"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<!-- 所有增删查改功能 -->
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall|updateIconVersion"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+			<query queryString="method=view|list" validator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+		</request>
+		<request path="pda_module_cate/pdaModuleCate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaModuleCate"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<!-- 所有增删查改功能 -->
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+			<query queryString="method=view|list" validator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+		</request>
+		<!--功能区权限-->
+		<request path="pda_tabview_config_main/pdaTabViewConfigMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaTabViewConfigMain"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+			<query queryString="method=view|list" validator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)" />
+		</request>
+		<!-- 扩展数据源配置 -->
+		<request path="pda_data_extend_config/pdaDataExtendConfig*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.third.pda.model.PdaDataExtendConfig"
+			defaultValidator="roleValidator(role=ROLE_THIRDPDA_DEFAULT)">
+			<query
+				queryString="method=add|save|saveadd|edit|update|delete|deleteall|updateIconVersion"
+				validator="roleValidator(role=ROLE_THIRDPDA_ADMIN)" />
+		</request>
+		<filters
+			modelName="com.landray.kmss.third.pda.model.PdaModuleConfigMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_THIRDPDA_ADMIN)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,except=0)" />
+		</filters>
+	</module>
+
+	<quartz messageKey="third-pda:pda.app.iphone.push.message.job"
+		jobService="pdaMessagePushJobService" jobMethod="msgPush" enable="false"
+		cronExpression="0 0 9 * * ?" runType="SINGLENODE" />
+	<homePage
+		urlPrefix="third/pda"
+		url="/moduleindex.jsp?nav=/third/pda/tree.jsp&amp;main=%2Fthird%2Fpda%2Fpda_module_config_main%2FpdaModuleConfigMain.do%3Fmethod%3Dlist%26s_path%3D!{message(third-pda:module.third.tree.setting)}"
+		messageKey="third-pda:module.third.pda"
+		config="/moduleindex_notopic.jsp?nav=/third/pda/tree.jsp" 
+		type="global"/>
+</configs>

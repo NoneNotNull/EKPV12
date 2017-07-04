@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+
+<form-validation>
+	<formset>
+		<form name="sysTimeAreaForm">
+			<field
+				property="fdName"
+				depends="maxlength,required">
+				<arg
+					key="sysTimeArea.fdName"
+					bundle="sys-time"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="areaMemberIds"
+				depends="required">
+				<arg
+					key="sysTimeArea.scope"
+					bundle="sys-time"
+					position="0" />
+			</field>
+			<field
+				property="areaAdminIds"
+				depends="required">
+				<arg
+					key="sysTimeArea.timeAdmin"
+					bundle="sys-time"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTimeWorkForm">
+			<field
+				property="fdStartTime"
+				depends="required">
+				<arg
+					key="sysTimeWork.fdStartTime"
+					bundle="sys-time"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTimePatchworkForm">
+			<field
+				property="fdName"
+				depends="maxlength,required">
+				<arg
+					key="sysTimePatchwork.fdName"
+					bundle="sys-time"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdStartTime"
+				depends="required">
+				<arg
+					key="sysTimeWork.fdStartTime"
+					bundle="sys-time"
+					position="0" />
+			</field>
+			<field
+				property="fdEndTime"
+				depends="required">
+				<arg
+					key="sysTimeWork.fdEndTime"
+					bundle="sys-time"
+					position="0" />
+			</field>
+		</form>
+		<form name="sysTimeVacationForm">
+			<field
+				property="fdName"
+				depends="maxlength,required">
+				<arg
+					key="sysTimeVacation.fdName"
+					bundle="sys-time"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+			<field
+				property="fdStartDate"
+				depends="required">
+				<arg
+					key="sysTimeVacation.startDate.validate"
+					bundle="sys-time"
+					position="0" />
+			</field>
+			<field
+				property="fdEndDate"
+				depends="required">
+				<arg
+					key="sysTimeVacation.endDate.validate"
+					bundle="sys-time"
+					position="0" />
+			</field>
+		</form>
+	</formset>
+</form-validation>

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 去除论坛管理后台配置中的论坛设置节点</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-21</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 二级页面按钮操作栏翻页功能</description>
+			<author>王腾飞</author>
+			<revision-time>2015-01-16</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 统一移动端标记,关联到移动UI模块</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/mobile</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 大字体回复重叠的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-11-06</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 全文搜索部署与修改</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 点赞为系统的点赞机制,优化兼容移动端和PC端回帖信息显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 IE8下论坛回复被撑宽导致页面变形的问题</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-21</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 回帖仅作者可见移动端的显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-10-20</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 xform:text标签长度校验</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 操作成功后自动刷新列表</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 全系统分类信息收集部署</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-15</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 回复敏感词检测功能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 回复来自微信的标识</description>
+			<author>谭又豪</author>
+			<revision-time>2014-09-03</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 帖子加入常用分类报错</description>
+			<author>谭又豪</author>
+			<revision-time>2014-08-26</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端查看页面增加标题显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-18</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端查看页面增加标题显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-18</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 帖子查看页面，点击快速回复按钮，页面没有跳到回复区域那里</description>
+			<author>谭又豪</author>
+			<revision-time>2014-08-15</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端换行问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-12</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端查看页面楼数与pc端不一致问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-07</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 论坛RTF图片压缩和表情框大小显示</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-18</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/attachment</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 论坛类别弹出框选择</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-16</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 论坛日期时间显示显示xx钟前</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-15</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>优化 论坛管理模块UED化</description>
+			<author>谭又豪</author>
+			<revision-time>2014-07-07</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+				<relation-module>core</relation-module>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限重复问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-05-06</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 门户时间参数以提高门户加载性能</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-18</revision-time>
+			<relation>
+				<relation-module>sys/portal</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 多语言下论坛打开报js错误</description>
+			<author>谭又豪</author>
+			<revision-time>2014-04-07</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 实现帖子和版块的批量转移</description>
+			<author>魏本源</author>
+			<revision-time>2014-01-09</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 上级分类必填写标识为可选标识</description>
+			<author>吴肖蓬</author>
+			<revision-time>2013-10-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 引用的编辑页面修改quote标签导致页面样式改变</description>
+			<author>魏本源</author>
+			<revision-time>2013-10-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 论坛管理回复和引用页面无法提交</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，火狐下论坛的回复和引用界面调整</description>
+			<author>魏本源</author>
+			<revision-time>2013-08-07</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，快捷回复框调整</description>
+			<author>魏本源</author>
+			<revision-time>2013-08-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 论坛快捷回复框默认展示全部功能，同事调整回复框高度</description>
+			<author>魏本源</author>
+			<revision-time>2013-08-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 论坛选择可以匿名发帖的板块后页面显示错乱问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-26</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 进入论坛用户信息，点击编辑按钮报错问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-24</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 我的论坛树节点添加到导航，个人的一些信息所有人都可见问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 谷歌浏览器下，新建选择类别后，编辑页面不带出值问题</description>
+			<author>朱湖强</author>
+			<revision-time>2013-07-01</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 修复帖子页面中js错误</description>
+			<author>张乐志</author>
+			<revision-time>2013-05-07</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>李勇</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 论坛管理&gt;&gt;我的论坛&gt;&gt;论坛用户信息中，编辑后保存报错</description>
+			<author>朱湖强</author>
+			<revision-time>2012-12-26</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 新建分类保存失败的问题</description>
+			<author>魏本源</author>
+			<revision-time>2012-11-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 打开帖子时，点击数加2问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-10-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 同一行放多个图片，超出宽度后不换行和表格自适应宽度问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-09-29</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 大字段加入延时加载</description>
+			<author>魏本源</author>
+			<revision-time>2012-09-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击portlet的新建按钮时，默认新建该分类的文档而不需要用户选择分类</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-06</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 原图片长度和高度太大，放大时超出屏幕边界问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-06-05</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 主页配置，新增窗口时，带出所选择模块或类别的路径而不是默认带出该模块的路径</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>优化 点击导航树精华区节点，显示出所有的精华文档</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-22</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 匿名发帖时，“置为精华”和“取消置为精华”报错的问题</description>
+			<author>朱湖强</author>
+			<revision-time>2012-05-02</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于SQL语句不规范导致在DB2中出错的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2012-04-25</revision-time>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>修正论坛权限</description>
+			<author>朱湖强</author>
+			<revision-time>2012-03-19</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复当帖子删除后阅读显示文档不存在和帖子删除后，在was环境 回复数为-1</description>
+			<author>苏韶勇</author>
+			<revision-time>2012-02-29</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修改问题：由于图片太大，导致横向滚动条的出现，现改为若图片超过了能显示的宽度，就自动将图片缩小，点击后可以查看大图</description>
+			<author>朱湖强</author>
+			<revision-time>2012-02-14</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>修复问题：回复论坛时，如果添加了多个附件（4个以上），页面无法看见回复按钮</description>
+			<author>朱湖强</author>
+			<revision-time>2012-01-11</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>论坛中的帖子，删除回复信息，没有反应</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-21</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>缺陷：论坛发帖时，先选择一个板块，再重新选择一个板块，发帖页面的"回复通知"选项消失</description>
+			<author>朱湖强</author>
+			<revision-time>2011-12-20</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>发帖时对于板块是否可选的控制</description>
+			<author>李衡</author>
+			<revision-time>2011-11-11</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>【论坛设置】-【全局设置】-【版块设置】，点击【上级版块】进行排序调整时，报错</description>
+			<author>卢海军</author>
+			<revision-time>2011-11-09</revision-time>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+		<modify>
+			<description>修改全文检索配置，解决删除文档后索引仍然能搜索到的问题，更新后需重新检索</description>
+			<author>易荣烽</author>
+			<revision-time>2011-10-13</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改论坛rtf域上传flash不能正常显示的bug</description>
+			<author>庄为亮</author>
+			<revision-time>2011-09-22</revision-time>
+			<baseline>EKP9.0.0.R.20111025</baseline>
+		</modify>
+		<modify>
+			<description>修改精确搜索不能搜索到结帖状态的帖子的缺陷</description>
+			<author>杨建宏</author>
+			<revision-time>2011-07-05</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加将所有用户头像大小压缩成250像素*250像素的方法</description>
+			<author>庄为亮</author>
+			<revision-time>2011-06-09</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>修改后台频繁报ObjectNotFoundException问题</description>
+			<author>庄为亮</author>
+			<revision-time>2010-12-14</revision-time>
+			<baseline>EKP9.0.0.B1.2011033001</baseline>
+		</modify>
+		<modify>
+			<description>修改参数错误，解决论坛个人头像未压缩问题</description>
+			<author>周超</author>
+			<revision-time>2011-05-10</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+		<modify>
+			<description>增加所有帖子和显示子分类文档功能修改</description>
+			<author>张文添</author>
+			<revision-time>2011-05-13</revision-time>
+			<baseline>EKP9.0.0.B3.2011071501</baseline>
+		</modify>
+	</modifies>
+</version>

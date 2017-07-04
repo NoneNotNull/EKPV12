@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.common.mapping.model.TibCommonMappingMain"
+	messageKey="tib-common-mapping:table.tibCommonMappingMain"
+	serviceBean="tibCommonMappingMainService"
+	table="tib_common_mapping_main"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdTemplateId"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdTemplateId"
+	type="String"
+	column="fd_template_id"
+	notNull="false"
+	length="36"
+/>
+<simpleProperty
+	name="fdMainModelName"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdMainModelName"
+	type="String"
+	column="fd_main_model_name"
+	notNull="false"
+	length="100"
+/>
+<simpleProperty
+	name="fdTemplateName"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdTemplateName"
+	type="String"
+	column="fd_template_name"
+	notNull="false"
+	length="100"
+/>
+<listProperty
+	name="fdFormEventFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdFormEventFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+<listProperty
+	name="fdFormAddFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdFormAddFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+<listProperty
+	name="fdFormControlFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdFormControlFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+<listProperty
+	name="fdFormDelFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdFormDelFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+<listProperty
+	name="fdRobotFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdRobotFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+<listProperty
+	name="fdFormSaveFunctionList"
+	messageKey="tib-common-mapping:tibCommonMappingMain.fdFormSaveFunctionList"
+	column="fd_main_id"
+	orderBy="fd_order"
+	type="com.landray.kmss.tib.common.mapping.model.TibCommonMappingFunc"
+	cascade="all-delete-orphan"
+/>
+</model></models>

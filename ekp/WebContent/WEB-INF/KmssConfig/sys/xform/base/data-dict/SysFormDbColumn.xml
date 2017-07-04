@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../../data-dict.xsd ">
+	
+	<model
+		modelName="com.landray.kmss.sys.xform.base.model.SysFormDbColumn"
+		messageKey="sys-xform:table.sysFormDbColumn"
+		displayProperty="fdName"
+		serviceBean="sysFormDbColumnService"
+		table="sys_xform_db_column"
+		url="/sys/xform/base/sys_form_db_column/sysFormDbColumn.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<!-- 是否级联 -->
+		<simpleProperty
+			name="fdIsForm"
+			messageKey="sys-xform:sysFormDbColumn.fdIsInverse"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="Boolean"
+			column="fd_is_form"
+			length="1"/>
+		<simpleProperty
+			name="fdIsEnable"
+			messageKey="sys-xform:sysFormDbColumn.fdIsEnable"
+			column="fd_is_enable"
+			unique="false"
+			notNull="false"
+			type="Boolean"
+			length="1" />
+		<!-- 系统对象 -->
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-xform:sysFormDbColumn.fdSysClass"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="String"
+			column="fd_model_name"
+			length="200"/>
+		<simpleProperty
+			name="fdModelText"
+			messageKey="sys-xform:sysFormDbColumn.fdModelText"			
+			column="fd_model_text"
+            unique="false"
+			notNull="false"
+			type="String"
+			length="200" />
+		<simpleProperty
+			name="fdMainColumn"
+			messageKey="sys-xform:sysFormDbColumn.fdMainColumn"					
+			column="fd_main_column"
+            unique="false"
+			notNull="false"
+			type="String"
+			length="200" />
+		<simpleProperty
+			name="fdElementColumn"
+			messageKey="sys-xform:sysFormDbColumn.fdElementColumn"					
+			column="fd_element_column"
+            unique="false"
+			notNull="false"
+			type="String"
+			length="200" />
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-xform:sysFormDbColumn.fd_type"					
+			column="fd_type"
+            unique="false"
+			notNull="false"
+			type="String"
+			length="200" />
+		<!-- 数据类型 -->
+		<simpleProperty
+			name="fdDataType"
+			messageKey="sys-xform:sysFormDbColumn.fdDataType"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="String"
+			column="fd_data_type"
+			length="50"/>
+		
+		<!-- 名称 -->
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-xform:sysFormDbColumn.fdName"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="String"
+			column="fd_name"
+			length="200"/>
+		
+		<!-- 从表 -->
+		<simpleProperty
+			name="fdTableName"
+			messageKey="sys-xform:sysFormDbColumn.fdTable"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="String"
+			column="fd_table_name"
+			length="50"/>
+		
+		<!-- 字段 -->
+		<simpleProperty
+			name="fdColumn"
+			messageKey="sys-xform:sysFormDbColumn.fdColumn"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="String"
+			column="fd_column"
+			length="50"/>
+		<simpleProperty
+			name="fdLength"
+			messageKey="sys-xform:sysFormDbColumn.fdLength"
+			column="fd_length"	
+			unique="false"		
+			notNull="false"
+			type="Integer"
+			length="5" />
+		<!-- 是否为外键 -->
+		<simpleProperty
+			name="fdIsPk"
+			messageKey="sys-xform:sysFormDbColumn.fdIsFk"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="Boolean"
+			column="fd_is_pk"
+			length="1"/>
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-xform:sysFormDbColumn.fdOrder"
+			column="fd_order"
+			unique="false"
+			notNull="false"
+			type="Integer"
+			length="10" />
+		
+		<!-- 关系类型 -->
+		<simpleProperty
+			name="fdRelation"
+			messageKey="sys-xform:sysFormDbColumn.fdRelType"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="Integer"
+			column="fd_relation"
+			length="2"/>
+	</model>
+</models>

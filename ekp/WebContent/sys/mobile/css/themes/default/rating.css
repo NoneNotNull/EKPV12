@@ -1,0 +1,54 @@
+﻿.muiRatingOff {
+	color: #bfbfbf !important;
+}
+
+.muiRatingOn {
+	color: #ffb535 !important;
+}
+
+.muiRating {
+	width: 6rem !important;;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.muiRatingArea,.muiRatingValue {
+	height: 100%;
+	width: 100%;
+	text-align: left;
+	line-height: 2rem;
+}
+
+.muiRatingArea i,.muiRatingValue i {
+	font-size: 1.2rem;
+	width: 1.2rem;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
+.muiRatingValue {
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	overflow: hidden;
+	z-index: 10;
+	white-space: nowrap;
+}
+
+@-webkit-keyframes ratingScale{
+	0.1%{-webkit-transform:scale(1);}
+	50%{-webkit-transform:scale(1.5);}
+    100%{-webkit-transform:scale(1);}
+} 
+
+.muiRatingScale{
+	-webkit-animation-name: ratingScale;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-fill-mode: both;
+	
+}
+
+.muiRatingHide{
+	visibility: hidden;
+}

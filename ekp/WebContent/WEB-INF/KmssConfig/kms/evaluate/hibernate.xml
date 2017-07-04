@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluatePersonalRank.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocRank.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluatePersonalDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocMonthCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluatePersonMonthCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDeptCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDeptFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateModuleCateCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateModuleCateFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluatePersonalFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluatePersonalCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateSearchMCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocSearchCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateDocSearchFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskCMCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskPMCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskDeptCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskDeptFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskCCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/evaluate/model/KmsEvaluateAskCFilter.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../design.xsd ">
+
+	<module
+		messageKey="sys-lbpmservice-support:module.sys.lbpmservice.support"
+		urlPrefix="/sys/lbpmservice/support/"
+		defaultValidator="true">
+		<roles>
+			ROLE_SYS_LBPM_ADMIN;
+			ROLE_SYS_LBPM_BASE_MODULE_ADMIN;
+			ROLE_SYS_LBPM_TEMPLATE_ADMIN;
+		</roles>
+
+		<!-- 通用流程模板 -->
+		<request
+			path="lbpm_template/lbpmTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplate"
+			defaultValidator="roleValidator(role=ROLE_SYS_LBPM_TEMPLATE_ADMIN)">
+		</request>
+
+		<request
+			path="lbpm_template_change_history/lbpmTemplateChangeHistory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmTemplateChangeHistory">
+		</request>
+
+		<request
+			path="lbpm_audit_note_reader/lbpmAuditNoteReader*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNoteReader">
+		</request>
+
+		<request
+			path="lbpm_audit_note/lbpmAuditNote*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmAuditNote">
+		</request>
+
+
+		<!-- 参数配置·操作方式 -->
+		<request
+			path="lbpm_oper_main/lbpmOperMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain"
+			defaultValidator="roleValidator(role=ROLE_SYS_LBPM_BASE_MODULE_ADMIN)">
+		</request>
+		<request
+			path="lbpm_operations/lbpmOperations*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations"
+			defaultValidator="roleValidator(role=ROLE_SYS_LBPM_BASE_MODULE_ADMIN)">
+		</request>
+
+		<!-- 参数配置·默认审批语  -->
+		<request
+			path="lbpm_usage/lbpmUsage*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.lbpmservice.support.model.LbpmUsage"
+			defaultValidator="roleValidator(role=SYSROLE_USER)">
+			<query
+				queryString="method=*&amp;sys=true"
+				validator="roleValidator(role=ROLE_SYS_LBPM_BASE_MODULE_ADMIN)" />
+		</request>
+
+	</module>
+
+	<!-- 参数配置·基础设置  -->
+	<module
+		urlPrefix="/sys/appconfig/"
+		messageKey="sys.config.parameters"
+		defaultValidator="roleValidator(role=SYSROLE_USER)">
+		<request
+			path="sys_appconfig/sysAppConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmBaseInfo"
+				validator="roleValidator(role=ROLE_SYS_LBPM_BASE_MODULE_ADMIN)" />
+		</request>
+	</module>
+	<!--  
+	<module
+		urlPrefix="/sys/lbpmservice/"
+		messageKey="sys-lbpmservice:module.sys.lbpmservice">
+		<request
+			path="tree.jsp"
+			defaultValidator="roleValidator(role=ROLE_SYS_LBPM_BASE_MODULE_ADMIN)">
+		</request>
+	</module>
+	-->
+	
+	<!-- 无效处理人的流程通知定时任务 -->
+	<quartz
+		messageKey="sys-lbpmservice:lbpmProcess.unavailableHandlerNotify"
+		jobService="lbpmUnavailableHandlerNotify"
+		jobMethod="run"
+		cronExpression="0 0 23 * * ?" />
+	
+	<treeNodes
+		type="sysconfig">
+		<treeNode
+			messageKey="sys-lbpmservice:module.name.workflow"
+			authUrl="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain.do?method=list">
+			<treeNode
+				messageKey="sys-lbpmservice:module.node.paramsSetup.base"
+				url="/sys/appconfig/sys_appconfig/sysAppConfig.do?method=edit&amp;modelName=com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmBaseInfo" >
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmservice:module.node.paramsSetup.operations"
+				url="/sys/lbpmservice/support/lbpm_oper_main/lbpmOperMain.do?method=list" >
+			</treeNode>
+			<treeNode
+				messageKey="sys-lbpmservice:module.node.paramsSetup.defaultUsage"
+				url="/sys/lbpmservice/support/lbpm_usage/lbpmUsage.do?method=edit&amp;sys=true" >
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+
+		
+	<homePage
+		urlPrefix="sys/lbpmservice"
+		config="/moduleindex_notopic.jsp?nav=/sys/lbpmservice/tree.jsp"
+		messageKey="sys-lbpmservice:module.sys.lbpmservice"
+		type="global" />
+
+</configs>

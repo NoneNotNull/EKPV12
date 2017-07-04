@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		urlPrefix="/component/dbop/"
+		messageKey="component-dbop:tree.compDbcp.label">
+		<request
+			path="compDbcp*"
+			defaultValidator="roleValidator(role=SYSROLE_ADMIN)" />
+	</module>
+	<homePage
+		urlPrefix="component/dbop"
+		config="/component/dbop/compDbcp.do?method=list"
+		messageKey="component-dbop:tree.compDbcp.label"
+		type="sys" />
+</configs>

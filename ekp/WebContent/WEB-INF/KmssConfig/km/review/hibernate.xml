@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewOverview.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewFeedbackInfo.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewTemplate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewTemplateKeyword.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewDocKeyword.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/km/review/model/KmReviewSn.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

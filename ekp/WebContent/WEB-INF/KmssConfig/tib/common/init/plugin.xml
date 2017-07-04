@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd">
+	
+	<!-- 数据初始化 -->
+	<extension-point
+		id="com.landray.kmss.tib.common.init">
+		<item name="init">
+			<param
+				name="moduleKey"
+				required="true"
+				kind="unid">
+				<description>
+					配置Key,全局唯一,必填
+				</description>
+			</param>
+			<param
+				name="initTitle"
+				required="true"
+				kind="string">
+				<description>
+					初始化类型SAP、EAS、K3
+				</description>
+			</param>
+			<param
+				name="springBean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.tib.common.init.interfaces.ITibCommonInitExecute">
+				<description>
+					实现
+				</description>
+			</param>
+			<param
+				name="jspPath"
+				required="false"
+				kind="string">
+				<description>
+					JSP路径页面
+				</description>
+			</param>
+			<description>
+			  配置数据初始化信息
+			</description>
+		</item>
+		<description> 配置数据初始化信息扩展点</description>
+	</extension-point>
+	
+</plugin>

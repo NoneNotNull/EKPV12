@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<!-- 审批节点定义 -->
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="reviewNode">
+			<param
+				name="type"
+				value="reviewNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.reviewNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.reviewnode.ReviewNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/reviewnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="reviewNodeDesc" />
+			<param
+				name="taskDataAccess"
+				value="defaultManualNodeDataAccess" />
+			<param
+				name="subTaskType"
+				value="reviewWorkitem" />
+			<param
+				name="taskBehaviour"
+				value="reviewNodeBehaviourService" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="reviewNodeDesc">
+			<param
+				name="type"
+				value="reviewNodeDesc" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/reviewnode/node_review.jsp" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/reviewnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/reviewnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="reviewNodeDesc" />
+		</item>
+		<item
+			name="taskType"
+			id="reviewWorkitem">
+			<param
+				name="type"
+				value="reviewWorkitem" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/node/reviewnode/workitem_reviewworkitem.jsp" />
+			<param
+				name="taskBehaviour"
+				value="reviewNodeWorkitemBehaviourService" />
+			<param
+				name="taskDataAccess"
+				value="reviewWorkitemDataAccess" />
+			<param
+				name="taskDesc"
+				value="reviewNodeWorkitemDesc" />
+		</item>
+	</extension>
+</plugin>

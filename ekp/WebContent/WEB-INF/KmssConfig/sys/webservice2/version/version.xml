@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 待办webservice接口服务bug</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-18</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 下载客户端报找不到文件的问题</description>
+			<author>易荣烽</author>
+			<revision-time>2014-06-26</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，FF下宽度无法自适应</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多浏览器兼容，保存按钮无响应</description>
+			<author>魏本源</author>
+			<revision-time>2013-09-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 webservice名称变更或者错误的数据库数据导致webservice导入报错的问题</description>
+			<author>汪俊锋</author>
+			<revision-time>2013-01-16</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>关联 将系统配置移入模块内，减少代码耦合</description>
+			<author>易荣烽</author>
+			<revision-time>2012-10-30</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>关联 由于群集接口变动导致相应的修改</description>
+			<author>叶中奇</author>
+			<revision-time>2012-03-29</revision-time>
+			<relation>
+				<relation-module>sys/cluster</relation-module>
+			</relation>
+			<baseline>V10.0.0.B1.20120522</baseline>
+		</modify>
+		<modify>
+			<description>WebService2.0组件</description>
+			<author>汪俊锋</author>
+			<revision-time>2011-11-03</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>EKP9.0.1.R.20111231</baseline>
+		</modify>
+	</modifies>
+</version>

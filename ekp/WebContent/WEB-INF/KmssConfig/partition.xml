@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config enabled="false">
+	<model enabled="false" name="com.landray.kmss.km.review.model.KmReviewMain" table="km_review_main_areader">
+		<partitions default="p3">
+			<partition code="p1" name="2012 年流程"></partition>
+			<partition code="p2" name="2013 年流程"></partition>
+			<partition code="p3" name="2014 至今"></partition>
+		</partitions>
+	</model>
+</config>

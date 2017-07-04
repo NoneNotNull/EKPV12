@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.task.model.SysTaskAnalyze"
+		messageKey="sys-task:table.sysTaskAnalyze"
+		displayProperty="docSubject"
+		serviceBean="sysTaskAnalyzeService"
+		table="sys_task_analyze">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="sys-task:sysTaskAnalyze.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="200" 
+			validate="true"/>
+		<simpleProperty
+			name="fdAnalyzeObjType"
+			messageKey="sys-task:sysTaskAnalyze.fdAnalyzeObjType"
+			type="String"
+			column="fd_analyze_obj_type"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdAnalyzeType"
+			messageKey="sys-task:sysTaskAnalyze.fdAnalyzeType"
+			type="String"
+			column="fd_analyze_type"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsincludechild"
+			messageKey="sys-task:sysTaskAnalyze.fdIsincludechild"
+			type="String"
+			column="fd_is_include_child"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdIsincludechildTask"
+			messageKey="sys-task:sysTaskAnalyze.fdIsincludechildTask"
+			type="String"
+			column="fd_is_include_childtask"
+			notNull="false"
+			length="1" />
+		<simpleProperty
+			name="fdStartDate"
+			messageKey="sys-task:sysTaskAnalyze.fdStartDate"
+			type="DateTime"
+			column="fd_start_date"
+			notNull="false" />
+		<simpleProperty
+			name="fdEndDate"
+			messageKey="sys-task:sysTaskAnalyze.fdEndDate"
+			type="DateTime"
+			column="fd_end_date"
+			notNull="false" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-task:sysTaskAnalyze.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="fdDateQueryType"
+			messageKey="sys-task:sysTaskAnalyze.fdDateQueryType"
+			type="String"
+			column="fd_date_query_type"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-task:sysTaskAnalyze.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<listProperty
+			name="fdAnalyzeObjBoundList"
+			messageKey="sys-task:sysTaskAnalyze.fdAnalyzeObjBoundList"
+			column="fd_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_bound_id"
+			table="sys_task_analyze_bound" />
+	</model>
+</models>

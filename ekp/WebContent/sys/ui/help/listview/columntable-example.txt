@@ -1,0 +1,17 @@
+	<list:listview>
+		<ui:source type="AjaxJson">
+			{"url":"/sys/ui/help/listview/listdata-example.jsp"}
+		</ui:source>
+		<list:colTable layout="sys.ui.listview.columntable" name="columntable">
+			//name属性用于视图切换，layout不填默认为sys.ui.listview.columntable
+			<list:col-checkbox name="List_Selected" style="width:5%"></list:col-checkbox>
+			<list:col-serial title="${ lfn:message('page.serial') }" headerStyle="width:5%"></list:col-serial>
+			<list:col-html title="${lfn:message('kms-multidoc:kmsMultidoc.kmsMultidocKnowledge.read')}" >
+				{$
+					<span class="com_number">{%row['docReadCount']%}</span>
+				$}
+			</list:col-html> 
+			<list:col-auto props="docSubject;docAuthor.fdName;docDept.fdName;docScore;docPublishTime"></list:col-auto>
+		</list:colTable>
+	</list:listview>
+	<list:paging></list:paging>

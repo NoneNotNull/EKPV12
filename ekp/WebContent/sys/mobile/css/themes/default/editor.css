@@ -1,0 +1,270 @@
+﻿.muiEditor {
+	background-color: #fff;
+	-webkit-transition: all 0.5s ease-out;
+	padding: 0;
+	margin: 0;
+}
+
+.muiEditor .muiEditorTextContainer {
+	margin: 0.8rem 0 0 1rem;
+	min-height: 2rem;
+	color: #bbbfc1;
+	font-size: 1.4rem;
+	position: relative;
+	background:#fff;
+}
+
+.muiField .muiFieldRequired{
+	margin:0 0.5rem 0 0;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea {
+	width: 100%;
+	border: 0;
+	outline: none;
+	color: #000;
+	font-size: 1.4rem;
+	height: 15rem;
+	resize: none;
+	overflow: auto;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea:empty:after {
+	content: attr(placeholder);
+	color: #A9A9A9;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea:focus:after {
+	content: '';
+}
+
+.muiEditorPlugin {
+	padding: 0 1rem;
+	height: 4rem;
+	line-height: 4rem;
+	background-color: #fafafa;
+	border-bottom: 1px #e0e0e0 solid;
+	position: relative;
+}
+
+.muiEditorMask {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 2;
+	overflow: hidden;
+	-webkit-transition: opacity 0.2s linear;
+	opacity: 0;
+	display: block;
+}
+
+.muiEditor.popup {
+	background: #fff;
+	-webkit-transform: translate3d(0px, 400%, 0px);
+	position: absolute;
+	z-index: 11;
+	width: 100%;
+	top: 0;
+}
+
+.muiEditorSubmit {
+	display: inline-block;
+	font-size: 1.4rem;
+	color: #fff;
+	height: 2.4rem;
+	line-height: 2.4rem;
+	padding: 0px 0.8rem;
+	background: #86bd63;
+	float: right;
+	vertical-align: middle;
+	margin-top: 0.7rem;
+	border-radius: 3px;
+	border: 1px solid #86bd63;
+}
+
+.muiEditorSubmit.muiEditorSubmitDisable {
+	color: #e0e0e0;
+	background: #fff;
+	border: 1px solid #e0e0e0;
+}
+
+.muiEditorPlugin>a {
+	width: 3.5rem;
+	height: 4rem;
+	line-height: 4rem;
+	color: #989898;
+	margin-right:5px;
+	font-size:.2.5rem;
+	position: relative;
+}
+.muiEditorPlugin>a:last-child{ margin-right: 0;}
+.muiEditorFace {
+	background-color: #fff;
+	display: none;
+	height: 0;
+}
+
+.muiEditorFace {
+	text-align: center;
+	-webkit-transition: all 200ms linear;
+	overflow: hidden;
+}
+
+.muiEditorFaceItemImg {
+	padding: 0.5rem;
+}
+
+.muiEditorFaceItem {
+	border: 1px solid #e8e8e8;
+	display: inline-block;
+}
+
+.muiEditorPluginSelected {
+	color: #3F9DE5 !important;
+}
+
+.muiEditorTextarea img.muiEditorFaceImg {
+	height: 1.4rem;
+	width: 1.4rem;
+}
+
+.muiEditorImageInput {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 5;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.muiEditorImageItem, .muiEditorImageUpload {
+	margin: 1rem 1rem;
+	vertical-align: top;
+	position: relative;
+	width: 7.7rem;
+	height: 7.7rem;
+}
+
+.muiEditorImageContainer {
+	white-space: nowrap;
+}
+
+.muiEditorImageContainer>div {
+	display: inline-block;
+}
+
+.muiEditor .muiEditorImage {
+	-webkit-transition: all 200ms linear;
+}
+
+.muiEditorImageDefault {
+	height: 100%;
+	width: 100%;
+	background-color: #dbb74e;
+}
+
+.muiEditorImageDefault i {
+	width: 100%;
+	height: 100%;
+	line-height: 7.9rem;
+	color: #fff;
+	font-size: 7rem;
+}
+
+.muiEditorImageThumb {
+	background-color: #EEEEEE;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	line-height: 7.7rem;
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+	overflow: hidden;
+}
+
+.muiEditorImageStatus {
+	position: absolute;
+	top: 0rem;
+	left: 0rem;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+	z-index: 3;
+	text-align: center;
+	background-color: #EEEEEE;
+	line-height: 6rem;
+}
+
+.muiEditorImageClose {
+	display: none;
+	position: absolute;
+	top: -0.5rem;
+	right: -0.6rem;
+	width: 2rem;
+	height: 2rem;
+	line-height: 1.7rem;
+	vertical-align: middle;
+	z-index: 2;
+	border-radius: 50%;
+	text-align: center;
+	background-color: #FC573B;
+}
+
+.muiEditorImageClose i {
+	line-height: 1.7rem;
+	font-size: 1rem;
+	color: #FFFFFF;
+}
+
+.muiEditorImageThumb img {
+	width: 100%;
+	min-height: 100%;
+}
+
+.muiEditorImageUpload {
+	border-radius: 5px;
+	border: 1px dashed #e2e2e2;
+}
+
+.muiEditorImageUpload>div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.muiEditorImageUpload>div.muiEditorImageUploadTip{
+	text-align: center;	
+	display: inline-block;
+	color: #898989;
+	font-size: 1.3rem;
+	height: auto;
+	line-height: 2rem;
+}
+
+.muiEditorImageUpload i {
+	width: 100%;
+	height: 100%;
+	line-height: 7.9rem;
+	color: #b7b7b7;
+	font-size: 7rem;
+}
+.muiEditorImageUpload {
+	background: #fff;
+}
+.muiEditor .muiEditorSplitLine{
+	border: none;
+	height:0.1rem;
+	margin:0.3rem 0rem;
+	border-top: 0.1rem solid #e5e5e5;
+}

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapServerSetting.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapServerSettingExt.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapJcoSetting.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcSetting.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcExport.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcImport.hbm.xml" />
+				<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcTable.hbm.xml" />
+			<!-- rfc 查询 -->
+			<mapping
+			resource="com/landray/kmss/tib/sys/sap/connector/model/TibSysSapRfcSearchInfo.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

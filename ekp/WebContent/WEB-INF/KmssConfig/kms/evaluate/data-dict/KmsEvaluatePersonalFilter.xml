@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluatePersonalFilter"
+		messageKey="kms-evaluate:table.kmsEvaluatePersonalFilter"
+		displayProperty="fdCountStartTime"
+		serviceBean="kmsEvaluatePersonalFilterService"
+		table="kms_evaluate_personal_filter"
+		url="/kms/evaluate/kms_evaluate_personal_filter/kmsEvaluatePersonalFilter.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docReadCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docReadCount"
+			type="Boolean"
+			column="doc_read_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docIntroduceCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docIntroduceCount"
+			type="Boolean"
+			column="doc_introduce_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="docEvaluationCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docEvaluationCount"
+			type="Boolean"
+			column="doc_evaluation_count"
+			notNull="false"
+			length="5"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAlterTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.fdAlterTime"
+			type="DateTime"
+			column="fd_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docAddCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docAddCount"
+			type="Boolean"
+			column="doc_add_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docUpdateCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docUpdateCount"
+			type="Boolean"
+			column="doc_update_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docDeleteCount"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.docDeleteCount"
+			type="Boolean"
+			column="doc_delete_count"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTimeUnit"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.fdTimeUnit"
+			type="Integer"
+			column="fd_time_unit"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="monthStartTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.monthStartTime"
+			type="Long"
+			column="month_start_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="monthEndTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.monthEndTime"
+			type="Long"
+			column="month_end_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="yearStartTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.yearStartTime"
+			type="Long"
+			column="year_start_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="yearEndTime"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.yearEndTime"
+			type="Long"
+			column="year_end_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPersonalNames"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.fdPersonalNames"
+			type="String"
+			column="fd_personal_names"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="kms-evaluate:kmsEvaluatePersonalFilter.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<form-beans>
+		<form-bean
+			name="sysLbpmMonitorForm"
+			type="com.landray.kmss.sys.lbpmmonitor.forms.SysLbpmMonitorForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/lbpmmonitor/sys_lbpmmonitor_person/SysLbpmMonitorPerson"
+			type="com.landray.kmss.sys.lbpmmonitor.actions.SysLbpmMonitorPersonAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="listChildren"
+				path="/sys/lbpmmonitor/sys_lbpm_monitor_person/sysLbpmMonitor_personList.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/lbpmmonitor/sys_lbpmmonitor_flow/SysLbpmMonitorFlow"
+			type="com.landray.kmss.sys.lbpmmonitor.actions.SysLbpmMonitorFlowAction"
+			name="sysLbpmMonitorForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request"
+			input="edit">
+			<forward
+				name="listChildren"
+				path="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_flowList.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/sys/lbpmmonitor/sys_lbpm_monitor_flow/sysLbpmMonitor_view.jsp">
+			</forward>
+		</action>
+		<action
+			path="/sys/lbpmmonitor/sys_lbpmmonitor_criteria/SysLbpmMonitorCriteria"
+			type="com.landray.kmss.sys.lbpmmonitor.actions.SysLbpmMonitorCriteriaAction"
+			parameter="method"
+			input="edit">
+		</action>
+		<action
+			path="/sys/lbpmmonitor/sys_lbpmmonitor_flow/SysLbpmMonitorFlowVersion"
+			type="com.landray.kmss.sys.lbpmmonitor.actions.SysLbpmMonitorFlowVersionAction"
+			parameter="method"
+			input="edit">
+			<forward
+				name="listChildren"
+				path="/sys/lbpmmonitor/sys_lbpm_monitor_flowVersion/sysLbpmMonitor_template_list.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/sys/lbpmmonitor/sys_lbpm_monitor_flowVersion/sysLbpmMonitor_template_view.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.lbpmmonitor.ApplicationResources"
+		key="sys-lbpmmonitor" />
+</struts-config>

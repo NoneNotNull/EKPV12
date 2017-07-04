@@ -1,0 +1,73 @@
+.lui-expert-rowtable>li{
+	border: solid 1.6px #DDDDDD;
+	margin: 0.4em 0;
+	background: #fff;
+	border-radius: 5px;
+	padding: 5px
+}
+
+.lui-expert-article {
+	position: relative;
+}
+
+.lui-expert-article>ul {
+	padding: 10px 0 10px 65px;
+	min-height: 50px;
+}
+
+.lui-expert-article .name {
+	color: #3284d0;
+	float: left;
+	font-size: 1.17em;
+	margin-bottom: 4px;
+}
+
+.lui-expert-article .ask {
+	float: right;
+	background-color: #8ccbf7;
+	color: #fff;
+	font-size: 0.8em;
+	padding: 3px;
+	border-radius: 10%;
+}
+
+.lui-expert-article .background,.lui-expert-article .dept,.lui-expert-article .post
+	{
+	font-size: 12px;
+}
+
+.lui-expert-article .dept,.lui-expert-article .post {
+	color: #5A5A5A;
+}
+
+.lui-expert-article img {
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+}
+
+.lui-expert-rowtable .lui-expert-connect {
+	float: left;
+	border-left: 1px solid #8ccbfb;
+	margin-left: 6px;
+	height: 25px;
+}
+
+.lui-expert-rowtable .lui-expert-connect li {
+	float: left;
+	position: relative;
+	top: -2px;
+}
+
+.lui-expert-rowtable .lui-expert-article a {
+	display: block;
+}
+
+.lui-expert-rowtable .lui-expert-article>a {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	left: 3px;
+	top: 10px;
+}

@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>优化 机器人节点配置不存在（扩展不存在），需要自动跳过</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-23</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批流程电子签名页面调整</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-20</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 ie阻止弹出窗口，没有修改处理人提交报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-18</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端流程审批记录未显示签章图片</description>
+			<author>魏本源</author>
+			<revision-time>2015-03-10</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支任意结束时，废弃的启动分支不显示审批意见</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-10</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 并发分支前后跳转或者超级驳回，再次提交可能审批报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-09</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批人撤回报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-05</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 必须修改处理人没有根据最后节点计算</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-03-04</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 附加选项在并发分支下不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 隐藏编辑页面下的特权操作</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回身份重复跳过不生效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 特权人跳转节点未设处理人提示</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-02-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程中点击新建签章直接跳转到签章新建页面</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 签章后图片没在“电子签章展示”区展示</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 签章图片改为用附件保存，附件大小在admin.do中做限制</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见和签章功能梳理</description>
+			<author>魏本源</author>
+			<revision-time>2015-02-04</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>优化 起草节点支持流程附件选项</description>
+			<author>朱湖强</author>
+			<revision-time>2015-01-30</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批操作控件增加驳回可选节点功能</description>
+			<author>曹映辉</author>
+			<revision-time>2015-01-30</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 没有填写意见时权限失效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-23</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程死循环驳回无法选择驳回节点</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-22</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复暂存意见导致执行路径锁定等问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-22</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 为空跳过节点不能选择驳回</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-21</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见展示控件支持多签章显示</description>
+			<author>魏本源</author>
+			<revision-time>2015-01-16</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 签章初始化</description>
+			<author>魏本源</author>
+			<revision-time>2015-01-16</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 子流程回收后不能再次启动子流程问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-13</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程处理页签支持参数设置是否展开</description>
+			<author>朱湖强</author>
+			<revision-time>2015-01-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程手写审批记录乱序问题</description>
+			<author>傅游翔</author>
+			<revision-time>2015-01-08</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 有操作后，清空暂存审批意见</description>
+			<author>傅游翔</author>
+			<revision-time>2015-01-08</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 撤回操作不能修改审批意见问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2015-01-04</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程审批页面中"提交"按钮色调调整</description>
+			<author>林秀贤</author>
+			<revision-time>2014-12-31</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持异构系统组织架构参数解析</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见没有显示提交人身份问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-26</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 前后跳转下拉列表不显示具体公式</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-23</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批操作标签</description>
+			<author>曹映辉</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>新增 定时任务支持工时计算、精确到分钟</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-18</revision-time>
+			<relation>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/time</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持最后一个节点才提示必修改处理人</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 数据字典增加displayProperty属性</description>
+			<author>魏本源</author>
+			<revision-time>2014-12-09</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 人工分支不能选择问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-17</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 获取处理人事件问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-17</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 节点处理输出方式</description>
+			<author>朱湖强</author>
+			<revision-time>2014-11-10</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 当前处理人增加显示沟通信息</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-12</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 webservice启动收不到邮件问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-12</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修改 实现待办优化导致待办扩展接口变化的问题</description>
+			<author>吴兵</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 chrome不支持模态窗口问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-07</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 去除审批节点配置追加抄送意见</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-06</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 pda流程结束后流程图无法查看</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 选择其他节点处理人页面样式问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-04</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 抄送节点处理人去重</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-11-03</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 无效处理人的流程没有通知流程出错通知人</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-30</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批意见授权显示</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程图死循环下，无法配置回收子流程</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 当前处理人中显示无效处理人</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 表单输入框宽度规范化</description>
+			<author>魏本源</author>
+			<revision-time>2014-10-23</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 通用岗位审批情况下，最后处理人才提示必须修改处理人不正确</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 发起沟通后不能还有撤回操作</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 有授权处理和工作代理的情况下，身份重复跳过缺陷</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-21</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 暂存意见出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-21</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 集成服务接口</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-21</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程图配置循环节点无法过滤问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-10-17</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见没有按时间排序问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-29</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>新增 手机端仅从备选人列表中选择</description>
+			<author>傅游翔</author>
+			<revision-time>2014-09-28</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程打印时，手写审批意见无法显示问题</description>
+			<author>朱湖强</author>
+			<revision-time>2014-09-26</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>优化 事件显示名称</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-24</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支节点都跳过情况下不生成启动分支意见</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-22</revision-time>
+			<baseline>V12.0.0.B2.20141114</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改操作报js错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-04</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 备选处理人的兼容性检测处理</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-09-01</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 节点跳过规则</description>
+			<author>李衡</author>
+			<revision-time>2014-09-01</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 校验审批意见时，手写和输入意见只校验其一</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错通知人在流程没有出错的情况下不能查看文档</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程公式获取节点实际处理人不正确问题（排除转办、沟通）</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-28</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 没有配置通用流程模版提示</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-28</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 提交人身份不能暂存问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-28</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 没有流程实例情况下的新建新版本问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-25</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE8 json null字符问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 自动跳过节点没有查看权限问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-22</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 备选处理人无法选择问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-21</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 审批来源中增加“来自微信”标识</description>
+			<author>朱湖强</author>
+			<revision-time>2014-08-13</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 沟通已经处理人自动跳过可能出现错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-11</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人操作使用统一新ui</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-08-05</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人不能跳到其它分支问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-29</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改处理人需要双击问题以及操作优化</description>
+			<author>傅游翔</author>
+			<revision-time>2014-07-22</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 sqlserver下容易出现死锁的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-20</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权跳转到非流程条件分支正确走向的节点时，修改节点处理人必填提示失效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-20</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见长度的问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-20</revision-time>
+			<baseline>V11.0.3.R.20140801</baseline>
+		</modify>
+		<modify>
+			<description>修复 机器人节点修改表单数据不成功，获取不到数据去更新字段</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 节点操作设置，当从标准审批切换成自定义时，保留设置项方便自定义设置</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-07-02</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动端手写签批功能</description>
+			<author>朱湖强</author>
+			<revision-time>2014-07-01</revision-time>
+			<relation>
+				<relation-module>sys/attachment</relation-module>
+				<relation-module>sys/lbpmservice</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支仅抄送节点下没有追加启动并发分支意见</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-06-19</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 移动端审批意见增加显示移动终端类型信息</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 被抄送人可追加抄送意见</description>
+			<author>李衡</author>
+			<revision-time>2014-06-17</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 跨节点身份重复跳过支持</description>
+			<author>李衡</author>
+			<revision-time>2014-06-16</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程打印审批记录中增加附件显示</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-17</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 授权处理完成通知授权人</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程中父子流程链接在新窗口打开</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程中父子流程链接在新窗口打开</description>
+			<author>朱湖强</author>
+			<revision-time>2014-06-11</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 起草人催办没有记录日志问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-05-14</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人修改处理人改为自己自动跳过问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-05-14</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 人员调岗后没有权限处理流程问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-05-08</revision-time>
+			<baseline>V11.0.2.R.20140606</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程表格显示重复问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-28</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 多级沟通出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-25</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程表格流转方式显示不一致问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-24</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程被沟通人附加选项不应该生效</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-09</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 公式获取历史实际处理人为空问题（节点身份重复跳过的情况下）</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-08</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 并发分支公式启动不能正常结束问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-03</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 特权人支持通用岗位和角色线</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-04-03</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 模板修复记录丢失导致出错</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-28</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见部门权限不生效问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-27</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 避免节点自动跳过和催办同时触发导致流程出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-25</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 节点暂停导致催办定时任务出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-21</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 pda下必需修改节点页面跳转问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-13</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 沟通操作沟通范围某些浏览器会提交null字符串导致解析出错</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-03-13</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回返回本节点提示处理人不能为空问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-01-16</revision-time>
+			<baseline>V11.0.0.R.20140320</baseline>
+		</modify>
+		<modify>
+			<description>优化 流程表格解析处理人改成异步</description>
+			<author>缪贵荣</author>
+			<revision-time>2014-01-03</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人前后跳转发布驳回事件问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-30</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回追加审批意见权限</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-25</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 审批意见服务返回值</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-25</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改队列参数导致的错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-16</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人前后跳转（勾选了跳转后流经的子流程重新流转），跳到启动子流程节点，子流程没有重新流转问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-12-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 选中通过自动添加同意</description>
+			<author>傅游翔</author>
+			<revision-time>2013-12-04</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程通过类型操作才触发必填校验</description>
+			<author>傅游翔</author>
+			<revision-time>2013-11-20</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 优化授权关系和新增审批意见显示授权关系</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-11-15</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 移动端日志展现错位问题</description>
+			<author>傅游翔</author>
+			<revision-time>2013-11-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 流程授权处理后给被授权人发送待阅</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-11-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 抄送节点不能抄送群组问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 webservice调用初始化操作错误问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-29</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免引用兼容引擎的内容</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-29</revision-time>
+			<relation>
+				<relation-module>sys/workflow_lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见并发分组展现</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-10-09</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见内部沟通权限计算错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-18</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 授权阅读没有给授权人发送处理待办问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-13</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见驳回操作增加驳回节点信息</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 IE10常用意见对话框显示问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-12</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载历史预计处理人对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-11</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 沟通代理没法处理问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 增加授权阅读、处理流程日志</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回返回到本节点，驳回到起草节点不需要再选择由起草人的人工决策</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载组织架构对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-10</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件审批和日志显示分拆</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 移动组件支持审批过程中对表单字段进行编辑</description>
+			<author>傅游翔</author>
+			<revision-time>2013-09-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 子流程配置校验错误</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 打印意见没有隐藏问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-09-06</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 待办文本没有被替换问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-30</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 资源借用后台启动多个流程无法提交问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 多人同时并行处理，第1个处理后流程结束了，第2个人处理，文档状态被修改会待审问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 出现2个人工决策节点之间的节点都跳过情况下，第2个人工决策读取路由不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-14</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 提交人身份驳回后不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-09</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 沟通岗位，岗位下人员收到待办，但没法处理问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-07</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 会议变更报错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-05</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>新增 并发分支审批意见分组功能</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-05</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 特权人操作没有根据modelName过滤</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-02</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 修改流程图、修改节点属性（节点审批意见权限）同步审批意见权限</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-08-01</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 常用审批意见太长导致自定义不能选择问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见显示处理人所在部门</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回到起草节点不进行特权人催办</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-31</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批意见权限问题（需数据迁移）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-31</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 高版本jquery，textarea不能赋值，导致流程模板定义不能提交问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-25</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>优化 避免加载历史的对象</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-19</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程结束后通知我的默认值问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-17</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 初始没有加载流程的显示问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-07-15</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持流程模板、流程实例导入导出</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-06-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 公文签收出错问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-05-08</revision-time>
+			<relation>
+				<relation-module>sys/workflow</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 错误队列处理逻辑</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-05-03</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 审批日志多浏览器支持</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-26</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程出错情况下，特权人操作所有事件都不触发问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-23</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>由起草人决定的情况下，人工决策节点的上一个节点不能设置成“会审”问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-18</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回后节点过滤不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-15</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 权限区段审批人在编辑模式下可以修改只读内容</description>
+			<author>傅游翔</author>
+			<revision-time>2013-04-15</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 流程废弃没有废弃子流程问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-13</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 起草人工决策不能暂存，流程暂存、发布后人工决策不能过滤问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-09</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 js特殊字符导致不能提交文档问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-09</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 机器人节点和决策分支节点缩小功能</description>
+			<author>曹映辉</author>
+			<revision-time>2013-04-07</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 起草人暂存，选择分支没有暂存问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-04-03</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 驳回到起草，节点过滤不正确问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-29</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 解决编译的兼容性问题</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-19</revision-time>
+			<relation>
+				<relation-module>sys/lbpmplug</relation-module>
+				<relation-module>sys/workflow</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 支持流程、节点暂停待办挂起（排除发起沟通的待办）</description>
+			<author>缪贵荣</author>
+			<revision-time>2013-03-11</revision-time>
+			<relation>
+				<relation-module>sys/lbpm</relation-module>
+				<relation-module>sys/lbpmext</relation-module>
+				<relation-module>sys/notify</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 LBPM应用服务组件</description>
+			<author>傅游翔</author>
+			<revision-time>2013-01-25</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+				<relation-module>sys/time</relation-module>
+				<relation-module>sys/lbpm</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+	</modifies>
+</version>

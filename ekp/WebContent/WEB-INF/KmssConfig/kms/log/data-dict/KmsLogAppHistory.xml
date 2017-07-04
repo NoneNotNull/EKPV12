@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogAppHistory"
+		messageKey="kms-log:table.kmsLogAppHistory"
+		displayProperty="fdSubject"
+		serviceBean="kmsLogAppHistoryService"
+		table="kms_log_app_history"
+		url="/kms/log/kms_log_app_history/kmsLogAppHistory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="kms-log:kmsLogAppHistory.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-log:kmsLogAppHistory.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTargetId"
+			messageKey="kms-log:kmsLogAppHistory.fdTargetId"
+			type="String"
+			column="fd_target_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="modelName"
+			messageKey="kms-log:kmsLogAppHistory.modelName"
+			type="String"
+			column="model_name"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIp"
+			messageKey="kms-log:kmsLogAppHistory.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParam"
+			messageKey="kms-log:kmsLogAppHistory.fdParam"
+			type="String"
+			column="fd_param"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOprateMethod"
+			messageKey="kms-log:kmsLogAppHistory.fdOprateMethod"
+			type="String"
+			column="fd_oprate_method"
+			notNull="false"
+			length="60"
+			validate="true" />
+
+		<modelProperty
+			name="fdOperator"
+			messageKey="kms-log:kmsLogAppHistory.fdOperator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_operator"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

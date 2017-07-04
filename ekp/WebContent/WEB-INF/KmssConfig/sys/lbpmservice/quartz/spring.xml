@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 流程进入事件侦听器 -->
+	<bean
+		id="lbpmProcessEnterQuartzListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.ProcessEnterQuartzListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<!-- 节点进入事件侦听器 -->
+	<bean
+		id="lbpmNodeEnterQuartzListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.NodeEnterQuartzListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<!-- 工作项进入事件侦听器 -->
+	<bean
+		id="lbpmWorkitemEnterQuartzListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.WorkitemEnterQuartzListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+
+	<bean
+		id="lbpmRejectNotifyDraftListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.RejectNotifyDraftListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDayOfNotifyListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.DayOfNotifyListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDayOfNotifyDrafterListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.DayOfNotifyDrafterListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDayOfNotifyPrivilegerListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.DayOfNotifyPrivilegerListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmDayOfPassListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.DayOfPassListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTranNotifyDraftListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.TranNotifyDraftListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmTranNotifyPrivateListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.TranNotifyPrivateListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmExpiredAbandonListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.ExpiredAbandonListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+
+	<!-- 清除定时任务 -->
+	<bean
+		id="lbpmCleanQuartzListener"
+		class="com.landray.kmss.sys.lbpmservice.quartz.CleanQuartzListener">
+		<property
+			name="processServiceManager">
+			<ref
+				bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+</beans>

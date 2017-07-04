@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.cluster.model.SysClusterDispatcher"
+		messageKey=""
+		serviceBean="sysClusterDispatcherService"
+		table="sys_cluster_dispatcher">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdServerKey"
+			messageKey=""
+			canDisplay="false"
+			type="String"
+			column="fd_server_key"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdDispatcherKey"
+			messageKey=""
+			canDisplay="false"
+			type="String"
+			column="fd_dispatcher_key"
+			notNull="false"
+			length="200" />
+	</model>
+</models>

@@ -1,0 +1,8 @@
+body{margin: 0px;padding: 0px;}
+ul, li{list-style-type: none;margin: 0px;padding: 0px;}
+.attUl{width: 100%;}
+.attUl li{height:24px;font-family:Arial,Verdana; line-height:24px;}
+.attUl li a{color: blue;}
+.attTitle{font: bold 12px;}
+h3{font: bold 12px;height: 12px;margin: 0px;text-align: left;}
+.attDiv{margin: 15px 10px 0px 10px;}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<java version="1.6.0_33" class="java.beans.XMLDecoder"> 
+ <object class="java.util.HashMap"> 
+  <void method="put"> 
+   <string>fdIfaceControl</string> 
+   <boolean>true</boolean> 
+  </void> 
+  <void method="put"> 
+   <string>fdIfaceKey</string> 
+   <string>aaa</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIfaceXml</string> 
+   <string><tib  key="aaa" id="调用方自定义，建议为当前时间戳" modelname="自定义class" tagdb="自定义数据源名称"><in><xxx1  ctype="string" length="36" required="0" multi="0"><xxx1.1 ctype="int" required="0" multi="0"/><xxx1.2 ctype="string" length="366" required="1" multi="0"><xxx1.2.1 ctype="boolean" required="1" multi="1"/></xxx1.2><xxx1.3 ctype="object" required="0" multi="1"/><xxx1.4 ctype="double" required="0" multi="1"/></xxx1><xxx2  ctype="int" required="1" multi="1"><xxx2.1 ctype="string" length="36" required="1" multi="0"/></xxx2><xxx3  ctype="string" length="36" required="0" multi="1"/></in></tib></string> 
+  </void> 
+  <void method="put"> 
+   <string>fdId</string> 
+   <string>1409f5a7e560f3169530ed74339a9d10</string> 
+  </void> 
+  <void method="put"> 
+   <string>class</string> 
+   <string>com.landray.kmss.tib.sys.core.provider.model.TibSysCoreIface</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdControlPattern</string> 
+   <string>1</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIfaceName</string> 
+   <string>aaa</string> 
+  </void> 
+  <void method="put"> 
+   <string>fdIfaceType</string> 
+   <string>1</string> 
+  </void> 
+ </object> 
+</java> 

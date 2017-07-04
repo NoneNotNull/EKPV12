@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="lbpmAuthorizeForm"
+			type="com.landray.kmss.sys.lbpmext.authorize.forms.LbpmAuthorizeForm">
+		</form-bean>
+		<form-bean
+			name="lbpmAuthorizeScopeForm"
+			type="com.landray.kmss.sys.lbpmext.authorize.forms.LbpmAuthorizeScopeForm">
+		</form-bean>
+	</form-beans>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize"
+			type="com.landray.kmss.sys.lbpmext.authorize.actions.LbpmAuthorizeAction"
+			name="lbpmAuthorizeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/lbpmext/authorize/lbpm_authorize/lbpmAuthorize_list.jsp">
+			</forward>
+			<forward
+				name="listUi"
+				path="/sys/lbpmext/authorize/person/lbpmAuthorize_listUi.jsp">
+			</forward>
+		</action>
+
+		<action
+			path="/sys/lbpmext/authorize/lbpm_authorize_scope/lbpmAuthorizeScope"
+			type="com.landray.kmss.sys.lbpmext.authorize.actions.lbpmAuthorizeScopeAction"
+			name="lbpmAuthorizeScopeForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/lbpmext/integrate/lbpm_authorize_scope/lbpmAuthorizeScope_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/lbpmext/integrate/lbpm_authorize_scope/lbpmAuthorizeScope_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/lbpmext/integrate/lbpm_authorize_scope/lbpmAuthorizeScope_list.jsp">
+			</forward>
+		</action>
+		
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.lbpmext.authorize.ApplicationResources"
+		key="sys-lbpmext-authorize" />
+</struts-config>

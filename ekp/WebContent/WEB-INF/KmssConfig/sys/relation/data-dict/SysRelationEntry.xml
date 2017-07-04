@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.relation.model.SysRelationEntry"
+		messageKey="sys-relation:table.sysRelationEntry"
+		serviceBean=""
+		table="sys_relation_entry">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-relation:sysRelationEntry.fdType"
+			type="Integer"
+			column="fd_type"
+			notNull="false" />
+		<simpleProperty
+			name="fdModuleModelName"
+			messageKey="sys-relation:sysRelationEntry.fdModuleModelName"
+			type="String"
+			column="fd_module_model_name"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdModuleName"
+			messageKey="sys-relation:sysRelationEntry.fdModuleName"
+			type="String"
+			column="fd_module_name"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdOrderBy"
+			messageKey="sys-relation:sysRelationEntry.fdOrderBy"
+			type="String"
+			column="fd_order_by"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdOrderByName"
+			messageKey="sys-relation:sysRelationEntry.fdOrderByName"
+			type="String"
+			column="fd_order_by_name"
+			notNull="false"
+			length="50" />
+		<simpleProperty
+			name="fdPageSize"
+			messageKey="sys-relation:sysRelationEntry.fdPageSize"
+			type="Long"
+			column="fd_page_size"
+			notNull="false"
+			length="10" />
+		<simpleProperty
+			name="fdRelationProperty"
+			messageKey="sys-relation:sysRelationEntry.fdRelationProperty"
+			type="String"
+			column="fd_relation_property"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-relation:sysRelationEntry.fdParameter"
+			type="RTF"
+			column="fd_parameter"
+			notNull="false"
+			length="1000000" />
+		<modelProperty
+			name="sysRelationMain"
+			messageKey="sys-relation:sysRelationEntry.sysRelationMain"
+			type="com.landray.kmss.sys.relation.model.SysRelationMain"
+			column="fd_mainid"
+			notNull="false" />
+		<simpleProperty
+			name="fdIndex"
+			messageKey="sys-relation:sysRelationEntry.fdIndex"
+			type="Integer"
+			column="fd_index"
+			notNull="false" />
+		<listProperty
+			name="fdRelationConditions"
+			messageKey="sys-relation:sysRelationEntry.fdRelationConditions"
+			column="fd_entryid"
+			type="com.landray.kmss.sys.relation.model.SysRelationCondition"
+			cascade="all-delete-orphan" />
+	</model>
+</models>

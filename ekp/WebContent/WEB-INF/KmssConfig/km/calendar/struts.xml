@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="kmCalendarBaseConfigForm" type="com.landray.kmss.km.calendar.forms.KmCalendarBaseConfigForm" />
+		<form-bean name="kmCalendarMainForm" type="com.landray.kmss.km.calendar.forms.KmCalendarMainForm" />
+		<form-bean name="kmCalendarSyncBindForm" type="com.landray.kmss.km.calendar.forms.KmCalendarSyncBindForm" />
+		<form-bean name="kmCalendarSyncMappingForm" type="com.landray.kmss.km.calendar.forms.KmCalendarSyncMappingForm" />
+		<form-bean name="kmCalendarLabelForm" type="com.landray.kmss.km.calendar.forms.KmCalendarLabelForm" />
+		<form-bean name="kmCalendarOutCacheForm" type="com.landray.kmss.km.calendar.forms.KmCalendarOutCacheForm" />
+		<form-bean name="kmCalendarShareGroupForm" type="com.landray.kmss.km.calendar.forms.KmCalendarShareGroupForm" />
+		<form-bean name="kmCalendarUserShareGroupForm" type="com.landray.kmss.km.calendar.forms.KmCalendarUserShareGroupForm" />
+		<form-bean name="kmCalendarLabelForm" type="com.landray.kmss.km.calendar.forms.KmCalendarLabelForm" />
+		<form-bean name="kmCalendarUserLabelForm" type="com.landray.kmss.km.calendar.forms.KmCalendarUserLabelForm" />
+		<form-bean name="kmCalendarAuthForm" type="com.landray.kmss.km.calendar.forms.KmCalendarAuthForm" />
+		<form-bean name="kmCalendarAgendaLabelForm" type="com.landray.kmss.km.calendar.forms.KmCalendarAgendaLabelForm" />
+		
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/calendar/km_calendar_base_config/kmCalendarBaseConfig"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarBaseConfigAction"
+			name="kmCalendarBaseConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_base_config/kmCalendarBaseConfig_edit.jsp">
+			</forward>
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_base_config/kmCalendarBaseConfig_view.jsp">
+			</forward>
+		</action>
+		<action
+			path="/km/calendar/km_calendar_main/kmCalendarMain"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarMainAction"
+			name="kmCalendarMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_view.jsp" />
+			<forward
+				name="view.4pda"
+				path="/km/calendar/pda/kmCalendarMain_view4pda.jsp" />
+			<forward 
+				name="view.4m" 
+				path="/km/calendar/mobile/view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_list.jsp" />
+			<forward
+				name="data"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_data.jsp" />
+			<forward
+				name="editEvent"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_event.jsp" />
+			<forward
+				name="editEvent.4pda"
+				path="/km/calendar/pda/kmCalendarMain_edit4pda.jsp" />
+			<forward 
+				name="editEvent.4pda" 
+				path="/km/calendar/mobile/edit.jsp"></forward>
+			<forward
+				name="editNote"
+				path="/km/calendar/km_calendar_main/kmCalendarMain_note.jsp" />
+			<forward
+				name="synchroResult"
+				path="/km/calendar/resource/synchroResult.jsp" />
+		</action>
+
+		<action
+			path="/km/calendar/km_calendar_sync_bind/kmCalendarSyncBind"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarSyncBindAction"
+			name="kmCalendarSyncBindForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_sync_bind/kmCalendarSyncBind_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_sync_bind/kmCalendarSyncBind_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_sync_bind/kmCalendarSyncBind_list.jsp" />
+		</action>
+
+		<action
+			path="/km/calendar/km_calendar_sync_mapping/kmCalendarSyncMapping"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarSyncMappingAction"
+			name="kmCalendarSyncMappingForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_sync_mapping/kmCalendarSyncMapping_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_sync_mapping/kmCalendarSyncMapping_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_sync_mapping/kmCalendarSyncMapping_list.jsp" />
+		</action>
+
+		<action
+			path="/km/calendar/km_calendar_label/kmCalendarLabel"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarLabelAction"
+			name="kmCalendarLabelForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_label/kmCalendarLabel_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_label/kmCalendarLabel_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_label/kmCalendarLabel_list.jsp" />
+		</action>
+		
+		<action
+			path="/km/calendar/km_calendar_agenda_label/kmCalendarAgendaLabel"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarAgendaLabelAction"
+			name="kmCalendarAgendaLabelForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_agenda_label/kmCalendarAgendaLabel_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_agenda_label/kmCalendarAgendaLabel_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_agenda_label/kmCalendarAgendaLabel_list.jsp" />
+		</action>
+		
+		<action
+			path="/km/calendar/km_calendar_label/kmCalendarUserLabel"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarUserLabelAction"
+			name="kmCalendarUserLabelForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_label/kmCalendarUserLabel_edit.jsp" />
+			
+		</action>
+
+		<action
+			path="/km/calendar/km_calendar_out_cache/kmCalendarOutCache"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarOutCacheAction"
+			name="kmCalendarOutCacheForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_out_cache/kmCalendarOutCache_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_out_cache/kmCalendarOutCache_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_out_cache/kmCalendarOutCache_list.jsp" />
+		</action>
+		
+		<action
+			path="/km/calendar/km_calendar_share_group/kmCalendarShareGroup"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarShareGroupAction"
+			name="kmCalendarShareGroupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_share_group/kmCalendarShareGroup_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_share_group/kmCalendarShareGroup_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_share_group/kmCalendarShareGroup_list.jsp" />
+		</action>
+		
+		<action
+			path="/km/calendar/km_calendar_share_group/kmCalendarUserShareGroup"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarUserShareGroupAction"
+			name="kmCalendarUserShareGroupForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="update"
+				path="/km/calendar/km_calendar_share_group/kmCalendarUserShareGroup_edit.jsp" />
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_share_group/kmCalendarUserShareGroup_edit.jsp" />
+		</action>
+		
+		<action
+			path="/km/calendar/km_calendar_auth/kmCalendarAuth"
+			type="com.landray.kmss.km.calendar.actions.KmCalendarAuthAction"
+			name="kmCalendarAuthForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/calendar/km_calendar_auth/kmCalendarAuth_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/km/calendar/km_calendar_auth/kmCalendarAuth_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/km/calendar/km_calendar_auth/kmCalendarAuth_list.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources parameter="com.landray.kmss.km.calendar.ApplicationResources" key="km-calendar"/>
+</struts-config>

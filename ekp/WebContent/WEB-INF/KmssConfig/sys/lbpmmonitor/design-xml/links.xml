@@ -1,0 +1,13 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	
+	<links type="home-nav" >
+	    <link
+	       id="sys_lbpmmonitor_person_home_nav1"
+	       url="/sys/lbpmmonitor/sys_lbpm_monitor_person/sysLbpmMonitor_person.jsp" 
+	       msgKey="sys-lbpmmonitor:sysLbpmMonitor.person"/>
+	</links>
+</root>

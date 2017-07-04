@@ -1,0 +1,164 @@
+.sys_praise {
+	background: url(img/icon_praise.png) no-repeat 0 50%;
+	padding: 0 15px 0 0px;
+	margin-left: 15px;
+	border-right: 1px solid #989898;
+	border-right: 0;
+}
+.sys_unpraise {
+	background: url(img/icon_unpraise.png) no-repeat 0 50%;
+	cursor: pointer;
+	padding: 0 15px 0 0px;
+	margin-left: 15px;
+	border-right: 1px solid #989898;
+	border-right: 0;
+}
+.lui_praise_layer{
+	position: absolute;
+	border-radius: 3px;
+	z-index: 9999;
+	left:-146px;
+}
+.lui_praise_layer .bg{
+	padding: 3px;
+	border-radius: 4px;
+}
+.lui_praise_layer .app_arrow_p{
+	width: 14px;
+	height: 9px;
+	top: -5px;
+	/**left: 115px;**/
+	right:14px;
+	background-position: 0 0;
+}
+.lui_praise_layer .app_arrow {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	background: url(img/layer_arrow.png) no-repeat;
+}
+.lui_praise_layer .content {
+	position: relative;
+	/**background: #fff;**/
+	border-radius: 2px;
+}
+.lui_praise_table{
+	border: 1px solid #ccc;
+	background-color: #f9f9f9;
+}
+
+.layer_person {
+	width: 100%;
+}
+.clearfix {
+	display: block;
+}
+.layer_person .person_list {
+	padding: 10px 0 0px 20px;
+	_padding: 10px 0 10px 18px;
+	min-height: 39px;
+	min-width: 165px;
+}
+.cur{
+	cursor: pointer;
+}
+
+.tmpl_cur{
+	cursor: pointer;
+}
+
+.layer_person .person_list li {
+	float: left;
+	_display: inline;
+	margin: 0 10px 5px 0;
+}
+li {
+	list-style: none; 
+}
+.praise_more{
+	width: 28px;
+	height: 28px;
+	background-color: #ededed;
+	cursor: pointer;
+	background: url(img/more.png) no-repeat 50% 50%;
+	border: 1px solid #DFDFDF;
+}
+.praise_simple{
+	width: 28px;
+	height: 28px;
+	background-color: #ededed;
+	cursor: pointer;
+	background: url(img/less.png) no-repeat 50% 50%;
+	border: 1px solid #DFDFDF;
+}
+.dot{
+	padding-left:35%;
+	padding-top: 30%;
+}
+.praise_icon_l{
+	background: url(img/btn_appro_pre_on.png) no-repeat 50% 50%;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	cursor: pointer;
+}
+.praise_icon_r{
+	background: url(img/btn_appro_next_on.png) no-repeat 50% 50%;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	cursor: pointer;
+}
+.praise_icon_l_gray{
+	background: url(img/btn_appro_pre.png) no-repeat 50% 50%;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	cursor: pointer;
+}
+.praise_icon_r_gray{
+	background: url(img/btn_appro_next.png) no-repeat 50% 50%;
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	cursor: pointer;
+}
+.praise_page_set{
+	vertical-align: middle;
+	float: right;
+	margin-right:10px;
+}
+.tmpl_cur .sys_unpraise{
+	/**background: url(img/icon_on.png) no-repeat left center !important;**/
+	padding: 0 15px 0 0px !important;
+}
+.tmpl_cur .sys_praise{
+	/**background: url(img/icon_off.png) no-repeat left center !important;**/
+	padding: 1px 15px 0 0px !important;
+}
+.lui_praise_close_s{
+	width: 20px;
+	height: 20px;
+	overflow: hidden;
+	cursor: pointer;
+	float: right;
+	margin-right: 11px;
+	margin-top: 2px;
+	background: url(img/praise_close.png) no-repeat 0 50%;
+}
+.lui_praise_close_d{
+	width: 100%;
+	height: 10px;
+	display:none;
+}
+.praise_page_set span{
+	display:none;
+}
+.praise_page_list{
+	height:18px;
+	display:none;
+}
+.praise_count{
+	color: #a3a3a3;
+	margin-left:5px;
+}

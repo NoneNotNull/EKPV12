@@ -1,0 +1,395 @@
+@charset "utf-8";
+*{
+	padding: 0;
+	margin: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.clear{
+	clear: both;
+}
+
+.muiEditor .muiEditorTextContainer .muiEditorTextarea{
+	color: black;
+}
+
+/** 编辑  **/
+
+#personView,#dateView,#syncView{
+	background-color: #fff;
+	border-bottom: 1px solid #d9d7d7;
+}
+
+.muiImportBox .muiImportContent{ 
+	background-color: #fff;
+}
+
+.attachmentView{
+	/** 默认隐藏 **/
+	display: none;
+	-webkit-transition: all 200ms linear;
+	background-color: #fff;
+}
+
+.attachmentView .muiAttachmentItemT{
+	background-color: white;
+}
+
+.muiImportBox .sysTaskSubjectInput{
+	background-color: #fff;
+	margin-bottom: 1rem;
+	border-bottom: 1px #e0e0e0 solid;
+}
+.muiImportBox .muiValidate{
+	margin:-1.1rem 0 0;
+	padding:1.1rem 0 0;
+}
+
+.muiImportBottomBar {
+	height: 3.8rem;
+	border:1px solid #EFEFEF;
+	position: relative;
+}
+
+.muiImportIconBar {
+	display: table;
+}
+
+.muiImportIconBar li {
+	display: table-cell;
+	padding: 3px 2px;
+}
+
+.muiImportIconBar li a, .muiImportIconBar li span {
+	width: 3.2rem;
+	height: 3.2rem;
+	line-height: 3.2rem;
+	text-align: center;
+	color: #848484;
+	font-size: 2rem;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.muiTaskNavBar ul{
+	width: 100%;
+	display: table;
+	border-bottom: 1px solid #d9d7d7;
+	background-color: #fafafa;
+}
+
+.muiTaskNavBar ul li {
+	text-align: center;
+	vertical-align: top;
+	color: #848484;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.muiTaskNavBar ul li .mui {
+	display: inline-block;
+	font-family: FontMui;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	top:-1px;
+}
+
+.muiTaskNavBar ul li .icon {
+	margin-right: 3px;
+	padding: 0;
+	width: 4rem;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	color: #848484;
+	border: 1px solid #848484;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+}
+
+.muiTaskNavBarSelected {
+	height: 12px;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	-webkit-transition: 300ms linear;
+	z-index: 99;
+}
+
+.muiTaskHeader .muiTaskNavBarSelected .arrM {
+	bottom: 1px;
+	border-bottom-color: #d9d7d7;
+}
+
+.muiTaskHeader .muiTaskNavBarSelected .arrC {
+	bottom:0;
+	border-bottom-color: #fff;
+}
+
+.muiTaskNavBarSelected .arr {
+	position: absolute;
+	left: 50%;
+	margin-left: -6px;
+	border-color: transparent;
+	border-style: dashed dashed solid;
+	border-width: 6px;
+}
+
+.muiTaskNavBar .muiNavitem.muiNavitemSelected span{
+	color: #2c79c7;
+	font-weight:normal;
+}
+
+.muiTaskNavBar .muiNavitem.muiNavitemSelected .icon{
+	color: #2c79c7;
+	border-color: #2c79c7;
+}
+
+.muiTaskNavBar ul li .txt {
+	display: inline-block;
+	font-size: 1.4rem;
+}
+
+/** 时间 **/
+.muiTaskDatetimeContainer{
+	width: 92%;
+	padding: 1rem 4%;
+	display: table;
+}
+.muiTaskDatetimeContainer>div{ display: table-cell; text-align: center; white-space: nowrap;}
+
+.muiTaskDatetime,.muiTaskWeek{
+	display: inline-block;
+}
+
+.muiTaskWeek{
+	padding: 0rem 1rem;
+	font-size:1.4rem;
+	font-weight:normal;
+}
+
+.muiTaskDatetime .muiField{
+	border:1px solid #ececec;
+	background-color: #fff;
+	min-width: 8rem;
+	padding: 6px 5px;
+	width: auto;
+}
+
+/** 人员 **/
+.muiSettingPeopleList {
+	/*padding: 2px 12px;*/
+}
+
+.muiSettingPeopleList>li {
+	margin:0 0 0 1rem;
+	padding:1rem 0;
+	color: #898989;
+	font-size: 1.4rem;
+	border-bottom: 1px solid #e2e2e2;
+	position: relative;
+	font-weight:normal;
+	/*margin: 0.5rem 0;*/
+}
+.muiSettingPeopleList>li:last-child{ border-bottom: 0;}
+.muiSettingPeopleList>li .muiField{
+	padding:0 0 0 1.2rem;
+}
+.syncView .muiFormOptionsField{
+	margin-left: -240px;
+	left: 25%;
+	padding-bottom: 0;
+	position: relative;
+	display:table-cell;
+	width: inherit;
+}
+
+.syncView .muiFormOptionsField .muiFieldText{
+	border: 0;
+	padding-bottom: 5px;
+	padding-top:5px;
+}
+.muiFieldValue .muiCateFiledShow .muiAddressOrgEdit{
+	
+}
+.muiFieldOpt i.mui-address{
+	
+}
+.muiFieldValue .muiCateFiledShow > div i{
+	top:-0.3rem;
+}
+
+.syncView .muiFormOptionsField .muiFieldOptions .muiFormRadio{
+	top: -8px;
+}
+
+.syncView .muiFormOptionsField .muiFieldOptions > .muiFieldText{
+	padding-top:2px;
+}
+
+/** 反馈编辑  **/
+.muiTaskTitle{
+	color:#555e67;
+	padding: 1rem;
+	border-bottom: 1px #e0e0e0 solid;
+}
+
+.muiProgressBox{
+	position:relative;
+	padding-bottom:3rem;
+	border-top: 1px solid #e0e0e0;
+	overflow: hidden;
+}
+
+.muiTaskStatusTag{
+	padding: 0 3rem;
+	width: 2.6rem;
+	height: 4rem;
+	line-height: 6rem;
+	font-size: 1.2rem;
+	position: absolute;
+	left: -3.6rem;
+	top: -0.8rem;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(-40deg);
+	-moz-transform: rotate(-40deg);
+	-ms-transform: rotate(-40deg);
+	-o-transform: rotate(-40deg);
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.muiTaskStatusTag.muiTaskProgress{ background-color:#51b749; } /*进行中*/
+.muiTaskStatusTag.muiTaskInactive{ background-color:#efad4d; } /*未启动*/
+.muiTaskStatusTag.muiTaskTerminate{ background-color:#4dbeba; } /*暂停*/
+.muiTaskStatusTag.muiTaskOverrule{ background-color:#eb1d68; } /*驳回*/
+.muiTaskStatusTag.muiTaskClose{ background-color:#c0c0c0; } /*已结项*/
+.muiTaskStatusTag.muiTaskComplete{ background-color:#3fa9f5; } /*完成*/
+
+
+.muiProgressBox .pastDue.past{
+	background-color: #ff8585;
+}
+
+.muiProgressBox .pastDue.notpast{
+	background-color: #84c138;
+}
+
+
+.muiProgressBox .numberBox{
+	margin:0 0.3rem;
+	padding: 0 3px;
+	height: 20px;
+	line-height: 20px;
+	min-width: 22px;
+	text-align: center;
+	background-color: #999;
+	color: #fff;
+	border-radius:3px;
+}
+
+.muiProgressBox .overday,.muiProgressBox .time{
+	float:right;
+	margin: 1rem;
+}
+
+.muiProgressBox .progress{
+	background-color: #bbbfc1;
+	height: 10px;
+	border-radius: 5px;
+	margin: 8rem auto 1rem;
+	position: relative;
+}
+
+.muiProgressBox .progressAuto{
+	margin: 0rem 1.2rem;
+}
+
+.muiProgressBox .progressValueText{
+	position:absolute;
+	margin-top:-2.5rem;
+	margin-left: -1.6rem;
+}
+
+.muiProgressBox .progressValueTextInner{
+	background-color: #18b4ed;
+	text-align: center;
+	padding: 0.3rem 0.8rem;
+	margin-top: -2rem;
+	font-size: 1.2rem;
+	border-radius:5px;
+	color: white;
+}
+
+.muiProgressBox .progressTriangle{
+	width:0;
+    height:0;
+    border-width:5px;
+    border-style:solid dashed dashed dashed;
+    border-color:#18b4ed transparent transparent transparent;
+    margin: 0 auto;
+}
+
+.muiProgressBox .mblSliderProgressBar{
+	background-color: #18b4ed;
+}
+
+.muiProgressBox .progressAutoText{
+	padding:0.5rem 0 0 1.7rem;
+	width: 85%;
+	color: #A9A9A9;
+	font-size:1.4rem;
+}
+/** 灯泡  **/
+.muiProgressBox .progressAutoText .mui{
+	margin:-0.4rem 0 0 1rem;
+	color: #F9803F;
+}
+
+/** 评价编辑  **/
+.muiEvaluateBox{
+	background-color:white;
+	margin-top:1rem;
+	padding:0.5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+.muiEvaluateBox .EvaluateStatus{
+	width: 5.5rem;
+	height: 1rem;
+	font-size: 1.2rem;
+	position: absolute;
+	left: -1.6rem;
+	top: 0.6rem;
+	padding: 5px 0px;
+	color: #fff;
+	text-align: center;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	overflow: hidden;
+	background-color: green;
+}
+
+.muiEvaluateBox .EvaluateApprove{
+	padding: 5rem 0rem;
+}
+
+.mblScrollableViewContainer .muiHeader{border-top:1px #d9d7d7 solid;box-shadow:none;}
+.muiHeader.muiTaskHeader{ overflow: visible;}
+.muiHeader.muiTaskHeader .muiNavbar{ overflow: visible!important;}
+
+.muiNavbar.sysTaskNavBar .muiNavitem span{ font-size: 1.4rem;}
+.muiEditorTextContainer .muiFieldItem{width:96%;}

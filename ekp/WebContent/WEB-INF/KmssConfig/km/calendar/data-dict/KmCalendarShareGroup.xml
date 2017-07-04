@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarShareGroup"
+		messageKey="km-calendar:table.kmCalendarShareGroup"
+		displayProperty="fdName"
+		serviceBean="kmCalendarShareGroupService"
+		table="km_calendar_share_group">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="km-calendar:kmCalendarShareGroup.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+		<simpleProperty
+			name="fdDescription"
+			messageKey="km-calendar:kmCalendarShareGroup.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="1500" 
+			validate="true" />
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-calendar:kmCalendarType.fdOrder"
+			column="fd_order"
+			type="Long"
+			notNull="false" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-calendar:kmCalendarShareGroup.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<modelProperty
+			name="docCreator"
+			messageKey="km-calendar:kmCalendarShareGroup.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false" />
+		<simpleProperty
+			name="fdGroupMemberIds"
+			messageKey="km-calendar:kmCalendarShareGroup.fdGroupMemberIds"
+			type="String"
+			column="fd_group_member_ids"
+			notNull="false"
+			length="2500" />
+		<simpleProperty
+			name="fdGroupMemberNames"
+			messageKey="km-calendar:kmCalendarShareGroup.fdGroupMemberNames"
+			type="String"
+			column="fd_group_member_names"
+			notNull="false"
+			length="2500" />
+		<listProperty
+			name="shareGroupMembers"
+			table="km_calendar_share_group_mem"
+			messageKey="km-calendar:kmCalendar.shareGroupMembers"
+			column="fd_calendar_share_group_mem_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			inverse="false"
+		/>
+	</model>
+</models>

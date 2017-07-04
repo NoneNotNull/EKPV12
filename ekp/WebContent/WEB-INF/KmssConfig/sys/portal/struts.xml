@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="sysPortalPageForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalPageForm" />
+		<form-bean name="sysPortalLinkDetailForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalLinkDetailForm" />
+		<form-bean name="sysPortalPortletForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalPortletForm" /> 
+		<form-bean name="sysPortalHtmlForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalHtmlForm" />
+		<form-bean name="sysPortalTreeForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalTreeForm" />
+		<form-bean name="sysPortalLinkForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalLinkForm" />
+		<form-bean name="sysPortalMainForm"
+			type="com.landray.kmss.sys.portal.forms.SysPortalMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action path="/sys/portal/sys_portal_portlet/sysPortalPortlet"
+			type="com.landray.kmss.sys.portal.actions.SysPortalPortletAction"
+			name="sysPortalPortletForm" parameter="method" input="edit" unknown="false"
+			validate="true" scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_list.jsp" />
+			<forward name="selectSource"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_selectSource.jsp" />
+			<forward name="selectRender"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_selectRender.jsp" />
+			<forward name="selectTemplate"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_selectTemplate.jsp" />
+			<forward name="selectTheme"
+				path="/sys/portal/sys_portal_portlet/sysPortalPortlet_selectTheme.jsp" />
+		</action>
+		<action path="/sys/portal/sys_portal_page/sysPortalPage"
+			type="com.landray.kmss.sys.portal.actions.SysPortalPageAction" name="sysPortalPageForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_page/sysPortalPage_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_page/sysPortalPage_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_page/sysPortalPage_list.jsp" />
+			<forward name="data"
+				path="/sys/portal/sys_portal_page/sysPortalPage_data.jsp" />
+		</action>
+ 
+		<action path="/sys/portal/sys_portal_html/sysPortalHtml"
+			type="com.landray.kmss.sys.portal.actions.SysPortalHtmlAction" name="sysPortalHtmlForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_html/sysPortalHtml_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_html/sysPortalHtml_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_html/sysPortalHtml_list.jsp" />
+			<forward name="select"
+				path="/sys/portal/sys_portal_html/sysPortalHtml_select.jsp" />
+		</action>
+
+		<action path="/sys/portal/sys_portal_tree/sysPortalTree"
+			type="com.landray.kmss.sys.portal.actions.SysPortalTreeAction" name="sysPortalTreeForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_tree/sysPortalTree_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_tree/sysPortalTree_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_tree/sysPortalTree_list.jsp" />
+			<forward name="select"
+				path="/sys/portal/sys_portal_link/sysPortalLink_select.jsp" />
+		</action>
+
+		<action path="/sys/portal/sys_portal_link/sysPortalLink"
+			type="com.landray.kmss.sys.portal.actions.SysPortalLinkAction" name="sysPortalLinkForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_link/sysPortalLink_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_link/sysPortalLink_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_link/sysPortalLink_list.jsp" />
+			<forward name="select"
+				path="/sys/portal/sys_portal_link/sysPortalLink_select.jsp" />
+		</action>
+		
+		<action path="/sys/portal/sys_portal_main/sysPortalMain"
+			type="com.landray.kmss.sys.portal.actions.SysPortalMainAction" name="sysPortalMainForm"
+			parameter="method" input="edit" unknown="false" validate="true"
+			scope="request">
+			<forward name="view"
+				path="/sys/portal/sys_portal_main/sysPortalMain_view.jsp" />
+			<forward name="edit"
+				path="/sys/portal/sys_portal_main/sysPortalMain_edit.jsp" />
+			<forward name="list"
+				path="/sys/portal/sys_portal_main/sysPortalMain_list.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

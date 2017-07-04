@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.person.model.SysPersonSysTabLink"
+		messageKey="sys-person:sysPersonSysTabLink"
+		displayProperty="fdName"
+		serviceBean="sysPersonSysTabLinkService"
+		table="sys_person_systab_link">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-person:sysPersonSysTabLink.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="500"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdIcon"
+			messageKey="sys-person:sysPersonSysTabLink.fdIcon"
+			type="String"
+			column="fd_icon"
+			notNull="false"
+			length="50" />
+			
+		<simpleProperty
+			name="fdSysLink"
+			messageKey="sys-person:sysPersonSysTabLink.fdSysLink"
+			type="String"
+			column="fd_sys_link"
+			notNull="false"
+			length="200" />
+			
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-person:sysPersonSysTabLink.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="true"
+			length="1000"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdTarget"
+			messageKey="sys-person:sysPersonSysTabLink.fdTarget"
+			type="String"
+			column="fd_target"
+			notNull="false"
+			length="10" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-person:sysPersonSysTabLink.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+			
+		<modelProperty
+			name="fdCategory"
+			messageKey="sys-person:sysPersonSysTabLink.fdCategory"
+			type="com.landray.kmss.sys.person.model.SysPersonSysTabCategory"
+			column="fd_cate_id"
+			notNull="false"
+			cascade="none" />
+	</model>
+</models>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<!-- 人才信息枚举类型定义 -->
+	<type name="kmDocKnowledge_docStaus">
+	    <value-label>
+			<value>10</value>
+			<label-key>status.draft</label-key>
+		</value-label>
+		<value-label>
+			<value>20</value>
+			<label-key>status.examine</label-key>
+		</value-label>
+		<value-label>
+			<value>11</value>
+			<label-key>status.refuse</label-key>
+		</value-label>
+		<value-label>
+			<value>30</value>
+			<label-key>status.publish</label-key>
+		</value-label>
+		<value-label>
+			<value>00</value>
+			<label-key>status.discard</label-key>
+		</value-label>
+		<value-label>
+			<value>40</value>
+			<label-key>status.expire</label-key>
+		</value-label>
+	</type>
+</column-enums>

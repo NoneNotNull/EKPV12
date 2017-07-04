@@ -1,0 +1,21 @@
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	<!-- 我的知识 -->
+	<links type="home-nav" order="10">
+	   <link url="/kms/knowledge/kms_knowledge_personal/kmsKnowledge_person.jsp" 
+	   		 msgKey="kms-knowledge:kmsKnowledge.my" 
+	   		 icon="lui_icon_l_icon_36" 
+	   		 id="kms_knowledge_home_nav_my"/>
+	</links>
+	
+	<!-- 他的知识 -->
+	<links type="zone-nav" order="10">
+		<link 
+			id="kms_knowledge_home_nav_ta" 
+			url="/kms/knowledge/kms_knowledge_personal/kmsKnowledge_zone.jsp" 
+			msgKey="kms-knowledge:kmsKnowledge.ta" />
+	</links>
+</root>

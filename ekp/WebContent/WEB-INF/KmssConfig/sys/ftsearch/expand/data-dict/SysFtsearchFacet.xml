@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchFacet"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchFacet"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchFacetService"
+		table="sys_ftsearch_facet"
+		url="/sys/ftsearch/expand/sys_ftsearch_facet/sysFtsearchFacet.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSchema"
+			messageKey="sys-ftsearch-expand:sysFtsearchFacet.fdSchema"
+			type="String"
+			column="fd_schema"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdField"
+			messageKey="sys-ftsearch-expand:sysFtsearchFacet.fdField"
+			type="String"
+			column="fd_field"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="sys-ftsearch-expand:sysFtsearchFacet.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRangfrom"
+			messageKey="sys-ftsearch-expand:sysFtsearchFacet.fdRangfrom"
+			type="String"
+			column="fd_rangFrom"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRangto"
+			messageKey="sys-ftsearch-expand:sysFtsearchFacet.fdRangto"
+			type="String"
+			column="fd_rangTo"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+	</model>
+</models>

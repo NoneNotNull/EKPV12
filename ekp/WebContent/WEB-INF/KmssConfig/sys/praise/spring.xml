@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	
+	<bean
+		id="sysPraiseMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.praise.dao.hibernate.SysPraiseMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.praise.model.SysPraiseMain" />
+	</bean>
+	<bean id="sysPraiseMainTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.praise.service.spring.SysPraiseMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysPraiseMainDao" />
+		</property>
+	</bean>
+	<bean id="sysPraiseMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysPraiseMainTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="sysPraiseCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.praise.service.spring.SysPraiseCoreServiceImp">
+				<property name="sysPraiseMainService">
+					<ref local="sysPraiseMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+</beans>

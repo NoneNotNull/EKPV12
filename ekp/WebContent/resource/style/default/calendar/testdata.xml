@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dataList>
+	<data begindate="2007-11-12 09:50" enddate="2007-11-13 19:00" strKey="wedf" text="测试一下日历视图" href="http://127.0.0.1:8080/mip" />
+	<data begindate="2007-11-12 09:50" enddate="2007-11-13 19:00" strKey="unbgtt" text="测试一下日历sdf视图" href="http://127.0.0.1:8080/mip" />
+</dataList>

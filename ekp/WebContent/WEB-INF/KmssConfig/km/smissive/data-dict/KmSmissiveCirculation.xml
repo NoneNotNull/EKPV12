@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.smissive.model.KmSmissiveCirculation"
+		messageKey="km-smissive:table.kmSmissiveCirculation"
+		displayProperty="docSubject"
+		serviceBean="kmSmissiveMainService"
+		table="km_smissive_circulation"
+		url="/km/smissive/km_smissive_main/kmSmissiveMain.do?method=view&amp;fdId=${fdId}" >
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<modelProperty
+			name="fdSmissiveMain"
+			messageKey="km-smissive:kmkmSmissiveMain.circulate.main"
+			type="com.landray.kmss.km.smissive.model.KmSmissiveMain"
+			column="fd_main_id"
+			notNull="false" />
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-smissive:kmSmissiveMain.circulate.reason"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="1000" />
+		<simpleProperty
+			name="fdCirculationIds"
+			messageKey="km-smissive:kmSmissiveMain.circulate.newReaders"
+			type="String"
+			column="fd_urgency"
+			notNull="false"
+			length="1000" />
+		<simpleProperty
+			name="fdCirculationNames"
+			messageKey="km-smissive:kmSmissiveMain.circulate.newReaders"
+			type="String"
+			column="fd_secret"
+			notNull="false"
+			length="1000" />
+		
+		<modelProperty
+			name="docCreator"
+			messageKey="km-smissive:kmSmissiveMain.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="true" />
+		
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-smissive:kmSmissiveMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true" />
+		
+	</model>
+</models>

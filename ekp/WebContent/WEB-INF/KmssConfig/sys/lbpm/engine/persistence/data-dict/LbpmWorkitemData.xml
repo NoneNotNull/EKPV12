@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmWorkitemData"
+		messageKey="sys-lbpm-engine:table.lbpmWorkitemData"
+		serviceBean="lbpmWorkitemDataService"
+		table="lbpm_workitem_data">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdData"
+			messageKey="sys-lbpm-engine:lbpmWorkitemData.fdData"
+			type="String"
+			column="fd_data"
+			notNull="false"
+			length="4000" />
+
+		<modelProperty
+			name="fdWorkitem"
+			messageKey="sys-lbpm-engine:lbpmWorkitemData.fdWorkitem"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmWorkitem"
+			column="fd_workitem_id"
+			notNull="false" />
+
+		<modelProperty
+			name="fdUser"
+			messageKey="sys-lbpm-engine:lbpmWorkitemData.fdUser"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_user_id"
+			notNull="false" />
+
+	</model>
+</models>

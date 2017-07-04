@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateDocSearchCount"
+		messageKey="kms-evaluate:table.kmsEvaluateDocSearchCount"
+		displayProperty="docSubject"
+		serviceBean="kmsEvaluateDocSearchCountService"
+		table="kms_evaluate_doc_search_count"
+		url="/kms/evaluate/kms_evaluate_doc_search_count/kmsEvaluateDocSearchCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSearchKey"
+			messageKey="kms-evaluate:kmsEvaluateDocSearchCount.fdSearchKey"
+			type="String"
+			column="fd_search_key"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="openDocCount"
+			messageKey="kms-evaluate:kmsEvaluateDocSearchCount.openDocCount"
+			type="Integer"
+			column="open_doc_count"
+			notNull="true"
+			length="19"
+			validate="false" />
+
+	</model>
+</models>

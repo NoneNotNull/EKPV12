@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaTabViewConfigMain"
+		messageKey="third-pda:table.pdaTabViewConfigMain"
+		displayProperty="fdName"
+		serviceBean="pdaTabViewConfigMainService"
+		table="pda_module_config_main"
+		url="/third/pda/pda_tabview_config_main/pdaTabViewConfigMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="third-pda:pdaTabViewConfigMain.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="third-pda:pdaTabViewConfigMain.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="third-pda:pdaTabViewConfigMain.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="third-pda:pdaTabViewConfigMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time "
+			notNull="false"
+			validate="true" />
+		
+		<simpleProperty
+			name="fdStatus"
+			messageKey="third-pda:pdaTabViewConfigMain.fdStatus"
+			type="String"
+			column="fd_status"
+			notNull="false"
+			length="2"
+			enumType="pda_module_config_fd_status"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="third-pda:pdaTabViewConfigMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="true" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="third-pda:pdaTabViewConfigMain.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="true" />
+			
+		<modelProperty
+			name="fdModule"
+			messageKey="third-pda:pdaTabViewConfigMain.fdModuleId"
+			type="com.landray.kmss.third.pda.model.PdaModuleConfigMain"
+			column="fd_module_id"
+			notNull="true"
+			validate="true" />
+			
+		<listProperty 
+			name="fdLabelList" 
+			column="fd_tabview_id" 
+			messageKey="third-pda:table.pdaTabViewLabelList" 
+			type="com.landray.kmss.third.pda.model.PdaTabViewLabelList"
+			table="pda_tabview_label_list"
+			cascade="all-delete-orphan"
+			inverse="true"
+			orderBy="fd_tab_order asc" />
+			
+	</model>
+</models>

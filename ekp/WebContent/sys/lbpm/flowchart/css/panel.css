@@ -1,0 +1,89 @@
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.buttonbar_main {
+	height: 28px;
+	background-color: #EEEEEE;
+	border: 1px solid #C0C0C0;
+}
+
+.buttonbar_main td {
+	font-size: 12px;
+	border: 1px solid #C0C0C0;
+}
+
+.button_line {
+	width: 16px;
+	height: 16px;
+	padding: 5px 0px 5px 0px;
+	float: left;
+}
+
+.button_sel {
+	background-color: #B5BED6;
+	border: 1px solid #08246B;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 4px;
+	float: left;
+}
+
+.button_nor {
+	background-color: #EEEEEE;
+	border: 1px solid #EEEEEE;
+	height: 18px;
+	width: 18px;
+	cursor: pointer;
+	padding: 4px;
+	float: left;
+}
+
+.button_img {
+	background-image: url(../images/buttonbar.gif);
+	height: 16px;
+	width: 16px;
+	background-position: center 0px;
+	background-repeat: no-repeat;
+}
+
+.button_img_self {
+	height: 16px;
+	width: 16px;
+	background-position: center 0px;
+	background-repeat: no-repeat;
+}
+
+.button_opt {
+	color: #0066FF;
+	background-color: #F0F0F0;
+	border: 1px #999999 solid;
+	font-weight: normal;
+	padding: 0px 1px 1px 0px;
+	height: 18px;
+	/*clip:  rect();*/
+	cursor: pointer;
+}
+
+.href_opt {
+	color: #0066FF;
+	background-color: #F0F0F0;
+	border: 0;
+	font-weight: normal;
+	padding: 0px 1px 1px 0px;
+	height: 18px;
+	text-decoration: underline;
+	/*clip:  rect();*/
+	cursor: pointer;
+}
+
+.buttonbar_label {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border: 1px solid #666666;
+	vertical-align: middle;
+}

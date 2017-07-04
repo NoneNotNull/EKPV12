@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.relation">
+		<item
+			name="searchEngine">
+			<param
+				name="searchBean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.relation.interfaces.ISearchExternalData">
+				<description>
+					必需，唯一标识，搜索引擎实现的bean的名称。如domino搜索：thirdEkpDominoRelationSearchService
+				</description>
+			</param>
+			<param
+				name="name"
+				required="true"
+				kind="string">
+				<description>
+					必需，搜索引擎的名称，如：domino搜索引擎等，用于前台页面显示。
+				</description>
+			</param>
+			<param
+				name="searchConfigImportJsp"
+				kind="filepath">
+				<description>
+					可选，配置了该项，list页面会展现“导入”按钮，然后去实现按钮的逻辑代码。
+				</description>
+			</param>
+			<param
+				name="searchConfigJsp"
+				kind="filepath">
+				<description>
+					可选，搜索引擎配置信息页面。
+				</description>
+			</param>
+			<param
+				name="searchJsp"
+				kind="filepath">
+				<description>
+					可选，搜索引擎设置条件信息页面。SysRelationEntry中的fdParameter字段用于存储自定义参数。
+					扩展页面需要实现以下2个js函数：
+					获取自定义参数：config_getThirdRelationConfig(){};
+					初始化自定义参数：config_iniThirdRelationConfig(xxx){};
+					使用如下调整高度：
+					window.onload = function() {
+						parent.dyniFrameSize(document.body.scrollHeight);
+					};
+				</description>
+			</param>
+			<param
+				name="resultJsp"
+				kind="filepath">
+				<description>
+					可选，可自定义结果页面。
+				</description>
+			</param>
+			<description>外部模块搜索引擎扩展点</description>
+		</item>
+		<description>
+			关联机制中，外部模块扩展点定义。
+		</description>
+	</extension-point>
+	
+	<!--增加关联机制扩展属性的扩展点-->
+	<extension-point id="com.landray.kmss.sys.relation.config">
+		<item name="dict">
+			<param name="modelName" required="true" kind="string">
+				<description>
+					必需，扩展模块的主model，如：com.landray.kmss.kms.multidoc.kmsMultidocKnowledge。
+				</description>
+			</param>
+			<param name="cateModelName" required="true" kind="string">
+				<description>
+					必需，扩展模块的分类model。
+				</description>
+			</param>
+			<param name="dictLoader" required="true" kind="string"
+				basedOn="com.landray.sys.relation.interfaces.ISysRelationExtendDictLoader">
+				<description>
+					必需，扩展的数据字典名称，,必须实现ISysRelationExtendDictLoader接口。如：KmsMultidocRelationPropertyDictLoader
+				</description>
+			</param>
+			<description>精确搜索的模块搜索引擎扩展点</description>
+		</item>
+		<item name="search">
+			<param name="modelName" required="true" kind="string">
+				<description>
+					必需，扩展搜索方法的模块主model，如：com.landray.kmss.kms.multidoc.kmsMultidocKnowledge。
+				</description>
+			</param>
+			<param name="searchBean" required="true" kind="string"
+				basedOn="com.landray.kmss.sys.relation.interfaces.ISysRelationExtendSearchBean">
+				<description>
+					必需，搜索引擎实现的bean的名称，必须实现ISysRelationExtendSearchBean。如：kmsMultidocExtendSearchBean
+				</description>
+			</param>
+			<description>精确搜索的模块搜索引擎扩展点</description>
+		</item>
+		<description>
+			关联机制中，精确搜索栏的模块搜索扩展搜索条件。
+		</description>
+	</extension-point>
+	
+	<!-- 将静态网页表数据迁移到新表sys_relation_static_new -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.sys.relation.transfer.RelationTransferTask" />
+			<param name="name" value="关联机制数据迁移" />
+			<param name="path" value="/sys/relation/" />
+			<param name="check"
+				value="com.landray.kmss.sys.relation.transfer.RelationTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.sys.relation.transfer.RelationTransferTask" />
+			<param name="description"
+				value="将静态链接表中的链接数据迁移到新的静态链接表中，以实现静态链接关联总览功能" />
+		</item>
+	</extension>
+</plugin>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../../data-dict.xsd ">
+	
+	<model
+		modelName="com.landray.kmss.sys.xform.base.model.SysFormDbTable"
+		messageKey="sys-xform:table.sysFormDbTable"
+		displayProperty="fdName"
+		serviceBean="sysFormDbTableService"
+		table="sys_xform_db_table"
+		url="/sys/xform/base/sys_form_db_table/sysFormDbTable.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<!-- 名称 -->
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-xform:sysFormDbTable.fdName"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="true"
+			unique="false"
+			type="String"
+			column="fd_name"
+			length="200"
+			validate="true"/>
+		
+		<!-- 表字段 -->
+		<listProperty
+			name="fdColumns"
+			messageKey="sys-xform:sysFormDbTable.fdColumns"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			column="fd_column_id"
+			type="SysFormDbColumn"
+			cascade="all-delete-orphan"
+			inverse="false" />
+			
+		<!-- 表单ID -->
+		<simpleProperty
+			name="fdFormId"
+			messageKey=""
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="false"
+			notNull="true"
+			unique="false"
+			type="String"
+			column="fd_name"
+			length="50"
+			validate="false"/>
+			
+		<!-- 表单名 -->
+		<simpleProperty
+			name="fdFormName"
+			messageKey="sys-xform:sysFormDbTable.fdFormName"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="true"
+			unique="false"
+			type="String"
+			column="fd_name"
+			length="200"
+			validate="true"/>
+			
+		<!-- 表单类型 -->
+		<simpleProperty
+			name="fdFormType"
+			messageKey=""
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="false"
+			notNull="true"
+			unique="false"
+			type="String"
+			column="fd_name"
+			length="50"
+			validate="false"/>
+		
+		<!-- 创建时间 -->
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-xform:sysFormDbTable.docCreateTime"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="false"
+			unique="false"
+			type="DateTime"
+			column="doc_create_time"
+			length="0"/>
+		
+		<!-- 创建人 -->
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-xform:sysFormDbTable.docCreator"
+			type="SysOrgPerson"
+			column="doc_creator" />
+		
+		<!-- 表名 -->
+		<simpleProperty
+			name="fdTable"
+			messageKey="sys-xform:sysFormDbTable.fdTable"
+			canSubscribe="false"
+			canSearch="false"
+			canRelation="false"
+			canDisplay="true"
+			notNull="true"
+			unique="false"
+			type="String"
+			column="fd_table"
+			length="50"
+			validate="true"/>
+		
+		<simpleProperty
+			name="fdKey"
+			messageKey=""
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="100" />
+		<simpleProperty
+			name="fdModelName"
+			messageKey=""
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdTemplateModel"
+			messageKey=""
+			type="String"
+			column="fd_template_model"
+			notNull="false"
+			length="500" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey=""
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+	</model>
+</models>

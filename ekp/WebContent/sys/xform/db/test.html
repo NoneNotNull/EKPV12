@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>表表单持久化测试</title>
+</head>
+<body>
+<script type="text/javascript">
+var Com_Parameter = {
+	ContextPath:'/',
+	ResPath:"../../../resource/",
+	Style:"default",
+	JsFileList:new Array,
+	StylePath:"../../../resource/style/default/"
+};
+function OpenDialog() {
+	var params = {Window : window};
+	params.lang = {
+		"Number" : "数字",
+		"Double" : "数字",
+		"Double[]" : "数字",
+		"String" : "字符",
+		"String[]" : "字符",
+		"Date" : "日期",
+		"len" : "长度",
+		"com.landray.kmss.sys.organization.model.SysOrgElement" : "组织架构",
+		"com.landray.kmss.sys.organization.model.SysOrgElement[]" : "组织架构",
+		"RTF" : "大文本",
+		"Array" : "多值",
+		"Single" : "单值",
+		"Object" : "表"
+	};
+	params.controls = [
+		{name:'fd_001', label:'字段1', type:'String'},
+		{name:'fd_002', label:'字段2', type:'Double'},
+		{name:'fd_003', label:'字段3', type:'Date'},
+		{name:'fd_004', label:'字段4', type:'com.landray.kmss.sys.organization.model.SysOrgElement'},
+		{name:'fd_005', label:'字段5', type:'RTF'},
+		{name:'fd_006', label:'字段6', type:'com.landray.kmss.sys.organization.model.SysOrgElement[]'},
+		{name:'fd_007', label:'字段7', type:'Double[]'},
+		{name:'fd_008', label:'字段8', type:'String[]'},
+		{name:'fd_009', label:'字段9', type:'Object', children: [
+			{name:'fd_001', label:'字段1', type:'String'},
+			{name:'fd_002', label:'字段2', type:'Double'}
+		]}
+	];
+	params.config = {
+		entityName : '',
+		tableName : 'ekp_cf_123',
+		fields : {},
+		modelName : 'com.landray.kmss.km.review.model.KmReviewMain',
+		key : 'reviewMainDoc'
+	};
+	Dialog_PopupWindow('form_frame.html', 600, 700, params);
+}
+</script>
+<script type="text/javascript" src="../../../resource/js/common.js"></script>
+<script type="text/javascript" src="../../../resource/js/dialog.js"></script>
+<button onclick="OpenDialog();" style="width:100%;height:50px;">测试</button>
+</body>
+</html>

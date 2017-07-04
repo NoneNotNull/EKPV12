@@ -1,0 +1,303 @@
+@charset "utf-8";  
+/**
+** 代码制作人: 马泽棉
+** 制作时间：2015-03-10
+** 文件内容描述：UED移动端样式 登录界面
+** 修改日期：无
+** 修改内容：无
+**********************************************/
+
+
+
+/*---------------------------------------- 登录界面 ----------------------------------------*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.muiLoginPage{
+	background-color: #e3f3ff;
+}
+
+/*登录头部*/
+.muiLoginHeadBox {
+    padding:1.2rem 0 1.6rem;
+    min-height:12rem;
+    background:url(../images/loginBG.png) no-repeat 50%;
+    background-size:cover;
+    position:relative;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    overflow:hidden;
+}
+/*在可视区域的宽度在 321px 和 431px 之间的时候被应用(小米2/三星  360px)*/
+@media screen and (min-width: 321px) and (max-width: 400px) {
+    .muiLoginHeadBox {
+        min-height:15rem;
+    }
+}
+
+/*在可视区域的宽度大于401px 的时候被应用(魅族mx3 432px)*/
+@media screen and (min-width: 401px) {
+    .muiLoginHeadBox {
+        min-height:18rem;
+    }
+}
+
+.muiLoginHeadBox .div_error{
+    width: 100%;
+    text-align: center;
+	color: red;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 2px;
+}
+
+.muiLoginSculpture {
+    width: 110px;
+    height: 110px;
+    background-color:rgba(255,255,255,0.15);
+    border-radius:50%;
+    text-align:center;
+    position:relative;
+}
+.muiLoginSculpture .inner{
+    padding:10px;
+    width: 90px;
+    height: 90px;
+    border-radius:50%;
+}
+.muiLoginSculpture .inner img{ border:3px solid #fff; max-width:84px; border-radius:50%;}
+
+.muiLoginSculpture .coverRing{
+    width:100%;
+    height:100%;
+    background:url(../images/login_headRing.png) no-repeat 50%;
+    background-size:cover;
+    transition:all 0.3s;
+    position:absolute;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.muiLoginSculpture .coverRing.active{
+    -webkit-animation-name: rotate;
+    animation-name: rotate;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+
+}
+
+
+/*登录表单*/
+.muiLoginBar{
+    margin-bottom:5px;
+    background-color:#fff;
+}
+.muiLoginBar>li{
+    padding:5px 4rem 5px 4.5rem;
+    border-bottom:1px solid #e1e1e1;
+    position:relative;
+}
+.muiLoginBar>li .iconBox{
+    width:28px;
+    line-height:32px;
+    text-align:left;
+    color:#a3a3a3;
+    display:block;
+    position:absolute;
+    left:1.5rem;
+    top:7px;
+}
+.muiLoginBar>li .iconBox .mui{
+    color:#5498ff;
+    font-size: 2.8rem;
+    line-height:1;
+}
+.muiLoginBar>li input{
+    width:96%;
+    padding:10px 2%;
+    /*height:36px;
+    line-height:36px;*/
+    border:0;
+    color:#333;
+    font-size:1.6rem;
+    background:none;
+}
+.muiLoginBar>li.IDcodeBar{
+    padding-right:120px;
+}
+.muiLoginBar>li.IDcodeBar .IDCode{
+    max-width:90px;
+    height:36px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align:center;
+    text-align:right;
+    overflow:hidden;
+    position:absolute;
+    right:1.5rem;
+    top:5px;
+}
+.muiLoginBar>li.IDcodeBar .IDCode img{ max-width:100%;}
+
+.muiLoginBar div.inp_delete{
+	width: 2rem;
+	height: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+    right: 1.5rem;
+    top:50%;
+    margin-top: -10px;
+	cursor:pointer;
+	display: none;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+.muiLoginBar div.inp_delete .mui{
+    line-height: inherit;
+    color: #bababa;
+    font-size: 2.2rem;
+}
+.muiLoginTip {
+    padding:5px 1.5rem 0;
+}
+.muiLoginTip>ul{
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.muiLoginTip>ul>li{
+    display: table-cell;
+}
+.muiLoginTip>ul>li .remember{ margin-left: 1px;}
+.muiLoginTip>ul>li label{
+    margin-left:.6rem;
+    color:#999;
+    font-size:1.4rem;
+}
+.muiLoginTip>ul>li .checkbox{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border:1px solid #5498ff;
+    border-radius: 50%;
+    background-color: #fff;
+    display: inline-block;
+    transition:all 0.3s;
+    position: relative;
+    top:0px;
+}
+.muiLoginTip>ul>li .checkbox .mui{
+    line-height:1;
+    color: #5498ff;
+    font-size: 1.6rem;
+    position: relative;
+    top: 1px;
+    visibility: hidden;
+}
+.muiLoginTip>ul>li .checkbox.on .mui{ visibility: visible;}
+
+.muiLoginBtnBox {
+    margin-top:15px;
+    margin-bottom:40px;
+    padding:0 1.5rem;
+}
+.muiLoginBtnSubmit{
+    width:100%;
+    height:45px;
+    line-height:45px;
+    color:#fff!important;
+    letter-spacing:3px;
+    font-size:18px;
+    border:0;
+    outline:none;
+    border-radius:5px;
+    background-color:#5498ff;
+    transition:background 0.3s;
+    cursor:pointer;
+    display:block;
+    -webkit-appearance:none;
+}
+
+
+/*登录底部*/
+.muiLoginFooter{
+	width: 100%;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.muiLoginFooter>ul{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+	padding: 5px 0;
+}
+.muiLoginFooter>ul>li{
+	display: table-cell;
+	padding: 0 20px;
+	color: #5498ff;
+	font-size: 1.2rem;
+}
+.muiLoginFooter>ul>li:first-child{
+	text-align: right;
+	border-right: 1px solid #5498ff;
+}
+.muiLoginFooter>ul>li a{
+	color: #5498ff;
+	font-size: 1.2rem;
+}
+.muiLoginFooter>ul>li.on a{ color: #888;}
+.muiLoginFooter>ul>li .mui{
+	line-height: 1;
+    text-align: right;
+	font-size: 2rem;
+	margin-right: 4px;
+	position: relative;
+	top:-1px;
+}
+@media screen and (max-height: 401px) {
+	.muiLoginFooter {
+		position:static;
+	}
+    .muiLoginBtnBox {
+        margin-bottom:15px;
+    }
+}
+
+
+/*------------------------------------------------------------------------------------------*/
+
+

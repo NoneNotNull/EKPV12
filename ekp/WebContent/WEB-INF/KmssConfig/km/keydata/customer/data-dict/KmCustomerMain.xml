@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.keydata.customer.model.KmCustomerMain"
+		messageKey="km-keydata-customer:table.kmCustomerMain"
+		displayProperty="fdFax"
+		serviceBean="kmCustomerMainService"
+		extendClass="com.landray.kmss.km.keydata.base.model.KmKeydataBase"
+		table="km_keydata_customer_main"
+		url="/km/keydata/customer/km_customer_main/kmCustomerMain.do?method=showUsed&amp;fdId=${fdId}">
+
+		
+
+		<simpleProperty
+			name="fdBrief"
+			messageKey="km-keydata-customer:kmCustomerMain.fdBrief"
+			type="String"
+			column="fd_brief"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEnglishName"
+			messageKey="km-keydata-customer:kmCustomerMain.fdEnglishName"
+			type="String"
+			column="fd_english_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPinyin"
+			messageKey="km-keydata-customer:kmCustomerMain.fdPinyin"
+			type="String"
+			column="fd_pinyin"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPayNo"
+			messageKey="km-keydata-customer:kmCustomerMain.fdPayNo"
+			type="String"
+			column="fd_pay_no"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAddress"
+			messageKey="km-keydata-customer:kmCustomerMain.fdAddress"
+			type="String"
+			column="fd_address"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPostcode"
+			messageKey="km-keydata-customer:kmCustomerMain.fdPostcode"
+			type="String"
+			column="fd_postcode"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPhone"
+			messageKey="km-keydata-customer:kmCustomerMain.fdPhone"
+			type="String"
+			column="fd_phone"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdFax"
+			messageKey="km-keydata-customer:kmCustomerMain.fdFax"
+			type="String"
+			column="fd_fax"
+			notNull="false"
+			length="20"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUrl"
+			messageKey="km-keydata-customer:kmCustomerMain.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCredit"
+			messageKey="km-keydata-customer:kmCustomerMain.fdCredit"
+			type="String"
+			column="fd_credit"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="km-keydata-customer:kmCustomerMain.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="500"
+			validate="true" />
+
+		
+			
+
+
+		<modelProperty
+			name="kmCustomerCategory"
+			messageKey="km-keydata-customer:kmCustomerMain.fdCategoryName"
+			type="com.landray.kmss.km.keydata.customer.model.KmCustomerCategory"
+			column="fd_category_id"
+			notNull="true"
+			unique="true"
+			dialogJS="Dialog_SimpleCategory('com.landray.kmss.km.keydata.customer.model.KmCustomerCategory','!{idField}','!{nameField}',false,null,'00')"
+			canSearch="true"
+			canRelation="true"
+			canDisplay="true"
+			canSubscribe="true" />
+			
+		<modelProperty
+			name="fdCustomerManager"
+			messageKey="km-keydata-customer:kmCustomerMain.fdCustomerManager"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_customer_manager"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

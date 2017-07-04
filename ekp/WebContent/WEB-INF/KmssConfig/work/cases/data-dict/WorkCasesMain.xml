@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.work.cases.model.WorkCasesMain"
+		messageKey="work-cases:table.workCasesMain"
+		displayProperty="docSubject"
+		serviceBean="workCasesMainService"
+		table="work_cases_main"
+		url="/work/cases/work_cases_main/workCasesMain.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="work-cases:workCasesMain.docSubject"
+			type="String"
+			column="doc_subject"
+			canRelation="true"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="work-cases:workCasesMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+			
+		<simpleProperty
+			name="docStatus"
+			messageKey="work-cases:workCasesMain.docStatus"
+			type="String"
+			column="doc_status"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="work-cases:workCasesMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docPublishTime"
+			messageKey="work-cases:workCasesMain.docPublishTime"
+			type="DateTime"
+			column="doc_publish_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdWorkType"
+			messageKey="work-cases:workCasesMain.fdWorkType"
+			type="String"
+			column="fd_work_type"
+			notNull="true"
+			length="2"
+			enumType="work_cases_main_fd_work"
+			validate="true" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="work-cases:workCasesMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCategory"
+			messageKey="work-cases:workCasesMain.docCategory"
+			type="com.landray.kmss.work.cases.model.WorkCasesCategory"
+			column="doc_category_id"
+			notNull="false"
+			validate="false" />
+		<!-- 可阅读者 -->
+		<listProperty
+			name="authReaders"
+			messageKey="work-cases:workCasesMain.authReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_reader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 其它可阅读者 -->
+		<listProperty
+			name="authOtherReaders"
+			messageKey="work-cases:workCasesMain.authOtherReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_oreader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 所有可阅读者 -->
+		<listProperty
+			name="authAllReaders"
+			messageKey="work-cases:workCasesMain.authAllReaders"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_areader"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 可编辑者 -->
+		<listProperty
+			name="authEditors"
+			messageKey="work-cases:workCasesMain.authEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_editor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 其它可编辑者 -->
+		<listProperty
+			name="authOtherEditors"
+			messageKey="work-cases:workCasesMain.authOtherEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_oeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 所有可编辑者 -->
+		<listProperty
+			name="authAllEditors"
+			messageKey="work-cases:workCasesMain.authAllEditors"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_aeditor"
+			column="fd_doc_id"
+			elementColumn="fd_org_id" />
+		<!-- 通知人 -->
+		<listProperty
+			name="fdNotifiers"
+			messageKey="work-cases:workCasesMain.fdNotifiers"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="work_cases_main_notifiers"
+			column="fd_source_id"
+			elementColumn="fd_target_id" />
+
+ 
+
+ 
+	</model>
+</models>

@@ -1,0 +1,276 @@
+@CHARSET "UTF-8";
+
+/*@在线预览*/
+.readOnlineSign {
+	display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	background-color: #e4f0fe;
+	margin: 3px;
+	width: 90%;
+	WORD-WRAP: break-word;
+	TABLE-LAYOUT: fixed;
+	word-break: break-all;
+}
+
+.expand {
+	margin-left: 12px;
+	padding-left: 10px;
+	font-size: 13px;
+	text-decoration: underline;
+	background: url(images/doc_fold_arrow.png) no-repeat 0 5px;
+	cursor: pointer;
+}
+
+.tb_property {
+	margin: 10px;
+}
+
+.tb_property tr td {
+	padding: 6px 10px;
+}
+
+.tb_property tr td label {
+	margin: 4px 20px 4px 0;
+	line-height: 30px;
+}
+
+.lui_km_subjects {
+	color: #60afda;
+	font-size: 18px;
+	height: 20px;
+	float: left
+}
+
+.lui_form_content_frame .com_slideDown {
+	color: #3e9ece;
+}
+
+.lui_form_content_frame .lui_multidoc_titles {
+	color: #3e9ece;
+}
+
+.lui_multidoc_pro {
+	border-collapse: collapse;
+	background-color: #FFFFFF;
+	margin: 10px;
+	width: 700px;
+}
+
+.lui_multidoc_pro .td_normal_title {
+	text-align: center;
+}
+
+.td_normal_title {
+	text-align: center;
+}
+
+.kms_doc_view .img_small_box {
+	height: 137px;
+	padding: 16px;
+	background: #fff;
+	margin-bottom: 13px;
+}
+
+.clrfix {
+	zoom: 1;
+}
+
+ul {
+	list-style: none;
+}
+
+.img_small_box li {
+	float: left;
+}
+
+.img_small_btnbar {
+	/**width: 14px;**/
+	height: 14px;
+	margin-top: 42px;
+	cursor: pointer;
+	position: relative;
+}
+
+.img_small_btnbar .d_i_trigL {
+	border-right: 10px solid #d0d0d0;
+	left: 0;
+}
+
+.img_small_btnbar .d_i_maintrig {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-top: 10px dashed transparent;
+	border-bottom: 10px dashed transparent;
+	position: absolute;
+	top: 50%;
+	margin-top: -10px;
+}
+
+.img_small_btnbar .d_i_trig_coverL {
+	border-right: 10px solid #f3f3f3;
+	left: 4px;
+}
+
+.img_small_btnbar .d_i_trigR {
+	border-left: 10px solid #d0d0d0;
+	right: 0;
+}
+
+.img_small_btnbar .d_i_trig_coverR {
+	border-left: 10px solid #f3f3f3;
+	right: 4px;
+}
+
+.picList UL LI {
+	float: left;
+	margin: 0px 15px;
+}
+
+.picList UL {
+	height: 112px;
+	border: 0px;
+	list-style-type: none;
+	margin-left: 30px;
+	width: 100%;
+}
+
+.picList {
+	height: 112px;
+}
+
+.img_small_btnl {
+	width: 17px;
+	height: 112px;
+	text-align: center;
+	line-height: 112px;
+	background: #f3f3f3;
+	float: left;
+}
+
+.img_small_btnr {
+	width: 17px;
+	height: 112px;
+	text-align: center;
+	line-height: 112px;
+	background: #f3f3f3;
+	float: left;
+	/*margin-left:13px;*/
+}
+
+.lui_multidoc_showPic {
+	padding: 7px 0;
+	background: #fff;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
+}
+
+.lui_multidoc_showPic_content {
+	position: absolute; height; 565 px;
+	left: 0px;
+	display: block;
+}
+
+.lui_multidoc_showPic_container {
+	position: relative;
+	overflow: hidden;
+	/**width: 750px;**/
+	height: 565px;
+}
+
+#sImg {
+	float: right;
+	position: relative;
+	left: -5px;
+	top: -20px;
+}
+
+.lui_multidoc_tagEdit input {
+	margin-top: 5px;
+	width: 100%;
+}
+
+.lui_multidoc_tagEdit {
+	margin: 20px 30px;
+}
+
+.lui_multidoc_baseInfo_ul {
+	padding: 0px 4px 0px 6px;
+}
+
+.lui_multidoc_baseInfo_ul li {
+	padding: 4px 0;
+}
+
+.lui_multidoc_slideUp {
+	float: right;
+	padding-left: 17px;
+	font-size: 14px;
+	background: url(img/lui_multidoc_content_btn.png) no-repeat 0px 0;
+	cursor: pointer;
+}
+
+.lui_multidoc_slideDown {
+	float: right;
+	padding-left: 17px;
+	font-size: 14px;
+	background: url(img/lui_multidoc_content_btn.png) no-repeat 0 0;
+	cursor: pointer;
+}
+
+.insignia_left {
+	display: block;
+	margin-top: 50px;
+	width: 150px;
+	height: 451px;
+	z-index: 5;
+	position: absolute;
+	background-image: url(about:blank);
+}
+
+.insignia_right {
+	display: block;
+	margin-top: 50px;
+	width: 150px;
+	height: 451px;
+	z-index: 10;
+	position: absolute;
+	right:15px;
+	background-image: url(about:blank);
+}
+
+.lui_knowledge_reason_box {
+	padding: 10px;
+}
+
+.lui_knowledge_recover_title {
+	margin: 5px 0px 10px;
+}
+.small_pic_list{
+	width:100%;
+}
+.smallDiv{
+	width: 80px;
+	height: 110px;
+	line-height: 110px;
+	text-align: center;
+}
+.smallPic{
+	border: 1px;
+	max-width: 80px;
+	max-height: 106px;
+	vertical-align: middle;
+}	
+.smallDiv2{
+	border: #f0f0f0 2px solid;
+	height: 110px;
+	width: 80px;
+	line-height: 110px;
+	text-align: center;
+}
+.noShowBorder{
+	border: #f0f0f0 2px solid;
+}

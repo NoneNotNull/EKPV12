@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- ======================== FILTER CHAIN ======================= -->
+
+	<!--
+		if you wish to use channel security, add "channelProcessingFilter," in
+		front of "httpSessionContextIntegrationFilter" in the list below
+	-->
+	<bean id="filterChainProxy" class="org.acegisecurity.util.FilterChainProxy">
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT
+				/**/*.gif=resourceCacheFilter
+				/**/*.jpg=resourceCacheFilter
+				/**/*.png=resourceCacheFilter
+				/**/*.bmp=resourceCacheFilter
+				/**/*.ico=resourceCacheFilter
+				/**/*.css=resourceCacheFilter
+				/**/*.js=resourceCacheFilter
+				/**/*.tmpl=resourceCacheFilter
+				/**=httpSessionContextIntegrationFilter,checkVerificationCodeFilter,kmssProcessingFilterProxy,exceptionTranslationFilter,filterInvocationInterceptor
+			</value>
+		</property>
+	</bean>
+	<!-- 登录验证码的过滤器 -->
+	<bean id="checkVerificationCodeFilter" class="com.landray.kmss.sys.authentication.integration.CheckVerificationCodeFilter">
+		<property name="authenticationEntryPoint">
+			<ref local="authenticationProcessingFilterEntryPoint" />
+		</property>
+	</bean>
+	
+	<bean id="resourceCacheFilter" class="com.landray.kmss.web.filter.ResourceCacheFilter" />
+
+	<!--
+		======================== httpSessionContextIntegrationFilter
+		=======================
+	-->
+	<bean id="httpSessionContextIntegrationFilter"
+		class="org.acegisecurity.context.HttpSessionContextIntegrationFilter">
+	</bean>
+
+	<!--
+		======================== authenticationProcessingFilter
+		=======================
+	-->
+	<bean id="authenticationProcessingFilter"
+		class="com.landray.kmss.sys.authentication.integration.KmssAuthenticationProcessingFilter">
+		<property name="authenticationManager">
+			<ref bean="authenticationManager" />
+		</property>
+		<property name="authenticationFailureUrl">
+			<value>/login.jsp?login_error=1</value>
+		</property>
+		<property name="defaultTargetUrl">
+			<value>/</value>
+		</property>
+		<property name="filterProcessesUrl">
+			<value>/j_acegi_security_check</value>
+		</property>
+		<property name="rememberMeServices">
+			<ref local="rememberMeServices" />
+		</property>
+	</bean>
+
+	<!--
+		======================== rememberMeProcessingFilter
+		=======================
+	-->
+	<bean id="rememberMeProcessingFilter"
+		class="org.acegisecurity.ui.rememberme.RememberMeProcessingFilter">
+		<property name="authenticationManager">
+			<ref local="authenticationManager" />
+		</property>
+		<property name="rememberMeServices">
+			<ref local="rememberMeServices" />
+		</property>
+	</bean>
+	<bean id="rememberMeServices"
+		class="org.acegisecurity.ui.rememberme.TokenBasedRememberMeServices">
+		<property name="userDetailsService">
+			<ref local="kmssUserDetailsService" />
+		</property>
+		<property name="key">
+			<value>springRocks</value>
+		</property>
+	</bean>
+	<!-- Provider -->
+	<bean id="rememberMeAuthenticationProvider"
+		class="org.acegisecurity.providers.rememberme.RememberMeAuthenticationProvider">
+		<property name="key">
+			<value>springRocks</value>
+		</property>
+	</bean>
+
+	<!--
+		======================== anonymousProcessingFilter
+		=======================
+	-->
+	<bean id="anonymousProcessingFilter"
+		class="org.acegisecurity.providers.anonymous.AnonymousProcessingFilter">
+		<property name="key">
+			<value>foobar</value>
+		</property>
+		<property name="userAttribute">
+			<value>anonymousUser,SYSROLE_ANONYMOUS
+			</value>
+		</property>
+	</bean>
+	<!-- Provider -->
+	<bean id="anonymousAuthenticationProvider"
+		class="org.acegisecurity.providers.anonymous.AnonymousAuthenticationProvider">
+		<property name="key">
+			<value>foobar</value>
+		</property>
+	</bean>
+
+	<!--
+		======================== exceptionTranslationFilter
+		=======================
+	-->
+	<bean id="exceptionTranslationFilter" class="org.acegisecurity.ui.ExceptionTranslationFilter">
+		<property name="authenticationEntryPoint">
+			<ref local="authenticationProcessingFilterEntryPoint" />
+		</property>
+	</bean>
+	<bean id="authenticationProcessingFilterEntryPoint"
+		class="com.landray.kmss.sys.authentication.integration.KmssAuthenticationProcessingFilterEntryPoint">
+		<property name="loginFormUrl">
+			<value>/login.jsp</value>
+		</property>
+		<property name="forceHttps">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<!--
+		======================== filterInvocationInterceptor (AUTHENTICATION)
+		=======================
+	-->
+	<!--
+		Note the order that entries are placed against the
+		objectDefinitionSource is critical. The FilterSecurityInterceptor will
+		work from the top of the list down to the FIRST pattern that matches
+		the request URL. Accordingly, you should place MOST SPECIFIC (ie
+		a/b/c/d.*) expressions first, with LEAST SPECIFIC (ie a/.*)
+		expressions last
+	-->
+	<bean id="filterInvocationInterceptor"
+		class="org.acegisecurity.intercept.web.FilterSecurityInterceptor">
+		<property name="authenticationManager">
+			<ref bean="authenticationManager" />
+		</property>
+		<property name="accessDecisionManager">
+			<ref local="httpRequestAccessDecisionManager" />
+		</property>
+		<property name="observeOncePerRequest" value="false" />
+		<property name="objectDefinitionSource">
+			<!--
+				value> CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				PATTERN_TYPE_APACHE_ANT /index.jsp=ROLE_1,ROLE_3
+				/login.jsp*=ROLE_ANONYMOUS,ROLE_1,ROLE_3 /**=ROLE_ANONYMOUS </value
+			-->
+			<ref local="filterInvocationDefinitionSource" />
+		</property>
+	</bean>
+	<bean id="httpRequestAccessDecisionManager" class="org.acegisecurity.vote.AffirmativeBased">
+		<property name="allowIfAllAbstainDecisions">
+			<value>false</value>
+		</property>
+		<property name="decisionVoters">
+			<list>
+				<ref bean="roleVoter" />
+			</list>
+		</property>
+	</bean>
+	<!--
+		An access decision voter that reads ROLE_* configuration settings
+	-->
+	<bean id="roleVoter" class="org.acegisecurity.vote.RoleVoter">
+		<property name="rolePrefix">
+			<value />
+		</property>
+	</bean>
+	<bean id="filterInvocationDefinitionSource"
+		class="com.landray.kmss.sys.authentication.intercept.FilterInvocationDefinitionSourceImp">
+		<property name="validateCore">
+			<ref local="authenticationValidateCore" />
+		</property>
+		<property name="anonymousPaths">
+			<value>
+				/login.jsp*; /resource/**; /service/**; /*/*.index; /logout*; /admin.do*; /browser.jsp*;
+				/axis/*; /kk*; /forward.html*; /sys/webservice/*; /vcode.jsp;
+			</value>
+		</property>
+	</bean>
+	<bean id="authenticationValidateCore" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.authentication.intercept.AuthenticationValidateCoreImp">
+				<property name="baseService">
+					<ref bean="KmssBaseService" />
+				</property>
+				<property name="defaultValidator" value="roleValidator(role=SYSROLE_USER)" />
+			</bean>
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!--
+		===================== kmssProcessingFilterProxy ====================
+	-->
+	<bean id="kmssProcessingFilterProxy"
+		class="com.landray.kmss.sys.authentication.integration.KmssProcessingFilterProxy" />
+
+	<!--
+		===================== httpProcessingFilter (AUTHENTICATION FOR DOMINO)
+		====================
+	-->
+	<bean id="autoLoginHelper" class="com.landray.kmss.sys.authentication.AutoLoginHelper">
+		<property name="userDetailsService">
+			<ref local="kmssUserDetailsService" />
+		</property>
+		<property name="key">
+			<value>springRocks1</value>
+		</property>
+	</bean>
+
+	<!--
+		===================== EKPSSOClientAuthenticationFilter (AUTHENTICATION
+		FOR SSOClient) ====================
+	-->
+	<bean id="EKPSSOClientAuthenticationFilter"
+		class="com.landray.kmss.sys.authentication.ssoclient.EKPSSOClientAuthenticationFilter">
+		<property name="autoLoginHelper">
+			<ref local="autoLoginHelper" />
+		</property>
+	</bean>
+	<bean id="EKPSSOClientChgUserEventFilter"
+		class="com.landray.kmss.sys.authentication.ssoclient.EKPSSOClientChgUserEventFilter" />
+
+
+	<!--
+		======================== authenticationManager =======================
+	-->
+	<bean id="authenticationManager" class="org.acegisecurity.providers.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="daoAuthenticationProvider" />
+				<ref local="anonymousAuthenticationProvider" />
+				<ref local="rememberMeAuthenticationProvider" />
+			</list>
+		</property>
+	</bean>
+	<!-- Provider -->
+	<bean id="daoAuthenticationProvider"
+		class="org.acegisecurity.providers.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService">
+			<ref local="kmssUserDetailsService" />
+		</property>
+		<!--
+			property name="userCache"> <ref local="userCache" /> </property
+		-->
+		<property name="passwordEncoder">
+			<ref bean="passwordEncoder" />
+		</property>
+	</bean>
+	
+	<bean id="dataAccessManager" parent="KmssBaseService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.authentication.user.validate.DataAccessManagerImp">
+				<property name="sessionFactory">
+					<ref bean="sessionFactory"/>
+				</property>				
+			</bean>
+		</property>
+	</bean>
+		
+	<bean
+		id="kmssUserDetailsServiceTarget"
+		class="com.landray.kmss.sys.authentication.user.KMSSUserDetailsService">
+		<property name="orgService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="roleService">
+			<ref bean="sysAuthRoleService" />
+		</property>
+		<property name="sysOrgPersonService">
+			<ref bean="sysOrgPersonService"/>
+		</property>
+		<property name="sysAuthDefaultAreaService">
+			<ref bean="sysAuthDefaultAreaService"/>
+		</property>	
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService"/>
+		</property>
+		<property name="dataAccessManager">
+			<ref local="dataAccessManager"/>
+		</property>
+	</bean>
+	
+	<bean id="kmssUserDetailsService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmssUserDetailsServiceTarget" />
+		</property>
+	</bean>
+	<!-- ===================== cacheManager ==================== -->
+	<bean id="cacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" />
+	<bean id="userCacheBackend" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheManager">
+			<ref local="cacheManager" />
+		</property>
+		<property name="cacheName">
+			<value>com.landray.kmss.userCache</value>
+		</property>
+	</bean>
+	<bean id="userCache"
+		class="org.acegisecurity.providers.dao.cache.EhCacheBasedUserCache">
+		<property name="cache">
+			<ref local="userCacheBackend" />
+		</property>
+	</bean>
+
+	<!-- Automatically receives AuthenticationEvent messages -->
+	<!--
+		<bean id="loggerListener"
+		class="org.acegisecurity.event.authentication.LoggerListener" />
+	-->
+
+	<!--
+		===================== channelProcessingFilter (HTTP CHANNEL
+		REQUIREMENTS) ====================
+	-->
+	<!--
+		You will need to uncomment the "Acegi Channel Processing Filter"
+		<filter-mapping> in web.xml for the following beans to be used
+	-->
+	<bean id="channelProcessingFilter" class="org.acegisecurity.securechannel.ChannelProcessingFilter">
+		<property name="channelDecisionManager">
+			<ref local="channelDecisionManager" />
+		</property>
+		<property name="filterInvocationDefinitionSource">
+			<value>
+				CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+				\A/sys/.*\Z=REQUIRES_SECURE_CHANNEL
+				\A/login.jsp.*\Z=REQUIRES_SECURE_CHANNEL
+				\A/j_acegi_security_check.*\Z=REQUIRES_SECURE_CHANNEL
+				\A.*\Z=REQUIRES_INSECURE_CHANNEL
+			</value>
+		</property>
+	</bean>
+	<bean id="channelDecisionManager"
+		class="org.acegisecurity.securechannel.ChannelDecisionManagerImpl">
+		<property name="channelProcessors">
+			<list>
+				<ref local="secureChannelProcessor" />
+				<ref local="insecureChannelProcessor" />
+			</list>
+		</property>
+	</bean>
+	<bean id="secureChannelProcessor" class="org.acegisecurity.securechannel.SecureChannelProcessor" />
+	<bean id="insecureChannelProcessor"
+		class="org.acegisecurity.securechannel.InsecureChannelProcessor" />
+
+	<!--
+		===================== switchUserProcessingFilter (HTTP REQUEST
+		SECURITY) ====================
+	-->
+	<!--
+		Filter used to switch the user context. Note: the switch and exit url
+		must be secured based on the role granted the ability to 'switch' to
+		another user
+	-->
+	<!--
+		In this example 'marissa' has ROLE_SUPERVISOR that can switch to
+		regular ROLE_USER(s)
+	-->
+	<bean id="switchUserProcessingFilter"
+		class="org.acegisecurity.ui.switchuser.SwitchUserProcessingFilter">
+		<property name="userDetailsService" ref="kmssUserDetailsService" />
+		<property name="switchUserUrl">
+			<value>/j_acegi_switch_user</value>
+		</property>
+		<property name="exitUserUrl">
+			<value>/j_acegi_exit_user</value>
+		</property>
+		<property name="targetUrl">
+			<value>/index.jsp</value>
+		</property>
+	</bean>
+
+	<bean id="backgroundAuthService"
+		class="com.landray.kmss.sys.authentication.background.BackgroundAuthServiceImp">
+		<property name="userDetailsService" ref="kmssUserDetailsService" />
+		<property name="orgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<!-- ===================== Validators ==================== -->
+	<bean id="authCategoryEditorValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AuthCategoryValidator">
+		<property name="sysCategoryMainAuthService">
+			<ref bean="sysCategoryMainAuthService" />
+		</property>
+		<property name="fieldType">
+			<value>Editors</value>
+		</property>
+	</bean>
+	<bean id="authCategoryReaderValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AuthCategoryValidator">
+		<property name="sysCategoryMainAuthService">
+			<ref bean="sysCategoryMainAuthService" />
+		</property>
+		<property name="fieldType">
+			<value>Readers</value>
+		</property>
+	</bean>
+
+	<bean id="authSimpleCategoryEditorValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AuthSimpleCategoryValidator">
+		<property name="fieldType">
+			<value>Editors</value>
+		</property>
+	</bean>
+	<bean id="authSimpleCategoryReaderValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AuthSimpleCategoryValidator">
+		<property name="fieldType">
+			<value>Readers</value>
+		</property>
+	</bean>
+	<bean id="roleValidator"
+		class="com.landray.kmss.sys.authentication.intercept.RoleValidator" />
+	<bean id="orgAdminValidator"
+		class="com.landray.kmss.sys.authentication.intercept.OrgAdminValidator">
+		<property name="orgService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="checkOrg" value="true" />
+	</bean>
+	<bean id="deptAdminValidator"
+		class="com.landray.kmss.sys.authentication.intercept.OrgAdminValidator">
+		<property name="orgService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property name="checkOrg" value="false" />
+	</bean>
+	<bean id="authFieldValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AuthFieldValidator">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao" />
+		</property>
+		<property name="hqlBuilder">
+			<ref bean="kmssAuthHQLBuilder" />
+		</property>
+	</bean>
+	<bean id="fieldValueValidator"
+		class="com.landray.kmss.sys.authentication.intercept.FieldValueValidator" />
+	<bean id="ajaxRoleValidator"
+		class="com.landray.kmss.sys.authentication.intercept.AjaxRoleValidator" />
+		
+	<!-- ===================== filters ==================== -->
+	<bean id="authFieldFilter"
+		class="com.landray.kmss.sys.authentication.filter.AuthFieldFilter" />
+	<bean id="authOrgFieldFilter"
+		class="com.landray.kmss.sys.authentication.filter.AuthOrgFieldFilter" />
+	<bean id="flagFieldFilter"
+		class="com.landray.kmss.sys.authentication.filter.FlagFieldFilter" />
+	<bean id="roleFilter" class="com.landray.kmss.sys.authentication.filter.RoleFilter" />
+
+	<!-- 系统内部优化使用  -->
+	<bean
+		id="authFieldInnerJoinFilter"
+		class="com.landray.kmss.sys.authentication.filter.AuthFieldInnerJoinFilter" />
+
+	<bean id="authHQLPart"
+		class="com.landray.kmss.sys.authentication.filter.AuthHQLPart" />
+
+	<bean id="kmssAuthHQLBuilder" class="com.landray.kmss.common.dao.HQLCombiner">
+		<property name="hqlBuilder">
+		    <ref bean="kmssHQLBuilder" />
+		</property>	
+        <property name="hqlParts">
+            <set>
+                <ref local="authHQLPart" />
+            </set>
+        </property>	
+	</bean>
+	<bean id="KmssAuthBaseDao" class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="hqlBuilder">
+			<ref local="kmssAuthHQLBuilder" />
+		</property>
+	</bean>	
+</beans>

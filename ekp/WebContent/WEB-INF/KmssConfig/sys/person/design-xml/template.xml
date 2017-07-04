@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/lui  ../../../sys/ui/lui.xsd
+			http://www.landray.com.cn/schema/design  ../../../design-xml.xsd">
+	
+	
+	<template id="person.cfg" name="默认个人配置模板"
+		file="/sys/person/template/person.cfg.jsp" thumb="xx.jpg"
+		for="person"
+		help="">
+	</template>
+	<template id="link.edit" name="默认链接编辑模板"
+		file="/sys/person/template/link.edit.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="person.home" name="默认个人门户展现模版"
+		file="/sys/person/template/person.home.jsp"
+		designer="/sys/person/designer/home.jsp"
+		thumb="/sys/person/designer/home.png"
+		for="portal"
+		help="/sys/person/designer/help.jsp">
+	</template>
+	<template id="zone.home" name="默认个人空间展现模版"
+		file="/sys/person/template/zone.home.jsp"
+		designer="/sys/person/designer/zone.jsp"
+		thumb="/sys/person/designer/zone.png"
+		for="zone"
+		help="">
+	</template>
+</root>

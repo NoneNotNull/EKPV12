@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- RSS 权限 -->
+	<module
+		messageKey="sys-rss:module.sys.rss"
+		urlPrefix="/sys/rss/"
+		defaultValidator="roleValidator(role=ROLE_SYSRSS_DEFAULT)">
+		<roles>
+			ROLE_SYSRSS_DEFAULT;
+			ROLE_SYSRSS_CATEGORY;
+			ROLE_SYSRSS_MAIN;
+		</roles>
+		
+		<request
+			path="sys_rss_category/sysRssCategory*">
+			<query
+				queryString="method=add|save|saveadd|view|edit|update|deleteall|delete|list"
+				validator="roleValidator(role=ROLE_SYSRSS_CATEGORY)" />
+		</request>
+		<request
+			path="sys_rss_main/sysRssMain*">
+			<query
+				queryString="method=add|save|saveadd|edit|update|deleteall|delete"
+				validator="roleValidator(role=ROLE_SYSRSS_MAIN)" />
+		</request>
+		<!-- sys_rss_main/sysRssMain* 下另有 read 和 proxy 方法，只做了ROLE_SYSRSS_DEFAULT过滤 -->
+	</module>
+	
+	<!-- 门户portlet -->
+	<portlet
+		moduleKey="sys-rss:home.nav.sysRssMain"
+		messageKey="sys-rss:sysRssMain.portlet"
+		contentURL="/sys/rss/sys_rss_main/sysRssMain.do?method=read&amp;cid=!{cateid}&amp;LUIID=!{lui.element.id}"
+		cateBean="sysRssCategoryTreeService&amp;portlet=true&amp;selectdId=!{cateid}" 
+		moduleNode="true"/>
+	
+	<!-- 模块主页 -->
+	<homePage
+		urlPrefix="sys/rss"
+		url="/moduleindex.jsp?nav=/sys/rss/tree.jsp&amp;main=%2Fsys%2Frss%2Fsys_rss_main%2FsysRssMain.do%3Fmethod%3Dlist%26s_path%3D!{message(sys-rss:table.sysRssMain)}"
+		messageKey="sys-rss:home.nav.sysRssMain" />
+</configs>

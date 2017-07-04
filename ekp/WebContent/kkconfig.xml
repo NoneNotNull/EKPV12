@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<site>
+		<!-- ekp Java主服务器地址以及其配置文件 -->
+		<url>http://192.168.2.186/ekp</url>
+		<config>/kksiteconfig.xml</config>
+	</site>
+	<forward-page>/forward.html</forward-page>
+	<token>JSESSIONID</token>
+    <imserver>202.105.139.182</imserver>
+    <import>5200</import>
+</config>

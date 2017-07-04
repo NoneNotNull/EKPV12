@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.lbpmservice.transfer.auditnote.AuditNoteTransferTask" />
+			<param
+				name="name"
+				value="流程审批意见权限数据迁移" />
+			<param
+				name="path"
+				value="/sys/lbpmservice/support/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.lbpmservice.transfer.auditnote.AuditNoteTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.lbpmservice.transfer.auditnote.AuditNoteTransferTask" />
+			<param
+				name="description"
+				value="审批意见权限数据迁移，迁移完成后，请验证审批意见并发意见分组和隐藏功能是否正确。" />
+		</item>
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.lbpmservice.transfer.opthandler.OptHandlerTransferTask" />
+			<param
+				name="name"
+				value="流程备选处理人数据迁移" />
+			<param
+				name="path"
+				value="/sys/lbpmservice/support/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.lbpmservice.transfer.opthandler.OptHandlerTransferTask" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.lbpmservice.transfer.opthandler.OptHandlerTransferTask" />
+			<param
+				name="description"
+				value="备选处理人数据迁移，迁移完成后，请验证模版、流程实例备选处理人是否正确。" />
+		</item>
+	</extension>
+
+</plugin>

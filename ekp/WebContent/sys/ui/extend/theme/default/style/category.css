@@ -1,0 +1,465 @@
+﻿@charset "utf-8";
+
+/*选择分类 */
+li {
+	list-style: none;
+	padding: 0;
+}
+
+.lui_category_headerL {
+	padding-left: 0;
+}
+
+.lui_category_headerR {
+	padding-right: 0;
+}
+
+.lui_category_headerC {
+	height: 34px;
+	padding: 0 10px;
+	font-size: 14px;
+	color: #fff;
+	line-height: 34px;
+	background-color: #35a9dc;
+}
+
+.lui_category_headerC h4 {
+	font-size: 14px;
+	color: #fff;
+	float: left;
+}
+
+.lui_category_centreL {
+	padding-left: 0px;
+}
+
+.lui_category_centreR {
+	padding-right: 0px;
+}
+
+.lui_category_footL {
+	padding-left: 0;
+}
+
+.lui_category_footR {
+	padding-right: 0;
+}
+
+/*选择分类 内容*/
+.lui_category_content {
+	padding: 0 8px;
+	/*margin-top: 52px;*/
+}
+
+.lui_category_content li {
+	list-style: none;
+	padding: 0;
+	position: relative;
+	height: 28px;
+}
+
+.lui_category_location {
+	padding: 10px 0 0 0;
+	font-size: 12px;
+	color: #7d7d7d;
+}
+
+.lui_category_location span { /* font-weight:bold;*/
+	font-size: 13px;
+	color: #4d4d4d;
+}
+
+.lui_category_search_box {
+	margin: 8px 0;
+}
+
+.lui_category_search_box input {
+	width: 660px;
+	height: 14px;
+	padding: 5px;
+	color: #7d7d7d;
+	border: 1px solid #ccc;
+	outline: none;
+	font-family: Microsoft YaHei, Geneva, "sans-serif", SimSun;
+}
+
+.lui_category_search_box a {
+	width: 90px;
+	height: 24px;
+	margin-left: 4px;
+	font-size: 12px;
+	line-height: 24px;
+	text-align: center;
+	color: #fff;
+	display: inline-block;
+	border: 1px solid #3ba6d4;
+	background-color: #35a9dc;
+}
+
+.lui_category_search_box a:hover {
+	border: 1px solid #2686c1;
+	background-color: #2f9adb;
+}
+
+.lui_category_select_box {
+	margin-bottom: 10px;
+}
+
+.lui_category_select_box select {
+	width: 200px;
+	height: 24px;
+	padding: 2px 5px;
+	color: #7d7d7d;
+	vertical-align: middle;
+	outline: none;
+}
+
+.lui_category_select_box label a {
+	margin-left: 10px;
+	color: #e79005;
+	text-decoration: underline;
+}
+
+.lui_category_select_box label a:hover {
+	color: #db782c;
+}
+
+.lui_category_frame {
+	border: 1px solid #ccc;
+	width: 771px;
+	position: relative;
+}
+
+.lui_category_frame .lui_category_frame_item {
+	width: 236px;
+	height: 270px;
+	border: 1px solid #fff;
+	background-color: #f7f7f7;
+	overflow-x: none;
+	overflow-y: scroll;
+	float: left;
+	padding-top: 8px;
+}
+
+/*内部sou'suo*/
+.lui_category_search {
+	padding: 0 8px;
+	position: fixed;
+	z-index: 2;
+	background-color: #f7f7f7;
+}
+
+.lui_category_search li {
+	margin: 4px 0;
+	font-size: 14px;
+	color: #323232;
+	zoom: 1;
+}
+
+.lui_category_search li:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.lui_category_search li.search {
+	width: 190px;
+	height: 26px;
+	margin: 15px 0 8px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+
+.lui_category_search li.search span {
+	width: 13px;
+	height: 26px;
+	margin-right: 6px;
+	background: url(../images/category/choose_search_icon.gif) no-repeat 0
+		50%;
+	float: right;
+	display: block;
+	cursor: pointer;
+}
+
+.lui_category_search li.search input {
+	width: 160px;
+	height: 14px;
+	padding: 5px;
+	border: none;
+	color: #7d7d7d;
+	background-color: #fff;
+	outline: none;
+}
+
+/*分类选择层级块*/
+.lui_category_content li .lui_category_itemLink {
+	width: 170px;
+	height: 26px;
+	margin: 1px;
+	padding: 0 4px;
+	line-height: 26px;
+	color: #333;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.lui_category_content li {
+	border: 1px solid #f7f7f7;
+}
+
+.lui_category_content li .lui_category_itemLink_single {
+	width: 90%;
+	height: 26px;
+	margin: 1px;
+	padding: 0 4px;
+	line-height: 26px;
+	color: #333;
+	display: block;
+	float: left;
+	position: relative;
+}
+
+.lui_category_content li.lui_category_li_on,.lui_category_content li:hover
+	{
+	margin: 0;
+	border: 1px solid #ccc;
+	color: #2b97d5;
+}
+
+.lui_category_content li.lui_category_li_on {
+	background-color: #fff;
+}
+
+.lui_category_content li.lui_category_li_on .lui_category_itemLink_single {
+	color: #3099da;
+}
+
+.lui_category_content li .lui_category_itemLink .ct_c_trig,.lui_category_content li .lui_category_itemLink_single .ct_c_trig
+	{
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 4px;
+	border-style: dashed dashed dashed solid;
+	border-color: transparent;
+	position: absolute;
+	right: 4px;
+	top: 50%;
+	margin-top: -4px;
+}
+
+.lui_category_content li .lui_category_itemLink input,.lui_category_content li .lui_category_itemLink_single input,.lui_category_content li .lui_category_itemLink .lui_category_select_space
+	{
+	margin: 6px 5px 0 0;
+	float: left;
+}
+
+.lui_category_content li .lui_category_itemLink .lui_category_select_space
+	{
+	display: block;
+	width: 13px;
+	height: 13px;
+}
+
+.lui_category_content li .lui_category_itemLink label {
+	float: left;
+	cursor: pointer;
+	width: 85%;
+}
+
+.lui_category_content li .lui_category_itemLink_single label {
+	float: left;
+	cursor: pointer;
+	width: 95%;
+}
+
+.lui_category_content li.lui_category_itemLink_checked .lui_category_itemBtn
+	{
+	width: 15px;
+	height: 15px;
+	margin-top: 6px;
+	margin-right: 2px;
+	background: url(../images/category/chooseType_btn_1.png) no-repeat 0 0;
+	display: block;
+	float: right;
+}
+
+.lui_category_content .lui_category_item_category {
+	width: 15px;
+	height: 15px;
+	margin-top: 6px;
+	margin-right: 2px;
+	background: url(../images/category/category.png) no-repeat 0 0;
+	display: block;
+	float: left;
+}
+
+.lui_category_content .lui_category_item_template {
+	width: 15px;
+	height: 16px;
+	margin-top: 6px;
+	margin-right: 2px;
+	background: url(../images/category/template.png) no-repeat 0 0;
+	display: block;
+	float: left;
+}
+
+/*下方已选择分类区域*/
+.lui_category_cond_selected_box {
+	height: 40px;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-top: none;
+	width: 751px;
+	overflow-y: scroll;
+}
+
+.lui_category_cond_selected_box li {
+	margin: 5px 16px 5px 0;
+	color: #4b4b4b;
+	float: left;
+}
+
+.lui_category_cond_selected_box li span {
+	display: block;
+	float: left;
+}
+
+.lui_category_cond_selected_box li a {
+	width: 15px;
+	height: 15px;
+	margin-left: 4px;
+	margin-top: 1px;
+	background: url(../images/category/chooseType_btn_1.png) no-repeat 0
+		-25px;
+	display: block;
+	float: left;
+}
+
+.lui_category_btn_box {
+	padding: 15px 0;
+}
+
+.lui_category_btnC a {
+	width: 74px;
+	height: 24px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: center;
+	color: #fff;
+	display: block;
+	border: 1px solid #3ba6d4;
+	background-color: #35a9dc;
+}
+
+.lui_category_btnC a:hover {
+	border: 1px solid #2686c1;
+	background-color: #2f9adb;
+}
+
+/*左右滑动按钮*/
+.lui_category_frame .lui_category_aleft,.lui_category_frame .lui_category_aright
+	{
+	width: 28px;
+	height: 280px;
+	cursor: default;
+}
+
+.lui_category_frame .lui_category_aleft {
+	background: #eaf4fd url(../images/category/hotpic_nav_prev.png)
+		no-repeat center center;
+	float: left;
+}
+
+.lui_category_frame .lui_category_aright {
+	background: #eaf4fd url(../images/category/hotpic_nav_next.png)
+		no-repeat center center;
+	float: right;
+}
+
+.lui_category_frame .lui_category_aleft.validity {
+	background: #35a9dc url(../images/category/hotpic_nav_prev.png)
+		no-repeat center center;
+	cursor : pointer;
+}
+
+.lui_category_frame .lui_category_aright.validity {
+	background: #35a9dc url(../images/category/hotpic_nav_next.png)
+		no-repeat center center;
+	cursor : pointer;
+}
+
+/*快速搜索内容*/
+.lui_category_qsearch_content {
+	min-height: 80px;
+	padding: 5px 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	background-color: #f7f7f7 !important;
+}
+
+.lui_category_qsearch_content table {
+	border-left: 1px;
+	color: #2287D6;
+}
+
+.lui_category_qsearch_content table span 
+{
+    color:#333;
+	cursor: pointer;
+	padding: 6px 8px;
+}
+.lui_category_qsearch_content table span:hover {color: #2287D6; text-decoration:underline}
+.lui_category_qsearch_content table tr td span {
+	padding: 6px 8px;
+	width: 325px;
+	cursor: pointer;
+	border: 1px solid #f7f7f7;
+}
+
+.lui_category_qsearch_content .lui_category_qsearch_split {
+	background-color: #ccc;
+}
+
+.lui_category_qsearch_content table tr td.lui_category_qsearch_selected span
+	{
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+.lui_category_qsearch_content .lui_category_qsearch_close {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
+
+/*常用搜索*/
+.lui_category_gcategory_select_box {
+	margin-bottom: 10px;
+}
+
+.lui_category_gcategory_select_box select {
+	width: 200px;
+	height: 24px;
+	padding: 2px 5px;
+	color: #7d7d7d;
+	vertical-align: middle;
+	outline: none;
+}
+
+.lui_category_gcategory_select_box label a {
+	margin-left: 10px;
+	color: #e79005;
+	text-decoration: underline;
+}
+
+.chooseType_c_select_box label a:hover {
+	color: #db782c;
+}

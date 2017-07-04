@@ -1,0 +1,80 @@
+.lui_list_operation{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px #afafaf solid;
+	border-bottom: 1px #afafaf solid;
+}
+.content5 {
+} 
+.box {
+width: 1002px;
+margin: 0 auto;
+text-align: left;
+}
+.cont2 {
+float: left;
+width: 1010px; 
+height: auto !important;
+height: 856px;
+overflow: hidden;
+}
+.h3_2 {
+	background: url(./img/bg4.gif) repeat-x left bottom;
+	padding-bottom: 10px;
+}
+.h3_2 span {
+	display: block;
+	background: url(./img/icon1.gif) no-repeat 6px 45%;
+	padding-left: 28px;
+	color: #e50000;
+	font-size: 14px;
+	font-weight: bold;
+}
+.t_h {
+	background: #8b8b8b;
+	border-collapse: collapse;
+}
+.m_t10 {
+	margin-top: 10px;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.t_h th {
+	background: #8b8b8b;
+	border: 1px solid #ccc;
+	height: 36px;
+	font-weight: normal;
+	line-height: 36px;
+	text-align: center;
+	color:#fff;
+}
+.m_t40{ margin-top:40px;}
+.help_cko {
+	float: right;
+	color: white;
+	padding: 5px 20px 5px 5px;
+	cursor: pointer;
+	background: url("./img/down.gif") no-repeat 60px center #8b8b8b;
+}
+.help_cko_info {
+	display: none;
+	clear: both;
+}
+.t_h td {
+	background: #fff;
+	border: 1px solid #ccc;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+}
+.help_cko.score.help_slideDown{background: url("./img/up.gif") no-repeat 60px center #8b8b8b ;}
+.help_cko.money.help_slideDown{background: url("./img/up.gif") no-repeat 60px center #8b8b8b ;}
+.display_box{
+	padding-left: 10px;
+	line-height: 24px;
+	position: absolute;
+	right: 35px;
+	top: 8px;
+}

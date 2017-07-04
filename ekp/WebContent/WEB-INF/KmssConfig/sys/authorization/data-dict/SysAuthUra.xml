@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.authorization.model.SysAuthUra"
+		messageKey="sys-authorization:table.sysAuthUra"
+		displayProperty="authRoleId"
+		serviceBean="sysAuthUraService"
+		table="sys_auth_ura"
+		url="/sys/authorization/sys_auth_ura/sysAuthUra.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<modelProperty
+			name="authRole"
+			messageKey="sys-authorization:sysAuthUra.authRole"
+			type="com.landray.kmss.sys.authorization.model.SysAuthRole"
+			column="fd_roleid"
+			notNull="true"
+			validate="false" />
+
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthUra.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="fd_areaid"
+			notNull="false"
+			validate="false" />
+			
+		<modelProperty
+			name="orgElement"
+			messageKey="sys-authorization:sysAuthUra.orgElement"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_orgelementid"
+			notNull="false"
+			validate="false" />			
+
+	</model>
+</models>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-log:module.sys.log"
+		urlPrefix="/sys/log/"
+		defaultValidator="roleValidator(role=ROLE_SYSLOG_DEFAULT)">
+		<roles>ROLE_SYSLOG_DEFAULT;ROLE_SYSLOG_READ;ROLE_SYSLOG_DELETE</roles>
+		<request
+			path="sys_log_*/sysLog*"
+			defaultValidator="roleValidator(role=ROLE_SYSLOG_READ)">
+			<query
+				validator="roleValidator(role=ROLE_SYSLOG_DELETE)"
+				queryString="method=delete|deleteall" />
+		</request>
+	</module>
+	<!-- 预警信息通知 -->
+	<module
+		urlPrefix="/sys/appconfig/">
+		<request
+			path="sys_appconfig/sysAppConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.sys.log.model.SysLogOnlineWarning&amp;todo=true"
+				validator="roleValidator(role=SYSROLE_USER)" />
+		</request>
+	</module>
+	<!-- 备份日志 -->
+	<quartz
+		messageKey="sys-log:sysLogApp.job.backup"
+		jobService="sysLogAppService"
+		cronExpression="0 0 4 ? * *"
+		jobMethod="backup" />
+	<quartz
+		messageKey="sys-log:sysLogError.job.backup"
+		jobService="sysLogErrorService"
+		cronExpression="0 0 4 ? * *"
+		jobMethod="backup" />
+	<quartz
+		messageKey="sys-log:sysLogJob.job.backup"
+		jobService="sysLogJobService"
+		cronExpression="0 0 4 ? * *"
+		jobMethod="backup" />
+	<quartz
+		messageKey="sys-log:sysLogLogin.job.backup"
+		jobService="sysLogLoginService"
+		cronExpression="0 0 4 ? * *"
+		jobMethod="backup" />
+	<quartz
+		messageKey="sys-log:sysLogLogout.job.backup"
+		jobService="sysLogLogoutService"
+		cronExpression="0 0 4 ? * *"
+		jobMethod="backup" />
+	<!-- 备份日志 -->
+	<!-- 清除备份日志 -->
+	<quartz
+		messageKey="sys-log:sysLogApp.job.deleteBack"
+		jobService="sysLogAppService"
+		cronExpression="0 0 6 ? * *"
+		jobMethod="deleteBack" />
+	<quartz
+		messageKey="sys-log:sysLogError.job.deleteBack"
+		jobService="sysLogErrorService"
+		cronExpression="0 0 6 ? * *"
+		jobMethod="deleteBack" />
+	<quartz
+		messageKey="sys-log:sysLogJob.job.deleteBack"
+		jobService="sysLogJobService"
+		cronExpression="0 0 6 ? * *"
+		jobMethod="deleteBack" />
+	<quartz
+		messageKey="sys-log:sysLogLogin.job.deleteBack"
+		jobService="sysLogLoginService"
+		cronExpression="0 0 6 ? * *"
+		jobMethod="deleteBack" />
+	<quartz
+		messageKey="sys-log:sysLogLogout.job.deleteBack"
+		jobService="sysLogLogoutService"
+		cronExpression="0 0 6 ? * *"
+		jobMethod="deleteBack" />
+	<!-- 清除备份日志 -->
+	<homePage
+		urlPrefix="sys/log"
+		messageKey="sys-log:sysLog.moduleName"
+		config="/moduleindex_notopic.jsp?nav=/sys/log/tree.jsp"
+		type="sys" />
+</configs>

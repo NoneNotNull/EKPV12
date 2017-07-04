@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<soapenv:Envelope eb="true" def="字段tewwe"
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://WebXml.com.cn/">
+	<!--{"title":""}-->
+	<soapenv:Header eb="true" def="字段2123"></soapenv:Header>
+	<soapenv:Headdd eb="true" def="字段2233"></soapenv:Headdd>
+	<soapenv:Body eb="true">
+		<web:getSupportCity eb="true" def="字段3">
+			<!-- 
+				Optional:|erp_web={"minOccurs":"0","maxOccurs":"1","ctype":"string","title":""}
+			-->
+			<web:byProvinceName eb="true" def="字段4">广东</web:byProvinceName>
+			<web:ffff eb="true" def="字段5">广东</web:ffff>
+		</web:getSupportCity>
+		
+	</soapenv:Body>
+</soapenv:Envelope>
+
+		
+		

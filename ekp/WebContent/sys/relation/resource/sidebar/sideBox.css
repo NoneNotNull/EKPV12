@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+*{ margin:0; padding:0;}
+ul{ list-style:none;}
+/*doc_view page*/
+body{ background:#F9F9F9;font-size: 12px;color:#333}
+.sideBox{border-bottom: 1px solid DFDFDF;text-align: left; padding:0 0 12px; margin:12px 12px 0;}
+.sideBox h2{ font-size:14px; font-weight:bold; color:#2b2b2b; position:relative; line-height:24px; height:24px; overflow:hidden; text-align:left;}
+.sideBox h2 .more{font: 12px;color: gray; position:absolute; right:7px; top:4px;}
+.sideBox div{width: 100%;line-height: 25px;margin: 0px;}
+
+/*doc_result page*/
+.docList{ text-align:left; margin: 0px;line-height: 20px;}
+.docList li a{ display:block; background:url(point.gif) no-repeat 0 10px; padding-left:12px; color:#333; font-size:12px; line-height:20px; text-decoration:none;}
+.docList li a:hover{ color:#333; text-decoration:underline;}
+.colorGray{color: gray;font-style: italic;}
+

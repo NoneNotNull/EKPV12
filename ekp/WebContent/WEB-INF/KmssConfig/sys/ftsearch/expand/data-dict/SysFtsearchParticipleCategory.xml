@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticipleCategory"
+		messageKey="sys-ftsearch-expand:table.sysFtsearchParticipleCategory"
+		displayProperty="fdId"
+		serviceBean="sysFtsearchParticipleCategoryService"
+		table="sys_ftsearch_participle_cate"
+		url="/sys/ftsearch/expand/sys_ftsearch_participle_category/sysFtsearchParticipleCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreatorName"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.docCreatorName"
+			type="String"
+			column="doc_creator_name"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateorId"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.docCreateorId"
+			type="String"
+			column="doc_createor_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="2000"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="sys-ftsearch-expand:sysFtsearchParticipleCategory.fdParent"
+			type="com.landray.kmss.sys.ftsearch.expand.model.SysFtsearchParticipleCategory"
+			column="fd_parent_id"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

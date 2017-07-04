@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalPage.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/portal/model/SysPortalPageDetail.hbm.xml" /> 
+		<mapping
+			resource="com/landray/kmss/sys/portal/model/SysPortalLinkDetail.hbm.xml" /> 
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalHtml.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalTree.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalLink.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalMain.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/portal/model/SysPortalMainPage.hbm.xml" />
+	</session-factory>
+</hibernate-configuration> 

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.zone.model.SysZonePersonInfo"
+		url="/sys/zone/sys_zone_personInfo/sysZonePersonInfo.do?method=view&amp;fdId=${fdId}"
+		messageKey="sys-zone:sysZonePersonInfo.zone"
+		displayProperty="person.fdName"
+		serviceBean="sysZonePersonInfoService"
+		table="sys_zone_person_info">
+		<idProperty>
+			<generator type="foreign" />
+		</idProperty>
+		<simpleProperty
+			name="fdSex"
+			messageKey="sys-zone:sysZonePersonInfo.fdSex"
+			type="String"
+			column="fd_sex"
+			notNull="false"
+			unique="false"
+			length="2" 
+			enumType="sys_zone_person_sex"/>
+		<simpleProperty
+			name="fdCompanyPhone"
+			messageKey="sys-zone:sysZonePersonInfo.fdCompanyPhone"
+			type="String"
+			column="fd_company_phone"
+			notNull="false"
+			unique="false"
+			length="50" />
+		<simpleProperty
+			name="mobilPhone"
+			messageKey="sys-zone:sysZonePersonInfo.fdMobilePhone"
+			type="String"
+			column="fd_mobil_phone"
+			notNull="false"
+			unique="false"
+			length="50" />
+		<simpleProperty
+			name="email"
+			messageKey="sys-zone:sysZonePersonInfo.email"
+			type="String"
+			column="fd_email"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<simpleProperty
+			name="fdEnglishName"
+			messageKey="sys-zone:sysZonePersonInfo.fdEnglishName"
+			type="String"
+			column="fd_english_name"
+			notNull="false"
+			unique="false"
+			length="100" />
+		<simpleProperty 
+			name="fdSignature"
+			messageKey="sys-zone:sysZonePersonInfo.fdSignature"
+			type="RTF"
+			column="fd_signature"
+			notNull="false"
+			unique="false"
+			length="1000000" />
+	   <simpleProperty
+			name="fdDefaultLang"
+			messageKey="sys-zone:sysZonePersonInfo.fdDefaultLang"
+			type="String"
+			column="fd_default_lang"
+			notNull="false"
+			unique="false"
+			length="50"
+			canSearch="true" />
+		<modelProperty
+			name="person"
+			messageKey="sys-zone:kmForumScore.fdId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_id"
+			notNull="true"
+			unique="true"
+			constrained="true" />
+		<!-- ===========员工黄页==开始============================ -->
+		<simpleProperty
+			name="fdAttentionNum"
+			messageKey="sys-zone:sysZonePerson.fdAttentionNum"
+			type="Integer"
+			column="fd_attention_num"
+			notNull="false"
+			length="4"
+			validate="false" />
+
+		<simpleProperty
+			name="fdFansNum"
+			messageKey="sys-zone:sysZonePerson.fdFansNum"
+			type="Integer"
+			column="fd_fans_num"
+			notNull="false"
+			length="4"
+			validate="false" />
+			<simpleProperty
+			name="fdLastModifiedTime"
+			messageKey="sys-zone:sysZonePerson.fdLastModifiedTime"
+			type="DateTime"
+			column="fd_last_modified_time"
+			notNull="true"
+			canDisplay="false" />			
+
+		<listProperty
+			name="fdDatas"
+			messageKey="sys-zone:sysZonePerson.fdDatas"
+			type="com.landray.kmss.sys.zone.model.SysZonePersonData"
+			column="fd_person_id"
+			cascade="all-delete-orphan" />	
+		<!-- ===========员工黄页==结束============================ -->
+	</model>
+</models>

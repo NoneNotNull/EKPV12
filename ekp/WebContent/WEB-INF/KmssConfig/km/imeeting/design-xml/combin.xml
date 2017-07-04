@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.landray.com.cn/schema/lui ../../../sys/ui/lui.xsd">
+	
+	<combin id="kmImeeting.stat.path" name="路径信息"
+		file="/km/imeeting/km_imeeting_stat/common/kmImeetingStatPath.jsp"></combin>
+	
+</root>

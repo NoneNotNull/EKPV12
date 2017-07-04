@@ -1,0 +1,8 @@
+<shapes>
+	<shape icon="icon/circle.png" type="circle"/>
+	<shape icon="icon/rect.png" type="rect" />
+	<shape icon="icon/textTriangle.png" type="textTriangle"/>
+	<shape icon="icon/triangle.png" type="triangle" />
+	<shape icon="icon/polygon.png" type="polygon"/>
+	<shape icon="icon/star.png" type="star"/>
+</shapes>

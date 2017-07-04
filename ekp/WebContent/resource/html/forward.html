@@ -1,0 +1,20 @@
+<script>
+function jump(){
+	var query = location.search;
+	if(query=="")
+		return;
+	query = "&" + query.substring(1);
+	var index = query.indexOf("&url=");
+	if(index==-1)
+		return;
+	var url = query.substring(index+5);
+	var cookies = query.substring(0, index).split("&");
+	for(var i=0; i<cookies.length; i++){
+		if(cookies[i]=="")
+			continue;
+		document.cookie = cookies[i]+"; path=/";
+	}
+	location.href = url;
+}
+jump();
+</script>

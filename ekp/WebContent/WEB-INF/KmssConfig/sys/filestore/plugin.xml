@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point id="com.landray.kmss.sys.filestore">
+		<item name="converter">
+			<param name="serviceBean" basedOn="com.landray.kmss.sys.filestore.scheduler.local.AbstractLocalFileConverter" kind="spring" required="true">
+				<description>
+				必选，转换器的Bean
+				</description>
+			</param>
+			<param name="concurrent" kind="int" required="true">
+				<description>
+				必选，转换器的并发数量
+				</description>
+			</param>
+			<description>附件转换器</description>
+		</item>
+		<item name="viewer">
+			<param name="viewerKey" kind="string" required="true">
+				<description>
+				必选，阅读器的Key
+				</description>
+			</param>
+			<param name="viewerPath" kind="filepath" required="true">
+				<description>
+				必选，阅读器的路径
+				</description>
+			</param>
+			<param name="extName" kind="string" required="true">
+				<description>
+				必选，阅读器支持的附件扩展名
+				</description>
+			</param>
+			<param name="order" kind="int" required="true">
+				<description>
+				必选，阅读器的优先级
+				</description>
+			</param>
+			<description>附件阅读器</description>
+		</item>
+		<description>附件转换器阅读器</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.cluster">
+		<item name="dispatcher">
+			<param name="id" value="sysFileConvertDispatcher" />
+			<param name="service" value="sysFileConvertDispatcher" />
+			<param name="multi" value="false" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.filestore">
+		<item name="converter">
+			<param name="serviceBean"  value="imageThumbnailConverter" />
+			<param name="concurrent" value="5" />
+		</item>
+	</extension>
+	
+</plugin>

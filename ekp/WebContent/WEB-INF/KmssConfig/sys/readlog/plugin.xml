@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.readlog.service.spring">
+		<item
+			name="createLog"
+			singleton="true">
+			<param
+				name="bean"
+				required="true"
+				kind="java"
+				basedOn="com.landray.kmss.sys.readlog.service.spring.ITriggerCreateLog">
+				<description>触发条件功能实现bean。</description>
+			</param>
+			<description>生成阅读记录的触发条件扩展。比如：需要在流程结束后，阅读文档时才生成阅读记录。</description>
+		</item>
+		<description>阅读机制的扩展点配置</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.sys.readlog.service.spring"
+		model="*">
+		<item
+			name="createLog">
+			<param
+				name="bean"
+				value="com.landray.kmss.sys.readlog.service.spring.DefaultTriggerCreateLog" />
+		</item>
+	</extension>
+	
+	<!-- 初始化阅读统计的最后更新时间 -->
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.readlog.service.spring.InitLastUpdateReadCountTimeTransfer" />
+			<param
+				name="name"
+				value="初始化阅读统计任务的最后更新时间" />
+			<param
+				name="path"
+				value="/sys/readlog/" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.readlog.service.spring.InitLastUpdateReadCountTimeTransfer" />
+			<param
+				name="description"
+				value="初始化阅读统计任务的最后更新时间，解决阅读次数统计带来的性能问题 " />
+		</item>
+	</extension>
+</plugin>

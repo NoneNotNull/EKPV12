@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.organization.model.SysOrgRole"
+		messageKey="sys-organization:table.sysOrgRole"
+		serviceBean="sysOrgRoleService"
+		table="sys_org_role"
+		extendClass="com.landray.kmss.sys.organization.model.SysOrgElement"
+		discriminatorValue="32">
+		<simpleProperty
+			name="fdPlugin"
+			messageKey="sys-organization:sysOrgRole.fdPlugin"
+			type="String"
+			column="fd_plugin"
+			notNull="true"
+			length="100" />
+		<simpleProperty
+			name="fdParameter"
+			messageKey="sys-organization:sysOrgRole.fdParameter"
+			type="String"
+			column="fd_parameter"
+			notNull="false"
+			length="1000" />
+		<simpleProperty
+			name="fdIsMultiple"
+			messageKey="sys-organization:sysOrgRole.fdIsMultiple"
+			type="Boolean"
+			column="fd_is_multiple"
+			notNull="true" />
+		<simpleProperty
+			name="fdRtnValue"
+			messageKey="sys-organization:sysOrgRole.fdRtnValue"
+			type="String"
+			column="fd_rtn_value"
+			notNull="true" />
+		<modelProperty
+			name="fdRoleConf"
+			messageKey="sys-organization:sysOrgRole.fdRoleConf"
+			type="com.landray.kmss.sys.organization.model.SysOrgRoleConf"
+			column="fd_role_conf_id"
+			notNull="false" />
+	</model>
+</models>

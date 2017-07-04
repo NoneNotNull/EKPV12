@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<!-- SOAPUI头部信息验证扩展点 -->	
+	<extension-point
+		id="com.landray.kmss.tib.sys.soap.connector.util.header.licence">
+		<item name="licenceHeader">
+			<param
+				name="handlerKey"
+				required="true"
+				kind="unid">
+				<description>
+					配置权限Key,全局唯一,必填
+				</description>
+			</param>
+			<param
+				name="displayName"
+				required="false"
+				kind="string">
+				<description>
+					用来显示权限的配置
+				</description>
+			</param>
+			<param
+				name="handlerClass"
+				required="false"
+				kind="string">
+				<description>
+					配置权限校验类,不同的方法有不同的校验,在spring里面配置的名字
+					（此处与handlerSpring类似功能，默认调用handlerSpring）
+				</description>
+			</param>	
+			<param
+				name="handlerSpring"
+				required="false"
+				kind="spring" 
+				basedOn="com.landray.kmss.tib.sys.soap.connector.util.header.ISoapHeaderType">
+				<description>
+					配置权限校验类,不同的方法有不同的校验,在spring里面配置的名字
+					（此处与handlerClass类似功能，默认调用此处）
+				</description>
+			</param>	
+			<param
+				name="isExtSelf"
+				required="false"
+				kind="string">
+				<description>
+					配置是否需要自己实现扩展模版数据，具体实现看handlerClass与handlerSpring；
+					三种情况，true, false, 其他
+					true: 通过实现ISoapHeaderType接口中buildDocTemplate方法进行扩展模版数据
+					false: 通过实现ISoapHeaderType接口中buildAuthContext方法进行内部权限验证
+					其他: 上述两方法都实现（既自己扩展模版数据，又进行内部权限验证）
+				</description>
+			</param>
+			
+			<param
+				name="extendJspPath"
+				required="false"
+				kind="string">
+				<description>
+					定义点击扩展的登录方式时候展现的jsp页面
+				</description>
+			</param>
+			<param
+				name="paramsParser"
+				required="false"
+				basedOn="com.landray.kmss.tib.sys.soap.connector.util.header.licence.ITibSysSoapParamsParser"
+				kind="spring">
+				<description>
+					用来收集页面上传入的数据转换成定义格式的数据
+				</description>	
+			</param>	
+				
+			<description>
+			  配置SOAPUI验证信息的权限
+			</description>
+		</item>
+		<description>SOAPUI验证信息权限扩展点,用来加载权限配置信息</description>
+	</extension-point>
+	
+	<!-- EKP验证登录方式 -->
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<param
+				name="handlerKey"
+				value="ekpType" />
+			<param
+				name="displayName"
+				value="EKP登录方式" />
+			<param
+				name="handlerClass"
+				value="com.landray.kmss.tib.sys.soap.connector.util.header.EkpHeaderTypeImpl" />
+			<param
+				name="handlerSpring"
+				value="ekpHeaderType" />
+			<param
+				name="isExtSelf"
+				value="true" />
+			<param
+				name="extendJspPath"
+				value="/tib/sys/soap/connector/tib_sys_soap_auth_extend/tib_sys_soap_ekpType.jsp" />	
+		</item>
+	</extension>
+	
+	<!-- SOAPHeader验证登录方式 -->
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<param
+				name="handlerKey"
+				value="soapHeaderType" />
+			<param
+				name="displayName"
+				value="SOAPHeader登录方式" />
+			<param
+				name="handlerClass"
+				value="com.landray.kmss.tib.sys.soap.connector.util.header.SoapHeaderTypeImpl" />
+			<param
+				name="handlerSpring"
+				value="soapHeaderTypeImpl" />
+			<param
+				name="isExtSelf"
+				value="true" />
+		</item>
+	</extension>
+	
+	<!-- WS-Security UserToken验证登录方式  -->
+	<!-- (可以不需要自己扩展头部，isExtSelf属性可以不写，默认为false) -->
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<!-- WSS-TOKEN登录方式 -->
+			<param
+				name="handlerKey"
+				value="userToken" />
+			<param
+				name="displayName"
+				value="WSS-TOKEN登录方式" />
+			<param
+				name="extendJspPath"
+				value="/tib/sys/soap/connector/tib_sys_soap_auth_extend/tib_sys_soap_userToken.jsp" />	
+		</item>
+	</extension>
+	
+	<!-- SOAPHeader前台自定义登录方式(不需要后台java实现) -->
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<!-- SOAPHeader自定义登录方式 -->
+			<param
+				name="handlerKey"
+				value="soapHeaderCustom" />
+			<param
+				name="displayName"
+				value="SOAPHeader自定义登录方式" />
+			<param
+				name="isExtSelf"
+				value="true" />
+			<param
+				name="extendJspPath"
+				value="/tib/sys/soap/connector/tib_sys_soap_auth_extend/tib_sys_soap_soapHeadCustom.jsp" />	
+		</item>
+	</extension>
+	
+	
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<!-- SOAPHeader自定义登录方式 -->
+			<param
+				name="handlerKey"
+				value="easLogin" />
+			<param
+				name="displayName"
+				value="EAS登录方式" />
+			<param
+				name="isExtSelf"
+				value="false" />
+			<param
+				name="extendJspPath"
+				value="/tib/sys/soap/connector/tib_sys_soap_auth_extend/tib_sys_soap_eas.jsp" />
+			<param
+				name="paramsParser"
+				value="tibSysSoapEasParamsParser" />	
+			<param
+				name="handlerSpring"
+				value="tibSysSoapEasplugin" />	
+				
+		</item>
+	</extension>
+	
+		<!-- K3验证登录方式 -->
+	<extension
+		point="com.landray.kmss.tib.sys.soap.connector.util.header.licence"
+		model="*">
+		<item name="licenceHeader">
+			<param
+				name="handlerKey"
+				value="k3Type" />
+			<param
+				name="displayName"
+				value="K3登录方式" />
+			<param
+				name="isExtSelf"
+				value="true" />
+			<param
+				name="extendJspPath"
+				value="/tib/sys/soap/connector/tib_sys_soap_auth_extend/tib_sys_soap_k3.jsp" />	
+			<param
+				name="paramsParser"
+				value="tibSysSoapK3ParamsParser" />	
+			<param
+				name="handlerSpring"
+				value="tibSysSoapK3plugin" />	
+		</item>
+	</extension>
+	
+	<!-- 服务提供者扩展 -->
+	
+	<extension
+		point="com.landray.kmss.tib.sys.core.provider.plugins"
+		model="*">
+			<item name="provider">
+			<param
+				name="providerKey"
+				value="soap" />
+			<param
+				name="providerName"
+				value="{tib-sys-soap:tibSysSoap.soap.provider}" />
+			<!-- spring 注册 -->
+			<param
+				name="executeClass"
+				value="tibSysSoapProvider" />
+			<param
+				name="infoClass"
+				value="tibSysSoapInfo" />	
+			<param
+				name="convertXmlJsPath"
+				value="tib/sys/soap/connector/resource/js/soapProvider.js" />	
+			<param
+				name="convertXmlJsFunc"
+				value="soapToStandardXml" />	
+		</item>
+	</extension>
+	
+	
+	<!-- 导入导出(SOAP服务注册) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSysSoapSettingKey" />
+			<param
+				name="moduleType"
+				value="soap" />
+			<param
+				name="springName"
+				value="tibSysSoapSettingService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-soap-connector:imExport.soap.serviceSett}" />
+			<param
+				name="showName"
+				value="docSubject" />	
+			<param
+				name="parentRelation"
+				value="settCategory" />
+			<!-- 父类 -->
+			<param
+				name="parentShowName"
+				value="fdName" />
+		</item>
+	</extension>
+	
+	<!-- 导入导出(SOAP函数配置) -->
+	<extension
+		point="com.landray.kmss.tib.common.inoutdata.service"
+		model="*">
+		<item name="inoutModule">
+			<param
+				name="moduleKey"
+				value="tibSysSoapMainKey" />
+			<param
+				name="moduleType"
+				value="soap" />
+			<param
+				name="springName"
+				value="tibSysSoapMainService" />
+			<param
+				name="messageKey"
+				value="{tib-sys-soap-connector:imExport.soap.funcCfg}" />
+			<param
+				name="showName"
+				value="docSubject" />
+			<param
+				name="parentRelation"
+				value="docCategory" />
+			
+			<!-- 父类 -->	
+			<param
+				name="parentShowName"
+				value="fdName" />
+		</item>
+	</extension>
+	
+</plugin>

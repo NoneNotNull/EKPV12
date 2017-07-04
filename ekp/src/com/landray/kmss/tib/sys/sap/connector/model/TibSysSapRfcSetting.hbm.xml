@@ -1,0 +1,196 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting"
+		table="tib_sys_sap_rfc_setting">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+
+		<property
+			name="fdUse"
+			column="fd_use"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdVersion"
+			column="fd_version"
+			update="true"
+			insert="true"
+			length="4"
+			not-null="false" />
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="docStatus"
+			column="doc_status"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="false" />
+
+
+		<property
+			name="fdFunctionName"
+			column="fd_function_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdCommit"
+			column="fd_commit"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdFunction"
+			column="fd_function"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdWeb"
+			column="fd_web"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdDescribe"
+			column="fd_describe"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<many-to-one
+			name="docCategory"
+			column="doc_category"
+			insert="true"
+			update="true"
+			not-null="false" />
+		<many-to-one
+			name="docCreator"
+			column="doc_creator"
+			insert="true"
+			update="true"
+			not-null="false" />
+
+		<many-to-one
+			name="fdPool"
+			column="fd_pool"
+			insert="true"
+			update="true"
+			lazy="false"
+			not-null="false" />
+		<bag
+			name="tibSysSapRfcExport"
+			inverse="true"
+			cascade="all-delete-orphan"
+			lazy="false"
+			order-by="fd_id">
+			<key column="fd_function_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcExport" />
+		</bag>
+		
+		<bag
+			name="tibSysSapRfcImport"
+			inverse="true"
+			cascade="all-delete-orphan"
+			lazy="false"
+			order-by="fd_id">
+			<key column="fd_function_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcImport" />
+		</bag>
+
+		<bag
+			name="tibSysSapRfcTable"
+			inverse="true"
+			cascade="all-delete-orphan"
+			lazy="false"
+			order-by="fd_id">
+			<key column="fd_function_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcTable" />
+		</bag>
+		
+		<!-- cascade="all-delete-orphan" -->
+		<bag
+			name="rfcSearch"
+			inverse="true"
+			lazy="true">
+			<key
+				column="fd_rfc_id" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSearchInfo" />
+		</bag>
+
+		<!-- 是否是新版本 -->
+		<property
+			name="docIsNewVersion"
+			column="doc_is_new_version"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<!-- 版本锁定 -->
+		<property
+			name="docIsLocked"
+			column="doc_is_locked"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<!-- 主版本号 -->
+		<property
+			name="docMainVersion"
+			column="doc_main_version"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<!--辅版本号 -->
+		<property
+			name="docAuxiVersion"
+			column="doc_auxi_version"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<!-- 历史版本 -->
+		<bag
+			name="docHistoryEditions"
+			inverse="true">
+			<key column="doc_origin_docid"></key>
+			<one-to-many
+				class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting" />
+		</bag>
+		<!--主文档-->
+		<many-to-one
+			name="docOriginDoc"
+			column="doc_origin_docid"
+			insert="true"
+			update="true"
+			not-null="false"
+			class="com.landray.kmss.tib.sys.sap.connector.model.TibSysSapRfcSetting" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="authFieldKmsFilter" class="com.landray.kmss.kms.common.filter.AuthFieldKmsFilter"></bean>
+	<!--kms配置信息 -->
+	<bean
+		id="kmsAppConfigDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsAppConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsAppConfig" />
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAppConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsAppConfigServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsAppConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsAppConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsAppConfigTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsPersonFollowTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsPersonFollowServiceImp">
+		<property name="sysFollowPersonConfigService">
+			<ref bean="sysFollowPersonConfigService"/>
+		</property>
+	</bean>
+	<bean id="kmsPersonFollowService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsPersonFollowTarget" />
+		</property>
+	</bean>
+	
+	<!--消息portlet -->
+	<bean id="kmsNotifyTodoService" class="com.landray.kmss.kms.common.service.portlet.KmsNotifyTodoService">
+		<property name="sysNotifyTodoService">
+			<ref bean="sysNotifyTodoService" />
+		</property>
+		<property name="sysNotifyTodoDoneInfoService">
+			<ref bean="sysNotifyTodoDoneInfoService" />
+		</property>
+	</bean>
+	
+	<bean id="kmsPersonFollowPortlet" class="com.landray.kmss.kms.common.service.portlet.KmsPersonFollowPortlet">
+		<property name="sysFollowPersonDocRelatedService">
+			<ref bean="sysFollowPersonDocRelatedService" />
+		</property>
+		<property name="sysFollowPersonConfigService">
+			<ref bean="sysFollowPersonConfigService" />
+		</property>
+	</bean>
+	
+	<!-- 我的收藏，kms个人主页portlet -->
+	<bean id="kmsBookmarkPersonalPortlet"
+		class="com.landray.kmss.kms.common.service.portlet.KmsBookmarkPersonalPortlet">
+		<property name="sysBookmarkMainService">
+			<ref bean="sysBookmarkMainService" />
+		</property>
+		<property name="sysBookmarkCategoryService">
+			<ref bean="sysBookmarkCategoryService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsModuleDataBean" class="com.landray.kmss.kms.common.service.spring.KmsModuleDataBean">
+	</bean>
+	
+	<bean id="kmsInitService" class="com.landray.kmss.kms.common.service.spring.KmsInitService">
+	</bean>
+	 
+	<bean id="kmsCategorySelectService" class="com.landray.kmss.kms.common.service.KmsCategorySelectService">
+	</bean>	
+
+	<bean
+		id="kmsFtsearchConfigDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsFtsearchConfigDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsFtsearchConfig" />
+	</bean>
+	<bean
+		id="kmsFtsearchConfigTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsFtsearchConfigServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsFtsearchConfigDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsFtsearchConfigService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsFtsearchConfigTarget" />
+		</property>
+	</bean>
+	
+	<bean class="com.landray.kmss.kms.common.service.spring.KmsFtSearchCategoryDataBean" id="kmsFtSearchCategoryDataBean">
+		<property name="kmsFtsearchConfigService">
+			<ref bean="kmsFtsearchConfigService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsFtSearchPropertyDataBean" class="com.landray.kmss.kms.common.service.spring.KmsFtSearchPropertyDataBean">
+		<property name="kmsFtsearchConfigService">
+			<ref bean="kmsFtsearchConfigService" />
+		</property>
+		<property name="sysPropertyDefineService">
+			<ref bean="sysPropertyDefineService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsFtSearchIndexDataBean" class="com.landray.kmss.kms.common.service.spring.KmsFtSearchIndexDataBean">
+		<property name="kmsFtsearchConfigService">
+			<ref bean="kmsFtsearchConfigService"/>
+		</property>
+		<property name="sysPropertyDefineService">
+			<ref bean="sysPropertyDefineService"/>
+		</property>
+	</bean>
+	<bean id="kmsFtsearchConfigPortlet" class="com.landray.kmss.kms.common.service.portlet.KmsFtsearchConfigPortlet">
+		<property name="baseDao">
+			<ref bean="KmssParentDao" />
+		</property>
+		<property name="searchBuilder">
+			<ref bean="searchBuilder"/>
+		</property>
+		<property name="sysFtsearchWordService">
+			<ref bean="sysFtsearchWordService"/>
+		</property>
+		<property name="sysFtsearchChineseLegendService">
+			<ref bean="sysFtsearchChineseLegendService"/>
+		</property>
+		<property name="kmsFtsearchConfigService">
+			<ref bean="kmsFtsearchConfigService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsWebserviceAuthDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsWebserviceAuthDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsWebserviceAuth" />
+	</bean>
+	<bean
+		id="kmsWebserviceAuthTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsWebserviceAuthServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsWebserviceAuthDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsWebserviceAuthService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsWebserviceAuthTarget" />
+		</property>
+	</bean>
+	
+	<!-- 推荐知识 -->
+	<bean id="kmsHomeKnowledgeIntroDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsHomeKnowledgeIntroDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsHomeKnowledgeIntro" />
+	</bean>
+	<bean id="kmsHomeKnowledgeIntroTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsHomeKnowledgeIntroServiceImp">
+		<property name="baseDao">
+			<ref local="kmsHomeKnowledgeIntroDao" />
+		</property>
+	</bean>
+	<bean id="kmsHomeKnowledgeIntroService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsHomeKnowledgeIntroTarget" />
+		</property>
+	</bean>
+
+	<bean id="kmsHomeKnowledgeMappingDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsHomeKnowledgeMappingDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsHomeKnowledgeMapping" />
+	</bean>
+	<bean id="kmsHomeKnowledgeMappingTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsHomeKnowledgeMappingServiceImp">
+		<property name="baseDao">
+			<ref local="kmsHomeKnowledgeMappingDao" />
+		</property>
+	</bean>
+	<bean id="kmsHomeKnowledgeMappingService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsHomeKnowledgeMappingTarget" />
+		</property>
+	</bean>
+	<!-- 推荐知识结束 -->
+	
+	
+	
+	<bean id="kmsCommonDocErrorCorrectionDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsCommonDocErrorCorrectionDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsCommonDocErrorCorrection" />
+	</bean>
+	<bean id="kmsCommonDocErrorCorrectionTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsCommonDocErrorCorrectionServiceImp">
+		<property name="baseDao">
+			<ref local="kmsCommonDocErrorCorrectionDao" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService"/>
+		</property>
+	</bean>
+	<bean id="kmsCommonDocErrorCorrectionService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsCommonDocErrorCorrectionTarget" />
+		</property>
+	</bean>
+	
+	<!-- 回收站日志相关bean -->
+	<bean
+		id="kmsCommonRecycleLogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsCommonRecycleLogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsCommonRecycleLog" />
+	</bean>
+	<bean
+		id="kmsCommonRecycleLogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsCommonRecycleLogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsCommonRecycleLogDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsCommonRecycleLogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsCommonRecycleLogTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsCommonDataPushDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsCommonDataPushDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsCommonDataPush" />
+	</bean>
+	<bean id="kmsCommonDataPushTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsCommonDataPushServiceImp">
+		<property name="baseDao">
+			<ref local="kmsCommonDataPushDao" />
+		</property>
+	</bean>
+	<bean id="kmsCommonDataPushService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsCommonDataPushTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsShareMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsShareMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsShareMain" />
+	</bean>
+	
+	<bean id="kmsShareMainTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsShareMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsShareMainDao" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="sysNotifyMainCoreService">
+			<ref
+				bean="sysNotifyMainCoreService" />
+		</property>
+	</bean>
+	<bean id="kmsShareMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsShareMainTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsCommonAdviceService" class="com.landray.kmss.kms.common.service.KmsCommonAdviceService">
+	</bean>
+		
+	<bean
+		id="kmsPointcutAdvisorService"
+		class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+		<property name="advice">
+			<ref bean="kmsCommonAdviceService"/>
+		</property>
+		<property name="pattern" value=".*" />
+	</bean>
+	
+	<bean
+		id="kmsCommonLogProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>kmsShareMainService</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>kmsPointcutAdvisorService</value>
+			</list>
+		</property>
+	</bean>	
+	
+	
+	<bean
+		id="kmsBookMarkMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsBookMarkMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.bookmark.model.SysBookmarkMain" />
+	</bean>
+	<bean id="kmsBookMarkMainTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsBookMarkMainServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsBookMarkMainDao" />
+		</property>
+		<property
+			name="sysBookmarkMainService">
+			<ref bean="sysBookmarkMainService" />
+		</property>
+		<property name="sysBookmarkPublicCategoryService">
+			<ref bean="sysBookmarkPublicCategoryService"/>
+		</property>
+	</bean>
+	<bean id="kmsBookMarkMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsBookMarkMainTarget" />
+		</property>
+	</bean>
+		<bean class="com.landray.kmss.kms.common.dao.hibernate.KmsCommentMainDaoImp"
+		id="kmsCommentMainDao" parent="KmssAuthBaseDao">
+		<property value="com.landray.kmss.kms.common.model.KmsCommentMain"
+			name="modelName" />
+	</bean>
+	<bean
+		class="com.landray.kmss.kms.common.service.spring.KmsCommentMainServiceImp"
+		id="kmsCommentMainTarget" parent="KmssBaseTarget">
+		<property name="baseDao">
+			<ref local="kmsCommentMainDao" />
+		</property>
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+		<property name="sysNotifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="kmsCommonAtUserService">
+			<ref local="kmsCommonAtUserService" />
+		</property>
+	</bean>
+	<bean id="kmsCommentMainService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="kmsCommentMainTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsCommonAtUserDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.common.dao.hibernate.KmsCommonAtUserDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.common.model.KmsCommonAtUser" />
+	</bean>
+	<bean
+		id="kmsCommonAtUserTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.common.service.spring.KmsCommonAtUserServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsCommonAtUserDao" />
+		</property>
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsCommonAtUserService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsCommonAtUserTarget" />
+		</property>
+	</bean>
+</beans>

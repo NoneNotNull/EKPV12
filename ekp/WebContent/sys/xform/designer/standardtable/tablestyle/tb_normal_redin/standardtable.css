@@ -1,0 +1,15 @@
+/*表格内部框线红色，字段有线*/
+.tb_normal_redin { text-align: left; padding: 8px !important; margin: 0px auto; border:2px solid #fff; border-collapse: collapse; background-color: rgb(255, 255, 255); }
+.tb_normal_redin   tr { }
+.tb_normal_redin   tr  td { padding: 8px; border: 1px solid #f00; word-break: break-all; }
+.tb_normal_redin   tr  .td_normal_title {}
+.tb_normal_redin .inputsgl { height: 20px; border-bottom: 1px solid red; }
+.tb_normal_redin .inputselectsgl { height: 20px; line-height: 20px; border-bottom-color: red; border-bottom-width: 1px; border-bottom-style: solid; display: inline-block; position: relative; cursor: pointer; }
+
+.tb_normal_redin   tr  td select{border: 1px solid red;}
+.tb_normal_redin   tr  td textarea{border: 1px solid red;}
+/*还原被覆盖的无边框样式,防止单选按钮和多选按钮出现边框*/
+.tb_noborder{background-color: #FFFFFF;margin: 0px;border-collapse: collapse;padding: 0px;border: 0px;}
+.tb_noborder tr td {padding: 0px;border: 0px;}
+
+.validation-table td{border: 0px solid red!important;}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean
+		id="sysAttCatalogDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysAttCatalogDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.filestore.model.SysAttCatalog" />
+	</bean>
+	
+	<bean
+		id="sysAttCatalogTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysAttCatalogServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAttCatalogDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysAttCatalogService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAttCatalogTarget" />
+		</property>
+	</bean>
+	
+	<bean id="sysAttUploadDao"
+		parent="KmssParentDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysAttUploadDaoImp">
+	</bean>
+
+	<bean id="sysAttUploadTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysAttUploadServiceImp">
+		<property name="sysAttUploadDao">
+			<ref local="sysAttUploadDao" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysAttUploadService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAttUploadTarget" />
+		</property>
+	</bean>
+
+</beans>

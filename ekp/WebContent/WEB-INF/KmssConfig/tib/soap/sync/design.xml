@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="tib-soap-sync:module.tib.soap.sync"
+		urlPrefix="/tib/soap/sync/"
+		defaultValidator="roleValidator(role=ROLE_TIBSOAPSYNC_DEFAULT)">
+		<roles>
+			ROLE_TIBSOAPSYNC_DEFAULT
+		</roles>
+
+		<request
+			path="tib_soap_sync_temp_func/tibSoapSyncTempFunc*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.soap.sync.model.TibSoapSyncTempFunc">
+		</request>
+
+		<request
+			path="tib_soap_sync_category/tibSoapSyncCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.soap.sync.model.TibSoapSyncCategory">
+		</request>
+
+		<request
+			path="tib_soap_sync_job/tibSoapSyncJob*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.tib.soap.sync.model.TibSoapSyncJob">
+		</request>
+
+	</module>
+
+	<homePage
+		urlPrefix="tib/soap/sync"
+		url="/moduleindex.jsp?nav=/tib/soap/sync/tree.jsp"
+		messageKey="tib-soap-sync:module.tib.soap.sync" />
+
+</configs>

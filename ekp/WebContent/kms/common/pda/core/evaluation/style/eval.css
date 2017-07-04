@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+
+.lui-eval-table {
+	
+}
+
+.lui-eval-table li.lui-eval-li {
+	padding: 10px 0;
+	border-bottom: 1px solid #EDEDEE;
+	position: relative;
+}
+
+.lui-eval-table .lui-eval-image {
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+
+.lui-eval-table .lui-eval-image img {
+	border-radius: 50%;
+}
+
+.lui-eval-table .lui-eval-article {
+	margin-left: 55px;
+	margin-top: 7px;
+}
+
+.lui-eval-table .lui-eval-article h3 {
+	color: #3280CA;
+	margin: 0;
+	font-size: 1.2em;
+	float: left;
+}
+
+.lui-eval-table .lui-eval-article span {
+	color: #9A9A9A;
+	font-size: 0.8em;
+	float: right;
+}
+
+.lui-eval-table .lui-eval-article p {
+	font-size: 0.9em;
+}
+
+.lui-eval-summary-star {
+	float: left;
+	margin-left: 10px;
+	position: relative;
+	top: 3px;
+}
+
+.lui-eval-summary-star li {
+	float: left;
+	margin-left: 8px;
+}
+
+.lui-eval-summary-star-view{
+	float: left;
+	position: relative;
+	top: 0.2em;
+	left: 6px;	
+}
+
+.lui-eval-summary-star-view li {
+	float: left;
+}
+.lui-evaluation-footer {
+	bottom: 0;
+	width: 100%;
+	position: absolute;
+	background-color: #fff;
+	height: 80px;
+	border-top: 1px solid #EDEDEE;
+	z-index: 99;
+}
+
+.lui-evaluation-footer>ul {
+	width: 100%;
+	position: absolute;	
+}
+.lui-evaluation-tip{
+	position: relative;
+	top: 9px;
+	font-size: 0.9em;
+	float: left;
+	padding: 0px 0px 0px 9px;
+}
+
+.lui-evaluation-footer .lui-eval-summary-star {
+	padding: 5px;
+}
+
+.lui-evaluation-footer .lui-evaluation-input-div {
+	position: absolute;
+	left: 4px;
+	right: 80px;
+}
+
+.lui-evaluation-submit {
+	width: 100%;
+	margin: 5px 0;
+	height: 40px;
+}
+
+.lui-evaluation-footer input {
+	padding: 8px;
+	border-radius: 5px;
+	border: 1px solid #DADADA;
+	margin-right: 30px;
+	width: 100%;
+}
+
+.lui-evaluation-submit-btn {
+	display: inline;
+	background-color: #90CDF7;
+	border-radius: 10%;
+	padding: 8px;
+	color: #fff;
+	position: absolute;
+	right: 4px;
+}
+
+#evaluation_list{
+	overflow-y: scroll; 
+	position: absolute;
+	top: 0;
+	left: 90;
+	right: 0;
+}
+.lui-evaluation-list-bottom {
+	bottom: 90px;
+}
+.lui-evaluation-list-no-bottom {
+	bottom: 0px;
+}
+.lui-eval-no-list {
+	padding: 5px 4px;
+}

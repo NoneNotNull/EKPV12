@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="example-rules:module.example.rules"
+		urlPrefix="/example/rules/"
+		defaultValidator="roleValidator(role=ROLE_EXAMPLERULES_DEFAULT)">
+		<roles>
+			ROLE_EXAMPLERULES_DEFAULT
+		</roles>
+
+		<request
+			path="example_rules_category/exampleRulesCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.example.rules.model.ExampleRulesCategory">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+
+		<request
+			path="example_rules_main/exampleRulesMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.example.rules.model.ExampleRulesMain">
+		</request>
+
+	</module>
+
+	<homePage
+		urlPrefix="example/rules"
+		config="/moduleindex_notopic.jsp?nav=/example/rules/tree.jsp"
+		url="/example/rules/index.jsp"
+		messageKey="example-rules:module.example.rules" />
+ 
+
+ 
+</configs>

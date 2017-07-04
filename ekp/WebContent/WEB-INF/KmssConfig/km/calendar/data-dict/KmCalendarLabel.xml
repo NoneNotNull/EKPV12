@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarLabel"
+		messageKey="km-calendar:table.kmCalendarLabel"
+		displayProperty="fdId"
+		serviceBean="kmCalendarLabelService"
+		table="km_calendar_label"
+		url="/km/calendar/km_calendar_label/kmCalendarLabel.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-calendar:kmCalendarLabel.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="km-calendar:kmCalendarLabel.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdColor"
+			messageKey="km-calendar:kmCalendarLabel.fdColor"
+			type="String"
+			column="fd_color"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-calendar:kmCalendarLabel.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+
+		<modelProperty
+			name="fdCreator"
+			messageKey="km-calendar:kmCalendarLabel.fdCreator"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_creator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

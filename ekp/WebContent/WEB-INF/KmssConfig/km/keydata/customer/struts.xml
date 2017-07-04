@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmCustomerMainForm"
+			type="com.landray.kmss.km.keydata.customer.forms.KmCustomerMainForm" />
+		<form-bean
+			name="kmCustomerCategoryForm"
+			type="com.landray.kmss.km.keydata.customer.forms.KmCustomerCategoryForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/km/keydata/customer/km_customer_main/kmCustomerMain"
+			type="com.landray.kmss.km.keydata.customer.actions.KmCustomerMainAction"
+			name="kmCustomerMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/keydata/customer/km_customer_main/kmCustomerMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/customer/km_customer_main/kmCustomerMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/customer/km_customer_main/kmCustomerMain_list.jsp" />
+			<forward
+				name="listChildren"
+				path="/km/keydata/customer/km_customer_main/kmCustomerMain_list.jsp" />
+			<forward
+				name="showUsed"
+				path="/km/keydata/customer/keydataUsed_view.jsp" />
+		</action>
+		
+		<action
+			path="/km/keydata/customer/km_customer_category/kmCustomerCategory"
+			type="com.landray.kmss.km.keydata.customer.actions.KmCustomerCategoryAction"
+			name="kmCustomerCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/km/keydata/customer/km_customer_category/kmCustomerCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/km/keydata/customer/km_customer_category/kmCustomerCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/km/keydata/customer/km_customer_category/kmCustomerCategory_list.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

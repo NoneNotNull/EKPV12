@@ -1,0 +1,70 @@
+﻿@charset "utf-8";
+.lui_notify_title_icon{
+	display: block;
+    float: left;
+    height: 16px;
+    margin-top: 2px;
+    position: absolute;
+    width: 16px;
+}
+.lui_notify_content_1{
+	background:url(../images/icon_red.png) no-repeat 50% 30%;
+	
+}
+.lui_notify_content_2{
+	background:url(../images/icon_green.png) no-repeat 50% 30%;
+}
+
+.lui_notify_content_3{
+	background:url(../images/icon_yellow.png) no-repeat 50% 30%;
+}
+
+.lui_notify_pending{
+	background:url(../images/pendding.png) no-repeat 50% 30%;
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+}
+.lui_notify_level{
+	color:red;
+}
+
+.lui_notify_graphic_todo_subhead span{
+	padding-right:8px;
+}
+.lui_notify_todo{padding-left:8px;padding-right:8px;}
+#lui_notify_todo_tip{
+	background: url("../images/email.png");
+	margin-top: 6px;
+	width:43px;
+	height:23px;
+}
+#lui_notify_todo_line{
+	background: url("../images/line.png") no-repeat 50% 30%;
+	margin: 8px 10px 0px 10px;
+	height:18px;
+	width:1px;
+}
+.lui_notify_email_link a{font-size:14px;margin-left:-4px;}
+.lui_notify_graphic{
+	left:8px;padding-top: 8px;padding-bottom:4px;position: relative;margin-right: 18px;word-break: break-all;border-bottom: 1px solid #ccc;
+}
+.lui_notify_graphic_person{float:left;}
+.lui_notify_graphic_todo_title{margin-bottom: 5px;font-size:12px;color:#303030;}
+.lui_notify_graphic_todo_subhead{margin-top: 4px;font-size:11px;color:#808080}
+
+#catetab .lui_tabpanel_light_navs_c{background-color:#f5f5f5;}
+#catetab .lui_tabpanel_light_frame{border:0px;}
+#catetab .lui_tabpanel_light_content_l{border-style:none;}
+#catetab .lui_tabpanel_light_footer_c{border:0;}
+#catetab .lui_tabpanel_light_footer_l{background:#fff;}
+#catetab .lui_tabpanel_light_footer_r{background:#fff;}
+
+.lui_tabpanel_light_footer_l{}
+.lui_toolbar_db_list{}
+.lui_toolbar_db_list li{ float:left; margin-right:25px; height:40px; line-height:40px;}
+.lui_toolbar_db_list li{ display:inline-block; height:40px; padding-left:8px;margin-bottom: 8px; background:url(../images/lui_toolbar_db_L.png) no-repeat left center;}
+.lui_toolbar_db_list li span{ display:inline-block; height:40px; padding-right:8px; background:url(../images/lui_toolbar_db_R.png) no-repeat right center;}
+.lui_toolbar_db_list li span a{ display:inline-block;  height:40px; background:#70cafe; color:#fff; font-size:18px; padding-right:10px;}
+.lui_toolbar_db_list li em{ display:inline-block; float:left; margin-top:5px; width:30px; height:30px; line-height:30px; text-align:center; font-size:14px; font-weight:bold; margin-right:5px; background:url(../images/lui_toolbar_db_bg.png) no-repeat; font-style:normal; color:#ff6000;}

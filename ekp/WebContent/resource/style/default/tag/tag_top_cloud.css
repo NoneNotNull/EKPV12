@@ -1,0 +1,39 @@
+body {
+	margin: 0px
+}
+
+.main {
+	margin-top:10px;
+	height:480px;
+}
+
+.cleft {
+	float: left;
+	width: 10%;
+	height: 300px
+}
+
+.ccategory {
+	margin-left:10%;
+	float: left;
+	width: 10%;
+	height: 450px;
+	overflow:auto;
+}
+
+.cflash {
+	float: left;
+	margin-left:10px;
+	width: 70%;
+	height: 400px
+}
+
+
+
+.spanCl {
+	font-size: 12px;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #4F7BA7;
+	height:30px;
+}

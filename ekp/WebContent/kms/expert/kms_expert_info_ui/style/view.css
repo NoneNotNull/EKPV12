@@ -1,0 +1,276 @@
+ul {
+	list-style: none;
+}
+
+div.lui_expert_img {
+	border: 1px solid #d9d9d9;
+	text-align:center;
+}
+
+div.lui_expert_img img {
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+.lui_experience {
+	color: #f30;
+}
+
+.lui_expert_title_info {
+	padding: 10px 10px 10px 0;
+	margin: 0px 28px;
+	border-top: 2px solid #f7f6f6;
+}
+.lui_expert_title_info span {
+	display: block;
+	background: url(../style/img/dot.png) no-repeat 0px 60%;
+	padding-left: 20px;
+	font-size: 14px;
+}
+.lui_expert_content {
+	background-color: #fff;
+	min-height: 535px;
+	padding: 8px;
+}
+
+.lui_score_percent10,.lui_score_percent9,.lui_score_percent8,.lui_score_percent7,.lui_score_percent6,.lui_score_percent5,.lui_score_percent4,.lui_score_percent3,.lui_score_percent2,.lui_score_percent1,.lui_score_percent0
+	{
+	display: block;
+	background: url(../style/img/progress_bar.png) no-repeat;
+	width: 128px;
+	height: 13px;
+}
+
+.lui_score_percent10 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-330px;
+}
+
+.lui_score_percent9 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-297px;
+}
+
+.lui_score_percent8 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-264px;
+}
+
+.lui_score_percent7 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-231px;
+}
+
+.lui_score_percent6 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-198px;
+}
+
+.lui_score_percent5 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-165px;
+}
+
+.lui_score_percent4 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-132px;
+}
+
+.lui_score_percent3 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-99px;
+}
+
+.lui_score_percent2 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-66px;
+}
+
+.lui_score_percent1 {
+	background: url(../style/img/progress_bar.png) no-repeat 0
+		-33px;
+}
+
+.lui_score_percent0 {
+	background: url(../style/img/progress_bar.png) no-repeat 0 0px;
+}
+
+/*@右侧iframe样式*/
+.lui_expert_iframe {
+	border: none;
+	width: 100%;
+	min-height: 535px;
+}
+
+
+.lui_expert_km_selected a{
+	color: #3e9ece;
+}
+
+
+
+/*新页面样式*/
+.lui_expert_contact  ul li {
+	display: inline;
+	margin-right: 8px;
+}
+
+.lui_expert_experience ul li{
+	margin: 5px 0px;
+}
+.lui_expert_top_info {
+	margin: 10px 0 5px 34px;
+}
+.lui_expert_top_info span {
+	margin-right: 3px;
+}
+.lui_expert_name {
+	font-size: 18px;
+	color: #3e9ece;
+}
+.lui_expert_ask_btn a{
+	line-height: 23px;
+	height: 24px;
+	font-size: 12px;
+	text-align: center;
+	vertical-align: 4px;
+	display: inline-block;
+	color: #ffffff;
+	border: 1px solid #5d9319;
+	background: #14AD00;
+}
+.lui_expert_ask_btn a:hover {
+	background: #5d9319 ;
+	color: #ffffff;
+}
+.lui_fdSex_M {
+	vertical-align: -2px;
+	width:16px;
+	height:16px;
+	background: url(../style/img/icon_man.png) no-repeat 0 0px;
+}
+.lui_fdSex_F {
+	vertical-align: -2px;
+	width:16px;
+	height:16px;
+	background: url(../style/img/icon_woman.png) no-repeat 0 0px;
+}
+.lui_expert_fdSignature {
+	padding: 15px 0 15px 25px;
+}
+.lui_expert_km_nav {
+	padding-top: 10px;
+}
+.lui_expert_km_selected .lui_expert_nv_tri_right { 
+    width: 0;
+	height: 0;
+	line-height: 0;
+	border-width: 5px 7px;
+	border-style: solid;
+	border-color: transparent transparent transparent #FFFFFF;
+	display: inline-block;
+}
+
+.lui_expert_nav_span {
+	padding: 7px 0px 7px 15px;
+	display: inline-block;
+	width: 100%;
+}
+.lui_expert_km_selected .lui_expert_nav_span {
+	padding: 7px 0px 7px 15px;
+	display: inline-block;
+	background-color: #FFFFFF;
+	width:83%
+}
+.lui_expert_intro_btn {
+	width: 94px;
+	height: 44px;
+	background-color: #0193D6;
+	margin: 50px 15px 0px 15px;
+	border: 1px solid #3E9BC6;
+	cursor: pointer;
+	background: #0193D6 url(../style/img/icon_zj_nor.png) no-repeat 10px 50%;
+	color: #FFFFFF;
+	padding-left: 48px;
+	padding-right: 5px;
+	line-height: 43px;
+	font-size: 16px;
+}
+.lui_expert_intro_btn:hover {
+	background-color:#EF9404;
+	border:1px solid #D98A34;
+	color:#FFFFFF;
+	background:#EF9404 url(../style/img/icon_zj_sel.png) no-repeat 10px 50%;
+}
+.lui_nav_img_sel {
+	display:none;
+}
+.lui_expert_km_selected .lui_expert_nav_span a .lui_nav_img_sel {
+	display:inline;
+}
+.lui_expert_km_selected .lui_expert_nav_span a .lui_nav_img_nor {
+	display:none;
+}
+.lui_expert_km_selected_icon .lui_nav_img_sel {
+	display:inline;
+}
+.lui_expert_km_selected_icon .lui_nav_img_nor {
+	display:none;
+}
+.lui_expert_info_edit {
+	height: 20px;
+	width: 70px;
+	padding: 0px 25px;
+	line-height: 19px;
+	background: transparent url(../style/img/icon_edit.png) no-repeat 0 0;
+	float: right;
+	color: #3e9ece;
+}
+.lui_expert_info_content {
+	padding:10px 50px;
+}
+.lui_expert_level {
+	color:#A84C2A;
+	padding-left: 2px;
+	line-height: 14px;
+	vertical-align: 2px;
+	display: inline-block;
+	width: 30px;
+	height: 14px;
+	background: transparent url(../style/img/but_jb.png) no-repeat 0 0;
+}
+.lui_expert_contact_img {
+	display: inline-block;
+	height: 19px;
+	width: 19px;
+}
+.lui_expert_contact_kk {
+	background: transparent url(../style/img/icon_gray_kk.png) no-repeat 0 0;
+}
+.lui_expert_contact_kk:hover {
+	background: transparent url(../style/img/icon_blue_kk.png) no-repeat 0 0;
+}
+.lui_expert_contact_email {
+	background: transparent url(../style/img/icon_gray_email.png) no-repeat 0 0;
+}
+.lui_expert_contact_email:hover {
+	background: transparent url(../style/img/icon_blue_email.png) no-repeat 0 0;
+}
+.lui_expert_contact_iphone {
+	background: transparent url(../style/img/icon_gray_iphone.png) no-repeat 0 0;
+}
+.lui_expert_contact_iphone:hover {
+	background: transparent url(../style/img/icon_blue_iphone.png) no-repeat 0 0;
+}
+.lui_expert_contact ul li div {
+	display: inline;
+}
+.lui_expert_baseinfo_left {
+	width: 120px;
+	border-right:3px solid #f7f6f6;
+	padding: 25px 28px 0 25px;
+}
+.lui_expert_info_tb tr td {
+	white-space:nowrap;
+} 

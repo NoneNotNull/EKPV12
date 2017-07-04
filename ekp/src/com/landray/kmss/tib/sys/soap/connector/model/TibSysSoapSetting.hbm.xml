@@ -1,0 +1,254 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSetting"
+		table="tib_sys_soap_setting">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		
+		<!-- docPoolAdmin -->
+		<property
+			name="docPoolAdmin"
+			column="doc_pool_admin"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+		<!-- serviceName -->
+		<property
+			name="serviceName"
+			column="service_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+		<!-- passwordType -->
+		<property
+			name="passwordType"
+			column="password_type"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+		<!-- soapHeaderCustom -->
+		<property name="soapHeaderCustom" column="soap_header_custom"
+			update="true" insert="true" length="1000000" not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType" lazy="true" />
+		
+		<!-- extendInfoXml -->	
+		<property name="extendInfoXml" column="extend_info_xml"
+			update="true" insert="true" length="1000000" not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType" lazy="true" />	
+			
+		<!-- bindName -->
+		<property
+			name="bindName"
+			column="bind_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+		<!-- address地址 -->
+		<property
+			name="docAddress"
+			column="doc_address"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+			<property
+			name="portName"
+			column="fd_port_name"
+			update="true"
+			insert="true"
+			length="300"
+			not-null="false" />	
+			
+			
+		<property
+			name="fdAuthMethod"
+			column="fd_auth_method"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />	
+
+		<property
+			name="docSubject"
+			column="doc_subject"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="true" />
+
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="docAlterTime"
+			column="doc_alter_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdWsdlUrl"
+			column="fd_wsdl_url"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdEnable"
+			column="fd_enable"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+				<property
+			name="fdProtectWsdl"
+			column="fd_protect_wsdl"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+			
+
+		<property
+			name="fdSoapVerson"
+			column="fd_soap_verson"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdCheck"
+			column="fd_check"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdAllowBlock"
+			column="fd_allow_block"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdOverTime"
+			column="fd_over_time"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdUserName"
+			column="fd_user_name"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+		<property
+			name="fdloadUser"
+			column="fd_load_user"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+		<property
+			name="fdloadPwd"
+			column="fd_load_pwd"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+			
+		<property
+			name="fdPassword"
+			column="fd_password"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdResponseTime"
+			column="fd_response_time"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdMarks"
+			column="fd_marks"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<property
+			name="fdWsdlVersion"
+			column="fd_wsdl_version"
+			update="true"
+			insert="true"
+			length="36"
+			not-null="false" />
+
+		<many-to-one
+			name="docCreator"
+			column="doc_creator"
+			insert="true"
+			update="true"
+			not-null="false" />
+			
+				
+		 <many-to-one 
+		        name="settCategory" 
+		        column="sett_category_id"
+				insert="true"
+				update="true" 
+				not-null="false" />
+	
+
+		<bag
+			name="fdServerExt"
+			cascade="all-delete-orphan"
+			inverse="true"
+			lazy="true">
+			<key
+				column="fd_server_setting" />
+			<one-to-many
+				class="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapSettingExt" />
+		</bag>
+
+	</class>
+</hibernate-mapping>

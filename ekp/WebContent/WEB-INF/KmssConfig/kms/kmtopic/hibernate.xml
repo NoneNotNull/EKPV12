@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicMain.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicCatelog.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicCatelogContent.hbm.xml" />
+		
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicMainPre.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/kmtopic/model/KmsKmtopicCategoryPreview.hbm.xml" /> 
+			
+	</session-factory>
+</hibernate-configuration> 

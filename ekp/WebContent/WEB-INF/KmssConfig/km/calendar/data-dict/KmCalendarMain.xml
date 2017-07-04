@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.calendar.model.KmCalendarMain"
+		messageKey="km-calendar:table.kmCalendarMain"
+		displayProperty="fdId"
+		serviceBean="kmCalendarMainService"
+		table="km_calendar_main"
+		url="/km/calendar/km_calendar_main/kmCalendarMain.do?method=view&amp;fdId=${fdId}"> 
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-calendar:kmCalendarMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="true"
+			length="500"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="km-calendar:kmCalendarMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="800000"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-calendar:kmCalendarMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-calendar:kmCalendarMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docStartTime"
+			messageKey="km-calendar:kmCalendarMain.docStartTime"
+			type="DateTime"
+			column="doc_start_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docFinishTime"
+			messageKey="km-calendar:kmCalendarMain.docFinishTime"
+			type="DateTime"
+			column="doc_finish_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="fdIsAlldayevent"
+			messageKey="km-calendar:kmCalendarMain.fdIsAlldayevent"
+			type="Boolean"
+			column="fd_is_AllDayEvent"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="fdRecurrenceStr"
+			messageKey="km-calendar:kmCalendarMain.fdRecurrenceStr"
+			type="String"
+			column="fd_recurrence_str"
+			notNull="false"
+			length="200"
+			enumType="km_calendar_recurrence_freq"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsLunar"
+			messageKey="km-calendar:kmCalendarMain.fdIsLunar"
+			type="Boolean"
+			column="fd_is_lunar"
+			notNull="false"
+			length="1"
+			validate="false" />
+
+		<simpleProperty
+			name="fdAuthorityType"
+			messageKey="km-calendar:kmCalendarMain.fdAuthorityType"
+			type="String"
+			column="fd_authority_type"
+			notNull="false"
+			length="200"
+			enumType="km_calendar_fd_authority_type"
+			validate="true" />
+
+		<simpleProperty
+			name="fdLocation"
+			messageKey="km-calendar:kmCalendarMain.fdLocation"
+			type="String"
+			column="fd_location"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdRelationUrl"
+			messageKey="km-calendar:kmCalendarMain.fdRelationUrl"
+			type="String"
+			column="fd_relation_url"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdType"
+			messageKey="km-calendar:kmCalendarMain.fdType"
+			type="String"
+			column="fd_type"
+			notNull="false"
+			length="200"
+			validate="true" />
+			
+	    <modelProperty
+			name="docLabel"
+			messageKey="km-calendar:kmCalendarMain.docLabel"
+			type="com.landray.kmss.km.calendar.model.KmCalendarLabel"
+			column="doc_label_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="km-calendar:kmCalendarMain.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docOwner"
+			messageKey="km-calendar:kmCalendarMain.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_owner_id"
+			notNull="false"
+			validate="false" />
+		<!-- 	
+		<listProperty
+			name="authReaders"
+			canSearch="false"
+			canDisplay="true"
+			messageKey="km-calendar:kmCalendarMain.authReaders"
+			column="fd_calendar_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_calendar_main_reader" />
+		
+		<listProperty
+			name="authReadersDefault"
+			messageKey="km-calendar:kmCalendarMain.authReadersDefault"
+			canSearch="false"
+			canDisplay="false"
+			column="fd_calendar_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id_default"
+			table="km_calendar_main_reader_default" />
+		
+		<listProperty
+			name="authEditors"
+			canSearch="false"
+			canDisplay="true"
+			messageKey="km-calendar:kmCalendarMain.authEditors"
+			column="fd_calendar_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_calendar_main_editor" />
+			
+		<listProperty
+			name="authEditorsDefault"
+			messageKey="km-calendar:kmCalendarMain.authEditorsDefault"
+			canSearch="false"
+			canDisplay="false"
+			column="fd_calendar_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id_default"
+			table="km_calendar_main_editor_default" /> 
+			 -->
+			 
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-calendar:kmCalendar.authOtherReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_calendar_main_auth_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-calendar:kmCalendar.authOtherEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_calendar_main_auth_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-calendar:kmCalendar.authAllReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_calendar_main_auth_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-calendar:kmCalendar.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_calendar_main_auth_aeditor"
+			inverse="false"
+			canDisplay="false" />
+			<!-- 
+		<listProperty
+			name="authAttDownloads"
+			messageKey="km-calendar:kmCalendar.authAttDownloads"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_calendar_main_attdl"
+			inverse="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="km-calendar:kmCalendar.authAttCopys"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_calendar_main_attcopy"
+			inverse="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="km-calendar:kmCalendar.authAttPrints"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_calendar_main_attprint"
+			inverse="false" />
+			 -->
+		<listProperty
+			name="authReaders"
+			messageKey="sys-doc:sysDocBaseInfo.authReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="km_calendar_main_auth_readers"
+			inverse="false"
+			readOnly="true" />
+		<listProperty
+			name="authEditors"
+			messageKey="sys-doc:sysDocBaseInfo.authEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_calendar_main_auth_editors"
+			elementColumn="fd_org_id"
+			inverse="false"
+			readOnly="true" />
+	</model>
+</models>

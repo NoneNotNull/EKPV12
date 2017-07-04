@@ -1,0 +1,364 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.km.review.model.KmReviewMain"
+		table="km_review_main">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator class="assigned" />
+		</id>
+		
+		<property
+			name="syncDataToCalendarTime"
+			column="sync_data_to_calendar_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdLastModifiedTime"
+			column="fd_last_modified_time"
+			update="true"
+			insert="true"
+			not-null="true" />
+
+		<property
+			name="docSubject"
+			column="doc_subject"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="500" />
+
+		<property
+			name="fdCurrentNumber"
+			column="fd_current_number"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="19" />
+		<property
+			name="fdFeedbackModify"
+			column="fd_feedback_modify"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdFeedbackExecuted"
+			column="fd_feedback_executed"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="fdNumber"
+			column="fd_number"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="50" />
+		<many-to-one
+			name="docCreator"
+			column="doc_creator_id"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="docCreateTime"
+			column="doc_create_time"
+			update="true"
+			insert="true"
+			not-null="true" />
+		<many-to-one
+			name="fdDepartment"
+			column="fd_department_id"
+			update="true"
+			insert="true"
+			not-null="false" />
+		<property
+			name="docPublishTime"
+			column="doc_publish_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="docReadCount"
+			column="doc_read_count"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="19" />
+			
+		<!-- 表单数据 -->
+		<property
+			name="extendFilePath"
+			column="extend_file_path"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+		<property
+			name="extendDataXML"
+			column="extend_data_xml"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1000000"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+		<property
+			name="docContent"
+			column="doc_content"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1000000"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+		<property
+			name="fdUseForm"
+			column="fd_use_form"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="docStatus"
+			column="doc_status"
+			update="true"
+			insert="true"
+			not-null="true"
+			length="2" />
+		<property
+			name="authAttNodownload"
+			column="auth_att_nodownload"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authAttNocopy"
+			column="auth_att_nocopy"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authAttNoprint"
+			column="auth_att_noprint"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authReaderFlag"
+			column="auth_reader_flag"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="1" />
+		<property
+			name="authChangeReaderFlag"
+			column="fd_change_reader_flag"
+			update="true"
+			insert="true"/>
+		<property
+			name="authRBPFlag"
+			column="fd_rbp_flag"
+			update="true"
+			insert="true"/>
+		<property
+			name="authChangeAtt"
+			column="fd_change_att"
+			update="true"
+			insert="true"/>
+		<!-- 增加与bam关联的字段开始（陈园园） -->
+		<property
+			name="fdModelName"
+			column="fd_model_name"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="200" />
+		<property
+			name="fdModelId"
+			column="fd_model_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />
+		<property
+			name="fdWorkId"
+			column="fd_work_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />
+		<property
+			name="fdPhaseId"
+			column="fd_phase_id"
+			update="true"
+			insert="true"
+			not-null="false"
+			length="36" />
+		<!-- 增加与bam关联的字段结束（陈园园） -->
+		<many-to-one
+			name="fdTemplate"
+			column="fd_template_id"
+			insert="true"
+			update="true"
+			not-null="true" />
+		
+		<many-to-one
+			name="authArea"
+			column="auth_area_id"
+			insert="true"
+			update="true"
+			not-null="false"
+			index="idx_kmReviewMain_authAreaId" />
+
+		<bag
+			name="authAttPrints"
+			table="km_review_main_attprint"
+			lazy="true">
+			<key column="fd_main_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_print_id" />
+		</bag>
+
+		<bag
+			name="authAttCopys"
+			table="km_review_main_attcopy"
+			lazy="true">
+			<key column="fd_main_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_copy_id" />
+		</bag>
+
+		<bag
+			name="authAttDownloads"
+			table="km_review_main_attdl"
+			lazy="true">
+			<key column="fd_main_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_att_download_id" />
+		</bag>
+		<bag
+			name="fdLableReaders"
+			table="km_review_main_label_reader"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_lable_reader_id" />
+		</bag>
+
+
+		<bag
+			name="fdFeedback"
+			table="km_review_main_feedback"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_feedback_id" />
+		</bag>
+
+		<bag
+			name="fdFeedbackInfo"
+			table="km_review_feedback_info"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="doc_creator_id" />
+		</bag>
+
+		<bag
+			name="authReaders"
+			table="km_review_main_reader"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_reader_id" />
+		</bag>
+
+		<bag
+			name="authOtherReaders"
+			table="km_review_main_oreader"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_reader_id" />
+		</bag>
+
+		<bag
+			name="authOtherEditors"
+			table="km_review_main_oeditor"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_other_editor_id" />
+		</bag>
+
+		<bag
+			name="authAllReaders"
+			table="km_review_main_areader"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_all_reader_id" />
+		</bag>
+		
+		<bag
+			name="authAllEditors"
+			table="km_review_main_aeditor"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="auth_all_editor_id" />
+		</bag>	
+		<bag
+			name="docProperties"
+			table="km_review_main_property"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.category.model.SysCategoryProperty"
+				column="fd_property_id" />
+		</bag>
+		<bag
+			name="fdPosts"
+			table="km_review_main_post"
+			lazy="true">
+			<key column="fd_doc_id" />
+			<many-to-many
+				class="com.landray.kmss.sys.organization.model.SysOrgElement"
+				column="fd_post_id" />
+		</bag>
+		<bag
+			name="docKeyword"
+			cascade="all-delete-orphan"
+			inverse="false">
+			<key column="fd_object_id" />
+			<one-to-many
+				class="com.landray.kmss.km.review.model.KmReviewDocKeyword" />
+		</bag>
+	</class>
+</hibernate-mapping>

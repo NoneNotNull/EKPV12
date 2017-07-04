@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysAppConfigForm"
+			type="com.landray.kmss.sys.appconfig.forms.SysAppConfigForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/appconfig/sys_appconfig/sysAppConfig"
+			type="com.landray.kmss.sys.appconfig.actions.SysAppConfigAction"
+			name="sysAppConfigForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			scope="request">
+		</action>
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,233 @@
+﻿.muiLbpmserviceAuditContainer{
+	padding-top: 10px;
+	border-top:1px solid #e2e2e2;
+}
+.muiLbpmserviceAuditNodeItem {
+	margin-left: 1.6rem;
+	padding: 0.5rem 0rem 0.5rem 1.6rem;
+	-webkit-transition: all 0.2s ease-out;
+	overflow: hidden;
+	margin-right: 1.6rem;
+}
+
+.muiLbpmserviceAuditLabelItem {
+	position: relative;
+	padding-left: 1.6rem;
+	margin:0 1.6rem; 
+	-webkit-transition: all 0.2s ease-out;
+	background-color: #fff;
+	border-left: 0.1rem solid #e8e8e8;
+}
+
+.muiLbpmserviceAuditNodeItemBorder {
+	border-left: 0.1rem solid #e8e8e8;
+}
+.muiLbpmserviceAuditNodeItemContainer {
+	background: #fff;
+	position: relative;
+}
+
+.muiLbpmserviceAuditNodeImage {
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	position: absolute;
+	left: 0.6rem;
+	top: 0.4rem;
+}
+
+.muiLbpmserviceAuditNodeInfo h4 {
+	color: #2c79c7;
+	font-weight: normal;
+	font-size: 1.3rem;
+	line-height: 2rem;
+	padding: 0;
+	margin: 0;
+}
+
+.muiLbpmserviceAuditNodeInfo {
+	padding: 0.3rem 0.5rem 0.5rem 4.5rem;
+	background-color: #f5f5f5;
+	position: relative;
+	border: 1px solid #e5e5e5;
+	border-radius: 5px 5px 0px 0px
+}
+
+.muiLbpmserviceAuditNodeInfo:after {
+	display: block;
+	content: 'clear';
+	clear: both;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.muiLbpmserviceAuditNodeDate {
+	color: #777676;
+	line-height: 1.3rem;
+	padding: 0;
+	margin: 0;
+	float: left;
+}
+
+.muiLbpmserviceAuditNodeDate span {
+	font-size: 1rem;
+	display: inline-block;
+	padding-left: 0.4rem;
+}
+
+.muiLbpmserviceAuditNodeContent {
+	border-radius: 0px 0px 5px 5px;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	color: #050505;
+	border: 1px solid #e5e5e5;
+	border-top: none;
+}
+
+.muiLbpmserviceAuditNodeContent p {
+	padding: 0;
+	margin: 0;
+}
+
+.muiLbpmserviceAuditNodeContent p:last-child {
+	text-align: right;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.muiLbpmserviceAuditNodeContent .muiLbpmserviceAuditNodeNode {
+	font-size: 1.6rem;
+	padding: 0 0 1rem 0;
+	word-break: break-all;
+}
+.muiLbpmserviceAuditNodeContent .muiAttachmentItem .muiAttachmentItemL{ padding-left: 0;}
+.muiLbpmserviceAuditNodeContent .muiAttachmentItem .muiAttachmentItemR{ padding-right: 0;}
+
+.muiLbpmserviceAuditNodeContent em {
+	font-weight: normal;
+	font-style: normal;
+	color: #7e7e7e;
+}
+
+div .muiLbpmserviceAuditLabelItem:first-child{ margin-top: 10px;}
+.muiLbpmserviceAuditLabelItemTitle {
+	font-size: 1.4rem;
+	color: #777676;
+	padding: 6px 0;
+}
+
+.muiLbpmserviceAuditLabelItemTitle i {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border: 0.6rem solid transparent;
+	border-bottom-color: #d8ab56;
+	top: -0.3rem;
+	position: relative;
+	margin-left: 0.5rem;
+}
+
+.muiLbpmserviceAuditLabelItemTitle.hide i {
+	border-top-color: #d8ab56;
+	border-bottom-color: transparent;
+	top: 0.3rem;
+}
+
+.muiLbpmserviceAuditLabelItemDot {
+	display: inline-block;
+	position: absolute;
+	left: -1.2rem;
+	top: 3px;
+	width: 2.5rem;
+	height: 2.4rem;
+	background-color: #fff;
+}
+
+.muiLbpmserviceAuditLabelItemDot.mui {
+	font-size: 3.3rem;
+	color: #18b4ed;
+}
+
+.muiLbpmserviceAuditBranchItem {
+	text-align: center;
+	padding: 1rem 3.2rem
+}
+
+.muiLbpmserviceAuditBranchContent {
+	
+}
+
+.muiLbpmserviceAuditBranchTitle {
+	position: relative;
+	display: inline-block;
+	height: 3rem;
+	line-height: 3rem;
+	border-radius: 5px;
+	background: #fbd48a;
+	color: #fff;
+	font-size: 1.6rem;
+	width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.muiLbpmserviceAuditBranchTitle i {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border: 0.6rem solid transparent;
+	border-bottom-color: #d8ab56;
+	top: -0.3rem;
+	position: relative;
+	margin-left: 0.5rem;
+}
+
+.muiLbpmserviceAuditBranchTitle.hide i {
+	border-top-color: #d8ab56;
+	border-bottom-color: transparent;
+	top: 0.3rem;
+}
+
+.muiLbpmserviceAuditNodeFrom {
+	font-style: normal;
+	color: #8e8e8e;
+	line-height: 1.3rem;
+	padding: 0;
+	margin: 0;
+	font-size: 1rem;
+	float: right;
+}
+
+.muiLbpmserviceAuditNodeDate.mui.mui-time {
+	font-size: 1rem;
+}
+
+.muiLbpmserviceAuditNodeActionName {
+	color: #777676;
+	font-size: 1rem !important;
+}
+
+.muiLbpmserviceAuditNodeNode .muiLbpmserviceAuditNodeHide {
+	font-style: italic;
+}
+
+.muiLbpmserviceAuditStartItem{
+	margin-left: 1.6rem;
+	padding: 0 0 0.5rem 1.6rem;
+	margin-right: 1.6rem;
+}
+	
+.muiLbpmserviceAuditStartItem>span{
+	background-color: #2EACD9;
+	padding: 0.3rem 0.8rem;
+	color: #fff;
+	font-size: 1.3rem;
+	border-radius: 0.3rem;
+	margin:0 0 0.7rem -3.4rem ;
+	display: inline-block;
+}
+
+.muiLbpmserviceAuditLabelItem.summary .muiLbpmserviceAuditLabelItemTitle{
+	color: #EEC786;
+	font-size: 1.4rem;	
+}

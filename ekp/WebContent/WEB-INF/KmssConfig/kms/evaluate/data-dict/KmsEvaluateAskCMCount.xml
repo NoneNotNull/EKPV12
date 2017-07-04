@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskCMCount"
+		messageKey="kms-evaluate:table.kmsEvaluateAskCMCount"
+		displayProperty="fdcategory"
+		serviceBean="kmsEvaluateAskCMCountService"
+		table="kms_evaluate_ask_c_m_count"
+		url="/kms/evaluate/kms_evaluate_ask_c_m_count/kmsEvaluateAskCMCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdcategory"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.fdcategory"
+			type="String"
+			column="fdCategory"
+			notNull="true"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" />
+
+		<simpleProperty
+			name="docDate"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.docDate"
+			type="String"
+			column="doc_date"
+			notNull="false"
+			length="8"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTopicCount"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.fdTopicCount"
+			type="Integer"
+			column="fd_topic_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPostCount"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.fdPostCount"
+			type="Integer"
+			column="fd_post_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdSolveCount"
+			messageKey="kms-evaluate:kmsEvaluateAskCMCount.fdSolveCount"
+			type="Integer"
+			column="fd_solve_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+	</model>
+</models>

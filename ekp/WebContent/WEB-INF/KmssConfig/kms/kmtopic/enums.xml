@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="kmsKmtopicMainFdDisplayStyle" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>kmsKmtopic.fdDisplayStyle.rowtable</label-key>
+			<bundle>kms-kmtopic</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsKmtopic.fdDisplayStyle.gridtable</label-key>
+			<bundle>kms-kmtopic</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>kmsKmtopic.fdDisplayStyle.columntable</label-key>
+			<bundle>kms-kmtopic</bundle>
+		</value-label>
+	</type>
+	
+	<type
+		name="kmsKmtopicAuthorType" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>kmsKmtopicMain.innerAuthor</label-key>
+			<bundle>kms-kmtopic</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsKmtopicMain.outerAuthor</label-key>
+			<bundle>kms-kmtopic</bundle>
+		</value-label>
+	</type>
+</column-enums>

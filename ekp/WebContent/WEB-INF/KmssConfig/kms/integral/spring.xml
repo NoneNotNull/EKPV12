@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="kmsIntegralRuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralRuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralRule" />
+	</bean>
+	<bean
+		id="kmsIntegralRuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralRuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralRuleDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralRuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralRuleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralTargetDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTargetDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralTargetDetail" />
+	</bean>
+	<bean
+		id="kmsIntegralTargetDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTargetDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTargetDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTargetDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTargetDetailTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralPersonRDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralPersonRDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralPersonRDetail" />
+	</bean>
+	<bean
+		id="kmsIntegralPersonRDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralPersonRDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralPersonRDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralPersonRDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralPersonRDetailTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralTeamRankDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTeamRankDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralTeamRank" />
+	</bean>
+	<bean
+		id="kmsIntegralTeamRankTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTeamRankServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTeamRankDao" />
+		</property>
+		<property name="kmsIntegralTeamService">
+			<ref local="kmsIntegralTeamService"/>
+		</property>
+		<property name="kmsIntegralPersonRDetailService">
+			<ref local="kmsIntegralPersonRDetailService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+		<property name="kmsIntegralTeamMonthReportService">
+			<ref bean="kmsIntegralTeamMonthReportService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTeamRankService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTeamRankTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralPersonTotalDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralPersonTotalDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralPersonTotal" />
+	</bean>
+	<bean
+		id="kmsIntegralPersonTotalTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralPersonTotalServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralPersonTotalDao" />
+		</property>
+		<property name="kmsIntegralTeamRankService">
+			<ref bean="kmsIntegralTeamRankService"/>
+		</property>
+		<property name="kmsIntegralPersonRDetailService">
+			<ref bean="kmsIntegralPersonRDetailService"/>
+		</property>
+		<property name="kmsIntegralScoreSumService">
+			<ref local="kmsIntegralScoreSumService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralPersonTotalService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralPersonTotalTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralModuleMonthDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralModuleMonthDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralModuleMonth" />
+	</bean>
+	<bean
+		id="kmsIntegralModuleMonthTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralModuleMonthServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralModuleMonthDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralModuleMonthService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralModuleMonthTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralMonthReportDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralMonthReportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralMonthReport" />
+	</bean>
+	<bean
+		id="kmsIntegralMonthReportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralMonthReportServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralMonthReportDao" />
+		</property>
+		<property name="kmsIntegralScoreSumService">
+			<ref bean="kmsIntegralScoreSumService"/>
+		</property>
+		<property name="kmsIntegralTeamMonthReportService">
+			<ref bean="kmsIntegralTeamMonthReportService"/>
+		</property>
+		<property name="kmsIntegralModuleScoreSumService">
+			<ref bean="kmsIntegralModuleScoreSumService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralMonthReportService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralMonthReportTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralPersonRoleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralPersonRoleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralPersonRole" />
+	</bean>
+	<bean
+		id="kmsIntegralPersonRoleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralPersonRoleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralPersonRoleDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralPersonRoleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralPersonRoleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralAlterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralAlterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralAlter" />
+	</bean>
+	<bean
+		id="kmsIntegralAlterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralAlterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralAlterDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralAlterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralAlterTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralOtherDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralOtherDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralOtherDetail" />
+	</bean>
+	<bean
+		id="kmsIntegralOtherDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralOtherDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralOtherDetailDao" />
+		</property>
+		<property name="kmsIntegralAlterService">
+			<ref local="kmsIntegralAlterService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralOtherDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralOtherDetailTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralPersonDetailDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralPersonDetailDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralPersonDetail" />
+	</bean>
+	<bean
+		id="kmsIntegralPersonDetailTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralPersonDetailServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralPersonDetailDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralPersonDetailService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralPersonDetailTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralTeamDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTeamDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralTeam" />
+	</bean>
+	<bean
+		id="kmsIntegralTeamTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTeamServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTeamDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTeamService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTeamTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralPersonCalculate" class="com.landray.kmss.kms.integral.calculate.KmsIntegralPersonCalculate">
+		<property name="kmsIntegralPersonDetailService">
+			<ref local="kmsIntegralPersonDetailService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralTargetCalculate" class="com.landray.kmss.kms.integral.calculate.KmsIntegralTargetCalculate">
+		<property name="kmsIntegralTargetDetailService">
+			<ref local="kmsIntegralTargetDetailService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralServiceLogDao" class="com.landray.kmss.kms.integral.calculate.dao.KmsIntegralServiceLogDao">
+		<property name="kmsLogHandleFactory">
+			<ref bean="kmsLogHandleFactory"/>
+		</property>
+		<property name="kmsLogAppConfigService">
+			<ref bean="kmsLogAppConfigService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralCalculateDetails" class="com.landray.kmss.kms.integral.calculate.KmsIntegralCalculateDetails">
+		<property name="kmsIntegralServerService">
+			<ref bean="kmsIntegralServerService"/>
+		</property>
+		<property name="kmsIntegralServiceLogDao">
+			<ref bean="kmsIntegralServiceLogDao"/>
+		</property>
+		<property name="calculates">
+			<list>
+				<ref local="kmsIntegralPersonCalculate" />
+				<ref local="kmsIntegralTargetCalculate" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralCalculateQuartz" class="com.landray.kmss.kms.integral.calculate.KmsIntegralCalculateQuartz">
+		<property name="kmsIntegralCalculateDetails">
+			<ref bean="kmsIntegralCalculateDetails"/>
+		</property>
+		<property name="kmsIntegralOtherDetailService">
+			<ref bean="kmsIntegralOtherDetailService"/>
+		</property>
+		<property name="kmsIntegralMonthReportService">
+			<ref bean="kmsIntegralMonthReportService"/>
+		</property>
+		<property name="kmsIntegralPersonTotalService">
+			<ref bean="kmsIntegralPersonTotalService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralCalculateService"  parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralCalculateQuartz" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop key="execute*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralResetTarget" class="com.landray.kmss.kms.integral.service.spring.KmsIntegralResetService">
+		<property name="kmsIntegralServerService">
+			<ref local="kmsIntegralServerService"/>
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralResetService"  parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralResetTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="reset*">PROPAGATION_REQUIRED</prop>
+				<prop
+					key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralServerDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralServerDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralServer" />
+	</bean>
+	<bean
+		id="kmsIntegralServerTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralServerServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralServerDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralServerService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralServerTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralModuleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralModuleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralModule" />
+	</bean>
+	<bean
+		id="kmsIntegralModuleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralModuleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralModuleDao" />
+		</property>
+		<property name="kmsIntegralCategoryService">
+			<ref local="kmsIntegralCategoryService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralModuleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralModuleTarget" />
+		</property>
+	</bean>
+	
+		<bean
+		id="kmsIntegralCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralCategory" />
+	</bean>
+	<bean
+		id="kmsIntegralCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralCategoryTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="kmsIntegralTitleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTitleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralTitle" />
+	</bean>
+	<bean
+		id="kmsIntegralTitleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTitleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTitleDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTitleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTitleTarget" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralCategroyListService"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralCategroyListService">
+		<property name="kmsIntegralCategoryService">
+			<ref local="kmsIntegralCategoryService" />
+		</property>
+		<property name="kmsIntegralModuleService">
+			<ref local="kmsIntegralModuleService" />
+		</property>
+	</bean>
+	
+	
+	<bean
+		id="kmsIntegralTeamMonthReportDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTeamMonthReportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralTeamMonthReport" />
+	</bean>
+	<bean
+		id="kmsIntegralTeamMonthReportServiceTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTeamMonthReportServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTeamMonthReportDao" />
+		</property>
+		<property name="kmsIntegralTeamService">
+			<ref local="kmsIntegralTeamService"/>
+		</property>
+		<property name="kmsIntegralScoreSumService">
+			<ref local="kmsIntegralScoreSumService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTeamMonthReportService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTeamMonthReportServiceTarget" />
+		</property>
+	</bean>
+	
+	<bean id="kmsIntegralScoreSumService" class="com.landray.kmss.kms.integral.service.spring.KmsIntegralScoreSumService">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+		<property name="kmsIntegralServerService">
+			<ref bean="kmsIntegralServerService"/>
+		</property>
+		<property name="kmsIntegralServiceLogDao">
+			<ref local="kmsIntegralServiceLogDao"/>
+		</property>
+	</bean>
+	<bean id="kmsIntegralModuleScoreSumService" class="com.landray.kmss.kms.integral.service.spring.KmsIntegralModuleScoreSumService">
+		<property name="baseDao">
+			<ref bean="KmssBaseDao"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+		<property name="kmsIntegralServerService">
+			<ref bean="kmsIntegralServerService"/>
+		</property>
+		<property name="kmsIntegralServiceLogDao">
+			<ref local="kmsIntegralServiceLogDao"/>
+		</property>
+		<property name="kmsIntegralModuleMonthService">
+			<ref local="kmsIntegralModuleMonthService"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralTeamTree"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTeamTree">
+		<property
+			name="kmsIntegralTeamService">
+			<ref
+				local="kmsIntegralTeamService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralPersonFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralPersonFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralPersonFilter" />
+	</bean>
+	<bean
+		id="kmsIntegralPersonFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralPersonFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralPersonFilterDao" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService"/>
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralPersonFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralPersonFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralDeptFilterDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralDeptFilterDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralDeptFilter" />
+	</bean>
+	<bean
+		id="kmsIntegralDeptFilterTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralDeptFilterServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralDeptFilterDao" />
+		</property>
+		<property name="sysOrgElementService">
+			<ref bean="sysOrgElementService"/>
+		</property>
+		<property name="kmsIntegralMonthReportService">
+			<ref local="kmsIntegralMonthReportService"/>
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralDeptFilterService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralDeptFilterTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralRuleTotalDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralRuleTotalDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralRuleTotal" />
+	</bean>
+	<bean
+		id="kmsIntegralRuleTotalTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralRuleTotalServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralRuleTotalDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralRuleTotalService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralRuleTotalTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralModuleTotalDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralModuleTotalDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralModuleTotal" />
+	</bean>
+	<bean
+		id="kmsIntegralModuleTotalTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralModuleTotalServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralModuleTotalDao" />
+		</property>
+		<property name="kmsIntegralTypeService">
+			<ref local="kmsIntegralTypeService" />
+		</property>
+		<property name="kmsIntegralPersonTotalService">
+			<ref local="kmsIntegralPersonTotalService" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralModuleTotalService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralModuleTotalTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmsIntegralTypeDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.kms.integral.dao.hibernate.KmsIntegralTypeDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.kms.integral.model.KmsIntegralType" />
+	</bean>
+	<bean
+		id="kmsIntegralTypeTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralTypeServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="kmsIntegralTypeDao" />
+		</property>
+	</bean>
+	<bean
+		id="kmsIntegralTypeService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="kmsIntegralTypeTarget" />
+		</property>
+	</bean>
+	
+	
+	<bean id="kmsIntegralDocPublishCoreService" class="com.landray.kmss.kms.integral.service.spring.KmsIntegralDocPublishCoreServiceImp"> 
+		<property name="baseDao">
+			<ref bean="KmssBaseDao"/>
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralRoleTree"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralRoleTree">
+		<property
+			name="kmsIntegralPersonRoleService">
+			<ref
+				local="kmsIntegralPersonRoleService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralCategoryTree"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralCategoryTree">
+		<property
+			name="kmsIntegralCategoryService">
+			<ref
+				local="kmsIntegralCategoryService" />
+		</property>
+	</bean>
+	
+	<bean
+		id="kmsIntegralModuleTree"
+		class="com.landray.kmss.kms.integral.service.spring.KmsIntegralModuleTree">
+		<property
+			name="kmsIntegralModuleService">
+			<ref
+				local="kmsIntegralModuleService" />
+		</property>
+	</bean>
+</beans>

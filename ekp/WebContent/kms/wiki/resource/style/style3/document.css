@@ -1,0 +1,121 @@
+body { /*background-image: url(background.jpg);*/
+	background-repeat: no-repeat;
+}
+
+#mainDiv {
+	width: 80%;
+	min-width: 800px;
+	_width: expression(this.offsetParent.clientWidth * 0.8 < 800 ? "800px" : "80%")
+		;
+	border: 1px solid #C0C0C0;
+	/*border-left:1px solid #C0C0C0;
+	border-top:1px solid #C0C0C0;
+	border-right:5px inset #bbbbbb;
+	border-bottom:5px inset #aaaaaa;*/
+	padding: 20px;
+	background-image: url(tbbg.png);
+}
+
+#templateNameDiv {
+	margin-left: 20px;
+	margin-right: 20px;
+	/*display: inline;*/
+	text-align: left;
+	color: #204AE8;
+	font-weight: bold;
+	font-size: 13px;
+	padding-bottom: 8px;
+	border-bottom: 3px solid #2271B4;
+}
+
+#infoDiv {
+	margin-top: -8px;
+	margin-right: 0px;
+	text-align: right;
+	color: #000000;
+}
+
+.colblue,#infoDiv a {
+	color: #0000ff;
+}
+
+#infoDiv a:hover {
+	color: #0099CC;
+}
+
+#subjectDiv {
+	padding: 20px 0px 20px 0px;
+	text-align: center;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+#sourceDiv {
+	padding-bottom: 10px;
+}
+
+#contentDiv {
+	text-align: left;
+	margin-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#toTopDiv {
+	padding: 20px 0px 20px 0px;
+	text-align: right;
+}
+
+#attachmentDiv {
+	text-align: left;
+	padding: 0px 0px 10px 0px;
+}
+
+#relationDiv {
+	
+}
+
+#evaluationDiv {
+	
+}
+
+#descriptionDiv {
+	text-align: left;
+	margin: 5px;
+	background-color: #FFFDEE;
+}
+
+#descriptionDiv span {
+	padding: 5px;
+	width: 100%;
+}
+
+#descriptionDiv legend {
+	margin-left: 15px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0046D5;
+}
+
+.docInfo {
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+
+.docInfo .title {
+	text-align: left;
+	font-size: 13px;
+	font: #000000;
+	font-weight: bold;
+	border-bottom: 1px solid #C0C0C0;
+	padding: 5px;
+}
+
+.docInfo #docInfoContent, .docInfo #docPropContent{
+	margin-left: 10px;
+	padding: 8px;
+}
+
+#docInfoContent table td, #docPropContent table td{
+	height: 25px;
+}

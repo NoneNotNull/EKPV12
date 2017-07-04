@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.webservice2.model.SysWebserviceLogBackup"
+		messageKey="sys-webservice2:table.sysWebserviceLogBackup"
+		displayProperty="fdServiceName"
+		serviceBean="sysWebserviceLogBackupService"
+		table="sys_webservice_log_backup"
+		url="/sys/webservice2/sys_webservice_log_backup/sysWebserviceLogBackup.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdServiceName"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdServiceName"
+			type="String"
+			column="fd_service_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdServiceBean"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdServiceBean"
+			type="String"
+			column="fd_service_bean"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdUserName"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdUserName"
+			type="String"
+			column="fd_user_name"
+			notNull="false"
+			length="50"
+			validate="true" />
+
+		<simpleProperty
+			name="fdClientIp"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdClientIp"
+			type="String"
+			column="fd_client_ip"
+			notNull="true"
+			length="15"
+			validate="true" />
+
+		<simpleProperty
+			name="fdStartTime"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdStartTime"
+			type="DateTime"
+			column="fd_start_time"
+			notNull="true"
+			validate="true" />
+
+		<simpleProperty
+			name="fdEndTime"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdEndTime"
+			type="DateTime"
+			column="fd_end_time"
+			notNull="false"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExecResult"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdExecResult"
+			type="String"
+			column="fd_exec_result"
+			notNull="false"
+			length="2"
+			validate="true" />
+
+		<simpleProperty
+			name="fdErrorMsg"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdErrorMsg"
+			type="RTF"
+			column="fd_error_msg"
+			notNull="false"
+			length="1000000"
+			validate="false" />
+		
+		<simpleProperty
+			name="fdRunTime"
+			messageKey="sys-webservice2:sysWebserviceLogBackup.fdRunTime"
+			type="Long"
+			column="fd_run_time"
+			notNull="false"
+			length="8"
+			validate="true" />
+			
+	</model>
+</models>

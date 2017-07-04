@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.oms">
+		<item
+			name="in"
+			singleton="true">
+			<param
+				name="name"
+				kind="unid"
+				required="true">
+				<description>扩展名称，如：hr</description>
+			</param>
+			<param
+				name="service"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.oms.in.interfaces.OMSSynchroInProvider"
+				required="true">
+				<description>扩展实现，详见OMSSynchroInProvider接口说明</description>
+			</param>
+			<description>
+				组织架构同步接入（将其它系统的组织架构数据同步到本系统中）扩展点，全系统仅允许有一个有效的接入扩展。
+				实施步骤：
+				1、编写组织架构接入的扩展。
+				2、进入系统，启动定时任务“OMS接入同步定时任务”，并为其安排一个处理时间。
+				注意：当第一次执行“OMS接入同步定时任务”任务的时候，系统会进行所有组织架构数据的同步（数据量大的时候可能会比较慢），以后的同步都为增量同步。
+			</description>
+		</item>
+		<item
+			name="out">
+			<param
+				name="name"
+				kind="unid"
+				required="true">
+				<description>扩展名称，如：domino。注意：由于系统允许有多个接出的扩展，所以请保证扩展名称的唯一性。</description>
+			</param>
+			<param
+				name="service"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.oms.out.interfaces.IOMSSynchroOutProvider"
+				required="true">
+				<description>扩展实现，详见IOMSSynchroOutProvider接口说明</description>
+			</param>
+			<description><![CDATA[
+				组织架构同步接出（将本系统的的组织架构数据同步到其它系统中）扩展点，全系统允许有多个的接出扩展。
+				实施步骤：
+				1、编写组织架构接出的扩展。
+				2、在IE中执行URL“/sys/oms/sys_oms_out.do?method=run&type=接出扩展名称”（注意修改URL中的type参数），完成第一次的所有数据接出同步。
+				3、进入系统，启动定时任务“OMS接出同步定时任务”，并为其安排一个处理时间。
+				注意：“OMS接出同步定时任务”永远都是增量的同步，即使是第一次运行也如此，所以您需要执行实施步骤的第2步，完成第一次的全同步。
+			]]></description>
+		</item>
+		<description>组织架构同步接入/接出扩展点。</description>
+	</extension-point>
+	
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/oms/omsConfig.jsp" />
+			<param
+				name="type"
+				value="integrate" />
+			<param
+				name="order"
+				value="1" />
+		</item>
+	</extension>	
+</plugin>

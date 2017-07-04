@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysLogAppForm"
+			type="com.landray.kmss.sys.log.forms.SysLogAppForm" />
+		<form-bean
+			name="sysLogErrorForm"
+			type="com.landray.kmss.sys.log.forms.SysLogErrorForm" />
+		<form-bean
+			name="sysLogJobForm"
+			type="com.landray.kmss.sys.log.forms.SysLogJobForm" />
+		<form-bean
+			name="sysLogLoginForm"
+			type="com.landray.kmss.sys.log.forms.SysLogLoginForm" />
+		<form-bean
+			name="sysLogLogoutForm"
+			type="com.landray.kmss.sys.log.forms.SysLogLogoutForm" />
+		<form-bean
+			name="sysLogOrganizationForm"
+			type="com.landray.kmss.sys.log.forms.SysLogOrganizationForm" />
+		<form-bean
+			name="sysLogOnlineForm"
+			type="com.landray.kmss.sys.log.forms.SysLogOnlineForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/log/sys_log_app/sysLogApp"
+			type="com.landray.kmss.sys.log.actions.SysLogAppAction"
+			name="sysLogAppForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_app/sysLogApp_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_app/sysLogApp_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_log_error/sysLogError"
+			type="com.landray.kmss.sys.log.actions.SysLogErrorAction"
+			name="sysLogErrorForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_error/sysLogError_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_error/sysLogError_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_login_info/sysLogLogin"
+			type="com.landray.kmss.sys.log.actions.SysLogLoginAction"
+			name="sysLogLoginForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_login/sysLogLogin_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_login/sysLogLogin_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_logout_info/sysLogLogout"
+			type="com.landray.kmss.sys.log.actions.SysLogLogoutAction"
+			name="sysLogLogoutForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_logout/sysLogLogout_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_logout/sysLogLogout_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_log_job/sysLogJob"
+			type="com.landray.kmss.sys.log.actions.SysLogJobAction"
+			name="sysLogJobForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_job/sysLogJob_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_job/sysLogJob_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_log_organization/sysLogOrganization"
+			type="com.landray.kmss.sys.log.actions.SysLogOrganizationAction"
+			name="sysLogOrganizationForm"
+			parameter="method"
+			unknown="false"
+			validate="false"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_organization/sysLogOrganization_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_organization/sysLogOrganization_list.jsp" />
+		</action>
+		<action
+			path="/sys/log/sys_log_online/sysLogOnline"
+			type="com.landray.kmss.sys.log.actions.SysLogOnlineAction"
+			name="sysLogOnlineForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/log/sys_log_online/sysLogOnline_view.jsp" />
+			<forward
+				name="list"
+				path="/sys/log/sys_log_online/sysLogOnline_list.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources
+		parameter="com.landray.kmss.sys.log.ApplicationResources"
+		key="sys-log" />
+</struts-config>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportImportConfig.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportImportKey.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportImportProperty.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportPrimaryKeyProperty.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportExportConfig.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportExportKey.hbm.xml" />
+		<mapping resource="com/landray/kmss/sys/transport/model/SysTransportExportProperty.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

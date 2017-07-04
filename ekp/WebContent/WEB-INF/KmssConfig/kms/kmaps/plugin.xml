@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension point="com.landray.kmss.kms.common">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.kmaps" />
+			<param name="navMessageKey" value="kms-kmaps:module.km.kmaps" />
+			<param name="indexPage" value="/kms/kmaps/index.jsp" />
+			<param name="modulePath" value="/kms/kmaps" />
+			<param name="titleMessageKey" value="kms-kmaps:module.kms.kmaps" />
+			<param name="order" value="5" />
+		</item>
+		<item name="adminTree">
+			<param name="order" value="5" />
+			<param name="modelClass" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-kmaps:module.kms.kmaps" />
+			<param name="adminTreeUrl" value="/kms/kmaps/admintree.jsp" />
+		</item>
+		<item name="search">
+			<param name="order" value="5" />
+			<param name="modelClass" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+			<param name="searchMessageKey" value="kms-kmaps:search.kms.kmaps" />
+			<param name="canSearch" value="false" />
+		</item>
+		<item name="personal">
+			<param name="order" value="5" />
+			<param name="modelClass" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+			<param name="canDisplay" value="true" />
+			<param name="navMessageKey" value="kms-kmaps:personal.kms.kmaps" />
+			<param name="personalUrl" value="/kms/kmaps/kms_kmaps_personal/km_personal_map.jsp" />
+			<param name="modulePath" value="/kms/kmaps" />
+			<param name="icon" value="icon_kmaps"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.property.setting"
+		model="com.landray.kmss.kms.kmaps.model.KmsKmapsMain">
+		<item name="setting">
+			<param name="messageText" value="{kms-kmaps:table.kmsKmapsMain}" />
+		</item>
+	</extension>
+
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.kmaps.model.KmsKmapsMain">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+	
+	<!-- 知识地图订阅部署 -->
+	<extension
+		point="com.landray.kmss.sys.follow.setting"
+		model="com.landray.kmss.kms.kmaps.model.KmsKmapsMain">
+		<item name="followSetting">
+			<param name="methodName" value="add" />
+			<param name="templateModel"  value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory" />
+			<param name="templateField"  value="docCategory.fdHierarchyId" />
+		</item>
+	</extension>
+	
+  	<!-- 知识题图数据新旧版迁移 -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.kms.kmaps.transfer.CompatibilityTransferTask" />
+			<param name="name" value="知识地图数据迁移" />
+			<param name="path" value="/kms/kmaps/" />
+			<param name="check"
+				value="com.landray.kmss.kms.kmaps.transfer.CompatibilityChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.kms.kmaps.transfer.CompatibilityTransferTask" />
+			<param name="description"
+				value="迁移不是将老版的数据迁移过来，而是增强版中有老版地图数据的链接" />
+		</item>
+	</extension>
+	<!-- 知识地图kms_kmaps_templ_cate_main_editor和kms_kmaps_templ_cate_main_reader表数据迁移 -->
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.kms.kmaps.transfer.KmapsTransferTask" />
+			<param name="name" value="知识地图（模版分类权限数据）迁移" />
+			<param name="path" value="/kms/kmaps/" />
+			<param name="check"
+				value="com.landray.kmss.kms.kmaps.transfer.KmapsTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.kms.kmaps.transfer.KmapsTransferTask" />
+			<param name="description"
+				value="迁移知识地图中kms_kmaps_templ_cate_main_editor和kms_kmaps_templ_cate_main_reader表数据" />
+		</item>
+	</extension>
+	<!-- 积分 -->
+	<extension point="com.landray.kmss.kms.communitycko">
+		<item name="module">
+			<param name="unid" value="com.landray.kmss.kms.kmaps" />
+			<param name="titleMessageKey" value="kms-kmaps:module.kms.kmaps" />
+			<param name="order" value="5" />
+			<param name="modulePath" value="/kms/kmaps" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+		</item>
+		<item name="list">
+			<param name="unid" value="com.landray.kmss.kms.kmaps" />
+			<param name="tabId" value="kmap" />
+			<param name="titleMessageKey" value="kms-kmaps:title.km.cko.kmaps" />
+			<param name="order" value="5" />
+			<param name="modulePath" value="/kms/kmaps" />
+			<param name="orderBy" value="fdAllScore" />
+			<param name="modelClass"
+				value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+		</item>
+	</extension>
+	
+	<!-- 知识地图模块 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="moduleName" value="kms-kmaps:module.kms.kmaps"/>
+			<param name="categoryField" value="docCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.add"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.edit"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainServiceImp"/>			
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.addCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.updateCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryServiceImp"/>			
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.delCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsCategoryServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-kmaps:kmsKmapsMain.button.changeProperty"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.spring.KmsKmapsMainServiceImp"/>
+			<param name="operateMethod" value="updateProperty"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogUpdatePropertyProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-kmaps:kmsKmapsMain.button.editTag"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmaps.service.KmsKmapsMainXMLService"/>
+			<param name="operateMethod" value="getDataList"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogUpdateTagsProxy"/>
+		</item>
+	</extension>
+	<!-- 知识地图模块结束 -->
+	
+	<!-- 关联机制扩展点 -->
+	<extension point="com.landray.kmss.sys.relation.config">
+		<item name="dict">
+			<param name="modelName"
+				value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+			<param name="dictLoader" value="sysPropertyRelationDictLoader" />
+			<param name="cateModelName"
+				value="com.landray.kmss.kms.kmaps.model.KmsKmapsCategory" />
+		</item>
+		<item name="search">
+			<param name="modelName"
+				value="com.landray.kmss.kms.kmaps.model.KmsKmapsMain" />
+			<param name="searchBean" value="sysPropertyRelationExtendSearchBean" />
+		</item>
+	</extension>
+	
+</plugin>

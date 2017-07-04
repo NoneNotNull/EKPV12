@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmNodeDefinition"
+		messageKey="sys-lbpm-engine:table.lbpmNodeDefinition"
+		displayProperty="fdFactName"
+		serviceBean="lbpmNodeDefinitionService"
+		table="lbpm_node_definition">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<modelProperty
+			name="fdProcess"
+			messageKey="sys-lbpm-engine:lbpmNodeDefinition.fdProcess"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmProcessDefinition"
+			column="fd_process_id"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdFactId"
+			messageKey="sys-lbpm-engine:lbpmNodeDefinition.fdFactId"
+			type="String"
+			column="fd_fact_id"
+			notNull="false"
+			length="10" />
+
+		<simpleProperty
+			name="fdFactName"
+			messageKey="sys-lbpm-engine:lbpmNodeDefinition.fdFactName"
+			type="String"
+			column="fd_fact_name"
+			notNull="false"
+			length="200" />
+
+		<simpleProperty
+			name="fdContent"
+			messageKey="sys-lbpm-engine:lbpmNodeDefinition.fdContent"
+			type="RTF"
+			column="fd_content"
+			notNull="false"
+			length="1000000" />
+
+	</model>
+</models>

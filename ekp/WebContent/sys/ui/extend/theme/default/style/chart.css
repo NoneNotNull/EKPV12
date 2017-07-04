@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+.div_close{
+	text-align:right;
+	font-size:14px;
+	font-weight:bolder;
+	margin-top:8px;
+	margin-right:10px;
+	cursor: pointer;
+}
+.tab_listData{
+	border-collapse:collapse;
+	border-spacing:0px;
+	width: 98%;
+}
+.tab_listData .tab_title{
+	background-color: #CCCCCC;
+}
+.tab_listData tr th,.tab_listData tr td{
+	text-align: center;
+	padding: 8px 0px;
+	border: 1px solid #e0e0e0;
+}

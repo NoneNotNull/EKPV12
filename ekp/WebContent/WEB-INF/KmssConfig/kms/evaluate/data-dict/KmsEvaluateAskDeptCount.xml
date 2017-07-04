@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.evaluate.model.KmsEvaluateAskDeptCount"
+		messageKey="kms-evaluate:table.kmsEvaluateAskDeptCount"
+		displayProperty="docSubject"
+		serviceBean="kmsEvaluateAskDeptCountService"
+		table="kms_evaluate_ask_dept_count"
+		url="/kms/evaluate/kms_evaluate_ask_dept_count/kmsEvaluateAskDeptCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdDept"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptCount.fdDept"
+			type="String"
+			column="fd_dept"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTopicCount"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptCount.fdTopicCount"
+			type="Integer"
+			column="fd_topic_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdPostCount"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptCount.fdPostCount"
+			type="Integer"
+			column="fd_post_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdAskCount"
+			messageKey="kms-evaluate:kmsEvaluateAskDeptCount.fdAskCount"
+			type="Integer"
+			column="fd_ask_count"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+	</model>
+</models>

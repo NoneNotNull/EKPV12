@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean
+		id="abstractManualNodeBehaviour"
+		abstract="true"
+		class="com.landray.kmss.sys.lbpmservice.node.support.AbstractManualNodeBehaviour">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="processDefinitionService">
+			<ref bean="lbpmProcessDefinitionService" />
+		</property>
+		<property name="authorizeHolderService">
+			<ref bean="lbpmAuthorizeHolderService" />
+		</property>
+		<property name="handlerHolder">
+			<ref bean="lbpmNodeHandlerHolder" />
+		</property>
+		<property name="orgTemporaryStore">
+			<ref bean="orgTemporaryStore" />
+		</property>
+	</bean>
+	<bean
+		id="defaultManualNodeBehaviour"
+		parent="abstractManualNodeBehaviour"
+		class="com.landray.kmss.sys.lbpmservice.node.support.DefaultManualNodeBehaviour">
+		<property name="refuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+	</bean>
+
+	<bean
+		id="abstractManualWorkitemBehaviour"
+		abstract="true"
+		class="com.landray.kmss.sys.lbpmservice.node.support.AbstractManualWorkitemBehaviour">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="authorizeHolderService">
+			<ref bean="lbpmAuthorizeHolderService" />
+		</property>
+	</bean>
+	<bean
+		id="defaultManualNodeDataAccess"
+		class="com.landray.kmss.sys.lbpmservice.node.support.DefaultManualNodeDataAccess">
+		<property name="refuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+	</bean>
+
+	<!-- 身份重复跳过监听器 -->
+	<bean
+		id="skipApprovalIfHanderRepeatListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.SkipApprovalIfHanderRepeatListener" />
+
+	<bean
+		id="skipApprovalForManualNodeListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.SkipApprovalForManualNodeListener" />
+
+	<bean
+		id="skipApprovalForOperationListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.SkipApprovalForOperationListener" />
+
+	<bean
+		id="skipApprovalForPassOperationListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.SkipApprovalForPassOperationListener" />
+
+	<bean
+		id="skipApprovalIfNodeHandlerRepeatListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.SkipApprovalIfNodeHandlerRepeatListener" />
+
+	<bean
+		id="cleanWorkingproxyListener"
+		class="com.landray.kmss.sys.lbpmservice.node.support.CleanWorkingproxyListener">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+	</bean>
+
+	<!-- 流程驳回规则，驳回节点列表 -->
+	<bean
+		id="lbpmRefuseRuleDataBean"
+		class="com.landray.kmss.sys.lbpmservice.node.support.rules.RefuseRuleDataBean">
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<!-- 流程自动决策路由 -->
+	<bean
+		id="lbpmRouteDecisionRule"
+		class="com.landray.kmss.sys.lbpmservice.node.support.rules.RouteDecisionRule">
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+		<property name="processServiceManager">
+			<ref bean="lbpmProcessServiceManager" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmRouteDecisionRuleDataBean"
+		class="com.landray.kmss.sys.lbpmservice.node.support.rules.RouteDecisionRuleDataBean">
+		<property name="routeDecisionRule">
+			<ref bean="lbpmRouteDecisionRule" />
+		</property>
+	</bean>
+	<bean
+		id="lbpmThroughNodeCalculator"
+		class="com.landray.kmss.sys.lbpmservice.node.support.rules.ThroughNodeCalculator">
+		<property name="processExecuteService">
+			<ref bean="lbpmProcessExecuteService" />
+		</property>
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="manualRefuseHolder">
+			<ref bean="lbpmManualRefuseHolder" />
+		</property>
+		<property name="routeDecisionRule">
+			<ref bean="lbpmRouteDecisionRule" />
+		</property>
+	</bean>
+</beans>

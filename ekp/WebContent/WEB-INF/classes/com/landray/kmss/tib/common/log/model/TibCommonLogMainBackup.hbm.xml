@@ -1,0 +1,126 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.log.model.TibCommonLogMainBackup"
+		table="tib_common_log_main_backup">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+		<!-- 函数名称-->
+		<property
+			name="funcName"
+			column="func_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+		<!-- 是否异常 -->
+		<property
+			name="fdIsErr"
+			column="fd_is_err"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="false" />
+			
+		<property
+			name="fdExtMsg"
+			column="fd_ext_msg"
+			update="true"
+			insert="true"
+			length="500"
+			not-null="false" />
+			
+		<property
+			name="fdType"
+			column="fd_type"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="false" />
+			
+		<property
+			name="fdLogType"
+			column="fd_log_type"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+			
+			<property
+			name="fdTargetHost"
+			column="fd_target_host"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />	
+
+		<property
+			name="fdUrl"
+			column="fd_url"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdPoolName"
+			column="fd_pool_name"
+			update="true"
+			insert="true"
+			length="200"
+			not-null="false" />
+
+		<property
+			name="fdStartTime"
+			column="fd_start_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdEndTime"
+			column="fd_end_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdImportPar"
+			column="fd_import_par"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+		<property
+			name="fdExportPar"
+			column="fd_export_par"
+			update="true"
+			insert="true"
+			length="1000000"
+			not-null="false"
+			type="com.landray.kmss.common.dao.ClobStringType"
+			lazy="true" />
+
+		<property
+			name="fdMessages"
+			column="fd_messages"
+			update="true"
+			insert="true"
+			length="2000"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

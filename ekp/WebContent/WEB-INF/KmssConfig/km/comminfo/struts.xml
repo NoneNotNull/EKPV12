@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="kmComminfoMainForm"
+			type="com.landray.kmss.km.comminfo.forms.KmComminfoMainForm">
+		</form-bean>
+		<form-bean
+			name="kmComminfoCategoryForm"
+			type="com.landray.kmss.km.comminfo.forms.KmComminfoCategoryForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		
+		<action path="/km/comminfo/km_comminfo_main/kmComminfoMain" 
+				type="com.landray.kmss.km.comminfo.actions.KmComminfoMainAction" 
+				name="kmComminfoMainForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward 
+				name="view" 
+				path="/km/comminfo/km_comminfo_ui/kmComminfoMain_view.jsp">
+			</forward>
+			<forward 
+				name="viewDoc" 
+				path="/km/comminfo/km_comminfo_ui/kmComminfoMain_viewDoc.jsp">
+			</forward>
+			<forward 
+				name="edit" 
+				path="/km/comminfo/km_comminfo_ui/kmComminfoMain_edit.jsp">
+			</forward>
+			<forward 
+				name="viewo" 
+				path="/km/comminfo/km_comminfo_main/kmComminfoMain_view.jsp">
+			</forward>
+			<forward 
+				name="edito" 
+				path="/km/comminfo/km_comminfo_main/kmComminfoMain_edit.jsp">
+			</forward>
+			<forward 
+				name="list" 
+				path="/km/comminfo/km_comminfo_main/kmComminfoMain_list.jsp">
+			</forward>
+			<forward
+				name="listChildren"
+				path="/km/comminfo/km_comminfo_ui/kmComminfoMain_list.jsp">
+			</forward>
+		</action>
+		
+		<action path="/km/comminfo/km_comminfo_category/kmComminfoCategory" 
+				type="com.landray.kmss.km.comminfo.actions.KmComminfoCategoryAction" 
+				name="kmComminfoCategoryForm" 
+				parameter="method" 
+				input="edit"
+				unknown="false"
+				validate="true"
+				scope="request"
+				>
+			<forward name="view" path="/km/comminfo/km_comminfo_category/kmComminfoCategory_view.jsp">
+			</forward>
+			<forward name="edit" path="/km/comminfo/km_comminfo_category/kmComminfoCategory_edit.jsp">
+			</forward>
+			<forward name="list" path="/km/comminfo/km_comminfo_category/kmComminfoCategory_list.jsp">
+			</forward>
+		</action>
+		<action
+			path="/km/comminfo/km_comminfo_main/kmComminfoMainIndex"
+			type="com.landray.kmss.km.comminfo.actions.KmComminfoMainIndexAction"
+			name="kmComminfoMainForm"
+			parameter="method"
+			input="edit">
+			<forward
+				name="list"
+				path="/km/comminfo/km_comminfo_ui/kmComminfoMain_list.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+	
+	<!-- 消息资源 -->
+	<message-resources parameter="com.landray.kmss.km.comminfo.ApplicationResources" key="km-comminfo"/>
+</struts-config>

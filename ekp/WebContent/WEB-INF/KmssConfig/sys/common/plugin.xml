@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.config.loader"
+		type="framework">
+		<item
+			name="framework">
+			<param
+				name="name"
+				required="true"
+				kind="unid">
+				<description>框架名，例如：spring</description>
+			</param>
+			<param
+				name="loader"
+				required="true"
+				kind="java"
+				basedOn="com.landray.kmss.framework.loader.FrameworkLoader">
+				<description>框架加载器。此加载器必须有一个无参的构造函数。</description>
+			</param>
+			<param
+				name="extend"
+				kind="string"
+				from="com.landray.kmss.sys.config.loader.extend:frameworkExtend:fileSuffix">
+				<description>扩展加载文件后缀配置。</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="50">
+				<description>可选，排序号，默认值为50。根据此排序的升序顺序加载。</description>
+			</param>
+			<description>框架加载配置的扩展点。</description>
+		</item>
+		<system>
+			<event
+				name="load"
+				class="com.landray.kmss.framework.loader.FrameworkContextLoader" />
+		</system>
+		<description>底层框架加载扩展点。</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.sys.config.loader.extend">
+		<item
+			name="frameworkExtend">
+			<param
+				name="fileSuffix"
+				required="true">
+				<description>框架配置扩展文件后缀。</description>
+			</param>
+			<description>
+				框架扩展配置文件的扩展点。比如：系统提供PDA模式，则需要加载PDA时才使用的配置，这个时候extendFileSuffix的值为PDA，
+				那么spring框架会自动加载spring.4PDA.xml文件。其中.4是约定俗成的分隔标识。
+			</description>
+		</item>
+		<description>底层框架扩展加载扩展点。</description>
+	</extension-point>
+
+	<extension-point
+		id="com.landray.kmss.common.actions">
+		<item
+			name="interceptor">
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.common.actions.IActionInterceptor">
+				<description>
+					拦截器实现类，需要在spring中注册一个bean，实现com.landray.kmss.common.actions.IActionInterceptor接口。
+				</description>
+			</param>
+			<param
+				name="order"
+				kind="int"
+				default="50">
+				<description>
+					可选，排序号，默认值为50
+				</description>
+			</param>
+			<description>
+				action拦截器，可以拦截系统中的所有action操作，决定是否执行相应的action操作，修改输入输出参数，根据排序号依次执行。
+			</description>
+		</item>
+		<description>action相关扩展，包含action拦截器。</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.sys.config.loader">
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="plugin" />
+			<param
+				name="loader"
+				value="com.landray.kmss.framework.loader.PluginExtendLoader" />
+			<param
+				name="order"
+				value="1" />
+		</item>
+		 
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="desginConfig" />
+			<param
+				name="loader"
+				value="com.landray.kmss.sys.config.xml.DesignConfigLoader" />
+			<param
+				name="order"
+				value="2" />
+		</item>
+		
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="kmssConfig" />
+			<param
+				name="loader"
+				value="com.landray.kmss.sys.config.loader.KmssConfigLoader" />
+			<param
+				name="order"
+				value="3" />
+		</item>
+
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="hibernate" />
+			<param
+				name="loader"
+				value="com.landray.kmss.framework.loader.HibernateLoader" />
+			<param
+				name="order"
+				value="20" />
+		</item>
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="spring" />
+			<param
+				name="loader"
+				value="com.landray.kmss.framework.loader.SpringLoader" />
+			<param
+				name="order"
+				value="30" />
+		</item>
+		<item
+			name="framework">
+			<param
+				name="name"
+				value="struts" />
+			<param
+				name="loader"
+				value="com.landray.kmss.framework.loader.StrutsLoader" />
+			<param
+				name="order"
+				value="40" />
+		</item>
+	</extension>
+</plugin>

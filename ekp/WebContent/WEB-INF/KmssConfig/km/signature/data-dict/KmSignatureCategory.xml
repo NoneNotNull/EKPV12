@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.signature.model.KmSignatureCategory"
+		messageKey="km-signature:table.signatureCategory"
+		displayProperty="fdName"
+		serviceBean="kmSignatureCategoryService"
+		table="km_signature_category"
+		url="/km/signature/km_signature_category/kmSignatureCategory.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<!-- 名称 -->
+		<simpleProperty
+			name="fdName"
+			messageKey="km-signature:signatureCategory.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+		<!-- 排序号 -->
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-signature:signatureCategory.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true" />
+		<!-- 层级ID -->
+		<simpleProperty
+			name="fdHierarchyId"
+			messageKey="km-signature:signatureCategory.fdHierarchyId"
+			type="String"
+			column="fd_hierarchy_id"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<modelProperty
+			name="fdParent"
+			messageKey="km-signature:signatureCategory.fdParent"
+			type="com.landray.kmss.km.signature.model.KmSignatureCategory"
+			column="fd_parent"
+			notNull="false"
+			validate="true" />
+			
+		<!-- 简单分类继承字段  start -->			
+		<simpleProperty
+			name="authNotReaderFlag"
+			messageKey="km-signature:signatureCategory.authNotReaderFlag"
+			type="Boolean"
+			column="auth_not_reader_flag"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="km-signature:signatureCategory.authReaders"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_signature_cate_reader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-signature:signatureCategory.authEditors"
+			column="fd_category_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_signature_cate_editor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-signature:signatureCategory.authAllEditors"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_signature_cate_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-signature:signatureCategory.authAllReaders"
+			column="fd_template_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_signature_cate_areader"
+			inverse="false"
+			canDisplay="false" />
+		<!-- 简单分类继承字段  end -->
+	</model>
+</models>

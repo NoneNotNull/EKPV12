@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="compBklinkForm"
+			type="com.landray.kmss.component.bklink.forms.CompBklinkForm">
+		</form-bean>
+		
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+
+		<action
+			path="/component/bklink/compBklink"
+			type="com.landray.kmss.component.bklink.actions.CompBklinkAction"
+			name="compBklinkForm"
+			parameter="method"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/component/bklink/compBklink_view.jsp">
+			</forward>
+			<forward
+				name="editRemoveToModel"
+				path="/component/bklink/compBklink_removeToModel_edit.jsp">
+			</forward>
+		</action>
+
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.component.bklink.ApplicationResources"
+		key="component-bklink" />
+</struts-config>

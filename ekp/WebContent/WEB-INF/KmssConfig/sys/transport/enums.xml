@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysTransport_importType">
+		<value-label>
+			<value>1</value>
+			<label-key>fdImportType.add</label-key>
+			<bundle>sys-transport</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>fdImportType.update</label-key>
+			<bundle>sys-transport</bundle>
+		</value-label>
+		<value-label>
+			<value>3</value>
+			<label-key>fdImportType.addOrUpdate</label-key>
+			<bundle>sys-transport</bundle>
+		</value-label>
+	</type>
+</column-enums>

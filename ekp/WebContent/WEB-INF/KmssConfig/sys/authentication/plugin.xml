@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.sys.authentication">
+		<item
+			name="authenticationProcessingFilter">
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="javax.servlet.Filter">
+				<description>
+					身份验证功能实现bean，需在spring.xml中配置。
+					若该bean是用于校验用户名密码的，可继承com.landray.kmss.sys.authentication.interfaces.AbstractAuthenticationProcessingFilter类，
+					实现密码校验功能，但在spring.xml注册的时候，需要注入autoLoginHelper这个bean。
+				</description>
+			</param>
+			<param
+				name="order"
+				default="50"
+				kind="int">
+				<description>
+					排序号，序号小的优先被调用。
+					1、如果希望插入的扩展排列在最前面，则排序号区间为[10,29]
+					2、如果希望插入的扩展是正常的排列顺序，则排列号区间为[40,59]
+					3、如果希望插入的扩展排列在最后面，则排序号区间为[70,89]
+					其它序号用于系统将来的扩展，请不要占用
+					如果不确定，则不配置此属性。
+				</description>
+			</param>
+			<description>
+				获取到通过了单点登录的用户的登录名，然后调用AutoLoginHelper的doAutoLogin方法进行自动登录EKP操作
+			</description>
+		</item>
+		<item
+			name="redirectURL"
+			singleton="true">
+			<param
+				name="loginFormUrl"
+				kind="string">
+				<description>单点登录的登录页面地址。</description>
+			</param>
+			<param
+				name="logoutUrl"
+				kind="string">
+				<description>单点登录的注销地址。</description>
+			</param>
+			<description>与单点登录服务器集成时的跳转地址</description>
+		</item>
+		<description>与身份认证（SSO）相关的扩展</description>
+	</extension-point>
+
+	<extension
+		point="com.landray.kmss.sys.authentication">
+		<item
+			name="authenticationProcessingFilter">
+			<param
+				name="bean"
+				value="authenticationProcessingFilter" />
+			<param
+				name="order"
+				value="60" />
+		</item>
+		<!-- SSO客户端登录验证器 -->
+		<item
+			name="authenticationProcessingFilter"
+			enable="${kmss.ssoclient.enabled}">
+			<param
+				name="bean"
+				value="EKPSSOClientAuthenticationFilter" />
+			<param
+				name="order"
+				value="39" />
+		</item>
+		<item
+			name="authenticationProcessingFilter"
+			enable="${kmss.ssoclient.enabled}">
+			<param
+				name="bean"
+				value="EKPSSOClientChgUserEventFilter" />
+			<param
+				name="order"
+				value="99" />
+		</item>
+		<item
+			name="redirectURL"
+			enable="${kmss.ssoclient.redirect.enabled}">
+			<param
+				name="loginFormUrl"
+				value="${kmss.ssoclient.redirect.loginURL}" />
+			<param
+				name="logoutUrl"
+				value="${kmss.ssoclient.redirect.logoutURL}" />
+		</item>
+	</extension>
+
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/authentication/verifycode_config.jsp" />
+			<param
+				name="type"
+				value="authentication" />
+			<param
+				name="order"
+				value="20" />
+		</item>		 		
+	</extension>
+
+	<extension
+		point="com.landray.kmss.sys.config.admin.do">
+		<item
+			name="config">
+			<param
+				name="jsp"
+				value="/sys/authentication/ssoclient_config.jsp" />
+			<param
+				name="type"
+				value="authentication" />
+			<param
+				name="order"
+				value="10" />
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="sso-config.properties" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/sso-config.properties" />
+		</item>
+		<item
+			name="backup">
+			<param
+				name="name"
+				value="LRToken" />
+			<param
+				name="path"
+				value="/WEB-INF/KmssConfig/LRToken" />
+		</item>				
+	</extension>
+
+	<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.sys.authentication.transfer.SysAuthTransferTask" />
+			<param
+				name="name"
+				value="权限数据迁移" />
+			<param
+				name="path"
+				value="/sys/authentication/" />
+			<param
+				name="check"
+				value="com.landray.kmss.sys.authentication.transfer.SysAuthTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.sys.authentication.transfer.SysAuthTransferTask" />
+			<param
+				name="description"
+				value="权限数据迁移，将主文档‘authReaderFlag=1’的数据，在其所有可阅读者表的中间表中增加everyone的权限记录数据。（特别注意：1、执行前先备份好数据库。2、执行前全部应用服务器需要停止用户访问。3、执行过程可能比较久，请耐心等待。建议：先在测试环境执行成功，才到生产环境执行。）" />
+		</item>
+	</extension>
+</plugin>

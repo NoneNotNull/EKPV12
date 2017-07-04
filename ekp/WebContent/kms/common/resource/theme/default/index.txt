@@ -1,0 +1,61 @@
+<%@ include file="/kms/home/index_js.jsp" %>
+<div id="main" class="box c">
+	<div class="leftbar">
+	
+		<kms:portlet cssClass="box1" title="知识分类" id="kmsMultidocPre" dataType="Bean" dataBean="kmsHomeMultidocService" beanParm="{s_method:\"updateMultidocPreview\"}" template="portlet_doc_pre_tmpl"></kms:portlet>
+		
+		<div class="box3 m_t10">
+			<div class="title1"><h2>标签云</h2></div>
+			<div class="box2">
+				<div id="tagCloud">
+				</div>
+				<center>
+					<input class="i_e m_r10" style="width:100px" type="text" id ="tabContent" value="请输入标签" onfocus="if(value=='请输入标签'){value=''}" onblur="if(value==''){value='请输入标签'}"/>
+					<span class="btn_g"><a href="javascript:void(0)" id="tabSearch"><span>搜索</span></a></span>
+				</center>
+			</div>
+		</div>
+		
+		<kms:portlet cssClass="box3 m_t10" title="常用链接" id="kmsCommonLinkPortlet" dataType="Bean" dataBean="kmsCommonLink" beanParm="{rowsize:8}" template="portlet_link_tmpl"></kms:portlet>
+		
+	</div><!-- end leftbar -->
+
+	<div class="content">
+
+		<kms:portlet cssClass="box3 c" title="推荐专题" id="kmsDocIntroPortlet" dataType="Bean" dataBean="kmsKnowledgeIntroService" beanParm="{fdModelId:\"com.landray.kmss.kms.home\"}" template="portlet_intro_index_tmpl" callBack="sliderDocIntro"></kms:portlet>
+		
+		<div class="box1 m_t10">
+			<kms:tabportlet cssClass="tabview" id="kmsDocTabView" template="portlet_nav_tmpl_ask">
+				<kms:portlet title="最新知识" id="kmsLatestDocPortlet" dataType="Bean" dataBean="kmsDocKnowledgePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docCreateTime\"}" template="portlet_index_doc_tmpl"></kms:portlet>
+				<kms:portlet title="最新订阅" id="kmsMyFollowPortlet" dataType="Bean" dataBean="kmsPersonFollowPortlet" beanParm="{rowsize:10,s_method:\"personAllFollowList\" }" template="portlet_index_follow_tmpl"></kms:portlet>
+			</kms:tabportlet>
+		</div>
+		
+		<div class="box1 m_t10">
+			<kms:tabportlet cssClass="tabview" id="kmsAskTabView" template="portlet_nav_tmpl_ask">
+				<kms:portlet title="最新问答" id="kmsLatestAskPortlet" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getLatestAsk\"}" template="portlet_ask_tmpl"></kms:portlet>
+				<kms:portlet title="高分问答" id="kmsGoodAskPortlet" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getScoreAsk\"}" template="portlet_ask_tmpl"></kms:portlet>
+			</kms:tabportlet>
+		</div>
+	</div><!-- end content -->
+
+	<div class="rightbar">
+		<kms:portlet cssClass="share_box box3" title="主页知识数" id="homeAccount" dataType="Bean" dataBean="kmsHomeCountPortlet"  template="portlet_home_count_tmpl" callBack="bindShareButton"></kms:portlet>
+		<kms:portlet cssClass="box3 m_t10" title="专家专栏" id="kmsIntroExpertPortlet" dataType="Bean" dataBean="kmsIntroExpertPortlet" beanParm="{fdModelId:\"com.landray.kmss.kms.home\",expert:\"true\"}" template="portlet_intro_expert_tmpl" callBack="expertChange"></kms:portlet>
+		
+		<div class="box3 m_t10">		
+			<div class="title1">
+				<h2>个人总积分</h2>
+				<a href="${kmsBasePath}/communitycko/kms_communitycko_per_score_sum/kmsCommunityckoPerScoreSum.do?method=indexList" target="_blank" class="more">更多&nbsp;&gt;</a>
+			</div>
+			<div class="box2">				
+				<kms:portlet cssClass="personal_box c" title="推荐之星" id="introStar" dataType="Bean" dataBean="kmsHomeIntroStarCommonService" beanParm="{s_method:\"getIntroStar\",fdModelId:\"com.landray.kmss.kms.home\"}" template="portlet_intro_star_tmpl"></kms:portlet>
+				<kms:tabportlet cssClass="tabview" id="kmsPersonalTabView" template="portlet_nav_tmpl">
+					<kms:portlet title="本月排行" id="personalIntegralMonth" dataType="Bean" dataBean="kmsPersonalIntegralMonthPortlet" beanParm="{uuid:\"${param.fdId}\"}" template="portlet_per_integral_tmpl"></kms:portlet>
+					<kms:portlet title="总排行" id="personalIntegral" dataType="Bean" dataBean="kmsPersonalIntegralPortlet" beanParm="{uuid:\"${param.fdId}\"}" template="portlet_per_integral_tmpl"></kms:portlet>
+				</kms:tabportlet>
+			</div>	
+		</div><!-- end box3 -->
+			
+	</div><!-- end  rightbar-->
+</div><!-- main end -->

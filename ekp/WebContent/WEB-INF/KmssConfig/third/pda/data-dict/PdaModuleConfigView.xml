@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.third.pda.model.PdaModuleConfigView"
+		messageKey="third-pda:table.pdaModuleConfigView"
+		displayProperty="fdKeyword"
+		serviceBean="pdaModuleConfigViewService"
+		table="pda_module_config_view"
+		url="/third/pda/pda_module_config_view/pdaModuleConfigView.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		
+
+		<simpleProperty
+			name="fdName"
+			messageKey="third-pda:pdaModuleConfigView.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdKeyword"
+			messageKey="third-pda:pdaModuleConfigView.fdKeyword"
+			type="String"
+			column="fd_keyword"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdModelName"
+			messageKey="third-pda:pdaModuleConfigView.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="third-pda:pdaModuleLabelList.fdOrder"
+			column="fd_order"
+			type="String"
+			length="10"
+			notNull="false" />
+
+		<simpleProperty
+			name="fdReadingModel"
+			column="fd_reading_model"
+			messageKey="third-pda:pdaModuleConfigView.releasedDocReadindMode"
+			type="String"
+			length="2"
+			notNull="false" />
+			
+		<simpleProperty
+			name="fdNewsModelCfgInfo"
+			column="fd_news_model_cfg_info"
+			messageKey="third-pda:pdaModuleConfigView.fdCfgInfo"
+			length="1000000"
+			notNull="false"
+			type="RTF" />
+
+		<modelProperty
+			name="fdModule"
+			messageKey="third-pda:pdaModuleConfigView.fdModule"
+			type="com.landray.kmss.third.pda.model.PdaModuleConfigMain"
+			column="fd_module_id"
+			notNull="false"
+			validate="true" />
+			
+		<listProperty 
+			name="fdItems" 
+			column="fd_cfg_view_id" 
+			messageKey="third-pda:table.pdaModuleLabelView" 
+			type="com.landray.kmss.third.pda.model.PdaModuleLabelView"
+			table="pda_module_label_view"
+			cascade="all-delete-orphan"
+			inverse="true"
+			orderBy="fd_order asc" />
+
+	</model>
+</models>

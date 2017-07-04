@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysAdminUrlBlockDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.admin.threadmonitor.dao.hibernate.SysAdminUrlBlockDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.admin.threadmonitor.model.SysAdminUrlBlock" />
+	</bean>
+	<bean
+		id="sysAdminUrlBlockTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.admin.threadmonitor.service.spring.SysAdminUrlBlockServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAdminUrlBlockDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysAdminUrlBlockService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAdminUrlBlockTarget" />
+		</property>
+	</bean>
+	
+	<bean
+		id="httpThreadDetailMBean"
+		class="com.landray.kmss.sys.admin.threadmonitor.service.spring.HttpThreadDetailMBean" />
+	<bean
+		id="sysAdminThreadMonitorFilter"
+		class="com.landray.kmss.sys.admin.threadmonitor.service.spring.SysAdminThreadMonitorFilter">
+		<property
+			name="sysAdminUrlBlockCacheManager">
+			<ref
+				local="sysAdminUrlBlockCacheManager" />
+		</property>
+		<property
+			name="httpThreadDetailMBean">
+			<ref
+				local="httpThreadDetailMBean" />
+		</property>
+	</bean>
+	<bean
+		id="sysAdminUrlBlockCacheManager"
+		class="com.landray.kmss.sys.admin.threadmonitor.service.spring.SysAdminUrlBlockCacheManager">
+		<property
+			name="sysAdminUrlBlockService">
+			<ref
+				local="sysAdminUrlBlockService" />
+		</property>
+	</bean>
+</beans>

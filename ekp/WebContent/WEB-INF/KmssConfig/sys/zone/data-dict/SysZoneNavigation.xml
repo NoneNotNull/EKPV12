@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.zone.model.SysZoneNavigation"
+		messageKey="sys-zone:sysZoneNavigation"
+		serviceBean="sysZoneNavigationService"
+		displayProperty="fdName"
+		table="sys_zone_navigation">
+	<idProperty>
+		<generator type="assigned" />
+	</idProperty>
+	
+	<modelProperty
+		name="docCreator"
+		messageKey="sys-zone:sysZoneNavigation.docCreator"
+		type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+		column="doc_creator_id"
+		notNull="false" />
+		
+	<simpleProperty
+		name="docCreateTime"
+		messageKey="sys-zone:sysZoneNavigation.docCreateTime"
+		type="DateTime"
+		column="doc_create_time"
+		notNull="true" />
+		
+	<modelProperty
+		name="docAlteror"
+		messageKey="sys-zone:sysZoneNavigation.docAlteror"
+		type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+		column="doc_alteror_id"
+		notNull="false" />
+		
+	<simpleProperty
+		name="docAlterTime"
+		messageKey="sys-zone:sysZoneNavigation.docAlterTime"
+		type="DateTime"
+		column="doc_alter_time"
+		notNull="false" />
+		
+	<simpleProperty
+		name="fdName"
+		messageKey="sys-zone:sysZoneNavigation.fdName"
+		type="String"
+		column="fd_name"
+		notNull="false"
+		length="500" />
+		
+	<simpleProperty
+		name="fdStatus"
+		messageKey="sys-zone:sysZoneNavigation.fdStatus"
+		type="Integer"
+		column="fd_status"
+		notNull="false"
+		length="10" />
+		
+	<simpleProperty
+		name="fdOrder"
+		messageKey="sys-zone:sysZoneNavigation.fdOrder"
+		type="Integer"
+		column="fd_order"
+		notNull="false"
+		length="10" />
+		
+	<listProperty
+		name="fdLinks"
+		messageKey="sys-zone:sysZoneNavigation.fdLinks"
+		column="fd_cate_id"
+		orderBy="fd_order"
+		type="com.landray.kmss.sys.zone.model.SysZoneNavLink"
+		cascade="all-delete-orphan"
+		inverse="false" />
+	</model>
+</models>

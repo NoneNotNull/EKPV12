@@ -1,0 +1,60 @@
+<%@ include file="/kms/home/index_js.jsp" %>
+<link href="${kmsThemePath }/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<div class="container">
+	<div id="main" class="box c" style="padding-top:0">
+		<div class="content7">
+			<kms:portlet cssClass="carousel slide" title="推荐专题" id="mySlider" dataType="Bean" dataBean="kmsKnowledgeIntroService" beanParm="{fdModelId:\"com.landray.kmss.kms.home\"}" template="portlet_intro_slide_tmpl" callBack="silderBind"></kms:portlet>
+				<div class="KMS_shortcut">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td class="KMS_shortcut_Title" rowspan="3">
+                            </td>
+                            <td id="KMS_shortcut_row1" class="KMS_shortcut_row1 KMS_cellbg_current" onclick="changeItem('KMS_shortcut_row',1,3)">
+                                	知识库
+                            </td>
+                            <td rowspan="3">
+                                <div class="KMS_shortcut_Content">
+                                    
+                                    <kms:portlet cssClass="KMS_shortcut_Content" title="知识库" id="KMS_shortcut_item1" dataType="Bean" dataBean="kmsDocFirstCategoryPortlet" beanParm="{}" template="portlet_doc_category_slide_tmpl" callBack="bindSlider"></kms:portlet>
+                                   
+                                   	<kms:portlet cssClass="KMS_shortcut_Content" cssStyle="display: none" title="图档库" id="KMS_shortcut_item2" dataType="Bean" dataBean="kmsMultimediaFirstCategoryPortlet" beanParm="{}" template="portlet_multimedia_category_slide_tmpl" callBack="bindSlider"></kms:portlet>
+                                   
+                                   	<kms:portlet cssClass="KMS_shortcut_Content" cssStyle="display: none" title="维基库" id="KMS_shortcut_item3" dataType="Bean" dataBean="kmsWikiFirstCategoryPortlet" beanParm="{}" template="portlet_wiki_category_slide_tmpl" callBack="bindSlider"></kms:portlet>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="KMS_shortcut_row2" class="KMS_shortcut_row2 KMS_cellbg_currentB" onclick="changeItem('KMS_shortcut_row',2,3)">
+								图档库
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="KMS_shortcut_row3" class="KMS_shortcut_row3 KMS_cellbg_normal" onclick="changeItem('KMS_shortcut_row',3,3)">
+                              	  维基库
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+			<kms:tabportlet cssClass="tabbable div-box" id="home-tab2" template="portlet_nav_home_tmpl">
+				<kms:portlet cssClass="tab-pane pane2" title="最新知识" id="kmsLatestDocPortlet" dataType="Bean" dataBean="kmsDocKnowledgePortlet" beanParm="{rowsize:2,ordertype:\"down\",orderby:\"docCreateTime\"}" template="portlet_lightBlue_nav_doc_tmpl"></kms:portlet>
+				<kms:portlet cssClass="tab-pane pane2" title="热门知识" id="kmsHotDocPortlet" dataType="Bean" dataBean="kmsDocKnowledgePortlet" beanParm="{rowsize:2,ordertype:\"down\",orderby:\"docReadCount\"}" template="portlet_lightBlue_nav_doc_tmpl"></kms:portlet>
+				<kms:portlet cssClass="tab-pane pane2" title="最新问答" id="kmsLatestAskPortlet" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getLatestAsk\"}" template="portlet_lightBlue_nav_ask_tmpl"></kms:portlet>
+				<kms:portlet cssClass="tab-pane pane2" title="高分问答" id="kmsScoreAskPortlet" dataType="Bean" dataBean="kmsIAskDocPortlet" beanParm="{rowsize:10,s_method:\"getScoreAsk\"}" template="portlet_lightBlue_nav_ask_tmpl"></kms:portlet>
+				<kms:portlet cssClass="tab-pane pane2" title="最新词条" id="kmsLatestWikiPortlet" dataType="Bean" dataBean="kmsWikiLightBluePortlet" beanParm="{rowsize:10,ordertype:\"down\",orderby:\"docCreateTime\"}" template="portlet_wiki_tmpl"></kms:portlet>
+			</kms:tabportlet>
+		</div>
+		
+		<div class="rightbar home-right div-box	">
+			
+			<kms:portlet cssClass="right-box profile media" title="个人知识中心" id="kmsDocPerCenter" dataType="Bean" dataBean="kmsDocKnowledgePerCenterPortlet" template="portlet_lightBlue_doc_per_center_tmpl" callBack="bindShareButton"></kms:portlet>
+			
+			<kms:portlet cssClass="right-box peop-photo clearfix" title="专家推荐" id="introExpert" dataType="Bean" dataBean="kmsIntroExpertLightBluePortlet" beanParm="{fdModelId:\"com.landray.kmss.kms.home\",expert:\"true\"}" template="portlet_intro_expert_tmpl"></kms:portlet>
+			
+			<div class="right-box profile media">
+				<div style="text-align:center;margin-top:10px"><img src="${kmsBasePath}/common/resource/theme/extend/img/kg_Map.jpg" alt="" /></div>
+				<kms:portlet cssClass="map_classify m_t10" title="地图分类" id="kmKmapPreview" dataType="Bean" dataBean="kmsKmapPreviewPortlet" beanParm="{s_type:\"ekp\"}" template="portlet_lightBlue_kmap_pre_tmpl"></kms:portlet>
+			</div><!-- end box1 -->	
+		</div>
+	</div>
+</div>
+

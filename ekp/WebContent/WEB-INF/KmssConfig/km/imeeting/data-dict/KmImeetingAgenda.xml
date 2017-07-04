@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model 
+		modelName="com.landray.kmss.km.imeeting.model.KmImeetingAgenda"
+		messageKey="km-imeeting:table.kmImeetingAgenda"
+		displayProperty="fdId"
+		serviceBean="kmImeetingAgendaService"
+		table="km_imeeting_agenda"
+		url="/km/imeeting/km_imeeting_agenda/kmImeetingAgenda.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-imeeting:kmImeetingAgenda.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="docReporterTime"
+			messageKey="km-imeeting:kmImeetingAgenda.docReporterTime"
+			type="Integer"
+			column="doc_reporter_time"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="attachmentName"
+			messageKey="km-imeeting:kmImeetingAgenda.attachmentName"
+			type="String"
+			column="attachment_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="attachmentId"
+			messageKey="km-imeeting:kmImeetingAgenda.attachmentId"
+			type="String"
+			column="attachment_id"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="attachmentSubmitTime"
+			messageKey="km-imeeting:kmImeetingAgenda.attachmentSubmitTime"
+			type="Integer"
+			column="attachment_submit_time"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIsPublic"
+			messageKey="km-imeeting:kmImeetingAgenda.fdIsPublic"
+			type="String"
+			column="fd_is_public"
+			notNull="false"
+			length="32"
+			validate="true" />
+
+		<modelProperty
+			name="fdMain"
+			messageKey="km-imeeting:kmImeetingAgenda.fdMain"
+			type="com.landray.kmss.km.imeeting.model.KmImeetingMain"
+			column="fd_main_id"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="docReporter"
+			messageKey="km-imeeting:kmImeetingAgenda.docReporter"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_reporter_id"
+			notNull="false"
+			validate="false" />
+
+		<modelProperty
+			name="docRespons"
+			messageKey="km-imeeting:kmImeetingAgenda.docRespons"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_respons_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

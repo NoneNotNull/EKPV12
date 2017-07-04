@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgElement.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgOrg.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgDept.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgPost.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgPerson.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgGroup.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgRole.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgGroupCate.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOMSCache.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgPersonAddressType.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgRoleLine.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgRoleConf.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/sys/organization/model/SysOrgRoleLineDefaultRole.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

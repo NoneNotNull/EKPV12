@@ -1,0 +1,104 @@
+.lui_wiki_catelog {
+	line-height: 30px;
+	min-height: 30px;
+	border-bottom: 1px #d9d9d9 solid;
+	position: relative;
+}
+
+.lui_wiki_title {
+	float: left;
+	width: 80%;
+	font-size: 16px;
+	padding-left: 8px;
+	font-weight: bold;
+}
+
+.lui_wiki_editparagraph {
+	float: right;
+	cursor: pointer;
+	background: url(../../resource/images/edit_icon.png) no-repeat left	center;
+	padding-left: 18px;
+	padding-right: 12px;
+	position: absolute;
+	bottom: 0px;
+	right: 2px;
+}
+
+.lui_wiki_content {
+	padding: 12px 6px;
+}
+
+.lui_wiki_catelog_edit {
+	margin-bottom: 2px;
+	height: 18px;
+	line-height: 18px;
+	width: 63px;
+	text-align: center;
+	background: #5ab033;
+	border: 1px solid #409b1a;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+}
+.lui_wiki_btn_confirm {
+	float: right;
+	margin-right: 6px;
+	margin-top: 5px;
+	width: 37px;
+	height: 19px;
+	line-height: 19px;
+	cursor: pointer;
+	background: #47b5e6;
+	text-align: center;
+	color: #fff;
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+}
+.lui_wiki_catelogUl li {
+	padding: 4px 0;
+}
+
+ul {
+	list-style: none;
+}
+
+.lui_catelog_dot {
+	background: url(../../resource/images/dot_ico.png) no-repeat left center;
+	padding-left: 10px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_s {
+	background: url(./images/catalog_3.png) no-repeat 45px 6px;
+	padding: 2px 0 2px 65px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_t {
+	background: url(./images/catalog_2.png) no-repeat 25px 6px;
+	padding: 2px 0 2px 45px;
+}
+
+.lui_wiki_catelogUl .lui_wiki_catelog_f {
+	background: url(./images/catalog_1.png) no-repeat 0 6px;
+	padding: 2px 0 2px 25px;
+}
+.lui_wiki_clear {
+	clear: both;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	overflow: hidden;
+}
+.lui_wiki_editThis {
+	padding: 10px 10px;
+}
+
+.lui_wiki_cardPic img {
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+.lui_wiki_cardPic {
+	display: block;
+	border: 1px solid #d9d9d9;
+}

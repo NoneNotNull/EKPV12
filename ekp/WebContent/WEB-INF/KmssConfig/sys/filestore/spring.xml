@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- liyong -->
+	<bean id="sysFileConvertScheduler"
+		class="com.landray.kmss.sys.filestore.scheduler.impl.SysFileConvertScheduler">
+		<property name="taskStatusService" ref="taskStatusService"></property>
+	</bean>
+	<bean id="sysFileConvertDispatcher"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileConvertDispatcher">
+		<property name="scheduler" ref="sysFileConvertScheduler"></property>
+	</bean>
+	<bean id="taskStatusService"
+		class="com.landray.kmss.sys.filestore.scheduler.impl.TaskStatusService">
+		<property name="sysFileConvertQueueService" ref="sysFileConvertQueueService"></property>
+		<property name="sysFileConvertLogService" ref="sysFileConvertLogService"></property>
+		<property name="sysFileViewerParamService" ref="sysFileViewerParamService"></property>
+	</bean>
+	<bean id="imageThumbnailConverter"
+		class="com.landray.kmss.sys.filestore.scheduler.local.converter.ImageThumbnailConverter">
+
+	</bean>
+	<!-- liyong -->
+	<bean id="sysFileConvertConfigDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysFileConvertConfigDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.filestore.model.SysFileConvertConfig" />
+	</bean>
+	<bean id="sysFileConvertConfigTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileConvertConfigServiceImp">
+		<property name="baseDao">
+			<ref local="sysFileConvertConfigDao" />
+		</property>
+	</bean>
+	<bean id="sysFileConvertConfigService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysFileConvertConfigTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysFileConvertQueueDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysFileConvertQueueDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.filestore.model.SysFileConvertQueue" />
+	</bean>
+	<bean id="sysFileConvertQueueTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileConvertQueueServiceImp">
+		<property name="baseDao">
+			<ref local="sysFileConvertQueueDao" />
+		</property>
+	</bean>
+	<bean id="sysFileConvertQueueService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysFileConvertQueueTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysFileConvertLogDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysFileConvertLogDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.filestore.model.SysFileConvertLog" />
+	</bean>
+	<bean id="sysFileConvertLogTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileConvertLogServiceImp">
+		<property name="baseDao">
+			<ref local="sysFileConvertLogDao" />
+		</property>
+	</bean>
+	<bean id="sysFileConvertLogService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysFileConvertLogTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysFileViewerParamDao" parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.filestore.dao.hibernate.SysFileViewerParamDaoImp">
+		<property name="modelName"
+			value="com.landray.kmss.sys.filestore.model.SysFileViewerParam" />
+	</bean>
+	<bean id="sysFileViewerParamTarget" parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileViewerParamServiceImp">
+		<property name="baseDao">
+			<ref local="sysFileViewerParamDao" />
+		</property>
+	</bean>
+	<bean id="sysFileViewerParamService" parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysFileViewerParamTarget" />
+		</property>
+	</bean>
+
+	<bean id="sysFileStoreAddFileExtNamesService"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileStoreAddFileExtNamesService">
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService" />
+		</property>
+	</bean>
+
+	<bean id="sysFileStoreAddModelNamesService"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileStoreAddModelNamesService">
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService" />
+		</property>
+	</bean>
+
+	<bean id="sysFileStoreAddConverterKeysService"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileStoreAddConverterKeysService">
+		<property name="sysAppConfigService">
+			<ref bean="sysAppConfigService" />
+		</property>
+	</bean>
+
+	<bean id="timeoutTaskSetFailure"
+		class="com.landray.kmss.sys.filestore.service.spring.SysFileTimeoutTaskSetFailureService">
+		<property name="sysFileConvertQueueService">
+			<ref local="sysFileConvertQueueService" />
+		</property>
+		<property name="sysFileConvertLogService">
+			<ref local="sysFileConvertLogService" />
+		</property>
+	</bean>
+</beans>

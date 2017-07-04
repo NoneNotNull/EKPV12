@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<jco id="13d80f8e66d3a732d95cc274e85b0596" name="BAPI_AR_ACC_GETOPENITEMS"
+	timestamp="1364197849915" version="3.0">
+	<import>
+		<field name="COMPANYCODE" title="公司代码" ctype="String" decimals="0"
+			maxlength="4" isoptional="true">8880</field>
+		<field name="CUSTOMER" title="客户" ctype="String" decimals="0"
+			maxlength="10" isoptional="true">0099000032</field>
+		<field name="KEYDATE" title="结算日" ctype="Date" decimals="0"
+			maxlength="8" isoptional="true">20070830</field>
+	</import>
+	<export>
+		<structure name="RETURN">
+			<field name="TYPE" title="消息类型: S 成功,E 错误,W 警告,I 信息,A 中断"
+				ctype="String" decimals="0" maxlength="1" isoptional="false"></field>
+			<field name="CODE" title="消息代码" ctype="String" decimals="0"
+				maxlength="5" isoptional="false"></field>
+			<field name="MESSAGE" title="消息文本" ctype="String" decimals="0"
+				maxlength="220" isoptional="false"></field>
+			<field name="LOG_NO" title="应用程序日志: 日志号" ctype="String"
+				decimals="0" maxlength="20" isoptional="false"></field>
+			<field name="LOG_MSG_NO" title="应用日志：内部邮件序列号" ctype="String"
+				decimals="0" maxlength="6" isoptional="false">000000</field>
+			<field name="MESSAGE_V1" title="消息,消息变量" ctype="String"
+				decimals="0" maxlength="50" isoptional="false"></field>
+			<field name="MESSAGE_V2" title="消息,消息变量" ctype="String"
+				decimals="0" maxlength="50" isoptional="false"></field>
+			<field name="MESSAGE_V3" title="消息,消息变量" ctype="String"
+				decimals="0" maxlength="50" isoptional="false"></field>
+			<field name="MESSAGE_V4" title="消息,消息变量" ctype="String"
+				decimals="0" maxlength="50" isoptional="false"></field>
+		</structure>
+	</export>
+	<tables>
+		<table name="LINEITEMS" isin="0" rows="0">
+			<records row="0">
+				<field name="COMP_CODE" title="公司代码" ctype="String" decimals="0"
+					maxlength="4" isoptional="false" />
+				<field name="CUSTOMER" title="客户编号1" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="SP_GL_IND" title="特别总/分类帐指示符" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="CLEAR_DATE" title="清帐日期" ctype="Date" decimals="0"
+					maxlength="8" isoptional="false" />
+				<field name="CLR_DOC_NO" title="清算单据的单据号码" ctype="String"
+					decimals="0" maxlength="10" isoptional="false" />
+				<field name="ALLOC_NMBR" title="分配编号" ctype="String" decimals="0"
+					maxlength="18" isoptional="false" />
+				<field name="FISC_YEAR" title="会计年度" ctype="String" decimals="0"
+					maxlength="4" isoptional="false" />
+				<field name="DOC_NO" title="会计凭证号码" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="ITEM_NUM" title="会计凭证中的行项目数" ctype="String"
+					decimals="0" maxlength="3" isoptional="false" />
+				<field name="PSTNG_DATE" title="凭证中的记帐日期" ctype="Date"
+					decimals="0" maxlength="8" isoptional="false" />
+				<field name="DOC_DATE" title="凭证中的凭证日期" ctype="Date" decimals="0"
+					maxlength="8" isoptional="false" />
+				<field name="ENTRY_DATE" title="会计凭证输入日期" ctype="Date"
+					decimals="0" maxlength="8" isoptional="false" />
+				<field name="CURRENCY" title="货币代码" ctype="String" decimals="0"
+					maxlength="5" isoptional="false" />
+				<field name="LOC_CURRCY" title="本币" ctype="String" decimals="0"
+					maxlength="5" isoptional="false" />
+				<field name="REF_DOC_NO" title="参考凭证编号" ctype="String"
+					decimals="0" maxlength="16" isoptional="false" />
+				<field name="DOC_TYPE" title="凭证类型" ctype="String" decimals="0"
+					maxlength="2" isoptional="false" />
+				<field name="FIS_PERIOD" title="会计期间" ctype="String" decimals="0"
+					maxlength="2" isoptional="false" />
+				<field name="POST_KEY" title="记帐代码" ctype="String" decimals="0"
+					maxlength="2" isoptional="false" />
+				<field name="DB_CR_IND" title="借方/贷方标识" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="BUS_AREA" title="业务范围" ctype="String" decimals="0"
+					maxlength="4" isoptional="false" />
+				<field name="TAX_CODE" title="销售/购买税代码" ctype="String"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="LC_AMOUNT" title="按本币计的金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="AMT_DOCCUR" title="凭证货币金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="LC_TAX" title="用本币计的税收金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="TX_DOC_CUR" title="用凭证货币表示的税收金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="ITEM_TEXT" title="项目文本" ctype="String" decimals="0"
+					maxlength="50" isoptional="false" />
+				<field name="BRANCH" title="分支帐号" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="BLINE_DATE" title="用于到期日计算的基准日期" ctype="Date"
+					decimals="0" maxlength="8" isoptional="false" />
+				<field name="PMNTTRMS" title="收付条件代码" ctype="String" decimals="0"
+					maxlength="4" isoptional="false" />
+				<field name="DSCT_DAYS1" title="现金折扣天数 1" ctype="BigDecimal"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="DSCT_DAYS2" title="现金折扣天数 2" ctype="BigDecimal"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="NETTERMS" title="净支付条件期段" ctype="BigDecimal"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="DSCT_PCT1" title="现金折扣百分比 1" ctype="BigDecimal"
+					decimals="3" maxlength="3" isoptional="false" />
+				<field name="DSCT_PCT2" title="现金折扣百分率 2" ctype="BigDecimal"
+					decimals="3" maxlength="3" isoptional="false" />
+				<field name="DISC_BASE" title="可使用的凭证货币的现金折扣金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="DSC_AMT_LC" title="本币的现金折扣金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="DSC_AMT_DC" title="以凭证货币表示的现金折扣金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="PYMT_METH" title="收付方式" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="PMNT_BLOCK" title="收付冻结码" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="FIXEDTERMS" title="固定付款条件" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="INV_REF" title="业务所属的发票号码" ctype="String"
+					decimals="0" maxlength="10" isoptional="false" />
+				<field name="INV_YEAR" title="有关发票的财政年度 (贷项凭单)" ctype="String"
+					decimals="0" maxlength="4" isoptional="false" />
+				<field name="INV_ITEM" title="相关发票中的行项目" ctype="String"
+					decimals="0" maxlength="3" isoptional="false" />
+				<field name="DUNN_BLOCK" title="催款冻结" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="DUNN_KEY" title="催款码" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="LAST_DUNN" title="上次催款通知日期" ctype="Date"
+					decimals="0" maxlength="8" isoptional="false" />
+				<field name="DUNN_LEVEL" title="催款层次" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="DUNN_AREA" title="催款范围" ctype="String" decimals="0"
+					maxlength="2" isoptional="false" />
+				<field name="DOC_STATUS" title="凭证状态" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="NXT_DOCTYP" title="下列凭证类型" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="VAT_REG_NO" title="增值税登记号" ctype="String"
+					decimals="0" maxlength="20" isoptional="false" />
+				<field name="REASON_CDE" title="付款原因代码" ctype="String"
+					decimals="0" maxlength="3" isoptional="false" />
+				<field name="PMTMTHSUPL" title="付款方式补充" ctype="String"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="REF_KEY_1" title="业务伙伴参考码" ctype="String"
+					decimals="0" maxlength="12" isoptional="false" />
+				<field name="REF_KEY_2" title="业务伙伴参考码" ctype="String"
+					decimals="0" maxlength="12" isoptional="false" />
+				<field name="T_CURRENCY" title="更新总分类帐交易数字货币" ctype="String"
+					decimals="0" maxlength="5" isoptional="false" />
+				<field name="AMOUNT" title="总帐中更新的金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="NET_AMOUNT" title="净收付金额" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="NAME" title="名称 1" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="NAME_2" title="名称 2" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="NAME_3" title="名称 3" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="NAME_4" title="名称 4" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="POSTL_CODE" title="邮政编码" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="CITY" title="城市" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="COUNTRY" title="国家代码" ctype="String" decimals="0"
+					maxlength="3" isoptional="false" />
+				<field name="STREET" title="住宅号及街道" ctype="String" decimals="0"
+					maxlength="35" isoptional="false" />
+				<field name="PO_BOX" title="邮政信箱" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="POBX_PCD" title="邮箱的邮编" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="POBK_CURAC" title="邮政银行的往来帐户号" ctype="String"
+					decimals="0" maxlength="16" isoptional="false" />
+				<field name="BANK_ACCT" title="银行帐户号码" ctype="String"
+					decimals="0" maxlength="18" isoptional="false" />
+				<field name="BANK_KEY" title="银行代码" ctype="String" decimals="0"
+					maxlength="15" isoptional="false" />
+				<field name="BANK_CTRY" title="银行国家代码" ctype="String"
+					decimals="0" maxlength="3" isoptional="false" />
+				<field name="TAX_NO_1" title="税号 1" ctype="String" decimals="0"
+					maxlength="16" isoptional="false" />
+				<field name="TAX_NO_2" title="税号 2" ctype="String" decimals="0"
+					maxlength="11" isoptional="false" />
+				<field name="TAX" title="增值税义务" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="EQUAL_TAX" title="标识: 业务合作伙伴属于平衡税?" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="REGION" title="地区 (州、省、县)" ctype="String"
+					decimals="0" maxlength="3" isoptional="false" />
+				<field name="CTRL_KEY" title="银行控制代码" ctype="String" decimals="0"
+					maxlength="2" isoptional="false" />
+				<field name="INSTR_KEY" title="数据媒介交换指令码" ctype="String"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="PAYEE_CODE" title="收款人代码" ctype="String"
+					decimals="0" maxlength="16" isoptional="false" />
+				<field name="LANGU" title="语言代码" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="BILL_LIFE" title="汇票的有效期" ctype="BigDecimal"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="BE_TAXCODE" title="汇票税码" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="BILLTAX_LC" title="本币计的汇票税" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="BILLTAX_FC" title="外币计的汇票税" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="LC_COL_CHG" title="汇票托收的费用 (本币计)" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="COLL_CHARG" title="以凭证货币计的托收汇票的费用" ctype="BigDecimal"
+					decimals="4" maxlength="12" isoptional="false" />
+				<field name="CHGS_TX_CD" title="汇票费用的税码" ctype="String"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="ISSUE_DATE" title="汇票签发日" ctype="Date" decimals="0"
+					maxlength="8" isoptional="false" />
+				<field name="USAGEDATE" title="汇票使用日期" ctype="Date" decimals="0"
+					maxlength="8" isoptional="false" />
+				<field name="BILL_USAGE" title="汇票的计划用途" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="DOMICILE" title="可以支付汇票的银行地址(国内)" ctype="String"
+					decimals="0" maxlength="60" isoptional="false" />
+				<field name="DRAWER" title="汇票出票人的名字" ctype="String" decimals="0"
+					maxlength="30" isoptional="false" />
+				<field name="CTRBNK_LOC" title="国家中央银行所在地" ctype="String"
+					decimals="0" maxlength="60" isoptional="false" />
+				<field name="DRAW_CITY1" title="汇票出票人的城市" ctype="String"
+					decimals="0" maxlength="30" isoptional="false" />
+				<field name="DRAWEE" title="汇票受票人" ctype="String" decimals="0"
+					maxlength="30" isoptional="false" />
+				<field name="DRAW_CITY2" title="汇票受票人的城市" ctype="String"
+					decimals="0" maxlength="30" isoptional="false" />
+				<field name="DISCT_DAYS" title="贴现天数" ctype="BigDecimal"
+					decimals="0" maxlength="2" isoptional="false" />
+				<field name="DISCT_RATE" title="经过收费的汇票折扣百分率" ctype="BigDecimal"
+					decimals="5" maxlength="4" isoptional="false" />
+				<field name="ACCEPTED" title="标志：汇票已接收" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="BILLSTATUS" title="汇票状态" ctype="String" decimals="0"
+					maxlength="1" isoptional="false" />
+				<field name="PRTEST_IND" title="拒付汇票标志" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="BE_DEMAND" title="标记：即期汇票" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="OBJ_TYPE" title="参考过程" ctype="String" decimals="0"
+					maxlength="5" isoptional="false" />
+				<field name="REF_DOC" title="参考凭证号" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+				<field name="REF_ORG_UN" title="参考组织单位" ctype="String"
+					decimals="0" maxlength="10" isoptional="false" />
+				<field name="REVERSAL_DOC" title="冲销凭证号" ctype="String"
+					decimals="0" maxlength="10" isoptional="false" />
+				<field name="SP_GL_TYPE" title="特殊总分类帐交易类型" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="NEG_POSTNG" title="标识: 反记帐" ctype="String"
+					decimals="0" maxlength="1" isoptional="false" />
+				<field name="REF_DOC_NO_LONG" title="参考凭证号(对相关性参看长文本)" ctype="String"
+					decimals="0" maxlength="35" isoptional="false" />
+				<field name="BILL_DOC" title="开票凭证" ctype="String" decimals="0"
+					maxlength="10" isoptional="false" />
+			</records>
+		</table>
+	</tables>
+</jco> 

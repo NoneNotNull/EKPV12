@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteOperation">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/hand/sysLbpmProcess_hand.jsp" />
+			<param
+				name="provideFor"
+				value="mobile" />
+			<param
+				name="order"
+				value="1" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/hand/sysLbpmProcess_handlog.jsp" />
+			<param
+				name="provideFor"
+				value="*"/>
+			<param
+				name="order"
+				value="1" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteOperation">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/sign/sysLbpmProcess_sign.jsp" />
+			<param
+				name="provideFor"
+				value="mobile" />
+			<param
+				name="order"
+				value="2" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/sign/sysLbpmProcess_signlog.jsp" />
+			<param
+				name="provideFor"
+				value="mobile"/>
+			<param
+				name="order"
+				value="2" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/sign/sysLbpmProcess_pc_signlog.jsp" />
+			<param
+				name="provideFor"
+				value="pc"/>
+			<param
+				name="order"
+				value="2" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteOperation">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/speech/sysLbpmProcess_speech.jsp" />
+			<param
+				name="provideFor"
+				value="mobile" />
+			<param
+				name="order"
+				value="3" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/speech/sysLbpmProcess_speechlog.jsp" />
+			<param
+				name="provideFor"
+				value="mobile"/>
+			<param
+				name="order"
+				value="3" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.sys.lbpmservice.auditnote">
+		<item
+			name="auditNoteList">
+			<param
+				name="jsp"
+				value="/sys/lbpmservice/mobile/audit_note_ext/speech/sysLbpmProcess_pc_speechlog.jsp" />
+			<param
+				name="provideFor"
+				value="pc"/>
+			<param
+				name="order"
+				value="3" />
+		</item>
+	</extension>
+</plugin>

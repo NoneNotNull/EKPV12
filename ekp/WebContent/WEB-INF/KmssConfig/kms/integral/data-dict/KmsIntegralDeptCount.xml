@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.integral.model.KmsIntegralDeptCount"
+		messageKey="kms-integral:table.kmsIntegralDeptCount"
+		displayProperty="docSubject"
+		serviceBean="kmsIntegralDeptCountService"
+		table="kms_integral_dept_count"
+		url="/kms/integral/kms_integral_dept_count/kmsIntegralDeptCount.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdTotalScore"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdTotalScore"
+			type="Long"
+			column="fd_total_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocScore"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdDocScore"
+			type="Long"
+			column="fd_doc_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpScore"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdExpScore"
+			type="Long"
+			column="fd_exp_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherScore"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdOtherScore"
+			type="Long"
+			column="fd_other_score"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdTotalRiches"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdTotalRiches"
+			type="Long"
+			column="fd_total_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdDocRiches"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdDocRiches"
+			type="Long"
+			column="fd_doc_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdExpRiches"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdExpRiches"
+			type="Long"
+			column="fd_exp_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOtherRiches"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdOtherRiches"
+			type="Long"
+			column="fd_other_riches"
+			notNull="false"
+			length="19"
+			validate="true" />
+
+		<modelProperty
+			name="fdDept"
+			messageKey="kms-integral:kmsIntegralDeptCount.fdDept"
+			type="com.landray.kmss.common.model.SysOrgElement"
+			column="fd_dept"
+			notNull="false"
+			validate="true" />
+
+	</model>
+</models>

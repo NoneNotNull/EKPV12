@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>修复 专家网络列表页面默认不能按排序号排序的问题</description>
+			<author>陈建林</author>
+			<revision-time>2015-03-06</revision-time>
+			<baseline>V12.0.0.R.20150325</baseline>
+		</modify>
+		<modify>
+			<description>新增 工作交接注册服务</description>
+			<author>王腾飞</author>
+			<revision-time>2014-12-10</revision-time>
+			<relation>
+				<relation-module>sys/handover</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 专家分类概览信息IE8下显示不全</description>
+			<author>张文辉</author>
+			<revision-time>2014-12-01</revision-time>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识专家分类概览和思维导图数据存取</description>
+			<author>张文辉</author>
+			<revision-time>2014-11-19</revision-time>
+			<relation>
+				<relation-module>sys/simplecategory</relation-module>
+			</relation>
+			<baseline>V12.0.0.B3.20150116</baseline>
+		</modify>
+		<modify>
+			<description>修复 绿色主题下排序按钮显示错行的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>新增 列表页按钮处翻页功能</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-29</revision-time>
+			<relation>
+				<relation-module>sys/ui</relation-module>
+			</relation>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 部分查看页面显示内容与导航不符合的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-25</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 二级页面筛选不出记录出错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-08-19</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>优化 阅读页面存在知识仓库的情况下，默认切换到专家的文档知识</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-24</revision-time>
+			<baseline>V12.0.0.B1.20140905</baseline>
+		</modify>
+		<modify>
+			<description>修复 全文搜索出来后点击查看专家时报错的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-07-03</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>优化 专家部门岗位信息太长时显示不全的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-06-30</revision-time>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms日志拦截部署</description>
+			<author>郭昌平</author>
+			<revision-time>2014-06-11</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家信息在门户图文视图图片显示不出来的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-05-05</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家查看页面英文环境下显示错乱问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-07</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家二级页面“向TA提问”按钮在英文环境下显示不全的问题</description>
+			<author>陈建林</author>
+			<revision-time>2014-04-07</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于数据字典字段类型不匹配导致导入时候报错的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2014-03-25</revision-time>
+			<baseline>V11.0.1.R.20140506</baseline>
+		</modify>
+		<modify>
+			<description>新增 支持专家搜索webservice接口</description>
+			<author>陈良</author>
+			<revision-time>2013-10-08</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>sys/webservice2</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于model映射长度配置错误，导致数据库类型被改变，mssql中报错</description>
+			<author>郭昌平</author>
+			<revision-time>2013-08-08</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>关联 场景扩展点移动关联修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-07-29</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>移除 专家网络列表页面的搜索无效链接</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-26</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>移除 专家网络导航栏搜索无效链接</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家分类列表不支持谷歌火狐。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家网络专家分类设置功能无法正常使用，包括在【IE、Chrome、Firefox】浏览器下新建、编辑和删除。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-06-21</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 营销社区专家排行榜的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-05-14</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 营销社区专家排行榜的问题</description>
+			<author>徐广敏</author>
+			<revision-time>2013-05-07</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家选择列表重复选择专家弹出提示问题</description>
+			<author>龚一涛</author>
+			<revision-time>2013-05-02</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 新进专家改为7天</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-28</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人背景改为个人简介</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-26</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 专家可维护者、可使用者。新进专家改为15天之类新进的专家。创建已有专家给出提示。</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-26</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>新增 营销门户portlet</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-25</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家信息，点击单个类别时显示所有类别的专家列表，没有按照分类显示</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-23</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家体系不能按部门排序的问题</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-23</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 系统管理员无法编辑专家的性别</description>
+			<author>龚一涛</author>
+			<revision-time>2013-04-18</revision-time>
+			<baseline>V10.0.3.R.20130712</baseline>
+		</modify>
+		<modify>
+			<description>新增 专家列表“上一页、下一页”按钮</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-04-01</revision-time>
+			<baseline>V10.0.2.R.20130608</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识服务中专家部门不显示的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>新增 个人中心中向专家提问与部署kk在线感知功能</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-20</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 还原之前误删除文件</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-03-12</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 知识服务预览时报js错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-02-01</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>移除 部分无用代码</description>
+			<author>洪泽铨</author>
+			<revision-time>2013-01-28</revision-time>
+			<relation>
+				<relation-module>kms/communitycko</relation-module>
+			</relation>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决SQL注入的安全问题</description>
+			<author>郭昌平</author>
+			<revision-time>2013-01-22</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家列表页面是不能对自己提问的，专家选择框中过滤自己</description>
+			<author>龚一涛</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家模块扩展点配置错误，导致专家显示成爱问</description>
+			<author>龚一涛</author>
+			<revision-time>2012-11-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 k助手场景去除滚动条</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-13</revision-time>
+			<relation>
+				<relation-module>kms/kmservice</relation-module>
+			</relation>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 使用ie6登录系统，点击知识文档页面、专家信息页面上的“编辑”按钮，没反应</description>
+			<author>龚一涛</author>
+			<revision-time>2012-11-07</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 补充误删文件，防止新建专家找不到页面</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-11-05</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 k助手专家领域过长导致样式杂乱</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-24</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>优化 知识专家在k助手中的展现样式</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-10-22</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 创建分类文档权限问题，在无父目录权限情况下，子目录有权限可见且允许创建文档</description>
+			<author>郭昌平</author>
+			<revision-time>2012-10-18</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>新增 专家部署知识服务</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-21</revision-time>
+			<baseline>V10.0.0.R.20121215</baseline>
+		</modify>
+		<modify>
+			<description>修复 主页分类概览重复创建导致数据不更新的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-18</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 个人中心修改性别后专家页面显示不符的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-09-17</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家资源文件未定义错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-08-21</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 专家分类概览类别参数</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-31</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 编辑专家后岗位信息会丢失问题；优化 专家编辑阅读页面</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-15</revision-time>
+			<relation>
+				<relation-module>kms/common</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 专家后台管理树链接错误的问题</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-14</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>修复 由于笔误导致专家信息修改时报js语法错误</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-10</revision-time>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>新增 kms后台管理树 专家配置节点</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-05-09</revision-time>
+			<relation>
+				<relation-module>core</relation-module>
+			</relation>
+			<baseline>V10.0.0.B2.20120923</baseline>
+		</modify>
+		<modify>
+			<description>个人主页收藏夹主题过长变形</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-02-28</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>个人主页后台警告信息、收藏夹js模板报错、我的知识作者修改</description>
+			<author>洪泽铨</author>
+			<revision-time>2012-01-16</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+		<modify>
+			<description>去掉组织架构同步拦截器</description>
+			<author>洪泽铨</author>
+			<revision-time>2011-11-21</revision-time>
+			<baseline>V9.0.2.R.20120326</baseline>
+		</modify>
+	</modifies>
+</version>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.bookmark.model.SysBookmarkPublicCategory"
+		messageKey="sys-bookmark:table.sysBookmarkPublicCategory"
+		serviceBean="sysBookmarkPublicCategoryService"
+		extendClass="com.landray.kmss.sys.bookmark.model.SysBookmarkCategory"
+		discriminatorValue="1">
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="sys-bookmark:sysBookmarkPublicCategory.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="sys-bookmark:sysBookmarkPublicCategory.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false" />
+	</model>
+</models>

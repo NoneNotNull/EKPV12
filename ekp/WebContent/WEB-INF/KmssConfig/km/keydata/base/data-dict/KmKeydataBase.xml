@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.keydata.base.model.KmKeydataBase"
+		messageKey="km-keydata-base:table.kmKeydataBase"
+		serviceBean="kmKeydataBaseService"
+		table="km_keydata_base">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="km-keydata-base:keydata.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCode"
+			messageKey="km-keydata-base:keydata.fdCode"
+			type="String"
+			column="fd_code"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-keydata-base:keydata.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="true"
+			validate="false"
+			unique="false"
+			readOnly="true"
+			canSearch="true" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-keydata-base:keydata.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="true"
+			validate="false"
+			unique="false"
+			readOnly="true"
+			canSearch="true" />
+		
+		<modelProperty
+			name="docCreator"
+			messageKey="km-keydata-base:keydata.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="true"
+			validate="false"
+			unique="false"
+			canDisplay="true"
+			readOnly="true"
+			canSubscribe="true" />
+			
+		<simpleProperty
+			name="fdIsAvailable"
+			messageKey="km-keydata-base:keydata.fdIsAvailable"
+			type="Boolean"
+			column="fd_is_available"
+			notNull="false"
+			unique="false"
+			
+			canSearch="true" />
+	
+			
+		<listProperty
+			name="authOtherReaders"
+			messageKey="sys-doc:sysDocBaseInfo.authOtherReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_keydata_auth_oreader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="sys-doc:sysDocBaseInfo.authOtherEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_keydata_auth_oeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllReaders"
+			messageKey="sys-doc:sysDocBaseInfo.authAllReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_keydata_auth_areader"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAllEditors"
+			messageKey="sys-doc:sysDocBaseInfo.authAllEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_keydata_auth_aeditor"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttDownloads"
+			messageKey="sys-doc:sysDocBaseInfo.authAttDownloads"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_download_id"
+			table="km_keydata_attdl"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttCopys"
+			messageKey="sys-doc:sysDocBaseInfo.authAttCopys"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_copy_id"
+			table="km_keydata_attcopy"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authAttPrints"
+			messageKey="sys-doc:sysDocBaseInfo.authAttPrints"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_att_print_id"
+			table="km_keydata_attprint"
+			inverse="false"
+			canDisplay="false" />
+		<listProperty
+			name="authReaders"
+			messageKey="sys-doc:sysDocBaseInfo.authReaders"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="fd_org_id"
+			table="km_keydata_auth_readers"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<listProperty
+			name="authEditors"
+			messageKey="sys-doc:sysDocBaseInfo.authEditors"
+			column="fd_doc_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			table="km_keydata_auth_editors"
+			elementColumn="fd_org_id"
+			inverse="false"
+			canDisplay="false"
+			readOnly="true" />
+		<simpleProperty
+			name="authAttNodownload"
+			messageKey="sys-doc:sysDocBaseInfo.authAttNodownload"
+			type="Boolean"
+			column="auth_att_nodownload"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNocopy"
+			messageKey="sys-doc:sysDocBaseInfo.authAttNocopy"
+			type="Boolean"
+			column="auth_att_nocopy"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		<simpleProperty
+			name="authAttNoprint"
+			messageKey="sys-doc:sysDocBaseInfo.authAttNoprint"
+			type="Boolean"
+			column="auth_att_noprint"
+			notNull="false"
+			unique="false"
+			length="1"
+			canDisplay="false" />
+		
+
+	</model>
+</models>

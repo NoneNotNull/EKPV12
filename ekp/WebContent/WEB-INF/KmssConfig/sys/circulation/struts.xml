@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysCirculationMainForm"
+			type="com.landray.kmss.sys.circulation.forms.SysCirculationMainForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/circulation/sys_circulation_main/sysCirculationMain"
+			type="com.landray.kmss.sys.circulation.actions.SysCirculationMainAction"
+			name="sysCirculationMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/circulation/sys_circulation_main/sysCirculationMain_view.jsp">
+			</forward>
+			<forward
+				name="edit"
+				path="/sys/circulation/sys_circulation_main/sysCirculationMain_edit.jsp">
+			</forward>
+			<forward
+				name="list"
+				path="/sys/circulation/sys_circulation_main/sysCirculationMain_list.jsp">
+			</forward>
+			<forward
+				name="listData"
+				path="/sys/circulation/sys_circulation_main/sysCirculationMain_listData.jsp">
+			</forward>
+		</action>
+	</action-mappings>
+
+	<!-- 消息资源 -->
+	<message-resources
+		parameter="com.landray.kmss.sys.circulation.ApplicationResources"
+		key="sys-circulation" />
+</struts-config>

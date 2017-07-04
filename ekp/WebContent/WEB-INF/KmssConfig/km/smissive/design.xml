@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<!-- 权限控制 -->
+	<module urlPrefix="/km/smissive/" 
+		messageKey="km-smissive:module.km.smissive" 
+		defaultValidator="roleValidator(role=ROLE_KMSMISSIVE_DEFAULT)">
+		<roles>
+			ROLE_KMSMISSIVE_DEFAULT;
+			ROLE_KMSMISSIVE_COMMONWORKFLOW;
+		</roles>
+		<areaRoles>
+			ROLE_KMSMISSIVE_CATEGORY_MAINTAINER;
+			ROLE_KMSMISSIVE_CREATE;
+			ROLE_KMSMISSIVE_DELETE;
+			ROLE_KMSMISSIVE_EDITOR;
+			ROLE_KMSMISSIVE_UPDATE_ISSUER;
+			ROLE_KMSMISSIVE_READER;
+			ROLE_KMSMISSIVE_CIRCULATION;
+			ROLE_KMSMISSIVE_CIRCULATION_DELETE;
+			ROLE_KMSMISSIVE_MANUALPUBLISH;
+			ROLE_KMSMISSIVE_OPTALL;
+			ROLE_KMSMISSIV_CHANGECATE;
+			ROLE_KMSMISSIV_CHANGERIGHT
+		</areaRoles>
+		<!-- 模板权限 -->
+		<request
+			path="km_smissive_template/kmSmissiveTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.smissive.model.KmSmissiveTemplate,adminRoleName=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER">
+			<!-- 保存 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		<!-- 主文档权限 -->
+		<request
+			path="km_smissive_main/kmSmissiveMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain,cateModel=com.landray.kmss.km.smissive.model.KmSmissiveTemplate,adminRoleName=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER">
+			<!-- 在模板树下新建 -->
+			<query
+				queryString="method=add&amp;categoryId=*"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=categoryId)" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=categoryId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=creator)|authFieldValidator(type=SYS_READER)|authSimpleCategoryEditorValidator(property=fdTemplate)" />
+						
+			<!-- 修改附件权限 -->
+			<query
+				queryString="method=edit&amp;forward=modifyAttRight"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_ATTACHMENT_RIGHT)&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />
+			<!-- 修改阅读权限 -->
+			<query
+				queryString="method=edit&amp;forward=modifyRight"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_READ_RIGHT)&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />
+			<!-- 修改签发人 -->
+			<query
+				queryString="method=edit&amp;forward=modifyIssuer"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_UPDATE_ISSUER)&amp;fieldValueValidator(fieldproperty=docStatus,value=30)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />			
+			<!-- 编辑 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_KMSMISSIVE_EDITOR)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />
+			
+			<!-- 文档中的删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMSMISSIVE_DELETE)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />
+			<!-- 删除所有草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMSMISSIVE_DEFAULT)" />
+			<!-- 删除所有其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMSMISSIVE_DELETE)&amp;[roleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]" />
+		</request>
+		<filters
+			modelName="com.landray.kmss.km.smissive.model.KmSmissiveMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMSMISSIVE_READER)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+			<filter
+				type="view_wf"
+				expression="authFieldFilter(field=authOtherReaders.fdId)"/>
+		</filters>
+	</module>
+	<!--传阅权限 -->
+	<module urlPrefix="/sys/circulation/">
+		<request 
+				path="sys_circulation_main/sysCirculationMain*">
+			<query
+				queryString="method=add|save|saveadd&amp;fdModelName=com.landray.kmss.km.smissive.model.KmSmissiveMain"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_CIRCULATION,recid=fdModelId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="method=delete&amp;fdModelName=com.landray.kmss.km.smissive.model.KmSmissiveMain"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_CIRCULATION_DELETE,recid=fdModelId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain)&amp;[areaRoleValidator(role=ROLE_KMSMISSIVE_OPTALL,recid=fdModelId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain)|authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain,property=fdTemplate,role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)]"/>
+		</request>
+	</module>
+	<module
+		messageKey=""
+		urlPrefix="/sys/appconfig/">
+		<request path="sys_appconfig/sysAppConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.km.smissive.model.KmSmissiveConfig"
+				validator="roleValidator(role=ROLE_KMSMISSIVE_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.smissive.model.KmSmissiveTemplate"
+				validator="roleValidator(role=ROLE_KMSMISSIVE_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	
+	<!-- 通用编号规则设置权限 -->
+	<module urlPrefix="/sys/number/">
+		<request path="sys_number_main/sysNumberMain*">
+			<query
+			    queryString="method=list|add|edit|update|delete&amp;isCustom=2&amp;modelName=com.landray.kmss.km.smissive.model.KmSmissiveMain" 
+				validator="roleValidator(role=ROLE_KMSMISSIVE_COMMONWORKFLOW)"/>
+		</request>
+	</module>
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.km.smissive.model.KmSmissiveTemplate"
+				validator="roleValidator(role=ROLE_KMSMISSIV_CHANGECATE)&amp;[roleValidator(role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.km.smissive.model.KmSmissiveTemplate)]" />
+		</request>
+	</module>
+	<!-- 视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.km.smissive.model.KmSmissiveMain"
+				validator="roleValidator(role=ROLE_KMSMISSIV_CHANGERIGHT)&amp;[roleValidator(role=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_KMSMISSIVE_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.km.smissive.model.KmSmissiveTemplate)]" />
+		</request>
+	</module>
+	
+	<!-- 流程日志权限控制 -->	
+	<module
+		messageKey=""
+		urlPrefix="/km/smissive/">
+		<request path="km_smissive_main/kmSmissiveMain*"
+				validatorParameter="recid=fdId,model=com.landray.kmss.km.smissive.model.KmSmissiveMain,cateModel=com.landray.kmss.km.smissive.model.KmSmissiveTemplate,adminRoleName=ROLE_KMSMISSIVE_CATEGORY_MAINTAINER">
+			<query
+				queryString="method=viewWfLog"
+				validator="authFieldValidator(type=view_wf)|authFieldValidator(type=creator)"/>
+		</request>	
+	</module>	
+	<!--发布机制权限-->
+	<module
+		messageKey=""
+		urlPrefix="/sys/news/">
+		<request 
+				path="sys_news_publish_main/sysNewsPublishMain_viewManualFrame.jsp*">
+			<query
+				queryString="fdModelNameParam=com.landray.kmss.km.smissive.model.KmSmissiveMain"
+				validator="areaRoleValidator(role=ROLE_KMSMISSIVE_MANUALPUBLISH,recid=fdModelIdParam,model=com.landray.kmss.km.smissive.model.KmSmissiveMain)" />
+		</request>
+	</module>
+	
+	<!-- 全文搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.smissive.model.KmSmissiveMain"
+				validator="roleValidator(role=ROLE_KMSMISSIVE_DEFAULT)" />
+		</request>
+	</module>
+	
+	<!-- 高级查询 -->
+	<search
+		modelName="com.landray.kmss.km.smissive.model.KmSmissiveMain"
+		messageKey="km-smissive:smissive.tree.knowledgesearch"
+		resultUrl="/km/smissive/km_smissive_main/kmSmissiveMain.do?method=result&amp;forward=listDoing"
+		resultProperties="docSubject;docCreator;fdMainDept;docCreateTime;fdTemplate;docStatus" />
+
+	<!-- 全文检索 -->
+	<ftSearch
+		modelName="com.landray.kmss.km.smissive.model.KmSmissiveMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="Text" />
+		<luceneField
+			name="template"
+			property="fdTemplate.fdName"
+			type="text" />
+		<luceneField
+			name="category"
+			property="fdTemplate.fdHierarchyId"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="Text" />
+		<luceneField
+			name="author"
+			property="docAuthor.fdName"
+			type="keyword" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+	</ftSearch>
+	
+	<!-- 关联机制 -->
+	<relation 
+		modelName="com.landray.kmss.km.smissive.model.KmSmissiveMain"
+		messageKey="km-smissive:table.kmSmissiveMain" />
+	
+	<!-- 政府公文配置 -->
+	<treeNodes type="config">
+		<treeNode messageKey="km-smissive:table.kmSmissiveMain">
+		<treeNode
+			messageKey="km-smissive:menu.smissive.categoryconfig"
+			url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.km.smissive.model.KmSmissiveTemplate&amp;actionUrl=/km/smissive/km_smissive_template/kmSmissiveTemplate.do&amp;formName=kmSmissiveTemplateForm&amp;mainModelName=com.landray.kmss.km.smissive.model.KmSmissiveMain&amp;docFkName=fdTemplate" />
+		<treeNode
+			messageKey="km-smissive:tree.workflowTemplate"
+			url="/sys/workflow/sys_wf_common_template/sysWfCommonTemplate.do?method=list&amp;fdModelName=com.landray.kmss.km.smissive.model.KmSmissiveTemplate&amp;fdKey=smissiveDoc" />
+		</treeNode>
+	</treeNodes>
+	<!-- 项目信息主页配置 -->
+	<homePage
+		urlPrefix="km/smissive"
+		url="/km/smissive/index.jsp"
+		messageKey="km-smissive:table.kmSmissiveMain" 
+		config="/moduleindex_notopic.jsp?nav=/km/smissive/tree.jsp"/>
+	
+	<!-- 文档流程 -->
+	<flowDef
+		modelName="com.landray.kmss.km.smissive.model.KmSmissiveMain"
+		templateModelName="com.landray.kmss.km.smissive.model.KmSmissiveTemplate"
+		key="smissiveDoc"
+		templatePropertyName="fdTemplate"
+		moduleMessageKey="km-smissive:table.kmSmissiveMain"
+		type="oa" >
+		<variant
+			name="editDocContent"
+			key="km-smissive:kmSmissive.editDocContent" />
+		<variant
+			name="modifyDocNum"
+			key="km-smissive:kmSmissive.modifyDocNum" />
+	</flowDef>
+
+	
+</configs>

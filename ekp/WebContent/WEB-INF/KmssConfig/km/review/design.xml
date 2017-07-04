@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module
+		messageKey="km-review:module.km.review"
+		urlPrefix="/km/review/"
+		defaultValidator="roleValidator(role=ROLE_KMREVIEW_DEFAULT)">
+		<roles>
+			ROLE_KMREVIEW_DEFAULT; ROLE_KMREVIEW_SETTING;
+		</roles>
+		<areaRoles>
+			ROLE_KMREVIEW_CREATE;
+			ROLE_KMREVIEW_READER; ROLE_KMREVIEW_DELETE;
+			ROLE_KMREVIEW_PRINT; ROLE_KMREVIEW_CHANGRIGHT;
+			ROLE_KMREVIEW_CHANGETEMPLATE; ROLE_KMREVIEW_CIRCULATION_CREATE;
+			ROLE_KMREVIEW_CIRCULATION_DELETE; 
+			ROLE_KMREVIEW_FEEDBACK_DELETE;
+			ROLE_KMREVIEW_FLOWRECORDREADER;
+			ROLE_KMREVIEW_OPTALL; ROLE_KMREVIEW_CATEGORY_MAINTAINER		
+		</areaRoles>	
+				
+		<!-- 模板权限 -->
+		<request
+			path="km_review_template/kmReviewTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.review.model.KmReviewTemplate">
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="authCategoryReaderValidator(cateid=fdCategoryId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authCategoryEditorValidator(property=docCategory)" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="authFieldValidator(type=SYS_EDITOR)|authCategoryEditorValidator(property=docCategory)" />
+			<!-- 删除所有 -->
+			<query
+				queryString="method=deleteall"
+				validator="authCategoryEditorValidator(cateid=parentId)" />
+			<!-- 拷贝 -->
+			<query
+				queryString="method=clone"
+				validator="authCategoryReaderValidator(recid=cloneModelId,model=com.landray.kmss.km.review.model.KmReviewTemplate,property=docCategory)" />			
+		</request>
+
+		<!-- 主文档权限 -->
+		<request
+			path="km_review_main/kmReviewMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.km.review.model.KmReviewMain,templatemodel=com.landray.kmss.km.review.model.KmReviewTemplate">
+			<!-- 新增 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_CREATE)&amp;authCategoryReaderValidator(templateid=fdTemplateId)" />
+			<!-- 复制 -->
+			<query
+				queryString="method=add&amp;fdReviewId=*"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30)&amp;authFieldValidator(type=creator)" />	
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd|saveDraft"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_CREATE)&amp;authCategoryReaderValidator(templateid=fdTemplateId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authCategoryEditorValidator(property=fdTemplate)" />
+			<!-- 编辑、更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)"/>
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_KMREVIEW_DELETE)&amp;[authCategoryEditorValidator(property=fdTemplate,role=ROLE_KMREVIEW_OPTALL)|areaRoleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 删除所有草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="roleValidator(role=ROLE_KMREVIEW_DEFAULT)" />
+			<!-- 删除所有其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMREVIEW_DELETE)&amp;[fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMREVIEW_OPTALL)|roleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 打印 -->
+			<query
+				queryString="method=print"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_PRINT)" />
+			<!-- 修改权限 -->
+			<query
+				queryString="method=editRight"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=30;31)&amp;areaRoleValidator(role=ROLE_KMREVIEW_CHANGRIGHT)&amp;[authCategoryEditorValidator(property=fdTemplate,role=ROLE_KMREVIEW_OPTALL)|areaRoleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|areaRoleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 转移模板按钮 -->
+			<query
+				queryString="method=changeTemplate&amp;nodeType=*"
+				validator="roleValidator(role=ROLE_KMREVIEW_CHANGETEMPLATE)&amp;[fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)|roleValidator(role=ROLE_KMREVIEW_OPTALL)|roleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+			<!-- 转移模板提交 -->
+			<query
+				queryString="method=changeTemplate&amp;categoryId=*"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_CHANGETEMPLATE)" />
+			<!-- 维护界面 -->
+			<query
+				queryString="method=manageList"
+				validator="roleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)|fieldValueValidator(field=nodeType,value=CATEGORY)&amp;authCategoryEditorValidator(cateid=categoryId)|fieldValueValidator(field=nodeType,value=TEMPLATE)&amp;authCategoryEditorValidator(templateid=categoryId)" />
+		</request>
+
+		<!-- 实施反馈文档权限 -->
+		<request
+			path="km_review_feedback_info/kmReviewFeedbackInfo*"
+			validatorParameter="model=com.landray.kmss.km.review.model.KmReviewMain">
+			<!-- 实施反馈 -->
+			<query
+				queryString="method=add|save"
+				validator="fieldValueValidator(recid=fdMainId,fieldproperty=docStatus,value=30;31)&amp;authFieldValidator(recid=fdMainId,type=feedback)" />
+			<!-- 删除反馈文档 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_KMREVIEW_FEEDBACK_DELETE)&amp;[authCategoryEditorValidator(property=fdTemplate,recid=fdModelId)|roleValidator(role=ROLE_KMREVIEW_OPTALL)|roleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)|roleValidator(role=ROLE_SYSCATEGORY_MAINTAINER)]" />
+		</request>
+
+		<!-- 指定反馈人 -->
+		<request
+			path="km_review_main/kmReviewChangeFeedback*"
+			defaultValidator="authFieldValidator(type=creator,recid=fdId,model=com.landray.kmss.km.review.model.KmReviewMain)">
+		</request>
+
+		<filters
+			modelName="com.landray.kmss.km.review.model.KmReviewTemplate">
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)" />				
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSCATEGORY_MAINTAINER)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER)" />				
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+		<filters
+			modelName="com.landray.kmss.km.review.model.KmReviewMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_KMREVIEW_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+			<filter
+				type="feedback"
+				expression="authFieldFilter(field=fdFeedback.fdId)" />
+		</filters>
+	</module>
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request 
+			path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)" />
+		</request>
+		<!-- 替换流程模板处理人权限 -->
+		<request path="sys_wf_template/sysWfTemplate*">
+			<!--query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_SETTING,recid=fdId,model=com.landray.kmss.km.review.model.KmReviewMain)" /-->
+			<query
+				queryString="method=updateTemplateAuditor|updateAuditor&amp;fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="authCategoryEditorValidator(cateid=cateid)" />
+		</request>
+	</module>
+	
+	<!-- 表单数据映射 -->
+	<module urlPrefix="/sys/xform/">
+		<request 
+			path="base/sys_form_db_table/sysFormDbTable*">
+			<!-- 通用表单模板表单数据映射 -->
+			<query
+				queryString="method=config|edit|save|delete&amp;fdFormType=common&amp;fdTemplateModel=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)" />
+			<!-- 一般模板表单数据映射 -->
+			<query
+				queryString="method=config|edit|save|delete&amp;fdFormType=template&amp;fdTemplateModel=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)|authFieldValidator(recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewTemplate,type=SYS_EDITOR)|authCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewTemplate,property=docCategory)" />
+			<!-- 表单数据映射视图列表批量删除表单数据映射（含有通用和一般表单） -->
+			<query
+				queryString="method=deleteall&amp;fdTemplateModel=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)" />
+
+		</request>
+	</module>
+	
+	<!-- 通用表单模板设置权限 -->
+	<module urlPrefix="/sys/xform/">
+		<request 
+			path="sys_form_common_template/sysFormCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)" />
+		</request>
+	</module>
+	<!-- 系统默认通知方式 -->
+	<module urlPrefix="/sys/appconfig/">
+		<request 
+			path="sys_appconfig/sysAppConfig*">
+			<query
+				queryString="modelName=com.landray.kmss.km.review.model.KmReviewConfigNotify"
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)" />
+		</request>
+	</module>
+	<!-- 搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.km.review.model.KmReviewMain"
+				validator="roleValidator(role=ROLE_KMREVIEW_DEFAULT)" />
+		</request>
+	</module>
+	<module urlPrefix="/sys/search/">
+		<request path="sys_search_main/sysSearchMain*">
+			<query
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)"
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewMain" />
+		</request>
+		<request path="search*">
+			<query
+				queryString="method=exportResult&amp;fdModelName=com.landray.kmss.km.review.model.KmReviewMain" 
+				validator="roleValidator(role=ROLE_KMREVIEW_DEFAULT)"/>
+		</request>
+	</module>
+	<!-- 传阅权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/circulation/">
+		<request 
+			path="sys_circulation_main/sysCirculationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewMain&amp;method=add|save|saveadd"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_CIRCULATION_CREATE,recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain,fieldproperty=docStatus,value=00;11;20;30;31)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_KMREVIEW_CIRCULATION_DELETE,recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain)&amp;[authCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain,property=fdTemplate)|areaRoleValidator(role=ROLE_KMREVIEW_OPTALL,recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain)|areaRoleValidator(role=ROLE_KMREVIEW_CATEGORY_MAINTAINER,recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain)|areaRoleValidator(role=ROLE_SYSCATEGORY_MAINTAINER,recid=fdModelId,model=com.landray.kmss.km.review.model.KmReviewMain)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.km.review.model.KmReviewMain"
+				validator="roleValidator(role=ROLE_KMREVIEW_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 通用编号规则设置权限 -->
+	<module urlPrefix="/sys/number/">
+		<request path="sys_number_main/sysNumberMain*">
+			<query
+			    queryString="method=list|add|edit|update|delete&amp;isCustom=2&amp;modelName=com.landray.kmss.km.review.model.KmReviewMain" 
+				validator="roleValidator(role=ROLE_KMREVIEW_SETTING)"/>
+		</request>
+	</module>
+	<!-- 更新概览定时任务 -->
+	<quartz
+		cronExpression="0 0 4 * * ?"
+		jobService="kmReviewOverviewService"
+		messageKey="km-review:kmReview.quartz.preview"
+		jobMethod="updateReview"/>
+	<search
+		modelName="com.landray.kmss.km.review.model.KmReviewMain"
+		messageKey="km-review:table.kmReviewMainSearch"
+		resultProperties="docSubject;fdNumber;docCreator;docCreateTime;docPublishTime;docStatus"
+		whereBlock="kmReviewMain.docStatus != '10'"/>
+	<!-- 全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.km.review.model.KmReviewMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="Text" />
+		<luceneField
+			name="content"
+			property="docContent"
+			type="text" />
+		<luceneField
+			name="category"
+			property="fdTemplate.docCategory.fdHierarchyId"
+			type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" />
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+		<luceneField
+			name="keyword"
+			property="fdNumber"
+			type="text" />
+		<luceneField
+			name="xmlcontent"
+			property="extendDataXML"
+			type="text" />
+	</ftSearch>
+
+	<relation
+		modelName="com.landray.kmss.km.review.model.KmReviewMain"
+		messageKey="km-review:kmReview.tree.title" />
+
+	<treeNodes type="myjob">
+		<treeNode messageKey="km-review:kmReview.tree.myJob.title">
+			<treeNode
+				messageKey="km-review:kmReview.tree.myDoc"
+				url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=all">
+				<treeNode
+					messageKey="status.discard"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=00">
+				</treeNode>
+				<treeNode
+					messageKey="status.draft"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=10">
+				</treeNode>
+				<treeNode
+					messageKey="status.refuse"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=11">
+				</treeNode>
+				<treeNode
+					messageKey="status.examine"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=20">
+				</treeNode>
+				<treeNode
+					messageKey="status.publish"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=30">
+				</treeNode>
+				<treeNode
+					messageKey="km-review:status.feedback"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=31">
+				</treeNode>
+			</treeNode>
+			<treeNode
+				messageKey="km-review:kmReview.tree.myDoc.execute">
+				<treeNode
+					messageKey="km-review:kmReview.doc.owner.append"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;type=unExecuted">
+				</treeNode>
+				<treeNode
+					messageKey="km-review:kmReview.doc.owner.disposed"
+					url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;type=executed">
+				</treeNode>
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<treeNodes type="draft">
+		<treeNode
+			messageKey="km-review:kmReview.tree.darft.title"
+			url="/km/review/km_review_main/kmReviewMain.do?method=list&amp;mydoc=true&amp;status=10">
+		</treeNode>
+	</treeNodes>
+	<treeNodes type="config">
+		<treeNode messageKey="km-review:kmReview.tree.title">
+			<treeNode
+				messageKey="km-review:kmReview.tree.categorySet"
+				url="/sys/category/sys_category_main/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.km.review.model.KmReviewTemplate&amp;mainModelName=com.landray.kmss.km.review.model.KmReviewMain&amp;templateName=fdTemplate&amp;categoryName=docCategory&amp;authReaderNoteFlag=2" />
+			<treeNode
+				messageKey="km-review:kmReview.tree.templateSet"
+				url="/sys/category/categorytree.jsp?modelName=com.landray.kmss.km.review.model.KmReviewTemplate&amp;url=../../km/review/km_review_template/kmReviewTemplate.do%3Fmethod=listChildren%26parentId=%21%7Bvalue%7D"
+				target="2" />
+			<treeNode
+				messageKey="km-review:tree.workflowTemplate"
+				url="/sys/workflow/sys_wf_common_template/sysWfCommonTemplate.do?method=list&amp;fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate&amp;fdKey=reviewMainDoc" />
+			<treeNode
+				messageKey="sys-xform:tree.xform.def"
+				url="/sys/xform/sys_form_common_template/sysFormCommonTemplate.do?method=list&amp;fdModelName=com.landray.kmss.km.review.model.KmReviewTemplate&amp;fdKey=reviewMainDoc&amp;fdMainModelName=com.landray.kmss.km.review.model.KmReviewMain" />
+		</treeNode>
+	</treeNodes>
+
+	<homePage
+		urlPrefix="km/review"
+		url="/km/review/index.jsp"
+		messageKey="km-review:table.kmReviewMain"
+		config="/moduleindex_notopic.jsp?nav=/km/review/tree.jsp" />
+
+	<categoryMng
+		modelName="com.landray.kmss.km.review.model.KmReviewTemplate"
+		serviceName="kmReviewTemplateTreeService"
+		messageKey="km-review:kmReview.tree.title"
+		adminRoleName="ROLE_KMREVIEW_CATEGORY_MAINTAINER" />
+	<flowDef
+		modelName="com.landray.kmss.km.review.model.KmReviewMain"
+		templateModelName="com.landray.kmss.km.review.model.KmReviewTemplate"
+		key="reviewMainDoc"
+		templatePropertyName="fdTemplate"
+		moduleMessageKey="km-review:kmReview.moduleName"
+		type="oa" />
+
+
+</configs>

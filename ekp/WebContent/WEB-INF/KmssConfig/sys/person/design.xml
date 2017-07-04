@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+
+	<module 
+		messageKey="sys.person:module.sys.person" 
+		urlPrefix="/sys/person/">
+		<roles>
+			ROLE_SYSPERSON_ADMIN;
+		</roles>
+		
+		<request
+			path="sys_person_sysnav_category/sysPersonSysNavCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.person.model.SysPersonSysNavCategory">
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPERSON_ADMIN)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPERSON_ADMIN)" />
+		</request>
+		<request
+			path="sys_person_systab_category/sysPersonSysTabCategory*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.person.model.SysPersonSysTabCategory">
+			<query
+				queryString="method=add|save"
+				validator="roleValidator(role=ROLE_SYSPERSON_ADMIN)" />
+			<query
+				queryString="method=update|delete|edit"
+				validator="authFieldValidator(type=SYS_EDITOR)" />
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSPERSON_ADMIN)" />
+		</request>
+		<request
+			path="sys_person_cfg_link/sysPersonCfgLink*"
+			defaultValidator="roleValidator(role=ROLE_SYSPERSON_ADMIN)">
+		</request>
+		<request
+			path="tree.jsp*"
+			defaultValidator="roleValidator(role=ROLE_SYSPERSON_ADMIN)">
+		</request>
+		
+		<filters modelName="com.landray.kmss.sys.person.model.SysPersonSysNavCategory">			
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPERSON_ADMIN)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldFilter(field=authAllEditors.fdId)"/>
+		</filters>
+		<filters modelName="com.landray.kmss.sys.person.model.SysPersonSysTabCategory">			
+			<filter
+				type="SYS_EDITOR"
+				expression="roleFilter(role=ROLE_SYSPERSON_ADMIN)" />
+			<filter 
+				type="SYS_EDITOR" 
+				expression="authFieldFilter(field=authAllEditors.fdId)"/>
+		</filters>
+	</module>
+	
+	<homePage
+		urlPrefix="sys/person"
+		messageKey="sys-person:person.setting"
+		config="/sys/person/sys_person_cfg_link/sysPersonCfgLink.do?method=edit"
+		type="global" />
+
+</configs>

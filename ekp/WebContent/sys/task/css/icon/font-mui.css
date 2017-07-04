@@ -1,0 +1,173 @@
+﻿@font-face {
+	font-family: 'FontMui';
+	src: url('../font/fontmui.ttf');
+	src: url('../font/fontmui.ttf') format('truetype') !important, 
+		 url('../font/fontmui.eot?#iefix') format('embedded-opentype'), 
+	     url('../font/fontmui.woff') format('woff'), 
+		 url('../font/fontmui.svg?#fontmuiregular') format('svg');
+}
+/*
+	基本样式
+*/
+.mui {
+	font-family: FontMui;
+	text-align:center;
+	font-style: normal;
+	font-weight: normal;
+	vertical-align:middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.mui-1x {
+  	font-size: 25px;
+}
+.mui-2x {
+  	font-size: 30px;
+}
+.mui-3x {
+  	font-size: 30px;
+}
+.mui-4x {
+  	font-size: 40px;
+} 
+
+/*
+	标题所有
+*/
+.mui-title-all:before {
+	content: "\AA03";
+}
+/*
+	标题关注
+*/
+.mui-title-att:before {
+	content: "\AA06";
+}
+/*
+	标题完成
+*/
+.mui-title-finished:before {
+	content: "\AA03";
+}
+/*
+	标题发起
+*/
+.mui-title-create:before {
+	content: "\AA14";
+}
+
+/*
+	星星
+*/
+.mui-star-off:before {
+	content: "\AA20";
+}
+/*
+	星星
+*/
+.mui-star-on:before {
+	content: "\AA06";
+}
+/*
+	完成
+*/
+.mui-finished:before {
+	content: "\AA18";
+}
+/*
+	未完成
+*/
+.mui-unfinished:before {
+	content: "\AA19";
+}
+/*
+	未启动
+*/
+.mui-inactive:before {
+	content: "\AA28";
+}
+/*
+	进行中
+*/
+.mui-progress:before {
+	content: "\AA28";
+}
+/*
+	挂起
+*/
+.mui-terminate:before {
+	content: "\AA26";
+}
+/*
+	驳回
+*/
+.mui-overrule:before {
+	content: "\AA28";
+}
+/*
+	结项
+*/
+.mui-close:before {
+	content: "\AA27";
+}
+/*
+	新建
+*/
+.mui-add:before {
+	content: "\AA04";
+}
+
+/*
+	名称
+*/
+.mui-subject:before {
+	content: "\AA07";
+}
+/*
+	接收人
+*/
+.mui-receive:before {
+	content: "\AA15";
+}
+/*
+	完成时间
+*/
+.mui-cal:before {
+	content: "\AA09";
+}
+/*
+	内容
+*/
+.mui-content:before {
+	content: "\AA17";
+}
+/*
+	指派人
+*/
+.mui-appoint:before {
+	content: "\AA14";
+}
+/*
+	父任务
+*/
+.mui-parent:before {
+	content: "\AA08";
+}
+/*
+	抄送人
+*/
+.mui-copy:before {
+	content: "\AA16";
+}
+/*
+	状态
+*/
+.mui-status:before {
+	content: "\AA21";
+}
+/*
+	同步方式
+*/
+.mui-sync:before {
+	content: "\AA11";
+}

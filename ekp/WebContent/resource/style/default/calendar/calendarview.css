@@ -1,0 +1,157 @@
+/*压缩类型：无*/
+.calviewlink{
+	
+	text-decoration:none;
+	color:#0052c2
+}
+.calviewlink:hover{
+	color: #D29E00;
+}
+.calviewlink:active{
+	color: #D29E00; 
+	text-decoration: underline;
+}
+.calviewlink_holiday{
+	
+	text-decoration:none;
+	color:#D29E00
+}
+.calviewlink_holiday:hover{
+	color: #D29E00;
+}
+.calviewlink_holiday:active{
+	color: #D29E00; 
+	text-decoration: underline;
+}
+
+.calviewbtn
+{
+	background-repeat:no-repeat;
+	cursor: pointer;
+	width:60px;
+	height:18px;
+	vertical-align:bottom
+}
+
+.calviewmenubar
+{
+	border:1px #999999 solid;
+	border-bottom:0px; width:100%;
+}
+.calviewmenubar td
+{
+	padding:3px
+}
+
+.calviewmenuTitle
+{
+	font-weight: bold;
+	font-size: 12px;
+	color: #D29E00;
+}
+.calviewtb
+{
+	border-collapse:collapse;
+	 border: 1px #999999 solid; 
+	 width:100%;
+}
+.calviewth_WeekTitle
+{
+	height:30px;
+	border-collapse:collapse;
+	border: 1px #999999 solid;
+	background:#B0E0C0;
+	color:#000000;
+	text-align:center;
+	vertical-align:middle;
+	font-weight: bold;
+}
+.calviewth_WeekTitle_Holiday
+{
+	height:30px;
+	border-collapse:collapse;
+	border: 1px #999999 solid;
+	background:#B0E0C0;
+	color:#D29E00;
+	text-align:center;
+	vertical-align:middle;
+	font-weight: bold;
+}
+.calviewTitle_link
+{
+	cursor:pointer;
+}
+.calviewth_double,.calviewth_single
+{
+	border-collapse:collapse;
+	border: 1px #999999 solid;
+	background:#CAE9FE;
+	text-align:center
+}
+
+.calviewtd_single {
+	border-collapse:collapse; 
+	border: 1px #999999 solid; 
+	background:#FFFFFF; 
+	height:50px; 
+	vertical-align:top
+}
+.calviewtd_double {
+	border-collapse:collapse; 
+	border: 1px #999999 solid; 
+	background:#FFFFFF;
+	vertical-align:top; 
+	height:50px;
+}
+
+.calviewtd_single_mouseOver{
+	background:#FFFFFF;
+	cursor:pointer;
+}
+
+.calviewtd_double_mouseOver {
+	background:#F0F0F0;
+	cursor:pointer;
+}
+
+.calviewDoc_normal {
+	
+}
+.calviewDoc_moreDay {
+	color:blue;
+}
+.calviewDoc_Importance {
+	color:red;
+}
+.calviewkey_double {
+	border-collapse:collapse; 
+	border: 1px #999999 solid; 
+	background:#FFFFFF;
+	vertical-align:middle; 
+	text-align:center
+}
+.calviewkey_single {
+	border-collapse:collapse; 
+	border: 1px #999999 solid; 
+	background:#F0F0F0; 
+	vertical-align:middle; 
+	text-align:center
+}
+
+.popWinBody{
+	margin-top:0;
+	margin-bottom:4px;
+	margin-left:0;
+	margin-right:4px;
+	background:#aabbdd;
+}
+
+.popWinTable{
+	width:300px;
+	background:#999999;
+}
+
+.popWinTD{
+	width:100px;
+	background:#F3F3F3;
+}

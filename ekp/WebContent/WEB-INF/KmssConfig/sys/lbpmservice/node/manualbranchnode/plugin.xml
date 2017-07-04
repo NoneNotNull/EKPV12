@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType"
+			id="13847b52a2c0136211e7efd45f1a8032">
+			<param
+				name="type"
+				value="manualBranchNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.manualBranchNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.manualbranchnode.ManualBranchNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/manualbranchnode/node_attribute.jsp" />
+			<param
+				name="nodeDescType"
+				value="manualBranchNodeDesc" />
+			<param
+				name="taskDataAccess"
+				value="manualBranchNodeDataAccess" />	
+			<param
+				name="taskBehaviour"
+				value="manualBranchNodeBehaviourService" />
+		</item>
+		<item
+			name="nodeDescType"
+			id="1387655d584c27dd8823ffe454dba797">
+			<param
+				name="type"
+				value="manualBranchNodeDesc" />
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/manualbranchnode/node_flowchart.js" />
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/manualbranchnode/node_desc.js" />
+			<param
+				name="taskDesc"
+				value="manualBranchNodeDesc" />
+		</item>
+	</extension>
+	
+	<extension
+		point="com.landray.kmss.lbpm.engine.event">
+		<!-- 审批身份重复或处理人为空跳过监听器 -->
+		<item
+			name="listener">
+			<param
+				name="unid"
+				value="skipApprovalForManualbranchListener" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-node-manualbranchnode:lbpm.listenerType.skipApprovalForManualbranchListener" />
+			<param
+				name="eventTypes"
+				value="skipIfEmptyHandlerEvent;skipIfHandlerRepeatEvent" />
+			<param
+				name="listener"
+				value="skipApprovalForManualbranchListener" />
+			<param
+				name="enforce"
+				value="true" />
+		</item>
+	</extension>
+</plugin>

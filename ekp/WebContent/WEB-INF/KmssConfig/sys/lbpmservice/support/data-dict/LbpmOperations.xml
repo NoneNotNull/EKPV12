@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperations"
+		messageKey="sys-lbpmservice-support:table.lbpmOperations"
+		displayProperty="fdOperName"
+		serviceBean="lbpmOperationsService"
+		table="lbpm_operations"
+		url="/sys/lbpmservice/support/lbpm_operations/lbpmOperations.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdOperName"
+			messageKey="sys-lbpmservice-support:lbpmOperations.fdOperName"
+			type="String"
+			column="fd_oper_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOperType"
+			messageKey="sys-lbpmservice-support:lbpmOperations.fdOperType"
+			type="String"
+			column="fd_oper_type"
+			notNull="true"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-lbpmservice-support:lbpmOperations.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="false" />
+
+		<simpleProperty
+			name="fdHandlerType"
+			messageKey="sys-lbpmservice-support:lbpmOperations.fdHandlerType"
+			type="String"
+			column="fd_handler_type"
+			notNull="false"
+			length="50"
+			validate="false" />
+
+		<modelProperty
+			name="fdOperator"
+			messageKey="sys-lbpmservice-support:lbpmOperations.fdOperator"
+			type="com.landray.kmss.sys.lbpmservice.support.model.LbpmOperMain"
+			column="fd_operator_id"
+			notNull="false"
+			validate="false" />
+
+	</model>
+</models>

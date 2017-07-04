@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sap_yesno" default-value="true">
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	<type name="sap_no" default-value="false">
+		<value-label>
+			<value>true</value>
+			<label-key>message.yes</label-key>
+			<label></label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>message.no</label-key>
+			<label></label>
+		</value-label>
+	</type>
+	<type name="status_type" default-value="true">
+		<value-label>
+			<value>true</value>
+			<label-key>fdPoolStatus_type_1</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>启用</label>
+		</value-label>
+		<value-label>
+			<value>false</value>
+			<label-key>fdPoolStatus_type_2</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>停用</label>
+		</value-label>
+	</type>
+	<type name="table_type" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>table_type_1</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>传入</label>
+		</value-label>
+		<value-label>
+			<value>0</value>
+			<label-key>table_type_2</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>传出</label>
+		</value-label>
+	</type>
+	<type name="connect_type" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>connect_type_1</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>直接连接</label>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>connect_type_2</label-key>
+			<bundle>tib-sys-sap-connector</bundle>
+			<label>系统连接池</label>
+		</value-label>
+	</type>
+</column-enums>

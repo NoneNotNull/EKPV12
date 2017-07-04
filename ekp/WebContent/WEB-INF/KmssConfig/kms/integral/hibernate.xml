@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralRule.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTargetDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTeamRank.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTeamRankDetail.hbm.xml" />	
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonRole.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralAlter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTeam.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralServer.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralModule.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralCategory.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTitle.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonTotal.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralMonthReport.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralOtherDetail.hbm.xml" />
+		<mapping 
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralTeamMonthReport.hbm.xml"/>
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralDeptCount.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralDeptFilter.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonMonthRDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonWeekRDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonYearRDetail.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralPersonTotalRDetail.hbm.xml" />
+		
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralRuleTotal.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralType.hbm.xml" />
+		<mapping
+			resource="com/landray/kmss/kms/integral/model/KmsIntegralModuleMonth.hbm.xml" />
+	
+	</session-factory>
+</hibernate-configuration> 

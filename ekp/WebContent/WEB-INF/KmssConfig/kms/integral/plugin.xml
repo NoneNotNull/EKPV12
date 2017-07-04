@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+
+	<extension point="com.landray.kmss.sys.admin.transfer">
+		<item name="config">
+			<param name="unid"
+				value="com.landray.kmss.kms.integral.transfer.KmsIntegralTransferTask" />
+			<param name="name" value="KMS积分数据迁移" />
+			<param name="path" value="/kms/integral/" />
+			<param name="check"
+				value="com.landray.kmss.kms.integral.transfer.KmsIntegralTransferChecker" />
+			<param name="upgrade"
+				value="com.landray.kmss.kms.integral.transfer.KmsIntegralTransferTask" />
+			<param name="description"
+				value="CKO积分和社区积分转移到KMS积分管理" />
+		</item>
+	</extension>
+</plugin>

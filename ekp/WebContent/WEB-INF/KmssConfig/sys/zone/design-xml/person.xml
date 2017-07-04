@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root 
+	xmlns="http://www.landray.com.cn/schema/person" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.landray.com.cn/schema/person  ../../../sys/person/person.xsd">
+	<links type="setting-info" order="1">
+		<link 
+			id="sys_zone_person_info"
+			url="/sys/zone/sys_zone_personInfo/sysZonePersonInfo.do?method=edit" 
+			msgKey="sys-zone:sysZonePersonInfo" />
+		<link 
+			id="sys_zone_person_photo"
+			url="/sys/zone/sys_zone_personInfo/sysZonePersonInfo.do?method=modifyPhoto" 
+			msgKey="sys-zone:sysZonePerson.modifyPhoto" />	
+	</links>
+</root>

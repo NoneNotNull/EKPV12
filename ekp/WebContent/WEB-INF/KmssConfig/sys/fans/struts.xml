@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="sysFansMainForm"
+			type="com.landray.kmss.sys.fans.forms.SysFansMainForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/fans/sys_fans_main/sysFansMain"
+			type="com.landray.kmss.sys.fans.actions.SysFansMainAction"
+			name="sysFansMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/sys/fans/sys_fans_main/sysFansMain_view.jsp" />
+			<forward
+				name="edit"
+				path="/sys/fans/sys_fans_main/sysFansMain_edit.jsp" />
+			<forward
+				name="list"
+				path="/sys/fans/sys_fans_list/sysFansMain_list.jsp" />
+			<forward
+				name="followList"
+				path="/sys/fans/sys_fans_list/sysFansMain_list_data.jsp" />
+		</action>
+
+	</action-mappings>
+</struts-config>

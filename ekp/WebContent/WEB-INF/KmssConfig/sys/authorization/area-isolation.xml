@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<isolationConfig
+	xmlns="http://www.example.org/area-isolation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/area-isolation area-isolation.xsd ">
+	<!-- 
+    <modules>
+	    <model className="com.landray.kmss.km.review.model.KmReviewMain" isolationType="SELF" desc="流程审批模块" />
+	    <model className="com.landray.kmss.km.doc.model.KmDocKnowledge" isolationType="SELF" desc="知识文档模块" />
+	</modules>
+	-->
+    <scenes>
+	    <scene key="category" isolationType="BRANCH" desc="分类" />
+	</scenes>
+</isolationConfig>

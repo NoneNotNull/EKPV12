@@ -1,0 +1,53 @@
+.m_l20{ margin-left:20px;}
+
+/* btns 
+example: <a href="#" title="" class="btn_normal_s"><span><strong>Search</strong></span></a>
+s: Small
+b: Big
+*/
+.btn_normal_s{ display:inline-block; background:url(btn.gif) repeat-x 0 -50px; height:23px; color:#333; text-decoration:none; cursor:pointer;}
+.btn_normal_s span{ display:inline-block; background:url(btn.gif) no-repeat;}
+.btn_normal_s strong{ display:inline-block; background:url(btn_r1.gif) no-repeat right center; padding:0 10px; font-weight:bold; line-height:23px; text-align:center;}
+.btn_normal_s:hover{ background:url(btn.gif) repeat-x 0 -650px; color:#006cff; text-decoration:none;}
+.btn_normal_s:hover span{ background:url(btn.gif) no-repeat 0 -600px;}
+.btn_normal_s:hover strong{ background:url(btn_r5.gif) no-repeat right center;}
+
+.btn_blue_s{ display:inline-block; background:url(btn.gif) repeat-x 0 -200px; height:23px; color:#fff; text-decoration:none; cursor:pointer;}
+.btn_blue_s span{ display:inline-block; background:url(btn.gif) no-repeat 0 -150px;}
+.btn_blue_s strong{ display:inline-block; background:url(btn_r2.gif) no-repeat right center; padding:0 10px; font-weight:bold; line-height:23px; text-align:center;}
+.btn_blue_s:hover{ background:url(btn.gif) repeat-x 0 -650px; color:#006cff; text-decoration:none; cursor:pointer;}
+.btn_blue_s:hover span{ background:url(btn.gif) no-repeat 0 -600px;}
+.btn_blue_s:hover strong{ background:url(btn_r5.gif) no-repeat right center;}
+
+.btn_gray_b{ display:inline-block; background:url(btn.gif) repeat-x 0 -500px; height:32px; color:#fff; text-decoration:none; cursor:pointer;}
+.btn_gray_b span{ display:inline-block; background:url(btn.gif) no-repeat 0 -450px; height:32px;}
+.btn_gray_b strong{ display:inline-block; background:url(btn_r4.gif) no-repeat right center; height:32px; padding:0 10px; font-size:16px; font-weight:bold; line-height:32px; text-align:center;}
+.btn_gray_b:hover{ background:url(btn.gif) repeat-x 0 -800px; color:#353434; text-decoration:none;}
+.btn_gray_b:hover span{ background:url(btn.gif) no-repeat 0 -750px;}
+.btn_gray_b:hover strong{ background:url(btn_r6.gif) no-repeat right center;}
+
+
+/*
+Input button style :
+example: <a href="#" class="btn_blue_input_s m_l20"><span><input type="button" name="" value="search" /></span></a>
+*/
+.btn_normal_input_s{ background:url(btn.gif) repeat-x 0 -50px; height:23px; display:inline-block;cursor: pointer;}
+.btn_normal_input_s span{ display:inline-block; background:url(btn.gif) no-repeat; height:23px;cursor: pointer;}
+.btn_normal_input_s input{ display:block; background:url(btn_r1.gif) no-repeat right center; height:23px; border:none; padding:0 5px; color:#333; font-weight:bold; line-height:23px; text-align:center;cursor: pointer;}
+.btn_normal_input_s:hover{ background:url(btn.gif) repeat-x 0 -650px; text-decoration:none;}
+.btn_normal_input_s:hover span{ background:url(btn.gif) no-repeat 0 -600px;}
+.btn_normal_input_s:hover input{ background:url(btn_r5.gif) no-repeat right center;color:#006cff;}
+
+.btn_blue_input_s{ background:url(btn.gif) repeat-x 0 -200px; height:23px; display:inline-block;cursor: pointer;}
+.btn_blue_input_s span{ display:inline-block; background:url(btn.gif) no-repeat 0 -150px; height:23px;cursor: pointer;}
+.btn_blue_input_s input{ display:block; background:url(btn_r2.gif) no-repeat right center; height:23px; border:none; padding:0 5px; color:#fff; font-weight:bold; line-height:23px; text-align:center;cursor: pointer;}
+.btn_blue_input_s:hover{ background:url(btn.gif) repeat-x 0 -650px; text-decoration:none; cursor:pointer;}
+.btn_blue_input_s:hover span{ background:url(btn.gif) no-repeat 0 -600px;}
+.btn_blue_input_s:hover input{ background:url(btn_r5.gif) no-repeat right center;color:#006cff;}
+
+.btn_gray_input_b{ display:inline-block; background:url(btn.gif) repeat-x 0 -500px; height:32px; color:#fff; text-decoration:none; cursor:pointer;}
+.btn_gray_input_b span{ display:inline-block; background:url(btn.gif) no-repeat 0 -450px; height:32px;}
+.btn_gray_input_b input{ display:inline-block; background:url(btn_r4.gif) no-repeat right center; height:32px; border:none; padding:0 10px; color:#fff; font-size:16px; font-weight:bold; line-height:32px; text-align:center; cursor:pointer;}
+.btn_gray_input_b:hover{ background:url(btn.gif) repeat-x 0 -800px; text-decoration:none;}
+.btn_gray_input_b:hover span{ background:url(btn.gif) no-repeat 0 -750px;}
+.btn_gray_input_b:hover input{ background:url(btn_r6.gif) no-repeat right center;color:#353434;}

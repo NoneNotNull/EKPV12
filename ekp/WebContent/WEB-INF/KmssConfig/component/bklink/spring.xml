@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="compBklinkDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.component.bklink.dao.hibernate.CompBklinkDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.component.bklink.model.CompBklink" />
+	</bean>
+	<bean
+		id="compBklinkTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.component.bklink.service.spring.CompBklinkServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="compBklinkDao" />
+		</property>
+	</bean>
+	<bean
+		id="compBklinkService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="compBklinkTarget" />
+		</property>
+	</bean>
+	<bean
+		id="compBklinkTreeService"
+		class="com.landray.kmss.component.bklink.service.spring.CompBklinkTreeServiceImp">
+	</bean>
+	<bean
+		id="compBklinkSearchTreeService"
+		class="com.landray.kmss.component.bklink.service.spring.CompBklinkSearchTreeServiceImp">
+	</bean>
+</beans>

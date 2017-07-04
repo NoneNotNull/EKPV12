@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysAuthDefaultAreaDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthDefaultAreaDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.authorization.model.SysAuthDefaultArea" />
+	</bean>
+	<bean
+		id="sysAuthDefaultAreaTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthDefaultAreaServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAuthDefaultAreaDao" />
+		</property>	
+	</bean>
+	<bean
+		id="sysAuthDefaultAreaService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthDefaultAreaTarget" />
+		</property>
+		<property
+			name="transactionAttributes">
+			<props>
+				<prop
+					key="*">PROPAGATION_REQUIRED
+				</prop>
+			</props>
+		</property>			
+	</bean>
+
+	<bean
+		id="sysAuthModuleTree"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthModuleTreeService">
+		<property
+			name="roleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysAuthRoleDialog"
+		class="com.landray.kmss.sys.authorization.service.spring.RoleDialogService">
+		<property
+			name="sysAuthRoleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+	</bean>
+	<bean
+		id="personAuthResearchTreeService"
+		class="com.landray.kmss.sys.authorization.service.spring.PersonAuthResearchTreeService">
+		<property
+			name="roleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+		<property
+			name="orgService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="roleAuthResearchTreeService"
+		class="com.landray.kmss.sys.authorization.service.spring.RoleAuthResearchTreeService">
+		<property
+			name="roleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+		<property
+			name="sysAuthAreaService">
+			<ref
+				local="sysAuthAreaService" />
+		</property>		
+	</bean>
+	<bean
+		id="sysAuthResearchService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthResearchServiceImp">
+		<property
+			name="roleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+		<property
+			name="elementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+		<property
+			name="orgService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+		<property
+			name="sysAuthAreaService">
+			<ref
+				local="sysAuthAreaService" />
+		</property>			
+	</bean>
+	
+	<bean
+		id="sysAuthUraDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthUraDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.authorization.model.SysAuthUra" />
+        <property name="sqlScripts">
+            <map>
+                <entry key="MySQL">    
+                    <value>ALTER TABLE sys_auth_ura MODIFY fd_id varchar(36) not null</value>
+                </entry>
+                <entry key="SQLServer">
+                    <value>ALTER TABLE sys_auth_ura ALTER COLUMN fd_id varchar(36) NOT NULL</value>
+                </entry>
+                <entry key="Oracle">
+                    <value>ALTER TABLE sys_auth_ura MODIFY(fd_id not null)</value>
+                </entry>
+                <entry key="DB2">
+                    <value>ALTER TABLE sys_auth_ura ALTER COLUMN fd_id SET NOT NULL</value>
+                </entry>
+            </map>
+         </property>
+	</bean>	
+	<bean
+		id="sysAuthUraTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthUraServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAuthUraDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthUraService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthUraTarget" />
+		</property>
+	</bean>	
+
+	<bean
+		id="sysAuthRoleDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthRoleDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.authorization.model.SysAuthRole" />
+	</bean>
+	<bean
+		id="sysAuthRoleTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthRoleServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAuthRoleDao" />
+		</property>
+		<property
+			name="sysAuthTransferCloseDao">
+			<ref
+				bean="sysAuthTransferCloseDao" />
+		</property>	
+		<property
+			name="sysAuthTransferOpenDao">
+			<ref
+				bean="sysAuthTransferOpenDao" />
+		</property>					
+		<property
+			name="sysAuthUraService">
+			<ref
+				bean="sysAuthUraService" />
+		</property>		
+	</bean>
+	<bean
+		id="sysAuthRoleService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthRoleTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysAuthCategoryDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthCategoryDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.authorization.model.SysAuthCategory" />
+	</bean>
+	<bean
+		id="sysAuthCategoryTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthCategoryServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAuthCategoryDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthCategoryService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthCategoryTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthCategoryTreeService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthCategoryTreeService">
+		<property
+			name="sysAuthCategoryService">
+			<ref
+				local="sysAuthCategoryService" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysAuthAreaDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthAreaDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.authorization.model.SysAuthArea" />
+	</bean>
+	<bean
+		id="sysAuthAreaTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaServiceImp">
+		<property
+			name="baseDao">
+			<ref
+				local="sysAuthAreaDao" />
+		</property>
+		<property
+			name="sysAuthRoleService">
+			<ref
+				local="sysAuthRoleService" />
+		</property>
+		<property
+			name="sysAuthDefaultAreaService">
+			<ref
+				local="sysAuthDefaultAreaService" />
+		</property>
+		<property
+			name="sysOrgCoreService">
+			<ref
+				bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthAreaService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthAreaTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthAreaTreeService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaTreeService">
+		<property
+			name="sysAuthAreaService">
+			<ref
+				local="sysAuthAreaService" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthAreaOrgTreeService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaOrgTreeService">
+		<property
+			name="sysAuthAreaService">
+			<ref
+				local="sysAuthAreaService" />
+		</property>
+		<property
+			name="sysOrgElementService">
+			<ref
+				bean="sysOrgElementService" />
+		</property>
+	</bean>
+	<bean
+		id="sysAuthAreaOrgListService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaOrgListService"
+		parent="sysAuthAreaOrgTreeService">
+	</bean>
+	<bean
+		id="sysAuthAreaAdminValidator"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaAdminValidator">
+		<property
+			name="baseDao">
+			<ref
+				bean="KmssBaseDao" />
+		</property>
+		<property
+			name="hqlBuilder">
+			<ref
+				bean="kmssAuthHQLBuilder" />
+		</property>
+	</bean>
+	<bean
+		id="areaRoleValidator"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaRoleValidator">	
+	</bean>	
+	<bean
+		id="sysAuthAreaSwitchService"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaSwitchServiceImp">
+		<property name="roleService">
+			<ref local="sysAuthRoleService" />
+		</property>
+		<property name="sysAuthAreaService">
+			<ref local="sysAuthAreaService" />
+		</property>
+	</bean>
+
+	<bean
+		id="areaHQLPart"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.AreaHQLPart">
+	</bean>	
+
+	<bean
+		id="kmssAreaHQLBuilder"
+		class="com.landray.kmss.common.dao.HQLCombiner">
+		<property
+			name="hqlBuilder">
+			<ref
+				bean="kmssHQLBuilder" />
+		</property>
+		<property
+			name="hqlParts">
+			<set>
+				<ref
+					local="areaHQLPart" />
+			</set>
+		</property>
+	</bean>
+	<bean
+		id="KmssAreaBaseDao"
+		class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property
+			name="sessionFactory">
+			<ref
+				bean="sessionFactory" />
+		</property>
+		<property
+			name="hqlBuilder">
+			<ref
+				local="kmssAreaHQLBuilder" />
+		</property>
+	</bean>
+
+	<bean
+		id="kmssAuthAreaHQLBuilder"
+		class="com.landray.kmss.common.dao.HQLCombiner">
+		<property
+			name="hqlBuilder">
+			<ref
+				bean="kmssHQLBuilder" />
+		</property>
+		<property
+			name="hqlParts">
+			<set>
+				<ref
+					bean="authHQLPart" />
+				<ref
+					local="areaHQLPart" />
+			</set>
+		</property>
+	</bean>
+	<bean
+		id="KmssAuthAreaBaseDao"
+		class="com.landray.kmss.common.dao.BaseDaoImp">
+		<property
+			name="sessionFactory">
+			<ref
+				bean="sessionFactory" />
+		</property>
+		<property
+			name="hqlBuilder">
+			<ref
+				local="kmssAuthAreaHQLBuilder" />
+		</property>
+	</bean>
+	
+	<bean
+		id="sysAuthTransferCloseDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthTransferCloseDaoImp">
+	</bean>	
+	<bean
+		id="sysAuthTransferOpenDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.authorization.dao.hibernate.SysAuthTransferOpenDaoImp">
+	</bean>		
+	<bean
+		id="sysAuthAreaTransferTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.SysAuthAreaTransferServiceImp">
+        <property name="excludeModules">
+            <set>
+                <value>/sys/authorization/</value>
+            </set>
+        </property>	
+		<property name="sysAuthAreaService">
+			<ref bean="sysAuthAreaService" />
+		</property>	
+		<property name="sysAuthTransferCloseDao">
+			<ref local="sysAuthTransferCloseDao" />
+		</property>	
+		<property name="sysAuthTransferOpenDao">
+			<ref local="sysAuthTransferOpenDao" />
+		</property>				
+	</bean>
+	<bean
+		id="sysAuthAreaTransferService"
+		parent="KmssBaseService">
+		<property
+			name="target">
+			<ref
+				local="sysAuthAreaTransferTarget" />
+		</property>
+	</bean>	
+
+	<bean
+		id="areaUpdateSQLTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.AreaUpdateSQLExecutor">
+	</bean>
+	<bean
+		id="areaUpdateSQLExecutor"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>		
+		<property name="target" ref="areaUpdateSQLTarget" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>	
+	
+	<bean
+		id="areaChgTarget"
+		class="com.landray.kmss.sys.authorization.service.spring.AreaChgServiceImp">
+	</bean>
+	<bean
+		id="areaChgService"
+		lazy-init="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="target">
+			<ref local="areaChgTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+				
+</beans>

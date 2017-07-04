@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-readlog:readlog.mechanism"
+		urlPrefix="/sys/readlog/"
+		defaultValidator="true">
+	</module>
+	
+	<!-- 定时任务  -->
+	<quartz
+		messageKey="sys-readlog:sysReadLog.taskName"
+		jobService="sysReadLogService"
+		cronExpression="0 0/5 * * * ?"
+		jobMethod="updateMainModelReadCount"
+		enable="true"
+		runType="SINGLENODE" />	
+</configs>

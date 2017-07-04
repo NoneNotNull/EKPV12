@@ -1,0 +1,26 @@
+.lui_integral_item_box {
+	margin-left: 50px;
+}
+.lui_integral_item_box img {
+	width:60px;
+	height:60px;
+	float: left;
+}
+.lui_integral_item_info {
+	padding-left:75px;
+}
+.lui_integral_item_info .lui_integral_name {
+	display: block;
+}
+.lui_integral_item_info>div{
+	padding: 0 0 5px 0;
+}
+.lui_integral_item_detail {
+	display: none;
+}
+.lui_listview_columntable_table tr:hover .lui_integral_item_detail {
+	display: block;
+}
+.lui_listview_columntable_table tr:hover .lui_integral_name_single {
+	display: none;
+}

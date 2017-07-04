@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.sys.organization.model.SysOrgPersonAddressType"
+	messageKey="sys-organization:table.sysOrgPersonAddressType"
+	displayProperty="fdName"
+	serviceBean="sysOrgPersonAddressTypeService"
+	table="sys_org_person_address_type"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="sys-organization:sysOrgPersonAddressType.fdName"
+	type="String"
+	column="fd_name"
+	notNull="false"
+	length="200"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="sys-organization:sysOrgPersonAddressType.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+/>
+<simpleProperty
+	name="docCreateTime"
+	messageKey="sys-organization:sysOrgPersonAddressType.docCreateTime"
+	type="DateTime"
+	column="doc_create_time"
+	notNull="false"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="sys-organization:sysOrgPersonAddressType.docCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="doc_create_id"
+	notNull="false"
+/>
+<listProperty
+	name="sysOrgPersonTypeList"
+	messageKey="sys-organization:sysOrgPersonAddressType.sysOrgPersonTypeList"
+	column="fd_address_type_id"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	elementColumn="fd_person_id"
+	table="sys_org_person_type"
+/>
+</model></models>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmByAccredit"
+		messageKey="sys-lbpm-engine:table.LbpmByAccredit"
+		serviceBean="lbpmByAccreditService"
+		table="lbpm_byaccredit">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<modelProperty
+			name="fdWorkitem"
+			messageKey="sys-lbpm-engine:lbpmByAccredit.fdWorkitem"
+			type="com.landray.kmss.sys.lbpm.engine.persistence.model.LbpmWorkitem"
+			column="fd_workitem_id"
+			notNull="true" />
+
+		<modelProperty
+			name="fdAccr"
+			messageKey="sys-lbpm-engine:lbpmByAccredit.fdAccr"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_accr_id"
+			notNull="true" />
+
+		<modelProperty
+			name="fdByAccr"
+			messageKey="sys-lbpm-engine:lbpmByAccredit.fdByAccr"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="fd_byaccr_id"
+			notNull="true" />
+
+	</model>
+</models>

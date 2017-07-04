@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	
+	<!-- 标准表格样式扩展 -->
+	<extension-point id="com.landray.kmss.sys.xform.standardtable.style">
+		<item name="config">
+			<param name="name" required="true" kind="string">
+				<description>样式名称</description>
+			</param>
+			<param name="tbClassName" required="true" kind="string">
+				<description>表格样式名称</description>
+			</param>
+			<param name="pathProfix" required="true" kind="string">
+				<description>样式路径前缀 预览图(preview.png 160px*90px),样式文件(standardtable.css)</description>
+			</param>
+			<description>参数配置</description>
+		</item>
+		<description>
+			标准表格样式扩展
+		</description>
+	</extension-point>
+	
+	<extension point="com.landray.kmss.sys.xform.standardtable.style">
+		<item name="config">
+			<param name="name" value="默认样式"></param>
+			<param name="tbClassName" value="tb_normal"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/default"></param>
+		</item>
+		
+		<item name="config">
+			<param name="name" value="表格所有框线红色，字段红色实线"></param>
+			<param name="tbClassName" value="tb_normal_redsolid"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_redsolid"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格所有框线红色，字段无线"></param>
+			<param name="tbClassName" value="tb_normal_rednone"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_rednone"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格无框线，字段红色虚线"></param>
+			<param name="tbClassName" value="tb_normal_reddotted"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_reddotted"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格外侧框线红色，字段红色实线"></param>
+			<param name="tbClassName" value="tb_normal_redsolidouter"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_redsolidouter"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格内部框线红色，字段有线"></param>
+			<param name="tbClassName" value="tb_normal_redin"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_redin"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格内部框线红色，字段无线"></param>
+			<param name="tbClassName" value="tb_normal_rednonein"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_rednonein"></param>
+		</item>
+		
+		<item name="config">
+			<param name="name" value="表格所有框线黑色，字段默认实线"></param>
+			<param name="tbClassName" value="tb_normal_blacksolid"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_blacksolid"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格所有框线黑色，字段无线"></param>
+			<param name="tbClassName" value="tb_normal_blacknone"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_blacknone"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格外侧框线黑色，字段默认实线"></param>
+			<param name="tbClassName" value="tb_normal_blacksolidouter"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_blacksolidouter"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格内部框线黑色，字段有线"></param>
+			<param name="tbClassName" value="tb_normal_blackin"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_blackin"></param>
+		</item>
+		<item name="config">
+			<param name="name" value="表格内部框线黑色，字段无线"></param>
+			<param name="tbClassName" value="tb_normal_blacknonein"></param>
+			<param name="pathProfix" value="sys/xform/designer/standardtable/tablestyle/tb_normal_blacknonein"></param>
+		</item>
+	</extension>
+</plugin>

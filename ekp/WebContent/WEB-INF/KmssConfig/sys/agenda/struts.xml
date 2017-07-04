@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean name="sysAgendaCategoryForm" type="com.landray.kmss.sys.agenda.forms.SysAgendaCategoryForm" />
+		<form-bean name="sysAgendaMainForm" type="com.landray.kmss.sys.agenda.forms.SysAgendaMainForm" />
+	</form-beans>
+	
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/agenda/sys_agenda_main/sysAgendaMain"
+			type="com.landray.kmss.sys.agenda.action.SysAgendaMainAction"
+			name="sysAgendaMainForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="edit"
+				path="/sys/agenda/import/sysAgendaMain_formula_edit.jsp" />
+		</action>
+	</action-mappings>
+
+	<message-resources parameter="com.landray.kmss.sys.agenda.ApplicationResources" key="sys-agenda" />
+	
+</struts-config>

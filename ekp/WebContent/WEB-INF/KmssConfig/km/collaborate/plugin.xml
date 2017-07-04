@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	  <extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaborateTransferTask" />
+			<param
+				name="name"
+				value="新版工作沟通数据迁移" />
+			<param
+				name="path"
+				value="/km/collaborate/" />
+			<param
+				name="check"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaborateTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaborateTransferTask" />
+			<param
+				name="description"
+				value="新版工作沟通迁移,由于项目要求显示参与者的最新工作回复，原来的设计会很耗性能,故在参与者数据表中添加了最新回复记录和回复时间字段,该迁移操作是将历史数据中的最新工作回复迁移到新增的字段中" />
+		</item>
+	
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaboratefdRemindersTransferTask" />
+			<param
+				name="name"
+				value="工作沟通逾期沟通数据迁移" />
+			<param
+				name="path"
+				value="/km/collaborate/" />
+			<param
+				name="check"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaborateRemindersTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.km.collaborate.transfer.KmCollaborateRemindersTransferTask" />
+			<param
+				name="description"
+				value="工作沟通新增逾期沟通查询,该迁移生成历史数据的逾期沟通的时间点以作为判断的依据" />
+		</item>
+	</extension>
+	
+	<extension	point="com.landray.kmss.km.keydata"	model="*" >
+		<item
+			name="showKeydataUsed">
+			<param
+				name="name"
+				value="工作沟通" />
+			<param
+				name="actionUrl"
+				value="/km/collaborate/showKeydataUsed.jsp?keydataId=${keydataId}" />
+			<param
+				name="formName"
+				value="kmCollaborateMainForm" />
+		</item>
+	</extension>
+</plugin>

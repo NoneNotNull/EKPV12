@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class
+		name="com.landray.kmss.tib.common.log.model.TibCommonLogManage"
+		table="tib_common_log_manage">
+		<id
+			name="fdId"
+			column="fd_id"
+			length="36">
+			<generator
+				class="assigned" />
+		</id>
+
+		<property
+			name="fdLogTime"
+			column="fd_log_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdLogLastTime"
+			column="fd_log_last_time"
+			update="true"
+			insert="true"
+			not-null="false" />
+
+		<property
+			name="fdLogType"
+			column="fd_log_type"
+			update="true"
+			insert="true"
+			length="2"
+			not-null="false" />
+
+	</class>
+</hibernate-mapping>

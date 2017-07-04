@@ -1,0 +1,165 @@
+html,body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+html {
+	border: 0;
+}
+
+body {
+	overflow: auto;
+}
+
+.node_main {
+	z-index: 1;
+}
+
+.normal_nodetb {
+	background-position: left 5px;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	padding: 0px;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+.normal_nodetb td {
+	padding: 5px 0px 0px 25px;
+}
+
+.round_nodetb {
+	background-position: left 3px;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	padding: 0px;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+.round_nodetb td {
+	padding: 5px 0px 0px 25px;
+}
+
+.diamond_nodetb {
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	padding: 0px;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+.big_nodetb {
+	background-position: left top;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+	text-align: center;
+	background-repeat: no-repeat;
+}
+
+.big_nodetb td {
+	padding: 8px 0px 0px 0px;
+	vertical-align: top;
+}
+
+.nodeinfo_tb {
+	z-index: 6;
+	background-color: #FFFFEE;
+	border: 1px solid #333333;
+	width: 270px;
+}
+
+.nodeinfo_tb td {
+	font-size: 12px;
+	color: #333333;
+	line-height: 18px;
+}
+
+.line_normal {
+	z-index: 2;
+}
+
+.line_opt,.line_play {
+	z-index: 4;
+}
+
+.line_text {
+	z-index: 3;
+	text-align: center;
+	background-color: #FFFFFF;
+	filter: Alpha(Opacity = 70);
+	opacity: 0.7;
+}
+
+.line_text td {
+	color: #000000;
+}
+
+.point_main {
+	z-index: 5;
+}
+
+.select_area {
+	z-index: 99;
+	position: absolute;
+	background-color: #B5BED6;
+	border: 1px solid #08246B;
+	font-size: 1px;
+	filter: Alpha(Opacity = 40);
+	opacity: 0.4;
+}
+
+.rightmenu_main {
+	background-color: #FFFBF7;
+	border: 1px solid #000000;
+	z-index: 999;
+	width: 180px;
+}
+
+.rightmenu_sel {
+	background-color: #B5BED6;
+	border: 1px solid #08246B;
+	height: 20px;
+}
+
+.rightmenu_nor {
+	background-color: #FFFBF7;
+	border: 1px solid #FFFBF7;
+	height: 20px;
+}
+
+.rightmenu_dis,.rightmenu_dis td {
+	background-color: #FFFBF7;
+	border: 1px solid #FFFBF7;
+	height: 20px;
+}
+
+.rightmenu_dis td {
+	color: #A0A0A0;
+}
+
+.rightmenu_line {
+	background-color: #A5A6A5;
+	padding: 0px;
+	height: 1px;
+}
+
+.rightmenu_check {
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.text,td {
+	font-size: 12px;
+	font-family: "SimSun";
+}
+
+.clear {
+	clear: both;
+}

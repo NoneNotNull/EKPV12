@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.comminfo.model.KmComminfoMain"
+		messageKey="km-comminfo:table.kmComminfoMain"
+		displayProperty="docSubject"
+		serviceBean="kmComminfoMainService"
+		table="km_comminfo_main"
+		url="/km/comminfo/km_comminfo_main/kmComminfoMain.do?method=view&amp;fdId=${fdId}">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="docSubject"
+			messageKey="km-comminfo:kmComminfoMain.docSubject"
+			type="String"
+			column="doc_subject"
+			notNull="false"
+			canSearch="true"
+			length="200"
+			validate="false" />
+		<simpleProperty
+			name="docContent"
+			messageKey="km-comminfo:kmComminfoMain.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			canSearch="true"
+			length="100000" />
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="km-comminfo:kmComminfoMain.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false" />
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="km-comminfo:kmComminfoMain.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false" />
+		<simpleProperty
+			name="authReaderFlag"
+			messageKey="km-comminfo:kmComminfoMain.authReaderFlag"
+			type="Boolean"
+			column="auth_reader_flag"
+			notNull="false"
+			length="1" />	
+		<simpleProperty
+			name="fdOrder"
+			messageKey="km-comminfo:kmComminfoMain.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10"
+			validate="true"
+			 />	
+		<modelProperty
+			name="docCreator"
+			messageKey="km-comminfo:kmComminfoMain.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			notNull="false" />
+		<modelProperty
+			name="docAlteror"
+			messageKey="km-comminfo:kmComminfoMain.docAlterorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_alteror_id"
+			notNull="false" />
+		<modelProperty
+			name="docCategory"
+			messageKey="km-comminfo:kmComminfoMain.categoryName"
+			type="com.landray.kmss.km.comminfo.model.KmComminfoCategory"
+			column="doc_category_id"
+			notNull="false" />
+		
+		<listProperty
+			name="authOtherReaders"
+			messageKey="km-comminfo:kmComminfoMainOreader.authOtherReaderId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_reader_id"
+			table="km_books_main_oreader" />
+		<listProperty
+			name="authOtherEditors"
+			messageKey="km-comminfo:kmComminfoMainOeditor.authOtherEditorId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_other_editor_id"
+			table="km_books_main_oeditor" />	
+		<listProperty
+			name="authAllReaders"
+			messageKey="km-comminfo:kmComminfoMainAreader.authAllReaderId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_reader_id"
+			table="km_books_main_areader" 
+			canDisplay="false"/>	
+		<listProperty
+			name="authAllEditors"
+			messageKey="km-comminfo:kmComminfoMainAeditor.authAllEditorId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_all_editor_id"
+			table="km_books_main_aeditor" 
+			canDisplay="false"/>
+		<listProperty
+			name="authReaders"
+			messageKey="km-comminfo:kmComminfoMainReader.authReaderId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_reader_id"
+			table="km_books_main_reader" />
+		<listProperty
+			name="authEditors"
+			messageKey="km-comminfo:kmComminfoMainEditor.authEditorId"
+			column="fd_main_id"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			elementColumn="auth_editor_id"
+			table="km_books_main_editor" />		
+	</model>
+</models>

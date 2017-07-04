@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+	
+	
+	<!-- SOAP数据初始化K3 -->
+	<extension
+		point="com.landray.kmss.tib.common.init"
+		model="*">
+			<item name="init">
+			<param
+				name="moduleKey"
+				value="k3" />
+			<param
+				name="initTitle"
+				value="{tib-sys-soap-connector:init.k3}" />
+			<!-- spring 注册 -->
+			<param
+				name="springBean"
+				value="tibSysK3InitExecute" />
+			<param
+				name="jspPath"
+				value="../../sys/k3/connector/tib_sys_k3_init/tibSysK3Init.jsp" />	
+		</item>
+	</extension>
+	
+	
+</plugin>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.wiki.model.KmsWikiTemplate"
+		messageKey="kms-wiki:table.kmsWikiTemplate"
+		displayProperty="fdId"
+		serviceBean="kmsWikiTemplateService"
+		table="kms_wiki_template"
+		url="/kms/wiki/kms_wiki_template/kmsWikiTemplate.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdName"
+			messageKey="kms-wiki:kmsWikiTemplate.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOrder"
+			messageKey="kms-wiki:kmsWikiTemplate.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="4"
+			validate="true" />
+
+		<simpleProperty
+			name="docContent"
+			messageKey="kms-wiki:kmsWikiTemplate.docContent"
+			type="RTF"
+			column="doc_content"
+			notNull="false"
+			length="1000000"
+			validate="true" 
+			canDisplay="false" />
+
+		<simpleProperty
+			name="fdDescription"
+			messageKey="kms-wiki:kmsWikiTemplate.fdDescription"
+			type="String"
+			column="fd_description"
+			notNull="false"
+			length="1500"
+			validate="true" />
+
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="kms-wiki:kmsWikiTemplate.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			notNull="false"
+			validate="false" 
+			canDisplay="false" />
+
+		<simpleProperty
+			name="docAlterTime"
+			messageKey="kms-wiki:kmsWikiTemplate.docAlterTime"
+			type="DateTime"
+			column="doc_alter_time"
+			notNull="false"
+			validate="false" 
+			canDisplay="false" />
+
+		<modelProperty
+			name="docCreator"
+			messageKey="kms-wiki:kmsWikiTemplate.docCreator"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_creator_id"
+			notNull="false"
+			validate="false" 
+			canDisplay="false" />
+
+		<modelProperty
+			name="docAlteror"
+			messageKey="kms-wiki:kmsWikiTemplate.docAlteror"
+			type="com.landray.kmss.sys.organization.model.SysOrgElement"
+			column="doc_alteror_id"
+			notNull="false"
+			validate="false" 
+			canDisplay="false" />
+			
+		<simpleProperty
+			name="fdCatalogStr"
+			messageKey="kms-wiki:kmsWikiTemplate.catelogList"
+			type="String"
+			column=""
+			notNull="false"
+			validate="false" />
+		
+		<listProperty
+			name="fdCatelogList"
+			column="fd_template_id"
+			orderBy="fd_order"
+			messageKey="kms-wiki:kmsWikiTemplate.catelogList"
+			type="com.landray.kmss.kms.wiki.model.KmsWikiCatelogTemplate"
+			cascade="all-delete-orphan"
+			validate="false" 
+			canDisplay="false" />
+	</model>
+</models>

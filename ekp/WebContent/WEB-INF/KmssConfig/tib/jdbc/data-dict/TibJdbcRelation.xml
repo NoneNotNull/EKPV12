@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.tib.jdbc.model.TibJdbcRelation"
+		messageKey="tib-jdbc:table.tibJdbcRelation"
+		displayProperty="fdId"
+		serviceBean="tibJdbcRelationService"
+		table="tib_jdbc_relation"
+		url="/tib/jdbc/tib_jdbc_relation/tibJdbcRelation.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdUseExplain"
+			messageKey="tib-jdbc:tibJdbcRelation.fdUseExplain"
+			type="String"
+			column="fd_use_explain"
+			notNull="true"
+			length="200"
+			validate="false" />
+
+		<simpleProperty
+			name="fdSyncType"
+			messageKey="tib-jdbc:tibJdbcRelation.fdSyncType"
+			type="String"
+			column="fd_sync_type"
+			notNull="true"
+			length="3000"
+			validate="false" />
+
+		<modelProperty
+			name="tibJdbcMappManage"
+			messageKey="tib-jdbc:tibJdbcRelation.tibJdbcMappManage"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcMappManage"
+			column="tib_jdbc_mapp_manage"
+			notNull="false"
+			validate="true" />
+
+		<modelProperty
+			name="tibJdbcTaskManage"
+			messageKey="tib-jdbc:tibJdbcRelation.tibJdbcTaskManage"
+			type="com.landray.kmss.tib.jdbc.model.TibJdbcTaskManage"
+			column="tib_jdbc_task_manage"
+			notNull="true"
+			validate="false" />
+
+	</model>
+</models>

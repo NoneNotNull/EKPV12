@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysCirculationMainDao"
+		parent="KmssAuthBaseDao"
+		class="com.landray.kmss.sys.circulation.dao.hibernate.SysCirculationMainDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.circulation.model.SysCirculationMain" />
+	</bean>
+	<bean
+		id="sysCirculationMainTarget"
+		parent="KmssBaseCoreTarget"
+		class="com.landray.kmss.sys.circulation.service.spring.SysCirculationMainServiceImp">
+		<property name="baseDao">
+			<ref local="sysCirculationMainDao" />
+		</property>
+		<property name="notifyMainCoreService">
+			<ref bean="sysNotifyMainCoreService" />
+		</property>
+		<property name="sysOrgCoreService">
+			<ref bean="sysOrgCoreService" />
+		</property>
+	</bean>
+	<bean
+		id="sysCirculationMainService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<ref local="sysCirculationMainTarget" />
+		</property>
+	</bean>
+
+	<bean
+		id="sysCirculationCoreService"
+		parent="KmssBaseCoreService">
+		<property name="target">
+			<bean
+				class="com.landray.kmss.sys.circulation.service.spring.SysCirculationCoreServiceImp">
+				<property name="sysCirculationMainService">
+					<ref local="sysCirculationMainService" />
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

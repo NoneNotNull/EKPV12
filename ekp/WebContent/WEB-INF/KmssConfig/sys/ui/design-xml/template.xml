@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	
+	<template id="default.simple" name="简单模板"
+		file="/sys/ui/extend/template/module/simple.jsp"
+		for="module"
+		thumb="xx.jpg"
+		help="">
+	</template>
+	<template id="default.view" name="默认三级页面阅读模板"
+		file="/sys/ui/extend/template/module/view.jsp" 
+		thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="config.view" name="配置三级页面阅读模板"
+		file="/sys/ui/extend/template/config/view.jsp" 
+		thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="default.edit" name="默认三级页面编辑模板"
+		file="/sys/ui/extend/template/module/edit.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="config.edit" name="配置三级页面编辑模板"
+		file="/sys/ui/extend/template/config/edit.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="default.list" name="默认二级页面列表模板"
+		file="/sys/ui/extend/template/module/list.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="config.list" name="配置列表页面模板"
+		file="/sys/ui/extend/template/config/list.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="config.tree" name="配置树页面"
+		file="/sys/ui/extend/template/config/tree.jsp" 
+		thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="default.dialog" name="默认对话框显示页面"
+		file="/sys/ui/extend/template/module/dialog.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	<template id="default.message" name="默认请求返回模板"
+		file="/sys/ui/extend/template/module/message.jsp" thumb="xx.jpg"
+		for="module"
+		help="">
+	</template>
+	
+</root>

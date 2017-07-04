@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<version xmlns="http://www.example.org/version-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/version-config ../../../version.xsd">
+	<modifies>
+		<modify>
+			<description>新增 TIB表单控件</description>
+			<author>邱建华</author>
+			<revision-time>2014-06-24</revision-time>
+			<relation>
+				<relation-module>sys/xform</relation-module>
+				<relation-module>tib/common</relation-module>
+				<relation-module>tib/sys/core</relation-module>
+			</relation>
+			<baseline>V11.0.3.R.20140704</baseline>
+		</modify>
+		<modify>
+			<description>新增 soap组件10个jar包</description>
+			<author>邱建华</author>
+			<revision-time>2013-12-20</revision-time>
+			<baseline>V11.0.0.B1.20140107</baseline>
+		</modify>
+		<modify>
+			<description>修复 SOAP连接器国际化问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-19</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>移除 错误目录文件</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>移除 错误目录文件</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-18</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+		<modify>
+			<description>优化 解决TIB中SQL注入安全问题</description>
+			<author>邱建华</author>
+			<revision-time>2013-02-04</revision-time>
+			<baseline>V10.0.1.R.20130328</baseline>
+		</modify>
+	</modifies>
+</version>

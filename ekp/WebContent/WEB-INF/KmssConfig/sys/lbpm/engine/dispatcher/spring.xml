@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 工作服务器配置 -->
+	<bean
+		id="workerServiceTarget"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.config.support.WorkerServerVisitor">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="clusterProvider">
+			<ref local="clusterProvider" />
+		</property>
+	</bean>
+	<bean
+		id="workerService"
+		parent="KmssParentService">
+		<property name="target">
+			<ref local="workerServiceTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- 分发服务加载器 -->
+	<bean
+		id="distributeLoader"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.DefaultDistributeLoader">
+		<property name="workerService">
+			<ref local="workerService" />
+		</property>
+		<property name="flowDriver">
+			<ref bean="flowDriver" />
+		</property>
+		<property name="clusterProvider">
+			<ref local="clusterProvider" />
+		</property>
+		<property name="queueService">
+			<ref bean="lbpmProcessQueueService" />
+		</property>
+		<property name="errorQueueService">
+			<ref bean="lbpmProcessErrorQueueService" />
+		</property>
+	</bean>
+
+	<!-- 群集调度配置抽象服务 -->
+	<bean
+		id="flowDispatcher"
+		abstract="true"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.cluster.AbstractFlowDispatcher">
+		<property name="dispatcherLoader">
+			<ref local="distributeLoader" />
+		</property>
+	</bean>
+	<!-- 工作服务器群集调度配置服务 -->
+	<bean
+		id="workerDispatcher"
+		parent="flowDispatcher"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.cluster.WorkerDispatcher" />
+	<!-- 均衡服务器群集调度配置服务 -->
+	<bean
+		id="balancerDispatcher"
+		parent="flowDispatcher"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.cluster.BalancerDispatcher" />
+
+	<!-- 群集配置访问服务 -->
+	<bean
+		id="clusterProvider"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.cluster.DefaultClusterProvider">
+		<property name="dispatcherService">
+			<ref bean="sysClusterDispatcherService" />
+		</property>
+	</bean>
+
+	<!-- 集群切换服务 -->
+	<bean
+		id="clusterSwitchTarget"
+		class="com.landray.kmss.sys.lbpm.engine.dispatcher.cluster.ClusterSwitchService">
+		<property name="accessManager">
+			<ref bean="accessManager" />
+		</property>
+		<property name="clusterProvider">
+			<ref local="clusterProvider" />
+		</property>
+	</bean>
+	<bean
+		id="clusterSwitchService"
+		parent="KmssParentService">
+		<property name="target">
+			<ref local="clusterSwitchTarget" />
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	<extension-point
+		id="com.landray.kmss.lbpm.engine.robot">
+		<item
+			name="robot">
+			<param
+				name="unid"
+				required="true"
+				kind="unid">
+				<description>唯一标识，此标识在所有的机器人节点中都是唯一的，强烈建议使用java bean的全限定名。</description>
+			</param>
+			<param
+				name="category"
+				required="true"
+				kind="string">
+				<description>主分类</description>
+			</param>
+			<param
+				name="type"
+				required="true"
+				kind="string">
+				<description>子分类</description>
+			</param>
+			<param
+				name="bean"
+				required="true"
+				kind="spring"
+				basedOn="com.landray.kmss.sys.lbpmservice.node.robotnode.interfaces.RobotNodeService">
+				<description>机器人功能实现bean。请继承com.landray.kmss.sys.lbpmservice.node.robotnode.support.AbstractRobotNodeServiceImp，此类有些默认方法可提供。</description>
+			</param>
+			<param
+				name="url"
+				kind="string"
+				default="/sys/lbpmservice/node/robotnode/attribute_robotnode_default.html">
+				<description>
+					机器人节点前端配置页面的URL，可选。URL为模块路径，比如：审批流程的URL是/km/review/*。
+					在机器人节点前端配置页面必须有个returnValue函数，此为js函数，此函数的返回值是机器人节点配置信息组成的字符串信息。
+				</description>
+			</param>
+			<description>机器人节点配置</description>
+		</item>
+		<description>机器人节点的扩展。若需自定义机器人节点，请实现此扩展点。</description>
+	</extension-point>
+	<extension
+		point="com.landray.kmss.lbpm.engine.node">
+		<item
+			name="nodeType" id="138406b2eed4f0391139152483daf593">
+			<param
+				name="type"
+				value="robotNode" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice:lbpm.nodeType.robotNode" />
+			<param
+				name="defClass"
+				value="com.landray.kmss.sys.lbpmservice.node.robotnode.RobotNode" />
+			<param
+				name="attributesJsp"
+				value="/sys/lbpmservice/node/robotnode/node_attribute.jsp" />	
+			<param
+				name="nodeDescType"
+				value="robotNodeDesc" />
+			<param
+				name="taskBehaviour"
+				value="robotNodeBehaviourService" />																										
+		</item>
+		<item
+			name="nodeDescType" id="1388594ea211a0353df27694d2194ce4">
+			<param
+				name="type"
+				value="robotNodeDesc"/>
+			<param
+				name="chartJs"
+				value="/sys/lbpmservice/node/robotnode/node_flowchart.js"/>
+			<param
+				name="nodeDescJs"
+				value="/sys/lbpmservice/node/robotnode/node_desc.js"/>
+			<param
+				name="taskDesc"
+				value="robotNodeDesc" />
+		</item>
+	</extension>
+	<extension
+		point="com.landray.kmss.lbpm.engine.robot"
+		model="*">
+		<item
+			name="robot">
+			<param
+				name="unid"
+				value="ReadUseSQL" />
+			<param
+				name="category"
+				value="RDB" />
+			<param
+				name="type"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.type.readUseSQL}" />
+			<param
+				name="bean"
+				value="robotNodeReadUseSQLService" />
+			<param
+				name="url"
+				value="/sys/lbpmservice/node/robotnode/attribute_robotnode_readusesql.html" />
+		</item>
+		<item
+			name="robot">
+			<param
+				name="unid"
+				value="WriteUseSQL" />
+			<param
+				name="category"
+				value="RDB" />
+			<param
+				name="type"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.type.writeUseSQL}" />
+			<param
+				name="bean"
+				value="robotNodeWriteUseSQLService" />
+			<param
+				name="url"
+				value="/sys/lbpmservice/node/robotnode/attribute_robotnode_writeusesql.html" />
+		</item>
+		<item
+			name="robot">
+			<param
+				name="unid"
+				value="UpdateFormData" />
+			<param
+				name="category"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.category.others}" />
+			<param
+				name="type"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.type.updateFormData}" />
+			<param
+				name="bean"
+				value="robotNodeUpdateFormDataService" />
+			<param
+				name="url"
+				value="/sys/lbpmservice/node/robotnode/attribute_robotnode_updateformdata.html" />
+		</item>
+		<item
+			name="robot">
+			<param
+				name="unid"
+				value="RunScript" />
+			<param
+				name="category"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.category.runScript}" />
+			<param
+				name="type"
+				value="{sys-lbpmservice-node-robotnode:lbpmRobotNode.type.commonRunScript}" />
+			<param
+				name="bean"
+				value="robotNodeRunScriptService" />
+			<param
+				name="url"
+				value="/sys/lbpmservice/node/robotnode/attribute_robotnode_runscript.html" />
+		</item>
+	</extension>
+</plugin>

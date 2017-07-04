@@ -1,0 +1,46 @@
+/* public */
+*{ margin:0; padding:0;}
+html{ border:0;}
+body{ font-size:12px; font-family:Verdana,Arial,Microsoft YaHei,"宋体"; color:#333;}
+ul{list-style:none;}
+a img{border:0;}
+a{text-decoration:none; color:#666;}
+a:hover{text-decoration:underline; color:#f30;}
+.c{height:1%;}
+.c:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.clear{ clear:both; height:0; line-height:0; font-size:0; overflow:hidden;}
+.l{float:left;}
+.r{float:right;}
+.fixed{overflow:hidden; white-space :nowrap; text-overflow:ellipsis;}
+.dn{display:none;}
+.tac{text-align:center !important;}
+.tal{text-align:left !important;}
+.tar{text-align:right !important;}
+.b{ font-weight:bold;}
+.in24{ text-indent:24px;}
+.ch{cursor:pointer; cursor:pointer;}
+.inside{float:left; width:100%;}
+label{ margin-left:5px;}
+label input{ margin-right:5px; vertical-align:middle;}
+input{ vertical-align:middle;}
+
+
+.m_l20{ margin-left:20px;}
+
+/* btns */
+.btns_box{ width:150px; margin:10px auto 0;}
+.btns_box2{ width:150px; margin:10px auto 0;}
+
+.btn_a{ float:left; background:url(../images/btn.gif) repeat-x 0 -50px; height:23px; display:inline;}
+.btn_a a{ display:block; float:left; background:url(../images/btn.gif) no-repeat;}
+.btn_a a span{ display:block; background:url(../images/btn_r1.gif) no-repeat right center; padding:0 10px; color:#333; font-weight:bold; line-height:23px; text-align:center;}
+.btn_a a:hover{ color:#333; text-decoration:none;}
+.btn_b{ float:left; background:url(../images/btn.gif) repeat-x 0 -200px; height:23px; display:inline;}
+.btn_b a{ display:block; float:left; background:url(../images/btn.gif) no-repeat 0 -150px;}
+.btn_b a span{ display:block; background:url(../images/btn_r2.gif) no-repeat right center; padding:0 10px; color:#fff; font-weight:bold; line-height:23px; text-align:center;}
+.btn_b a:hover{ text-decoration:none;}
+.btn_b a:hover span{ color:#fff;}
+.btn_c{ float:left; background:url(../images/btn.gif) repeat-x 0 -350px; height:32px; display:inline;}
+.btn_c a{ display:block; float:left; background:url(../images/btn.gif) no-repeat 0 -300px;}
+.btn_c a span{ display:block; background:url(../images/btn_r3.gif) no-repeat right center; padding:0 10px; color:#fff; font-size:14px; font-weight:bold; line-height:32px; text-align:center;}
+.btn_c a:hover{ color:#fff; text-decoration:none;}

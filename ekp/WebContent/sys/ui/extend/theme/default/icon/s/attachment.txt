@@ -1,0 +1,12 @@
+ppt
+xls
+et
+epub
+dps
+doc
+vsd
+pdf
+txt
+pps
+rtf
+other_Attachment

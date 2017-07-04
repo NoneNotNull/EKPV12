@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.km.doc.model.KmDocTemplateKeyword"
+		messageKey="km-doc:table.kmDocTemplateKeyword"
+		displayProperty="docKeyword"
+		serviceBean="kmDocTemplateKeywordService"
+		table="km_doc_template_keyword">
+		<idProperty>
+			<generator type="native" />
+		</idProperty>
+		<simpleProperty
+			name="docKeyword"
+			messageKey="km-doc:kmDocTemplateKeyword.docKeyword"
+			type="String"
+			column="doc_keyword"
+			notNull="false"
+			unique="false"
+			length="200" />
+		<modelProperty
+			name="kmDocTemplate"
+			messageKey="km-doc:kmDocTemplateKeyword.kmDocTemplate"
+			type="com.landray.kmss.km.doc.model.KmDocTemplate"
+			column="fd_template_id"
+			notNull="false"
+			unique="false" />
+	</model>
+</models>

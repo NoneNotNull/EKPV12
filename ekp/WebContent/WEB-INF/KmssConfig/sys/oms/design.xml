@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module urlPrefix="/sys/oms/">
+		<request
+			path="orgsynchro_notify_template_empty/orgSynchroNotifyTemplateEmpty*"
+			defaultValidator="roleValidator(role=ROLE_SYSORG_CONFIG)">
+			<query queryString="method=view|edit" validator="roleValidator(role=ROLE_SYSORG_CONFIG)" />
+		</request>
+		<request path="personinfo/oms_personinfo_sns*">
+			<query validator="true" />
+		</request>
+	</module>
+
+	<quartz messageKey="sys-oms-notify:OMSSynchroInTitle"
+		jobService="synchroInService" cronExpression="0 0 22 * * ?" jobMethod="synchro"
+		enable="false" />
+
+	<quartz messageKey="sys-oms-notify:OMSSynchroOutTitle"
+		jobService="synchroOutService" cronExpression="0 0 23 * * ?"
+		jobMethod="incSynchro" enable="false" />
+
+</configs>

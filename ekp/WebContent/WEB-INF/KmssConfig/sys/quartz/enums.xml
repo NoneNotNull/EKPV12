@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type name="sysQuartzJob_fdRunType">
+		<value-label>
+			<value>2</value>
+			<label-key>sysQuartzJob.fdRunType.ASSIGNNODE</label-key>
+			<bundle>sys-quartz</bundle>
+		</value-label>
+		<value-label>
+			<value>4</value>
+			<label-key>sysQuartzJob.fdRunType.SINGLENODE</label-key>
+			<bundle>sys-quartz</bundle>
+		</value-label>
+	</type>
+</column-enums>

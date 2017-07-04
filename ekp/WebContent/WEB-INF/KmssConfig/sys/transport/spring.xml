@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean
+		id="sysTransportImportDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.transport.dao.hibernate.SysTransportImportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.transport.model.SysTransportImportConfig" />
+	</bean>
+	<bean
+		id="sysTransportImportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.transport.service.spring.SysTransportImportServiceImp">
+		<property name="baseDao">
+			<ref local="sysTransportImportDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTransportImportService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTransportImportTarget" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="import*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<bean
+		id="sysTransportExportDao"
+		parent="KmssBaseDao"
+		class="com.landray.kmss.sys.transport.dao.hibernate.SysTransportExportDaoImp">
+		<property
+			name="modelName"
+			value="com.landray.kmss.sys.transport.model.SysTransportExportConfig" />
+	</bean>
+	<bean
+		id="sysTransportExportTarget"
+		parent="KmssBaseTarget"
+		class="com.landray.kmss.sys.transport.service.spring.SysTransportExportServiceImp">
+		<property name="baseDao">
+			<ref local="sysTransportExportDao" />
+		</property>
+	</bean>
+	<bean
+		id="sysTransportExportService"
+		parent="KmssBaseService">
+		<property name="target">
+			<ref local="sysTransportExportTarget" />
+		</property>
+	</bean>
+	<bean
+		id="sysTransportExoprtConfigDataBean"
+		class="com.landray.kmss.sys.transport.service.spring.SysTransportExoprtConfigDataBean">
+		<property name="dao">
+			<ref local="sysTransportExportDao" />
+		</property>
+	</bean>
+</beans>

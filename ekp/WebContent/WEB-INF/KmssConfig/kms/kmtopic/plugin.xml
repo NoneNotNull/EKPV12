@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.example.org/plugin-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../plugin.xsd ">
+	<extension point="com.landray.kmss.sys.property.setting"
+		model="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain">
+		<item name="setting">
+			<param name="messageText" value="{kms-kmtopic:module.kms.kmtopic}" />
+		</item>
+	</extension>
+	<!-- 数据字典加载器实现 -->
+	<extension point="com.landray.kmss.sys.metadata.setting"
+		model="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain">
+		<item name="loader">
+			<param name="bean" value="sysPropertyDictLoader" />
+		</item>
+	</extension>
+	
+	<!-- 分享 -->
+	<extension point="com.landray.kmss.kms.common">
+		<!-- 
+		<item name="sns">
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain" />
+			<param name="categoryModelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory" />
+			<param name="shareMessageKey" value="kms-kmtopic:module.kms.kmtopic" />
+			<param name="page" value="/kms/common/kms_share/kmsShareToSNS.jsp" />
+			<param name="order" value="3" />
+		</item>
+		 -->
+		<item name="person">
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain" />
+			<param name="categoryModelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory" />
+			<param name="shareMessageKey" value="kms-common:kmsShareMain.shareTo.person" />
+			<param name="page" value="/kms/common/kms_share/kmsShareMain_share_person.jsp" />
+			<param name="order" value="1" />
+		</item>
+		<item name="group">
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain" />
+			<param name="categoryModelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory" />
+			<param name="shareMessageKey" value="kms-common:kmsShareMain.shareTo.friends" />
+			<param name="page" value="/kms/common/kms_share/kmsShareMain_share_friends.jsp" />
+			<param name="order" value="2" />
+		</item>
+	</extension>
+	<!-- 批量下载数量控制 -->
+	<extension point="com.landray.kmss.sys.config.admin.do">
+		<item name="config">
+			<param name="jsp" value="/kms/kmtopic/kms_kmtopic_main/topicAttConfig.jsp" />
+			<param name="type" value="application" />
+			<param name="order" value="90" />
+		</item>
+	</extension>
+	
+	<!-- 知识专辑日志部署 -->
+	<extension point="com.landray.kmss.kms.log">
+		<item name="log.module">
+			<param name="fdKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="moduleName" value="kms-kmtopic:module.kms.kmtopic"/>
+			<param name="categoryField" value="docCategory"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.addCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryServiceImp"/>			
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.updateCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryServiceImp"/>
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-log:kmsLog.delCategory"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicCategoryServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicCategory"/>
+			<param name="type" value="2"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.add"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicMainServiceImp"/>
+			<param name="operateMethod" value="add"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension><!--
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.import"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicMainServiceImp"/>
+			<param name="operateMethod" value="addImport"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	--><extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.edit"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicMainServiceImp"/>
+			<param name="operateMethod" value="update"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="button.delete"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.kmtopic.service.spring.KmsKmtopicMainServiceImp"/>			
+			<param name="operateMethod" value="delete"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogBaseProxy"/>
+		</item>
+	</extension>
+	<extension point="com.landray.kmss.kms.log">
+		<item name="logType">
+			<param name="messageText" value="kms-kmtopic:kmsKmtopicMain.button.editProperty"/>
+			<param name="moduleKey" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="className" value="com.landray.kmss.kms.knowledge.service.spring.KmsKnowledgeBaseDocServiceImp"/>
+			<param name="operateMethod" value="updateProperty"/>
+			<param name="modelName" value="com.landray.kmss.kms.kmtopic.model.KmsKmtopicMain"/>
+			<param name="type" value="6"/>
+			<param name="logServiceBean" value="kmsLogUpdatePropertyProxy"/>
+		</item>
+	</extension>
+
+</plugin>

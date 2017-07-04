@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.kms.log.model.KmsLogApp"
+		messageKey="kms-log:table.kmsLogApp"
+		displayProperty="fdSubject"
+		serviceBean="kmsLogAppService"
+		table="kms_log_app"
+		url="/kms/log/kms_log_app/kmsLogApp.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<simpleProperty
+			name="fdSubject"
+			messageKey="kms-log:kmsLogApp.fdSubject"
+			type="String"
+			column="fd_subject"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<simpleProperty
+			name="fdOprateMethod"
+			messageKey="kms-log:kmsLogApp.fdOprateMethod"
+			type="String"
+			column="fd_oprate_method"
+			notNull="true"
+			length="60"
+			validate="true" />
+
+		<simpleProperty
+			name="fdCreateTime"
+			messageKey="kms-log:kmsLogApp.fdCreateTime"
+			type="DateTime"
+			column="fd_create_time"
+			notNull="true"
+			validate="false" />
+
+		<simpleProperty
+			name="fdTargetId"
+			messageKey="kms-log:kmsLogApp.fdTargetId"
+			type="String"
+			column="fd_target_id"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="modelName"
+			messageKey="kms-log:kmsLogApp.modelName"
+			type="String"
+			column="model_name"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+		<simpleProperty
+			name="fdIp"
+			messageKey="kms-log:kmsLogApp.fdIp"
+			type="String"
+			column="fd_ip"
+			notNull="false"
+			length="36"
+			validate="true" />
+
+		<simpleProperty
+			name="fdParam"
+			messageKey="kms-log:kmsLogApp.fdParam"
+			type="String"
+			column="fd_param"
+			notNull="false"
+			length="100"
+			validate="true" />
+
+		<modelProperty
+			name="fdOperator"
+			messageKey="kms-log:kmsLogApp.fdOperator"
+			type="String"
+			column="fd_operator"
+			notNull="true"
+			validate="false" />
+			
+		<modelProperty
+			name="fdOperatorDepartId"
+			messageKey="kms-log:kmsLogApp.fdOperator"
+			type="String"
+			column="fd_operator_depart_id"
+			notNull="false"
+			validate="false" />
+			
+		<modelProperty
+			name="fdOperatorName"
+			messageKey="kms-log:kmsLogApp.fdOperator"
+			type="String"
+			column="fd_operator_name"
+			notNull="false"
+			validate="false" />
+		
+		<simpleProperty
+			name="moduleKey"
+			messageKey="kms-log:kmsLogApp.modelName"
+			type="String"
+			column="module_key"
+			notNull="false"
+			length="200"
+			validate="true" />
+
+	</model>
+</models>

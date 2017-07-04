@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../../../plugin.xsd ">
+	
+	<extension
+		point="com.landray.kmss.lbpm.engine.operation">
+		<!-- 系统空操作 -->
+		<item
+			name="operation"
+			id="137f8132c618c602c1620e64582a522a">
+			<param
+				name="type"
+				value="empty_operation" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-system:lbpmOperations.fdOperType.processor.emptyoperation" />
+			<param
+				name="behaviour"
+				value="lbpmSystemEmptyOperationBehaviour" />
+			<param
+				name="binder"
+				value="lbpmSystemEmptyOperationBinder" />
+			<param
+				name="handlerType"
+				value="handler" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+			<param
+				name="reviewJs"
+				value="/sys/lbpmservice/operation/system/empty_operation.jsp" />	
+		</item>
+		<!-- 系统空操作(仅做配置占位) -->
+		<item
+			name="operation"
+			id="137f8132c618c602c1620e64582a522a">
+			<param
+				name="type"
+				value="_empty_operation" />
+			<param
+				name="messageKey"
+				value="sys-lbpmservice-operation-system:lbpmOperations.fdOperType.processor._emptyoperation" />
+			<param
+				name="behaviour"
+				value="lbpmSystemEmptyOperationBehaviour" />
+			<param
+				name="binder"
+				value="lbpmSystemEmptyOperationBinder" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="apiHelpPage"
+				value="" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+		</item>
+		
+		<!-- 提交校验操作 -->
+		<item
+			name="operation"
+			id="1490c8e9263847987575dae4633b6c87">
+			<param
+				name="type"
+				value="additions_validateProcess" />
+			<param
+				name="messageKey"
+				value="" />
+			<param
+				name="behaviour"
+				value="lbpmValidateProcessAdditionOperationBehaviour" />
+			<param
+				name="binder"
+				value="lbpmSystemEmptyOperationBinder" />
+			<param
+				name="handlerType"
+				value="system" />
+			<param
+				name="display"
+				value="false" />
+			<param
+				name="isPassType"
+				value="false" />
+		</item>
+	</extension>
+</plugin>

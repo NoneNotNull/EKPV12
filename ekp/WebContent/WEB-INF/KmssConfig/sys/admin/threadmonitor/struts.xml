@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/sys/admin/threadmonitor"
+			type="com.landray.kmss.sys.admin.threadmonitor.actions.SysAdminUrlBlockAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="monitor"
+				path="/sys/admin/threadmonitor/sysAdminThreadMonitor_monitor.jsp" />
+			<forward
+				name="edit"
+				path="/sys/admin/threadmonitor/sysAdminThreadMonitor_edit.jsp" />
+		</action>
+	</action-mappings>
+</struts-config>

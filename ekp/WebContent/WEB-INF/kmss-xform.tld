@@ -1,0 +1,1775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>xform</short-name>
+	<uri>http://www.landray.com.cn/tags/kmss/xform</uri>
+	<tag>
+		<name>text</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.TextTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述 ]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>textarea</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.TextareaTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>radio</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.RadioTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值]]></description>
+		</attribute>
+		<!-- 排列方式 结束参数为 V 默认（纵向排列） 和 H （横向排列）-->
+		<attribute>
+			<name>alignment</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[排列方式 结束参数为 V 默认（纵向排列） 和 H （横向排列）]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名 ]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性 ]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+		<attribute>
+			<name>concentrate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否只显示选中单选框,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>select</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.SelectTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名 ]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值 ]]></description>
+		</attribute>
+		<!-- 显示“请选择” -->
+		<attribute>
+			<name>showPleaseSelect</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[显示“请选择” ]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述 ]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>checkbox</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.CheckboxTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值，多值，以逗号或分号分隔 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值，多值，以逗号或分号分隔]]></description>
+		</attribute>
+		<!-- 设置字段是否采取数组存储 -->
+		<attribute>
+			<name>isArrayValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[设置字段是否采取数组存储]]></description>
+		</attribute>
+		<!-- 强制不能修改的选项值，多值，以逗号或分号分隔 -->
+		<attribute>
+			<name>notChangedValues</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[强制不能修改的选项值，多值，以逗号或分号分隔]]></description>
+		</attribute>
+		<!-- 排列方式 结束参数为 V 默认（纵向排列） 和 H （横向排列）-->
+		<attribute>
+			<name>alignment</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[排列方式 结束参数为 V 默认（纵向排列） 和 H （横向排列）]]></description>
+		</attribute>
+		<!-- 数据类型 -->
+		<attribute>
+			<name>dataType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[数据类型]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+		<attribute>
+			<name>concentrate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否只显示选中多选框,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>datetime</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.DateTimeTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值]]></description>
+		</attribute>
+		<!-- 字段类型：必须为 日期(date)，时间(time) -->
+		<attribute>
+			<name>dateTimeType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段类型：必须为 日期(date)，时间(time) ，日期时间(datetime)]]></description>
+		</attribute>
+		<!-- 格式化样式:参考 calendar.js -->
+		<attribute>
+			<name>pattern</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[格式化样式:参考 calendar.js]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>address</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.AddressTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- ID字段名 -->
+		<attribute>
+			<name>propertyId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- Name字段名 -->
+		<attribute>
+			<name>propertyName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[Name字段名 ]]></description>
+		</attribute>
+		<!-- ID字段名值-->
+		<attribute>
+			<name>idValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- Name字段值 -->
+		<attribute>
+			<name>nameValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- 是否为多值， 默认为 false 单值 -->
+		<attribute>
+			<name>mulSelect</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否为多值， 默认为 false 单值  ]]></description>
+		</attribute>
+		<!-- 组织架构类型， 默认为 ORG_TYPE_ALL 所有组织架构类型 -->
+		<attribute>
+			<name>orgType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[组织架构类型， 默认为 ORG_TYPE_ALL 所有组织架构类型 ]]></description>
+		</attribute>
+		<!-- 多值分隔符，默认为 ';' -->
+		<attribute>
+			<name>splitChar</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[多值分隔符，默认为 ';' ]]></description>
+		</attribute>
+		<!-- 是否为Textarea展示方式，默认为 false -->
+		<attribute>
+			<name>textarea</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否为Textarea展示方式，默认为 false, 移动端此属性无效]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性,移动端此属性无效]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性 , 移动端此属性无效]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- showLink -->
+		<attribute>
+			<name>showLink</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[阅读状态下，是否显示个人主页链接，true、false]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>dialog</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.DialogTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>icon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- ID字段名值-->
+		<attribute>
+			<name>idValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- Name字段名值-->
+		<attribute>
+			<name>nameValue</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- dialog 选择按钮的js内容 -->
+		<attribute>
+			<name>dialogJs</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- ID字段名 -->
+		<attribute>
+			<name>propertyId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- Name字段名 -->
+		<attribute>
+			<name>propertyName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[Name字段名 ]]></description>
+		</attribute> 
+		<!-- 是否为Textarea展示方式，默认为 false -->
+		<attribute>
+			<name>textarea</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否为Textarea展示方式，默认为 false]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>simpleDataSource</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.SimpleDataSourceTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 选项值 -->
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[选项值]]></description>
+		</attribute>
+		<attribute>
+			<name>bundle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[国际化资源包]]></description>
+		</attribute>
+		<attribute>
+			<name>textKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[国际化消息Key]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>enumsDataSource</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.EnumsDataSourceTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 枚举类型，参考enums.xml中的type标签 -->
+		<attribute>
+			<name>enumsType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[枚举类型，参考enums.xml中的type标签]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>beanDataSource</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.BeanDataSourceTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- service bean名 -->
+		<attribute>
+			<name>serviceBean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[spring 中 service bean名]]></description>
+		</attribute>
+		<attribute>
+			<name>orderBy</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[排序方式]]></description>
+		</attribute>
+		<attribute>
+			<name>selectBlock</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[查询项]]></description>
+		</attribute>
+		<attribute>
+			<name>whereBlock</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[查询条件]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>customizeDataSource</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.CustomizeDataSourceTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>className</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[自定义的类全限定名，此类必须实现ICustomizeDataSource接口，若需要传递参数，请实现ICustomizeDataSourceWithRequest接口]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>SQLDataSource</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.SQLDataSourceTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- service bean名 -->
+		<attribute>
+			<name>sql</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[SQL语句]]></description>
+		</attribute>
+		<attribute>
+			<name>dbConnect</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[数据库连接，使用全局配置的数据库连接]]></description>
+		</attribute>
+		<attribute>
+			<name>idField</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[选项value的字段名]]></description>
+		</attribute>
+		<attribute>
+			<name>nameField</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[选项name的字段名]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>config</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.BatchConfigTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置） ]]></description>
+		</attribute>
+		<attribute>
+			<name>formName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[指定表单名称 ]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>errormsg</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.ValidateMsgTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名 ]]></description>
+		</attribute>
+	</tag>
+	<!-- RTF域 -->
+	<tag>
+		<name>rtf</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.RtfTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） ]]></description>
+		</attribute>
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置） ]]></description>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名 ]]></description>
+		</attribute>
+		<attribute>
+			<name>basePath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>toolbarSet</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>height</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>customConfigurationsPath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>editorAreaCSS</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>baseHref</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>skinPath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>pluginsPath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fullPage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>debug</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>autoDetectLanguage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>defaultLanguage</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>contentLangDirection</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>enableXHTML</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>enableSourceXHTML</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fillEmptyBlocks</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>formatSource</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>formatOutput</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>formatIndentator</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>geckoUseSPAN</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>startupFocus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>forcePasteAsPlainText</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>forceSimpleAmpersand</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>tabSpaces</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>useBROnCarriageReturn</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>toolbarStartExpanded</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>toolbarCanCollapse</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fontColors</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fontNames</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fontSizes</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>fontFormats</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>stylesXmlPath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>linkBrowserURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>imageBrowserURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>flashBrowserURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>linkUploadURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>imageUploadURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>flashUploadURL</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>needFilter</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>filterMode</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>wiki</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>imgReader</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>placeholder</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<!-- 权限标签 -->
+	<tag>
+		<name>right</name>
+		<tag-class>com.landray.kmss.sys.workflow.tablib.right.RightConfigTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>使用动态参数</description>
+		<dynamic-attributes>true</dynamic-attributes>
+	</tag>
+	<!-- Edit显示标签 -->
+	<tag>
+		<name>editShow</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.EditShowTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） ]]></description>
+		</attribute>
+	</tag>
+	<!-- View显示标签 -->
+	<tag>
+		<name>viewShow</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.ViewShowTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） ]]></description>
+		</attribute>
+	</tag>
+	
+	<!-- 自定义表单使用标签 -->
+	<tag>
+		<name>xtext</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.XFormTextTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述 ]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<!-- 扩展属性 -->
+		<attribute>
+			<name>dataType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[指定数据类型]]></description>
+		</attribute>
+		<attribute>
+			<name>editReadOnlyStyle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[编辑只读状态样式]]></description>
+		</attribute>
+		<attribute>
+			<name>mobile</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[标示是否在移动端使用该标签,true/false]]></description>
+		</attribute>
+	</tag>
+	
+	<!-- 子流程链接查看标签 -->
+	<tag>
+		<name>showSubProcesses</name>
+		<tag-class>com.landray.kmss.sys.workflow.tablib.ShowSubProcessesTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>returnJson</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否返回数据未JSON格式，默认为false，显示为HTML格式]]></description>
+		</attribute>
+		<attribute>
+			<name>nodeId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[显示某节点的子流程，默认为空，显示所有节点上的子流程]]></description>
+		</attribute>
+	</tag>
+	
+	<!-- 父流程链接查看标签 -->
+	<tag>
+		<name>showParentProcesse</name>
+		<tag-class>com.landray.kmss.sys.workflow.tablib.ShowParentProcessTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>returnJson</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否返回数据未JSON格式，默认为false，显示为HTML格式]]></description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>isExistRelationProcesses</name>
+		<tag-class>com.landray.kmss.sys.workflow.tablib.IsExistRelationProcessesTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>relationType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[关系类型，可以是 parent 或者 subs]]></description>
+		</attribute>
+		<attribute>
+			<name>varName</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[运算结果存储的变量名]]></description>
+		</attribute>
+	</tag>
+	<!-- 审批意见展示控件 @作者：曹映辉 @日期：2012年4月5日  -->
+	<tag>
+		<name>showAuditNote</name>
+		<tag-class>com.landray.kmss.sys.workflow.tablib.ShowAuditNoteTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[标签的唯一编号]]></description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[参数值]]></description>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[显示文本]]></description>
+		</attribute>
+		<attribute>
+			<name>filterNote</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[过滤审批意见的方式，1，同部门取最后一条，2，同处理人取最后一条。同时需要多种过滤方式需要用逗号隔开]]></description>
+		</attribute>
+		<attribute>
+			<name>sortNote</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[按时间排序方式，默认升序 asc:升序 ，desc：降序]]></description>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[宽度设置]]></description>
+		</attribute>
+		<attribute>
+			<name>exhibitionStyleClass</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[展示样式处理类
+			该参数必须是实现com.landray.kmss.web.taglib.xform.auditnote.AuditNoteStyle接口的BeanId
+			]]></description>
+		</attribute>
+		<attribute>
+			<name>exhibitionDataClass</name>
+			<required>true</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[
+			数据提供类 按处理人展示：auditNoteDataShowByHandler 按节点展示：auditNoteDataShowByNode。
+			该参数值可以自定义，Bean必须实现com.landray.kmss.web.taglib.xform.auditnote.AuditNoteDataShow接口
+			建议直接继承com.landray.kmss.web.taglib.xform.auditnote.AuditNoteDataShowByPreference类
+			]]></description>
+		</attribute>
+		
+	</tag>
+	<!-- end 审批意见控件 -->
+	
+	<tag>
+		<name>xselect</name>
+		<tag-class>com.landray.kmss.web.taglib.xform.XFormSelectTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- 字段名 -->
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段名 ]]></description>
+		</attribute>
+		<!-- 字段值 -->
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值 ]]></description>
+		</attribute>
+		<!-- 显示“请选择” -->
+		<attribute>
+			<name>showPleaseSelect</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[显示“请选择” ]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 校验器集合，具体请参考$kmssValidation的相关描述 -->
+		<attribute>
+			<name>validators</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[校验器集合，具体请参考$kmssValidation的相关描述 ]]></description>
+		</attribute>
+		<!-- 是否必填 -->
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否必填]]></description>
+		</attribute>
+		<!-- 字段中文名或描述名 -->
+		<attribute>
+			<name>subject</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段中文名或描述名]]></description>
+		</attribute>
+		<!-- title属性 -->
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[title属性]]></description>
+		</attribute>
+		<!-- style属性 -->
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- 控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏） -->
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）,readOnly（只读）,noShow（不显示但能编辑）,hidden（隐藏）]]></description>
+		</attribute>
+		<!-- 是否加载数据字典（可以获取字段的数据类型，长度等配置） -->
+		<attribute>
+			<name>isLoadDataDict</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[是否加载数据字典（可以获取字段的数据类型，长度等配置）]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		<!-- 追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。 -->
+		<attribute>
+			<name>htmlElementProperties</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[追加其他的HTML代码。若是值对（比如：id字段和显示字段），则追加的是显示字段的HTML。]]></description>
+		</attribute>
+		<attribute>
+			<name>textShow</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		
+		<attribute>
+			<name>textProperty</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		
+	</tag>
+	
+	<!-- 审批意见展示控件 @作者：曹映辉 @日期：2012年4月5日  -->
+	<tag>
+		<name>auditNote</name>
+		<tag-class>com.landray.kmss.sys.lbpmservice.taglib.AuditNoteTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[标签的唯一编号]]></description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[参数值]]></description>
+		</attribute>
+		<attribute>
+			<name>mould</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[参数值]]></description>
+		</attribute>
+		<attribute>
+			<name>rejectType</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[参数值]]></description>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[显示文本]]></description>
+		</attribute>
+		<attribute>
+			<name>width</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[宽度设置]]></description>
+		</attribute>
+		<attribute>
+			<name>height</name>
+			<required>false</required>
+			<rtexprvalue>false</rtexprvalue>
+			<description><![CDATA[高度设置]]></description>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>keydata</name>
+		<tag-class>com.landray.kmss.km.keydata.xform.KeydataTag</tag-class>
+		<body-content>JSP</body-content>
+		<!-- ID字段名 -->
+		<attribute>
+			<name>propertyId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[ID字段名 ]]></description>
+		</attribute>
+		<!-- Name字段名 -->
+		<attribute>
+			<name>propertyName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[Name字段名 ]]></description>
+		</attribute>
+		<attribute>
+			<name>keydataType</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[关键数据类型 ]]></description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[style属性]]></description>
+		</attribute>
+		<!-- class属性 -->
+		<attribute>
+			<name>className</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[class属性]]></description>
+		</attribute>
+		<!-- 字段值改变事件，请填写js代码。系统会调用相应的事件方法。 -->
+		<attribute>
+			<name>onValueChange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[字段值改变事件，请填写js代码。系统会调用相应的事件方法。]]></description>
+		</attribute>
+		
+		<attribute>
+			<name>showStatus</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description><![CDATA[控制显示状态。可选值：view（阅读）,edit（可编辑）]]></description>
+		</attribute>
+	</tag>
+</taglib>

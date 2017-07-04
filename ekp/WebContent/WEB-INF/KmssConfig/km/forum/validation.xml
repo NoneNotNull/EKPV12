@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE form-validation PUBLIC "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN" "http://jakarta.apache.org/commons/dtds/validator_1_1.dtd">
+<form-validation>
+	<formset>
+		<form name="kmForumCategoryForm">
+			<field
+				property="fdName"
+				depends="required,maxlength">
+				<arg
+					key="kmForumCategory.fdName"
+					bundle="km-forum"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var>
+			</field>
+			<field
+				property="fdDescription"
+				depends="maxlength">
+				<arg
+					key="kmForumCategory.fdDescription"
+					bundle="km-forum"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>1500</var-value>
+				</var>
+			</field>
+			<field
+				property="fdParentId"
+				depends="required">
+				<arg
+					key="kmForumCategory.fdParentId"
+					bundle="km-forum"
+					position="0" />
+			</field>
+			<field
+				property="fdMainScore"
+				depends="required,integer">
+				<arg
+					key="kmForumCategory.fdMainScore"
+					bundle="km-forum"
+					position="0" />
+			</field>
+			<field
+				property="fdResScore"
+				depends="required,integer">
+				<arg
+					key="kmForumCategory.fdResScore"
+					bundle="km-forum"
+					position="0" />
+
+			</field>
+			<field
+				property="fdPinkScore"
+				depends="required,integer">
+				<arg
+					key="kmForumCategory.fdPinkScore"
+					bundle="km-forum"
+					position="0" />
+
+			</field>
+			<field
+				property="fdOrder"
+				depends="required,integer">
+				<arg
+					key="kmForumCategory.fdDisplayOrder"
+					bundle="km-forum"
+					position="0" />
+			</field>
+		</form>
+
+		<form name="kmForumTopicForm">
+			<field
+				property="fdForumId"
+				depends="required">
+				<arg
+					key="kmForumTopic.fdForumId"
+					bundle="km-forum"
+					position="0" />
+			</field>
+		</form>
+
+		<form name="kmForumPostForm">
+			<field
+				property="docSubject"
+				depends="required,maxlength">
+				<arg
+					key="kmForumTopic.docSubject"
+					bundle="km-forum"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var>
+			</field>
+
+			<field
+				property="fdForumName"
+				depends="required">
+				<arg
+					key="kmForumTopic.fdForumId"
+					bundle="km-forum"
+					position="0" />
+			</field>
+		</form>
+		
+		<form name="kmForumScoreForm">
+			<field
+				property="fdNickName"
+				depends="maxlength">
+				<arg
+					key="kmForumScore.fdNickName"
+					bundle="km-forum"
+					position="0" />
+				<arg1
+					name="maxlength"
+					key="${var:maxlength}"
+					resource="false" />
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var>
+			</field>
+		</form>
+	</formset>
+</form-validation>

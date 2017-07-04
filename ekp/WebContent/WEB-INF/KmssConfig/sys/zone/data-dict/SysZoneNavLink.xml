@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models 
+	xmlns="http://www.example.org/design-config" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.zone.model.SysZoneNavLink"
+		messageKey="sys-zone:sysZoneNavLink"
+		serviceBean=""
+		displayProperty="fdName"
+		table="sys_zone_nav_link">
+		<idProperty>
+			<generator type="assigned" />
+		</idProperty>
+		
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-zone:sysZoneNavLink.fdName"
+			type="String"
+			column="fd_name"
+			notNull="false"
+			length="500" />
+			
+		<simpleProperty
+			name="fdSysLink"
+			messageKey="sys-zone:sysZoneNavLink.fdSysLink"
+			type="String"
+			column="fd_sys_link"
+			notNull="false"
+			length="200" />
+			
+		<simpleProperty
+			name="fdUrl"
+			messageKey="sys-zone:sysZoneNavLink.fdUrl"
+			type="String"
+			column="fd_url"
+			notNull="false"
+			length="1000" />
+			
+		<simpleProperty
+			name="fdOrder"
+			messageKey="sys-zone:sysZoneNavLink.fdOrder"
+			type="Integer"
+			column="fd_order"
+			notNull="false"
+			length="10" />
+			
+		<modelProperty
+			name="fdCategory"
+			messageKey="sys-zone:sysZoneNavLink.fdCategory"
+			type="com.landray.kmss.sys.zone.model.SysZoneNavigation"
+			column="fd_cate_id"
+			notNull="false"
+			cascade="none" />
+	</model>
+</models>

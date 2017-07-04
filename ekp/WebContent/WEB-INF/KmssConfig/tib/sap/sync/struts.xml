@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<!-- 表单 Bean -->
+	<form-beans>
+		<form-bean
+			name="tibSapSyncCategoryForm"
+			type="com.landray.kmss.tib.sap.sync.forms.TibSapSyncCategoryForm" />
+		<form-bean
+			name="tibSapSyncTempFuncForm"
+			type="com.landray.kmss.tib.sap.sync.forms.TibSapSyncTempFuncForm" />
+		<form-bean
+			name="tibSapSyncJobForm"
+			type="com.landray.kmss.tib.sap.sync.forms.TibSapSyncJobForm" />
+	</form-beans>
+
+	<!-- 操作映射 -->
+	<action-mappings>
+		<action
+			path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory"
+			type="com.landray.kmss.tib.sap.sync.actions.TibSapSyncCategoryAction"
+			name="tibSapSyncCategoryForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			
+			<forward
+				name="view"
+				path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_list.jsp" />
+			<forward
+				name="tree"
+				path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_tree.jsp" />
+		    <forward 
+		        name="cateError" 
+		        path="/tib/sap/sync/tib_sap_sync_category/tibSapSyncCategory_Error.jsp">
+		        </forward>
+		
+		</action>
+
+		<action
+			path="/tib/sap/sync/tib_sap_sync_temp_func/tibSapSyncTempFunc"
+			type="com.landray.kmss.tib.sap.sync.actions.TibSapSyncTempFuncAction"
+			name="tibSapSyncTempFuncForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sap/sync/tib_sap_sync_temp_func/tibSapSyncTempFunc_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sap/sync/tib_sap_sync_temp_func/tibSapSyncTempFunc_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sap/sync/tib_sap_sync_temp_func/tibSapSyncTempFunc_list.jsp" />
+			<forward
+				name="list_table"
+				path="/tib/sap/sync/tib_sap_sync_temp_func/tibSapSync_index_table_list.jsp" />
+		</action>
+		<!-- 定时任务新UED -->
+		<action
+			path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJobIndex"
+			type="com.landray.kmss.tib.sap.sync.actions.TibSapSyncJobIndexAction"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="list"
+				path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob_ui_list.jsp" />
+				
+		</action>
+		<action
+			path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob"
+			type="com.landray.kmss.tib.sap.sync.actions.TibSapSyncJobAction"
+			name="tibSapSyncJobForm"
+			parameter="method"
+			input="edit"
+			unknown="false"
+			validate="true"
+			scope="request">
+			<forward
+				name="view"
+				path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob_view.jsp" />
+			<forward
+				name="edit"
+				path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob_edit.jsp" />
+			<forward
+				name="list"
+				path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob_list.jsp" />
+			<forward
+				name="tableList"
+				path="/tib/sap/sync/tib_sap_sync_job/tibSapSyncJob_table_list.jsp" />
+				
+		</action>
+		
+
+	</action-mappings>
+</struts-config>

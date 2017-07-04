@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.landray.com.cn/schema/lui" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.landray.com.cn/schema/lui">
+    <xsd:element name="theme">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:sequence>
+    					<xsd:element name="style" maxOccurs="1" minOccurs="1">
+    						<xsd:complexType>
+    							<xsd:sequence>
+    								<xsd:element name="css" maxOccurs="unbounded" minOccurs="1">
+    									<xsd:complexType>
+    										<xsd:attribute name="path"
+    											type="xsd:string">
+    										</xsd:attribute>
+    										<xsd:attribute
+    											name="type" type="xsd:string">
+    										</xsd:attribute>
+    									</xsd:complexType>
+    								</xsd:element>
+    							</xsd:sequence>
+    						</xsd:complexType>
+    					</xsd:element>
+    				</xsd:sequence>
+    				<xsd:attribute name="path" type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="template">
+    	<xsd:complexType mixed="true">
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:attribute name="file" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="for" type="xsd:string" use="required">
+    				</xsd:attribute>
+    				<xsd:attribute name="designer"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="combin">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:sequence>
+    					<xsd:element name="vars" type="vars"
+    						minOccurs="0" maxOccurs="1">
+    					</xsd:element>
+    				</xsd:sequence>
+    				<xsd:attribute name="file" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="kind"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="root">
+    	<xsd:complexType>
+            <xsd:choice maxOccurs="unbounded" minOccurs="0">
+            	<xsd:element ref="combin" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="template" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="theme" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="assembly" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="format" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="layout" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="render" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="var-kind" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="source" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:element ref="portlet" maxOccurs="unbounded"
+            		minOccurs="0">
+            	</xsd:element>
+            	<xsd:any namespace="##other" processContents="strict" minOccurs="0" maxOccurs="unbounded"></xsd:any>
+            </xsd:choice>
+
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="base">
+    	<xsd:attribute name="id" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="help" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="thumb" type="xsd:string"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="vars">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+    		<xsd:element name="var" maxOccurs="unbounded" minOccurs="1">
+    			<xsd:complexType mixed="true">
+    				<xsd:attribute
+    					name="name"
+    					type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute
+    					name="key"
+    					type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="kind">
+    					<xsd:simpleType>
+    						<xsd:restriction base="xsd:string">
+    							<xsd:enumeration value="string"></xsd:enumeration>
+    							<xsd:enumeration value="int"></xsd:enumeration>
+    							<xsd:enumeration value="dialogJs"></xsd:enumeration>
+    							<xsd:enumeration
+    								value="sys.simplecategory">
+    							</xsd:enumeration>
+    							<xsd:enumeration value="enumType"></xsd:enumeration>
+    							<xsd:enumeration value="rowsize"></xsd:enumeration>
+    							<xsd:enumeration value="enumValue"></xsd:enumeration>
+    							<xsd:enumeration value="custom"></xsd:enumeration>
+
+    							<xsd:enumeration value="sys.category"></xsd:enumeration>
+    							<xsd:enumeration value="sys.tree"></xsd:enumeration>
+    						</xsd:restriction>
+    					</xsd:simpleType>
+    				</xsd:attribute>
+    				<xsd:attribute
+    					name="default"
+    					type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute
+    					name="required"
+    					type="xsd:boolean">
+    				</xsd:attribute>
+    			</xsd:complexType>
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+    
+    <xsd:element name="format">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:attribute name="description"
+    					type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="defaultRender"
+    					type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="example"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="layout">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:sequence>
+    					<xsd:element name="code" type="code"
+    						maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    					<xsd:element name="vars"
+    						type="vars" maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    				</xsd:sequence>
+    				<xsd:attribute name="css" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="kind" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="type" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="for"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="code" mixed="true">
+    	<xsd:attribute name="src" type="xsd:string"></xsd:attribute>
+    	<xsd:anyAttribute namespace="##any" processContents="skip"></xsd:anyAttribute>
+    </xsd:complexType>
+    
+    <xsd:element name="assembly">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:attribute
+    					name="category"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="render">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+                    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+    					<xsd:element name="vars" type="vars" maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    					<xsd:element name="code" type="code" maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    				</xsd:choice>
+    				<xsd:attribute name="for" type="xsd:string"></xsd:attribute>
+
+    				<xsd:attribute name="format" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="type" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="css" type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="var-kind">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:attribute name="file"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="portlet">
+    	<xsd:complexType>
+    		<xsd:complexContent>
+    			<xsd:extension base="base">
+    				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+    					<xsd:element name="operations" type="operations"
+    						maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    					<xsd:element name="vars" type="vars"
+    						maxOccurs="1" minOccurs="0">
+    					</xsd:element>
+    					<xsd:element ref="source" maxOccurs="1"
+    						minOccurs="0">
+    					</xsd:element>
+    				</xsd:choice>
+    				<xsd:attribute name="module" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="description"
+    					type="xsd:string">
+    				</xsd:attribute>
+    			</xsd:extension>
+    		</xsd:complexContent>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="source">
+    	<xsd:complexType>
+    		<xsd:sequence>
+    			<xsd:element
+    				name="code"
+    				type="code"
+    				maxOccurs="1"
+    				minOccurs="0">
+    			</xsd:element>
+    			<xsd:element
+    				name="vars"
+    				type="vars"
+    				maxOccurs="1"
+    				minOccurs="0">
+    			</xsd:element>
+    		</xsd:sequence>
+    		<xsd:attribute
+    			name="format"
+    			type="xsd:string">
+    		</xsd:attribute>
+    		<xsd:attribute
+    			name="type"
+    			type="xsd:string">
+    		</xsd:attribute>
+    		<xsd:attribute
+    			name="id"
+    			type="xsd:string">
+    		</xsd:attribute>
+    		<xsd:attribute
+    			name="name"
+    			type="xsd:string">
+    		</xsd:attribute>
+    		<xsd:attribute
+    			name="help"
+    			type="xsd:string">
+    		</xsd:attribute>
+    		<xsd:attribute
+    			name="thumb"
+    			type="xsd:string">
+    		</xsd:attribute>
+    	</xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="operations">
+    	<xsd:sequence>
+    		<xsd:element name="operation" maxOccurs="unbounded"
+    			minOccurs="1">
+    			<xsd:complexType>
+    				<xsd:attribute name="name" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="href" type="xsd:string">
+    				</xsd:attribute>
+    				<xsd:attribute name="type">
+    					<xsd:simpleType>
+    						<xsd:restriction base="xsd:string">
+    							<xsd:enumeration value="create"></xsd:enumeration>
+    							<xsd:enumeration value="config"></xsd:enumeration>
+    							<xsd:enumeration value="more"></xsd:enumeration>
+    						</xsd:restriction>
+    					</xsd:simpleType>
+    				</xsd:attribute>
+    				<xsd:attribute name="target">
+    					<xsd:simpleType>
+    						<xsd:restriction base="xsd:string">
+    							<xsd:enumeration value="_blank"></xsd:enumeration>
+    							<xsd:enumeration value="_self"></xsd:enumeration>
+    							<xsd:enumeration value="_top"></xsd:enumeration>
+    						</xsd:restriction>
+    					</xsd:simpleType>
+    				</xsd:attribute>
+    				<xsd:attribute name="align">
+    					<xsd:simpleType>
+    						<xsd:restriction base="xsd:string">
+    							<xsd:enumeration value="left"></xsd:enumeration>
+    							<xsd:enumeration value="right"></xsd:enumeration>
+    						</xsd:restriction>
+    					</xsd:simpleType>
+    				</xsd:attribute>
+    			</xsd:complexType>
+    		</xsd:element>
+    	</xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

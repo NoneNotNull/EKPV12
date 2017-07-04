@@ -1,0 +1,488 @@
+@CHARSET "UTF-8";
+
+/*** 公用框架 ***
+*********************************************************************************************************************************************************/
+header {
+	width: 100%;
+	height: 78px;
+	border-bottom: 1px solid #8e8f93;
+	background: -webkit-linear-gradient(top, #333b3e 0%, #1d2729 50%, #000 100%)
+		;
+	background: -moz-linear-gradient(top, #333b3e 0%, #1d2729 50%, #000 100%)
+		;
+	background: -o-linear-gradient(top, #333b3e 0%, #1d2729 50%, #000 100%);
+	background: -ms-linear-gradient(top, #333b3e 0%, #1d2729 50%, #000 100%)
+		;
+	background: linear-gradient(top, #333b3e 0%, #1d2729 50%, #000 100%);
+	position: fixed;
+	top: 0;
+	z-index: 5;
+}
+
+footer {
+	width: 100%;
+	height: 50px;
+	background-color: #000;
+	position: fixed;
+	bottom: 0;
+	z-index: 5;
+}
+
+.mbody {
+	padding: 10px 4% 62px;
+	display: none;
+	-moz-transition: visibility 1s ease-out;
+	-webkit-transition: visibility 1s ease-out;
+	-o-transition: visibility 1s ease-out;
+	transition: visibility 1s ease-out;
+}
+
+.textEllipsis {
+	width: 99%;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.active {
+	display: block;
+}
+
+.back {
+	position: fixed;
+	bottom: 20px;
+	left: 4%;
+	z-index: 999;
+	background: url(../images/back.png) no-repeat;
+	width: 25px;
+	height: 25px;
+}
+
+.submit {
+	position: fixed;
+	bottom: 20px;
+	right: 4%;
+	z-index: 999;
+	background: url(../images/back.png) no-repeat;
+	width: 25px;
+	height: 25px;
+}
+
+/*日历首页CSS*/
+.current_left {
+	background: url(../images/current_left_pda.png) no-repeat;
+	padding-left: 3px;
+	height: 28px;
+	width: 50px;
+	float: left;
+}
+
+.current_center {
+	background: url(../images/current_center_pda.png) repeat-x;
+	height: 28px;
+	cursor: pointer;
+	text-align: center
+}
+
+.current_right {
+	background: url(../images/current_right_pda.png) no-repeat top right;
+	padding-right: 3px;
+	height: 28px;
+}
+
+#calendar table td {
+	white-space: nowrap;
+	word-break: keep-all;
+}
+
+#calendar table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.calendarDIV .table {
+	border-collapse: collapse;
+	border: none;
+	width: 100%;
+}
+
+.calendarDIV .table>tbody>tr>td {
+	border: solid #c9d5e5 1px;
+}
+
+.todyaColor {
+	background-color: #EBF8FB !important;
+}
+
+.selectColor {
+	background-color: #0092fa !important;
+	color: #fff !important;
+}
+
+.days {
+	font-size: 14px;
+}
+
+.events {
+	background: url(../images/li_bg_events.png) left bottom no-repeat;
+}
+
+.no_events {
+	
+}
+
+.event_lable_select {
+	font-size: 100%;
+}
+
+.event_lable_unselect {
+	font-size: 100%;
+	opacity: 0.7
+}
+
+.not_month {
+	color: #a7a6a4;
+}
+
+.lui_modules_person_history_ul1 .list_odd,.list_even {
+	height: 50px;
+}
+
+.lui_modules_person_history_ul1 .list_odd {
+	background-color: #fff
+}
+
+.lui_modules_person_history_ul1 .list_even {
+	background-color: #f7f7f7
+}
+
+.lui_modules_person_history_ul1 .list_left {
+	float: left;
+	width: 45px;
+	margin: 15px 5px 0px;
+	height: 17px;
+	line-height: 17px;
+	padding-left: 17px;
+	background: url(../images/calendarListLeft_pda.png) no-repeat;
+	font-size: 11px;
+	color: #fff;
+}
+
+.lui_modules_person_history_ul1 .list_right {
+	float: right;
+	width: 30px;
+	height: 100%;
+	background: url(../images/calendarListRight_pda.png) no-repeat center;
+}
+
+.lui_modules_person_history_ul1 .list_center {
+	line-height: 20px;
+	color: #282828;
+	font-size: 15px;
+	line-height: 16px;
+	padding-top: 15px;
+	overflow: hidden;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.lui_modules_person_history_ul1 .list_person {
+	color:#25A0F7;
+	width: 65px;
+	float: left;
+	font-size: 15px;
+	margin: 15px 5px 0px;
+	height: 17px;
+	line-height: 17px;
+}
+
+.lui_modules_calendar_opt {
+	padding: 10px;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: white;
+}
+
+.lui_modules_calendar_selectDay {
+	float: left;
+}
+
+.lui_modules_calendar_selectDay .day {
+	font-size: 26px;
+}
+
+.lui_modules_calendar_selectDay .yearAndMonth {
+	vertical-align: top;
+}
+
+.lui_modules_calendar_add {
+	float: right;
+	font-size: 18px;
+	border-left: 1px solid #e5e5e5;
+}
+
+.lui_modules_person_calendar_person .prev {
+	background: url(../images/prev_pda.png) no-repeat 50% 50%;
+	height: 36px;
+	width: 20px;
+	float: left;
+}
+
+
+.lui_modules_person_calendar_person .next {
+	background: url(../images/next_pda.png) no-repeat  50% 50%;
+	height: 36px;
+	width: 20px;
+	float: right;
+}
+
+.lui_modules_person_calendar_person .calendar{
+	background: url(../images/calendar_pda.png)  no-repeat;
+	height: 36px;
+	width:47px;
+}
+
+.lui_modules_person_calendar_person .group{
+	background: url(../images/group_pda.png)  no-repeat;
+	height: 36px;
+	width:47px;
+}
+
+.lui_modules_person_calendar_person .today {
+	
+}
+
+.lui_modules_person_calendar_person .ymbg{
+	font-size: 16px;
+	text-align: center;
+	line-height: 36px;
+}
+
+/*查看CSS*/
+#calendarView {
+	border: 1px solid #DEDEDE;
+	border-top: 1px solid #DFDFDF;
+	width: 90%;
+	margin: 20px auto;
+	background-color: white;
+}
+
+#calendarView .calendarHeader {
+	font-size: 16px;
+	font-weight: bold;
+	color: #414141;
+	text-align: center;
+	width: 90%;
+	border-bottom: 1px solid #EEEEEE;
+	margin: 10px auto;
+	padding-bottom: 15px;
+}
+
+#calendarView .back {
+	position: fixed;
+	z-index: 999;
+	top: 40px;
+	left: 30px;
+	background: url(../images/back.png) no-repeat;
+	width: 25px;
+	height: 25px
+}
+
+#calendarView .calendarContent {
+	width: 90%;
+	margin: 0px auto;
+}
+
+#calendarView .calendarContent tr {
+	height: 45px;
+}
+
+#calendarView tr td {
+	color: #555555;
+}
+
+#calendarView .calendarRemind {
+	background-color: #4C4C4C;
+	border: 1px solid #DEDEDE;
+	padding: 10px 0px;
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+}
+
+#calendarView .calendarRemind span {
+	color: white;
+	font-size: 16px;
+	margin: 0px 10px;
+	vertical-align: top;
+	line-height: 26px;
+	height: 26px;
+}
+
+#calendarView .calendarRemind tr td {
+	color: white;
+}
+
+/*编辑CSS*/
+.calendarEdit {
+	padding: 2%;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	border-radius: 2px;
+}
+
+.calendarEdit h2 {
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	font-size: 20px;
+	color: #241b1b;
+}
+
+.calendarEdit .base_info {
+	width: 100%;
+	padding: 5px 0;
+	border-top: 1px solid #e5e5e5;
+}
+
+.calendarEdit .base_info tr td {
+	padding: 10px 0;
+	line-height: 1.2;
+	position: relative;
+}
+
+.calendarEdit .base_info tr td.title {
+	font-size: 14px;
+	color: #808080;
+	text-align: left;
+}
+
+.calendarEdit .base_info tr td.th1 {
+	width: 18%;
+}
+
+@media screen and (max-device-width: 480px) {
+	.calendarEdit .base_info tr td.th1 {
+		width: 25%;
+	}
+}
+
+.calendarEdit .base_info tr td .td_txt {
+	border: 0px solid #d4d4d4;
+	height: 32px;
+	line-height: 32px;
+	padding: 0 2%;
+	width: 90%;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.calendarEdit .base_info tr td strong {
+	font-size: 14px;
+	color: #262626;
+}
+
+.calendarEdit .base_info tr td strong.date {
+	margin-right: 0.5em;
+}
+
+.calendarEdit .base_info tr td a {
+	font-size: 14px;
+	padding-right: 1.5em;
+	color: #262626;
+}
+
+.calendarEdit .base_info tr td.border {
+	border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.calendarEdit .base_info tr td .switchOn {
+	cursor: pointer;
+	background: url(../images/turn_on.png) no-repeat left center;
+	width: 50px;
+	height: 25px;
+}
+
+.calendarEdit .base_info tr td .switchOff {
+	cursor: pointer;
+	background: url(../images/turn_off.png) no-repeat left center;
+	width: 50px;
+	height: 25px;
+}
+
+.calendarEdit .base_info .item_sign {
+	cursor: pointer;
+	position: absolute;
+	right: -0.7em;
+	top: 50%;
+	margin-top: -8px;
+}
+
+.calendarEdit .base_info .item_sign_mtr1 {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-width: 8px 10px;
+	border-style: solid;
+	border-color: transparent transparent transparent #a7a7a7;
+	position: absolute;
+	right: 0px;
+}
+
+.calendarEdit .base_info .item_sign_mtr2 {
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-width: 8px 10px;
+	border-style: solid;
+	border-color: transparent transparent transparent #fff;
+	position: absolute;
+	right: 0.3em;
+}
+
+/*** 列表 ***
+*********************************************************************************************************************************************************/
+.listBox {
+	padding: 2%;
+	border: 1px solid #dbdddc;
+	background-color: #fff;
+	border-radius: 2px;
+}
+
+.listBox li {
+	height: 48px;
+	line-height: 48px;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+}
+
+.listBox li h2 {
+	text-align: center;
+	font-size: 20px;
+	color: #241b1b;
+}
+
+.listBox li .title {
+	width: 100px;
+	font-size: 18px;
+	color: #808080;
+	display: inline-block;
+}
+
+.listBox li .sele {
+	width: 22px;
+	height: 22px;
+	display: none;
+	background: url(../images/icon_sele.png) no-repeat 50% 50%;
+	position: absolute;
+	right: 8px;
+	top: 50%;
+	margin-top: -11px;
+}
+
+.listBox li.on .title {
+	color: #241b1b;
+}
+
+.listBox li.on .sele {
+	display: block;
+}

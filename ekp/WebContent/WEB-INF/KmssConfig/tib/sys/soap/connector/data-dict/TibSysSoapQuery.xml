@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapQuery"
+	messageKey="tib-sys-soap-connector:table.tibSysSoapQuery"
+	serviceBean="tibSysSoapQueryService"
+	table="tib_sys_soap_query"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="docSubject"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docSubject"
+	type="String"
+	column="doc_subject"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="docCreateTime"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docCreateTime"
+	type="DateTime"
+	column="doc_create_time"
+	notNull="false"
+/>
+<simpleProperty
+	name="docInputParam"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docInputParam"
+	type="RTF"
+	column="doc_input_param"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="docOutputParam"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docOutputParam"
+	type="RTF"
+	column="doc_output_param"
+	notNull="false"
+	length="1000000"
+/>
+<simpleProperty
+	name="docFaultInfo"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docFaultInfo"
+	type="RTF"
+	column="doc_fault_info"
+	notNull="false"
+	length="1000000"
+/>
+<modelProperty
+	name="docCreator"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.docCreator"
+	type="com.landray.kmss.sys.organization.model.SysOrgElement"
+	column="doc_creator_id"
+	notNull="false"
+/>
+<modelProperty
+	name="tibSysSoapMain"
+	messageKey="tib-sys-soap-connector:tibSysSoapQuery.tibSysSoapMain"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapMain"
+	column="tib_sys_soap_main"
+	notNull="false"
+/>
+</model></models>

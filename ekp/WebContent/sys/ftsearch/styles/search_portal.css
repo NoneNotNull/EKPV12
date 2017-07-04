@@ -1,0 +1,7 @@
+
+/*** 门户头部搜索内容 **********************************************************************************************************************************************/
+.search_include{ height:26px;}
+.search_portal{padding-top:6px;}
+.search_portal_input{ width:190px; height:26px; color:#b6b6b6; line-height:26px; border:0px; padding-left:5px; }
+.search_portal_btn{ background:url(images/search_portal_btn_bg.png) repeat-x left top; height:26px; line-height:26px; color:#fff; border:0px; padding:0px 5px; cursor:pointer; margin:0px; }
+.search_portal_a{ color:#fff; text-decoration:underline; height:26px; line-height:30px;}

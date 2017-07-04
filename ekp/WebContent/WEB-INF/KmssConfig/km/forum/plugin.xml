@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+	xmlns="http://www.example.org/plugin-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/plugin-config ../../plugin.xsd ">
+		<extension
+		point="com.landray.kmss.sys.admin.transfer">
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.km.forum.transfer.KmForumTransferTask" />
+			<param
+				name="name"
+				value="论坛管理数据迁移" />
+			<param
+				name="path"
+				value="/km/forum/" />
+			<param
+				name="check"
+				value="com.landray.kmss.km.forum.transfer.KmForumTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.km.forum.transfer.KmForumTransferTask" />
+			<param
+				name="description"
+				value="把老版本的发文数拆分为：发帖数和回帖数，故对当前数据库中的发帖和回帖进行重新计算" />
+		</item>
+		<item
+			name="config">
+			<param
+				name="unid"
+				value="com.landray.kmss.km.forum.transfer.KmForumPraiseTransferTask" />
+			<param
+				name="name"
+				value="论坛点赞数据迁移" />
+			<param
+				name="path"
+				value="/km/forum/" />
+			<param
+				name="check"
+				value="com.landray.kmss.km.forum.transfer.KmForumPraiseTransferChecker" />
+			<param
+				name="upgrade"
+				value="com.landray.kmss.km.forum.transfer.KmForumPraiseTransferTask" />
+			<param
+				name="description"
+				value="把点赞的数据迁移到点赞机制中去" />
+		</item>
+	</extension>
+	
+		
+	<extension point="com.landray.kmss.sys.mobile.config">
+		<item name="info">
+			<param name="name" value="{km-forum:module.km.forum}" />
+			<param name="modelName" value="com.landray.kmss.km.forum.model.KmForumTopic" />
+		</item>
+	</extension>
+	
+	<extension	point="com.landray.kmss.km.keydata"	model="*" >
+		<item
+			name="showKeydataUsed">
+			<param
+				name="name"
+				value="论坛管理" />
+			<param
+				name="actionUrl"
+				value="/km/forum/showKeydataUsed.jsp?keydataId=${keydataId}" />
+			<param
+				name="formName"
+				value="kmForumPostForm" />
+		</item>
+	</extension>
+	
+	<extension point="com.landray.kmss.sys.mobile.compress" model="*">
+		<item 
+			name="js-pkg">
+			<param 
+				name="name" 
+				value="mui-forum.js" />
+			<param 
+				name="targetFile" 
+				value="/km/forum/mobile/resource/js/mui-forum.js" />
+			<param 
+				name="srcFold" 
+				value="/km/forum/mobile/resource/js" />
+		</item>
+		<item 
+			name="css-file">
+			<param 
+				name="name" 
+				value="forum.css" />
+			<param 
+				name="targetFile" 
+				value="/km/forum/mobile/resource/css/forum.css" />
+		</item>
+	</extension>
+	
+</plugin>

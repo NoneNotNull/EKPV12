@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" 
+	xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+	<assembly id="panel" name="单标签面板" category="门户部件" help="/sys/ui/help/panel/panel-index.jsp" />
+
+	<assembly id="tabpanel" name="多标签面板" category="门户部件" help="/sys/ui/help/panel/tabpanel-index.jsp" />
+
+	<assembly id="tabpage" name="三级页面布局" category="通用部件" help="/sys/ui/help/panel/tabpage-index.jsp" />
+
+	<assembly id="accordionpanel" name="可折叠面板" category="通用部件" help="/sys/ui/help/panel/accordionpanel-index.jsp" />
+
+	<assembly id="dataview" category="门户部件" name="数据视图" help="/sys/ui/help/dataview/index.jsp" />
+
+	<assembly id="listview" category="数据查询" name="列表视图" help="/sys/ui/help/listview/index.jsp" />
+
+	<assembly id="popup" category="通用部件" name="弹出层" help="/sys/ui/help/popup/index.jsp" />
+
+	<assembly id="criteria" category="数据查询" name="筛选器" help="/sys/ui/help/criteria/index.jsp" />
+
+	<assembly id="dialog" category="通用部件" name="弹出框" thumb="/sys/ui/help/dialog/thumb.jpg" help="/sys/ui/help/dialog/index.jsp" />
+
+	<assembly id="toolbar" category="通用部件" name="工具栏" thumb="/sys/ui/help/toolbar/toolbar.jpg" help="/sys/ui/help/toolbar/index.jsp" />
+
+	<assembly id="menu" category="通用部件" name="菜单" thumb="/sys/ui/help/menu/menu.jpg" help="/sys/ui/help/menu/index.jsp" />
+</root>

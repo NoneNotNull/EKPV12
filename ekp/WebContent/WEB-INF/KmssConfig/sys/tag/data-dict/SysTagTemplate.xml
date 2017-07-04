@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagTemplate"
+		messageKey="sys-tag:table.sysTagTemplate"
+		displayProperty="fdTagNames"
+		serviceBean="sysTagTemplateService"
+		table="sys_tag_template">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdModelName"
+			messageKey="sys-tag:sysTagTemplate.fdModelName"
+			type="String"
+			column="fd_model_name"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdModelId"
+			messageKey="sys-tag:sysTagTemplate.fdModelId"
+			type="String"
+			column="fd_model_id"
+			notNull="false"
+			length="36" />
+		<simpleProperty
+			name="fdKey"
+			messageKey="sys-tag:sysTagTemplate.fdKey"
+			type="String"
+			column="fd_key"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdTagNames"
+			messageKey=""
+			type="String"
+			column="fd_tag_names"
+			notNull="false"
+			length="200" />
+		<simpleProperty
+			name="fdTagIds"
+			messageKey=""
+			type="String"
+			column="fd_tag_ids"
+			notNull="false"
+			length="500" />
+	</model>
+</models>

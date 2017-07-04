@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<column-enums>
+	<type
+		name="kmsKmapsAuthorType" default-value="1">
+		<value-label>
+			<value>1</value>
+			<label-key>kmsKmapsMain.innerAuthor</label-key>
+			<bundle>kms-kmaps</bundle>
+		</value-label>
+		<value-label>
+			<value>2</value>
+			<label-key>kmsKmapsMain.outerAuthor</label-key>
+			<bundle>kms-kmaps</bundle>
+		</value-label>
+	</type>
+	 
+</column-enums>

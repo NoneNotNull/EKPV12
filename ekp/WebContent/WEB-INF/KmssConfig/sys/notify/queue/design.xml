@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../design.xsd ">
+
+	<!-- 消息队列任务调度器 -->
+	<quartz
+		messageKey="sys-notify:notifyQueue.notifyQueueExecuteDispatcher"
+		jobService="notifyQueueExecuteService"
+		jobMethod="run"
+		cronExpression="0 0 * * * ?" />
+
+	<!--消息发送出错通知指定人 -->
+	<quartz
+		messageKey="sys-notify:sysNotifyQueueError.runErrorNotify"
+		jobService="sysNotifyQueueErrorService"
+		jobMethod="addRunErrorNotify"
+		cronExpression="0 0/60 * * * ?" />
+	 
+	 
+	<!-- 消息发送出错重复执行 -->
+	<quartz
+		messageKey="sys-notify:sysNotifyQueueError.runErrorQueue"
+		jobService="sysNotifyQueueErrorService"
+		jobMethod="updateRunErrorQueue"
+		cronExpression="0 0/10 * * * ?" />
+</configs>

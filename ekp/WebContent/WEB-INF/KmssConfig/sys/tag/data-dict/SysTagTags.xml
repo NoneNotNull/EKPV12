@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.tag.model.SysTagTags"
+		messageKey="sys-tag:table.sysTagTags"
+		displayProperty="fdName"
+		serviceBean="sysTagTagsService"
+		url="/sys/tag/sys_tag_tags/sysTagTags.do?method=view&amp;fdId=${fdId}"
+		table="sys_tag_tags">
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+		<simpleProperty
+			name="fdName"
+			messageKey="sys-tag:sysTagTags.fdName"
+			type="String"
+			column="fd_name"
+			notNull="true"
+			canSearch="true"
+			canDisplay="true"
+			length="200" />
+		<simpleProperty
+			name="fdMainTagId"
+			messageKey="sys-tag:sysTagTags.fdMainTagId"
+			type="String"
+			column="fd_main_tag_id"
+			notNull="false"
+			canDisplay="false"
+			length="36" />
+		<simpleProperty
+			name="fdStatus"
+			messageKey="sys-tag:sysTagTags.fdStatus"
+			type="Integer"
+			column="fd_status"
+			notNull="true"
+			canDisplay="false"	
+			length="1" />
+		<simpleProperty
+			name="fdQuoteTimes"
+			messageKey="sys-tag:sysTagTags.fdQuoteTimes"
+			type="Integer"
+			column="fd_quote_times"
+			canDisplay="false"	
+			notNull="false"
+			length="19" />
+		<simpleProperty
+			name="fdCountQuoteTimes"
+			messageKey="sys-tag:sysTagTags.fdCountQuoteTimes"
+			type="Integer"
+			column="fd_count_quote_times"
+			notNull="false"
+			canDisplay="false"	
+			length="19" />
+		<modelProperty
+			name="fdCategory"
+			messageKey="sys-tag:sysTagTags.fdCategoryId"
+			type="com.landray.kmss.sys.tag.model.SysTagCategory"
+			column="fd_category_id"
+			canDisplay="true"	
+			canSearch="true"	
+			notNull="false"
+			dialogJS="Dialog_List(!{mulSelect},'!{idField}','!{nameField}',';','sysTagCategorTreeService')" />
+		<modelProperty
+			name="docCreator"
+			messageKey="sys-tag:sysTagTags.docCreatorId"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="doc_creator_id"
+			canSearch="true"
+			canDisplay="false"	
+			notNull="false" 
+			dialogJS="Dialog_Address(true,'!{idField}','!{nameField}',';',ORG_TYPE_PERSON)"/>
+		<simpleProperty
+			name="docCreateTime"
+			messageKey="sys-tag:sysTagTags.docCreateTime"
+			type="DateTime"
+			column="doc_create_time"
+			canSearch="true"
+			canDisplay="false"
+			notNull="false" />	
+		<simpleProperty
+			name="fdIsPrivate"
+			messageKey="sys-tag:sysTagTags.fdIsPrivate"
+			type="Integer"
+			column="fd_is_private"
+			canSearch="true"
+			canDisplay="true"
+			notNull="true"
+			enumType="sysTagTags_YesOrNo"
+			/>		
+		<listProperty
+			name="hbmAlias"
+			messageKey="sys-tag:sysTagTags.fdAlias"
+			column="fd_main_tag_id"
+			type="com.landray.kmss.sys.tag.model.SysTagTags"
+			inverse="true" 
+			canDisplay="false"/>
+	</model>
+</models>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+	<model
+		modelName="com.landray.kmss.sys.authorization.model.SysAuthDefaultArea"
+		messageKey="sys-authorization:table.sysAuthDefaultArea"
+		displayProperty="fdAreaId"
+		serviceBean="sysAuthDefaultAreaService"
+		table="sys_auth_default_area"
+		url="/sys/authorization/sys_auth_default_area/sysAuthDefaultArea.do?method=view&amp;fdId=${fdId}">
+
+		<idProperty>
+			<generator
+				type="assigned" />
+		</idProperty>
+
+		<modelProperty
+			name="authArea"
+			messageKey="sys-authorization:sysAuthDefaultArea.authArea"
+			type="com.landray.kmss.sys.authorization.model.SysAuthArea"
+			column="fd_area_id"
+			notNull="true"
+			validate="false" />
+			
+		<modelProperty
+			name="loginUser"
+			messageKey="sys-authorization:sysAuthDefaultArea.loginUser"
+			type="com.landray.kmss.sys.organization.model.SysOrgPerson"
+			column="fd_org_id"
+			notNull="true"
+			validate="false" />			
+
+	</model>
+</models>

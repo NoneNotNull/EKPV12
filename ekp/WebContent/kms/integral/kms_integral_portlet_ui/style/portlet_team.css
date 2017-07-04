@@ -1,0 +1,57 @@
+.lui_score_tb 	tr th {
+	height: 30px;
+	line-height: 30px;
+	/*border: 1px solid #97bcd6;*/
+	background: #eff2f7;
+	text-align: center;
+}
+.lui_score_tb tr td{
+	padding: 7px 0px;
+}
+.lui_score_num {
+	text-align: center;
+	font-size:14px;
+	color:#83c7f6;
+}
+.lui_score_pre {
+	color: #f30;
+}
+.lui_score_center {
+	text-align: center;
+	
+}
+.lui_score_pre_1 .lui_score_num_flag {
+	background: url(../style/images/rank_1.png) no-repeat ;
+}
+.lui_score_pre_2 .lui_score_num_flag {
+	background: url(../style/images/rank_2.png) no-repeat ;
+}
+.lui_score_pre_3 .lui_score_num_flag {
+	background: url(../style/images/rank_3.png) no-repeat ;
+}
+.lui_score_pre_1 .lui_score_num_flag, .lui_score_pre_2 .lui_score_num_flag, .lui_score_pre_3 .lui_score_num_flag {
+	display:inline-block;
+	width:14px;
+	height:20px;
+	color: #ffffff;
+	font-weight: bold;
+}
+.lui_score_dynamic_up {
+	width:8px;
+	height:8px;
+	display:inline-block;
+	background: url(../style/images/arrow_up.png) no-repeat ;
+}
+.lui_score_dynamic_down {
+	width:8px;
+	height:8px;
+	display:inline-block;
+	background: url(../style/images/arrow_down.png) no-repeat ;
+}
+.lui_score_top3>.lui_score_name, .lui_score_top3>.lui_score_score, .lui_score_top3>.lui_score_piece{
+	font-size:14px; 
+	color:#2c2c2c;
+}
+.lui_score_top_common>.lui_score_name, .lui_score_top_common>.lui_score_piece{
+	color:#4b4b4b;
+}

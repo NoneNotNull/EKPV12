@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns="http://www.landray.com.cn/schema/lui" xmlns:degign="http://www.landray.com.cn/schema/design"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.landray.com.cn/schema/lui
+	../../../sys/ui/lui.xsd
+	http://www.landray.com.cn/schema/design
+	../../../design-xml.xsd">
+<portlet
+		id="km.review.all"
+		name="{km-review:kmReviewMain.portlet.myFlow.all}"
+		module="{km-review:module.km.review}"
+		description="{portlet.list.desc2}">
+		<source
+			format="sys.ui.listtable"
+			type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/review/km_review_main/kmReviewMainPortlet.do?method=listPortlet&myFlow=all&fdCategoryId=!{cateid}&rowsize=!{rowsize}&scope=!{scope}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+		   <var name="{km-review:kmReviewMain.docPublishTime}" key="scope" kind="enumValue" default="no">
+                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+                   "showType":"radio"
+                  }
+            </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		    <var
+				name="{portlet.cate}"
+				key="cateid"
+				kind="sys.category">
+				{"model":"com.landray.kmss.km.review.model.KmReviewTemplate","name":"{button.select}"}
+			</var>
+		</vars>
+		<operations>
+		   <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/review/km_review_main/kmReviewMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/review/?categoryId=!{cateid}" />
+	    </operations>
+</portlet>
+<portlet
+		id="km.review.myFlow"
+		name="{km-review:kmReviewMain.portlet.myFlow.involved}"
+		module="{km-review:module.km.review}"
+		description="{portlet.list.desc2}">
+		<source
+			format="sys.ui.listtable"
+			type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/review/km_review_main/kmReviewMainPortlet.do?method=listPortlet&rowsize=!{rowsize}&myFlow=!{myFlow}&scope=!{scope}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+		   <var name="{km-review:kmReviewMain.docCreateTime}" key="scope" kind="enumValue" default="no">
+                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+                   "showType":"radio"
+                  }
+            </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize" />
+		    <var name="{km-review:kmReviewMain.portlet.myFlow.involved}" key="myFlow" kind="enumValue" default="unExecuted">
+			  {    "values":[{ "text":"{km-review:kmReviewMain.approval.my}", "value":"unExecuted" },{ "text":"{km-review:kmReviewMain.approved.my}", "value":"executed" }],
+	               "showType":"radio"
+                }
+			</var>
+		</vars>
+		<operations>
+		   <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/review/km_review_main/kmReviewMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/review/?categoryId=!{cateid}" />
+			
+	    </operations>
+</portlet>
+<portlet
+		id="km.review.myFlow.approval"
+		name="{km-review:kmReviewMain.portlet.myFlow.create.my}"
+		module="{km-review:module.km.review}"
+		description="{portlet.list.desc2}">
+		<source
+			format="sys.ui.listtable"
+			type="AjaxJson">
+			<code>
+			<![CDATA[
+				{
+					"url":"/km/review/km_review_main/kmReviewMainPortlet.do?method=listPortlet&owner=true&status=!{status}&rowsize=!{rowsize}&scope=!{scope}"
+				}
+			]]>
+			</code>
+		</source>
+		<vars>
+		   <var name="{km-review:kmReviewMain.docCreateTime}" key="scope" kind="enumValue" default="no">
+                 {  "values":[{ "text":"{portlet.var.date.oneMonth}", "value":"month"},
+                              { "text":"{portlet.var.date.threeMonths}", "value":"season"},
+                              { "text":"{portlet.var.date.halfAYear}", "value":"halfYear"},
+                              { "text":"{portlet.var.date.oneYear}", "value":"year"},
+                              { "text":"{portlet.var.date.unlimited}", "value":"no"}],
+                   "showType":"radio"
+                  }
+            </var>
+		    <var name="{portlet.rowsize}" key="rowsize" kind="rowsize"/>
+		     <var name="{km-review:kmReviewMain.portlet.myFlow.create.my}" key="status" kind="enumValue" default="all">
+			  {    "values":[{ "text":"{km-review:kmReviewMain.portlet.status.approval}", "value":"20" },{ "text":"{km-review:kmReviewMain.portlet.status.approved}", "value":"30" },{ "text":"{km-review:kmReviewMain.portlet.status.draft}", "value":"10" },{ "text":"{km-review:kmReviewMain.portlet.status.all}", "value":"all" }],
+	               "showType":"radio"
+                }
+			</var>
+		</vars>
+		<operations>
+		    <operation
+				name="{operation.create}"
+				type="create"
+				href="/km/review/km_review_main/kmReviewMain.do?method=add" />
+			<operation
+				name="{operation.more}"
+				type="more"
+				href="/km/review/" />
+	    </operations>
+</portlet>
+</root>

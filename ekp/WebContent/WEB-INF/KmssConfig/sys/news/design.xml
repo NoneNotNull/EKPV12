@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configs
+	xmlns="http://www.example.org/design-config"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/design-config ../../design.xsd ">
+	<module
+		messageKey="sys-news:module.sys.news"
+		urlPrefix="/sys/news/"
+		defaultValidator="roleValidator(role=ROLE_SYSNEWS_DEFAULT)">
+		<roles>
+			ROLE_SYSNEWS_DEFAULT;ROLE_SYSNEWS_COMMONWORKFLOW;
+			ROLE_SYSNEWS_EVALUATE_CREATE;
+		</roles>
+		<areaRoles>
+			ROLE_SYSNEWS_CREATE;
+			ROLE_SYSNEWS_READER; ROLE_SYSNEWS_EDITOR;
+			ROLE_SYSNEWS_DELETE;
+			ROLE_SYSNEWS_EVALUATE_DELETE;
+			ROLE_SYSNEWS_VIEWDISPLY;
+			ROLE_SYSNEWS_CHANGECATE;
+			ROLE_SYSNEWS_ISSUENEWS;
+			ROLE_SYSNEWS_CATEGORY_MAINTAINER;ROLE_SYSNEWS_CHANGERIGHT;
+			ROLE_SYSNEWS_OPTALL
+		</areaRoles>	
+		
+		<!-- 模板设置权限 -->
+		<request
+			path="sys_news_template/sysNewsTemplate*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.news.model.SysNewsTemplate,adminRoleName=ROLE_SYSNEWS_CATEGORY_MAINTAINER">
+			<!-- 新建 -->
+			<query
+				queryString="method=add"
+				validator="sysSimpleCategoryEditorValidator(recid=parentId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="sysSimpleCategoryReaderValidator()" />
+			<!-- 编辑和删除 -->
+			<query
+				queryString="method=edit|update|delete"
+				validator="sysSimpleCategoryEditorValidator()" />
+			<!-- 复制 -->
+			<query
+				queryString="method=copy"
+				validator="sysSimpleCategoryEditorValidator(recid=fdCopyId)" />
+		</request>
+		<!-- 新闻文档设置权限 -->
+		<request
+			path="sys_news_main/sysNewsMain*"
+			validatorParameter="recid=fdId,model=com.landray.kmss.sys.news.model.SysNewsMain,
+			cateModel=com.landray.kmss.sys.news.model.SysNewsTemplate,adminRoleName=ROLE_SYSNEWS_CATEGORY_MAINTAINER">
+			<!-- 新增 -->
+			<query
+				queryString="method=add&amp;fdTemplateId=*"
+				validator="areaRoleValidator(role=ROLE_SYSNEWS_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdTemplateId)" />
+			<!-- 保存 -->
+			<query
+				queryString="method=save|saveadd"
+				validator="areaRoleValidator(role=ROLE_SYSNEWS_CREATE)&amp;authSimpleCategoryReaderValidator(cateId=fdTemplateId)" />
+			<!-- 阅读 -->
+			<query
+				queryString="method=view"
+				validator="authFieldValidator(type=SYS_READER)|authSimpleCategoryEditorValidator(property=fdTemplate)" />
+			<!-- 编辑、更新 -->
+			<query
+				queryString="method=edit|update"
+				validator="authFieldValidator(type=SYS_EDITOR)|fieldValueValidator(fieldproperty=docStatus,value=30;40)&amp;areaRoleValidator(role=ROLE_SYSNEWS_EDITOR)&amp;[areaRoleValidator(role=ROLE_SYSNEWS_OPTALL)|areaRoleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(property=fdTemplate)]" />
+			<!-- 删除 -->
+			<query
+				queryString="method=delete"
+				validator="fieldValueValidator(fieldproperty=docStatus,value=10)&amp;authFieldValidator(type=creator)|areaRoleValidator(role=ROLE_SYSNEWS_DELETE)&amp;[areaRoleValidator(role=ROLE_SYSNEWS_OPTALL)|areaRoleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(property=fdTemplate)]" />
+			<!-- 删除所有草稿视图 -->
+			<query
+				queryString="method=deleteall&amp;status=10"
+				validator="areaRoleValidator(role=ROLE_SYSNEWS_DEFAULT)" />
+			<!-- 删除所有其他视图 -->
+			<query
+				queryString="method=deleteall"
+				validator="roleValidator(role=ROLE_SYSNEWS_DELETE)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|roleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(cateId=categoryId)]" />
+			<!-- “取消置顶”按钮在置顶文档树的显示及操作权限 -->
+			<query
+				queryString="method=setTop&amp;top=true"
+				validator="roleValidator(role=ROLE_SYSNEWS_VIEWDISPLY)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|roleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)]" />
+			<!-- 置顶和取消置顶 -->
+			<query
+				queryString="method=setTop"
+				validator="roleValidator(role=ROLE_SYSNEWS_VIEWDISPLY)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|roleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(cateId=categoryId)]" />
+			<!-- 取消/重新发布 -->
+			<query
+				queryString="method=setPublish"
+				validator="roleValidator(role=ROLE_SYSNEWS_ISSUENEWS)" />
+			<!-- 转移分类-->
+			<query
+				queryString="method=cateChgEdit"
+				validator="roleValidator(role=ROLE_SYSNEWS_CHANGECATE)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|roleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)|authSimpleCategoryEditorValidator(cateId=categoryId)]" />
+			<!-- 维护界面 -->
+			<query
+				queryString="method=manageList"
+				validator="authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)" />
+			<!-- 权限变更 -->
+			<query
+				queryString="method=docRightEdit"
+				validator="areaRoleValidator(role=ROLE_SYSNEWS_CHANGERIGHT)&amp;[areaRoleValidator(role=ROLE_SYSNEWS_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)]" />
+		</request>
+		<filters
+			modelName="com.landray.kmss.sys.news.model.SysNewsMain">
+			<filter
+				type="creator"
+				expression="authFieldFilter(field=docCreator.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="roleFilter(role=ROLE_SYSNEWS_READER)" />
+			<filter
+				type="SYS_READER"
+				expression="authFieldFilter(field=authAllReaders.fdId)" />
+			<filter
+				type="SYS_READER"
+				expression="flagFieldFilter(field=authReaderFlag,value=1)" />
+			<filter
+				type="SYS_EDITOR"
+				expression="authFieldFilter(field=authAllEditors.fdId)" />
+		</filters>
+	</module>
+	<!-- 通用流程模板设置权限 -->
+	<module urlPrefix="/sys/workflow/">
+		<request path="sys_wf_common_template/sysWfCommonTemplate*">
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.news.model.SysNewsTemplate"
+				validator="roleValidator(role=ROLE_SYSNEWS_COMMONWORKFLOW)" />
+		</request>
+	</module>
+	<!-- 转移分类权限 -->
+	<module urlPrefix="/sys/sc/">
+		<request path="cateChg*">
+			<query
+				queryString="method=cateChgEdit&amp;cateModelName=com.landray.kmss.sys.news.model.SysNewsTemplate"
+				validator="roleValidator(role=ROLE_SYSNEWS_CHANGECATE)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.sys.news.model.SysNewsTemplate,role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)]" />
+		</request>
+	</module>
+	<!-- 文档视图列表批量修改权限 -->
+	<module urlPrefix="/sys/right/">
+		<request path="rightDocChange*">
+			<query
+				queryString="method=docRightEdit&amp;modelName=com.landray.kmss.sys.news.model.SysNewsMain"
+				validator="roleValidator(role=ROLE_SYSNEWS_CHANGERIGHT)&amp;[roleValidator(role=ROLE_SYSNEWS_OPTALL)|authSimpleCategoryEditorValidator(cateId=categoryId,cateModel=com.landray.kmss.sys.news.model.SysNewsTemplate,role=ROLE_SYSNEWS_CATEGORY_MAINTAINER)]" />
+		</request>
+	</module>
+	<!-- 点评权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/evaluation/">
+		<request 
+			path="sys_evaluation_main/sysEvaluationMain*">
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.news.model.SysNewsMain&amp;method=add|save|saveadd"
+				validator="roleValidator(role=ROLE_SYSNEWS_EVALUATE_CREATE)&amp;fieldValueValidator(recid=fdModelId,model=com.landray.kmss.sys.news.model.SysNewsMain,fieldproperty=docStatus,value=30)" />
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.news.model.SysNewsMain&amp;method=delete"
+				validator="areaRoleValidator(role=ROLE_SYSNEWS_EVALUATE_DELETE,recid=fdModelId,model=com.landray.kmss.sys.news.model.SysNewsMain)&amp;[areaRoleValidator(role=ROLE_SYSNEWS_OPTALL,recid=fdModelId,model=com.landray.kmss.sys.news.model.SysNewsMain)|areaRoleValidator(role=ROLE_SYSNEWS_CATEGORY_MAINTAINER,recid=fdModelId,model=com.landray.kmss.sys.news.model.SysNewsMain)|authSimpleCategoryEditorValidator(recid=fdModelId,model=com.landray.kmss.sys.news.model.SysNewsMain,property=fdTemplate)]" />
+			<query
+				queryString="fdModelName=com.landray.kmss.sys.news.model.SysNewsMain"
+				validator="roleValidator(role=ROLE_SYSNEWS_DEFAULT)" />
+		</request>
+	</module>
+	<!-- 搜索权限 -->
+	<module
+		messageKey=""
+		urlPrefix="/sys/ftsearch/">
+		<request path="searchBuilder*">
+			<query
+				queryString="modelName=com.landray.kmss.sys.news.model.SysNewsMain"
+				validator="roleValidator(role=ROLE_SYSNEWS_DEFAULT)" />
+		</request>
+	</module>
+
+	<quartz
+		messageKey="sys-news:sysNewsJob.job.checkPeriodValidity"
+		jobService="sysNewsMainService"
+		cronExpression="1 0 0 ? * *"
+		jobMethod="updateTopAgent" />
+	<search
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		messageKey="sys-news:table.sysNewsMainSearch"
+		resultUrl="/sys/news/sys_news_main/sysNewsMain.do?method=result" />
+	<!-- 全文搜索 -->
+	<ftSearch
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		boost="2.0"
+		timeField="fdLastModifiedTime">
+		<luceneField
+			name="subject"
+			property="docSubject"
+			type="Text" />
+		<luceneField
+			name="content"
+			property="docContent"
+			type="text" />
+		<luceneField
+            name="category"
+            property="fdTemplate.fdHierarchyId"
+            type="Text" />
+		<luceneField
+			name="creator"
+			property="docCreator.fdName"
+			type="text" /><!-- 从keyword改为text，这样才能被检索的普通搜索，搜索到-->
+		<luceneField
+			name="createTime"
+			property="docCreateTime"
+			type="keyword" />
+		<!-- list 类型要用 ":" -->
+		<luceneField
+			name="keyword"
+			property="docKeyword:docKeyword"
+			type="text" />
+		<luceneField
+			name="keyword"
+			property="sysTagMain"			
+			property-value-getter="com.landray.kmss.sys.ftsearch.util.TagFullTextPropertyGetter"
+			type="text" />
+	</ftSearch>
+	<!-- 订阅机制 -->
+	<subscribe
+		messageKey="sys-news:news.tree.title"
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		timeField="docPublishTime"
+		whereBlock="sysNewsMain.docStatus='30'"
+		replaceKey="sys-news:sysNewsMain.fdAuthorId;sys-news:sysNewsMain.docSubject" />
+	<relation
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		messageKey="sys-news:news.tree.title" />
+	<treeNodes type="myjob">
+		<treeNode messageKey="sys-news:news.tree.myJob.title">
+			<treeNode
+				messageKey="sys-news:news.tree.myNews"
+				url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=all">
+				<treeNode
+					messageKey="status.discard"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=00">
+				</treeNode>
+				<treeNode
+					messageKey="status.draft"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=10">
+				</treeNode>
+				<treeNode
+					messageKey="status.refuse"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=11">
+				</treeNode>
+				<treeNode
+					messageKey="status.examine"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=20">
+				</treeNode>
+				<treeNode
+					messageKey="status.publish"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=30">
+				</treeNode>
+			</treeNode>
+			<treeNode messageKey="sys-news:news.tree.examine">
+				<treeNode
+					messageKey="sys-news:news.tree.owner.unexamine"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;myflow=0">
+				</treeNode>
+				<treeNode
+					messageKey="sys-news:news.tree.owner.eximaned"
+					url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;myflow=1">
+				</treeNode>
+			</treeNode>
+		</treeNode>
+	</treeNodes>
+	<treeNodes type="draft">
+		<treeNode
+			messageKey="sys-news:news.tree.darft.title"
+			url="/sys/news/sys_news_main/sysNewsMain.do?method=list&amp;mydoc=true&amp;status=10">
+		</treeNode>
+	</treeNodes>
+	<treeNodes type="config">
+		<treeNode messageKey="sys-news:news.tree.title">
+			<treeNode
+				messageKey="sys-news:news.category.set"
+				url="/sys/simplecategory/sys_simple_category/sysCategoryMain_tree.jsp?modelName=com.landray.kmss.sys.news.model.SysNewsTemplate&amp;actionUrl=/sys/news/sys_news_template/sysNewsTemplate.do&amp;formName=sysNewsTemplateForm&amp;mainModelName=com.landray.kmss.sys.news.model.SysNewsMain&amp;docFkName=fdTemplate" />
+		</treeNode>	
+	</treeNodes>
+	<homePage
+		urlPrefix="sys/news"
+		url="/sys/news/index.jsp"
+		messageKey="sys-news:news.moduleName"
+		config="/moduleindex_notopic.jsp?nav=/sys/news/tree.jsp" />
+	<flowDef
+		modelName="com.landray.kmss.sys.news.model.SysNewsMain"
+		templateModelName="com.landray.kmss.sys.news.model.SysNewsTemplate"
+		key="newsMainDoc"
+		templatePropertyName="fdTemplate"
+		moduleMessageKey="sys-news:news.moduleName"
+		type="oa" />
+</configs>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<models xmlns="http://www.example.org/design-config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/design-config ../../../data-dict.xsd ">
+<model
+	modelName="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapCategory"
+	messageKey="tib-sys-soap-connector:table.tibSysSoapCategory"
+	displayProperty="fdName"
+	serviceBean="tibSysSoapCategoryService"
+	table="tib_sys_soap_category"
+>
+<idProperty><generator
+	type="assigned"
+/></idProperty>
+<simpleProperty
+	name="fdName"
+	messageKey="tib-sys-soap-connector:tibSysSoapCategory.fdName"
+	type="String"
+	column="fd_name"
+	notNull="true"
+	length="200"
+/>
+<simpleProperty
+	name="fdOrder"
+	messageKey="tib-sys-soap-connector:tibSysSoapCategory.fdOrder"
+	type="Integer"
+	column="fd_order"
+	notNull="false"
+	length="10"
+/>
+<simpleProperty
+	name="fdHierarchyId"
+	messageKey="tib-sys-soap-connector:tibSysSoapCategory.fdHierarchyId"
+	type="String"
+	column="fd_hierarchy_id"
+	notNull="false"
+	length="1000"
+/>
+<modelProperty
+	name="hbmParent"
+	messageKey="tib-sys-soap-connector:tibSysSoapCategory.hbmParent"
+	type="com.landray.kmss.tib.sys.soap.connector.model.TibSysSoapCategory"
+	column="fd_parent_id"
+	notNull="false"
+/>
+</model></models>

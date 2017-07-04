@@ -1,0 +1,80 @@
+var showTitle = layout.tabpanel.vars.showTitle;
+showTitle = (showTitle==null || showTitle=='true');
+var v_width = (layout.tabpanel.vars.width || "1").split(":");
+var i;
+for(i=0; i<v_width.length; i++){
+	v_width[i] = parseInt(v_width[i]);
+	if(isNaN(v_width[i])){
+		v_width = [1];
+		break;
+	}
+}
+var width = [], size = 0, n = 0;
+for(i=0; i<layout.tabpanel.contents.length; i++){
+	if(n == v_width.length)
+		n = 0;
+	width.push(v_width[n]);
+	size += v_width[n];
+	n++;
+}
+
+{$
+	<div class="lui_tabpanel_border_frame">
+		<div class="lui_tabpanel_border_header_l">
+			<div class="lui_tabpanel_border_header_r">
+				<div class="lui_tabpanel_border_header_c">
+				</div>
+			</div>
+		</div>
+		<div class="lui_tabpanel_border_middle_l">
+			<div class="lui_tabpanel_border_middle_r">
+				<div class="lui_tabpanel_border_middle_c clearfloat">
+$}
+	for(i=0; i<layout.tabpanel.contents.length; i++){
+{$
+					<div style="width:{% (Math.floor(1000/size*width[i])-1)/10.0 %}%; float:left;" onmouseover="this.className='lui_tabpanel_border_content_over';" onmouseout="this.className='';">
+						<div class="lui_tabpanel_border_space{% i==0?'_first':'' %}">
+$}
+		if(showTitle){
+{$
+							<div class="lui_tabpanel_border_title_l">
+								<div class="lui_tabpanel_border_title_r">
+									<div class="lui_tabpanel_border_title_c">
+										{% env.fn.formatText(layout.tabpanel.contents[i].title) %}
+									</div>
+								</div>
+							</div>
+$}
+		}
+{$
+							<div class="lui_tabpanel_border_content_l">
+								<div class="lui_tabpanel_border_content_r">
+									<div class="lui_tabpanel_border_content_c" data-lui-mark="panel.content">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+$}
+	}
+{$
+				</div>
+			</div>
+		</div>
+		<div class="lui_tabpanel_border_footer_l">
+			<div class="lui_tabpanel_border_footer_r">
+				<div class="lui_tabpanel_border_footer_c">
+				</div>
+			</div>
+		</div>
+	</div>
+$}
+function indexChanged(evt){
+	evt.cancel = true;
+	for(var i=0;i<layout.tabpanel.contents.length;i++){
+		layout.tabpanel.contentsNode[i].show();
+		layout.tabpanel.contents[i].load();
+	}
+}
+layout.tabpanel.on("indexChanged", indexChanged);
+layout.tabpanel.onErase(function(){layout.tabpanel.off('indexChanged', indexChanged);});
